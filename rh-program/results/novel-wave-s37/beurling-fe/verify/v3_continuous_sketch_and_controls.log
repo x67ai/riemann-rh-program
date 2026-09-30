@@ -1,0 +1,22 @@
+=== Part A: continuous sketch ===
+  beta=0.8 gamma=20 a=0.8:  |G(s)-G(1-s)| <= 1.81e-27   |exp(int x^-s f) - G| = ['2.04e-29', '4.18e-20']   min f on grid = 1.9532e-09  (>= 0)
+  beta=0.8 gamma=20 a=0.9:  |G(s)-G(1-s)| <= 2.28e-27   |exp(int x^-s f) - G| = ['3.23e-27', '4.17e-20']   min f on grid = 8.0014e-04  (>= 0)
+  beta=0.6 gamma=14.1 a=0.6:  |G(s)-G(1-s)| <= 1.59e-30   |exp(int x^-s f) - G| = ['8.08e-28', '1.9e-29']   min f on grid = 7.3180e-11  (>= 0)
+  beta=0.8 gamma=20 a=0.7:  |G(s)-G(1-s)| <= 1.81e-27   |exp(int x^-s f) - G| = ['4.04e-27', '4.2e-20']   min f on grid = -7.7131e-02  (NEGATIVE)
+
+=== Part B: virtual curve over F_5 (control 1) ===
+  N_1..N_6 = [1, 11, 76, 451, 2501, 13376]   b_1..b_6 = [1, 5, 25, 110, 500, 2215]   min_{d<=60} b_d = 1  all integers: True
+  FE residual |Z(1/(5u)) - Z(u)| (genus 1: Z(1/(qu)) = Z(u)) at a test point: 8.32e-32
+  reciprocal roots (5 +- sqrt5)/2; zeros of zeta_C(s) at Re s = log((5+sqrt5)/2)/log 5 = 0.79899 and 0.20101
+  genus-1 over F_5, L = 1 - t u + 5u^2: t with b_d >= 0 for all d <= 60: [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6]
+    of these, Hasse |t| <= 2 sqrt 5 = 4.472 holds for [-4, -3, -2, -1, 0, 1, 2, 3, 4] ; RH-FALSE admissible t: [-5, 5, 6]
+
+=== Part C: F_{5,5} (control 2) ===
+  Lambda_F(5^1)/log 5 = +6.0000
+  Lambda_F(5^2)/log 5 = -14.0000
+  Lambda_F(5^3)/log 5 = +51.0000
+  Lambda_F(5^4)/log 5 = -174.0000
+  Lambda_F(5^5)/log 5 = +626.0000
+  Lambda_F(5^6)/log 5 = -2249.0000
+  zero of 1+5u+5u^2 at u = -0.276393: 5^(-sigma) = |u|  =>  sigma = 0.79899
+  zero of 1+5u+5u^2 at u = -0.723607: 5^(-sigma) = |u|  =>  sigma = 0.20101

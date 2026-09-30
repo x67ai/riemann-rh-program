@@ -59,3 +59,150 @@ Theorem 1.3 have 2/5 < 2α/(α+2) ≤ β < ½ (α ↓ ½ gives 2α/(α+2) ↓ 2/
 "for the classical primes ... we cannot yet prove α < 1"). Per the brief, the unit therefore moves to the frontier
 questions; the orchestrator's pre-derivation is itself a frontier claim, since [β₀, β₀/2] lies strictly below BDR's
 curve (β₀/2 < 2β₀/(β₀+2) for all β₀ < 2) and extends to β₀ ∈ [2/3, 1).
+
+**1.6 Other items read.** (a) Hilberdink 2012, *Generalised prime systems with periodic integer counting function*
+[quoted, `p3-22c2-…txt` lines 30–40 (abstract) and Theorem A]: if N(x) − cx is periodic (β = 0 in the strongest form)
+and N has finitely many discontinuities per bounded interval, "then N must be the counting function of the g-prime system
+containing the usual primes except for finitely many." So in the periodic class, β = 0 forces ζ_P = ζ × (finite Euler
+product), hence α(P) = Θ: **a periodic RH-false system exists iff RH is false** — rigidity, not a threshold.
+(b) Broucke–Hilberdink 2024 (`t-19a`) concerns the opposite corner (α < ½, how small β can be): Ω(x·e^{−(log x)^{β}}), β > 2/3.
+(c) arXiv sweep for later work (`sources/arxiv-search-beurling-recent.xml`: the 120 most recent abstracts containing
+"Beurling", back to mid-2024; `arxiv-search-wellbehaved.xml`): no paper after BDR v2 (Jun 2024) treats [α, β]-systems with
+β < ½. Items in the window on Beurling primes: 2602.07690, 2507.13780, 2409.10051, 2406.00736 (none on this corner).
+
+## §2. The logical frame: what any threshold or obstruction theorem can and cannot say
+
+**Proposition 2.1 (the region is populated unconditionally, non-constructively)** [proved here]. There exists a Beurling
+system with α > ½ and β < ½.
+*Proof.* If RH fails, take (P, N) itself. N(x) = ⌊x⌋, so |N(x) − x| < 1 and |N(n + ½) − (n + ½)| = ½: β = 0. If ζ(ρ₁) = 0 with
+Re ρ₁ = σ₁ > ½ and ψ(x) − x = O(x^{σ₂}) with σ₂ < σ₁, then −ζ′(s)/ζ(s) − s/(s−1) = s∫₁^∞(ψ(x) − x)x^{−s−1}dx is analytic in
+Re s > σ₂ — impossible at ρ₁. So α ≥ σ₁ > ½. If RH holds, BDR Theorem 1.3 (§1.3) gives [α, β]-systems with ½ < α < 2/3,
+2α/(α+2) ≤ β < ½. ∎
+
+**Corollary 2.2 (threshold theorems are capped and RH-strong)** [proved here]. Call β* ∈ (0, ½] a *valid threshold* if every
+[α, β]-system with β < β* has α ≤ ½. Then (a) the existence of a valid threshold implies RH; (b) every valid threshold
+satisfies β* ≤ 2/5, unconditionally.
+*Proof.* (a) If RH fails, (P, N) has β = 0 < β* and α > ½ (proof of 2.1). (b) If RH fails, there is no valid threshold by (a).
+If RH holds, BDR's [α, 2α/(α+2)]-systems (½ < α < 2/3) force β* ≤ 2α/(α+2) for every such α; let α ↓ ½. ∎
+So the orchestrator's "if a threshold β* > 0 existed ... RH would be the case β = 0" is correct, and it is also the reason no such
+theorem can be reached from the Beurling side without an input that already decides RH: the rational integers sit at β = 0.
+
+**Proposition 2.3 (obstructions of the form β ≥ f(α) are RH-hard)** [proved here]. Let α(ℕ) := lim sup log|ψ(x) − x|/log x
+for the rational primes. If for some a ∈ (½, 1] and f: (½, a) → (0, ∞) every [α, β]-system with α ∈ (½, a) has β ≥ f(α), then
+α(ℕ) ∉ (½, a).
+*Proof.* (P, N) has β = 0 (proof of 2.1); if α(ℕ) ∈ (½, a) it would be an [α(ℕ), 0]-system with 0 ≥ f(α(ℕ)) > 0. ∎
+By the classical explicit formula α(ℕ) = Θ [recalled, unverified; the half α(ℕ) ≥ Θ is proved in 2.1]. So the conclusion is
+"no Θ in (½, a)": no statement of the form
+"Θ ∉ (½, a)" is known for any a > ½, so an obstruction theorem over all Beurling systems is at least as hard as a new zero-free
+strip. A provable obstruction must be *relative*: it must bound β below by a quantity that vanishes on (P, N) itself — e.g. the
+exponent α_R of a surgery R performed on (P, N) — see §5.
+
+## §3. The orchestrator's pre-derivation, attacked clause by clause (task 2)
+
+**3.0 It is BDR §5's construction.** "Remove actual primes at random with density ≍ p^{β₀−1}" is exactly the deletion of BDR
+§5 (they delete a random subsequence of the classical primes drawn from dF = u^{α−1}dπ(u), z-02 lines 1096–1105). The
+pre-derivation's new content is only the claimed integer exponent β₀/2 (vs BDR's 2α/(α+2)) and the claim "unconditionally".
+We work with the cleanest instance, **Bernoulli thinning** T_α: delete each rational prime p independently with probability
+w_p = p^{α−1} (α ∈ (½, 1); w_p ≤ 1 for all p, so no small primes need handling by hand, and no prime can be deleted twice —
+the α < 2/3 and α < 4/5 restrictions of BDR, which come from their selection procedure, do not arise). Deleted set R,
+P = ℙ \ R. The complex-zero variant is treated in 3.5.
+
+**3.1 The density of log G — correct** [proved here]. For |s| > |ρ₀|, log G(s) = log(1 − ρ₀/s) + log(1 − ρ̄₀/s) =
+−Σ_{k≥1}(ρ₀^k + ρ̄₀^k)/(k s^k), and 1/s^k = ∫₁^∞ x^{−s}(log x)^{k−1}/(k−1)! dx/x, so log G(s) = ∫₁^∞ x^{−s}·
+[−Σ_k (ρ₀^k + ρ̄₀^k)(log x)^{k−1}/k!] dx/x = ∫₁^∞ x^{−s}(2 − x^{ρ₀} − x^{ρ̄₀})/(x log x) dx, i.e. the density
+(2/x − 2x^{β₀−1}cos(γ₀ log x))/log x claimed. (Both sides are analytic in Re s > β₀, so the identity holds there.)
+
+**3.2 "E[added − removed] = dν" — impossible as stated; the mean carries ζ's zeros** [proved here]. A deletion of actual
+primes has mean Σ_p r(p)δ_p, a measure on the primes; no Poisson addition (absolutely continuous) can make the difference
+equal to the absolutely continuous dν. What is left over is r(u)(dπ(u) − du/log u), and its Mellin transform is singular at
+the zeros of ζ shifted by β₀ − 1. For T_α this is exact: with P(w) = Σ_p p^{−w} and X(s) := Σ_p (1_R(p) − w_p)p^{−s},
+  Σ_{p∈R} p^{−s} = P(s + 1 − α) + X(s),   P(w) = log ζ(w) − Σ_{k≥2} P(kw)/k,
+so (Prop. 4.2 below) ζ_P(s) = ζ(s)·ζ(s + 1 − α)^{−1}·U(s) with U analytic and zero-free in Re s > α/2 almost surely.
+The factor ζ(s + 1 − α)^{−1} has a pole at s₀ = ρ − 1 + α for every zero ρ of ζ. Hence:
+**Proposition 3.2.** If ζ has a zero ρ with Re ρ > 1 − α/2 and ζ(ρ − 1 + α) ≠ 0, then a.s. ζ_P has a pole at s₀ with
+Re s₀ = Re ρ − (1 − α) > α/2, and N_P(x) − ρ_P x ≠ O(x^{σ}) for every σ < Re s₀; so β(P) ≥ Re ρ + α − 1 > α/2.
+*Proof.* If N_P(x) − ρ_P x = O(x^σ), then ζ_P(s) − ρ_P s/(s − 1) = s∫₁^∞(N_P(x) − ρ_P x)x^{−s−1}dx (exact for Re s > 1) is analytic in
+Re s > σ (Mellin transform of an O(x^σ) function), contradicting the pole at s₀ when σ < Re s₀. ∎
+So the pre-derivation's "h ... converges a.s. and is analytic for Re s > β₀/2" is **false unconditionally**: it holds iff ζ(s + 1 − β₀)
+has no zeros in Re s > β₀/2 that are not cancelled, i.e. (up to the coincidence clause) iff ζ has no zero with Re ρ > 1 − β₀/2.
+The **fluctuating part X** of h is a.s. analytic in Re s > α/2 exactly as claimed (Lemma 4.1); the **mean part** is not.
+Consequently "β = β₀/2" is not an unconditional statement: it implies a quasi-Riemann hypothesis at level 1 − β₀/2. This is
+the same obstruction that makes BDR assume RH (§1.4(ii)). **Verdict on the unconditional claim: K.**
+
+**3.3 The zero ρ₀ (α ≥ β₀) — correct unconditionally** [proved here, for T_α]. Near s = α all factors of U are analytic
+(Re(k(s + 1 − α)) > 1 for k ≥ 2; X and the prime-square series converge for Re s > α/2), ζ(α) < 0 ≠ 0, and ζ(w)^{−1} has a
+simple zero at w = 1. So ζ_P(α) = 0 a.s., and by the Mellin argument of 2.1 applied to −ζ_P′/ζ_P, α(P) ≥ α > ½. RH-false, unconditionally.
+
+**3.4 The integer bound — what survives.** Under RH the mean part is harmless (§4). The pre-derivation's heuristic
+"square-root cancellation in Σ_m c_m{x/m}" is right about the *size of the fluctuation* (Theorem B: it is ≥ x^{α/2} and this is sharp
+in mean square), but a proof of the matching upper bound needs the error of the *mean system* Σ_{n≤y}Π_{p|n}(1 − p^{α−1}) to be
+O(y^{α/2+ε}), which under RH is expected (≈ y^{α−1/2}) but which the standard contour argument only gives as y^{1/(4−2α)+ε} (§4.4).
+The route that *is* complete: truncated Perron with the growth of ζ on Re s = α/2 + ε (the "ζ(σ+it)e^{h}" route of the brief)
+gives β ≤ 1/(3 − α) (Theorem A). The hyperbola route (BDR) gives 2α/(α+2); the Perron route is strictly better for all α > ½.
+
+**3.5 The complex-zero surgery (ρ₀ = β₀ + iγ₀) — same verdicts** [proved here, sketch of the bookkeeping]. The orchestrator's
+recipe deletes primes where the density of ν is negative, with probability r(u) = (2u^{β₀−1}cos(γ₀ log u) − 2/u)₊, and adds
+Poisson points where it is positive. Expanding (cos θ)₊ = Σ_k c_k e^{ikθ} (c₀ = 1/π, c_{±1} = ¼, …), the deleted mean is
+Σ_k c_k·2P(s + 1 − β₀ − ikγ₀) + (terms regular in Re s > 0); its smooth part combines with the additions into log G by design,
+and its prime part carries singularities at s = ρ − 1 + β₀ + ikγ₀ for every zero ρ and every k with c_k ≠ 0 — so 3.2 applies verbatim
+with Re s₀ = Re ρ − (1 − β₀). A cleaner pure-deletion realization of a complex zero pair: w_p = min(1, p^{β₀−1}(2 + 2cos(γ₀ log p))),
+which gives ζ_P = ζ(s)·ζ(s+1−β₀)^{−2}ζ(s+1−β₀−iγ₀)^{−1}ζ(s+1−β₀+iγ₀)^{−1}·U(s) (the min changes finitely many Euler factors):
+zeros of order 2 at β₀ and order 1 at β₀ ± iγ₀. Everything in §4 goes through for it with the same exponents.
+
+## §4. Theorems for Bernoulli thinning T_α
+
+Throughout: ε_p ~ Bernoulli(w_p) independent, w_p = p^{α−1}, η_p = ε_p − w_p, v_p = w_p(1 − w_p), R = {p : ε_p = 1},
+P = ℙ \ R, a_n = 1[n is R-free], N_P(x) = Σ_{n≤x} a_n, ρ_P = Π_{p∈R}(1 − 1/p) > 0 (Σ_{p∈R}1/p < ∞ a.s., mean Σ p^{α−2}).
+X(s) = Σ_p η_p p^{−s}, Q_R(s) = Σ_{p∈R}Σ_{k≥2} p^{−ks}/k.
+
+**Lemma 4.1 (the random part)** [proved here]. Let α ∈ (0, 1). Almost surely: (a) X(s) converges (in dyadic blocks) uniformly on
+compact subsets of Re s > α/2 and is analytic there; (b) for each δ > 0, sup{|X(σ + it)| : σ ≥ α/2 + δ, |t| ≤ T} =
+O((log T)^{1−2δ/α} + (log T)^{1/2}) = o(log T); (c) Q_R is bounded on Re s ≥ α/2 + δ.
+*Proof.* (0) Small primes: S(y) := Σ_{p≤y}(ε_p + w_p)p^{−α/2−δ} has mean ≍ y^{α/2−δ}/log y and variance ≤ its mean; Chebyshev and
+Borel–Cantelli along y = 2^j (monotone in y) give S(y) ≪ y^{α/2−δ} a.s. (1) Blocks: B_k = ℙ ∩ (2^k, 2^{k+1}], Y_k(s) = Σ_{p∈B_k} η_p p^{−s}.
+For fixed σ ≥ α/2 + δ and t, Re Y_k and Im Y_k are sums of independent centred terms bounded by M_k = 2^{−kσ} with variance
+≤ V_k := Σ_{p∈B_k} p^{α−1−2σ} ≤ 2^{−2kδ}. Bernstein: P(|Re Y_k| ≥ 2√(V_k L) + 2M_k L) ≤ 2e^{−L}. (2) Nets: for T = 2^j take the
+grid of mesh 2^{−(j+k)} in (σ, t) ∈ [α/2 + δ, 2] × [−T, T] (≤ 2^{3(j+k)+3} points) and L = 4(j + k)log 2; since |∂Y_k| ≤
+Σ_{p∈B_k}(ε_p + w_p)p^{−α/2} log p ≤ (k+1)2^{k(1−α/2)}, off-grid values move by ≤ 2(k+1)2^{−j−kα/2} (summable in k). The failure
+probabilities sum to ≤ Σ_{j,k} 2^{3(j+k)+5}2^{−4(j+k)} < ∞: by Borel–Cantelli a.s. for all large j, all k and all grid-covered (σ, t),
+|Y_k| ≤ 4√(V_k L) + 4M_k L + 2(k+1)2^{−j−kα/2}. (3) Sum, with the cut y₀ = j^{2/α}: the primes ≤ y₀ contribute ≤ S(y₀) ≪ j^{1−2δ/α};
+the blocks above contribute ≪ Σ_k 2^{−kδ}√(j + k) + (j + log y₀)y₀^{−α/2} + 2^{−j} = O(√j) + O(1). Since j ≍ log T this is (b);
+the same bounds with j fixed give (a). (c): |Q_R(s)| ≤ 2Σ_{p∈R} p^{−α−2δ}, whose mean Σ_p p^{−1−2δ} is finite. ∎
+
+**Proposition 4.2 (structure)** [proved here]. A.s., for Re s > α,
+  ζ_P(s) = ζ(s)Π_{p∈R}(1 − p^{−s}) = ζ(s)·ζ(s + 1 − α)^{−1}·U(s),  U(s) := exp(Σ_{k≥2}P(k(s + 1 − α))/k − X(s) − Q_R(s)),
+and U is analytic, zero-free, with |U(s)|^{±1} ≤ exp(o(log|t|)) on Re s ≥ α/2 + δ. So ζ_P continues meromorphically to Re s > α/2
+with poles only at s = 1 and possibly at s = ρ − 1 + α, ρ a zero of ζ (none with Re s > α/2 under RH, since then Re(ρ − 1 + α) = α − ½ < α/2), and a zero at s = α.
+*Proof.* log Π_{p∈R}(1 − p^{−s})^{−1} = Σ_{p∈R}p^{−s} + Q_R(s) = Σ_p w_p p^{−s} + X(s) + Q_R(s), and Σ_p w_p p^{−s} = P(s + 1 − α) with
+P(w) = log ζ(w) − Σ_{k≥2}P(kw)/k (from log ζ(w) = Σ_k P(kw)/k). For Re s > α/2 one has Re(s + 1 − α) > 1 − α/2 > ½, so
+Σ_{k≥2}P(k(s+1−α))/k converges absolutely and is bounded; X, Q_R by Lemma 4.1. ∎
+
+**Theorem A (RH ⟹ β ≤ 1/(3 − α) for T_α)** [proved here; novelty: single-check]. Assume RH and let ½ < α < 1. Almost surely,
+  ψ_P(x) = x − x^α/α + O(x^{½+ε})  and  N_P(x) = ρ_P x + O(x^{1/(3−α)+ε})  for every ε > 0.
+So a.s. P is an [α, β]-system with α/2 ≤ β ≤ 1/(3 − α) < ½ (lower bound: Theorem B).
+*Proof.* Inputs quoted: under RH, ζ(s) and 1/ζ(s) are ≪ |t|^ε on Re s ≥ ½ + ε (BDR z-02 lines 1203–1205, citing Montgomery–Vaughan
+Th. 13.18, 13.23); ψ(x) = x + O(x^{½+ε}) (the RH form quoted at z-02 lines 26–27, in the ψ-normalization). Recalled standard tools
+[recalled, unverified]: |χ(σ + it)| ≍ |t|^{½−σ} in ζ(s) = χ(s)ζ(1 − s) (Stirling); the truncated Perron formula
+Σ_{n≤x}a_n = (1/2πi)∫_{κ−iT}^{κ+iT}F(s)x^s ds/s + O(x^κ Σ_n |a_n| n^{−κ} min(1, 1/(T|log(x/n)|))); Bernstein's inequality; Phragmén–Lindelöf.
+(i) Primes. ψ_P = ψ − ψ_R and ψ_R(x) = Σ_{p≤x} ε_p log p + O(√x log x). The centred part Σ_{p≤x} η_p log p has variance ≍ x^α log x;
+Bernstein plus Borel–Cantelli along x = 2^j (monotone pieces between) give O(x^{α/2+ε}) a.s. The mean: Σ_{p≤x} p^{α−1}log p =
+∫_{2−}^x u^{α−1}dθ(u) = x^α/α + O(x^{α−½+ε}) by partial summation from θ(u) = u + O(u^{½+ε}). As α/2, α − ½ < ½ < α, α(P) = α.
+(ii) Integers. a_n ∈ {0, 1} is supported on ℕ, so with κ = 1 + 1/log x and 2 ≤ T ≤ x the Perron error is O(x log x/T + 1).
+Let c′ = α/2 + δ. Under RH the rectangle [c′, κ] × [−T, T] contains no singularity of ζ_P(s)x^s/s except s = 1 (Prop. 4.2).
+On Re s = c′: |ζ(c′ + it)| = |χ||ζ(1 − c′ − it)| ≪ |t|^{½−c′+δ} (1 − c′ > ½), |ζ(s + 1 − α)^{−1}| ≪ |t|^δ (Re(s + 1 − α) =
+1 − α/2 + δ > ½), |U| ≪ |t|^δ (Lemma 4.1). So |ζ_P(c′ + it)| ≪ (|t| + 2)^{½−c′+3δ}; on the horizontal sides Phragmén–Lindelöf
+interpolates between this and |ζ_P(1 + δ + it)| ≪ 1, so ∫|ζ_P(σ ± iT)|x^σdσ/T ≪ (x + x^{c′}T^{½−c′+3δ})/T. Hence
+  N_P(x) = ρ_P x + O(x log x/T + x^{c′}T^{½−c′+3δ}).
+Take T = x^{(1−c′)/(3/2−c′)} (< x): the error is O(x^{1/(3−2c′)+O(δ)}) = O(x^{1/(3−α)+O(δ)}); δ is arbitrary. ∎
+
+**Corollary A′ (the region enlarged)** [proved here; novelty: single-check]. Assume RH. For every α ∈ (½, 1) and every
+β ∈ (1/(3 − α), ½) there is an [α, β]-system: P_{α,β} = (ℙ \ R) ∪ ℙ^{1/β} for almost every realization R of T_α.
+*Proof.* BDR Lemma 5.1 [quoted, z-02 p. 17, lines 1024–1040: if Σ_{n≤x,n∈N}1 = ax + O(x^γ) and Σ_{l≤x,l∈L}h(l) = bx^β + O(x^δ),
+0 ≤ γ, δ < β < 1, then Σ_{nl≤x}h(l) = aH(1)x + bI(β)x^β + O(x^{(β−γδ)/(1−γ+β−δ)})] with N = R-free integers (a = ρ_P,
+γ = 1/(3−α) + ε < β by Theorem A), L = ℕ^{1/β}, h ≡ 1 (b = 1, δ = 0): N_{α,β}(x) = ρ_Pζ(1/β)x + ζ_P(β)x^β + O(x^{β/(1+β−γ)}),
+and β/(1 + β − γ) < β. Here I(β) = ζ_P(β) = ζ(β)ζ(β + 1 − α)^{−1}U(β) ≠ 0 (ζ < 0 on (0, 1), β + 1 − α ∈ (0, 1), U(β) = e^{real} > 0,
+and β > 1/(3 − α) > α/2). So the integers are β-well-behaved and not better. The added primes p^{1/β} change ψ by O(x^β) = o(x^{½}),
+so α is unchanged. ∎
+*Comparison with print.* BDR Theorem 1.3 gives ½ < α < 2/3, 2α/(α + 2) ≤ β < ½. Since 2α/(α+2) − 1/(3−α) has the sign of
+−(2α − 1)(α − 2) > 0 on (½, 2), region III ⊂ {1/(3−α) < β < ½}, strictly, and the α-range grows from (½, 2/3) to (½, 1). The corner
+value is unchanged: 1/(3 − α) → 2/5 as α ↓ ½, so Corollary 2.2's cap β* ≤ 2/5 is not improved by Theorem A.

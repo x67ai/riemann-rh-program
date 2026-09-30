@@ -1,0 +1,59 @@
+Z check: K=5 primes (2,3,5,7,11), rho=1  -> max|res| = 2.220446049250313e-16
+
+K = 1: 300 random starts; five smallest RMS defects:
+   RMS defect 9.911e-08   rho = 1.000001   primes = [1.999929]
+   RMS defect 9.911e-08   rho = 1.000001   primes = [1.999929]
+   RMS defect 9.911e-08   rho = 1.000001   primes = [1.999929]
+   RMS defect 9.911e-08   rho = 1.000001   primes = [1.999929]
+   RMS defect 9.911e-08   rho = 1.000001   primes = [1.999929]
+
+K = 2: 300 random starts; five smallest RMS defects:
+   RMS defect 1.136e-16   rho = 1.000000   primes = [2. 3.]
+   RMS defect 1.136e-16   rho = 1.000000   primes = [2. 3.]
+   RMS defect 1.136e-16   rho = 1.000000   primes = [2. 3.]
+   RMS defect 1.136e-16   rho = 1.000000   primes = [2. 3.]
+   RMS defect 1.187e-16   rho = 1.000000   primes = [2. 3.]
+
+K = 3: 300 random starts; five smallest RMS defects:
+   RMS defect 1.187e-16   rho = 1.000000   primes = [2.       3.       8.470247]
+   RMS defect 1.177e-15   rho = 1.000000   primes = [ 2.        3.       10.420237]
+   RMS defect 3.372e-15   rho = 1.000000   primes = [2.      3.      9.57225]
+   RMS defect 1.147e-14   rho = 1.000000   primes = [2.       3.       9.492785]
+   RMS defect 1.761e-14   rho = 1.000000   primes = [2.       3.       4.692151]
+
+K = 4: 300 random starts; five smallest RMS defects:
+   RMS defect 1.187e-16   rho = 1.000000   primes = [2.       3.       5.391211 9.447272]
+   RMS defect 2.719e-16   rho = 1.000000   primes = [ 2.        3.        9.945161 11.416555]
+   RMS defect 2.719e-16   rho = 1.000000   primes = [ 2.        3.        8.146531 11.190033]
+   RMS defect 3.177e-16   rho = 1.000000   primes = [2.       3.       7.488402 8.579688]
+   RMS defect 1.560e-15   rho = 1.000000   primes = [ 2.        3.       10.789351 11.892562]
+
+K = 5: 300 random starts; five smallest RMS defects:
+   RMS defect 5.308e-16   rho = 1.000000   primes = [ 2.        3.        6.044415  8.385313 10.877985]
+   RMS defect 1.025e-15   rho = 1.000000   primes = [ 2.        3.        4.693895 10.827165 11.246704]
+   RMS defect 1.517e-15   rho = 1.000000   primes = [ 2.        3.        6.034938  6.891672 10.299251]
+   RMS defect 1.667e-15   rho = 1.000000   primes = [ 2.        3.        5.717623  6.835052 11.255767]
+   RMS defect 2.056e-15   rho = 1.000000   primes = [ 2.        3.        6.073348 11.176043 11.193828]
+
+K = 6: 300 random starts; five smallest RMS defects:
+   RMS defect 4.673e-16   rho = 1.000000   primes = [ 2.        3.        4.947145  9.162317  9.753555 10.894816]
+   RMS defect 9.954e-16   rho = 1.000000   primes = [ 2.        3.        7.725894  8.054926 10.253932 11.219331]
+   RMS defect 1.247e-15   rho = 1.000000   primes = [ 2.        3.        4.662496  5.923646  9.502497 11.056888]
+   RMS defect 1.985e-15   rho = 1.000000   primes = [ 2.        3.        4.995649  6.398274  8.509785 10.524935]
+   RMS defect 3.990e-15   rho = 1.000000   primes = [ 2.        3.        8.809591 10.606721 11.46214  11.859794]
+
+K = 7: 300 random starts; five smallest RMS defects:
+   RMS defect 1.998e-16   rho = 1.000000   primes = [ 2.        3.        5.560587  7.580187  9.110379 10.341306 10.5167  ]
+   RMS defect 2.804e-16   rho = 1.000000   primes = [ 2.        3.        4.634101  6.458828  6.662388  9.251439 10.190313]
+   RMS defect 1.691e-15   rho = 1.000000   primes = [ 2.        3.        4.54426   5.629307  9.417385 11.021171 11.281432]
+   RMS defect 2.285e-15   rho = 1.000000   primes = [ 2.        3.        5.479328  6.14839   9.856495  9.869235 11.287863]
+   RMS defect 2.419e-15   rho = 1.000000   primes = [ 2.        3.        4.722397  6.112998  7.172454 10.39931  11.168201]
+
+SUMMARY (best per K):
+  K=1  best RMS defect 9.911e-08  rho=1.000001  primes=[1.999929]
+  K=2  best RMS defect 1.136e-16  rho=1.000000  primes=[2. 3.]
+  K=3  best RMS defect 1.187e-16  rho=1.000000  primes=[2.       3.       8.470247]
+  K=4  best RMS defect 1.187e-16  rho=1.000000  primes=[2.       3.       5.391211 9.447272]
+  K=5  best RMS defect 5.308e-16  rho=1.000000  primes=[ 2.        3.        6.044415  8.385313 10.877985]
+  K=6  best RMS defect 4.673e-16  rho=1.000000  primes=[ 2.        3.        4.947145  9.162317  9.753555 10.894816]
+  K=7  best RMS defect 1.998e-16  rho=1.000000  primes=[ 2.        3.        5.560587  7.580187  9.110379 10.341306 10.5167  ]

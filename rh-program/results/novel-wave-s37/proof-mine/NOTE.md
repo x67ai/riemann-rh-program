@@ -1,7 +1,7 @@
 # M2 `proof-mine` — the virtual-curve line in every proof of RH for curves (novel-approach wave 2, Session 37)
 
 Agent: Opus 5.5 (seed M2). Started 2026-09-30. Charter: `../WAVE-CHARTER.md`, section "Seed M2 `proof-mine`".
-Status: IN PROGRESS — sections are appended as they are finished (standing order: document as you go).
+Status: CLOSED T (2026-09-30). Sections were appended as they were finished; §0 is the summary.
 
 **The object.** The virtual curve V = (q, a) = (5, 5): Z_V(u) = (1 − 5u + 5u²)/((1 − u)(1 − 5u)) over F₅, reciprocal roots
 α, β = (5 ± √5)/2 (α = 3.618 > √5 = 2.236), zeros at Re s = 0.79899, 0.20101. It has rationality, the functional equation,
@@ -14,7 +14,19 @@ formal data violate, with the exact place (the extension degree, the divisor, th
 
 ## §0 Verdict
 
-(written last)
+**CLOSE: T** — Theorem P (§4) and the table (§2). 14 rows: 12 proofs read at the page (Hasse; Weil's Jacobian/Rosati; Weil's
+correspondences; Mattuck–Tate–Grothendieck; Bombieri–Stepanov; Deligne Weil I; Weil II via Laumon; Kedlaya's p-adic proof; Davenport–Hasse/
+Weil 1949; CCM; Hrushovski; the automorphic check), 2 named-not-read. Each proof separates curves from V at one input: **A surface**
+(def(Γ_π − 2Δ) = −2, formal index (2, 2)), **B family** (Weil I (7.1) on C × C: α² = 13.090 > q^{3/2} = 11.180), **C coordinates**
+(Bombieri §III: V's twist has 41 points over F₂₅ against (7) ≤ 40), **D group** (deg(π − 2) = −1, Rosati trace −2). E₀: y² = x³ + 2x over F₅
+passes every line. For g = 1 the A/D numbers are one binary form m² + tmn + qn²: the form is zeta-level, its positivity is RH.
+Over Z (§3): A, B, D dead on the record; C is the one class not dead — its twist half exists and is unnecessary over Z (ζ(σ) < 0 on (0, 1),
+so one-sided RH suffices, Z1); its Frobenius and finite-support Chebyshev forms are killed here (Z2; Lemma Z4: κ > 1); left alive: the
+integer-polynomial auxiliary object (Gelfond–Schnirelman–Nair–Chudnovsky–Pritsker), open in print even at PNT strength (Pritsker 2013 p. 4).
+**Findings for the orchestrator:** (1) tournament T24's G-line is wrong at the page (Bombieri 1973 p. 239: towers do not upgrade Stepanov's
+bound; twists do) — verdict DEAD unaffected; (2) V sharpens Bombieri's printed RH-false example (ω₁ = q, ω₂ = 1); (3) the rung-1 twin rule
+needs a one-sided caveat: V passes every upper bound because its off-line roots are real; the genus-2 twin V₂ = 1 − u + 11u² − 5u³ + 25u⁴
+over F₅ (non-real off-line roots, N_n, b_d ≥ 0, h = 31) is caught by Bombieri's Theorem 1 alone at Q = 5⁶.
 
 ## §1 Baseline computations (V and the control E₀)
 
@@ -201,3 +213,107 @@ E's group law over its function field — class D if so); Igusa 1949, Quigley 19
 pp. 12–13); Deligne 1980 Weil II itself (class B, represented by R8 at the page); Stark's g = 2 refinement (named by Bombieri p. 234–235,
 class C); Stöhr–Voloch-type Frobenius-order bounds (recalled, class C). Fetching any of them is a bounded task; none is expected to open
 a fifth class, but that expectation is a guess, labeled as one.
+
+## §3 The separating inputs and their analogs over Z (the program's record)
+
+Status words: EXISTS (an object over Z with the property is on the record or classical), REFUTED (a record theorem kills it), RH-RESTATED
+(on the record it is equivalent to RH, so it is not an independent input), UNBUILT (no record entry constructs or kills it).
+
+| class | separating input (the first object V lacks) | analog over Z on the record | status |
+|---|---|---|---|
+| **A** surface | a surface containing Δ and the Γ_{πⁿ} with an index-one intersection form (Riemann–Roch on the surface + hyperplane sections, R4), or Weil's σ(ξ ∘ ξ′) > 0 (Riemann–Roch on C + rational functions, R3) | the SPEC's target Y: A8, A11, A13 item 2 are MISSING over Z (`results/f1-spec-s29/SPEC.md` §2); zoo IV.20 Theorem R: "NO target … in particular no surface over a field in Weil's form, of any genus, with or without the Hodge index theorem" carries ζ's diagonal row; `results/d4-infty-s36/NOTE.md` Theorem S: under A9⁺ "the lattice form of the Hodge index is dead over Z"; ibid. Proposition C: the smeared index theorem "is Weil's criterion with multiplier 1" | REFUTED (lattice, finite rank) / RH-RESTATED (smeared); CCM's dictionary row "Riemann–Roch ↔ Index theorem" is "very tentative" (CCM p. 12) — its positivity is Prop 6.2 = Weil's criterion |
+| **B** family | a sheaf over a base curve U (a Lefschetz pencil on C × C, R7; the Fourier transform of a sheaf on A¹, R8–R9) with big monodromy or ι-reality, rational traces at every closed point, and RATIONAL global L-functions of the tensor powers with poles fixed by invariants | zoo III.20: "Deligne's squeeze additionally needs RATIONALITY … the exact coordinate with no archimedean analog, where the transfer dies"; IV.20 KILLS "Deligne-style rationality (finitely many eigenvalues whose traces are integers …) as available on a square of Spec Z"; III.14 (no real-coefficient Weil cohomology); tournament T21 DEAD, T22 EQUIV (DD3: the needed continuation is RH-equivalent), T23 DEAD ("no amplification"); Milne p. 47 at the page: Langlands — Rankin's idea proves Ramanujan "provided one knew enough about the poles of a certain family of Dirichlet series" (Ramanujan, not RH) | REFUTED (rationality) / RH-RESTATED (squeeze); a base carrying ζ-type fibers is UNBUILT but every priced form of it needs rationality or the square |
+| **C** coordinates | (C1) functions with Frobenius acting as the q-th power, Bombieri (iv)–(v): vanishing to order p^μ at every rational point for free; (C2) a separable t, the Galois closure and its twists (Bombieri §III); (C′) an explicit equation with characters (R10) | T24 DEAD at brief time (kills: "primes are not fixed points of an algebraic self-map"; III.4 parity for sieve weights; III.20(A) "the n-th power tower is missing" — premise corrected in R6); SPEC A1: Z's Λ-structure exists. NEW here (`verify/z_side.log`): (C2) EXISTS over Z (Dirichlet/Hecke/Artin twists) and is NOT NEEDED (Z1 below); (C1) holds only to first order over Z (Z2); weak auxiliary integers EXIST (Chebyshev, Z3; Gelfond–Schnirelman–Nair–Chudnovsky, Pritsker 2013 at the page) | C2 EXISTS (vacuous over Z); C1 REFUTED in Frobenius-identity form, EXISTS in weak Chebyshev form, sharp form UNBUILT (and ≡ one-sided RH) |
+| **D** group | an abelian variety carrying π: endomorphisms acting on points with deg = #ker ≥ 0 (R1), or an ample divisor making the Rosati involution positive (R2) | SPEC A4 over Z: "End = {id} (R-b′)"; IV.20 Lemma F: "every β with End_β(B) = {id} … fails A9"; IV.10: per-prime Tate curves have End(E_p) = Z, no cross-prime correspondences; positivity of an involution on an algebra containing the Frobenius = Weil positivity (IV.1); for g = 1, D's form is A's restricted to graph classes (Γ_φ · Γ_ψ = deg(φ − ψ)), so D inherits Theorem S | REFUTED (End = {id}) / RH-RESTATED (positivity) |
+
+**Why class C's twist step costs nothing over Z (Z1; proof on the page, `[novelty: single-check]` for the reading only).**
+*Lemma Z1.* (a) On rung 1, an upper bound N_r ≤ q^r + 1 + Cq^{r/2} for all r cannot see a reciprocal root α > √q that is REAL POSITIVE
+(then a_r > 0 for every r); V is exactly such a world (α = 3.618), and so is Bombieri's printed example. Bombieri therefore needs the twists.
+(b) Over Z the corresponding world is a real zero of ζ in (½, 1), and there is none: η(σ) = Σ(−1)^{n−1}n^{−σ} ≥ 1 − 2^{−σ} > 0 (alternating,
+decreasing terms) and ζ(σ) = η(σ)/(1 − 2^{1−σ}) with 1 − 2^{1−σ} < 0, so ζ(σ) < 0 on (0, 1) (checked at 99 grid points, `z_side.log` Z1).
+(c) Hence one-sided RH suffices over Z: if ψ(x) ≤ x + Cx^θ for x ≥ 1, put f(x) = x + Cx^θ − ψ(x) ≥ 0; its Mellin transform
+F(s) = ∫₁^∞ f(x)x^{−s−1}dx = 1/(s − 1) + C/(s − θ) + ζ′(s)/(sζ(s)) is analytic on the real half-line (θ, ∞) (the pole at 1 cancels; by (b)
+no real zeros). Landau's lemma — for f ≥ 0 the Taylor series of F at a real point s₀ > σ_c has nonnegative-term expansion
+F(s₀ − h) = ∫ f(x)x^{−s₀+h−1}dx by monotone convergence, so analyticity on the real segment pushes the abscissa σ_c below θ — gives F
+analytic on Re s > θ, i.e. ζ(s) ≠ 0 there. So the Z-analog of Bombieri's §III EXISTS (character twists with exact orthogonality) and is
+UNNECESSARY: what class C needs over Z is its upper-bound half alone.
+**Why the upper-bound half has no sharp Z-analog on the record (Z2, Z3).** Bombieri's (v) makes f ∘ φ = f^q an identity of functions,
+so the auxiliary function vanishes to order p^μ at every rational point. Over Z the Frobenius congruence n^p ≡ n holds mod p for every n
+but mod p² at exactly p of the p² residues (the Teichmüller residues; `z_side.log` Z2, all 29 primes < 110): first order only — the
+numerical content of T24's kill "no Frobenius to differentiate against". What does exist is the order-one auxiliary integer: Chebyshev's
+C(2n, n), divisible by every prime of (n, 2n], of size 2n log 2 — constant 1.386 per unit length where Stepanov's count has 1 (Z3:
+ratio 1.40532, 1.39846, 1.38854, 1.38614 at n = 10³..10⁶). Its dual lower-bound form (Gelfond–Schnirelman) is refuted for PNT in one
+variable ("0.4213 < t_Z([0, 1]) < 0.4232", Gorshkov 1956, via Pritsker 2013 p. 2, `sources/pritsker-…1307.5361.pdf`), reaches 0.99035 in
+Nair–Chudnovsky's multivariable form (Pritsker (1.11)), and whether a sequence of weights reaches PNT is open in print ("this does not
+preclude the possibility that such a proof can be obtained by finding a sequence of weights w_n with B(w_n) → 1", p. 4).
+
+## §4 The partition theorem and the close
+
+**Definition.** A zeta datum of genus g over F_q is Z(u) = L(u)/((1 − u)(1 − qu)) with L ∈ Z[u] of degree 2g, L(0) = 1,
+L(u) = q^g u^{2g} L(1/(qu)), N_n = q^n + 1 − Σα_iⁿ ∈ Z_{≥0}, closed-point counts b_d ∈ Z_{≥0}, h = L(1) ≥ 1, and the Riemann–Roch-consistent
+divisor counts A_n. Write 𝒵_{q,g} for the set of zeta data; V ∈ 𝒵_{5,1} (baseline.log), and so is ζ_{E₀}.
+
+**Theorem P (the partition).** (i) Every proof of RH for curves read at the page in this note (R1–R4, R6–R13) derives RH through an
+inequality I_c attached to one of four inputs c ∈ {A surface, B family, C coordinates, D group}:
+I_A: def(D) = 2d₁d₂ − D² ≥ 0 on span(Δ, Γ_{πⁿ}) (R3, R4, R12, R13); I_B: q^{(k−1)/2} ≤ |α|^k ≤ q^{(k+1)/2} on H^k(C^k), k even
+(R7), resp. |α| ≤ q^{(w+1)/2} for H¹_c of a pure sheaf of weight w on U ⊂ A¹ (R8, R9); I_C: ν₁(C′, η) ≤ Q + (2g′ + 1)Q^{1/2} + 1 for
+every twist η of a Galois cover, with (7) at Q = p^α, α even (R6; R10 in explicit form); I_D: deg(rπ − s) ≥ 0, resp.
+Tr(xx†) > 0 on Q[π] (R1, R2). (ii) V ∈ 𝒵_{5,1} violates each I_c at an explicit place and E₀ satisfies it there:
+I_A at D = Γ_π − 2Δ (def −2; formal index (2, 2)); I_B at X = C × C (α² = 13.090 > 11.180, β² = 1.910 < 2.236) and at 2k = 4 in the family
+form; I_C at Q = 5² for the twist (41 against (5) "< 41" and (7) "≤ 40"); I_D at π − 2 (deg −1, trace −2). (iii) Hence no input of any
+class is a function of the zeta datum alone: if an input of class c could be built from Z ∈ 𝒵_{q,g} by any rule under which the proof's
+lemma holds, the rule applied to V would yield I_c(V), which is false by (ii).
+
+**Proof of Theorem P.** (i) is the table §2, row by row, each chain read at the page (R5 and R14 are excluded because not read; R11
+records that the automorphic results read are consumers of RH, not proofs of it). (ii) is `verify/lines.log` L1–L8 with `baseline.log`
+(exact integers except the eigenvalue magnitudes in L5–L6, which are closed forms: α² = (15 + 5√5)/2, q^{3/2} = 5√5). (iii): the proofs
+use, besides their input, only zeta-level facts (rationality, FE, N_n, Riemann–Roch dimension counts), all of which V has; so a rule
+building the input from Z would make the proof run on V and prove I_c(V). ∎ For g = 1, I_A and I_D are one statement: the binary form
+m² + tmn + qn² (= deg(m + nπ) = ½def(mΔ + nΓ_π) = ½Tr((m + nπ)(m + nπ)†)) is positive on Z² \ {0}. The FORM is a function of the zeta
+datum (it is the norm form of Q(π)); its POSITIVITY is exactly t² < 4q, i.e. RH for g = 1 — so on rung 1 every positivity proof proves
+the positivity of a zeta-level form from an object the zeta datum does not supply, and V is the zeta datum whose form is indefinite
+(Q(√5), unit φ of norm −1). `[novelty: single-check]` for Theorem P as a stated partition with a common witness; its parts are printed.
+
+**Lemma Z4 (finite-support Chebyshev auxiliary integers never reach the sharp constant; proof on the page, `verify/z_side.log` Z4).**
+Let c: N → Z have finite support with Σ_k c_k/k = 0, F_x := Π_k (⌊x/k⌋!)^{c_k}, g(t) := Σ_k c_k⌊t/k⌋ (bounded). Then
+log F_x = Σ_n Λ(n) g(x/n) = Ax + O(log x) with A := −Σ_k c_k (log k)/k, and A = ∫₀^∞ g(t)t^{−2}dt (Mellin: ∫₀^∞⌊t/k⌋t^{−s−1}dt =
+k^{−s}ζ(s)/s, let s → 1⁺). If g ≥ 0 and g ≥ 1 on [1, T), then ψ(x) − ψ(x/T) ≤ log F_x, whence ψ(x) ≤ κx + O(log²x) with
+κ = AT/(T − 1) = ∫g t^{−2} / ∫₁^T t^{−2} ≥ 1; and κ = 1 would force g = 1_{[1,T)}, i.e. Σ_{k|m} c_k = [m = 1] − [m = T], i.e. c = μ ∗ (δ₁ − δ_T),
+which has infinite support (c_ℓ = μ(ℓ) = −1 at every prime ℓ > T). So κ > 1: Chebyshev (T = 6) κ = 1.105550, the binomial C(2n, n) κ = 2 log 2
+= 1.386294 (computed). The infinite-support limit c = μ gives F_x = e^{ψ(x)} = lcm(1, …, ⌊x⌋) exactly — the tautological auxiliary
+integer, whose sharp bound is RH itself. `[novelty: single-check]`; nearest published object (10(n)): Chebyshev 1852 via Pritsker (1.2)
+at the page; Diamond–Erdős 1980 on sharp elementary estimates `[recalled, unverified]` (not load-bearing).
+
+**The one input whose Z-analog is not already dead.** A, B, D: dead on the record (§3: REFUTED in lattice / rationality / End form,
+RH-RESTATED in their smeared / squeeze / positivity forms). C: its twist half EXISTS over Z and is unnecessary there (Z1); its
+Frobenius-identity half holds to first order only (Z2); its finite-support Chebyshev half is killed by Lemma Z4; its infinite-support
+Chebyshev limit is RH restated. **What remains alive is one input: class C's auxiliary object in the integer-polynomial form
+(Gelfond–Schnirelman, multivariable Nair–Chudnovsky–Pritsker weighted capacity)** — at the page its PNT-strength is OPEN (Pritsker p. 4:
+"this does not preclude the possibility that such a proof can be obtained by finding a sequence of weights w_n with B(w_n) → 1"), its
+fixed-weight form cannot give PNT (ibid.), and by Z1 + Landau its RH-strength form is exactly one-sided RH for ∫ψ (Pritsker p. 4 records
+∫₁^x ψ − x²/2 = O(x^{3/2}) under RH). Named gap: a sequence of polynomial weights w_n with 1 − B(w_n) → 0, and at a rate. **Cheapest
+construction-or-refutation unit:** compute Pritsker's B(w) for the weights w = Π(integer Chebyshev factors)^{α_i} over [0, 1]ⁿ, n ≤ 6, by
+his extremal-measure formula (a finite-dimensional optimization, one agent, one session, no new theory) and fit 1 − B(w_n) against the
+number of factors; a plateau below 1 with a proof of an upper bound sup_w B(w) < 1 over polynomial-type weights REFUTES the class; a
+decay to 0 is a construction of an elementary PNT route whose rate is then the RH question. Prior-art gate first: Pritsker's later
+papers and Montgomery's Ten Lectures ch. 10 (neither on disk).
+
+**Caveat for the rung-1 twin test (a correction to how the control may be used; `verify/twin_g2.{py,log}`; `[novelty: single-check]`).**
+The tournament's rule "a mechanism the virtual curve passes cannot be the generator" (tournament read-F §3) is too strict for ONE-SIDED
+mechanisms. For g = 1 every RH-false zeta datum has t² > 4q, hence REAL reciprocal roots, hence a_r > 0 (or of alternating sign) and it
+passes every upper bound at even r — the F_q-shadow of a real off-line zero. Over Z that world is empty (Z1), and a one-sided bound
+ψ(x) ≤ x + Cx^θ implies ζ ≠ 0 on Re s > θ. The right twin for one-sided mechanisms has NON-REAL off-line roots, which needs g ≥ 2; exact
+search over F₅ (x_i non-real ⟺ a₁² − 4(a₂ − 2q) < 0): 111 genus-2 zeta data in the box |a₁| ≤ 20, |a₂| ≤ 60 with non-real off-line roots,
+N_n ≥ 0 and b_d ≥ 0 (n, d ≤ 40), h ≥ 1. The first, **V₂: L(u) = 1 − u + 11u² − 5u³ + 25u⁴** (h = 31; N_1..4 = 5, 47, 143, 507;
+b_1..4 = 5, 21, 46, 115; |α| = 2.7138, 1.8425; zeros at Re s = 0.6203, 0.3797), violates Bombieri's one-sided Theorem 1 by itself, with no
+twist, at Q = 5⁶: N_6 − Q − 1 = 693 > 5Q^{1/2} = 625. Rule proposed for the zoo control (V.4 negative-control rule): test two-sided
+and positivity mechanisms on V; test one-sided mechanisms on V₂ (V passing a one-sided mechanism is not evidence against it over Z).
+
+**CLOSE: T.** Theorem P (the partition, with proof) and the table §2 (12 proofs read at the page, 2 rows named-not-read). Every proof of
+RH for curves read here separates genuine curves from V through one of four inputs — A surface, B family, C coordinates, D group — none
+a function of the zeta datum (witness V; control E₀ passes every line). On the record over Z, A, B and D are dead (REFUTED in their
+lattice / rationality / End forms, RH-RESTATED in their smeared / squeeze / positivity forms); C is the one class not dead: its twist
+half exists and is unnecessary over Z, its Frobenius and finite-support Chebyshev forms are killed here (Z2, Lemma Z4), and the input
+left alive is its integer-polynomial auxiliary object (Gelfond–Schnirelman–Nair–Chudnovsky–Pritsker), open in print at PNT strength,
+with the cheapest deciding unit stated above. Stop condition (a proof V passes) did NOT fire: Dwork's rationality theorem is passed by V
+and is not a proof of RH (R9).

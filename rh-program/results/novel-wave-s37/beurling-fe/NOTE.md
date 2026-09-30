@@ -125,3 +125,95 @@ powers (directly: dN ≥ δ₁ + dΠ, so any non-atomic part of dΠ would surviv
 Where each hypothesis enters: POSITIVITY (dN ≥ 0) only in "(F) ⟹ dN carried by N"; the GAP (dN carried by [1, ∞)) only in
 "⟨μ, φ_ε⟩ → ρ"; EXACTNESS of the FE (poles only at 0, 1) only in Step 0 (no residual term in μ̂ − μ). The Euler product is used only
 for dN({1}) = 1 and to recover P from 𝒩_P; Λ ≥ 0 only through its consequence dN ≥ 0. `[novelty: single-check]` (see §5(g)).
+
+## 5. Attack log — on Theorem T, and on the charter's sketches (attacked first, as ordered)
+
+(a) φ = (1−|x|)₊ is not Schwartz: handled by mollification in Step 1 (only φ_ε ∈ C_c^∞ is paired with μ̂ = μ). ✓
+(b) (A) gives the theta relation, i.e. μ̂ = μ only against Gaussians: Lemma G upgrades it to μ̂ = μ in S′. ✓
+(c) ρ = 0 is not excluded by hypothesis: T then gives dN = 0, contradicting dN({1}) = 1; so no Beurling system has ρ = 0. ✓
+(d) The growth hypothesis (G') is used once (Phragmén–Lindelöf in Prop. R). It is Burnol's hypothesis (2) (`burnol-1106.4749.txt`
+    lines 106–107; also Thms 2–3, lines 183, 217); Hamburger's own is finite order. Whether (G') can be dropped for Beurling systems is NOT addressed here.
+    (H1) is not needed: Prop. R proves absolute convergence for Re s > 1 from (B); so Knopp's phenomenon (§2(c)) cannot occur here.
+(e) "Poles only at 0 and 1, simple" is essential: with extra poles μ̂ − μ is a nonzero residual R and Step 1 becomes 2∫S dN = ⟨R, φ⟩
+    (§8(d)); the orchestrator's continuous RH-false systems live exactly there.
+(f) The charter's sketches, attacked:
+    (f1) Charter (1) writes μ = δ₀ + Σ(δ_{n_k} + δ_{−n_k}). WRONG IN GENERAL, harmless: the mass at 0 is ρ = Res_{s=1}ξ_P (Prop. R);
+         ρ = 1 is a CONCLUSION of T (T1), not an input.
+    (f2) Charter (3) "expected tools: Lev–Olevskii; Serre–Stark for weight ½; positivity + free generation". None is needed for T.
+         Lev–Olevskii + the semigroup property give an independent second proof in the u.d. case (§6). Serre–Stark is irrelevant at
+         conductor 1; at conductor q > 1 it would need full Γ₀(4N)-modularity, which one functional equation does not supply
+         (Perelli, `arxiv-1605.02354-…txt` 546–554: Hecke groups G(λ), λ > 2 — infinite-dimensional solution spaces).
+    (f3) Charter (4) "translation-boundedness follows from positivity + self-duality (prove)": TRUE — Olevskii–Ulanovskii Prop. 1
+         (`p2-19b-…txt` 64–100, quoted in full on disk) applies to μ ≥ 0 with μ̂ = μ; a posteriori it is also immediate from T.
+    (f4) Charter (5), the orchestrator's Phragmén–Lindelöf worry ("G entire of finite order ⟹ G ≡ 1 only when G = ζ_P/ζ is
+         entire, which is not automatic"): SUPERSEDED. T2 needs no hypothesis on G = ζ_P/ζ (which may have poles at zeros of ζ):
+         an entire completed function (poles only at 0, 1) is impossible for every continuous Beurling system. Verdict §8(a).
+    (f5) §0(f) "Beurling systems … have Euler product and Λ ≥ 0 but no FE": now a THEOREM at conductor 1 (T1, T2).
+(g) Novelty caveat. The measure-theoretic core of T — μ ≥ 0, μ = ρδ₀ + ν with supp ν ⊂ {|x| ≥ 1}, μ̂ = μ ⟹ μ = ρδ_Z — is the equality
+    case of the one-dimensional linear-programming (Delsarte/Cohn–Elkies) bound with the Fejér function `[recalled, unverified:
+    Cohn–Elkies 2003 remark that the 1-D bound is sharp]`; it is very probably folklore there. What is `[novelty: single-check]` is
+    its use as a positive Hamburger theorem for general Dirichlet series (T3) and for Beurling systems (T1, T2), which the gate did
+    not find in print and which Hilberdink–Lapidus 2006 record as open in greater generality. Not for external use before a second check.
+(h) Non-vacuity (C: `verify/v1_theta_fejer_conductor.log`, Part 2): Z gives S_F := Σ sinc²(n_k) = 7e−29 (roundoff) and theta defect 0 at
+    60 digits; the near-misses "2 → 2.01", "(P∖{2}) ∪ {√2}" (Olofsson's example), "P ∪ {1.5}" give S_F = 2.0e−3, 6.1e−2, 8.9e−2 and
+    theta defects of order 1e−3 to 0.8 — the FE fails, as T requires.
+
+## 6. The uniformly discrete case (charter item (3)) — an independent second proof, by the tools the charter expected — (P)+(Q)
+
+PROPOSITION U. If 𝒩_P is uniformly discrete and ζ_P satisfies (A), then 𝒩_P ⊂ N and ζ_P = ζ. (Implied by T; proved without Step 1.)
+Proof. By Prop. R, μ̂ = μ with μ ≥ 0; support = spectrum = {0} ∪ ±𝒩_P, u.d. Lev–Olevskii Theorem 1 (`u-30b-…txt` 51–53) ⟹ 𝒩_P ⊂ ∪_{j≤m}(τ_j + hZ).
+(i) 𝒩_P ⊂ Q (Hilberdink's device, `p3-22c2-…txt` 536–556): 𝒩_P is infinite (p₁^k), so some coset contains an infinite A ⊂ 𝒩_P. For
+x ∈ 𝒩_P, xA ⊂ 𝒩_P (semigroup), so two a ≠ a′ in A have xa, xa′ in one coset: x(a − a′) ∈ hZ and a − a′ ∈ hZ∖{0}, hence x ∈ Q.
+(ii) Then h = (a − a′)/k ∈ Q, every coset meeting 𝒩_P has a rational τ_j, so 𝒩_P ⊂ D^{−1}Z for some D ∈ N. If x = a/b ∈ 𝒩_P in lowest
+terms, x^k ∈ 𝒩_P ⊂ D^{−1}Z for all k, so b^k | D for all k and b = 1: 𝒩_P ⊂ N. (iii) ζ_P = Σ c(n)n^{−s} is an ordinary Dirichlet
+series; (H1) by Prop. R, (H2) with P(s) = s − 1 from (A), (H3) is (A); Hamburger (Theorem D, `nakamura-2008.02570.txt` 170–177)
+gives ζ_P = Cζ, C = c(1) = 1. ∎   (Free generation is not used, only the semigroup property; positivity only via Lev–Olevskii's
+hypotheses being met by μ̂ = μ.) The two proofs share nothing but Prop. R: a dual-route check of T on the u.d. class.
+
+## 7. The non-uniformly-discrete case (charter item (4)) — settled by T; the experiment and what it shows
+
+VERDICT. Refuted: there is no exotic system, uniformly discrete or not (T1), discrete or continuous (T2). T never uses discreteness of
+𝒩_P beyond local finiteness, and never uses Lev–Olevskii; so the Lev–Olevskii Theorem 2 phenomenon (non-periodic SIGNED crystalline
+measures once u.d. is dropped, `u-30b-…txt` 65–68) and the Kurasov–Sarnak positive integer-mass examples cannot produce a Beurling
+system: in the self-dual case positivity plus the gap (0, 1) already pin the support to Z. Translation-boundedness (charter): (f3) above.
+
+EXPERIMENT (C: `verify/v2_lsq_exotic_search.{py,log}`, `verify/v2b_near_solutions_exposed.{py,log}`). Least squares on the theta
+relation over 41 points x ∈ [½, 2] (x ≠ 1), unknowns ρ and K free generalized primes in (1, 12) (all generalized primes below 12, so
+the truncation is exact to e^{−72π} ~ 1e−98), 300 random starts per K = 1..7, double precision. Result: for every K ≥ 2 the optimizer
+returns RMS defect ~1e−16 at ρ = 1.000000 with primes {2, 3, arbitrary…}, e.g. {2, 3, 8.470247} (K = 3) and {2, 3, 5.5606, 7.5802,
+9.1104, 10.3413, 10.5167} (K = 7). These are NUMERICAL NEAR-SOLUTIONS, NOT EXAMPLES: on x ≥ ½ a generalized integer n enters ψ with
+weight ≤ e^{−πn²/2}, which is below double precision (8e−18) for n ≥ 5, so the grid sees only the integers 1, 2, 3, 4. Re-examined at
+60 digits on x = 2^{−3}..2^{3} (v2b) their theta defects are 1e−4 (ρ = 1) to 0.12–0.54 (ρ = true residue), and their Fejér sums
+S_F = Σ sinc²(n_k) are 1.7e−3, 5.4e−3, 2.6e−3, 8.7e−3 — against 3e−61 and 7e−29 for Z. LESSON (the charter's warning made concrete):
+Gaussian test functions on a bounded x-range are exponentially blind to large generalized integers; the Fejér test function, whose
+transform decays only like ξ^{−2}, sees every n_k with weight ≍ n_k^{−2}. That is why T is proved with it and not with theta values.
+
+## 8. Relaxations (charter item (5)), each to a verdict
+
+(a) CONTINUOUS BEURLING PRIME MEASURES — the orchestrator's sketch. ζ_P = ζ·G, G(s) = (s−ρ)(s−ρ̄)(s−1+ρ)(s−1+ρ̄)/((s−a)²(s−1+a)²),
+    ρ = β + iγ, β > ½. log G(s) = ∫₁^∞ x^{−s} f(x) dx, f = [2x^a + 2x^{1−a} − 2(x^β + x^{1−β})cos(γ log x)]/(x log x) (from
+    log((s−c)/(s−a)) = ∫₁^∞ x^{−s}(x^a − x^c)dx/(x log x)). f ≥ 0 when a ≥ β because |cos| ≤ 1 and c ↦ x^c + x^{1−c} increases on
+    c ≥ ½ for x ≥ 1 (P). C (`verify/v3_…log` Part A): G(1−s) = G(s) to 1e−27; exp∫x^{−s}f = G at s = 3, 2+5i to 1e−19; min f on
+    (1, 1e8] = 2e−9, 8e−4, 7e−11 for (β,γ,a) = (.8,20,.8), (.8,20,.9), (.6,14.1,.6); −0.077 for a = 0.7 < β = 0.8.
+    VERDICT: the sketch is CORRECT (dΠ ≥ 0, FE exact, RH false, price = double poles at a, 1 − a inside the strip). The question
+    "is an ENTIRE completed function possible?" is answered NO by T2, for every continuous or mixed Beurling system under (G'),
+    with no hypothesis on G = ζ_P/ζ. The continuous relaxation is populated by RH-false systems iff extra poles are allowed.
+(b) FE WITH A CONDUCTOR. Λ_F(s) := (q/π)^{s/2}Γ(s/2)F(s), (A) for Λ_F.
+    THEOREM C. dN ≥ 0 on [1, ∞), polynomial growth, dN({1}) > 0, (A) for Λ_F. Then q ≥ 1; q = 1 iff F = ρζ; and for q > 1
+         ρ_q(1 − q^{−1/2}) = 2q^{−1/2} ∫ (sin(πt/q)/(πt/q))² dN(t),   ρ_q := √q·Res_{s=1}F > 0.                        (C_q)
+    Proof (P). Λ_F(s) = π^{−s/2}Γ(s/2)∫x^{−s}dN_q with dN_q the image of dN under t ↦ t/√q, carried by [r, ∞), r = q^{−1/2}.
+    Prop. R holds verbatim for measures carried by [r, ∞) (use ψ(x) ≤ e^{−πr²(x−1)}ψ(1)), so μ_q = ρ_qδ₀ + dN_q + dN_q^∨ is self-dual,
+    ρ_q ≥ 0 (a residue of a positive Dirichlet integral). Pair with φ_r = φ(·/r) exactly as in Step 1 (φ_r = 0 on |x| ≥ r, where dN_q
+    lives; φ̂_r(ξ) = rS(rξ); rt = u/q for t = u/√q): this is (C_q). If q < 1 then r > 1, the left side is ≤ 0 and the right ≥ 0, so
+    ρ_q = 0 and dN is carried by qN; then μ_q is carried by the lattice √qZ, so μ̂_q = μ_q is 1/√q-periodic, forcing 1/√q ∈ √qZ
+    (1/q ∈ N) and, by periodicity, mass(t = 1/√q) = mass(0) = ρ_q = 0 — contradicting dN({1}) > 0. q = 1 is T. If q > 1 and ρ_q = 0,
+    the same periodicity argument forces 1/q ∈ N, impossible; so ρ_q > 0. ∎  `[novelty: single-check]` (an LP corollary; the analog
+    of "conductor ≥ 1, equality only for ζ" known in the Selberg class by Kaczorowski–Perelli — there with Euler product and
+    Ramanujan, here with positivity only; zoo I.7).
+    C: (C_q) holds on genuine solutions — ζ(s)(1 + q^{1/2−s}), q = 2, 4, 9, and F_{5,5} (q = 25): 0.70711 / 1.5 / 2.66667 / 8.8 on both
+    sides up to the truncation tail (`verify/v1_…log` Part 3; each also satisfies its conductor-q theta relation to 1e−60).
+    VERDICT (q > 1): OPEN, and sharply located. Positive-coefficient solutions exist at every q > 1 (above) but all those found fail
+    Λ ≥ 0 (F_{5,5}: Λ(25)/log 5 = −14, Λ(5⁴)/log 5 = −174, v3 Part C; ζ(s)(1 + q^{1/2−s}): Λ(q²) ≤ ½ − q/2 < 0 for q = m²; and for q
+    irrational the atom −q/2 at q² meets no prime power of ζ). The FE alone is weak at q > 1: one functional equation does not force
+    modularity and the spaces are infinite-dimensional (Perelli `arxiv-1605.02354-…txt` 586–595, Hecke G(λ), λ > 2). QUESTION Q_cond:
+    is there a Beurling system (dΠ ≥ 0) with Riemann's FE at some conductor q > 1? This is where a rung-Z twin could live (§9).

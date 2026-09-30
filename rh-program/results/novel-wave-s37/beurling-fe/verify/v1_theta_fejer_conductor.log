@@ -1,0 +1,20 @@
+=== Part 1: theta relation for Z (rho = 1) ===
+  x = 0.30   defect = 0.0
+  x = 0.70   defect = 0.0
+  x = 1.00   defect = 0.0
+  x = 1.90   defect = 0.0
+  x = 3.30   defect = 0.0
+
+=== Part 2: Fejer sum S_F = sum_k sinc^2(n_k) and theta defect for near-miss Beurling systems ===
+  Z (rational primes)          rho = 1.000000  #n_k<=X:  20000  S_F = 7.248e-29 (tail <= 5.1e-06)  theta defect x=1/2,2: ['0.0', '0.0']
+  2 -> 2.01                    rho = 0.995050  #n_k<=X:  19901  S_F = 2.048e-03 (tail <= 5.0e-06)  theta defect x=1/2,2: ['-0.001289', '0.001823']
+  (P minus {2}) + {sqrt 2}     rho = 1.707107  #n_k<=X:  34142  S_F = 6.066e-02 (tail <= 8.6e-06)  theta defect x=1/2,2: ['0.146', '-0.2065']
+  P + {1.5}                    rho = 3.000000  #n_k<=X:  59986  S_F = 8.896e-02 (tail <= 1.5e-05)  theta defect x=1/2,2: ['0.544', '-0.7694']
+
+=== Part 3: conductor-q identity on genuine conductor-q solutions ===
+  zeta(s)(1+2^{1/2-s})  q=2:  rho_q(1-q^-1/2) = 0.7071067812   2q^-1/2 sum c_k sinc^2(n_k/q) = 0.7071053483   theta-rel defect 3.11e-61
+  zeta(s)(1+4^{1/2-s})  q=4:  rho_q(1-q^-1/2) = 1.5000000000   2q^-1/2 sum c_k sinc^2(n_k/q) = 1.4999959472   theta-rel defect 6.22e-61
+  zeta(s)(1+9^{1/2-s})  q=9:  rho_q(1-q^-1/2) = 2.6666666667   2q^-1/2 sum c_k sinc^2(n_k/q) = 2.6666529882   theta-rel defect 6.22e-61
+  F_{5,5}               q=25:  rho_q(1-q^-1/2) = 8.8000000000   2q^-1/2 sum c_k sinc^2(n_k/q) = 8.7998733485   theta-rel defect 2.49e-60
+
+Done.

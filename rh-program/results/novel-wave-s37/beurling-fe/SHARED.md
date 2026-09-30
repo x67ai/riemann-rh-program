@@ -47,3 +47,14 @@ Deliverables: `NOTE.md` (the unit), `verify/` (scripts + logs), `sources/` (text
   tempered distributions (no Hermite-density citation needed).
 - NEXT: verify/ scripts (theta relation, Fejér identity, conductor identity, controls, least-squares experiment); §5 attack log;
   §6 second proof in the u.d. case (Lev–Olevskii + Hilberdink pigeonhole + Hamburger); relaxations; controls; close.
+
+## 2026-09-30 block 4 — verify v1, v2, v2b run; NOTE §5 (attack log), §6 (u.d. second proof), §7 (non-u.d. + experiment)
+
+- v1 (`verify/v1_theta_fejer_conductor.log`): theta relation for Z exact at 60 digits; Fejér sums: Z 7e−29, near-misses 2e−3..9e−2;
+  conductor identity ρ_q(1 − q^{−1/2}) = 2q^{−1/2}Σc_k sinc²(n_k/q) confirmed on ζ(s)(1+q^{1/2−s}), q = 2, 4, 9, and F_{5,5} (8.8 = 8.8,
+  up to the truncation tail 1e−4), each also satisfying its conductor-q theta relation to 1e−60.
+- v2/v2b: least squares on the theta relation at double precision "finds" {2, 3, arbitrary} near-solutions (RMS 1e−16); at 60 digits
+  they fail by 1e−4..0.5 and have Fejér sums 2e−3..9e−3. Lesson recorded in NOTE §7.
+- §6: Prop. U = independent proof in the u.d. case via Lev–Olevskii Thm 1 + Hilberdink's pigeonhole + Hamburger (dual-route check).
+- NEXT: §8 relaxations — (a) continuous (orchestrator's sketch: verify prime density ≥ 0), (b) conductor: Theorem C (q ≥ 1, = iff ζ)
+  and the open q > 1 question, (c) finite Euler factor, (d) extra poles (Fejér identity with residual), (e) no positivity; §9 controls.

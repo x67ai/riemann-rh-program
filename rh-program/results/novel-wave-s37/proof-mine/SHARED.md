@@ -39,3 +39,21 @@ R11: modular/automorphic methods CONSUME RH for curves (Milne pp. 45-49 at the p
 Ramanujan deduced from Weil); CM over F_q is class D. R12 CCM: Weil restated (A), Prop 6.2 = Weil's criterion. R13 Hrushovski: for curves
 Weil's positivity (Ex. 11.4, p. 114), else consumes Deligne; e = -5 vs 4.472. R14: named-not-read list (Manin 1956, Igusa, Quigley, Roquette,
 Kani, Weil II 1980, Stark, Stohr-Voloch). No proof found that V passes. Next: §3 (Z-analogs on the record), §4 (partition theorem, close).
+
+## 2026-09-30 block 5 — §3 table (Z-analogs) written; Z-side computations
+`verify/z_side.{py,log}`: Z1 zeta(sigma) < 0 at 99 grid points of (0,1) (proof elementary: eta alternating); Z2 #{n mod p^2: n^p = n} = p
+for all 29 primes < 110 (Frobenius identity holds to FIRST order only over Z); Z3 log C(2n,n) / sum_{n<p<=2n} log p -> 2 log 2 = 1.386
+(n = 10^3..10^6). Source added: Pritsker 2013 arXiv:1307.5361 (Gelfond-Schnirelman; t_Z[0,1] > 0.4213 > 1/e, Gorshkov 1956; Nair-Chudnovsky
+0.99035; PNT by a sequence of weights OPEN, p. 4). Z-analog statuses: A refuted/RH-restated; B refuted/RH-restated; D refuted/RH-restated;
+C: twists exist (and are unnecessary over Z), Frobenius-identity form refuted to first order, weak auxiliary integers exist, sharp form unbuilt.
+
+## 2026-09-30 block 6 — CLOSE T
+Theorem P (partition: A surface / B family / C coordinates / D group; each inequality violated by V at an explicit place, passed by E0;
+hence no input is a function of the zeta datum) with proof, NOTE §4. Lemma Z4 (finite-support Chebyshev auxiliary integers have
+kappa = A T/(T-1) > 1 strictly; c = mu gives lcm(1..x), RH restated): proved on the page, checked (Chebyshev 1.105550; C(2n,n) 1.386294).
+One input not dead over Z: class C's integer-polynomial auxiliary object (Pritsker 2013 p. 4, PNT-strength open); cheapest unit: compute
+Pritsker's B(w) for products of integer Chebyshev factors on [0,1]^n, n <= 6, and fit 1 - B(w_n); prior-art gate first.
+`verify/twin_g2.{py,log}`: 111 genus-2 virtual curves over F_5 with NON-REAL off-line roots (N_n, b_d >= 0 to 40, h >= 1); V2 =
+1 - u + 11u^2 - 5u^3 + 25u^4 violates Bombieri's one-sided Theorem 1 at Q = 5^6 (693 > 625) — caveat for the rung-1 twin rule: test
+one-sided mechanisms on V2, not V. Flags for the orchestrator: T24 G-line (Bombieri p. 239); V sharpens Bombieri's example; twin-rule caveat.
+Files: NOTE.md, SHARED.md, verify/{baseline,lines,z_side,twin_g2}.{py,log}, verify/fetch_sources.{sh,log}, sources/ (10 texts + PDFs).

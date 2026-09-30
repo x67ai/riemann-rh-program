@@ -1,0 +1,19 @@
+== Z1: eta(sigma) = sum (-1)^(n-1) n^-sigma > 0 and zeta(sigma) = eta/(1 - 2^(1-sigma)) < 0 on (0,1) ==
+sigma = 0.01..0.99 (99 points): all eta > 0, all zeta < 0; max zeta on grid = -0.509291 (at sigma -> 1 it tends to -inf, at 0 to -1/2)
+proof (elementary): eta(sigma) is an alternating series with decreasing terms, so 0 < 1 - 2^-sigma <= eta(sigma); and 1 - 2^(1-sigma) < 0
+
+== Z2: solutions of n^p = n in Z/p^2 (Frobenius identity to second order) ==
+p : count  -> 2:2, 3:3, 5:5, 7:7, 11:11, 13:13, 17:17, 19:19, 23:23, 29:29, 31:31, 37:37, 41:41, 43:43, 47:47, 53:53, 59:59, 61:61, 67:67, 71:71, 73:73, 79:79, 83:83, 89:89, 97:97, 101:101, 103:103, 107:107, 109:109
+count == p for every p listed: True (the p Teichmuller residues; the other p^2 - p residues: order exactly 1)
+
+== Z3: Chebyshev's auxiliary integer C(2n,n) versus the primes it vanishes at ==
+n=   1000: sum_{n<p<=2n} log p = 983.6 ; log C(2n,n) = 1382.3 ; ratio = 1.40532 (2 log 2 = 1.38629); per unit length 0.98359
+n=  10000: sum_{n<p<=2n} log p = 9909.3 ; log C(2n,n) = 13857.8 ; ratio = 1.39846 (2 log 2 = 1.38629); per unit length 0.99093
+n= 100000: sum_{n<p<=2n} log p = 99833.6 ; log C(2n,n) = 138623.1 ; ratio = 1.38854 (2 log 2 = 1.38629); per unit length 0.99834
+n=1000000: sum_{n<p<=2n} log p = 1000103.5 ; log C(2n,n) = 1386286.9 ; ratio = 1.38614 (2 log 2 = 1.38629); per unit length 1.00010
+Stepanov's count over F_q has the sharp constant 1 (nu_1 <= q + O(sqrt q)); Chebyshev's auxiliary integer pays 2 log 2 = 1.386 per unit.
+
+== Z4: finite-support Chebyshev auxiliary integers F_x = prod_k (floor(x/k)!)^{c_k}: constant kappa = A T/(T-1) > 1 ==
+Chebyshev 1852 (1,-1,-1,-1,+1 at 1,2,3,5,30): A = -sum c_k log k / k = 0.921292 ; int_0^inf g t^-2 dt (cutoff) = 0.921284 ; g>=0 and g>=1 on [1,6): True ; kappa = A T/(T-1) = 1.105550 > 1
+binomial C(2n,n) weights {1:1, 2:-2}: balance check - sum c_k/k = 0: True
+C(2n,n) as F_x with x = 2n, weights {1:1, 2:-2}: A = log 4 / ... per unit x: 0.693147 ; g = floor(t) - 2 floor(t/2) in {0,1}, = 1 on [1,2): kappa = 2A = 1.386294
