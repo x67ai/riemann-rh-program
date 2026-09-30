@@ -39,13 +39,29 @@ def prime_segments(Y, seg=2 * 10**8):
         yield pr
         lo = hi
 
+M64 = np.uint64(0xFFFFFFFFFFFFFFFF)
+def splitmix64(x):
+    """numpy re-implementation of the splitmix64 finalizer (spec read from the frontier's thin.c; wraps mod 2^64)."""
+    with np.errstate(over="ignore"):
+        x = x + np.uint64(0x9E3779B97F4A7C15)
+        x = (x ^ (x >> np.uint64(30))) * np.uint64(0xBF58476D1CE4E5B9)
+        x = (x ^ (x >> np.uint64(27))) * np.uint64(0x94D049BB133111EB)
+        return x ^ (x >> np.uint64(31))
+
+def hash_unif(pr, seed, salt):
+    with np.errstate(over="ignore"):
+        k = splitmix64(np.array([(seed * 0xD1B54A32D192ED03) & 0xFFFFFFFFFFFFFFFF ^ salt], dtype=np.uint64))[0]
+    h = splitmix64(pr.astype(np.uint64) ^ k)
+    return (h >> np.uint64(11)).astype(np.float64) * (1.0 / 9007199254740992.0)
+
 def main():
-    alpha = float(sys.argv[1]); X = int(float(sys.argv[2])); Y = int(float(sys.argv[3])); seed = int(sys.argv[4]); out = sys.argv[5]
+    alpha = float(sys.argv[1]); X = int(float(sys.argv[2])); Y = int(float(sys.argv[3])); out = sys.argv[5]
+    hashmode = sys.argv[4].startswith("h"); seed = int(sys.argv[4].lstrip("h"))   # 'h5' = the writer's splitmix64 hash, seed 5
     t0 = time.time()
     rng = np.random.Generator(np.random.PCG64([seed, int(round(alpha * 1e6))]))
     dele = []; logs = []; nY = 0
     for pr in prime_segments(Y):
-        u = rng.random(pr.size)
+        u = hash_unif(pr, seed, int(round(alpha * 1e6))) if hashmode else rng.random(pr.size)
         w = np.exp((alpha - 1.0) * np.log(pr.astype(np.float64)))
         d = pr[u < w]
         dele.append(d); logs.append(math.fsum(np.log1p(-1.0 / d.astype(np.float64)).tolist())); nY += d.size

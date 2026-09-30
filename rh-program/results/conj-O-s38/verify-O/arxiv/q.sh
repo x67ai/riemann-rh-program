@@ -5,7 +5,7 @@ i=0
 while IFS= read -r q; do
   i=$((i+1)); f="qO-$i.xml"; [ -s "$f" ] && continue
   for k in $(seq 1 20); do
-    curl -s -m 60 -G "http://export.arxiv.org/api/query" --data-urlencode "search_query=$q" --data-urlencode "max_results=40" -o "$f" && [ -s "$f" ] && break
+    curl -s -m 60 -G "https://export.arxiv.org/api/query" --data-urlencode "search_query=$q" --data-urlencode "max_results=40" -o "$f" && [ -s "$f" ] && break
     sleep 30
   done
   echo "$i | $q | $(grep -c '<entry>' "$f") entries" >> index.txt

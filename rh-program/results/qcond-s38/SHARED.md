@@ -83,3 +83,20 @@ Append-only, dated blocks. Writer: Opus 5.5 (unit agent). Outputs only under `re
 - Meyer LNM 117 p. 25 read as a page image (pdftoppm −r 150): unit-mass case, Bohr compactification + Rosenthal [7] Th. 1.6 p. 22.
 - Prior art found ON DISK that the NOTE does not cite for U_q/L′: Hilberdink 2012 (BFE sources p3-22c2) §4 — Prop. 4.2 (S–W ⟹
   N̂ = Qζ, the U_q Step 4 argument), Thms 4.3–4.4 (Landau + power sums ⟹ local factors zero-free on Re s > 0), Thm C.
+
+## 2026-10-01 05:16 IST — read-O batch 2: read-O.md §1 (re-derivations) and §2 (Meyer at the page, ruling) written
+- §1: U_q, L′ (+ Lemma L), E1–E3, Prop. E/E′, §1.4 Cor. 1–3, §1.6 (band + sharpness + two-system u.d. case), S–W′ against S–W §3–§4
+  lines 262–621, Lemma Q, Theorem D, rung 1 — all ✓; minor gaps only (weight ≥ 1 must mean Π({p^k}) ≥ 1/k ∀k; "log h" wording in L′(4);
+  a loose sentence in D Step (3)).
+- §2 RULING: Theorem D is UNCONDITIONAL. Meyer p. 25 is the unit-mass case; μ_q − (ρ_q − 1)·Lebesgue satisfies its a), b) verbatim after E3;
+  the finite exceptional set is removed by pure-point vs absolutely-continuous; by-product ρ_q ∈ Z for a discrete solution. The
+  finite-values form (Q4) is TRUE (proved via Meyer's Bohr passage + Lagrange idempotents in M(bR) + Cohen/Rosenthal) but is not needed;
+  K–S (43–44) and LO15 (63–68) over-attribute finite values to the page. Residual input: Rosenthal Mem. AMS 63 Th. 1.6 (inside Meyer).
+
+## 2026-10-01 05:18 IST — read-O batch 3: §3 (independent re-run) and §4 (prior-art table, 10 rows + gate verdict) written
+- Gate: no source prints U_q, L′, E2, D or §1.6 as a statement. Hilberdink 2012 (BFE p3-22c2, Acta Arith. 152) is PARTIAL: Prop. 4.2 =
+  U_q Step 4's argument; Thms 4.3–4.4 + (†) = L′'s Landau mechanism for integer divisor-supported multipliers (and the rung-1 "Q4");
+  Thm C decides the squarefree-q families. Córdoba 1989 abstract + references captured (Firecrawl); body paywalled. K–P Thm 3.6 read in
+  Perelli's survey (replaces a recalled item). arXiv API: 8 queries, nothing new.
+- Next: §5 FIX-FIRST pairs (F1 Theorem D unconditional; F2 Hilberdink 2012 citations and novelty labels; F3 the Q4 quote), §6 minor
+  pairs, §7 what next; then the final report.

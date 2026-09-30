@@ -136,3 +136,40 @@ READING. The Fejér defect of M1a, carried to rung 1 exactly, splits in two: its
 V-blind (zoo I.9: "a mechanism the virtual curve passes cannot be the generator"), and its ZEROS form — the factor
 (√q − 1)² + 2√q·w in (c), normalized by its RH floor — is a Weil test. B7's phrase "only the first is positive for free" is,
 on rung 1, a theorem with a mechanism: it is positive for free BECAUSE its positivity is dN ≥ 0, which V has.
+
+## 5. The disguise audit (zoo IV.1, III.20) and the prior-art gate at the page (standing orders 1, 7; 10(n))
+
+IV.1's EXECUTABLE TEST, run on rung 1. Observables: the prime-side counts N_1..N_M (closed-point data, band n ≤ M). Theorem W(i)
+expresses every affine count functional vanishing at genus 0 as the classical Weil test Σ_j f(θ_j) with MULTIPLIER 1 on the band
+— the expression succeeds, so the LP route has no new data coordinate; its "generator" f ≥ 0 is the Toeplitz cone, which is the
+Hodge-index Gram cone of the Frobenius graphs on X × X (HP 1409.2357 eq. (5), p. 7: "Gram(γ_0, …, γ_n)" = the normalized
+Toeplitz matrix) — III.20(B)'s doubled-object positivity, restricted to the band. Analytic-continuation leak: none (the Fejér
+family K_M is indexed by the band M, one band per member). Class (B) is a cone restriction by integrality whose validity proof
+takes RH as input (HPM 2506.05212 §1.2, p. 4: Serre's refinement from "{ω_1, …, ω_g, ω̄_1, …, ω̄_g} stable under Gal(Q̄/Q)").
+The positions form D_k is NOT a Weil test (it is nonlinear in the prime data and positive for free) and fails I.9 instead.
+Its RH form (Theorem F(e)) is, after the log, the pair of Weil tests f_± with multiplier 1 on the full band.
+The other rung-1 classes read on zeta data (proof-mine Theorem P). Every output inequality of the four proof classes is a Weil
+test of this family, specialized to g = 1: A and D give ½xᵀT_1x = m² + tmn + qn² (the 2 × 2 Toeplitz, §3); C (Bombieri 1973
+p. 236 (5), `results/novel-wave-s37/proof-mine/sources/bombieri-1973-bourbaki430-stepanov.pdf`) gives, with Q = q^r,
+Q + (2g + 1)√Q + 1 − N_r = √Q[1 + Σ_j(2 + 2cos rθ_j)] — the UNTWISTED test 2 + 2cos rθ plus slack √Q, which V passes
+(cos(r·iy) = cosh ry > 0: proof-mine R6, "Theorem 1 NEVER separates") — and for the quadratic twist of a g = 1 cover
+(ν_1(ι) = 2(Q + 1) − N_r) it gives √Q[1 + Σ_j(2 − 2cos rθ_j)] = √Q[1 + Σ_j 4sin²(rθ_j/2)], the TWISTED Fejér test of §3 at
+frequency r. At V, Q = 25: 5[1 + 2 − 2cosh(2 log φ)] = 5[3 − L_2] = 0, so (5)'s strict "< 41" fails at equality 41 = 41 —
+proof-mine's L4 number, recovered from the angle form. `[reading: single-check]`. So on rung 1 the separating INEQUALITY is
+always the same Weil functional; what the four proofs differ in is the OBJECT that proves it (Theorem P) — this unit adds no object.
+
+Prior-art table (at the page unless marked).
+| item here | nearest published object | where read |
+|---|---|---|
+| identity (E); the LP over zeta data | Serre's explicit formulae, optimized by Oesterlé: "the best bound … that can be obtained formally using only Weil's 'Riemann hypothesis' for curves and the fact that for every d ≥ 0 the number of degree-d places on a curve is non-negative" | Howe–Lauter 1202.6308 p. 2 |
+| the Weil test class | "any trigonometric polynomial f which is nonnegative on the unit circle and whose coefficients in the cosine expansion are nonnegative gives a lower bound on t_1" | HPM 2506.05212 §1.1 p. 3 |
+| Theorem W(ii) (Toeplitz / Gram) and its dual | HP's Gram matrix (5); "this semi-definite program is closely related to the dual of the optimization problem solved by Oesterlé, as shown in [HP19]" (HP19 = Trans. AMS 372 (2019) 5409–5451, not fetched) | HP 1409.2357 p. 7; HPM p. 4 |
+| V's best separating inequality | Weil's lower bound N ≥ q + 1 − 2g√q (HPM's (1)) | HPM p. 1–2 |
+| Theorem F(a) (the Fejér pairing on q^Z) | "A_n = q^{n+1−g}A_{2g−2−n} + P(1)π_{n−g}" and "A_n = P(1)π_{n−g}, n ≥ 2g − 1", for "virtual zeta functions" | AHL 1201.4967 Lemma 3.4, p. 14 |
+| Theorem F(e) | "(q + 1 − 2q^{1/2})^g ≤ |A(F_q)| …, an immediate consequence of Weil's inequality" | AHL p. 1 |
+| class (B) | Serre's refinement, algebraic integers + Galois stability | HPM §1.2 p. 4 |
+| Drinfeld–Vlăduţ via Fejér-type kernels | the asymptotic explicit-formula bound | HP 1409.2357 §2.7 recovers DV "as a bound of infinite order"; the Fejér kernel in Serre's proof `[recalled, unverified]` |
+WHAT IS NEW RELATIVE TO OESTERLÉ (10(n)): nothing in the LP — it is Oesterlé's program, and its dual is HP19's Hodge-index SDP.
+The transport adds only readings of printed identities: the positions-side Fejér defect on q^Z is AHL's (11) (D_k = h(q^{g−1+k} − 1),
+V-blind), and its RH form is Weil's class-number window. Brief stop line 2 fires ("the best inequality is a known Oesterlé/Serre
+bound … the unit is 'found nothing, correctly' unless the transport adds something"); the transport adds no inequality.

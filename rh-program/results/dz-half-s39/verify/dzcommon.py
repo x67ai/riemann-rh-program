@@ -18,13 +18,46 @@ def irwin_hall(n, t):
     tt = t[ok]
     acc = np.zeros_like(tt)
     for j in range(0, n + 1):
-        term = ((-1) ** j) * math.comb(n, j) * np.where(tt >= j, (tt - j), 0.0) ** (n - 1)
+        term = ((-1) ** j) * math.comb(n, j) * np.where(tt >= j, np.abs(tt - j) ** (n - 1), 0.0)
         acc += term
     out[ok] = acc / math.factorial(n - 1)
     return out
 
+_GRID = None
+
+def _renewal_grid(wmax=64.0, h=2e-5):
+    """q(w) := w g(e^w) solves q(w) = w 1_[1,2](w) + int_{w-2}^{w-1} q(r) dr (from G = 1 - chi_hat, derived in NOTE §4.1);
+    trapezoid cumulative integral on a grid of step h. Used for w > 5, where the Irwin-Hall sum cancels catastrophically."""
+    global _GRID
+    n = int(round(wmax / h)) + 1
+    w = np.arange(n) * h
+    q = np.zeros(n); Q = np.zeros(n)          # Q = cumulative integral of q from 0
+    i1, i2 = int(round(1 / h)), int(round(2 / h))
+    for i in range(n):
+        wi = w[i]
+        if wi < 1 - 1e-12:
+            q[i] = 0.0
+        else:
+            j_hi = i - i1; j_lo = i - i2       # integral over [w-2, w-1]
+            integ = (Q[j_hi] if j_hi >= 0 else 0.0) - (Q[j_lo] if j_lo >= 0 else 0.0)
+            q[i] = (wi if wi <= 2 + 1e-12 else 0.0) + integ
+        Q[i] = (Q[i - 1] + 0.5 * h * (q[i] + q[i - 1])) if i > 0 else 0.0
+    _GRID = (w, q)
+    return _GRID
+
 def g_of_logu(w):
-    """g(u) with w = log u (vectorized); g = 0 for w < 1."""
+    """g(u) with w = log u (vectorized); g = 0 for w < 1. Exact Irwin-Hall for w <= 5, renewal grid above."""
+    w = np.asarray(w, dtype=float)
+    big = w > 5
+    if big.any():
+        gw, gq = _GRID if _GRID is not None else _renewal_grid()
+        out = np.zeros_like(w)
+        out[big] = np.interp(w[big], gw, gq) / w[big]
+        out[~big] = _g_small(w[~big])
+        return out
+    return _g_small(w)
+
+def _g_small(w):
     w = np.asarray(w, dtype=float)
     out = np.zeros_like(w)
     if w.size == 0:

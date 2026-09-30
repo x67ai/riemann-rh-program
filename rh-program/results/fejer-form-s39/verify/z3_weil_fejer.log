@@ -1,0 +1,5 @@
+zeta, 10142 zeros < 1e4 (both signs), L = 20: min over T in [0, 1e4) step 0.05 of W(T) = 0.006926 at T = 0.00 (every term >= 0: all gamma real)
+F_{2.9,2}: factor zeros at Re s = 0.8238766802, 0.1761233198, t = (2j+1)*4.5323601418 ; min W(T), T in [0.5, 30): -872.4505 at T = 13.80
+DH: on-line zeros in [50,120]: 43 ; off-line zeros found: [(0.808517, 85.699348), (0.191483, 85.699348), (0.65083, 114.163343), (0.34917, 114.163343)] ; argument-principle count in the strip: 47.0000 ; on + off = 47
+DH: min over T in [60,110) of W(T) (zeros in [50,120] only) = -681.6590 at T = 85.49 ; off-line pairs' share = -681.8654 ; on-line share = 0.2064
+   out-of-window zeros contribute at most ~ 2 * 0.7 * 4 / (L * 10) = 0.028 in absolute value (|gamma - T| >= 10 for T in [60,110])

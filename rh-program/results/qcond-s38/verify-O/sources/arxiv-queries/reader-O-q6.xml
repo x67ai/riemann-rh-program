@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/59q4cB5iK3X0zzY8mU4P5cEJWt0</id>
+  <title>arXiv Query: search_query=all:"generalised prime"&amp;id_list=&amp;start=0&amp;max_results=60</title>
+  <updated>2026-09-30T23:42:21Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22generalised+prime%22&amp;start=0&amp;max_results=60&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>60</opensearch:itemsPerPage>
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/math/0410270v1</id>
+    <title>Beurling Zeta Functions, Generalised Primes, and Fractal Membranes</title>
+    <updated>2004-10-11T12:32:21Z</updated>
+    <link href="https://arxiv.org/abs/math/0410270v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0410270v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We study generalised prime systems $\mathcal{P}$ $(1&lt;p_1\leq p_2\leq...,$ with $p_j\in\R$ tending to infinity) and the associated Beurling zeta function $ζ_{\mathcal{P}}(s) =\prod_{j=1}^{\infty} (1-p_j^{-s})^{-1}$. Under appropriate assumptions, we establish various analytic properties of $ζ_{\mathcal{P}}(s)$, including its analytic continuation and we characterise the existence of a suitable generalised functional equation. In particular, we examine the relationship between a counterpart of the Prime Number Theorem (with error term) and the properties of the analytic continuation of $ζ_{\mathcal{P}}(s)$. Further we study `well-behaved' g-prime systems, namely, systems for which both the prime and integer counting function are asymptotically well-behaved. Finally, we show that there exists a natural correspondence between generalised prime systems and suitable orders on $\N^2$.
+  Some of the above results may be relevant to the second author's theory of `fractal membranes', whose spectral partition functions are precisely given by Beurling zeta functions.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2004-10-11T12:32:21Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>T. W. Hilberdink</name>
+    </author>
+    <author>
+      <name>M. L. Lapidus</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2110.14323v1</id>
+    <title>Spectral asymptotics for a family of LCM matrices</title>
+    <updated>2021-10-27T10:04:35Z</updated>
+    <link href="https://arxiv.org/abs/2110.14323v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2110.14323v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We consider the family of arithmetical matrices given explicitly by $$E(σ,τ)=\left\{\frac{n^σm^σ}{[n,m]^τ}\right\}_{n,m=1}^\infty,$$ where $[n,m]$ is the least common multiple of $n$ and $m$ and the real parameters $σ$ and $τ$ satisfy $ρ:=τ-2σ&gt;0$, $τ-σ&gt;\frac12$ and $τ&gt;0$. We prove that $E(σ,τ)$ is a compact self-adjoint positive definite operator on $\ell^2({\mathbb N})$, and the ordered sequence of eigenvalues of $E(σ,τ)$ obeys the asymptotic relation $$λ_n(E(σ,τ))=\frac{\varkappa(σ,τ)}{n^ρ}+o(n^{-ρ}), \quad n\to\infty,$$ with some $\varkappa(σ,τ)&gt;0$. We give an application of this fact to the asymptotics of singular values of truncated multiplicative Toeplitz matrices with the symbol given by the Riemann zeta function on the vertical line with abscissa $σ&lt;1/2$. We also point out a connection of the spectral analysis of $E(σ,τ)$ to the theory of generalised prime systems.</summary>
+    <category term="math.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-10-27T10:04:35Z</published>
+    <arxiv:primary_category term="math.SP"/>
+    <author>
+      <name>Titus Hilberdink</name>
+    </author>
+    <author>
+      <name>Alexander Pushnitski</name>
+    </author>
+  </entry>
+</feed>

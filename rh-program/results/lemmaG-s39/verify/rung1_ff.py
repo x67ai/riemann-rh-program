@@ -61,9 +61,13 @@ def brute(q, a, nmax):
 
 def gf_counts(q, rN, nmax):              # N_P(n) = [u^n] prod_N (1-u^N)^{r_N} / (1 - q u), exact integers
     D = [0] * (nmax + 1); D[0] = 1
-    for N in range(1, nmax + 1):
-        for _ in range(rN[N]):            # multiply by (1 - u^N), r_N times (binomial expansion is faster; fine here)
-            for k in range(nmax, N - 1, -1): D[k] -= D[k - N]
+    for N in range(1, nmax + 1):          # multiply by (1 - u^N)^{r_N} = sum_j C(r_N, j) (-1)^j u^{N j}  (exact integers)
+        r = rN[N]
+        if r == 0: continue
+        B = [0] * (nmax + 1); c = 1; j = 0
+        while N * j <= nmax:
+            B[N * j] = c * (-1) ** j; c = c * (r - j) // (j + 1); j += 1
+        D = [sum(D[i] * B[k - i] for i in range(k + 1)) for k in range(nmax + 1)]
     NP, acc = [], 0
     for n in range(nmax + 1):
         acc = acc * q + D[n]; NP.append(acc)

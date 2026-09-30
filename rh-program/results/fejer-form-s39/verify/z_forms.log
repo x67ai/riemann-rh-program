@@ -1,0 +1,12 @@
+== Z1: (C_Q) for F_{a,q} = zeta(s)(1 + a q^-s + q^{1-2s}), conductor Q = q^2 ==
+a=2.9 q=2: LHS rho_Q(1-Q^-1/2) = 2.950000000 ; RHS exact (Poisson) = 2.950000000 ; RHS summed to 2e6 + tail = 2.950000203 ; RH FALSE
+a=2.0 q=2: LHS rho_Q(1-Q^-1/2) = 2.500000000 ; RHS exact (Poisson) = 2.500000000 ; RHS summed to 2e6 + tail = 2.500000203 ; RH true (factor zeros on the line or on Re s = 0, 1)
+a=5.0 q=5: LHS rho_Q(1-Q^-1/2) = 8.800000000 ; RHS exact (Poisson) = 8.800000000 ; RHS summed to 2e6 + tail = 8.800001267 ; RH FALSE
+== Z1 in dimension 2: Epstein x^2 + 5y^2; lattice L = Z + Z sqrt5 i, covol sqrt5, gap: shortest vector 1 ==
+disk radius 1/2: phi = 1_B*1_B supported in |v| < 1 (the gap); defect sum_{w in L* - 0} |1_B^(w)|^2 = 1.139355 (+tail 0.000356) ; Poisson predicts sqrt5 pi/4 - pi^2/16 = 1.139353
+== Z2: E_F(1/2 + x) >= E_F(1/2) on the real axis ==
+zeta (2 xi)        FE residual 5.2e-31 ; E(1/2) = 0.9942415564 ; min over x in [0, 1.5] of sign*(E(1/2+x) - E(1/2)) = 0.0 ; |E| monotone on [1/2, 2]: True
+F_{2.9,2}          FE residual 3.5e-31 ; E(1/2) = 5.6954403 ; min over x in [0, 1.5] of sign*(E(1/2+x) - E(1/2)) = 0.0 ; |E| monotone on [1/2, 2]: True
+DH                 FE residual 1.3e-30 ; E(1/2) = 1.433192169 ; min over x in [0, 1.5] of sign*(E(1/2+x) - E(1/2)) = 0.0 ; |E| monotone on [1/2, 2]: True
+Epstein x^2+5y^2   FE residual 1.3e-30 ; E(1/2) = 0.8591441013 ; min over x in [0, 1.5] of sign*(E(1/2+x) - E(1/2)) = 0.0 ; |E| monotone on [1/2, 2]: True
+DH at its recorded off-line zero 0.808517 + 85.699348 i: |DH| = 6.5116e-7 (|DH| at 0.5 + 85.699348 i: 0.35687)
