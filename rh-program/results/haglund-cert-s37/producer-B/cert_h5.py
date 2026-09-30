@@ -67,7 +67,9 @@ for r in ['1e-3', '1e-6', '1e-9', '1e-10']:
     res[r] = k
     log('  H5: r = %s -> winding number k = %s' % (r, k))
 zs = newton_on_model(D, c, steps=8)
-log('  model zero (non-rigorous): z = %s  (s = 1/2 + i z = %s)' % (mp.nstr(zs, 30), mp.nstr(mp.mpf('0.5') + 1j * zs, 30)))
+with mp.workprec(240):
+    sz = mp.mpf('0.5') + mp.mpc(0, 1) * zs
+    log('  model zero (non-rigorous): z = %s  (s = 1/2 + i z = %s)' % (mp.nstr(zs, 30), mp.nstr(sz, 30)))
 sc = point('2508.2939748053', cy)
 E = model_error(MR, Rad, rho, m, K, hi(R('0.01') + R('1e-3') * iv.sqrt(2)))
 kc, _ = winding(D, E, c, '1e-3', log=log, sc=sc)

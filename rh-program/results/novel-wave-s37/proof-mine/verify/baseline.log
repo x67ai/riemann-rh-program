@@ -1,0 +1,24 @@
+=== 1. The virtual curve V: L(u) = 1 - 5u + 5u^2 over F_5 ===
+N_1..N_8 = [1, 11, 76, 451, 2501, 13376, 70001, 361251]
+b_1..b_8 = [1, 5, 25, 110, 500, 2215, 10000, 45100]
+min N_n (n<=60) = 1 ; min b_d (d<=60) = 1 ; all integers: True (exact)
+alpha, beta = 3.618034, 1.381966 ; alpha*beta = 5.000000 ; sqrt(q) = 2.236068
+Re s of zeros: log(alpha)/log q = 0.79899, log(beta)/log q = 0.20101
+alpha/sqrt5 = 1.618033989 = golden ratio 1.618033989 ; beta/sqrt5 = 0.618033989 = 1/phi
+s_n / 5^(n/2) = phi^n + phi^-n for n=1..8: [2.236068, 3.0, 4.472136, 7.0, 11.18034, 18.0, 29.068884, 47.0]
+class number h = L(1) = 1 ; divisor counts A_n = (5^n - 1)/4, n=1..5: [1, 6, 31, 156, 781]
+FE residual at u=0.3: 2.78e-17
+FE residual at u=-0.7: 8.88e-16
+FE residual at u=1.9: 0.00e+00
+
+=== 2. The control E0: y^2 = x^3 + A x + B over F_5 with #E0(F_5) = 2 (trace 4) ===
+all (A,B) with trace 4: [(2, 0)]
+E0: y^2 = x^3 + 2 x + 0 ; affine points [(0, 0)] + infinity -> #E0(F_5) = 2
+
+=== 3. E0 over F_{5^n}, n = 1..4, by brute force in F_{5^n} = F_5[x]/(f) ===
+n=1: #E0(F_5^1) brute force = 2 ; 5^n+1-(alpha0^n+beta0^n) with alpha0=2+i: 2 ; match: True
+n=2: #E0(F_5^2) brute force = 20 ; 5^n+1-(alpha0^n+beta0^n) with alpha0=2+i: 20 ; match: True
+n=3: #E0(F_5^3) brute force = 122 ; 5^n+1-(alpha0^n+beta0^n) with alpha0=2+i: 122 ; match: True
+n=4: #E0(F_5^4) brute force = 640 ; 5^n+1-(alpha0^n+beta0^n) with alpha0=2+i: 640 ; match: True
+quadratic twist E0^tw: y^2 = x^3 + 3 x + 0 ; #E0^tw(F_5) = 10 ; N(E0) + N(E0^tw) = 12 = 2(q+1) = 12
+E0: alpha0 = 2 + i, |alpha0|^2 = 5 = q ; Re s of zeros = 1/2 ; class number = #E0(F_5) = L(1) = 2

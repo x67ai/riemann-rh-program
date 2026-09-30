@@ -1,0 +1,33 @@
+cert_h5.py  mpmath 1.3.0  iv.prec = 200
+
+(L) seed-chain evaluator: tail route vs defining sum
+  xi_1(1/2 + i(14.0 + 0 i)): tail [0.00024290501982289, 0.00024290501982289] + i[-1.6654402422179e-55, 1.6654354936743e-55] ; defining sum [0.00024290501982289, 0.00024290501982289] + i[-1.3166782129896e-58, 1.3166782129896e-58] ; overlap True
+  xi_1(1/2 + i(20.6 + 2.7 i)): tail [0.00017381888712931, 0.00017381888712931] + i[1.2631406874609e-6, 1.2631406874609e-6] ; defining sum [0.00017381888712931, 0.00017381888712931] + i[1.2631406874609e-6, 1.2631406874609e-6] ; overlap True
+  xi_2(1/2 + i(39.5 + 0 i)): tail [6.024728552612e-11, 6.024728552612e-11] + i[-1.0461657643396e-55, 1.0461657643396e-55] ; defining sum [6.024728552612e-11, 6.024728552612e-11] + i[-9.5977885711206e-58, 9.5977885711206e-58] ; overlap True
+  xi_2(1/2 + i(30.1 + 1.3 i)): tail [4.0180182481476e-8, 4.0180182481476e-8] + i[3.445603699429e-8, 3.445603699429e-8] ; defining sum [4.0180182481476e-8, 4.0180182481476e-8] + i[3.445603699429e-8, 3.445603699429e-8] ; overlap True
+
+(a) real zeros of xi_24 on the critical line
+  xi_24(1/2 + i 2510.2026) in [2.813175361644763e-854, 2.813175361644763e-854] + i[-6.237377041282184e-905, 8.551151675656178e-905]   (M = 27)
+  xi_24(1/2 + i 2510.2027) in [-1.65267129214774e-854, -1.65267129214774e-854] + i[-6.379316016890538e-905, 8.263271983633545e-905]   (M = 27)
+  => sign change on (2510.2026, 2510.2027): CERTIFIED
+  xi_24(1/2 + i 2510.7086) in [-3.232811395053649e-854, -3.232811395053649e-854] + i[-5.314656706105627e-905, 7.257690089307799e-905]   (M = 27)
+  xi_24(1/2 + i 2510.7087) in [6.141840615423139e-855, 6.141840615423139e-855] + i[-5.223012440380755e-905, 6.926771022315664e-905]   (M = 27)
+  => sign change on (2510.7086, 2510.7087): CERTIFIED
+
+(b) Taylor model of z -> xi_24(1/2 + i z) at c5 = 2508.2839748053 + 0.3159896243 i: R = 0.1, rho = 0.002, m = 24, K = 12
+  crude bound M_R = 4.0722e-849 on |z-c| = 0.1 (32 boxes)
+  D_0 = [3.279773256e-861, 3.279773256e-861] + i[-2.866962537e-860, -2.866962537e-860] ; D_1 = [7.518658592e-851, 7.518658592e-851] + i[1.173473004e-849, 1.173473004e-849]
+  winding: 32 pieces, all enclosures exclude 0 (min |F| over pieces >= 1.155e-852, E = 2.644e-871); sum/2pi in [1.0, 1.0] -> k = 1
+  H5: r = 1e-3 -> winding number k = 1
+  winding: 32 pieces, all enclosures exclude 0 (min |F| over pieces >= 1.157e-855, E = 6.832e-890); sum/2pi in [1.0, 1.0] -> k = 1
+  H5: r = 1e-6 -> winding number k = 1
+  winding: 32 pieces, all enclosures exclude 0 (min |F| over pieces >= 1.129e-858, E = 6.832e-890); sum/2pi in [1.0, 1.0] -> k = 1
+  H5: r = 1e-9 -> winding number k = 1
+  winding: 32 pieces, all enclosures exclude 0 (min |F| over pieces >= 8.747e-860, E = 6.832e-890); sum/2pi in [1.0, 1.0] -> k = 1
+  H5: r = 1e-10 -> winding number k = 1
+  model zero (non-rigorous): z = (2508.28397480532415320152284309 + 0.315989624304342468894086356532j)  (s = 1/2 + i z = (0.184010375695657531105913643468 + 2508.28397480532415320152284309j))
+  winding: 32 pieces, all enclosures exclude 0 (min |F| over pieces >= 1.053e-851, E = 2.248e-860); sum/2pi in [-2.59870700297e-8, 2.59870702061e-8] -> k = 0
+  control square c5 + 0.01, r = 1e-3: k = 0 (expected 0)
+
+SUMMARY H5: real zeros certified True; winding at r = 1e-3: 1; control 0; => a zero z5 of xi_24(1/2 + i z) with Im z5 > 0.3149 and Re z5 < 2508.2850 < 2510.2026 < a real zero: ordering invariant FAILS for xi_24: CERTIFIED  (17 s)
+methods: [((1, 'g-lower'), 8), ((2, 'g-lower'), 8), ((3, 'g-lower'), 8), ((4, 'g-lower'), 8), ((5, 'g-lower'), 8), ((6, 'g-lower'), 8), ((7, 'g-ibp'), 5), ((7, 'g-lower'), 3), ((25, 'g-ibp'), 120), ((26, 'g-ibp'), 120), ((27, 'g-ibp'), 120)]

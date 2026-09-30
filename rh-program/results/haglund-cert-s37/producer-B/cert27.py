@@ -102,6 +102,10 @@ for r in ['1e-30', '1e-40', '1e-45', '1e-48']:
     res2[r] = k2
     log('  H2*: square z* + [-r, r]^2, r = %s -> winding number k = %s' % (r, k2))
 
+log('\n(X4) direct enclosure at the brief/NOTE 22-digit point z22 = 3143.220682421536585287 + 0.3152587993782148453823 i')
+F22 = f(point('3143.220682421536585287', '0.3152587993782148453823'))
+log('  Xi_27(z22) in %s   (brief, Arb literal: (2.58e-1085) + (1.70e-1084) i)' % F22.nstr(12))
+
 log('\n(H3) logic with r = 1e-3: Im z0 >= 0.3152587994 - 0.001 = 0.3142587994 > 0; Re z0 <= 3143.2216824215 <= 3143.2217 < 3144.8946')
 ok3 = H1 and res.get('1e-3') == 1 and mp.mpf('3143.2206824215') + mp.mpf('1e-3') < mp.mpf('3144.8946')
 log('SUMMARY: H1 %s; H4 %s; H2 k(r=1e-3) = %s, smallest r = %s; control k = %s; H3 %s; total %.1f s'

@@ -12,7 +12,7 @@
   each with a remainder proved in CERT.md; explicit tail bound for n > M. Winding numbers by a Taylor model
   (DFT of tight point enclosures on a circle + Cauchy bound from a crude box enclosure on a larger circle), piecewise along ∂S.
 
-## 2026-09-30 23:25 — ladder (R1–R3), `python3 ladder.py` → `logs/ladder.log` (118 s, one process)
+## 2026-09-30 23:00 — ladder (R1–R3), `python3 ladder.py` → `logs/ladder.log` (118 s, one process)
 - Code: `ivc.py` (complex boxes over mp.iv), `specfun.py` (Stirling Γ, Euler–Maclaurin ζ, h by integration by parts / lower
   series), `xin.py` (Ξ, Φ_n literal (14), tail route, proved tail bound), `winding.py` (Taylor model + boundary walk). iv.prec = 200.
 - R1 CERTIFIED: Ξ₁(14.04543957) ∈ +1.347060456146727e−11 (±2e−55 imag. noise), Ξ₁(14.04543959) ∈ −1.704102125314551e−11;
@@ -24,7 +24,7 @@
 - R3 CERTIFIED control: square 17 + i, r = 1/4 (no zero of Ξ₁ by Haglund's list): winding k = 0 (sum/2π ∈ ±1.3e−5).
 - Kernel h used: lower series for n ≤ 7 (small X), integration by parts for n = 7 on some inputs; both routes exercised.
 
-## 2026-09-30 23:40 — N = 27: H1, H4, H2, control; `python3 cert27.py` → `logs/cert27.log` (26 s, one process)
+## 2026-09-30 23:04 — N = 27: H1, H4, H2, control; `python3 cert27.py` → `logs/cert27.log` (57 s incl. H2*, one process)
 - Same code as the ladder. Tail route Ξ₂₇ = Ξ − Φ₂₈ − Φ₂₉ − Φ₃₀ − T₃₀ (|T₃₀| ≤ 18·900π·e^{−900π}); ζ by E–M with N = 1012,
   m = 94 (remainder ≤ 2.6e−58); h(w) for n = 28–30 by integration by parts (all 732 kernel calls; no fallback needed).
 - H1 CERTIFIED: Ξ₂₇(3144.8946) ∈ −1.760194631277516e−1070 (radius ~1e−1121), Ξ₂₇(3144.8947) ∈ +1.068716492261707e−1070.
@@ -38,3 +38,29 @@
 - H3 HOLDS: z₀ ∈ S(r = 1e−3) ⇒ Im z₀ ≥ 0.3142587994 > 0, Re z₀ ≤ 3143.2216824215 < 3144.8946 < real zero of H1.
 - Next: refined tiny square around the Newton-refined zero; cross-checks (mpmath reference for Ξ; h by both routes at
   X = 784π; literal sum (13) at N = 27 at the H1/H4 points at ~4600 bits, if affordable); then CERT.md.
+
+## 2026-09-30 23:11 — H2* (refined square) and cross-check launch
+- H2* CERTIFIED (in `cert27.py`, same log): second model centred at the Newton zero z* of the first model (ρ = 0.001, m = 40,
+  E = 2.1e−1145): winding k = 1 on z* + [−r, r]² for r = 1e−30, 1e−40, 1e−45, 1e−48, so
+  z₀ = 3143.220682421536585287281295989417800119257644961983569 + 0.3152587993782148453822863730092717652956513976685290909 i ± 1e−48
+  (NOTE §4's 22-digit value agrees).
+- Cross-checks running (`crosscheck.py` → `logs/crosscheck.log`): X1 (Ξ boxes contain mpmath's ordinary ζ·Γ values at the four
+  H1/H4 points and at c — PASSED); X2 (h at X = 784π by integration by parts vs lower series) — FIRST RUN INVALID as a check:
+  the lower-series route was stopped at 190 relative bits against a partial sum that cancels by ~1e135, so its boxes were 1e105×
+  too wide (overlap trivially true). Script fixed (relbits = prec − 40); X2 will be re-run. X3 (literal sum (13) at 4400 bits):
+  first point Ξ₂₇(3144.8946) literal = −1.760194631277516e−1070 ± 1.8e−1171, identical to the tail route.
+
+## 2026-09-30 23:26 — cross-checks (run 1), selftest, optional H5
+- X3 (run 1, `logs/crosscheck-run1-X2invalid.log`, 670 s): the LITERAL sum (13) Σ_{n≤27} Φ_n at 4400 bits (no ζ, no E–M, no (12);
+  Φ_n by B3/B4 with Γ by B1) equals the tail route at all four H1/H4 points to 16 digits, boxes overlap, same strict signs:
+  3144.8946 → −1.760194631277516e−1070, 3144.8947 → +1.068716492261707e−1070, 3145.5998 → +1.129756942916642e−1070,
+  3145.5999 → −1.149139153627783e−1070 (literal radii ≈ 1–2e−1171). H1 and H4 therefore hold by two independent routes.
+- `selftest.py` → `logs/selftest.log` (2 s): PASSED (exact Bernoulli, clog_gen 0/15000 violations, Γ/ζ/h/Ξ/Φ_n boxes contain
+  mpmath's ordinary values at low height and at the N = 27 height).
+- H5 CERTIFIED (`cert_h5.py` → `logs/cert_h5.log`, 17 s): seed chain ξ₂₄ = ξ − ½s(s−1)Σ_{n>24} g_n (tail route; ladder: tail vs
+  defining sum overlap at N = 1, 2 at four points). ξ₂₄(½+it) changes sign on (2510.2026, 2510.2027) [+2.813175361644763e−854 →
+  −1.65267129214774e−854] and on (2510.7086, 2510.7087) [−3.232811395053649e−854 → +6.141840615423139e−855]; winding number 1 of
+  z ↦ ξ₂₄(½+iz) on c5 + [−r, r]², c5 = 2508.2839748053 + 0.3159896243 i, for r = 1e−3, 1e−6, 1e−9, 1e−10; control c5 + 0.01: k = 0.
+  Model zero s = 0.184010375695657531105913643468 + 2508.28397480532415320152284309 i (mirror of NOTE's 0.8159896243043424688941 + …).
+  So the ordering invariant fails for ξ₂₄ (non-real zero in Q with real part < 2508.285 < 2510.2026 < a real zero).
+- Cross-check run 2 launched (fixed X2; X1 and X3 repeated) → `logs/crosscheck.log`.

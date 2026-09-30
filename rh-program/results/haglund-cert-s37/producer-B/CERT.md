@@ -2,7 +2,8 @@
 
 Unit `haglund-cert-s37`, 2026-09-30. Independent of producer A (its folder was never opened). Arithmetic: mpmath 1.3.0 `mp.iv`
 (outward-rounded real intervals; complex numbers as rectangular boxes built on them in `ivc.py`), exact rationals for Bernoulli
-numbers. Every truncation adds a disk whose radius is a bound proved in §B. Scripts: `ladder.py`, `cert27.py`, `crosscheck.py`.
+numbers. Every truncation adds a disk whose radius is a bound proved in §B. Scripts: `ladder.py`, `cert27.py` (Theorem H),
+`crosscheck.py`, `selftest.py` (checks), `cert_h5.py` (optional H5); library `ivc.py`, `specfun.py`, `xin.py`, `winding.py`.
 
 ## 0. Theorem H (certified)
 
@@ -13,7 +14,7 @@ numbers. Every truncation adds a disk whose radius is a bound proved in §B. Scr
   r = 10⁻³ and for r = 10⁻⁵, 10⁻⁷, 10⁻⁹, 10⁻¹⁰, 5·10⁻¹¹, 4·10⁻¹¹, **3.7·10⁻¹¹ (smallest reached)**; k = 0 for r = 3.5·10⁻¹¹ (the zero
   sits just outside that square). So Ξ₂₇ has exactly one zero z₀ (simple) in the open square S_r for every such r.
 - **(H2\*)** Re-centred at z* = 3143.220682421536585287281295989417800119257644961983569 + 0.3152587993782148453822863730092717652956513976685290909 i,
-  the winding number is 1 on z* + [−r, r]² for r = 10⁻³⁰, 10⁻⁴⁰, 10⁻⁴⁵, 10⁻⁴⁸: **z₀ = z* + O(10⁻⁴⁸)** (agrees with the 22 digits of NOTE §4).
+  the winding number is 1 on z* + [−r, r]² for r = 10⁻³⁰, 10⁻⁴⁰, 10⁻⁴⁵, 10⁻⁴⁸: **z₀ ∈ z* + [−10⁻⁴⁸, 10⁻⁴⁸]²** (NOTE §4's 22 digits agree).
 - **(H3)** With r = 10⁻³: Im z₀ > 0.3142587994 > 0 and Re z₀ < 3143.2216824215 < 3144.8946 < x₁, x₁ the real zero of (H1). In Q, z₀
   precedes x₁ by real part but has the larger imaginary part: Ξ₂₇ does not have monotonic zeros in Q — **Conjecture 1 is false for
   N = 27**, and so is the weak form (Remark 1): z₀ is a non-real zero in Q with real part below the real zero x₁ ≤ largest real zero.
@@ -119,3 +120,37 @@ The ladder exercised every component: Stirling with shift (small |w|), Euler–M
 
 - H2\*: second model at z* (ρ = 0.001, m = 40): E = 2.09e−1145; k = 1 for r = 1e−30, 1e−40, 1e−45, 1e−48 (at 1e−48 the lower
   modulus 5.9e−1114 still exceeds the point-enclosure radii ≈ 1e−1120 by 10⁶). Location: z₀ ∈ z* + [−1e−48, 1e−48]².
+
+## E. Cross-checks (not load-bearing; `crosscheck.py` → `logs/crosscheck.log`, `selftest.py` → `logs/selftest.log`)
+
+- **X3 — a second rigorous route for H1/H4.** The literal sum (13), Σ_{n≤27} Φ_n, at 4400 bits: Φ₁…Φ₂₇ via B4 (and B3 where it
+  converges), Γ via B1; no ζ, no Euler–Maclaurin, no identity (12). The terms are ≈ 1e−9 and cancel over ≈ 1061 digits:
+
+| x | literal (13), radius ≈ 1–2e−1171 | tail route, radius ≤ 6e−1121 | overlap / same sign |
+|---|---|---|---|
+| 3144.8946 | −1.760194631277516e−1070 | −1.760194631277516e−1070 | yes / yes |
+| 3144.8947 | +1.068716492261707e−1070 | +1.068716492261707e−1070 | yes / yes |
+| 3145.5998 | +1.129756942916642e−1070 | +1.129756942916642e−1070 | yes / yes |
+| 3145.5999 | −1.149139153627783e−1070 | −1.149139153627783e−1070 | yes / yes |
+
+  They also agree with the brief's Arb reference values (−1.76019463128e−1070, +1.06871649226e−1070, +1.12975694292e−1070,
+  −1.14913915363e−1070) to all 12 digits given. X4 (`cert27.py`): at the brief's 22-digit point z₂₂ the enclosure is
+  Ξ₂₇(z₂₂) ∈ @X4@ (brief: 2.58e−1085 + 1.70e−1084 i).
+- **X1.** The Ξ boxes (Stirling + E–M) contain mpmath's ordinary 400-bit ζ·Γ values at the four points and at c.
+- **X2.** h at X = 784π (the four arguments of Φ₂₈(c)): B3 at 200 bits vs B4 at 1400 bits (lower sum cancels by ≈ 1e135).
+- **Ladder-level identity checks.** Tail route = literal (13) at N = 1, 2 (16 digits), and for the seed chain tail = defining sum
+  at N = 1, 2 (`cert_h5.py` (L)): identity (12) and Riemann's formula behave as used.
+- **selftest.py** PASSED: exact Bernoulli numbers vs mpmath, `clog_gen` 0 violations on 15000 samples, and Γ, ζ, h, Ξ, Φ_n
+  boxes contain mpmath's ordinary values (low height and N = 27 height).
+
+## H5 (optional, done after H1–H3): the seed chain ξ₂₄ (`cert_h5.py` → `logs/cert_h5.log`, 17 s)
+
+ξ_N(s) = ½ + ½s(s−1)Σ_{n≤N} g_n(s), g_n = h(s/2) + h((1−s)/2) (staircase NOTE §1). Evaluated as ξ₂₄ = ξ − ½s(s−1)Σ_{24<n≤27} g_n − T,
+|T| ≤ 4|s(s−1)|e^{−X₀}/X₀, X₀ = 784π (proof as B5: |h| ≤ 2e^{−X}/X, ratio of consecutive bounds < ½), using Riemann's
+ξ = ½ + ½s(s−1)Σ_{n≥1} g_n (NOTE §1 derivation; checked: tail = defining sum at N = 1, 2). ξ_N(1−s) = ξ_N(s) and
+ξ_N(s̄) = conj ξ_N(s) (X real), so ξ₂₄(½+it) is real. Certified: sign changes on (2510.2026, 2510.2027)
+[+2.813175361644763e−854 → −1.65267129214774e−854] and (2510.7086, 2510.7087) [−3.232811395053649e−854 → +6.141840615423139e−855];
+winding number 1 of z ↦ ξ₂₄(½+iz) on c5 + [−r, r]², c5 = 2508.2839748053 + 0.3159896243 i, for r = 10⁻³, 10⁻⁶, 10⁻⁹, 10⁻¹⁰
+(model R = 0.1, ρ = 0.002, m = 24, K = 12; M_R = 4.07e−849; at r = 10⁻³: min lower modulus 1.16e−852 vs E = 2.6e−871); control
+c5 + 0.01: k = 0. Model zero s = 0.184010375695657531105913643468 + 2508.28397480532415320152284309 i (mirror of NOTE §4's ρ₂₄).
+Hence ξ₂₄ has a non-real zero in Q (z-variable) with real part < 2508.285 < 2510.2026 < a real zero: the ordering invariant fails.

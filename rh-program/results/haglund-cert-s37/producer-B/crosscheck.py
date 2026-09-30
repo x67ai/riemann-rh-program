@@ -4,7 +4,7 @@
       vs Gamma(w) minus the lower series (1400 bits) -- two different proved expansions; boxes must overlap.
  (X3) the LITERAL sum (13)  Xi_27 = sum_{n<=27} Phi_n  at 4400 bits (no zeta, no E-M, no identity (12)) vs the tail route
       at the H1 and H4 endpoints; boxes must overlap and have the same strict sign.
-Usage: python3 crosscheck.py        (log: logs/crosscheck.log; each point is logged as soon as it is done)
+Usage: python3 crosscheck.py [X1] [X2] [X3]   (log: logs/crosscheck-<parts>.log; each point is logged when done)
 """
 import sys, os, time
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -13,7 +13,8 @@ from ivc import *
 from xin import *
 import specfun
 
-LOGF = open(os.path.join(HERE, 'logs', 'crosscheck.log'), 'w')
+PARTS = sys.argv[1:] or ['X1', 'X2', 'X3']
+LOGF = open(os.path.join(HERE, 'logs', 'crosscheck-%s.log' % ''.join(PARTS)), 'w')
 
 
 def log(*a):
@@ -35,7 +36,7 @@ log('crosscheck.py  mpmath %s  backend %s' % (mp.__version__, mp.libmp.BACKEND))
 
 log('\n(X1) Xi boxes vs mpmath ordinary functions (mp.prec = 400)')
 mp.mp.prec = 400
-for (x, y) in [(p, '0') for p in PTS] + [(CX, CY)]:
+for (x, y) in ([(p, '0') for p in PTS] + [(CX, CY)] if 'X1' in PARTS else []):
     B = Xi(point(x, y), 190)
     z = mp.mpc(mp.mpf(x), mp.mpf(y))
     s = mp.mpf('0.5') + 1j * z
@@ -45,7 +46,7 @@ for (x, y) in [(p, '0') for p in PTS] + [(CX, CY)]:
 
 log('\n(X2) h(w) at X = 784 pi, w in {s/2+2, (1-s)/2+2, s/2+1, (1-s)/2+1}, s = 1/2 + i c')
 res = []
-for bits, meth in [(200, 'ibp'), (1400, 'lower')]:
+for bits, meth in ([(200, 'ibp'), (4400, 'lower')] if 'X2' in PARTS else []):
     set_prec(bits)
     z = point(CX, CY)
     s = s_of(z)
@@ -59,14 +60,18 @@ for bits, meth in [(200, 'ibp'), (1400, 'lower')]:
         hs = [specfun.h_lower(w, X, bits - 40, Kmax=40000) for w in ws]   # relbits ~ prec: the lower sum cancels ~1e135
     res.append(hs)
     log('  %s (%d bits, %.1f s): %s' % (meth, bits, time.time() - t, '; '.join(h.nstr(12) for h in hs)))
-log('  overlap of the two routes for all four w: %s' % all(overlap(a, b) for a, b in zip(res[0], res[1])))
-log('  relative radius of the lower-series boxes: %s' % ', '.join(mp.nstr(h.rad() / abs(h.mid()), 3) for h in res[1]))
+if res:
+    log('  overlap of the two routes for all four w: %s' % all(overlap(a, b) for a, b in zip(res[0], res[1])))
+    log('  relative radius: ibp %s ; lower %s' % (', '.join(mp.nstr(h.rad() / abs(h.mid()), 3) for h in res[0]),
+                                                 ', '.join(mp.nstr(h.rad() / abs(h.mid()), 3) for h in res[1])))
+    log('  (4400 bits for the lower route: its recurrence u_k = u_(k-1) X/(w+k) rotates the box ~5000 times, and the wrapping of'
+        ' rectangular complex boxes -- plus the ~1e135 cancellation -- must be absorbed by precision; at 1400 bits the box was useless)')
 
 log('\n(X3) literal sum (13) at 4400 bits vs tail route at 200 bits')
 set_prec(200)
-tails = {x: XiN_tail(27, point(x), 190) for x in PTS}
+tails = {x: XiN_tail(27, point(x), 190) for x in (PTS if 'X3' in PARTS else [])}
 set_prec(4400)
-for x in PTS:
+for x in (PTS if 'X3' in PARTS else []):
     t = time.time()
     z = point(x)
     L = C(0)
