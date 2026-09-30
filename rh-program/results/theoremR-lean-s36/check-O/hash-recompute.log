@@ -1,0 +1,56 @@
+=== Wed Sep 30 18:01:35 IST 2026 recompute every SHA-256 in results/theoremR-lean-s36/hashes.txt (paths relative to rh-program/)
+entries: 33
+lean/Zeta23/ResidueRank/LogPrimes.lean: OK
+lean/Zeta23/ResidueRank/Pair.lean: OK
+lean/Zeta23/ResidueRank/GenusBound.lean: OK
+lean/comparator/Challenge/ResidueRank.lean: OK
+lean/comparator/Solution/ResidueRank.lean: OK
+lean/comparator/PrintAxioms/ResidueRank.lean: OK
+lean/comparator/config-residue-rank.json: OK
+lean/formalization.yaml: OK
+lean/README.md: OK
+results/theoremR-lean-s36/PREDERIVATION-ERRATA.md: OK
+results/theoremR-lean-s36/BUILD-NOTES.md: OK
+results/theoremR-lean-s36/FIDELITY.md: OK
+results/theoremR-lean-s36/rung1-axioms.lean: OK
+results/theoremR-lean-s36/program-axioms.lean: OK
+results/theoremR-lean-s36/rung1-build.log: OK
+results/theoremR-lean-s36/rung1-print-axioms.log: OK
+results/theoremR-lean-s36/program-build.log: OK
+results/theoremR-lean-s36/program-axioms.log: OK
+results/theoremR-lean-s36/build-comparator-topic.log: OK
+results/theoremR-lean-s36/print-axioms.log: OK
+results/theoremR-lean-s36/statement-identity.log: OK
+results/theoremR-lean-s36/trust-greps.log: OK
+results/theoremR-lean-s36/prerun-cleanup.log: OK
+results/theoremR-lean-s36/comparator-run.log: OK
+results/theoremR-lean-s36/yaml-validation.log: OK
+results/theoremR-lean-s36/lint-10g.log: OK
+results/theoremR-lean-s36/tools/run.sh: OK
+results/theoremR-lean-s36/tools/prerun-cleanup.sh: OK
+results/theoremR-lean-s36/tools/statement_identity_s36.py: OK
+results/theoremR-lean-s36/tools/trust_greps_s36.py: OK
+results/theoremR-lean-s36/tools/errata_numbers.py: OK
+results/theoremR-lean-s36/tools/errata_numbers.log: OK
+results/theoremR-lean-s36/tools/lint_10g.py: OK
+shasum -c rc=0
+--- hashes.txt itself (SHARED.md final builder block quotes 2badc8cf…):
+2badc8cfa545c73b9973a611bb7f4cfe1501a539444568fba50c6554053b8073  results/theoremR-lean-s36/hashes.txt
+--- SHARED.md (builder's report value, not in a file):
+195a06bfab1f69fe5db7e433c1400514e1578865ed04ebfb356754b13df47150  results/theoremR-lean-s36/SHARED.md
+--- inputs quoted in hashes.txt header:
+60b131b3353f944b101bca54609cd07f591fad4c20618fab5387b6a03d42068e  results/theoremR-lean-s36/UNIT-BRIEF.md
+881e024a9184e9e4aab0976e42a31f1d8f8f5f01b3cec10c773a00f236601a81  results/theoremR-lean-s36/typing-probe.lean
+--- the clean-clone copies (must equal the rh-program/lean rows):
+1d5f4e28a9612ec0d0dc5849ddf7ba907de166dbaea159fbd9f8252f152f050d  Zeta23/ResidueRank/LogPrimes.lean
+4fc07998bf03dd0c20150b82d7b9a79fd35170609cbd561a5d817aeac32c87e0  Zeta23/ResidueRank/Pair.lean
+d24145eb8a19cb08ac87bc32bff5cde64d4635d685501908161f80f08c1df7d6  Zeta23/ResidueRank/GenusBound.lean
+65e76f2e7b871e2a812332649155eb34c6440cc0776d3ad746853de0f4c3a33a  comparator/Challenge/ResidueRank.lean
+ff32e5c2cd607436608986c092769926c301621bd7a98a286a1e6d3716dd960c  comparator/Solution/ResidueRank.lean
+cf0e05c33cc767fda93f98b50696678d9ca0dd3cff8dc5fbdfb4ff975fa68a9d  comparator/PrintAxioms/ResidueRank.lean
+fd170488ce2836037a7fd5eee28576d955bd72a8aa8c7856e27479e6c9b6bf1b  comparator/config-residue-rank.json
+--- files in results/theoremR-lean-s36/ (excluding check-O/ and this checker's CHECK-O.md) NOT listed in hashes.txt:
+  not listed: hashes.txt
+  not listed: SHARED.md
+  not listed: typing-probe.lean
+  not listed: UNIT-BRIEF.md

@@ -29,3 +29,23 @@ backend) for the independent zeros route (`mpmath.zetazero`).
 **Plan:** U1 toys (real-rooted polynomial; complex pair; sin√w/√w with exact S-fraction 1/((2n+1)(2n+3)); circle
 toys) → U2 ζ tables by Arb (moments at 1/2; Li at 1) → U3 zeros cross-check (mpmath.zetazero + smooth tail)
 → U4 mining → U5 controls (curve over F_q exact; L(χ₄); DH; F_{a,q}) → U6 task (d) → U7 prior art → NOTE.
+
+## 2026-09-30 18:10 — Unit 1: toys (verify/u1_toys.py, .log, .json) — ALL PASS
+
+- T1 (E = Π_{k≤6}(1 − w/k²), exact rationals): S-fraction signs `+++++++++++0` — 11 positive, α_12 = 0 exactly
+  (a 6-atom measure on (0,∞) terminates at α_{2K}). ✓
+- T2 (one complex pair among 6 atoms, 4 placements): Hankel det signs = Heine-formula signs (rel. agreement
+  1e-40) in every case; first failure of D_n = det(c_{i+j}) at n = r+1 or r+2, r = number of real atoms with
+  larger |y| than the pair (r = 0 → n = 2; r = 3 → n = 4; r = 4 → n = 6, twice). The S-fraction goes negative at
+  the matching index. Prediction rule confirmed: the failure index is the depth of the complex atom in the
+  measure (in the "frozen" regime; for dense spectra more atoms must be killed — see visibility, later units).
+- T3 (sin√w/√w): exact S-fraction α_n = 1/((2n+1)(2n+3)) for n = 1..60 ✓ (Lambert/Gauss). Precision law in Arb:
+  certified digits at P = 800 bits: n = 1:239, 10:226, 20:205, 30:180, 40:151, 50:122, 60:91 — loss ≈ 2.5–3.1
+  digits per S-index at n ≈ 50 (grows like ~2 log10 n per step). Planning figure for ζ: α_n up to n ≈ 600 needs
+  ≈ 3000+ digits.
+- C1/C2 (circle; ξ-like finite products): m_n from λ_n (second differences) = m_n from atoms (1e-60) ✓;
+  Levinson = Schur algorithm (independent) to 1e-41 before termination ✓; on-line 6 atoms: |α_5| = 1 exactly
+  (termination) ✓; one pair off the line (β = 0.8 at γ = 5, or β = 0.55 at γ = 8): |α_5| = 1.00448 resp.
+  1.0000019 > 1 → Toeplitz positivity fails at index 5, while λ_1..λ_10 are all positive (Li blind at n ≤ 10). ✓
+- Pattern: circle Verblunsky coefficients alternate in sign with |α_n| close to 1 (the measure σ lives on a
+  small arc around z = 1).

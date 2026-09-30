@@ -1,0 +1,42 @@
+Wed Sep 30 18:06:43 IST 2026
+[S1] exact algebra
+  s^4 - s^2 - 2g s^2 - 2g s == s (s + 1)(s^2 - s - 2g): True
+  r^2 - r - 2g at r = (1 + sqrt(1 + 8g))/2: 0
+  1 + r^2 + 2gr - (1 + 2g)(1 + r) at that r: 0
+  h1 slack at x = r^2, L = 1 + r^2 + 2gr: 0
+  h2 slack at x = r^2, L = 1 + r^2 + 2gr: 0
+  bound at g = 0: 2
+[S2] feasible max of L vs the bound (x scanned on [0, 3 r^2] in 600001 steps)
+  g=   0.00: bound 2.0000000000; scanned max L 2.0000000000 at x 1.000000 (r^2 = 1.000000); max - bound = +0.00e+00
+  g=   0.01: bound 2.0600075471; scanned max L 2.0600075471 at x 1.039615 (r^2 = 1.039615); max - bound = +4.44e-16
+  g=   0.10: bound 2.6049844719; scanned max L 2.6049844719 at x 1.370820 (r^2 = 1.370820); max - bound = +0.00e+00
+  g=   0.50: bound 5.2360679775; scanned max L 5.2360679775 at x 2.618034 (r^2 = 2.618034); max - bound = +0.00e+00
+  g=   1.00: bound 9.0000000000; scanned max L 9.0000000000 at x 4.000000 (r^2 = 4.000000); max - bound = +0.00e+00
+  g=   2.00: bound 17.8077640640; scanned max L 17.8077640640 at x 6.561553 (r^2 = 6.561553); max - bound = +0.00e+00
+  g=   5.00: bound 51.7171833059; scanned max L 51.7171833059 at x 13.701562 (r^2 = 13.701562); max - bound = +0.00e+00
+  g=  10.00: bound 126.0000000000; scanned max L 126.0000000000 at x 25.000000 (r^2 = 25.000000); max - bound = +0.00e+00
+  g= 100.00: bound 3145.8453113151; scanned max L 3145.8369125652 at x 214.649898 (r^2 = 214.650972); max - bound = -8.40e-03
+  random search (seed 20260930, 400000 draws, x in [-5, 30], L in [-5, 60], g = 0 or U[0,5]): feasible 11425, with x < 0: 0, above the bound: 0
+[S3] necessity counterexamples with Mathlib's totalizations
+  item 7 at g=-1, x=L=1: h1 1.0 <= 4.0: True; h2 1.0 <= 4.0: True; bound (1+2g)(1+(1+sqrt0(1+8g))/2) = -1.5; L <= bound: False
+  item 8 at kappa = 0 (log p / 0 = 0), d = 1, g = 1: h1 (1 + 1 - 0)^2 = 4 <= 4: True; h2 (1 + 1 - 0)^2 = 4 <= 4: True, at every prime
+  item 2: N = 0 -> log 0 = 0 (span {0}); N = 1 -> log 1 = 0 (span {0}): both finite-dimensional
+[S4] first prime above exp(kappa * bound(g))
+  kappa=1.000000, g=1.0: bound 9.0000000000, exp(kappa*bound) = 8103.0839, first prime above: 8111 (log p / kappa = 9.000976)
+  kappa=1.000000, g=0.0: bound 2.0000000000, exp(kappa*bound) = 7.3891, first prime above: 11 (log p / kappa = 2.397895)
+  kappa=1.000000, g=2.0: bound 17.8077640640, exp(kappa*bound) = 54176839.7415, first prime above: 54176849 (log p / kappa = 17.807764)
+  kappa=0.693147, g=1.0: bound 9.0000000000, exp(kappa*bound) = 512.0000, first prime above: 521 (log p / kappa = 9.025140)
+  kappa=1.000000, g=0.5: bound 5.2360679775, exp(kappa*bound) = 187.9297, first prime above: 191 (log p / kappa = 5.252273)
+[S5] E1: kappa < 0 satisfiable; kappa = 0 contradictory at n = 2
+  cls = id, n=2: fiber {n}, fiber sum Lambda(n) = 0.693147; kappa * v(n) = 0.693147; equal: True
+  cls = id, n=3: fiber {n}, fiber sum Lambda(n) = 1.098612; kappa * v(n) = 1.098612; equal: True
+  cls = id, n=4: fiber {n}, fiber sum Lambda(n) = 0.693147; kappa * v(n) = 0.693147; equal: True
+  cls = id, n=6: fiber {n}, fiber sum Lambda(n) = 0.000000; kappa * v(n) = 0.000000; equal: True
+  cls = id, n=8: fiber {n}, fiber sum Lambda(n) = 0.693147; kappa * v(n) = 0.693147; equal: True
+  cls = id, n=9: fiber {n}, fiber sum Lambda(n) = 1.098612; kappa * v(n) = 1.098612; equal: True
+  cls = id, n=12: fiber {n}, fiber sum Lambda(n) = 0.000000; kappa * v(n) = 0.000000; equal: True
+  kappa = 0: the fiber sum at n = 2 is >= Lambda(2) = log 2 = 0.693147 > 0 = 0 * v: contradictory
+real 3.39
+user 3.30
+sys 0.04
+rc=0

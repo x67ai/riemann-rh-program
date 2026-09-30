@@ -1,0 +1,190 @@
+# zoo-s36 — numbers check (writer, Opus 5.5): counts, hashes, byte identity, record numbers — Wed Sep 30 18:07:45 IST 2026
+
+Generator: results/zoo-s36/verify/numbers_check.py (read-only). Every figure below is computed from the file named at run time.
+
+## 0. Hashes at run time
+  8e66cdc0de6f13f598191b5fd10c4a2e7220ef6d1af7397dd8f4157a25bdfae8  BARRIER-ZOO.md
+  b419aab16c067e32d1164b4581b4cdc1c1a930a3f8102b6b796caf3a135772cf  results/zoo-s36/dryrun-BARRIER-ZOO.md
+  f13ffc08de876694143fa82e792a85ded54915f8435d157db49ff1b4ccafc302  results/zoo-s36/zoo-entries-proposed.md
+  f7c58c8f00737166992ce474fbf4db3f40bede75450f0a52b498ed0990b00bfc  results/zoo-s36/BRIEF.md
+  7bc144a45de43952350ce2765bf41d460980c6ae58b9021f96378c655a387141  scripts/zoo-insert-s36.py
+  bc6e241120f5af37bd55c015bed107254f11205d4c09b363b1a662172df87001  results/beta-shapes-s35/ZOO-LINES-STAGED.md
+  49eb8e126831c012a2c0110f787335a2c7d9136be1992a7605fff495a01d91f1  results/beta-shapes-s35/NOTE.md
+  1614bcbb7d4d55ce98ec77e3a99d5efe5ecf73cf550bfbd4b3d3087a8138dec4  results/beta-shapes-s35/read-O.md
+  2b4dfacadbaddbe93bfcf6294e51ddd432ec8ec0180eae25492cfb3c3b0dade9  results/f1-spec-s29/SPEC.md
+  d71fb8a0189bbcb2b910e036f4849e1b8df2487f2d1b46be1e077ff79f9330c5  results/e3-borger-rung1/NOTE.md
+  ✓ BARRIER-ZOO.md is the brief's input 8e66cdc0de6f13f5… (full hash above) — stop line 1 does not fire; the zoo is untouched
+  ✓ ZOO-LINES-STAGED.md is the file the script gates on (bc6e2411…)
+  ✓ NOTE.md is the brief's 49eb8e12…
+
+## A. Heading tally (regex, re.M) and line counts, before (BARRIER-ZOO.md) and after (the dry run)
+  before ^### I\. 8 | ^### II\. 5 | ^### III\. 21 | ^### IV\. 19 | ^### V\. 5 | ^### (all) 58 | lines (\n count) 699 | bytes 388861 | ends with one \n: True
+  ✓ before: 8/5/21/19/5 = 58 headings, 699 lines
+  after  ^### I\. 8 | ^### II\. 5 | ^### III\. 21 | ^### IV\. 20 | ^### V\. 5 | ^### (all) 59 | lines (\n count) 711 | bytes 396235 | ends with one \n: True
+  ✓ after: 8/5/21/20/5 = 59 headings, 711 lines (+12)
+  Group IV in file order, before: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18, 16, 17, 19]
+  Group IV in file order, after:  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18, 16, 17, 19, 20]
+  ✓ IV.20 is appended after IV.19, the last Group-IV entry in file order
+  ✓ 'IV.20' on 0 lines before; on 3 lines after (heading, count paragraph, row)
+
+## B. diff BARRIER-ZOO.md results/zoo-s36/dryrun-BARRIER-ZOO.md — hunk summary
+  hunks: 36a37,38 / 489a492 / 587a591,598 / 669a681   (diff exit 1)
+  ✓ four pure-addition hunks, no 'c' or 'd' hunk (nothing changed or removed)
+  ✓ every hunk is an addition
+  (the count block was inserted as a blank line + the paragraph after line 35; diff pairs that blank with the old blank 36 and prints the paragraph + a blank as 37–38 — the same file)
+  added lines in the result (line: first 110 characters):
+    36: (blank)
+    37: **Entry count (dated, Session 36, 2026-09-30).** IV.20 (the finite-rank target kill — Theorem R: a base with i
+    492: - **[RIDER 2026-09-29, Session 35 — on IV.10, after the E3 rider.]** The HOST-DIMENSION check gains a TARGET-R
+    591: (blank)
+    592: ### IV.20 The finite-rank target kill (no surface over a field, and no target of finite Q-rank, can carry ζ's 
+    593: (blank)
+    594: - **STATEMENT.** Let (X, Y, c) be a pair in the sense of the SPEC (`results/f1-spec-s29/SPEC.md`) over a base 
+    595: - **KILLS / RETURNS.** Any brief proposing a target for W*(Spec Z) that is a surface over a field, an algebrai
+    596: - **EXECUTABLE TEST.** For any proposed (β, Y, c): (1) write the value group of Y's intersection form and the 
+    597: - **SOURCE.** `results/beta-shapes-s35/NOTE.md` §2.0 (Lemma F), §2.1–2.3 (T1–T3, Theorem R, Corollaries 3.1–3.
+    598: - **STATUS.** program-derived — writer Fable 5.1, Session 35; Opus 5 reader `read-O.md` AGREES-WITH-CORRECTION
+    681: | β-shapes s35 (finite-rank / Weil-form targets for the F₁-square; End_β = {id} bases) | closed by theorem (Se
+  ✓ every original line survives, in order, as an identical line (subsequence check)
+
+## C. Byte identity — staged text vs NOTE §5, and the proposed blocks vs the staged text (the two sanctioned edits only)
+  ✓ ZOO-LINES-STAGED.md line 7 == NOTE.md line 223 (199 bytes)
+  ✓ ZOO-LINES-STAGED.md line 8 == NOTE.md line 224 (1994 bytes)
+  ✓ ZOO-LINES-STAGED.md line 9 == NOTE.md line 225 (992 bytes)
+  ✓ ZOO-LINES-STAGED.md line 10 == NOTE.md line 226 (467 bytes)
+  ✓ ZOO-LINES-STAGED.md line 11 == NOTE.md line 227 (247 bytes)
+  ✓ ZOO-LINES-STAGED.md line 12 == NOTE.md line 228 (1038 bytes)
+  ✓ ZOO-LINES-STAGED.md line 16 == NOTE.md line 232 (727 bytes)
+  ✓ block iv20: seven lines, the second blank (heading, blank, five bullets)
+  ✓ sanctioned edit 1: heading = staged line 7 with '- **' → '### ' and ')**' → '; entered 2026-09-30, Session 36)' — nothing else
+  ✓ block iv20 line 3 == staged line 8 byte for byte (- **STATEMENT.** Let ()
+  ✓ block iv20 line 4 == staged line 9 byte for byte (- **KILLS / RETURNS.**)
+  ✓ block iv20 line 5 == staged line 10 byte for byte (- **EXECUTABLE TEST.**)
+  ✓ block iv20 line 6 == staged line 11 byte for byte (- **SOURCE.** `results)
+  ✓ sanctioned edit 2: STATUS = staged line 12 with the placeholder replaced by the verdict — nothing else
+  ✓ block iv10 == staged line 16 byte for byte (727 bytes)
+  ✓ the heading's title is verbatim in the brief (item 1)
+  ✓ the heading's tail is verbatim in the brief (item 1)
+  ✓ the verdict string is verbatim in the brief (item 1), quotes included
+  ✓ block xref = the brief's three cells verbatim inside '| … |'
+  ✓ the row has three cells, the table's shape
+  ✓ semicolon separator precedent in the third column (row 'IV.19; IV.9 …')
+
+## D. The reader's required pairs (read-O.md §4: 'with F12 and M4–M7 applied') are in the staged text
+  ✓ F12 NEW found 1 time(s) in the staged KILLS / RETURNS line (any brief presenting Deligne-style rationality (finitely man…)
+  ✓ M4 NEW found 1 time(s) in the staged STATUS line (`[novelty: dual-model check 2026-09-29]` (writer 22 arXiv qu…)
+  ✓ M5 NEW found 1 time(s) in the staged the IV.10 rider line (`[novelty: dual-model check 2026-09-29]`…)
+  ✓ M6 NEW found 1 time(s) in the staged STATEMENT line (**Theorem R:** if the Q-linear span G of the diagonal row {(…)
+  ✓ M7 NEW found 1 time(s) in the staged STATUS line (Durov 0704.2030 p. 43 (the F₁-square is the diagonal); Borge…)
+
+## E. Every zoo entry cited in the new text exists, by number and first words; the attributed phrases are in place
+  ✓ III.20 'The S6 doubled-object rule' at line [363]
+  ✓ IV.10 'Tate-curve products carry no correspondence calculus' at line [481]
+  ✓ IV.13 'The closed-3-manifold length-group kill' at line [510]
+  ✓ V.4 'The negative-control rule' at line [616]
+  ✓ V.5 'The Grossmann-condition rule' at line [624]
+  ✓ III.20 carries "Deligne's squeeze additionally needs RATIONALITY" (cited in IV.20 STATUS)
+  ✓ IV.13 carries the Q-independence of {log p} (cited in IV.20 STATUS)
+  ✓ 'R-b′' names IV.10's 2026-09-25 rider at zoo line 25 (IV.20 SOURCE: 'IV.10 rider R-b′')
+  ✓ IV.20's 'V.4 reading in NOTE §2.3 DH CHECK' is at NOTE line 121
+  ✓ E3 NOTE line 81: Theorem 3.4 (cited 'E3 Theorem 3.4')
+  ✓ E3 NOTE line 123: Theorem 4.1(b) is the non-Cartier statement (the rider's 'non-Cartier statement')
+  ✓ E3 NOTE has no §2.2 anywhere (its §2 is the prior-art gate) — FF2's ground
+  ✓ SPEC line 34: **A2…
+  ✓ SPEC line 40: **A5…
+  ✓ SPEC line 44: **A7…
+  ✓ SPEC line 48: **A9…
+  ✓ SPEC line 52: **A11…
+  ✓ SPEC line 149 (PRECISION 17:20 IST 2026-09-30): A11′ adopted; A8′ and A13′ HELD — FF1's ground
+  ✓ NOTE line 62: ### 2.0 Lemma F
+  ✓ NOTE line 73: ### 2.1 Theorem T1
+  ✓ NOTE line 87: ### 2.2 Theorem T2
+  ✓ NOTE line 103: ### 2.3 Theorem T3
+  ✓ NOTE line 109: **Theorem R (the residue-characteristic bound).**
+  ✓ NOTE line 115: **Corollary 3.1 
+  ✓ NOTE line 117: **Corollary 3.2 
+  ✓ NOTE line 168: ### 3.4 Two sub-shapes of (D4)
+  ✓ NOTE line 93 (T2 (b)): the N!-lemma, N! · Z^N ⊆ L_N (the rider's 'NOTE §2.2 (b)')
+  ✓ NOTE line 170 (§3.4): the sub-shape (D4-fin)
+  ✓ read-O.md line 57: §2.9 Novelty (cited in IV.20 STATUS)
+  ✓ NOTE's verify/numbers-check.log has sections [1]–[8] and [11] (cited in SOURCE); found ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']
+
+## F. Record numbers inside the inserted text
+  read-O.md §3 pair labels (29): F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12, F13, F14, M1, M2, M3a, M3b, M3c, M3d, M4, M5, M6, M7, M8, M9, M10, M11, M12
+  ✓ 29 OLD/NEW pairs = 14 FIX-FIRST (F1–F14) + 15 recommended (M1, M2, M3a–M3d, M4–M12)
+  ✓ read-O.md line 22: 'Overall: AGREES-WITH-CORRECTIONS … 29 OLD/NEW pairs (14 FIX-FIRST, 15 recommended)'
+  ✓ read-O.md line 1: the reader began Tue Sep 29 16:05 IST 2026 (the verdict's date 2026-09-29)
+  ✓ read-O.md line 13: Theorem R PROVED from A5 + A9 (real-valued, one fixed κ); converse proved by the reader
+  ✓ read-O.md line 40: A5, A9 with real values and one fixed κ, Euclid, unique factorization; A7 idle
+  ✓ NOTE line 273: 29 pairs applied 2026-09-30, each FIX-FIRST re-derived at the line (M1–M12 with M3 split a–d = 15)
+  writer's queries: arxiv_search.sh 12 + arxiv_search2.sh 10 = 22
+  ✓ writer 22 arXiv queries (IV.20 STATUS)
+  ✓ reader 20 queries (read-O.md line 344)
+  ✓ count paragraph figures = the recount in §A: {'59 entries': True, '8/5/21/20/5': True, 'sum': True, '19 → 20': True, '699 → 711': True, 'launch hash': True}
+
+## G. FIX-FIRST pairs FF1–FF6 (proposed file, finding 8): each OLD once in its staged line, each OLD/NEW shown in the proposed file
+  ✓ FF1 (STATEMENT): OLD once in the staged line; OLD and NEW verbatim in the proposed file
+  ✓ FF2 (RIDER): OLD once in the staged line; OLD and NEW verbatim in the proposed file
+  ✓ FF3 (STATUS): OLD once in the staged line; OLD and NEW verbatim in the proposed file
+  ✓ FF4 (STATUS): OLD once in the staged line; OLD and NEW verbatim in the proposed file
+  ✓ FF5 (RIDER): OLD once in the staged line; OLD and NEW verbatim in the proposed file
+  ✓ FF6 (KILLS): OLD once in the staged line; OLD and NEW verbatim in the proposed file
+  ✓ x-18 p. 4 lines 27–28: 'Number of residue characteristics |char(X )| of' / 'X' | 'rank of period group Λ of (X, F , φt )' — FF4's ground
+  ✓ x-18 p. 4 does not print 'rank of the period group' (the staged quotation adds 'the')
+  ✓ x-18 p. 4 lines 20–21: 'the N γ are not all powers of the same / number' (verbatim, line break)
+  ✓ reader's quote-check.log carries Borger p. 27 'Of course this makes essential use of equal characteristic'
+  ✓ zoo line 489 (the E3 rider): 'this rider claims no Z-form of Theorems 4.1(b) or 4.2' — FF5's ground
+  ✓ zoo line 489 uses 'NOTE' 7 times for results/e3-borger-rung1/NOTE.md — FF2's ground
+  ✓ zoo line 488 cites Borger at p. 5 in two papers (0801.1691, 0906.3146) — FF6's ground
+  ✓ zoo line 7 status vocabulary lacks 'program-derived'; no entry uses it — FF3's ground
+  top-level RIDER heads: 40; dated Session 28 or later: 9; heads not of the dated shape: [455]
+  ✓ every top-level RIDER dated Session 28 or later carries '… zoo stream' in its head — FF2's second ground
+  ✓ 37 zoo lines carry 'entered at the Session-N zoo stream'
+
+## H. Lint (10(g)) and U.S. English
+  ✓ block count: none of the five linted phrases 
+  ✓ block iv10: none of the five linted phrases 
+  ✓ block iv20: none of the five linted phrases 
+  ✓ block xref: none of the five linted phrases 
+  lint_s27.py: LINT NOTE results/zoo-s36/zoo-entries-proposed.md whole file: 'clearly' occurs 1 time(s) outside/inside blocks (see above for blocks)
+  lint_s27.py: LINT NOTE results/zoo-s36/zoo-entries-proposed.md whole file: 'obviously' occurs 1 time(s) outside/inside blocks (see above for blocks)
+  lint_s27.py: LINT NOTE results/zoo-s36/zoo-entries-proposed.md whole file: 'easy to see' occurs 1 time(s) outside/inside blocks (see above for blocks)
+  lint_s27.py: LINT NOTE results/zoo-s36/zoo-entries-proposed.md whole file: 'well known' occurs 1 time(s) outside/inside blocks (see above for blocks)
+  lint_s27.py: LINT NOTE results/zoo-s36/zoo-entries-proposed.md whole file: 'well-known' occurs 1 time(s) outside/inside blocks (see above for blocks)
+  lint_s27.py: results/zoo-s36/zoo-entries-proposed.md: 5 block(s) checked; British-spelling candidates (judge by hand; quotations keep their source): ['spelling']
+  ✓ lint_s27.py exit 0 on the proposed file (no linted phrase in any block)
+  scripts/zoo-insert-s36.py: the five phrases occur only on line(s) [62] (the lint tuple itself)
+  ✓ scripts/zoo-insert-s36.py carries the linted phrases on exactly one line, its lint tuple
+  results/zoo-s36/verify/numbers_check.py: the five phrases occur only on line(s) [34] (the lint tuple itself)
+  ✓ results/zoo-s36/verify/numbers_check.py carries the linted phrases on exactly one line, its lint tuple
+
+## I. Positions in the 711-line dry run (1-based)
+  ✓ count paragraph at line 37
+  ✓ IV.10 rider at line 492
+  ✓ IV.20 heading at line 592
+  ✓ STATEMENT at line 594
+  ✓ KILLS / RETURNS at line 595
+  ✓ EXECUTABLE TEST at line 596
+  ✓ SOURCE at line 597
+  ✓ STATUS at line 598
+  ✓ ## GROUP V at line 600
+  ✓ cross-reference row at line 681
+  ✓ blank lines at 36, 38, 493, 591, 593, 599, 682; '---' at 39; '### IV.11' at 494
+  ✓ anchors directly above: IV.19's PRECISION READ (590), IV.10's E3 rider (491), the D2 row (680)
+
+## J. Script gate tests (results/zoo-s36/verify/gate_tests.py on scratch copies; its output, verify/gate-tests.out)
+  [PASS] T1 default --out = temp scratch file  rc=0  expected success
+  [PASS] T2 second run on the inserted file  rc=1  expected refusal
+  [PASS] T3 tampered input (one byte)  rc=1  expected refusal
+  [PASS] T4 --out BARRIER-ZOO.md  rc=1  expected refusal
+  [PASS] T5 --out = --input  rc=1  expected refusal
+  [PASS] T6 FF1-FF6 applied  rc=0  expected success
+  [PASS] T7 FF1 + FF3 applied  rc=0  expected success
+  [PASS] T8 drift in SOURCE ([11] -> [10])  rc=1  expected refusal
+  [PASS] T9 drift in the row  rc=1  expected refusal
+  [PASS] T10 a pair applied in part  rc=1  expected refusal
+  [PASS] T11a --in-place on a scratch copy  rc=0  expected success
+  [PASS] T11b second --in-place run  rc=1  expected refusal
+  ALL GATE TESTS AS EXPECTED: True | BARRIER-ZOO.md still 8e66cdc0de6f13f5… = True
+
+RESULT: ALL CHECKS PASS

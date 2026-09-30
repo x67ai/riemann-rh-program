@@ -1,0 +1,10 @@
+FUNC zeta SIDE circle P 3000 SIZE 100 P2 4000
+inputs 0.1s; lambda_1 = [0.02309570896612103381431025 +/- 2.10e-27]
+lambda certified digits at n = 1, 100, 500, N: [900, 858, 858, 858]
+lambda_n not certified positive at: []
+Levinson(P) 0.0s
+Schur(P) 0.1s
+Levinson(P2) 0.2s
+verified digits of alpha_n at n = 0, 100, 200, ...: [(0, 901)]
+indices with |alpha_n| >= 1 or < 5 verified digits: []
+saved tables/zeta_circle_P3000_S100.json  total 0.4s

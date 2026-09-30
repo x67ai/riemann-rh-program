@@ -233,3 +233,78 @@ def sign_change_zeros(fr, t1, t2, h):
         if b < a and b < c and mp.sign(vs[j - 1]) == mp.sign(vs[j]) == mp.sign(vs[j + 1]):
             susp.append((ts[j], vs[j], max(a, c)))
     return zs, susp
+
+
+# ----------------------------------------------------------------------------------------------
+# root refinement with RELATIVE tolerances (the functions are ~1e-70 in size near the line)
+# ----------------------------------------------------------------------------------------------
+
+
+def refine_real_root(fr, a, b, fa=None, fb=None, tol=None, maxit=200):
+    """Illinois-bracketed root of a real function on [a,b] with a sign change; tolerance on |b-a|."""
+    a, b = mp.mpf(a), mp.mpf(b)
+    fa = fr(a) if fa is None else fa
+    fb = fr(b) if fb is None else fb
+    tol = tol or mp.mpf(10)**(-(mp.mp.dps - 6)) * max(1, abs(a))
+    side = 0
+    for _ in range(maxit):
+        if abs(b - a) < tol:
+            break
+        c = (a*fb - b*fa)/(fb - fa)
+        if not (min(a, b) < c < max(a, b)):
+            c = (a + b)/2
+        fc = fr(c)
+        if fc == 0:
+            return c
+        if mp.sign(fc) == mp.sign(fb):
+            b, fb = c, fc
+            if side == -1:
+                fa /= 2
+            side = -1
+        else:
+            a, fa = c, fc
+            if side == 1:
+                fb /= 2
+            side = 1
+        # occasional bisection to guarantee shrinkage
+        if _ % 7 == 6:
+            m = (a + b)/2
+            fm = fr(m)
+            if mp.sign(fm) == mp.sign(fa):
+                a, fa = m, fm
+            else:
+                b, fb = m, fm
+    return (a + b)/2
+
+
+def secant_complex(f, s0, s1=None, tol=None, maxit=100):
+    """Secant iteration for an analytic f; stops when |ds| < tol (relative-to-1 scale)."""
+    tol = tol or mp.mpf(10)**(-(mp.mp.dps - 8))
+    s0 = mp.mpc(s0)
+    s1 = mp.mpc(s1) if s1 is not None else s0 + mp.mpc('1e-6', '1e-6')
+    f0, f1 = f(s0), f(s1)
+    for it in range(maxit):
+        if f1 == f0:
+            break
+        s2 = s1 - f1*(s1 - s0)/(f1 - f0)
+        if abs(s2 - s1) < tol * max(1, abs(s2)):
+            return s2, it, True
+        s0, f0 = s1, f1
+        s1, f1 = s2, f(s2)
+    return s1, maxit, False
+
+
+def E_auto(chain, s, w, N, loss_margin=25):
+    """Direct formula when it does not cancel (far from the line), tail formula otherwise."""
+    s = mp.mpc(s)
+    if s.real < mp.mpf(1)/2:
+        s = 1 - s  # symmetry E(1-s) = E(s)
+    if s.real > 6:
+        with mp.workdps(mp.mp.dps + 10):
+            v = chain.E_direct(s, w, N)
+            # magnitude of the largest summand, for a cancellation check
+            big = abs(chain.C) if chain.kap == 0 else mp.mpf(0)
+            big = max(big, abs(chain.pref(s) * chain.T(s, 1)))
+        if big == 0 or abs(v) > big * mp.mpf(10)**(-(mp.mp.dps - loss_margin)):
+            return +v
+    return chain.E_tail(s, w)

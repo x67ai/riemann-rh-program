@@ -1,0 +1,32 @@
+[PASS] T1 default --out = temp scratch file  rc=0  expected success
+      OK: FIX-FIRST pairs applied: none (the staged text with the two sanctioned edits)
+      OK: /private/var/folders/5_/znvkm_md1dl9wgx33243ytqh0000gn/T/zoo-insert-s36-out.md written; 699 -> 711 lines (+12); entries 59 (I 8, II 5, III 21, IV 20, V 5); Group IV 19 -> 20; blocks at lines 37 (count), 492 (IV.10 rider), 592-598 (IV.20), 681 (row); SHA-256 b419aab16c067e32d1164b4581b4cdc1c1a930a3f8102b6b796caf3a
+      zoo unchanged: True | temp output == dry run: True
+[PASS] T2 second run on the inserted file  rc=1  expected refusal
+      zoo-insert-s36: STOP -- dryrun-BARRIER-ZOO.md already carries '### IV.20 ' -- this stream's text is in it; refusing to insert twice. Nothing written.
+[PASS] T3 tampered input (one byte)  rc=1  expected refusal
+      zoo-insert-s36: STOP -- $SP/t3.md SHA-256 is eaa37d16f0f5b790e2b6a2f5e7015480ed52c1c38e2347ce258b47fb45072805, expected 8e66cdc0de6f13f598191b5fd10c4a2e7220ef6d1af7397dd8f4157a25bdfae8 -- someone edited the zoo; the orchestrator re-anchors. Nothing written.
+[PASS] T4 --out BARRIER-ZOO.md  rc=1  expected refusal
+      zoo-insert-s36: STOP -- --out names BARRIER-ZOO.md; writing the zoo needs --in-place (with the zoo as --input). Nothing written.
+[PASS] T5 --out = --input  rc=1  expected refusal
+      zoo-insert-s36: STOP -- --out names the input file; writing over the input needs --in-place. Nothing written.
+[PASS] T6 FF1-FF6 applied  rc=0  expected success
+      OK: FIX-FIRST pairs applied: FF1, FF2, FF3, FF4, FF5, FF6
+      OK: $SP/t6.md written; 699 -> 711 lines (+12); entries 59 (I 8, II 5, III 21, IV 20, V 5); Group IV 19 -> 20; blocks at lines 37 (count), 492 (IV.10 rider), 592-598 (IV.20), 681 (row); SHA-256 d481675784faf113950fb12e4e203fef82aa8c898ad29bdd359b7aaa92174cc1  [BARRIER-ZOO.md untouched]
+[PASS] T7 FF1 + FF3 applied  rc=0  expected success
+      OK: FIX-FIRST pairs applied: FF1, FF3
+      OK: $SP/t7.md written; 699 -> 711 lines (+12); entries 59 (I 8, II 5, III 21, IV 20, V 5); Group IV 19 -> 20; blocks at lines 37 (count), 492 (IV.10 rider), 592-598 (IV.20), 681 (row); SHA-256 a889e06db97ebc503befcf60f4be968faaaf38edcda901f98676e00497db5a7d  [BARRIER-ZOO.md untouched]
+[PASS] T8 drift in SOURCE ([11] -> [10])  rc=1  expected refusal
+      zoo-insert-s36: STOP -- block iv20 line 6 (SOURCE) is not the staged line with only the sanctioned edits and whole FIX-FIRST pairs; the block has drifted from results/beta-shapes-s35/ZOO-LINES-STAGED.md. Nothing written.
+[PASS] T9 drift in the row  rc=1  expected refusal
+      zoo-insert-s36: STOP -- block xref is not the brief's row in the table's shape '| cell | cell | cell |'. Nothing written.
+[PASS] T10 a pair applied in part  rc=1  expected refusal
+      zoo-insert-s36: STOP -- block iv20 line 7 (STATUS) is not the staged line with only the sanctioned edits and whole FIX-FIRST pairs; the block has drifted from results/beta-shapes-s35/ZOO-LINES-STAGED.md. Nothing written.
+[PASS] T11a --in-place on a scratch copy  rc=0  expected success
+      OK: FIX-FIRST pairs applied: none (the staged text with the two sanctioned edits)
+      OK: $SP/copy11.md written; 699 -> 711 lines (+12); entries 59 (I 8, II 5, III 21, IV 20, V 5); Group IV 19 -> 20; blocks at lines 37 (count), 492 (IV.10 rider), 592-598 (IV.20), 681 (row); SHA-256 b419aab16c067e32d1164b4581b4cdc1c1a930a3f8102b6b796caf3a135772cf  [BARRIER-ZOO.md untouched]
+      in-place result == dry run: True
+[PASS] T11b second --in-place run  rc=1  expected refusal
+      zoo-insert-s36: STOP -- copy11.md already carries '### IV.20 ' -- this stream's text is in it; refusing to insert twice. Nothing written.
+
+ALL GATE TESTS AS EXPECTED: True | BARRIER-ZOO.md still 8e66cdc0de6f13f5… = True

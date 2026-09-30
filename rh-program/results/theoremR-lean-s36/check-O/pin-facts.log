@@ -1,0 +1,21 @@
+=== Wed Sep 30 18:07:50 IST 2026 pin-level facts quoted by the builder, re-read in the clean clone's Mathlib (51e6992efd06126df61a496bebf8f49482a4e129)
+-- LogPrimes.lean: where item 1 and its helpers sit (shipped file)
+104:/-! ## §2 Item (1): the logarithms of the primes are ℚ-linearly independent -/
+107:theorem padicValRat_finset_prod {ι : Type*} (q : ℕ) [Fact q.Prime] (s : Finset ι) (f : ι → ℚ)
+120:theorem padicValRat_prime (q p : Nat.Primes) :
+130:theorem linearIndependent_logP : LinearIndependent ℚ logP := by
+155:theorem log_primes_linearIndependent :
+159:/-! ## §3 Item (2): Theorem R's arithmetic core -/
+-- E8: VonMangoldt.lean names and lines
+73:theorem vonMangoldt_apply {n : ℕ} : Λ n = if IsPrimePow n then Real.log (minFac n) else 0 :=
+80:theorem vonMangoldt_nonneg {n : ℕ} : 0 ≤ Λ n := by
+86:theorem vonMangoldt_apply_pow {n k : ℕ} (hk : k ≠ 0) : Λ (n ^ k) = Λ n := by
+89:theorem vonMangoldt_apply_prime {p : ℕ} (hp : p.Prime) : Λ p = Real.log p := by
+99:theorem vonMangoldt_eq_zero_iff {n : ℕ} : Λ n = 0 ↔ ¬IsPrimePow n :=
+-- E8: infinite primes names
+/Users/jaytyagi/rh-lean-work/checker-clone-s36-residue/.lake/packages/mathlib/Mathlib/Data/Nat/Prime/Infinite.lean:16:  This also appears as `Nat.not_bddAbove_setOfPred_prime` and `Nat.infinite_setOfPred_prime`
+-- item 1 already in Mathlib? files mentioning LinearIndependent/linearIndependent/LinearIndepOn AND (Real.log or Nat.Primes):
+Mathlib/NumberTheory/NumberField/Units/Regulator.lean
+Mathlib/NumberTheory/NumberField/CanonicalEmbedding/NormLeOne.lean
+-- any statement 'LinearIndependent ℚ' with 'log' on one line:
+(end)

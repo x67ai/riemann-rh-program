@@ -1,0 +1,9 @@
+FUNC zeta SIDE real P 4000 SIZE 150 P2 5333
+series 0.4s; Lambda(1/2) = [0.4971207781883141099127737 +/- 3.97e-26]
+FE check (odd coefficients contain 0): True
+s_1..s_3: ['[0.02310499311541897078893381 +/- 4.31e-28]', '[3.717259928526968616486626e-5 +/- 2.48e-30]', '[1.441739314009732796953816e-7 +/- 4.40e-32]']
+S-fraction 149 coeffs in 0.2s
+certified digits: [(1, 1195), (100, 720)]
+first S-index with al_n not certified positive: None  sign string head: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+first J-index with b_n^2 not certified positive: None
+saved tables/zeta_real_P4000_S150.json  total 0.5s
