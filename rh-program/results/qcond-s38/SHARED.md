@@ -13,7 +13,7 @@ Append-only, dated blocks. Writer: Opus 5.5 (unit agent). Outputs only under `re
   coefficients become q-periodic, and a Landau (Pringsheim) argument on the q-part of the Euler product should
   exclude every conductor q > 1. To be checked at the line, with the periodic-coefficient step sourced.
 
-## 2026-10-01 02:55 IST — batch 1 (task 1) landed
+## 2026-10-01 02:42 IST — batch 1 (task 1) landed
 - NOTE §1.1–§1.4 written: the class 𝓜_r; examples (Poisson pairs π_a, the q = 4 example = π_{1/2}, F_{5,5} = π_{1/5} + (5/2)π_1,
   twisted combs); printed theorems Q1–Q7 quoted at the line; Lemma B (Bohr means = atoms), Lemma PD, Cor. 1 (masses ≤ ρ,
   equality ⟹ periodic atoms), Cor. 2 (window bound Σc² ≤ ρ² for atoms within length < r), Cor. 3 (ρ < 1.366 + masses ≥ 1 ⟹ lattice).
@@ -24,7 +24,7 @@ Append-only, dated blocks. Writer: Opus 5.5 (unit agent). Outputs only under `re
 - Next: §2 (Euler side: NOTE §11(iii) inequalities proved; sieved Bohr means ⟹ continuous part thin; Theorem U_q for the
   u.d. class via Lev–Olevskii + pigeonhole + Saias–Weingartner + Landau).
 
-## 2026-10-01 03:20 IST — batch 2 (task 2 theory) landed
+## 2026-10-01 02:47 IST — batch 2 (task 2 theory) landed
 - NOTE §2.1 Prop. E (Fejér form of the Euler side, general admissible sieve w = exp*(−Π₁); BFE §11(iii) now an identity with
   remainder ≥ 2q^{-1/2}S(1/q)); §2.2 Prop. E′ (Bohr form) ⟹ E1 ρ_q ≥ 1, E2 ∫u^{-1}dΠ_c ≤ log ρ_q (no purely continuous solution at
   any conductor), E3 discrete systems are free (c ≡ 1); §2.3 Lemma L (Landau, proved) + THEOREM L′ (F = ζ·D, D any finite generalized
@@ -33,7 +33,7 @@ Append-only, dated blocks. Writer: Opus 5.5 (unit agent). Outputs only under `re
 - Next: verify/v2 (identity (E) checked numerically on the non-Beurling self-dual examples; the reduced u.d. family decided for
   q = 2, 3, 4, 5, 6, 9, 25 with exact certificates), then §2.5 (beyond u.d.), §3 (rung-1 dictionary, verify/v3), §4–§5 close.
 
-## 2026-10-01 03:45 IST — batch 3 (task 2 computations, task 3 data) landed
+## 2026-10-01 02:52 IST — batch 3 (task 2 computations, task 3 data) landed
 - verify/v2_euler_identity_and_ud_family.{py,log}: Part A identity (E) exact to ≤1e−50 on 5 self-dual examples × 5 sieves
   (left side by the Poisson closed form of Σ S(ne)); Part B rigorous interval certificates: u.d. family infeasible for
   q = 2, 3, 5 (B = q²), 4 (B = 32), 9 (B = 81), 25 (B = 625), 6 (B = 108); no failed piece.
@@ -42,7 +42,7 @@ Append-only, dated blocks. Writer: Opus 5.5 (unit agent). Outputs only under `re
   q-part positivity (= F2 with the pole factor 1/(1−5u) removed) ⟺ NO t. Matches Theorem L′.
 - NOTE §2.5 written. Next: §2.6 (beyond u.d.), §3 (dictionary), §4 (attack log), §5 close.
 
-## 2026-10-01 04:20 IST — batch 4 (beyond u.d.; conditional discrete theorem) landed
+## 2026-10-01 02:57 IST — batch 4 (beyond u.d.; conditional discrete theorem) landed
 - New sources [here]: arxiv-2104.06812 (Baake–Spindeler–Strungaru 2023: periodic and u.d. Fourier eigenmeasures classified;
   general classification open, §8), arxiv-2605.23884 (Mazáč–Richard–Strungaru 2026, context), arxiv-2403.08659 (Lawton–Tsikh,
   context). No primary of Meyer's 1970 finite-values theorem found; two printed secondary statements on disk (KS 43–44, LO15 63–68).
@@ -52,7 +52,7 @@ Append-only, dated blocks. Writer: Opus 5.5 (unit agent). Outputs only under `re
 - Remaining open: weighted/mixed systems with infinitely many distinct atom masses (Meyer not applicable); the primary of Q4.
 - Next: §3 rung-1 dictionary (verify/v3), §4 attack log, §5 close; re-check the digest.
 
-## 2026-10-01 04:55 IST — CLOSE: T (stated classes, every conductor) + G (named residue)
+## 2026-10-01 03:04 IST — CLOSE: T (stated classes, every conductor) + G (named residue)
 - Digest landed during the unit (insights-digest.md, SHA-256 e86f642a…): §F.2 ranks this unit FIRST (line 352); quoted in NOTE §0.1,
   and its five consolidator's notes are answered (§1.2, §1.2(b), §1.6 = read-O R4(4), v1/v2 Fejér/exact checks, §3).
 - T (unconditional): Theorem U_q (u.d. generalized integers ⟹ q = 1 and ζ; weights allowed); Theorem L′ (ζ·finite generalized
@@ -65,3 +65,5 @@ Append-only, dated blocks. Writer: Opus 5.5 (unit agent). Outputs only under `re
   p. 25 (or Córdoba 1989) to make Theorem D unconditional.
 - verify/: v1 (examples), v2 (identity (E) exact; u.d. family certificates q = 2,3,4,5,6,9,25), v3 (rung-1 table), v4 (radical
   family certificate). All logs on disk. No construction; no new control claimed. Nothing load-bearing is recalled.
+
+(Timestamps of the batch headers corrected at 03:04 IST to the real clock; the first draft carried estimated times.)
