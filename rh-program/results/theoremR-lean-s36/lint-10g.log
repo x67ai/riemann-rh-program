@@ -1,0 +1,61 @@
+== Wed Sep 30 17:44:34 IST 2026 10(g) lint + UNIT-BRIEF §1(3) forbidden phrasings: python3 results/theoremR-lean-s36/tools/lint_10g.py . <pre-edit yaml copy sha256 336b3808…> <pre-edit README copy sha256 abc10d3b…> (the pre-edit copies were taken in the builder's scratchpad before the first edit; the yaml copy's hash equals the H4 post-fix hash 336b3808e807c033…)
+forbidden phrasings read from UNIT-BRIEF §1(3): 2 quoted strings (not printed); plus the clause on RH / the zeros (checked below)
+== the four banned phrases (case-insensitive) — count per file
+results/theoremR-lean-s36/PREDERIVATION-ERRATA.md            0
+results/theoremR-lean-s36/BUILD-NOTES.md                     0
+results/theoremR-lean-s36/FIDELITY.md                        0
+results/theoremR-lean-s36/SHARED.md                          0
+results/theoremR-lean-s36/rung1-axioms.lean                  0
+results/theoremR-lean-s36/program-axioms.lean                0
+results/theoremR-lean-s36/tools/errata_numbers.py            0
+results/theoremR-lean-s36/tools/statement_identity_s36.py    0
+results/theoremR-lean-s36/tools/trust_greps_s36.py           0
+results/theoremR-lean-s36/tools/run.sh                       0
+results/theoremR-lean-s36/tools/prerun-cleanup.sh            0
+lean/Zeta23/ResidueRank/LogPrimes.lean                       0
+lean/Zeta23/ResidueRank/Pair.lean                            0
+lean/Zeta23/ResidueRank/GenusBound.lean                      0
+lean/comparator/Challenge/ResidueRank.lean                   0
+lean/comparator/Solution/ResidueRank.lean                    0
+lean/comparator/PrintAxioms/ResidueRank.lean                 0
+lean/comparator/config-residue-rank.json                     0
+lean/formalization.yaml (added lines)                        0
+lean/README.md (added lines)                                 0
+== the brief's forbidden phrasings (case-insensitive) — count per file
+results/theoremR-lean-s36/PREDERIVATION-ERRATA.md            0
+results/theoremR-lean-s36/BUILD-NOTES.md                     0
+results/theoremR-lean-s36/FIDELITY.md                        0
+results/theoremR-lean-s36/SHARED.md                          0
+results/theoremR-lean-s36/rung1-axioms.lean                  0
+results/theoremR-lean-s36/program-axioms.lean                0
+results/theoremR-lean-s36/tools/errata_numbers.py            0
+results/theoremR-lean-s36/tools/statement_identity_s36.py    0
+results/theoremR-lean-s36/tools/trust_greps_s36.py           0
+results/theoremR-lean-s36/tools/run.sh                       0
+results/theoremR-lean-s36/tools/prerun-cleanup.sh            0
+lean/Zeta23/ResidueRank/LogPrimes.lean                       0
+lean/Zeta23/ResidueRank/Pair.lean                            0
+lean/Zeta23/ResidueRank/GenusBound.lean                      0
+lean/comparator/Challenge/ResidueRank.lean                   0
+lean/comparator/Solution/ResidueRank.lean                    0
+lean/comparator/PrintAxioms/ResidueRank.lean                 0
+lean/comparator/config-residue-rank.json                     0
+lean/formalization.yaml (added lines)                        0
+lean/README.md (added lines)                                 0
+== RH / zeros clause: every line mentioning RH, zeros or ζ must be a disclaimer (a negation on the line) — exceptions printed
+   REVIEW results/theoremR-lean-s36/PREDERIVATION-ERRATA.md:6: zeros or RH follows from anything below.
+   REVIEW results/theoremR-lean-s36/BUILD-NOTES.md:117: 2.2.1, Cor. 3.1–3.2, routes (a)/(b); ζ, its zeros, RH. Differs from the prose (r1–r11): the abstract pair; the indexing m, n ≥ 2; A5 built in;
+   REVIEW lean/Zeta23/ResidueRank/LogPrimes.lean:87: | zero => exact absurd rfl hn
+   REVIEW lean/Zeta23/ResidueRank/Pair.lean:118: | zero => simp
+   REVIEW lean/formalization.yaml (added lines):53: T2, Prop. 2.2.1, Cor. 3.1–3.2, routes (a)/(b); ζ, its zeros, RH.  Ledger text: results/theoremR-lean-s36/FIDELITY.md; the attack on
+   lines to review: 5
+== British spellings spot check (-ise/-yse/-our/-re/-ll- forms, maths, grey, towards, programme, defence/offence/licence); hits printed
+   British-form hits: 0
+VERDICT: PASS (banned + forbidden count 0; British-form hits 0; RH/zeros lines without a negation 5, reviewed by hand below)
+tool exit=0
+== hand review of the 5 RH/zeros lines without a negation on the same line:
+   PREDERIVATION-ERRATA.md:6 — the second line of the sentence 'Nothing about ζ's
+   zeros or RH follows from anything below' (the negation is on line 5): a disclaimer.
+   BUILD-NOTES.md:117 and formalization.yaml (added lines):53 — the last items of a 'Not covered:' list (the negation opens the list): disclaimers.
+   LogPrimes.lean:87, Pair.lean:118 — the Lean induction case name 'zero' (Nat.zero), not the zeros of ζ.
+   Verdict: no line connects the topic to RH or to the zeros. PASS.

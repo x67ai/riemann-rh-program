@@ -634,14 +634,14 @@ n ↦ c(Γ_n), `v : ι → ℝ` for the diagonal row, the weights are von Mangol
 | `comparator/Solution/ResidueRank.lean` | `Solution.ResidueRank` | no | the eight statements byte-identical, each the program theorem of the same name applied to the same arguments |
 | `config-residue-rank.json`, `PrintAxioms/ResidueRank.lean` | — | yes / — | comparator configuration (the 8 names `ResidueRank.*`; `propext`, `Quot.sound`, `Classical.choice`; `enable_nanoda: true`) and the quick check |
 
-**Quick check (no extra tooling), from the repository root:**
+**Quick check (no extra tooling)** — the two `lake` lines from the Lean tree's root, the two `python3` lines from `rh-program/` (root `lean`):
 
 ```sh
 lake build Solution.ResidueRank
 lake env lean comparator/PrintAxioms/ResidueRank.lean      # eight lines, each [propext, Classical.choice, Quot.sound]
-python3 results/theoremR-lean-s36/tools/statement_identity_s36.py ResidueRank comparator/config-residue-rank.json \
-  results/theoremR-lean-s36/typing-probe.lean . -- <the eight names>                  # IDENTICAL ×8, RESULT: PASS
-python3 results/theoremR-lean-s36/tools/trust_greps_s36.py .                          # the 8 challenge sorrys only
+python3 results/theoremR-lean-s36/tools/statement_identity_s36.py ResidueRank lean/comparator/config-residue-rank.json \
+  results/theoremR-lean-s36/typing-probe.lean lean -- <the eight names>               # IDENTICAL ×8, RESULT: PASS
+python3 results/theoremR-lean-s36/tools/trust_greps_s36.py lean                       # the 8 challenge sorrys only
 ```
 
 Recorded runs (2026-09-30, `results/theoremR-lean-s36/`): `rung1-build.log` and `rung1-print-axioms.log` (items 1–3 built alone first),
