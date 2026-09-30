@@ -58,3 +58,16 @@ Deliverables: `NOTE.md` (the unit), `verify/` (scripts + logs), `sources/` (text
 - §6: Prop. U = independent proof in the u.d. case via Lev–Olevskii Thm 1 + Hilberdink's pigeonhole + Hamburger (dual-route check).
 - NEXT: §8 relaxations — (a) continuous (orchestrator's sketch: verify prime density ≥ 0), (b) conductor: Theorem C (q ≥ 1, = iff ζ)
   and the open q > 1 question, (c) finite Euler factor, (d) extra poles (Fejér identity with residual), (e) no positivity; §9 controls.
+
+## 2026-09-30 block 5 — v3 run; NOTE §8 (relaxations) written
+
+- v3 (`verify/v3_continuous_sketch_and_controls.log`): orchestrator's continuous sketch CONFIRMED (G symmetric 1e−27; Mellin 1e−19;
+  prime density f ≥ 0 iff a ≥ β on the grid; −0.077 at a = 0.7 < β = 0.8). Virtual curve: b_d ≥ 1 to d = 60, zeros Re s = 0.79899;
+  genus-1 scan over F₅ (L = 1 − tu + 5u²): b_d ≥ 0 to d = 60 exactly for t ∈ {−5,…,6}; RH-false admissible t = −5, 5 (6 = empty system).
+  F_{5,5}: Λ(5^k)/log 5 = 6, −14, 51, −174, 626, −2249; zeros at σ = 0.79899, 0.20101 (the SAME as the virtual curve: its factor
+  1 + 5u + 5u² is the t = −5 curve's L-polynomial).
+- §8 verdicts: (a) sketch correct; entire completed function impossible (T2). (b) THEOREM C: conductor q ≥ 1, q = 1 iff ζ; identity (C_q);
+  q > 1 OPEN = question Q_cond (Beurling + FE at conductor q > 1), all known positive-coefficient solutions fail Λ ≥ 0 (every q > 1 for
+  ζ(1+q^{1/2−s})). (c) finite Euler factor: reduces to T, RH-equivalent. (d) extra poles: identity (F_R), continuous RH-false systems
+  live there; discrete open. (e) positivity dropped: open. (f) double pole: not pursued.
+- One error caught and fixed in §8(b) (q irrational: q = √2 has q² = 2 prime; replaced by the q^{2k} argument, Λ(8)/log 8 = −0.138).

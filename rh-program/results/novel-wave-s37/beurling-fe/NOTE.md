@@ -213,7 +213,24 @@ transform decays only like ξ^{−2}, sees every n_k with weight ≍ n_k^{−2}.
     C: (C_q) holds on genuine solutions — ζ(s)(1 + q^{1/2−s}), q = 2, 4, 9, and F_{5,5} (q = 25): 0.70711 / 1.5 / 2.66667 / 8.8 on both
     sides up to the truncation tail (`verify/v1_…log` Part 3; each also satisfies its conductor-q theta relation to 1e−60).
     VERDICT (q > 1): OPEN, and sharply located. Positive-coefficient solutions exist at every q > 1 (above) but all those found fail
-    Λ ≥ 0 (F_{5,5}: Λ(25)/log 5 = −14, Λ(5⁴)/log 5 = −174, v3 Part C; ζ(s)(1 + q^{1/2−s}): Λ(q²) ≤ ½ − q/2 < 0 for q = m²; and for q
-    irrational the atom −q/2 at q² meets no prime power of ζ). The FE alone is weak at q > 1: one functional equation does not force
+    Λ ≥ 0 (F_{5,5}: Λ(25)/log 5 = −14, Λ(5⁴)/log 5 = −174, v3 Part C; ζ(s)(1 + q^{1/2−s}) for EVERY q > 1: the factor puts mass
+    −q^k/(2k) at q^{2k} while ζ puts at most 1 at any point, so Λ(q^{2k}) < 0 for large k — e.g. q = √2: Λ(8)/log 8 = 1/3 − 2^{3/2}/6 < 0). The FE alone is weak at q > 1: one functional equation does not force
     modularity and the spaces are infinite-dimensional (Perelli `arxiv-1605.02354-…txt` 586–595, Hecke G(λ), λ > 2). QUESTION Q_cond:
     is there a Beurling system (dΠ ≥ 0) with Riemann's FE at some conductor q > 1? This is where a rung-Z twin could live (§9).
+(c) FE UP TO A FINITE EULER FACTOR. Hypothesis: for finite S₊ ⊂ P and finite S₋ ⊂ (1, ∞), ζ_P(s)·Π_{S₊}(1 − p^{−s})·Π_{S₋}(1 − p^{−s})^{−1}
+    satisfies (A). That product is ζ_{P′}, P′ = (P ∖ S₊) ⊎ S₋, a Beurling zeta; T1 gives P′ = rational primes, so S₋ ⊂ primes and
+    P = (primes ∖ S₋) ⊎ S₊ (S₊ ARBITRARY reals > 1; S₋ = Hilberdink 2012's "all but finitely many primes", Olofsson's (3)). Weighted
+    variants (factors (1 − αp^{−s})^{±1}, 0 ≤ α ≤ 1, keeping dΠ ≥ 0) reduce the same way. VERDICT: populated, but every member has the
+    zeros of ζ plus zeros/poles on Re s = 0 only: RH for ζ_P ⟺ RH for ζ. No new control. (P)
+(d) FINITELY MANY EXTRA POLES (Hamburger's (H2) allows them). If ξ_F has extra poles s_j in 0 < Re s < 1 (a set symmetric under
+    s ↦ 1 − s), Prop. R's proof gives μ̂ − μ = R ≠ 0, R a finite sum of homogeneous distributions |t|^{s_j−1}(log|t|)^m — locally
+    integrable, since Re s_j > 0 (this is Hilberdink–Lapidus's residual H, `p3-22c1-…txt` 1052–1057, on the Fourier side). Step 1 then gives
+            2 ∫ (sin πt/πt)² dN(t) = ⟨R, φ⟩,  and generally  2∫ψ̂ dN = ρ(ψ(0) − ψ̂(0)) + ⟨R, ψ⟩ for all ψ ∈ C_c(−1,1), ψ̂ ≥ 0.   (F_R)
+    So non-integral generalized integers are paid for exactly by residual mass inside the gap (−1, 1). Necessary: ⟨R, φ⟩ ≥ 0, with
+    equality iff dN is carried by N. VERDICT: populated by RH-false CONTINUOUS systems ((a); there R ≠ 0); for DISCRETE Beurling
+    systems with extra poles: open (Broucke–Vindas discretization, zoo I.2(d), keeps Λ ≥ 0 but cannot keep an exact FE). (P) for (F_R).
+(e) POSITIVITY DROPPED (complex coefficients, frequencies ≥ 1). T's Step 1 fails. In print: Hamburger's second theorem (f ordinary,
+    dual frequencies ≥ 1 ⟹ cζ; Burnol line 160) and Burnol Théorème 2 (both general: equivalence only). Finite constructions ζ·D
+    cannot escape (D(s) = D(1−s) maps frequency m to 1/m, so frequencies ≥ 1 force D constant — (P), one line). VERDICT: open;
+    a non-ζ signed solution would need a self-dual signed crystalline measure with a spectral gap (−1, 1) — not attempted.
+(f) DOUBLE POLE AT s = 1 (N(x) ~ Ax log x) with Riemann's Γ-factor: R contains c₁ + c₂ log|t|; (F_R) applies. Not pursued.

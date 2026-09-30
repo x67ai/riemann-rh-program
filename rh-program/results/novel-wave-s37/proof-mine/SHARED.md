@@ -57,3 +57,9 @@ Pritsker's B(w) for products of integer Chebyshev factors on [0,1]^n, n <= 6, an
 1 - u + 11u^2 - 5u^3 + 25u^4 violates Bombieri's one-sided Theorem 1 at Q = 5^6 (693 > 625) — caveat for the rung-1 twin rule: test
 one-sided mechanisms on V2, not V. Flags for the orchestrator: T24 G-line (Bombieri p. 239); V sharpens Bombieri's example; twin-rule caveat.
 Files: NOTE.md, SHARED.md, verify/{baseline,lines,z_side,twin_g2}.{py,log}, verify/fetch_sources.{sh,log}, sources/ (10 texts + PDFs).
+
+## 2026-09-30 block 7 — citation fixes after a page-number check
+Milne page numbers verified against the running headers of the text layer: the automorphic passages are pp. 49 (Deligne's interview),
+51 (Rankin, Langlands' remark), 58-59 (Hasse-Weil history: Weil, Deuring, Eichler-Shimura) — NOTE R11 and §3 corrected (block 4 above
+said "pp. 45-49": superseded). Pritsker source renamed to sources/pritsker-gelfond-schnirelman-arXiv1307.5361.{pdf,txt} (the arXiv v1 date is
+2013; no journal year is claimed).

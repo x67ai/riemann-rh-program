@@ -22,3 +22,17 @@ Dated blocks, appended after each batch. Newest at the bottom.
 - Hilberdink 2012 (p3-22c2): periodic N(x) − cx forces ζ_P = ζ × finite Euler product — rigidity at β = 0 in the periodic class.
 - arXiv sweep since Jun 2024: nothing on β < ½.
 - Next: §3 attack on the pre-derivation (it is BDR §5's construction with a claimed sharper integer analysis).
+
+## 2026-09-30 — block 2: pre-derivation attacked (NOTE §3) + theorems (NOTE §4)
+
+- The pre-derivation IS BDR §5's construction (random deletion of classical primes, density p^{β₀−1}); new content = analysis only.
+- **K (unconditional claim):** the mean of the deletion is a measure on the primes, so ζ_P = ζ(s)ζ(s+1−α)^{−1}U(s): poles at
+  ρ − 1 + α. If a zero ρ has Re ρ > 1 − α/2 (and ζ(ρ−1+α) ≠ 0) then β ≥ Re ρ + α − 1 > α/2 (Prop 3.2). "h analytic in Re s > β₀/2"
+  holds for the fluctuation X only. The zero at α (α ≥ β₀ > ½) IS unconditional (3.3).
+- **Theorem A (RH):** Bernoulli thinning w_p = p^{α−1} gives a.s. [α, β] with α/2 ≤ β ≤ 1/(3−α) (truncated Perron, ζ growth on
+  Re s = α/2+δ, a.s. o(log t) bound for the random series, Lemma 4.1). **Cor A′ (RH):** [α, β]-systems for all ½<α<1,
+  1/(3−α) < β < ½ — strictly contains BDR region III (2α/(α+2) > 1/(3−α) on (½,2)) and extends α from (½,2/3) to (½,1).
+- **Theorem B (unconditional):** β(T_α) ≥ α/2 a.s. (chaos decomposition E(x) = −Σ_d μ_η(d)T(x/d), anti-concentration from the primes
+  in (x/2, x], Kolmogorov 0–1 via E′(x) = E(x) − E(x/q)).
+- Gap to β = α/2 under RH: G1 mean-system error Σ_{n≤y}Π_{p|n}(1 − p^{α−1}) − y/ζ(2−α) ≪ y^{α/2+ε} (contour gives only 1/(4−2α));
+  G2 moment/uniformity for the chaos. Next: simulation (NOTE §6), incl. direct numerics of the mean-system error T(y).

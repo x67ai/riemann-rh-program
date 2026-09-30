@@ -206,3 +206,40 @@ so α is unchanged. ∎
 *Comparison with print.* BDR Theorem 1.3 gives ½ < α < 2/3, 2α/(α + 2) ≤ β < ½. Since 2α/(α+2) − 1/(3−α) has the sign of
 −(2α − 1)(α − 2) > 0 on (½, 2), region III ⊂ {1/(3−α) < β < ½}, strictly, and the α-range grows from (½, 2/3) to (½, 1). The corner
 value is unchanged: 1/(3 − α) → 2/5 as α ↓ ½, so Corollary 2.2's cap β* ≤ 2/5 is not improved by Theorem A.
+
+**Theorem B (random thinning cannot beat α/2 — unconditional)** [proved here]. For every α ∈ (0, 1), almost surely
+N_P(x) − ρ_P x ≠ O(x^τ) for every τ < α/2. In particular β(T_α) ≥ α/2 a.s., with no hypothesis on ζ.
+*Proof.* (1) Formula. With μ_R(m) = Π_{p|m}(−ε_p) on squarefree m, N_P(x) = Σ_m μ_R(m)⌊x/m⌋ and ρ_P = Σ_m μ_R(m)/m (absolutely
+convergent a.s.), so E(x) := N_P(x) − ρ_P x = −Σ_m μ_R(m){x/m}, the sum over all squarefree m ({x/m} = x/m for m > x).
+Write ε_p = w_p + η_p: μ_R = μ_w * μ_η with μ_w(k) = Π_{p|k}(−w_p), μ_η(d) = Π_{p|d}(−η_p), hence
+  E(x) = −Σ_d μ_η(d)·T(x/d),  T(y) := Σ_k μ_w(k){y/k}  (deterministic; T(y) = ρ_w y for y < 1, ρ_w := Π_p(1 − w_p/p)),
+where rearrangement is justified by Σ_{d,k}|μ_η(d)μ_w(k)|x/(dk) = xΠ_p(1 + |η_p|/p)(1 + w_p/p) < ∞ a.s.
+(2) 0–1 law. If q ∉ R and R′ = R ∪ {q}, the P′-integers are the P-integers not divisible by q, and those divisible by q are q·(P-integers);
+so N_{P′}(x) = N_P(x) − N_P(x/q), ρ′ = ρ(1 − 1/q), E′(x) = E(x) − E(x/q), and conversely E(x) = Σ_{j≥0}E′(x/q^j) (with |E′(y)| ≤ y
+for y < 1). Hence {E(x) = O(x^τ)} is invariant under changing finitely many ε_p; by Kolmogorov's 0–1 law it has probability 0 or 1.
+(3) One scale. Fix large x, B = ℙ ∩ (x/2, x], G = σ(ε_q : q ∉ B). Split d by its B-part: terms with no B-prime give Y (G-measurable);
+terms with exactly one B-prime p (d = pe) give η_p·c_p with c_p = T(x/p) + ρ_w(x/p)(Π′ − 1) = κ·(x/p) − 1, where
+Π′ = Π_{q∉B}(1 − η_q/q), κ = ρ_wΠ′ > 0 (because for 1 ≤ y < 2, T(y) = ρ_w y − 1, and x/(pe) < 1 for e ≥ 2); terms with ≥ 2 B-primes give
+Z = −ρ_w xΠ′Σ_{f⊂B,|f|≥2}μ_η(f)/f, and E|Z| ≪ x·Σ_{p∈B}v_p p^{−2} ≪ x^{α−1}. So E(x) = Y + S_B + Z with S_B = Σ_{p∈B}η_p c_p,
+the η_p (p ∈ B) independent of G. Given G, S_B has variance σ_B² = Σ_{p∈B}v_p(κx/p − 1)². The y = x/p ∈ [1, 2) with |κy − 1| < θ
+form an interval of length ≤ 2θ/κ; by the prime number theorem in intervals of length ≍ x, at most a fraction 4θ/κ + o(1) of
+the primes of B have x/p there. With θ = min(κ, 1)/16 and v_p ≍ x^{α−1} on B: σ_B² ≥ c·min(κ, 1)²x^α/log x. Berry–Esseen
+(|η_p| ≤ 1, so E|η_p c_p|³ ≤ max|c|·v_p c_p²) gives P(|Y + S_B| ≤ λσ_B | G) ≤ λ + C(2κ + 1)/σ_B. As x → ∞, κ = κ_x → κ_∞ :=
+ρ_wΠ_q(1 − η_q/q) ∈ (0, ∞) a.s. Therefore for every η₀ > 0 there are λ₀ > 0 and x₀ with
+  P(|E(x)| ≤ λ₀x^{α/2}(log x)^{−1/2}) ≤ P(κ_x < η₀) + P(|Z| > x^{α/3}) + 2λ₀/(√c·η₀) + o(1) ≤ ½  for x ≥ x₀
+(choose η₀ with P(κ_∞ < 2η₀) ≤ ⅛, then λ₀; the Berry–Esseen term is O((1 + E κ)√(log x)/(η₀x^{α/2})) → 0).
+(4) If P(E = O(x^τ)) = 1 for some τ < α/2, then P(sup_x |E(x)|x^{−τ} ≤ C) ≥ ¾ for some C, while Cx^τ < λ₀x^{α/2}(log x)^{−1/2}
+for large x, contradicting (3). So the probability is 0 for each τ < α/2; intersect over rational τ. ∎
+
+*Remark.* This is the theorem form of the orchestrator's "nothing below ¼ by this method": α > ½ forces β ≥ α/2 > ¼ for the random
+surgery, with no RH. The obstruction is *relative* (it is driven by the deleted set, and vanishes for R = ∅), so it does not
+contradict Prop. 2.3.
+
+**4.4 The mean system and the gap between α/2 and 1/(3 − α).** E[N_P(x)] = Σ_{n≤x}f(n), f(n) = Π_{p|n}(1 − p^{α−1}), whose Dirichlet
+series is exactly ζ(s)/ζ(s + 1 − α) (f = 1 * g, g(d) = μ(d)d^{α−1}). From (1), E[E(x)] = −T(x) and Var E(x) = Σ_{d>1}V(d)T(x/d)²,
+V(d) = Π_{p|d}v_p ≤ d^{α−1}. If T(y) ≪ y^{τ₀+ε} with τ₀ < α/2 then Var E(x) ≪ x^{α+ε}: the pointwise size of E(x) is x^{α/2+o(1)}.
+Under RH the explicit formula for 1/ζ(s + 1 − α) predicts T(y) ≈ y^{α−½} (poles at ρ − 1 + α) [heuristic], and α − ½ < α/2; but
+the contour argument of Theorem A applied to ζ(s)/ζ(s + 1 − α) only proves T(y) ≪ y^{1/(4−2α)+ε} (c′ = α − ½ + δ), and
+1/(4 − 2α) > α/2 for all α < 1. **Named gap G1:** prove, under RH, Σ_{n≤y}Π_{p|n}(1 − p^{α−1}) = y/ζ(2 − α) + O(y^{α/2+ε}).
+**G2:** upgrade the variance bound to a.s. uniformity (moments of the Bernoulli chaos Σ_d μ_η(d)T(x/d) of unbounded degree;
+monotonicity of N_P reduces uniformity to a grid of mesh x^{α/2}). G1 + G2 would give β(T_α) = α/2 under RH.
