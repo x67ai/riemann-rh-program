@@ -4,9 +4,38 @@ Session 39, 2026-10-01. Writer: Opus 5.5 (unit agent). Brief: `BRIEF.md` (SHA-25
 land; §0 is filled at the close. Conventions as in the record: (P) proved here; (C) computed in `verify/` with its log;
 (Q) quoted at the page from `sources/` or an on-disk source; `[recalled, unverified]` carries no load.
 
-## 0. CLOSE (filled last)
+## 0. CLOSE — K (theorem; §7 Theorem K). Found nothing new, correctly (10(o)).
 
-(pending)
+THE INEQUALITY EXISTS ON RUNG 1, AND IT IS WEIL POSITIVITY WITH MULTIPLIER 1; THE LITERAL FEJÉR TRANSPORT IS V-BLIND; THE Z-FORMS
+SPLIT THE SAME WAY. Precisely (q = 5, 7, 11, g ≤ 2 computed exactly; (i)–(iii) proved for every q, g):
+(i) I(Z) = Σ_j (1 − cos θ_j) = g − (q + 1 − N_1)/(2√q) is affine in the positive zeta data, vanishes at genus 0, is > 0 on every
+    genuine curve of genus ≥ 1 (q not a square), has genus-1 defect 2sin²(θ/2), and separates: V −0.11803, E₀ +0.10557. The same
+    Toeplitz family separates EVERY one of the 3825 RH-false data at q = 5, 7, 11, g ≤ 2 (the 111 included) by degree ≤ 3, and every
+    genuine curve (all of them, by brute force: 9/11/13 elliptic traces, 115 and 192 genus-2 L-polynomials) satisfies all of it.
+(ii) Theorem W: every functional affine in (g, N_1..N_M) vanishing at genus 0 IS the zeros-side Weil functional Σ_j f(θ_j),
+    identically on every zeta datum; the separating ones are the Toeplitz cone = Hallouin–Perret's Hodge-index Gram cone on X × X;
+    the optimum is Oesterlé's program, whose dual is HP19's SDP — all printed (§5). The best separator of V is Weil's lower bound
+    N_1 ≥ q + 1 − 2g√q, and as a quadratic form in the angle it is proof-mine's norm form m² + tmn + qn² (−1 at (2, −1)). IV.1.
+(iii) Theorem F: M1a's Fejér defect on q^Z is D_k = h(q^{g−1+k} − 1) (AHL Lemma 3.4): equality exactly at genus 0, genus-1 form
+    (q − 1)[(√q − 1)² + 2√q(1 − cos θ)] — affine in (i)'s form — but > 0 on every zeta datum (V: 4). Positive for free because its
+    positivity is dN ≥ 0: I.9. V sits at h = 1, the extreme point of free positivity, strictly below the RH floor (√5 − 1)² = 1.528.
+(iv) Z side (§6): Z1 = M1a's (C_Q) is an identity passed by F_{2.9,2} (2.95 = 2.95), F_{5,5}, Epstein x² + 5y² (1.139355 vs
+    1.139353); Z2 = the real-axis product is passed by F_{2.9,2}, DH, Epstein — both RH-blind; Z3 = the zeros form is violated by
+    F_{2.9,2} (−872.45) and DH (−681.66; complete zero list, argument principle 47.0000) and vacuous on ζ's 10 142 zeros below 10⁴
+    (+0.0069) — it is Weil's criterion.
+WHY (the zoo entries): positive-for-free and RH-sensitive are split exactly between the Fejér defect's POSITIONS form and its ZEROS
+form, and the explicit formula maps one to the other; the first fails I.9, the second is IV.1 (III.20(B)'s Gram positivity on
+X × X). Proof-mine's Theorem P(iii) says why no third option exists on rung 1: an inequality provable from the zeta datum alone holds
+on V; a separator must come from an object — and every such object's output, read on the datum, is a member of this Weil family
+(§5: Bombieri's twisted (5) is 4sin²(rθ/2) plus slack, recovering proof-mine's 41 = 41 at Q = 25). The one non-free positions
+inequality (class-summed Clifford N_1 ≤ h, an Abel–Jacobi fact) does not see V or any of the 111 (§7).
+Stop lines of the brief: line 1 did NOT fire (the genuine region never contains a virtual datum); line 2 FIRED (the best inequality
+is a known Oesterlé/Serre bound; the transport adds no inequality); line 3 FIRED on Z1 and Z2 (RH-false controls pass).
+Consequences: UT-4 CLOSED (K); wave-1's "Extremal characterization of ξ" answered at its first rung (C2 Untried line 168: the
+extremal inequality exists on rung 1 and is IV.1). Instruments rows §8; Untried §9; waste line §10; zoo riders proposed §11.
+Deliverables: `verify/` (r1_enumerate, r1_genuine, r1_lp, r1_lp_check, r1_V_detail, r1_transport, r1_clifford, z_forms,
+z3_weil_fejer — each .py with its .log), `sources/` (Howe–Lauter 1202.6308, Hallouin–Perret 1409.2357, Aubry–Haloui–Lachaud
+1201.4967, Hallouin–Moustrou–Perret 2506.05212, Odlyzko zeros1; text layers; `fetch_sources.log` with SHA-256 prefixes).
 
 ## 1. The object and the rung-1 setting (definitions; nothing new)
 
@@ -173,3 +202,120 @@ WHAT IS NEW RELATIVE TO OESTERLÉ (10(n)): nothing in the LP — it is Oesterlé
 The transport adds only readings of printed identities: the positions-side Fejér defect on q^Z is AHL's (11) (D_k = h(q^{g−1+k} − 1),
 V-blind), and its RH form is Weil's class-number window. Brief stop line 2 fires ("the best inequality is a known Oesterlé/Serre
 bound … the unit is 'found nothing, correctly' unless the transport adds something"); the transport adds no inequality.
+
+## 6. The Z side: the three Z-forms of the Fejér defect, on ζ and on the RH-false controls — (C) + (P)
+
+The rung-1 split of §4 has three Z-analogs; each was run on ζ and on the controls (`verify/z_forms.{py,log}`,
+`verify/z3_weil_fejer.{py,log}`; mpmath at 30 and 20 digits; every completed function checked against its FE, residual ≤ 1.3·10⁻³⁰).
+Z1 — POSITIONS form (M1a's Fejér identity at conductor Q, Theorem C's (C_Q)). F_{a,q} = ζ(s)(1 + aq^{−s} + q^{1−2s}) at Q = q²:
+  by Poisson, Σ_{n≥1} S(n/q²) = (q² − 1)/2, Σ S(m/q) = (q − 1)/2, Σ S(m) = 0, so both sides equal (q − 1)(q + 1 + a)/q FOR EVERY a
+  (P). Computed: F_{2.9,2} (RH-FALSE, zeros at Re s = 0.8238766802): 2.950000000 = 2.950000000 (direct sum to 2·10⁶ + tail:
+  2.950000203); F_{5,5} (RH-false): 8.8 = 8.8; F_{2,2} (RH-true): 2.5 = 2.5. Epstein x² + 5y², the same identity in dimension 2
+  (disk of radius ½ in the gap of Z + √5iZ): defect Σ_{w ∈ L*∖0}|1̂_B(w)|² = 1.139355 against Poisson's √5π/4 − π²/16 = 1.139353.
+  DH is odd: a positive-definite test with φ̂ ≥ 0 cannot be odd, so DH has no positive Fejér defect, and the pairing identity
+  itself holds by its exact theta relation. VERDICT: passed by every RH-false control. Z1 is RH-BLIND — it is an identity of the FE.
+Z2 — PRODUCT/LOG transport (the Z-analog of Theorem F(e), the class-number window): E_F(½ + x) ≥ E_F(½) for real x, E_F the entire
+  completion (2ξ for ζ). Under RH every factor |½ + x − ρ|/|ρ − ½| ≥ 1; a factor < 1 needs |Im ρ| small against the offset, i.e.
+  REAL zeros — the V-world, empty over Z (proof-mine Z1(b)). Computed on [½, 2]: E is monotone increasing for ζ, F_{2.9,2}, DH,
+  and Epstein x² + 5y² (min of E(½ + x) − E(½) is 0, attained at x = 0). For F_{2.9,2} this is a theorem: E = 2√2·ξ(s)·H(s),
+  H(½ + x) = 2cosh(x log 2) + 2.9/√2 > 0 increasing, and ξ(½ + x) is increasing since ξ(½ + z) = ∫Φ(u)cosh(zu)du with Φ > 0
+  `[recalled, unverified: the positivity of Pólya's kernel Φ]`. VERDICT: passed by all three RH-false controls — RH-blind
+  to non-real zeros, exactly as the rung-1 class-number test is blind to genus-2 pairs (§4: 194 of 199 RH-false data pass it).
+Z3 — ZEROS form (the transported Fejér kernel as a Weil test): g_T(x) = 2(1 − |x|/L)₊cos(Tx), L = 20, W(T) = Σ_ρ ĝ_T(γ_ρ).
+  ζ, Odlyzko's 10 142 zeros below 10⁴ (`sources/odlyzko-zeros1.txt`): min over T ∈ [0, 10⁴) of W = +0.0069 — vacuous, every
+  term ≥ 0 because every γ is real. F_{2.9,2} (zeros closed-form): min W = −872.45 at T = 13.80 (the factor zeros at
+  t = 3·4.5324). DH: all 47 zeros in 50 < t < 120 (43 on the line by sign changes; 4 off it — 0.808517 + 85.699348i and
+  0.650830 + 114.163343i with their mirrors 1 − β + iγ, by findroot; the argument principle on the half-rectangle gives 47.0000): min W = −681.66
+  at T = 85.49, of which the off-line pair contributes −681.87 and the 43 on-line zeros +0.21 (zeros outside the window move W by
+  ≤ 0.03). VERDICT: violated by the controls — RH-SENSITIVE — and it is Weil's explicit-formula functional with a positive-definite
+  test, multiplier 1: IV.1 by definition (the Z-form of §3's Theorem W).
+So the Z side reproduces the rung-1 split exactly: the positions forms (Z1, Z2) are positive or identical for free and blind; the
+zeros form (Z3) sees off-line zeros and is Weil's criterion. No Z-form of the Fejér defect is both RH-sensitive and outside IV.1.
+
+## 7. One more positions-side candidate — geometric, not free (construct-or-refute) — and the close theorem
+
+The only positions-side inequality on q^Z that is neither free nor a Weil test is class-summed Clifford: ℓ(D) ≤ deg D/2 + 1 for
+0 ≤ deg D ≤ 2g − 2 gives Θ_n ≤ h·q^{⌊n/2⌋+1}. At g = 1 it is the identity N_1 = h; at g = 2 its only non-identity case is n = 1,
+N_1 ≤ h (C(F_q) → Pic¹ is injective for g ≥ 1 and Pic¹(F_q) has h elements — `[recalled, standard; not load]`), and in the angles
+h − N_1 = (q − x_1)(q − x_2) + q (x_j = 2√q cos θ_j; identity checked on all data) — a PRODUCT form, not Σ_j f(θ_j).
+Computed (`verify/r1_clifford.{py,log}`): it holds on every genuine curve (q = 5, 7), is violated by 0 of the 199 RH-false genus-2
+data at q = 5 (so by none of the 111, nor V₂), by 1 of 675 at q = 7 ((a1, a2) = (−4, −15): N_1 = 4 > h = 3, a trace x = 2 + √33 > q)
+and by 2 of 2935 at q = 11. So a non-Weil, non-free positions inequality exists, and its generator is an object (Pic¹ and the
+Abel–Jacobi map — proof-mine's class D) that V lacks; but it only sees traces beyond q, is an identity at g = 1, and V passes it.
+REFUTED as a separator of V; recorded as the one exception to "positions forms are free" (it is free of RH, not of geometry).
+
+THEOREM K (the close; q = 5, 7, 11, g ≤ 2 computed; (i)–(iii) for every q and g).
+(i) (the inequality exists.) I(Z) := Σ_j (1 − cos θ_j) = g − (q + 1 − N_1)/(2√q) ≥ 0 — the M = 1 twisted Fejér form — is affine
+    in the positive zeta data, vanishes at genus 0, is > 0 on every genuine curve of genus ≥ 1 over F_q for q not a square (Weil;
+    for square q the Weil-minimal curves give 0), has genus-1 defect 2sin²(θ/2), is violated by V (−0.11803) and satisfied by E₀
+    (+0.10557); and every one of the 3825 RH-false data at q = 5, 7, 11, g ≤ 2 (the 111 among them) violates a member of the same
+    Toeplitz family of degree ≤ 3, while every genuine curve satisfies all of them.
+(ii) (but it is Weil positivity with multiplier 1.) Every functional affine in (g, N_1, …, N_M) vanishing at genus 0 is identically
+    Σ_j f(θ_j) (Theorem W(i)); the separating ones are exactly the Toeplitz cone = the Hodge-index Gram cone of the Frobenius graphs on
+    X × X (HP 1409.2357 (5)); the optimum is Oesterlé's program (Howe–Lauter p. 2) and its dual is HP19's SDP (HPM p. 4). IV.1.
+(iii) (the literal transport is V-blind.) M1a's Fejér defect on q^Z is D_k = h(q^{g−1+k} − 1) (Theorem F; AHL Lemma 3.4): equality
+    exactly at genus 0, genus-1 form (q − 1)[(√q − 1)² + 2√q(1 − cos θ)] in the angle — but D_k > 0 on every zeta datum, V
+    included (D_1(V) = 4): positive for free because its positivity is dN ≥ 0. I.9. Its RH form is Weil's class-number window
+    (two Weil tests after the log; IV.1), and the one non-free positions inequality (Clifford) does not see V.
+(iv) (the Z-forms.) Z1 (M1a's (C_Q)) and Z2 (the real-axis product) are passed by F_{2.9,2}, DH and Epstein x² + 5y² — RH-blind;
+    Z3 (the zeros form) is violated by F_{2.9,2} and DH and is Weil's criterion — IV.1.
+Hence the Fejér defect is not a positivity generator outside Weil's cone, on rung 1 or on Z: its POSITIONS form is positive for
+free and blind, its ZEROS form is RH-sensitive and is Weil's functional, and the explicit formula maps one to the other (affinely
+at g = 1, Theorem F(c)). Proof: (i) §3 and §2's logs; (ii) Theorem W and §5; (iii) Theorem F and §7's Clifford paragraph; (iv) §6. ∎
+
+## 8. Instruments rows (the column shape of `directions/C2-rigidity-conservation.md` line 99: | Quantity | Current best value | Result file | Dated |; records, never ranks; not inserted by this unit)
+
+| Quantity | Current best value | Result file | Dated |
+|---|---|---|---|
+| Rung-1 exit degree from the Weil (Toeplitz / Hodge-index Gram) region, RH-false zeta data, q = 5, 7, 11, g ≤ 2 | every one of 3825 exits by M ≤ 3 (g = 1: M = 1; q = 5, g = 2: M = 2 for 113, M = 3 for 86); every RH-true datum PSD to M = 8 (worst −6·10⁻¹⁵) | `results/fejer-form-s39/verify/r1_lp.log` | 2026-10-01 |
+| V's least Toeplitz eigenvalue λ_min(T_M(V)) (closed form (M + 1) − (Σφ^{2k}·Σφ^{−2k})^{1/2}) | −0.2361 at M = 1 (= 2 × Weil's lower-bound defect 1 − √5/2 = −0.11803); −1, −2.708, −6, −11.889, −22, −38.957, −67 at M = 2..8 | `results/fejer-form-s39/verify/r1_V_detail.log` | 2026-10-01 |
+| Positions-side Fejér defect on q^Z, D_k = h(q^{g−1+k} − 1) (M1a's Step 1 on rung 1) | > 0 on all 4591 zeta data including all 3825 RH-false (V: D_1 = 4) — V-blind; = 0 exactly at genus 0 | `results/fejer-form-s39/verify/r1_transport.log` | 2026-10-01 |
+| Class-number window (√q − 1)^{2g} ≤ h ≤ (√q + 1)^{2g} (two Weil tests after the log), catch rate on RH-false data | g = 1: all (16/16); g = 2: 5/199 (q = 5), 47/675 (q = 7), 416/2935 (q = 11) | `results/fejer-form-s39/verify/r1_transport.log` | 2026-10-01 |
+| Class-summed Clifford N_1 ≤ h at g = 2 (non-free, non-Weil positions inequality) catch rate | 0/199 (q = 5; none of the 111), 1/675 (q = 7), 2/2935 (q = 11); identity at g = 1 (V passes) | `results/fejer-form-s39/verify/r1_clifford.log` | 2026-10-01 |
+| Z3: zeros-side Weil–Fejér form, g_T = 2(1 − \|x\|/L)₊cos(Tx), L = 20 | ζ (10 142 Odlyzko zeros < 10⁴): min +0.0069 (vacuous); F_{2.9,2}: −872.45 at T = 13.80; DH (47 zeros in (50, 120), argument principle 47.0000): −681.66 at T = 85.49 | `results/fejer-form-s39/verify/z3_weil_fejer.log` | 2026-10-01 |
+| Z1: M1a's (C_Q) on RH-false controls | F_{2.9,2}: 2.95 = 2.95 (exact for every a, by Poisson); F_{5,5}: 8.8 = 8.8; Epstein x² + 5y² 2-D defect 1.139355 vs 1.139353 | `results/fejer-form-s39/verify/z_forms.log` | 2026-10-01 |
+| ↳ provenance | the rung-1 LP is Oesterlé's program (Howe–Lauter 1202.6308 p. 2); its dual is Hallouin–Perret's Hodge-index Toeplitz SDP (HPM 2506.05212 p. 4, citing HP19) | `results/fejer-form-s39/NOTE.md` §5 | 2026-10-01 |
+
+## 9. Untried (the directions' "Untried" format; S1–S5 as in STATUS; nothing here is claimed)
+
+- **Z3 on Epstein x² + 5y²** (NOTE §6). Fit: none of S1–S5 (Z3 is Weil's criterion; a violation would only confirm it). First rung:
+  locate the first off-line Epstein zero (Potter–Titchmarsh-type search) and evaluate W(T) there. Target: C2 (controls). Low value.
+- **A non-free positions inequality at g ≥ 3** (NOTE §7: class-summed Clifford is the only one found, and at g = 2 it sees only
+  traces beyond q). Fit: S4 would need it to separate V-type data (real off-line pairs with SMALL h) — Clifford-type bounds are
+  upper bounds on Θ_n and cannot, by the one-sided caveat (digest B4; V has the smallest possible A_n, P¹'s shifted); S1 through h ≥ 1.
+  First rung: enumerate g = 3 zeta data at q = 5 and test Θ_n ≤ h·q^{⌊n/2⌋+1}, n = 1, 2, and the Castelnuovo/Martens refinements.
+  Target: C2. Expected: refutes (recorded so the next unit does not re-derive it).
+- **HP19 at the page** (Trans. AMS 372 (2019) 5409–5451; cited here through HPM p. 4). Fit: none (prior-art hygiene for Theorem
+  W(ii)'s duality sentence). First rung: fetch (Firecrawl if walled) and read the duality theorem at the line. Target: C2.
+- Closed by this unit: **UT-4** (digest §F.3) — K (NOTE §0); and, as its concrete instance, wave-1's **"Extremal characterization of
+  ξ"** at its first rung (C2 Untried line 168: "the virtual curve (5, 5) must fail it and a genuine curve with |a| ≤ 2√5 must pass"):
+  the extremal inequality exists on rung 1 (Theorem K(i)) and is Weil positivity (K(ii)). The Z-level variational problem was not
+  posed; nothing on rung 1 suggests one outside IV.1.
+
+## 10. The waste line (KICKSTART 10(o), with 10(m)'s three labels)
+
+Found nothing, correctly (not waste): the rung-1 LP — it is Oesterlé's program, whose dual is HP19's Hodge-index SDP (brief stop line
+2 fired: "a known Oesterlé/Serre bound"); the transport — AHL's Lemma 3.4 read as M1a's Fejér pairing (V-blind); the Z-forms — Z1
+and Z2 passed by every RH-false control, Z3 is Weil's criterion (its run on ζ was vacuous, as predicted: every term ≥ 0).
+Spent on the wrong thing: one recalled arXiv ID (1207.6230) was a physics paper — fetched, detected by its title, deleted, replaced
+by an API search (1201.4967); cost one request. Label (iii) none: every slip is explained in the log where it happened — the first
+r1_genuine run's JSON int64 error, the first z_forms run's evaluation at the pole s = 1 (grid moved off it), the spurious BLAS
+matmul warnings in r1_lp (re-checked without BLAS: `verify/r1_lp_check.log`, 890/890 unchanged), two NOTE slips fixed in place
+(an AHL line citation; a count 18 → 16).
+(ii) budget / tool / time — re-queued with the missing input named: HP19 not fetched (Trans. AMS; §9); Serre's 2020 book (the
+explicit formula and the Drinfeld–Vlăduţ proof) not on disk — read through Howe–Lauter and HPM at the page instead, and the
+Fejér-kernel form of DV's proof left `[recalled, unverified]`; Epstein's off-line zeros not located, so Z3 was not run on it (§9).
+Candidate LOG line: "fejer-form-s39 (UT-4): K. The inequality exists on rung 1 (Σ_j 2sin²(θ_j/2), V −0.118, E₀ +0.106, all 3825
+RH-false data at q = 5, 7, 11, g ≤ 2 separated by degree ≤ 3) but is Weil positivity with multiplier 1 (Oesterlé's program; dual =
+HP19's Hodge-index SDP); the literal Fejér transport D_k = h(q^{g−1+k} − 1) is V-blind; Z1/Z2 passed by F_{2.9,2}, DH, Epstein;
+Z3 = Weil's criterion. Found nothing, correctly; one wrong recalled arXiv ID (cost one fetch)."
+
+## 11. Proposed zoo riders (BLOCK format of `results/zoo-s26/zoo-entries-proposed.md`; NOT inserted — for the next zoo stream)
+
+<!-- BLOCK:iv1 -->
+- **[RIDER 2026-10-01, Session 39 (`results/fejer-form-s39/NOTE.md` §3, §5) — on rung 1 this entry is a theorem, and its dual is in print.]** Every functional affine in (g, N_1, …, N_M) that vanishes at genus 0 equals, identically on every zeta datum over F_q (virtual ones included), the zero-side Weil functional Σ_j f(θ_j), f = c_0 + 2Σ c_n cos nθ (Serre's explicit formula read as an identity); the inequalities of this shape that separate a datum from the RH-true data are exactly the Toeplitz cone, which is Hallouin–Perret's Hodge-index Gram cone of the Frobenius graphs on X × X (arXiv:1409.2357 p. 7 eq. (5)); the LP optimum is Oesterlé's ("the best bound … that can be obtained formally using only Weil's 'Riemann hypothesis' for curves and the fact that for every d ≥ 0 the number of degree-d places on a curve is non-negative", Howe–Lauter arXiv:1202.6308 p. 2), and its dual is HP19's SDP (Hallouin–Moustrou–Perret arXiv:2506.05212 p. 4). So "an LP over positive zeta data on rung 1" passes this entry's EXECUTABLE TEST with multiplier 1 before any generator is proposed. Computed: all 3825 RH-false zeta data at q = 5, 7, 11, g ≤ 2 leave the Toeplitz region by degree 3; V's best test is f = 2sin²(θ/2), Weil's lower bound, value −0.11803. `[novelty: single-check for the packaging; every piece printed]`
+<!-- END:iv1 -->
+
+<!-- BLOCK:i9 -->
+- **[RIDER 2026-10-01, Session 39 (`results/fejer-form-s39/NOTE.md` §4, §6, §7) — positive forms in the POSITIONS of the generalized integers are V-blind.]** M1a's Fejér defect, carried exactly to the norm group q^Z (class-summed Riemann–Roch; the box of degree −k as the Fejér test), is D_k = h(q^{g−1+k} − 1) — Aubry–Haloui–Lachaud's Lemma 3.4 (11) (arXiv:1201.4967 p. 14) — with equality exactly at genus 0 and genus-1 form (q − 1)[(√q − 1)² + 2√q(1 − cos θ)]; it is > 0 on every zeta datum, V included (D_1(V) = 4): "positive for free" (insights digest s37 B7) because its positivity is dN ≥ 0, which V has. Its Z-forms are passed by the RH-false controls (M1a's (C_Q) on F_{2.9,2}: 2.95 = 2.95 for every a; the real-axis product on F_{2.9,2}, DH, Epstein x² + 5y²). KILLS: briefs claiming a positivity generator from a positive form in the positions of the generalized integers; RETURNS such a form to its zeros side, where it is a Weil test (IV.1 rider of this date). The one non-free positions inequality found (class-summed Clifford, N_1 ≤ h at g = 2) sees only traces beyond q (0 of 199 RH-false data at q = 5) and is an identity at g = 1. `[novelty: single-check]`
+<!-- END:i9 -->

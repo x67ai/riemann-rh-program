@@ -18,3 +18,12 @@ Append-only, dated blocks. Writer: Opus 5.5 (unit agent). Outputs only under `re
   infinitely many mass values allowed — is ζ (new Step 3: irrational frequencies are carried to irrational cosets, which meet the
   finitely many radical classes in finitely many points, so they cancel). Cor. G1′: purely atomic + finitely many mass values ⟹ ζ.
 - Next: rung 1 for the weighted mechanism (verify/v1), controls for G1 (verify/v2), route (i) with infinitely many lattices.
+
+## 2026-10-01 05:45 IST — batch 2 (rung 1 weighted; route (i) with infinitely many lattices)
+- verify/v1_rung1_weighted.{py,log}: genus 1 over F₅ with REAL t (weights): b_d ≥ 0 (d ≤ 60, rigorous arb root isolation) ⟺
+  t ∈ [−5, 6]; RH-false part [−5, −2√5) ∪ (2√5, 6]; the Q-side q-part positivity s_n ≤ 1 is empty over R already from n ≤ 4.
+- NOTE §3 (rung-1 image of each route: (i) finite L-polynomials only; (ii) degenerate; (iii) none) and §4: Lemma A (atomic
+  reduction for ζ·(bounded-frequency multiplier)); THEOREM L‴: if the rational primes S in the atoms' group have abscissa σ_S < ½,
+  no Beurling solution at any q ≠ 1 — covers the whole Poisson-pair cone 𝒦_r with thin rational part, continuous parts included.
+- Residue of route (i) named: thick rational part (σ_S ≥ ½) and infinitely many twisted combs.
+- Next: controls (verify/v2: exact self-duality test on F55, R1, a thick-S mixture probe; DH noted), route (ii) model sets.

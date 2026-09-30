@@ -100,3 +100,14 @@ Append-only, dated blocks. Writer: Opus 5.5 (unit agent). Outputs only under `re
   Perelli's survey (replaces a recalled item). arXiv API: 8 queries, nothing new.
 - Next: §5 FIX-FIRST pairs (F1 Theorem D unconditional; F2 Hilberdink 2012 citations and novelty labels; F3 the Q4 quote), §6 minor
   pairs, §7 what next; then the final report.
+
+## 2026-10-01 05:21 IST — read-O CLOSE: AGREES-WITH-CORRECTIONS (read-O.md, 44112 bytes; NOTE.md untouched)
+- Verdict on "T (U_q, L′, E2), conditional D, G": AGREES-WITH-CORRECTIONS. No statement false; three record-level FIX-FIRST items:
+  F1 Theorem D UNCONDITIONAL (Meyer p. 25 at the page applied to μ_q − (ρ_q − 1)·Lebesgue; finite exceptions removed by self-duality);
+  F2 Hilberdink 2012 §4 (on disk, uncited) = U_q Step 4's S–W step + L′'s mechanism for integer multipliers (+ Thm C: squarefree q);
+  F3 the (Q4) quote replaced by the page. Minor pairs m1–m7 (weight ≥ 1 meaning; E2(b) uses T; L′(4) wording; D Step (3) sentence;
+  consequential edits of F1; headline credit; rung-1 Q4 = Hilberdink (†)).
+- Corrected close: T at every conductor for u.d. (U_q), ζ·finite multiplier (L′), purely continuous (E2) AND all discrete systems (D);
+  G = weighted/mixed systems with clustering integers and infinitely many distinct masses. Novelty labels in read-O §4.
+- verify-O/: o1 (240 exact checks of (E), 0 failures), o2 (exact Sturm certificates, 0 failed pieces), o3 (rung 1 from definitions,
+  all sets reproduced), sources/ (Córdoba 1989 Springer capture; 8 arXiv API queries).

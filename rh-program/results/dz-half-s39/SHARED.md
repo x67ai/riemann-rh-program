@@ -44,3 +44,18 @@ Dated blocks, appended after each batch. Newest at the bottom.
   cross-block coupling in ρ = ρ^c e^{S}; Lemma 2.2 σ² ≥ c_*κ²x/(2^{11}(N₀+1)² log x); Lemma 2.3 R = O_P(κ/log x).
   Prop. 2.4: independent second proof (ζ_B unbounded as σ → ½+, a.s.). Lemma 2.5: finite changes preserve O(x^τ) and o(s_x).
 - Nothing in the proof failed; the brief's stop condition (dependence uncontrollable) is NOT met.
+
+## 2026-10-01 — block 3: finite-rung code written; main batch launched (05:21)
+
+- `verify/dzcommon.py` (f_R, f_C with g from Irwin–Hall for log u ≤ 5 and from the renewal equation
+  q(w) = w1_{[1,2]}(w) + ∫_{w−2}^{w−1} q, q = w·g(e^w), above; (17.31) asserted). Envelope check: f_C/f_R on [e⁴, 10⁸] stays in
+  [1 − c, 1 + c], c = 0.8366 (every Poisson proposal also asserts f ≤ envelope).
+- `verify/dzgen.py`: exact Bernoulli selection on every cell of Γ for units n ≤ 22; Poisson-with-grid-rounding above (TV ≤ 2⁻²²);
+  ρ from the Euler sum + Ein(log X) + the f_C oscillatory tail + a sampled Gaussian tail for the g-primes > X.
+- `verify/dzcount.c`: DFS enumeration of all g-integers ≤ X into bins (e_i, e_{i+1}], e = 2^j(1 + i/1024); control: rational
+  primes to 10³ give N(e) = ⌊e⌋ at every edge (exact).
+- `verify/controls.py`: rational primes (β = 0), P_det (quantile system on Γ, no selection), T₁ (delete p w.p. 1/(1 + log p)).
+- Early finding (10⁵ tests): E(x) < 0 throughout for both DZ and P_det, |E| ≈ c(x/log x)^{1/2} — the (2s − 1)^{−1/2} branch
+  point from the prime squares with ζ_T(½) = −1 < 0 (NOTE §4.3). The one-scale variance is a small part of MS at 10⁵
+  (I(κ) ≈ 2.9 vs MS/(x/log x) ≈ 35–60 for R seed 1).
+- NOTE §3.1–3.2 written: σ² two ways with the error bound; I(κ; n₀) closed forms; min I > 0 on DZ's grid (0.0195, 0.0380).

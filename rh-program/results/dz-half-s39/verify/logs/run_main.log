@@ -1,0 +1,67 @@
+== 05:21:02 python3 dzgen.py R 1 1e8 data/dz_R_s1
+{"template": "R", "seed": 1, "X": 100000000.0, "n_primes": 5760208, "n_exact_units": 22, "pmax_exact": 0.4505697771316434, "poisson_proposals": 5768251, "envelope_max_ratio": 0.9999999999267063, "grid_collisions": 0, "prime_1p5": false, "logsum": 4.356276344248846, "Ein": 3.4906896523454902, "osc_tail": 0.0, "S_tail": -4.331987347678193e-05, "s_tail": 2.32995300892328e-05, "rho": 2.376296948532566
+== 05:21:03 ./dzcount data/dz_R_s1.primes.f64 1e8 1024 27 data/dz_R_s1.i64
+{"n_primes": 5760208, "n_ginteger_gt1": 237674111, "outside_bins": 0, "max_depth": 27}
+== 05:21:06 python3 analyze.py data/dz_R_s1
+{"1e3": {"sup": 0.5205225608305283, "supL": 0.5617006865237546, "ms": 0.508819221015545, "msL": 0.550906120512071}, "1e4": {"sup": 0.6016934011536913, "supL": 0.6378813549063139, "ms": 0.6203937409197037, "msL": 0.6572178169703324}, "1e5": {"sup": 0.715464731665604, "supL": 0.748825150706319, "ms": 0.781659233887845, "msL": 0.8155157046152645}, "1e6": {"sup": 0.7157793593036211, "supL": 0.74683035
+== 05:21:06 python3 dzgen.py R 2 1e8 data/dz_R_s2
+{"template": "R", "seed": 2, "X": 100000000.0, "n_primes": 5762981, "n_exact_units": 22, "pmax_exact": 0.4505697771316434, "poisson_proposals": 5771171, "envelope_max_ratio": 0.9999999995745047, "grid_collisions": 0, "prime_1p5": false, "logsum": 2.9232915787678095, "Ein": 3.4906896523454902, "osc_tail": 0.0, "S_tail": -1.571342559072983e-05, "s_tail": 2.32995300892328e-05, "rho": 0.56698990082832
+== 05:21:37 ./dzcount data/dz_R_s2.primes.f64 1e8 1024 27 data/dz_R_s2.i64
+{"n_primes": 5762981, "n_ginteger_gt1": 56700102, "outside_bins": 0, "max_depth": 15}
+== 05:21:38 python3 analyze.py data/dz_R_s2
+{"1e3": {"sup": 0.49849111828064574, "supL": 0.539669243973872, "ms": 0.4725468675733451, "msL": 0.5146337670698711}, "1e4": {"sup": 0.47317139359404997, "supL": 0.5093593473466728, "ms": 0.44236472966081075, "msL": 0.4791888057114396}, "1e5": {"sup": 0.4824776126948353, "supL": 0.5158380317355503, "ms": 0.40134005064517064, "msL": 0.4351965213725903}, "1e6": {"sup": 0.47113099800700603, "supL": 0
+== 05:21:38 python3 dzgen.py R 3 1e8 data/dz_R_s3
+{"template": "R", "seed": 3, "X": 100000000.0, "n_primes": 5762516, "n_exact_units": 22, "pmax_exact": 0.4505697771316434, "poisson_proposals": 5770682, "envelope_max_ratio": 0.9999999989694109, "grid_collisions": 0, "prime_1p5": false, "logsum": 2.3914013136283767, "Ein": 3.4906896523454902, "osc_tail": 0.0, "S_tail": 4.374114058368841e-06, "s_tail": 2.32995300892328e-05, "rho": 0.333109516529613
+== 05:21:39 ./dzcount data/dz_R_s3.primes.f64 1e8 1024 27 data/dz_R_s3.i64
+{"n_primes": 5762516, "n_ginteger_gt1": 33309334, "outside_bins": 0, "max_depth": 10}
+== 05:21:40 python3 analyze.py data/dz_R_s3
+{"1e3": {"sup": 0.512567414335557, "supL": 0.5537455400287831, "ms": 0.49422884490612073, "msL": 0.5363157444026468}, "1e4": {"sup": 0.5297051644541604, "supL": 0.5658931182067831, "ms": 0.5188731756133365, "msL": 0.5556972516639654}, "1e5": {"sup": 0.428850447304883, "supL": 0.4622108663455979, "ms": 0.41548575409564165, "msL": 0.4493422248230613}, "1e6": {"sup": 0.45288183676683225, "supL": 0.48
+== 05:21:40 python3 dzgen.py R 4 1e8 data/dz_R_s4
+{"template": "R", "seed": 4, "X": 100000000.0, "n_primes": 5767447, "n_exact_units": 22, "pmax_exact": 0.4505697771316434, "poisson_proposals": 5775555, "envelope_max_ratio": 0.9999999994684429, "grid_collisions": 0, "prime_1p5": false, "logsum": 2.707005664795929, "Ein": 3.4906896523454902, "osc_tail": 0.0, "S_tail": -5.4449767843713125e-05, "s_tail": 2.32995300892328e-05, "rho": 0.45669548849935
+== 05:21:41 ./dzcount data/dz_R_s4.primes.f64 1e8 1024 27 data/dz_R_s4.i64
+{"n_primes": 5767447, "n_ginteger_gt1": 45669514, "outside_bins": 0, "max_depth": 14}
+== 05:21:42 python3 analyze.py data/dz_R_s4
+{"1e3": {"sup": 0.47442017352597826, "supL": 0.5155982992192045, "ms": 0.45712454600621827, "msL": 0.4992114455027442}, "1e4": {"sup": 0.49134819568227645, "supL": 0.5275361494348993, "ms": 0.4652773228826586, "msL": 0.5021013989332876}, "1e5": {"sup": 0.5186062314281176, "supL": 0.5519666504688328, "ms": 0.4746249142845338, "msL": 0.5084813850119536}, "1e6": {"sup": 0.5225447433729662, "supL": 0.
+== 05:21:42 python3 dzgen.py R 5 1e8 data/dz_R_s5
+{"template": "R", "seed": 5, "X": 100000000.0, "n_primes": 5762483, "n_exact_units": 22, "pmax_exact": 0.4505697771316434, "poisson_proposals": 5770504, "envelope_max_ratio": 0.9999999983829538, "grid_collisions": 0, "prime_1p5": false, "logsum": 2.9893371715956145, "Ein": 3.4906896523454902, "osc_tail": 0.0, "S_tail": -1.180266328990291e-05, "s_tail": 2.32995300892328e-05, "rho": 0.60570374419583
+== 05:21:43 ./dzcount data/dz_R_s5.primes.f64 1e8 1024 27 data/dz_R_s5.i64
+{"n_primes": 5762483, "n_ginteger_gt1": 60571135, "outside_bins": 0, "max_depth": 23}
+== 05:21:44 python3 analyze.py data/dz_R_s5
+{"1e3": {"sup": 0.45582585856894836, "supL": 0.4970039842621746, "ms": 0.43964691948862417, "msL": 0.4817338189851501}, "1e4": {"sup": 0.44926186302354626, "supL": 0.4854498167761692, "ms": 0.42355966288268637, "msL": 0.46038373893331525}, "1e5": {"sup": 0.4306046453003433, "supL": 0.46396506434105844, "ms": 0.38428114472723807, "msL": 0.41813761545465755}, "1e6": {"sup": 0.40645617126866856, "sup
+== 05:21:44 python3 dzgen.py C 1 1e8 data/dz_C_s1
+{"template": "C", "seed": 1, "X": 100000000.0, "n_primes": 5760208, "n_exact_units": 22, "pmax_exact": 0.4505697771316434, "poisson_proposals": 10595835, "envelope_max_ratio": 0.95952443278655, "grid_collisions": 0, "prime_1p5": true, "logsum": 5.036617313285816, "Ein": 3.4906896523454902, "osc_tail": -9.55141505096719e-06, "S_tail": -1.4893115950820266e-05, "s_tail": 2.32995300892328e-05, "rho": 
+== 05:21:48 ./dzcount data/dz_C_s1.primes.f64 1e8 1024 27 data/dz_C_s1.i64
+{"n_primes": 5760208, "n_ginteger_gt1": 469155855, "outside_bins": 0, "max_depth": 46}
+== 05:21:54 python3 analyze.py data/dz_C_s1
+{"1e3": {"sup": 0.5049298470731793, "supL": 0.5461079727664054, "ms": 0.502483518697132, "msL": 0.5445704181936579}, "1e4": {"sup": 0.5083919135093501, "supL": 0.5445798672619728, "ms": 0.505947660995252, "msL": 0.5427717370458811}, "1e5": {"sup": 0.5207958898270107, "supL": 0.5541563088677256, "ms": 0.5194786877558017, "msL": 0.5533351584832217}, "1e6": {"sup": 0.502856098108433, "supL": 0.533907
+== 05:21:55 python3 dzgen.py C 2 1e8 data/dz_C_s2
+{"template": "C", "seed": 2, "X": 100000000.0, "n_primes": 5762062, "n_exact_units": 22, "pmax_exact": 0.4505697771316434, "poisson_proposals": 10597506, "envelope_max_ratio": 0.9595258039822927, "grid_collisions": 0, "prime_1p5": true, "logsum": 4.698038870380112, "Ein": 3.4906896523454902, "osc_tail": -9.55141505096719e-06, "S_tail": 2.9177086027808004e-05, "s_tail": 2.32995300892328e-05, "rho":
+== 05:21:59 ./dzcount data/dz_C_s2.primes.f64 1e8 1024 27 data/dz_C_s2.i64
+{"n_primes": 5762062, "n_ginteger_gt1": 334487735, "outside_bins": 0, "max_depth": 46}
+== 05:22:03 python3 analyze.py data/dz_C_s2
+{"1e3": {"sup": 0.4682593225738749, "supL": 0.5094374482671011, "ms": 0.45659658657237645, "msL": 0.4986834860689024}, "1e4": {"sup": 0.4352097238320447, "supL": 0.4713976775846674, "ms": 0.4182064627467771, "msL": 0.45503053879740596}, "1e5": {"sup": 0.2983096170713078, "supL": 0.3316700361120227, "ms": 0.20403784164058486, "msL": 0.23789431236800473}, "1e6": {"sup": 0.18066151211953854, "supL": 
+== 05:22:03 python3 dzgen.py C 3 1e8 data/dz_C_s3
+{"template": "C", "seed": 3, "X": 100000000.0, "n_primes": 5756936, "n_exact_units": 22, "pmax_exact": 0.4505697771316434, "poisson_proposals": 10593367, "envelope_max_ratio": 0.9595256836026238, "grid_collisions": 0, "prime_1p5": false, "logsum": 5.073687110756846, "Ein": 3.4906896523454902, "osc_tail": -9.55141505096719e-06, "S_tail": -1.4628325065424895e-05, "s_tail": 2.32995300892328e-05, "rho
+== 05:22:07 ./dzcount data/dz_C_s3.primes.f64 1e8 1024 27 data/dz_C_s3.i64
+{"n_primes": 5756936, "n_ginteger_gt1": 486882762, "outside_bins": 0, "max_depth": 27}
+== 05:22:13 python3 analyze.py data/dz_C_s3
+{"1e3": {"sup": 0.4232718223879, "supL": 0.4644499480811263, "ms": 0.4267233413203351, "msL": 0.4688102408168611}, "1e4": {"sup": 0.38581891396243334, "supL": 0.4220068677150561, "ms": 0.38733024674245486, "msL": 0.4241543227930838}, "1e5": {"sup": 0.3509876800173148, "supL": 0.38434809905803, "ms": 0.3514206955927366, "msL": 0.38527716632015585}, "1e6": {"sup": 0.3056880900221639, "supL": 0.33673
+== 05:22:13 python3 dzgen.py C 4 1e8 data/dz_C_s4
+{"template": "C", "seed": 4, "X": 100000000.0, "n_primes": 5760737, "n_exact_units": 22, "pmax_exact": 0.4505697771316434, "poisson_proposals": 10599143, "envelope_max_ratio": 0.9595271232908823, "grid_collisions": 0, "prime_1p5": true, "logsum": 4.434852220882103, "Ein": 3.4906896523454902, "osc_tail": -9.55141505096719e-06, "S_tail": -9.895864949463274e-06, "s_tail": 2.32995300892328e-05, "rho":
+== 05:22:17 ./dzcount data/dz_C_s4.primes.f64 1e8 1024 27 data/dz_C_s4.i64
+{"n_primes": 5760737, "n_ginteger_gt1": 257027562, "outside_bins": 0, "max_depth": 46}
+== 05:22:20 python3 analyze.py data/dz_C_s4
+{"1e3": {"sup": 0.5377426841659727, "supL": 0.5789208098591989, "ms": 0.5420134514941242, "msL": 0.5841003509906502}, "1e4": {"sup": 0.536877752735717, "supL": 0.57306570648834, "ms": 0.5427553995907768, "msL": 0.5795794756414056}, "1e5": {"sup": 0.5201490604441946, "supL": 0.55350947948491, "ms": 0.521004377945507, "msL": 0.5548608486729266}, "1e6": {"sup": 0.4683316265005391, "supL": 0.499382626
+== 05:22:20 python3 dzgen.py C 5 1e8 data/dz_C_s5
+{"template": "C", "seed": 5, "X": 100000000.0, "n_primes": 5758970, "n_exact_units": 22, "pmax_exact": 0.4505697771316434, "poisson_proposals": 10587726, "envelope_max_ratio": 0.9595231773603936, "grid_collisions": 0, "prime_1p5": false, "logsum": 2.5072486387147457, "Ein": 3.4906896523454902, "osc_tail": -9.55141505096719e-06, "S_tail": -1.359106605684483e-05, "s_tail": 2.32995300892328e-05, "rho
+== 05:22:25 ./dzcount data/dz_C_s5.primes.f64 1e8 1024 27 data/dz_C_s5.i64
+{"n_primes": 5758970, "n_ginteger_gt1": 37397667, "outside_bins": 0, "max_depth": 27}
+== 05:22:25 python3 analyze.py data/dz_C_s5
+{"1e3": {"sup": 0.4594411221274411, "supL": 0.5006192478206672, "ms": 0.45912270866824223, "msL": 0.5012096081647681}, "1e4": {"sup": 0.4196737541711846, "supL": 0.4558617079238075, "ms": 0.40768617954529157, "msL": 0.44451025559592044}, "1e5": {"sup": 0.43552481611037364, "supL": 0.46888523515108893, "ms": 0.42704056475256463, "msL": 0.46089703547998445}, "1e6": {"sup": 0.44637541403505776, "supL
+== 05:22:25 python3 controls.py primes 1e8 data/ctl_primes
+{"kind": "primes", "X": 100000000.0, "n_primes": 5761455, "rho": 1.0, "K": 1024, "J": 27}
+== 05:22:26 ./dzcount data/ctl_primes.primes.f64 1e8 1024 27 data/ctl_primes.i64
+{"n_primes": 5761455, "n_ginteger_gt1": 99999999, "outside_bins": 0, "max_depth": 27}
+== 05:22:27 python3 analyze.py data/ctl_primes
+{"1e3": {"sup": -4.4258741293033783e-20, "supL": 0.04117812569322621, "ms": NaN, "msL": NaN}, "1e4": {"sup": 5.539071481499324e-20, "supL": 0.03618795375262286, "ms": NaN, "msL": NaN}, "1e5": {"sup": 2.937680741939796e-20, "supL": 0.03336041904071512, "ms": NaN, "msL": NaN}, "1e6": {"sup": -8.650984618611282e-20, "supL": 0.031051000321693393, "ms": NaN, "msL": NaN}} {"E_at_X": 0.0, "maxabsE": 0.99
+== 05:22:27 python3 controls.py det 1e8 data/ctl_det

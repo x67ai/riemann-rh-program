@@ -175,7 +175,29 @@ all of it through Remark 17.12's finite changes; Corollary 2.6 gives α(P_R) = �
 
 ## §3. The variance, computed two ways
 
-(pending)
+The quantity is the one-scale conditional variance of Lemma 2.2, σ² = Var(L | G) = Σ_{k∈B} p_k(1 − p_k)c_k², with
+c_k = c(v_k), c(v) := n₀(x/v) − κx a(v), a(v) = −log(1 − 1/v).
+
+**3.1 Way 1 — the exact sum over DZ's grid** [computed, `verify/onescale.py` part A]. For x ≤ 24 the cells of Γ in
+(x/2, x] are few enough (≤ 2^{24}) to enumerate: p_k by 8-point Gauss–Legendre on each cell, c_k at the grid point, the sum
+taken exactly. For larger x the grid has ~x·2^{x}/2 points in the block and only way 2 is available — which is legitimate,
+because of the bound in 3.2.
+
+**3.2 Way 2 — the Theorem-B (continuum) route** [proved here]. Put σ²_cont := ∫_{x/2}^{x} f(v)c(v)² dv. Then
+  |σ² − σ²_cont| ≤ m(x)·Σ_{k∈B} p_k c_k² + 2M·h(x)·(5κ/x)·∫_{x/2−1}^{x} f + 2(N₀ + 2)M²m(x),
+where h(x) is the mesh of Γ on the block (≤ 2^{−⌊x/2⌋}) and M = max|c|: the first term is the −p_k² part, the second the
+Riemann-sum error on the smooth pieces (|c′(v)| ≤ κx/v² ≤ 4κ/x·(1 + o(1)) there), the third the ≤ N₀ + 2 cells that straddle
+a jump of n₀(x/·) or an end of the block. On Γ the right side is ≤ 2^{−x/2}x^{O(1)}: way 1 and way 2 agree to double
+precision once x ≳ 100. Substituting v = x/y and f(v) = f(x)(1 + O(1/log x)) on the block (for f_R; for f_C the k = 1 term of
+(17.44) has period 2πv/e⁴ ≈ 0.115v in v and does not average out over one block, so σ²_cont is computed with f_C itself):
+  σ²_cont = (x/log x)·I(κ; n₀)·(1 + O(1/log x)),   I(κ; n₀) := ∫₁² (n₀(y) − κy)² dy/y².
+On Γ the only grid point in (1, 2) is 1.5, so there are two cases [computed by hand; checked in `onescale.py`]:
+  1.5 ∉ P (N₀ = 0): I = ½ − 2κ log 2 + κ²;   1.5 ∈ P (N₀ = 1): I = 1 − (2 log(3/2) + 4 log(4/3))κ + κ² = 1 − 1.96166κ + κ².
+Both are ≥ min over κ > 0, i.e. ≥ ½ − (log 2)² = 0.0195 and ≥ 1 − 1.96166²/4 = 0.0380 respectively: **the one-scale variance
+never degenerates on DZ's grid** (Lemma 2.2's constant 2^{−11}c_* is far from sharp). This is the frontier's
+σ_B² = Σ_{p∈B}v_p(κ_p x/p − 1)² with v_p ↦ f(v)dv and the ½-offsets of the coprime sums T_d replaced by n₀.
+
+(§3 continues)
 
 ## §4. Finite rung: simulation of the construction to 10⁸, five seeds, with controls
 

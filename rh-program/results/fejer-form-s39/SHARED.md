@@ -35,3 +35,15 @@ Printed (at the page): AHL 1201.4967 Lemma 3.4 = (R) + D_k formula; AHL p. 1 = t
 the Hodge-index Gram SDP "is closely related to the dual of the optimization problem solved by Oesterle, as shown in [HP19]"
 (HP19 = Trans. AMS 372 (2019) 5409-5451, not fetched; HP 2014 p. 2 had called it an unexplained "experimental observation").
 Rung-1 verdict so far: K on both transports (zeros form = Weil test with multiplier 1; positions form = V-blind). Next: Z side.
+
+## Block 3 — 06:10 IST 2026-10-01 — Z side done (§6)
+verify/z_forms.log: Z1 (C_Q) for F_{2.9,2} 2.95 = 2.95 (RH-false passes; identity for every a); Epstein 2-D Fejer defect 1.139355
+vs Poisson 1.139353; Z2 real-axis monotonicity passed by zeta, F_{2.9,2}, DH, Epstein (FE residuals <= 1.3e-30).
+verify/z3_weil_fejer.log: zeta (10142 Odlyzko zeros < 1e4) min W = +0.0069 (vacuous); F_{2.9,2} min W = -872.45 at T = 13.80;
+DH 47 zeros in (50,120) (argument principle 47.0000 = 43 on + 4 off), min W = -681.66 at T = 85.49 (off-line share -681.87).
+Close forming: K. Rung-1 LP = Weil (IV.1, multiplier 1; printed: Serre-Oesterle, HP19); positions-side Fejer = V-blind (I.9);
+Z1/Z2 passed by controls (RH-blind); Z3 = Weil's criterion.
+
+## Block 4 — 06:30 IST 2026-10-01 — §7 (Clifford + Theorem K), §8 Instruments, §9 Untried, §10 waste line, §11 riders written
+verify/r1_clifford.log: class-summed Clifford N_1 <= h at g = 2 catches 0/199 (q=5), 1/675 (q=7), 2/2935 (q=11); none of the 111.
+Theorem K stated (NOTE §7). Zoo riders on IV.1 and I.9 proposed in BLOCK form (NOT inserted). Remaining: §0 close, final hashes.

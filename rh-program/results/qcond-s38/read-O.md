@@ -214,12 +214,12 @@ equation" AND "nonnegative coefficients" (0). No further prior art.
 
 GATE VERDICT. No source read prints U_q, L′, E2, D or §1.6 as a statement. Labels (replacing `[novelty: single-check]`):
  • U_q — `[novelty: dual-checked — statement not in print as read; Step 4 is Hilberdink 2012 Prop. 4.2's S–W step; Step 5 has a printed
-   alternative (Hilberdink 2012 Thms 4.3–4.4) plus the FE reflection; NEW: the self-duality ⟹ periodicity reduction (Steps 1–3) at
-   conductor q, and the reflection]`.
+   alternative (Hilberdink 2012 Thms 4.3–4.4) plus the FE reflection; NEW: the self-duality ⟹ periodicity reduction (Steps 1–3; Steps 1–2 are
+   BFE Prop. U's method) at conductor q, and the reflection]`.
  • L′ — `[novelty: dual-checked — statement for arbitrary real frequencies not in print; the Landau mechanism is printed for integer,
    divisor-supported multipliers (Hilberdink 2012 Thm 4.3, (∗)/(†), Thm 4.4); the FE reflection is new]`.
- • E2, E3, §1.4 Cor. 1–3, §1.6 — `[novelty: dual-checked — not found; routine consequences of positive-definiteness/Krein]` (E2 is
-   the most substantive of these).
+ • E2, E3, §1.4 Cor. 1–3 — `[novelty: dual-checked — not found; routine consequences of positive-definiteness (Krein)]` (E2 is the
+   most substantive); §1.6 — `[novelty: dual-checked — not found; the Fejér pairing both ways, BFE T′'s method at conductor q]`.
  • D — `[novelty: dual-checked — not found; unconditional via Meyer p. 25 (§2)]`.
 
 ## §5. FIX-FIRST items (OLD/NEW pairs; not applied to NOTE.md)
