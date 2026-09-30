@@ -112,3 +112,32 @@ Dated blocks, newest last. Writer: Opus 5.5 (default effort), on `WRITER-BRIEF.m
   verify-F/ (from the staircase folder), NOVELTY-F.md: 49 files, 3.6 MB.
 - Next: reproduce both certificates in a scratch copy (not in certificate/, because B's scripts
   overwrite their own logs), then README.md, SHA256SUMS, the zip and its hash.
+
+## 2026-10-01 00:42 IST — reproduction (A, verify-F, most of B); README, abstract.txt, REFEREE-BRIEF.md
+
+- Reproduced in a scratch copy (outside the package): certificate A's five scripts (ladder 11.3 s, h1
+  10.2 s, h2 36.9 s, xcheck 10.3 s, h5 3.3 s) and `verify-F/rerun_N27.py`: every output identical to the
+  archived log apart from timing figures (checked by raw diff: all differing lines are timings).
+- Certificate B in scratch: selftest identical; ladder, cert27, cert_h5 differ from the archived logs
+  only in timing figures (cert27 SUMMARY: "H1 True; H4 True; H2 k(r=1e-3) = 1, smallest r = 3.7e-11;
+  control k = 0; H3 HOLDS"). crosscheck X1 X2 and X3 still running (X3 takes about 11 minutes).
+- `certificate/README.md` written (what is certified, contents, requirements, run commands and expected
+  lines for A and verify-F; B section to follow after its run finishes).
+- `abstract.txt` written (title + abstract, 1845 characters, under arXiv's 1920). The abstract in main.tex
+  was tightened to match.
+- `REFEREE-BRIEF.md` written (39 lines).
+- main.tex read end to end once; fixes: sign description of the P_w formula; the pencil remark (Haglund's
+  example is unaffected, since it needs only the N = 1, 2 signs, which are right); lobe-pair wording;
+  departure-law sourcing (census to 200 plus lobe count to 320); dangling "digits shown".
+
+## 2026-10-01 00:45 IST — README B section; precision edits
+
+- `certificate/README.md`: certificate B run instructions (work on a copy: B's scripts overwrite their
+  logs), expected lines (each grepped from the archived logs), run times from B's CERT §F, and the note
+  on `producer-B/logs/ladder.log` (re-run output; hash differs from B's SHARED.md; values = CERT §C).
+- `lit/zenodo-22059236.json` renamed `zenodo-22059236-api-refused-403.txt` (it is Zenodo's 403 page,
+  not the record). No API key in any saved file (scanned).
+- main.tex: the A-route cross-check bound stated precisely (6.43e-1137 at 256 bits over all 18 points;
+  1.18e-1288 at 1024 bits at the 14 contour points; the CERT gives no 1024-bit figure for the four
+  real-axis points); Section 7 now says which N = 24 routes rest on the theta relation (A's literal
+  route L does not). Availability list shortened (file lists live in the certificate README).

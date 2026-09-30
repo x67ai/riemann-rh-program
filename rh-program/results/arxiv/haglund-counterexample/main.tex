@@ -82,7 +82,7 @@ height.
 \section{Introduction}
 \label{sec:intro}
 
-\subsection{Haglund's approximants and his conjecture}
+\subsection{Haglund's approximants and his conjecture}\label{sec:hag}
 
 Write $s = \tfrac12 + iz$ and let
 \begin{equation}\label{eq:Xi}
@@ -183,7 +183,7 @@ for $N \le 26$: the scan that located the violation at $N = 27$
 (Section~\ref{sec:departure}) is numerical, covers a window near one height for
 each $N$, and is not a proof that smaller $N$ satisfy the conjecture.
 
-\subsection{The mechanism, and two corrections to Haglund's paper}
+\subsection{The mechanism, and two corrections to Haglund's paper}\label{sec:mech}
 
 The failure is not an accident of $N = 27$. On the critical line the approximants
 sit below $\Xi$ by a positive amount: for every $N \ge 1$ and real $t$,
@@ -194,8 +194,8 @@ sit below $\Xi$ by a positive amount: for every $N \ge 1$ and real $t$,
 zeros of $\Xi_N$ lie in the \emph{positive lobes} of $\Xi$ (the intervals between
 consecutive zeros on which $\Xi > 0$): an even number in each positive lobe
 $(\gamma_j, \gamma_{j+1})$ and an odd number in the central lobe $(0, \gamma_1)$,
-where $0 < \gamma_1 < \gamma_2 < \cdots$ are the positive zeros of $\Xi$. A positive lobe carries real zeros of $\Xi_N$
-only if $\Xi$ rises above the level $Q_N$ there. Near the height $4(N+1)^2$ the
+where $0 < \gamma_1 < \gamma_2 < \cdots$ are the positive zeros of $\Xi$. A
+positive lobe carries real zeros of $\Xi_N$ only if $\Xi$ rises above the level $Q_N$ there. Near the height $4(N+1)^2$ the
 level $Q_N$ becomes comparable to the size of $\Xi$, and the heights of
 consecutive lobes fluctuate; a lobe that stays below the level, followed by a
 lobe that rises above it, leaves a pair of non-real zeros below real zeros. At
@@ -210,9 +210,9 @@ The same sandwich corrects two statements in \cite{Hag}.
 \item[(i)] The number of real zeros of $\Xi_N$ on $(0,\infty)$, counted with
 multiplicity, is odd for every $N$ (Corollary~\ref{cor:odd}). Haglund's table
 \cite[p.~4]{Hag} lists $1$, $7$, $15$, $32$, $53$, $79$, $113$, $155$, $207$, $263$ real zeros for
-$N = 1, \ldots, 10$; the entry $32$ at $N = 4$ is inconsistent with this, and a
-numerical census of $\Xi_4$ finds $31$, the largest being
-$103.3679880094135$, which is Haglund's printed value.
+$N = 1, \ldots, 10$; the even entry $32$ at $N = 4$ is inconsistent with this,
+and a numerical census of $\Xi_4$ finds $31$, the largest being
+$103.3679880094135$, in agreement with Haglund's printed $103.3679880094$.
 \item[(ii)] On the real axis $x^2\Xi_N(x)$ tends to a negative limit for every
 $N \ge 1$ (Proposition~\ref{prop:tail}), whereas \cite[p.~10]{Hag} states
 ``Thus the coefficient of $1/x^2$ in $\Xi_N(x)$ is positive for $k \ge 3$ and
@@ -231,12 +231,12 @@ c_N = \sum_{n > N}(4\pi n^2 - 1)e^{-\pi n^2} > 0
 (Section~\ref{sec:riemann}). On the critical line $\xi_N$ lies \emph{above} $\Xi$
 (Theorem~\ref{thm:polya}), so its real zeros lie in the negative lobes of $\Xi$,
 and the same ordering property fails for it at $N = 24$
-(Theorem~\ref{thm:xi24}). Neither family can satisfy the Riemann hypothesis
-literally: no member of the family
+(Theorem~\ref{thm:xi24}). Neither family is real-rooted: no member of the
+family
 $\xi_w = \tfrac12 + \tfrac12 s(s-1)\sum_n w_n g_n$ with $0 \le w_n \le 1$ and
 $w \not\equiv 1$, or with $w$ finitely supported, has all its zeros on the
 critical line; it has finitely many zeros there and infinitely many off it
-(Theorem~\ref{thm:A}). With polynomially bounded weights, having all zeros on
+(Theorem~\ref{thm:A}), and the same holds for every $\Xi_N$. With polynomially bounded weights, having all zeros on
 the line forces $w \equiv 1$ (Theorem~\ref{thm:B}). This is why a conjecture
 about approximants of this kind has to be an ordering statement such as
 Conjecture~\ref{conj:H}, and not real-rootedness; and any approach through
@@ -381,8 +381,9 @@ $-k'$ is positive and strictly decreasing, the pieces of the sine integral over
 consecutive half-periods alternate in sign with strictly decreasing sizes, and
 the first is positive, so the integral is positive (this is the argument behind
 P\'olya's criterion). At $t = 0$ the integral is $\int_0^\infty k > 0$. The
-formula for $P_w$ is Riemann's identity \eqref{eq:riemann} minus \eqref{eq:xiw},
-with $\tfrac12 s(s-1) = -\tfrac12(\tfrac14 + t^2)$ on the line.
+formula for $P_w$ follows by subtracting
+$\xi = \tfrac12 + \tfrac12 s(s-1)\sum_n g_n$ from \eqref{eq:xiw}, with
+$\tfrac12 s(s-1) = -\tfrac12(\tfrac14 + t^2)$ on the line.
 \end{proof}
 
 \begin{corollary}[lobe law for $\xi_w$]\label{cor:lobe}
@@ -404,7 +405,8 @@ $\Xi$. For $n \ge 1$ put $k_n(u) = \exp(u/2 - \pi n^2 e^{2u})$ and
 \tphi_n := k_n'' - \tfrac14 k_n = 2y(2y-3)\,e^{u/2 - y}, \qquad y = \pi n^2 e^{2u},
 \]
 which equals $(4\pi^2 n^4 e^{9u/2} - 6\pi n^2 e^{5u/2})\exp(-\pi n^2 e^{2u})$,
-one half of the term $\varphi_n(u)$ of Riemann's kernel (Section~1.1).
+one half of the term $\varphi_n(u)$ of Riemann's kernel
+(Section~\ref{sec:hag}).
 
 \begin{theorem}[sandwich]\label{thm:sandwich}
 For every $N \ge 1$ and real $t$,
@@ -460,21 +462,22 @@ $8X^3 - 30X^2 + 15X$ is positive for $n \ge 2$.
 Since the full kernel $\sum_{n \ge 1}\tphi_n$ is even,
 $\sum_{n\ge1}\tphi_n'(0) = 0$, and the limit is also the sum over $n \le N$ of
 the coefficients of $1/t^2$ in the individual $\Phi_n$, namely
-$-2\tphi_n'(0)$; this is how Haglund computes it. Evaluated at $40$ digits the limits are $-0.078997$,
+$-2\tphi_n'(0)$; this is how Haglund computes it. Evaluated at $40$ digits the
+limits are $-0.078997$,
 $-1.6530\cdot10^{-7}$, $-2.7831\cdot10^{-16}$, $-5.7375\cdot10^{-28}$ and
 $-1.7062\cdot10^{-42}$ for $N = 1, \ldots, 5$. Haglund lists the coefficients of
 $1/x^2$ in $\Phi_1$ and $\Phi_2$ as $-.01974938206$ and $.01974934121$
 \cite[(52), p.~10]{Hag}; his values are one quarter of ours (at $N = 1$,
 $-.01974938206$ against $-0.078997$), a constant factor that comes from the
-argument $z/2$ in \eqref{eq:XiN} and does not affect signs. He concludes that the coefficient of $1/x^2$ in $\Xi_N(x)$ ``is
+argument $z/2$ in \eqref{eq:XiN} and does not affect signs. He concludes that
+the coefficient of $1/x^2$ in $\Xi_N(x)$ ``is
 positive for $k \ge 3$ and negative for $1 \le k < 3$'' \cite[p.~10]{Hag}.
 Proposition~\ref{prop:tail} shows that it is negative for every $N$: the
 coefficients of $\Phi_1$, $\Phi_2$ and $\Phi_3$ nearly cancel, and ten-digit
 values of them cannot resolve their sum, which is of order $10^{-16}$, at
-$N = 3$. (Haglund uses
-the sign change to exhibit non-monotone zeros of the pencil
-$t\Phi_1 + \Phi_2$; that pencil is not one of the $\Xi_N$, and we do not
-revisit the example.)
+$N = 3$. Haglund's use of these coefficients to exhibit non-monotone zeros of
+the pencil $t\Phi_1 + \Phi_2$ is unaffected: it needs only that the coefficient
+of $\Phi_2$ is positive and that of $\Xi_2$ negative, and both are.
 
 \begin{corollary}[real zeros of $\Xi_N$]\label{cor:odd}
 Let $N \ge 1$ and let $0 < \gamma_1 < \gamma_2 < \cdots$ be the positive zeros of
@@ -495,14 +498,11 @@ only finitely many lobes carry zeros, and the zeros of the entire function
 $\Xi_N$ in $[0, T_0]$ are finite in number.
 \end{proof}
 
-Haglund's table \cite[p.~4]{Hag} gives the numbers of real zeros of $\Xi_N$ as
-$1$, $7$, $15$, $32$, $53$, $79$, $113$, $155$, $207$, $263$ for
-$N = 1, \ldots, 10$. The entry $32$
-at $N = 4$ is even; by Corollary~\ref{cor:odd} there cannot be $32$ simple real
-zeros. A numerical census of $\Xi_4$ (real zeros by sign changes, the total by
-the argument principle, not interval-rigorous) finds $31$ real zeros, the
-largest being $103.3679880094135$; Haglund prints the largest zero as
-$103.3679880094$. The other nine entries are odd.
+In Haglund's table \cite[p.~4]{Hag} (Section~\ref{sec:mech}) the entry $32$ at $N = 4$ is
+even, so by Corollary~\ref{cor:odd} it cannot count $32$ simple real zeros; a
+numerical census of $\Xi_4$ (real zeros by sign changes, the total by the
+argument principle, not interval-rigorous) finds $31$, the largest being
+$103.3679880094135$. The other nine entries are odd.
 
 \section{Structure: no member is real-rooted}
 \label{sec:structure}
@@ -638,21 +638,22 @@ Theorem~\ref{thm:main}.
 and the corrections $P_N$ and $Q_N$ are of size roughly $e^{-\pi(N+1)^2}$. The
 two balance near $t = 4(N+1)^2$, the \emph{departure height}: below it the
 approximant tracks $\Xi$, above it the approximant is dominated by its
-correction. For the truncations $\xi_N$ this is visible in a complete census of
-the zeros in $0 < \im s \le 200$: the first negative lobe of $\Xi$ that carries
-no real zero of $\xi_N$ is $(25.01, 30.42)$, $(40.92, 43.33)$, $(69.55, 72.07)$,
+correction. For the truncations $\xi_N$ (from a complete census of the zeros
+in $0 < \im s \le 200$ and a count of the lobes up to height $320$) the first
+negative lobe of $\Xi$ that carries no real zero of $\xi_N$ is $(25.01, 30.42)$, $(40.92, 43.33)$, $(69.55, 72.07)$,
 $(107.17, 111.03)$, $(150.05, 150.93)$, $(202.49, 204.19)$, $(265.56, 266.61)$
 for $N = 1, \ldots, 7$, with ratio of lobe depth to $P_N$ equal to $0.0070$,
 $0.20$, $0.32$, $0.24$, $0.12$, $0.27$, $0.020$: the departure height is
-$4(N+1)^2 + 6$ to $4(N+1)^2 + 10$. Haglund's table shows the same law: his
+roughly $4(N+1)^2 + 6$ to $4(N+1)^2 + 10$. Haglund's table shows the same law: his
 largest real zeros $14.05, 39.53, 65.03, 103.37, \ldots, 489.39$ for
 $N = 1, 2, 3, 4, \ldots, 10$ lie close to $4(N+1)^2$. Every off-line zero of
 $\xi_N$ found below height $200$ lies outside the critical strip, at
 $\re s \ge 1.39$.
 
 \paragraph{The ordering property fails near departure.} By
-Theorem~\ref{thm:sandwich}, the real zeros of $\Xi_N$ come in pairs from the
-positive lobes of $\Xi$ whose height exceeds the smooth level $Q_N$, and by
+Theorem~\ref{thm:sandwich}, apart from the central lobe the real zeros of
+$\Xi_N$ come in pairs from the positive lobes of $\Xi$ whose height exceeds the
+smooth level $Q_N$, and by
 Corollary~\ref{cor:lobe} those of $\xi_N$ come from the negative lobes deeper
 than $P_N$. A lobe that fails the level, followed by a lobe that passes it,
 leaves a pair of non-real zeros over the first lobe with real zeros above it,
@@ -791,15 +792,15 @@ arguments in $\Phi_n$) one has $|\Phi_n| \le 9Xe^{-X}$, whence
 $|\sum_{n>M}\Phi_n| \le 18\pi(M+1)^2e^{-\pi(M+1)^2}$; at $N = 27$, $M = 30$ and
 the bound is $3.7\cdot10^{-1307}$.
 \end{itemize}
-Near $x = 3144.8946$ one has $|\Xi| = 1.4923145335789\cdot10^{-1066}$ and
+At $x = 3144.8946$ one has $|\Xi| = 1.4923145335789\cdot10^{-1066}$ and
 $|\Phi_{28}| = 1.49249055304208\cdot10^{-1066}$, so this route resolves
 $\Xi_{27} \approx 10^{-1070}$ with about $50$ digits to spare. As a second
 rigorous route for the real zeros, certificate B also evaluates the literal sum
 \eqref{eq:XiN} at $4400$ bits, with $\Phi_1, \ldots, \Phi_{27}$ from the lower
 incomplete gamma series (remainder $\le e^{-X}X^K/|(w)_K|$ once
 $\re w + K \ge X + 1$), integration by parts where it converges, and Stirling's
-series: no $\zeta$, no Euler--Maclaurin
-summation, and no use of Riemann's series.
+series: no $\zeta$, no Euler--Maclaurin summation, and no use of Riemann's
+series.
 
 Winding numbers come from a rigorous Taylor model. Since $f = \Xi_{27}$ is
 entire, its Taylor coefficients about $c$ satisfy $|a_k| \le M_R/R^k$, with
@@ -817,8 +818,8 @@ excludes $0$ and the ratio of the end values has positive real part; the change
 of argument along it is then the principal value of that ratio's argument. At
 $N = 27$: $R = 0.1$, $M_R = 2.09255\cdot10^{-1065}$, $\rho = 0.002$, $m = 24$,
 $K = 12$, giving $E = 3.51\cdot10^{-1106}$ for $r \le 10^{-5}$ and
-$1.36\cdot10^{-1087}$ at $r = 10^{-3}$ (and $D_0$ agrees with the direct
-enclosure of $\Xi_{27}(c)$ to all digits shown). For the $10^{-48}$ enclosure a
+$1.36\cdot10^{-1087}$ at $r = 10^{-3}$; the constant coefficient $D_0$ agrees
+with a direct enclosure of $\Xi_{27}(c)$. For the $10^{-48}$ enclosure a
 second model is built at the center
 \begin{align*}
 \re z^* &= 3143.220682421536585287281295989417800119257644961983569,\\
@@ -926,7 +927,8 @@ squares.}
 points compared (the center, the reference zero, the corners and midpoints of
 the squares of half-width $10^{-3}$, the corners of the square of half-width
 $4\cdot10^{-11}$, and the four points of Table~\ref{tab:real}), with
-$|L - T| \le 1.2\cdot10^{-1288}$ at $1024$ bits. In certificate B the literal and
+$|L - T| \le 6.43\cdot10^{-1137}$ at $256$ bits, and
+$|L - T| \le 1.18\cdot10^{-1288}$ at $1024$ bits at the fourteen contour points. In certificate B the literal and
 tail routes overlap at the four points of Table~\ref{tab:real}, its enclosures of
 $\Xi$ contain mpmath's ordinary $400$-bit values, and its two methods for $h$ at
 $X = 784\pi$ overlap. The two certificates agree with each other to every digit
@@ -989,8 +991,8 @@ line: the ordering property fails for $\xi_{24}$.
 
 Both certificates prove this, with the same methods as in
 Section~\ref{sec:cert}; here route T and certificate B use Riemann's
-identity \eqref{eq:riemann}, that is, Jacobi's theta relation, which is cited
-rather than re-proved. The enclosures on the line are, in certificate A (both
+identity \eqref{eq:riemann}, which rests on Jacobi's theta relation (cited, not
+re-proved), while certificate A's route L, the literal sum, does not. The enclosures on the line are, in certificate A (both
 routes; route L is the literal sum at $4800$ bits, cancelling about $855$
 digits)
 \[
@@ -1051,21 +1053,14 @@ $15$ minutes (Python~3.9.6, mpmath~1.3.0), most of it the $4400$-bit literal
 cross-check. The components are:
 \begin{itemize}
 \item \emph{Certificate A} (\path{results/haglund-cert-s37/producer-A/}): the
-evaluation library \texttt{hag\_core.py}, the scripts \texttt{ladder.py},
-\texttt{h1.py}, \texttt{h2.py}, \texttt{xcheck.py}, \texttt{h5.py}, their logs,
-and \texttt{CERT.md}, with the proofs of Lemmas~\ref{lem:B}--\ref{lem:T} and of
-the half-plane fact and the SHA-256 hash of every script and log. SHA-256 of
-\texttt{CERT.md}:
+scripts, their logs, and \texttt{CERT.md}, with the proofs of
+Lemmas~\ref{lem:B}--\ref{lem:T} and of the half-plane fact and the SHA-256 hash
+of every script and log. SHA-256 of \texttt{CERT.md}:
 \texttt{b1ecfe0a604c8b05e3439ad9ecae1c2a}\allowbreak
 \texttt{86c2fcdda55930cecbd1defea499513f}.
-\item \emph{Certificate B} (\path{results/haglund-cert-s37/producer-B/}):
-interval complex arithmetic (\texttt{ivc.py}), $\Gamma$, $\zeta$ and $h$ with
-their remainders (\texttt{specfun.py}), $\Phi_n$, $\Xi_N$ and the tail
-(\texttt{xin.py}), the Taylor model and boundary walk (\texttt{winding.py}), the
-scripts \texttt{ladder.py}, \texttt{cert27.py}, \texttt{crosscheck.py},
-\texttt{selftest.py}, \texttt{cert\_h5.py}, the logs, the DLMF pages used, and
-\texttt{CERT.md}, with every bound of Section~\ref{sec:cert} and its proof or
-source. SHA-256 of \texttt{CERT.md}:
+\item \emph{Certificate B} (\path{results/haglund-cert-s37/producer-B/}): the
+scripts, their logs, the DLMF pages used, and \texttt{CERT.md}, with every bound
+of Section~\ref{sec:cert} and its proof or source. SHA-256 of \texttt{CERT.md}:
 \texttt{c4a8ca6bc2d02b6f2e428d91b7cd0504}\allowbreak
 \texttt{4272fd2d7546d37976dd1cd1648d87a3}.
 \item \emph{Independent checks} (\path{results/haglund-cert-s37/rerun-F/} and
