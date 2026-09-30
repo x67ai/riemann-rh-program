@@ -1,0 +1,284 @@
+# zoo-s37 — numbers check (writer, Opus 5.5): counts, hashes, byte identity, cited entries, record numbers — Wed Sep 30 23:57:48 IST 2026
+
+Generator: results/zoo-s37/verify/numbers_check.py (read-only). Every figure below is computed from the file named at run time.
+
+## 0. Hashes at run time
+  90d0ad6afa093388317a71cd89daf4c10ea755978943027fb61c5f06c237cc0c  BARRIER-ZOO.md
+  b90dbdc8325578fc6a6869f08c028a7c1e7abe6a84878f556019df92249acfdd  results/zoo-s37/dryrun-BARRIER-ZOO.md
+  8befbdf272e1ef3a863e14056a2196e0a89ef7ad6b3b8c5242f52f703a74ed36  results/zoo-s37/zoo-entries-proposed.md
+  000ebc3e63ef34bbd7389c8b711761f6e2afb138232070cf0172e299df089f65  results/zoo-s37/BRIEF.md
+  a23e6a471f7b4659f24a86bbf9fa1d50474adde0dedf35e6af91f5c924450364  scripts/zoo-insert-s37.py
+  8209ba9fc4d911ae7b9a891d74574696ae4fb0e1033b53037d212728c1d42ee9  results/zoo-s37/verify/build_blocks.py
+  7a1dc42eb73e2f5811c84409c4564776281a71eca6edd439c6487f47f31f36ca  results/d4-infty-s36/NOTE.md
+  b744effa00ca2a2b7ccc9243eb520770b47700975877d70da870a1377a5199a3  results/d4-infty-s36/read-F.md
+  0a26acaab4cfe2a0fd32178cab34d9817e66b3030b6a2296541c0a867af6ef5d  results/novel-wave-s36/ZOO-LINES-STAGED.md
+  5239765df826890d5b7410074db4b97c37d429fbc2c8319bcbb7c97f2ba90b0d  results/novel-wave-s36/fingerprint/NOTE.md
+  4bb056ed7230149ceb854a80c057f30d70ef44c740a75a709600b8c495f2dbe6  results/novel-wave-s36/ly-infinity/NOTE.md
+  2b15a686010dfa07589077ef6bc05cff3c7bd7597df68b4eabefa662d53b1b89  results/novel-wave-s36/staircase/NOTE.md
+  0b22b7fce070b9e7451c667e8de9dfb3a669f82804bb7c31c6cff1f6ba3971b6  results/novel-wave-s36/tournament/NOTE.md
+  de5e02bf2364dd13c8830b7e860115b88fabaf1e16c9ded0186ca3a56c05ce22  results/novel-wave-s36/fingerprint/read-F.md
+  3e799dc6a0440f7f09eb248622923bde44818262c3fd3388ef7bda0209191877  results/novel-wave-s36/ly-infinity/read-F.md
+  11ccd07783db482b3e9dbb62f14b86f03fe2b11a25eab4729af95444924be3ad  results/novel-wave-s36/staircase/read-F.md
+  5288fe62241154eb0b1aaf9aea2a95e7f4298cf91875489c0339d5717a25f5b3  results/novel-wave-s36/tournament/read-F.md
+  e7d5e881ee025610abb005009812863b9a2e13870b5c380b6af49a3fa8535f59  results/theoremR-lean-s36/CHECK-O.md
+  60b131b3353f944b101bca54609cd07f591fad4c20618fab5387b6a03d42068e  results/theoremR-lean-s36/UNIT-BRIEF.md
+  b1ecfe0a604c8b05e3439ad9ecae1c2a86c2fcdda55930cecbd1defea499513f  results/haglund-cert-s37/producer-A/CERT.md
+  c4a8ca6bc2d02b6f2e428d91b7cd05044272fd2d7546d37976dd1cd1648d87a3  results/haglund-cert-s37/producer-B/CERT.md
+  d0cbe88d3e1c2f6c6e285b4dbd692565c45a7f47b3d614448b39bb7b32346d0a  results/f1-spec-s29/SPEC.md
+  cf67cbbe21dea6febd1012b052bd2b5cc6b255aa806c1fd25be12fb034fd509f  results/novel-wave-s37/WAVE-CHARTER.md
+  ✓ BARRIER-ZOO.md is the brief's input 90d0ad6afa093388… (full hash above) — stop line 1 does not fire; the zoo is untouched
+  ✓ the brief prints the input-hash prefix 90d0ad6afa093388…
+  ✓ the d4-infty NOTE is the file the script gates on (7a1dc42e…)
+  ✓ ZOO-LINES-STAGED.md is the file the script gates on (0a26acaa…)
+  ✓ CHECK-O.md = the full hash block (v) prints (e7d5e881ee025610…, the brief's prefix)
+  ✓ the staged file's header records the same input zoo (90d0ad6a…, read 23:20)
+
+## A. Heading tally (regex ^### G\.) and line counts, before (BARRIER-ZOO.md) and after (the dry run)
+  before ^### I\. 8 | ^### II\. 5 | ^### III\. 21 | ^### IV\. 20 | ^### V\. 5 | ^### (all) 59 | lines (\n count) 711 | bytes 396605 | ends with one \n: True
+  ✓ before: 8/5/21/20/5 = 59 headings, 711 lines
+  after  ^### I\. 9 | ^### II\. 5 | ^### III\. 21 | ^### IV\. 22 | ^### V\. 5 | ^### (all) 62 | lines (\n count) 745 | bytes 424093 | ends with one \n: True
+  ✓ after: 9/5/21/22/5 = 62 headings, 745 lines
+  Group I in file order, before: [1, 2, 3, 4, 5, 6, 7, 8]
+  Group I in file order, after : [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  Group IV in file order, before: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18, 16, 17, 19, 20]
+  Group IV in file order, after : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18, 16, 17, 19, 20, 21, 22]
+  ✓ Group IV after: IV.1–IV.15, IV.18, IV.16, IV.17, IV.19, IV.20, IV.21, IV.22
+  ✓ 'IV.21' on 0 lines before; on 3 lines after, at [39, 613, 711]
+  ✓ 'IV.22' on 0 lines before; on 5 lines after, at [39, 621, 712, 714, 715]
+  ✓ 'I.9' on 0 lines before; on 5 lines after, at [39, 136, 493, 713, 715]
+
+## B. diff BARRIER-ZOO.md results/zoo-s37/dryrun-BARRIER-ZOO.md — hunk summary
+  hunks: 38a39,40 / 133a136,143 / 326a337 / 481a493 / 598a611,619 / 599a621,628 / 681a711,715   (diff exit 1)
+  ✓ every hunk is a pure addition (no 'c' or 'd' hunk: nothing changed or removed)
+  ✓ 34 lines added, 0 removed (found 34, 0)
+  (diff pairs each inserted leading blank line with an old blank line — 38a39,40, 133a136,143, 598a611,619 + 599a621,628 — the same file)
+  ✓ every original line survives, in order, as an identical line (subsequence check)
+  added lines in the result (greedy alignment; line: first 100 characters):
+    39: **Entry count (dated, Session 37, 2026-09-30).** IV.21 (the degree clause and the lattice-index kill
+    40: (blank)
+    136: ### I.9 The rung-1 twin: the virtual curve over F₅ (an RH-false world with Euler product, Λ ≥ 0, FE 
+    137: (blank)
+    138: - **STATEMENT.** Z(u) = (1 − 5u + 5u²)/((1 − u)(1 − 5u)) over F₅ "satisfies the FE, has N_N = 1 + 5^
+    139: - **KILLS / RETURNS.** Any brief claiming a positivity GENERATOR all of whose inputs the virtual cur
+    140: - **EXECUTABLE TEST.** Evaluate every input the brief consumes on Z(u) above (exact integers, `tourn
+    141: - **SOURCE.** `results/novel-wave-s36/tournament/NOTE.md` §2.1–§2.3, §4; `tournament/verify/dd1_rung
+    142: - **STATUS.** computationally-verified — exact integers (writer d ≤ 40; the reader's re-run: "N_n ≥ 
+    143: (blank)
+    337: - **[RIDER 2026-09-30, Session 37 (novel wave, seed N4 `tournament`, row T6: `results/novel-wave-s36
+    493: - **[RIDER 2026-09-30, Session 37 (novel wave, seed N2 `staircase`: `results/novel-wave-s36/staircas
+    611: - **[ARITHMETIC CORE COMPARATOR-CHECKED 2026-09-30, Session 36 (`results/theoremR-lean-s36/`; CHECK-
+    613: ### IV.21 The degree clause and the lattice-index kill (no square of Spec Z graded by ζ carries a re
+    614: (blank)
+    615: - **STATEMENT.** Let (X, Y, c) be a pair in the SPEC's sense over Z (A5, A7, A9, one κ > 0) with fib
+    616: - **KILLS / RETURNS.** Any brief proposing a target over Z with ζ's grading that states the Hodge in
+    617: - **EXECUTABLE TEST.** (1) Compute d(φ_n), n = 2, 3, 4, 6: degree clause met? If not, run Propositio
+    618: - **SOURCE.** `results/d4-infty-s36/NOTE.md` §2.1–§3.2; `verify/numbers-check.log` [1]–[9]; Milne 15
+    619: - **STATUS.** program-adjudicated — dual-model (writer Opus 5.5, Session 36; the orchestrator's read
+    620: (blank)
+    621: ### IV.22 Prime channels add density (an inner prime channel owns zeros at every height; ξ's zero de
+    622: (blank)
+    623: - **STATEMENT.** *Face 1 (Lee–Yang coordinates; N1).* **Theorem 1** (counting along inner channels):
+    624: - **KILLS / RETURNS.** Any brief whose positivity generator is multivariate stability (Lee–Yang, Her
+    625: - **EXECUTABLE TEST.** (1) For a construction with inner prime channels: with any prime channel pres
+    626: - **SOURCE.** `results/novel-wave-s36/ly-infinity/NOTE.md` §1 (E1–E7), §2 (Theorem 1, Corollary 2, T
+    627: - **STATUS.** program-adjudicated — dual-model. Face 1: writer Opus 5.5 (N1), Session 36; reader Fab
+    628: (blank)
+    711: | d4-infty s36 (the (D4) residual: lattice Hodge index under the degree clause) | closed by theorem 
+    712: | novel wave s36 N1 `ly-infinity` (Lee–Yang functions of finitely many primes → Ξ by Hurwitz) | KILL
+    713: | novel wave s36 N2 `staircase` (incomplete-gamma real-rootedness chains; Haglund's Conjecture 1) | 
+    714: | novel wave s36 N3 `fingerprint` (prime-by-prime positivity induction on Jacobi / Verblunsky data) 
+    715: | novel wave s36 N4 `tournament` (35 mechanisms at brief time) | NOTHING, correctly (26 DEAD, 9 EQUI
+
+## C. Byte identity — each block against its source line, with only the sanctioned edits
+  ✓ the IV.21 heading is verbatim in the brief (item 1)
+  ✓ NOTE line 190 is the brief's heading in the NOTE's staged form ('- **…§2–§3)**')
+  ✓ block iv21 heading = the brief's heading; second line blank
+  ✓ block iv21 line 3 == NOTE line 191 byte for byte (1547 bytes; - **STATEMENT.** Let ()
+  ✓ block iv21 line 4 == NOTE line 192 byte for byte (630 bytes; - **KILLS / RETURNS.**)
+  ✓ block iv21 line 5 == NOTE line 193 byte for byte (569 bytes; - **EXECUTABLE TEST.**)
+  ✓ block iv21 line 6 == NOTE line 194 byte for byte (205 bytes; - **SOURCE.** `results)
+  ✓ block iv21 line 7 == NOTE line 195 byte for byte (710 bytes; - **STATUS.** program-)
+  ✓ the NOTE's STATUS carries read-F's F1 NEW (the status vocabulary corrected)
+  ✓ block iv22 heading = staged line 40 with '### IV.21 ' → '### IV.22 ' and <ENTRY-DATE> → 2026-09-30 — nothing else
+  ✓ block iv22 line 3 == staged line 42 byte for byte (3109 bytes)
+  ✓ block iv22 line 4 == staged line 43 byte for byte (1617 bytes)
+  ✓ block iv22 line 5 == staged line 44 byte for byte (876 bytes)
+  ✓ block iv22 line 6 == staged line 45 byte for byte (506 bytes)
+  ✓ block iv22 line 7 == staged line 46 byte for byte (1607 bytes)
+  ✓ block i9 heading = staged line 58 with <ENTRY-DATE> → 2026-09-30 — nothing else
+  ✓ block i9 line 3 == staged line 60 byte for byte (1398 bytes)
+  ✓ block i9 line 4 == staged line 61 byte for byte (1136 bytes)
+  ✓ block i9 line 5 == staged line 62 byte for byte (546 bytes)
+  ✓ block i9 line 6 == staged line 63 byte for byte (299 bytes)
+  ✓ block i9 line 7 == staged line 64 byte for byte (832 bytes)
+  ✓ block iv9 = staged line 52 with <ENTRY-DATE> → 2026-09-30 and the one-producer span → the token — nothing else
+  ✓ block iii15 = staged line 70 with <ENTRY-DATE> → 2026-09-30 — nothing else
+  ✓ block iv20 == staged line 76 byte for byte (2462 bytes)
+  ✓ xref row 1 = the brief's d4-infty cells verbatim inside '| … |'
+  ✓ xref row 2 = staged line 82 with IV.21 → IV.22 (once)
+  ✓ xref row 3 = staged line 83 byte for byte
+  ✓ xref row 4 = staged line 84 with IV.21 → IV.22 (once)
+  ✓ xref row 5 = staged line 85 with IV.21 → IV.22 (once)
+  ✓ each row has three cells, the table's shape
+  ✓ C0: OLD occurs once in staged line 91 and is printed in the block's section
+  ✓ C0: NEW printed in the block's section
+  ✓ C1: OLD occurs once in staged line 91 and is printed in the block's section
+  ✓ C2: OLD occurs once in staged line 91 and is printed in the block's section
+  ✓ C3: OLD occurs once in staged line 91 and is printed in the block's section
+  ✓ C3: NEW printed in the block's section
+  ✓ C4: OLD occurs once in staged line 91 and is printed in the block's section
+  ✓ C4: NEW printed in the block's section
+  block count vs staged line 91: 17 differing regions (character level); staged 1282 bytes → block 1923 bytes
+  ✓ block count reverts to staged line 91 exactly when C4, C3, C2, C1 and C0 are undone — no other change
+  ✓ C1's NEW (the d4-infty clause) is printed verbatim in the block's section
+  ✓ block count carries 'make **62 entries**'
+  ✓ block count carries 'I: 9, II: 5, III: 21, IV: 22, V: 5'
+  ✓ block count carries '9 + 5 + 21 + 22 + 5 = 62'
+  ✓ block count carries 'Group IV 20 → 22'
+  ✓ block count carries 'Group I 8 → 9'
+  ✓ block count carries '711 → 745 lines'
+  ✓ block count carries 'SHA-256 at launch 90d0ad6a…'
+  ✓ block count carries '`results/zoo-s37/`'
+  ✓ block count carries 'move no count'
+
+## D. Every zoo entry cited by number in the new text exists (heading first words; input line, or dry-run line for the new)
+  ✓ I.1 'The Davenport–Heilbronn / Epstein filter…' — input line 63; cited in i9
+  ✓ I.2 'The Beurling counterexample factory (DMV / BDR / Broucke sch…' — input line 76; cited in i9, iv21, xref
+  ✓ I.8 'The Siegel-zero world (an S1-passing GRH-false world for pos…' — input line 126; cited in count, i9
+  ✓ I.9 'The rung-1 twin: the virtual curve over F₅ (an RH-false worl…' — NEW — dry-run line 136; cited in count, i9, iv9, xref
+  ✓ III.15 'The Fisher-zero wall (statistical mechanics acts in the wron…' — input line 317; cited in count, iv22, xref
+  ✓ III.20 'The S6 doubled-object rule (comparative anatomy of every TRU…' — input line 365; cited in i9, xref
+  ✓ IV.1 'The "Weil positivity in disguise" containment audit…' — input line 390; cited in iv21, xref
+  ✓ IV.9 'Visibility pricing (the cross-cutting detection-threshold ba…' — input line 467; cited in count, i9, xref
+  ✓ IV.20 'The finite-rank target kill (no surface over a field, and no…' — input line 592; cited in count, i9, iv21, xref
+  ✓ IV.21 'The degree clause and the lattice-index kill (no square of S…' — NEW — dry-run line 613; cited in count, iv21, xref
+  ✓ IV.22 'Prime channels add density (an inner prime channel owns zero…' — NEW — dry-run line 621; cited in count, iv22, xref
+  ✓ the only cited entries absent from the input are the three entered here
+  ✓ the brief's list: I.1 exists (input line 63)
+  ✓ the brief's list: I.2 exists (input line 76)
+  ✓ the brief's list: I.7 exists (input line 118) — not cited by the new text
+  ✓ the brief's list: I.8 exists (input line 126)
+  ✓ the brief's list: III.15 exists (input line 317)
+  ✓ the brief's list: III.20 exists (input line 365)
+  ✓ the brief's list: IV.1 exists (input line 390)
+  ✓ the brief's list: IV.9 exists (input line 467)
+  ✓ the brief's list: IV.10 exists (input line 483) — not cited by the new text
+  ✓ the brief's list: IV.20 exists (input line 592)
+  ✓ the brief's list: V.4 exists (input line 627) — not cited by the new text
+  ✓ the brief's list: V.5 exists (input line 635) — not cited by the new text
+
+## E. Record checks behind the staged words (the stream's confirmations)
+  ✓ block iv20's label == UNIT-BRIEF §1(3)'s label, character for character (417 characters)
+  ✓ the label is 417 characters, as the staged file's check records
+  ✓ UNIT-BRIEF §1(3)'s forbidden phrasing 'IV.20 is formalized' occurs in no block
+  ✓ UNIT-BRIEF §1(3)'s forbidden phrasing 'no target exists' occurs in no block
+  ✓ CHECK-O.md carries 'FIX-FIRST — prose only (F1–F3)' (quoted or cited in block iv20)
+  ✓ CHECK-O.md carries 'the label of UNIT-BRIEF §1(3) is earned verbatim; no forbidden phrasing appears anywhere' (quoted or cited in block iv20)
+  ✓ CHECK-O.md carries 'It is the B = Spec Z instance only — not the general-base Theorem R ("if dim_Q G < ∞ then ' (quoted or cited in block iv20)
+  ✓ CHECK-O.md carries 'Lemma F (a: finiteness; b)' (quoted or cited in block iv20)
+  ✓ CHECK-O.md carries '33/33' (quoted or cited in block iv20)
+  ✓ CHECK-O.md carries '3635e74' (quoted or cited in block iv20)
+  ✓ CHECK-O.md carries '51e6992e' (quoted or cited in block iv20)
+  ✓ CHECK-O.md carries '27 program declarations' (quoted or cited in block iv20)
+  ✓ CHECK-O §11 F1 r6 (FIDELITY.md) NEW string applied (found in results/theoremR-lean-s36/FIDELITY.md)
+  ✓ CHECK-O §11 F1 aa1 (lean/formalization.yaml) NEW string applied (found in lean/formalization.yaml)
+  ✓ CHECK-O §11 F1 §1(5) (PREDERIVATION-ERRATA.md) NEW string applied (found in results/theoremR-lean-s36/PREDERIVATION-ERRATA.md)
+  ✓ CHECK-O §11 F1 §4 (BUILD-NOTES.md) NEW string applied (found in results/theoremR-lean-s36/BUILD-NOTES.md)
+  ✓ CHECK-O §11 F2 (BUILD-NOTES.md) NEW string applied (found in results/theoremR-lean-s36/BUILD-NOTES.md)
+  ✓ CHECK-O §11 F3 (PREDERIVATION-ERRATA.md) NEW string applied (found in results/theoremR-lean-s36/PREDERIVATION-ERRATA.md)
+  ✓ SPEC line 151: the PRECISION of 23:09 IST 2026-09-30 carries A9⁺, A8″, A13″ (IV.21's BINDS clause)
+  ✓ I.9's positive control is verbatim in results/novel-wave-s37/WAVE-CHARTER.md (seed M2)
+  ✓ producer-A CERT carries 'x₁ ∈ (3144.8946, 3144.8947)' (the IV.9 rider's Theorem H / §8 figures)
+  ✓ producer-A CERT carries 'c = 3143.2206824215 + 0.3152587994 i' (the IV.9 rider's Theorem H / §8 figures)
+  ✓ producer-A CERT carries '**r = 4·10⁻¹¹**' (the IV.9 rider's Theorem H / §8 figures)
+  ✓ producer-A CERT carries '**k = 1**' (the IV.9 rider's Theorem H / §8 figures)
+  ✓ producer-A CERT carries "## 8. Optional H5: the seed's chain ξ_N (staircase NOTE §1, §4), N = 24" (the IV.9 rider's Theorem H / §8 figures)
+  ✓ read-F.md: 'AGREES-WITH-CORRECTIONS (prose only)', 'Zoo: OPTION A', §3(a) 'Zoo: Option A.' (C1, the brief's decision)
+  ✓ NOTE line 191 carries Proposition N as C1 renders it
+  ✓ NOTE line 198 carries Theorem S in C1's words
+  ✓ zoo line 325 (III.15's READ) carries Newman's clause (B), as the III.15 rider says
+  ✓ the staged map's anchor endings match zoo lines 481, 326, 132
+
+## F. Numbers inside the new text, recomputed (mpmath at 30 digits; exact integers where the text says so)
+  ✓ IV.21 TEST (2): g*(6) = |1 + n − Λ(n)|/(2√n) at κ = 1 = 1.428869 (text: 1.4289)
+  ✓ IV.21 TEST (2): g*(210) = |1 + n − Λ(n)|/(2√n) at κ = 1 = 7.280192 (text: 7.2802)
+  ✓ IV.21 TEST (2): g*(1048576) = |1 + n − Λ(n)|/(2√n) at κ = 1 = 512.000150 (text: 512.0)
+  ✓ IV.22 Corollary 2: 2π/log 2 = 9.064720 (text: 9.06472)
+  ✓ IV.22 TEST (1): on (−14.1, 14.1), L·log 2/2π − 1 = 2.1110 (text: 2.111), and 2.111 − 1 ≥ 1.1
+  ✓ I.9: zeros of 1 − 5u + 5u² at σ = log α/log 5 = 0.79899372 and 0.20100628, α = 3.61803 > √5
+  ✓ I.9: d·b_d = Σ μ(d/e) N_e is divisible by d for every d ≤ 60 (b_d integers)
+  ✓ I.9: N_N = 1, 11, 76, 451 and b_d = 1, 5, 25, 110, 500 (exact integers)
+  ✓ I.9: N_n ≥ 1 and b_d ≥ 0 for all n, d ≤ 60 (the reader's re-run range)
+  ✓ I.9 TEST: F_{2.9,2}'s in-strip zeros at Re s = 0.8238766801660445817, t = (2j+1)·4.5323601418271938096 (text: 0.8238766801660445817, 4.5323601418271938096)
+  ✓ I.9: at (q, a) = (2, 2.9), Λ_F(q²)/log q = 1 − a² + 2q = -3.41 < 1 − 2q = −3 < 0
+  ✓ the count: 9 + 5 + 21 + 22 + 5 = 62; the lines: 2 (count) + 8 (I.9) + 1 + 1 (riders) + 1 (IV.20 bullet) + 8 + 8 (IV.21, IV.22) + 5 (rows) = 34; 711 + 34 = 745
+
+## G. The token and the optional pairs P1–P3 (proposed file, finding 5): each OLD once where it applies; each printed
+  ✓ the token occurs once, in block iv9, and nowhere else
+  ✓ the token's clause reads '… rigorous (H1–H4) <PRODUCER-B-VERDICT>; novelty single-check …'
+  ✓ the replaced one-producer span occurs once in staged line 52 and is printed in the proposed file
+  ✓ P1: OLD once in its block line; OLD printed in the proposed file
+  ✓ P2: OLD once in its block line; OLD and NEW printed in the proposed file
+  ✓ P3: OLD once in its block line; OLD and NEW printed in the proposed file
+  ✓ the only other producer statement in the new text is the N2 row's (P1)
+
+## H. Lint (10(g)) and U.S. English
+  ✓ block count: none of the five linted phrases
+  ✓ block i9: none of the five linted phrases
+  ✓ block iii15: none of the five linted phrases
+  ✓ block iv9: none of the five linted phrases
+  ✓ block iv20: none of the five linted phrases
+  ✓ block iv21: none of the five linted phrases
+  ✓ block iv22: none of the five linted phrases
+  ✓ block xref: none of the five linted phrases
+  ✓ the proposed file carries none of the five phrases anywhere (blocks, findings, headings)
+  lint_s27.py: results/zoo-s37/zoo-entries-proposed.md: 9 block(s) checked; British-spelling candidates (judge by hand; quotations keep their source): ['spelling']
+  ✓ lint_s27.py exit 0 on the proposed file (its one spelling candidate, 'spelling', is the same word in U.S. English)
+  ✓ scripts/zoo-insert-s37.py: the five phrases on 1 line(s) [57] (the lint tuple itself)
+  ✓ results/zoo-s37/verify/numbers_check.py: the five phrases on 1 line(s) [35] (the lint tuple itself)
+  ✓ results/zoo-s37/verify/build_blocks.py: the five phrases on 0 line(s) []
+  ✓ results/zoo-s37/verify/gate_tests.py: the five phrases on 0 line(s) []
+
+## I. Positions in the 745-line dry run (1-based)
+  ✓ count paragraph at line 39
+  ✓ '---' after the header at line 41
+  ✓ I.9 heading at line 136
+  ✓ I.9 STATEMENT … STATUS at 138–142 at line 138
+  ✓ '---' closing Group I at line 144
+  ✓ III.15 rider at line 337
+  ✓ IV.9 rider at line 493
+  ✓ IV.20 bullet (after IV.20's STATUS at 610) at line 611
+  ✓ IV.21 heading; bullets 615–619 at line 613
+  ✓ IV.22 heading; bullets 623–627 at line 621
+  ✓ ## GROUP V at line 629
+  ✓ rows 711–715 after the β-shapes row at 710 at line 711
+  ✓ file-discipline paragraph at line 745
+  ✓ blank lines at 38, 40, 135, 137, 143, 338, 494, 612, 614, 620, 622, 628, 716
+
+## J. Script gate tests (results/zoo-s37/verify/gate_tests.py on scratch copies; its output, verify/gate-tests.out)
+  [PASS] T1 default --out = scratch file in TMPDIR (token still in place)  rc=0  expected success | OK: <scratch>/zoo-insert-s37-out.md written; 711 -> 745 lines (+34); entries 62 (I 9, II 5, III 21, IV 22, V 5); blocks at 39 (count), 136-142 (I.9), 
+  [PASS] T1b the default output exists in TMPDIR  rc=0  expected success | 
+  [PASS] T2 second run on the inserted file  rc=1  expected refusal | zoo-insert-s37: STOP -- zoo-insert-s37-out.md already carries '### IV.21 ' -- this stream's text is in it; refusing to insert twice. Nothing written.
+  [PASS] T3 tampered input (one byte)  rc=1  expected refusal | zoo-insert-s37: STOP -- <scratch>/zoo-tampered.md SHA-256 is c137d4e9014af2ca60b44d47ab1fa1eb89e35f97bfef5b82e534f6f0debf5eb0, expected 90d0ad6afa0933
+  [PASS] T4 --out BARRIER-ZOO.md  rc=1  expected refusal | zoo-insert-s37: STOP -- --out names BARRIER-ZOO.md; writing the zoo needs --in-place (with the zoo as --input). Nothing written.
+  [PASS] T5 --out = --input  rc=1  expected refusal | zoo-insert-s37: STOP -- --out names the input file; writing over the input needs --in-place. Nothing written.
+  [PASS] T6 --in-place while the token remains  rc=1  expected refusal | zoo-insert-s37: STOP -- block iv9 still carries <PRODUCER-B-VERDICT> -- replace it with Producer B's verdict before --in-place. Nothing written.
+  [PASS] T6b the scratch copy is unchanged after T6  rc=0  expected success | 
+  [PASS] T7 token replaced; --in-place on a scratch copy  rc=0  expected success | OK: <scratch>/zoo-inplace.md written; 711 -> 745 lines (+34); entries 62 (I 9, II 5, III 21, IV 22, V 5); blocks at 39 (count), 136-142 (I.9), 337 (II
+  [PASS] T7b the scratch copy now has 745 lines  rc=0  expected success | 
+  [PASS] T7c second --in-place run  rc=1  expected refusal | zoo-insert-s37: STOP -- zoo-inplace.md already carries '### IV.21 ' -- this stream's text is in it; refusing to insert twice. Nothing written.
+  [PASS] T8 P1 + P2 + P3 applied, token replaced  rc=0  expected success | OK: <scratch>/out-T8.md written; 711 -> 745 lines (+34); entries 62 (I 9, II 5, III 21, IV 22, V 5); blocks at 39 (count), 136-142 (I.9), 337 (III.15 
+  [PASS] T9 the brief's literal <ENTRY-DATE> fill at all five sites  rc=0  expected success | OK: <scratch>/out-T9.md written; 711 -> 745 lines (+34); entries 62 (I 9, II 5, III 21, IV 22, V 5); blocks at 39 (count), 136-142 (I.9), 337 (III.15 
+  [PASS] T10 the literal fill at four of the five sites  rc=1  expected refusal | zoo-insert-s37: STOP -- block iii15 is not staged Block (iv) with <ENTRY-DATE> filled (and nothing else). Nothing written.
+  [PASS] T11 drift in IV.22 SOURCE (one path)  rc=1  expected refusal | zoo-insert-s37: STOP -- block iv22 is not staged Block (i) renumbered IV.21 -> IV.22 with <ENTRY-DATE> filled (and nothing else). Nothing written.
+  [PASS] T12 drift in the d4-infty row  rc=1  expected refusal | zoo-insert-s37: STOP -- block xref is not the brief's d4-infty row followed by staged Block X renumbered (rows N1, N3, N4). Nothing written.
+  [PASS] T13 P3 applied in part  rc=1  expected refusal | zoo-insert-s37: STOP -- block iv21's STATUS is not the NOTE's line 195 (with P3 applied whole or not at all). Nothing written.
+  [PASS] T14 a malformed token replacement ('<…>')  rc=1  expected refusal | zoo-insert-s37: STOP -- the replacement of the token in block iv9 is malformed: '<to be filled>' Nothing written.
+  [PASS] T15 the renumbering undone in row N3  rc=1  expected refusal | zoo-insert-s37: STOP -- block xref is not the brief's d4-infty row followed by staged Block X renumbered (rows N1, N3, N4). Nothing written.
+  [PASS] T16 wrong line arithmetic in the count paragraph  rc=1  expected refusal | zoo-insert-s37: STOP -- block count is not staged Block C with the pairs C0-C4 (and nothing else). Nothing written.
+  [PASS] T17 the I.9 heading demoted to '####'  rc=1  expected refusal | zoo-insert-s37: STOP -- block i9 is not staged Block (iii) with <ENTRY-DATE> filled (and nothing else). Nothing written.
+  [PASS] T18 P1's slot filled with a '|' (would break the table)  rc=1  expected refusal | zoo-insert-s37: STOP -- P1's replacement in the N2 row is malformed: 'two | producers' Nothing written.
+  ALL GATE TESTS AS EXPECTED: True | BARRIER-ZOO.md still 90d0ad6afa093388… = True
+  ✓ every gate test behaved as expected
+
+RESULT: ALL CHECKS PASS

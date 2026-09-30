@@ -71,3 +71,16 @@ Deliverables: `NOTE.md` (the unit), `verify/` (scripts + logs), `sources/` (text
   ζ(1+q^{1/2−s})). (c) finite Euler factor: reduces to T, RH-equivalent. (d) extra poles: identity (F_R), continuous RH-false systems
   live there; discrete open. (e) positivity dropped: open. (f) double pole: not pursued.
 - One error caught and fixed in §8(b) (q irrational: q = √2 has q² = 2 prime; replaced by the q^{2k} argument, Λ(8)/log 8 = −0.138).
+
+## 2026-09-30 block 6 — CLOSE T; NOTE complete (§0–§11); final checks
+
+- NOTE re-read whole; fixes applied: status line; T2 restated precisely (dΠ = Σ_p Σ_k k^{−1}δ_{p^k}); Theorem C's q > 1 step simplified
+  (atom at 1 ∉ qN); recalled labels added (Kaczorowski–Perelli analogy); §9 wording (positivity over F_q ≈ |α_i| < q, not Hasse);
+  Lemma TB (translation-boundedness from μ ≥ 0, μ̂ ≥ 0) proved in §7 as the charter asked; finite-order justification for (H2) in §6.
+- CLOSE: T. Theorem T (positive Hamburger) + T1 (discrete Beurling ⟹ rational primes) + T2 (no continuous system) + T3 (positive
+  general Dirichlet series with frequencies ≥ 1 ⟹ cζ); Prop. U (independent u.d. proof); Theorem C (conductor q ≥ 1, = iff ζ; (C_q)).
+  Verdicts on relaxations: (a) orchestrator's continuous sketch correct, entire completion impossible; (b) q > 1 OPEN (Q_cond);
+  (c) finite Euler factor → T, RH-equivalent; (d) extra poles: identity (F_R), continuous RH-false systems live there; (e) signed: open.
+- Controls printed (v3): virtual curve and genus-1 F₅ scan (RH-false admissible t = ±5); F_{5,5} = ζ × (t = −5 L-polynomial), Λ(25) < 0.
+- Files: NOTE.md, SHARED.md; verify/ v1, v2, v2b, v3 (.py + .log); sources/ (gate texts, arXiv/Firecrawl captures, queries).
+- Successor (ranked): Q_cond (Beurling + FE at conductor q > 1; §8(b), §11); discrete + extra poles; signed Hamburger with gap.

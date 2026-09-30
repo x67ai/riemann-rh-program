@@ -1,6 +1,6 @@
 # NOTE — seed M1a `beurling-fe`: is Spec Z rigid among Beurling systems with Riemann's functional equation?
 
-Session 37, 2026-09-30. Writer: Opus 5.5 (seed agent). Status: IN PROGRESS (sections are appended as they are finished).
+Session 37, 2026-09-30. Writer: Opus 5.5 (seed agent). Status: COMPLETE — CLOSE T (§10). Sections were written in order as results landed; read §4 and §10 first.
 Conventions: every load-bearing claim is (P) proved here, (C) computed in `verify/` with its log, or (Q) quoted from `sources/`
 at the line. `[recalled, unverified]` marks recalled statements, which carry no load. Novelty claims are `[novelty: single-check]`.
 
@@ -11,7 +11,8 @@ products (with multiplicity), n₀ = 1 (empty product). Write c(x) ≥ 0 for the
 N_P(x) = Σ_{n_k ≤ x} 1, ζ_P(s) = Σ_k n_k^{−s} = Π_j (1 − p_j^{−s})^{−1}, assumed absolutely convergent for Re s > 1.
 
 (FE) ξ_P(s) := π^{−s/2} Γ(s/2) ζ_P(s) continues meromorphically to C, with poles only at s = 0 and s = 1, both simple, and
-ξ_P(s) = ξ_P(1 − s); plus the growth condition (G): (s − 1)s·ξ_P(s) is entire of finite order (Hamburger's standing condition).
+ξ_P(s) = ξ_P(1 − s); plus the growth condition (G): (s − 1)s·ξ_P(s) is entire of finite order (Hamburger's standing condition;
+the theorems below need only the weaker (G') of §3).
 
 QUESTION (charter). Is P = {rational primes} the only Beurling system satisfying (FE)+(G)?
 
@@ -20,7 +21,7 @@ QUESTION (charter). Is P = {rational primes} the only Beurling system satisfying
 Let μ = ρδ₀ + Σ_k(δ_{n_k} + δ_{−n_k}) (multiplicity counted), n_k ≥ 1, and suppose μ is tempered with μ̂ = μ
 (convention f̂(ξ) = ∫f(x)e^{−2πixξ}dx). Take φ(x) = (1 − |x|)₊, so φ̂(ξ) = (sin πξ/πξ)² ≥ 0, zero exactly on Z∖{0}.
 Since supp μ ∩ (−1, 1) = {0} and φ(±1) = 0:   ⟨μ, φ⟩ = ρ.   And ⟨μ, φ̂⟩ = ρ + 2Σ_k (sin πn_k/πn_k)².
-μ̂ = μ gives ⟨μ, φ⟩ = ⟨μ, φ̂⟩ (φ is not Schwartz: justified by mollification, §3), hence Σ_k sin²(πn_k)/n_k² = 0:
+μ̂ = μ gives ⟨μ, φ⟩ = ⟨μ, φ̂⟩ (φ is not Schwartz: justified by mollification, §4 Step 1), hence Σ_k sin²(πn_k)/n_k² = 0:
 EVERY GENERALIZED INTEGER IS A RATIONAL INTEGER. Then μ is supported on Z, so μ̂ is 1-periodic; μ̂ = μ forces μ 1-periodic:
 the mass at every n ∈ Z equals the mass at 0, i.e. c(n) = ρ for all n ≥ 1; c(1) = 1 gives ρ = 1 and 𝒩_P = N (each once).
 So ζ_P = ζ and P = {rational primes}. No Euler product, no uniform discreteness, no Hamburger is used — only
@@ -102,8 +103,8 @@ since y^{1/2}g_y ∗ φ → φ in S as y → ∞, ⟨T, φ⟩ = lim ⟨T ∗ y^{
 THEOREM T. Let dN ≥ 0 be a Borel measure on [1, ∞) of polynomial growth, F(s) = ∫x^{−s}dN(x), and suppose (A) of Proposition R
 holds for some ρ ≥ 0 (Riemann's FE, poles of ξ_F only at 0 and 1 and simple, growth (G')). Then dN = ρ·Σ_{n≥1} δ_n, i.e. F = ρζ.
 COROLLARY T1 (Beurling, discrete). A Beurling prime system P whose ζ_P satisfies Riemann's FE in the sense (A) is the set of rational
-primes, each once. COROLLARY T2 (Beurling, continuous/mixed). No Beurling system with dΠ ≥ 0 not purely atomic on the rational primes
-satisfies (A); in particular no continuous Beurling system does. COROLLARY T3 (general Dirichlet series). Σ a_k λ_k^{−s} with a_k ≥ 0,
+primes, each once. COROLLARY T2 (Beurling, continuous/mixed). If dN = exp*(dΠ) with dΠ ≥ 0 satisfies (A), then
+dΠ = Σ_p Σ_k k^{−1}δ_{p^k} (the rational primes); in particular no continuous Beurling system satisfies (A). COROLLARY T3 (general Dirichlet series). Σ a_k λ_k^{−s} with a_k ≥ 0,
 λ_k ≥ 1, satisfying (A), equals (Σ_{λ_k = 1} a_k)·ζ(s).
 
 Proof. Step 0. By Proposition R, μ := ρδ₀ + dN + dN^∨ is tempered, μ̂ = μ, and N(x) = O(x), so ∫ t^{−2} dN(t) < ∞.
@@ -166,7 +167,7 @@ Proof. By Prop. R, μ̂ = μ with μ ≥ 0; support = spectrum = {0} ∪ ±𝒩_
 x ∈ 𝒩_P, xA ⊂ 𝒩_P (semigroup), so two a ≠ a′ in A have xa, xa′ in one coset: x(a − a′) ∈ hZ and a − a′ ∈ hZ∖{0}, hence x ∈ Q.
 (ii) Then h = (a − a′)/k ∈ Q, every coset meeting 𝒩_P has a rational τ_j, so 𝒩_P ⊂ D^{−1}Z for some D ∈ N. If x = a/b ∈ 𝒩_P in lowest
 terms, x^k ∈ 𝒩_P ⊂ D^{−1}Z for all k, so b^k | D for all k and b = 1: 𝒩_P ⊂ N. (iii) ζ_P = Σ c(n)n^{−s} is an ordinary Dirichlet
-series; (H1) by Prop. R, (H2) with P(s) = s − 1 from (A), (H3) is (A); Hamburger (Theorem D, `nakamura-2008.02570.txt` 170–177)
+series; (H1) by Prop. R, (H2) with P(s) = s − 1 (finite order: the (B)⟹(A) computation gives ξ_F of order ≤ 1), (H3) is (A); Hamburger (Theorem D, `nakamura-2008.02570.txt` 170–177)
 gives ζ_P = Cζ, C = c(1) = 1. ∎   (Free generation is not used, only the semigroup property; positivity only via Lev–Olevskii's
 hypotheses being met by μ̂ = μ.) The two proofs share nothing but Prop. R: a dual-route check of T on the u.d. class.
 
@@ -175,7 +176,12 @@ hypotheses being met by μ̂ = μ.) The two proofs share nothing but Prop. R: a 
 VERDICT. Refuted: there is no exotic system, uniformly discrete or not (T1), discrete or continuous (T2). T never uses discreteness of
 𝒩_P beyond local finiteness, and never uses Lev–Olevskii; so the Lev–Olevskii Theorem 2 phenomenon (non-periodic SIGNED crystalline
 measures once u.d. is dropped, `u-30b-…txt` 65–68) and the Kurasov–Sarnak positive integer-mass examples cannot produce a Beurling
-system: in the self-dual case positivity plus the gap (0, 1) already pin the support to Z. Translation-boundedness (charter): (f3) above.
+system: in the self-dual case positivity plus the gap (0, 1) already pin the support to Z.
+LEMMA TB (charter: "translation-boundedness follows from positivity + self-duality (prove)") (P). If μ ≥ 0 is tempered and μ̂ ≥ 0
+(in particular if μ̂ = μ ≥ 0), then sup_a μ([a − δ, a + δ]) < ∞. Proof: take h ∈ C_c^∞ even, h ≥ 0, h ≢ 0, and k := h ∗ h; then k ≥ 0,
+k̂ = ĥ² ≥ 0, and k ≥ c > 0 on some [−δ, δ]. For every a, c·μ([a−δ, a+δ]) ≤ ⟨μ, k(· − a)⟩ = ⟨μ̂, e^{2πiaξ}k̂(ξ)⟩ ≤ ⟨μ̂, k̂⟩ < ∞,
+using μ̂ ≥ 0 and |e^{2πiaξ}k̂| = k̂ (the middle equality is Parseval for the tempered pair μ, μ̂; k is even). ∎ (Same as
+Olevskii–Ulanovskii Prop. 1 in spirit, `p2-19b-…txt` 64–100; there |μ̂| tempered replaces μ̂ ≥ 0.)
 
 EXPERIMENT (C: `verify/v2_lsq_exotic_search.{py,log}`, `verify/v2b_near_solutions_exposed.{py,log}`). Least squares on the theta
 relation over 41 points x ∈ [½, 2] (x ≠ 1), unknowns ρ and K free generalized primes in (1, 12) (all generalized primes below 12, so
@@ -207,9 +213,9 @@ transform decays only like ξ^{−2}, sees every n_k with weight ≍ n_k^{−2}.
     lives; φ̂_r(ξ) = rS(rξ); rt = u/q for t = u/√q): this is (C_q). If q < 1 then r > 1, the left side is ≤ 0 and the right ≥ 0, so
     ρ_q = 0 and dN is carried by qN; then μ_q is carried by the lattice √qZ, so μ̂_q = μ_q is 1/√q-periodic, forcing 1/√q ∈ √qZ
     (1/q ∈ N) and, by periodicity, mass(t = 1/√q) = mass(0) = ρ_q = 0 — contradicting dN({1}) > 0. q = 1 is T. If q > 1 and ρ_q = 0,
-    the same periodicity argument forces 1/q ∈ N, impossible; so ρ_q > 0. ∎  `[novelty: single-check]` (an LP corollary; the analog
-    of "conductor ≥ 1, equality only for ζ" known in the Selberg class by Kaczorowski–Perelli — there with Euler product and
-    Ramanujan, here with positivity only; zoo I.7).
+    (C_q) again carries dN by qN, which misses the atom at 1 (1 ∉ qN for q > 1); so ρ_q > 0. ∎  `[novelty: single-check]` (an LP corollary; the analog
+    of "degree-1 conductor ≥ 1, equality only for ζ" in the Selberg class, Kaczorowski–Perelli `[recalled, via zoo I.7; not load]`
+    — there with Euler product and Ramanujan, here with positivity only).
     C: (C_q) holds on genuine solutions — ζ(s)(1 + q^{1/2−s}), q = 2, 4, 9, and F_{5,5} (q = 25): 0.70711 / 1.5 / 2.66667 / 8.8 on both
     sides up to the truncation tail (`verify/v1_…log` Part 3; each also satisfies its conductor-q theta relation to 1e−60).
     VERDICT (q > 1): OPEN, and sharply located. Positive-coefficient solutions exist at every q > 1 (above) but all those found fail
@@ -244,7 +250,7 @@ Z(u) = Π_d (1 − u^d)^{−b_d}; frequencies are q^d, integral BY CONSTRUCTION.
     L(u) → L(0) = 1 as u → ∞; Liouville gives L ≡ 1 and Z = 1/((1 − u)(1 − qu)). (Hamburger ↔ this Liouville step; T's Step 1,
     which manufactures integrality, has no work to do over F_q.)
 (ii) It FAILS at genus g ≥ 1: Z(1/(qu)) = q^{1−g}u^{2−2g}Z(u) leaves L of degree 2g with g free coefficients, and b_d ≥ 0 cuts out a
-    region containing RH-false points. C: over F₅, g = 1, L = 1 − tu + 5u²: b_d ≥ 0 for all d ≤ 60 exactly for t ∈ {−5, …, 6};
+    region containing RH-false points. C: over F₅, g = 1, L = 1 − tu + 5u²: among t ∈ {−12, …, 12}, b_d ≥ 0 for all d ≤ 60 exactly for t ∈ {−5, …, 6};
     Hasse |t| ≤ 2√5 holds for t ∈ {−4, …, 4}; RH-FALSE admissible: t = ±5 (t = 6 is the empty system Z ≡ 1). The virtual curve is
     t = 5: N₁..N₆ = 1, 11, 76, 451, 2501, 13376; b₁..b₆ = 1, 5, 25, 110, 500, 2215; min_{d≤60} b_d = 1; FE residual 8e−32; zeros at
     Re s = 0.79899, 0.20101.
@@ -252,8 +258,9 @@ Z(u) = Π_d (1 − u^d)^{−b_d}; frequencies are q^d, integral BY CONSTRUCTION.
     at g = 0, where it is rigid — the analog of Theorem C (minimal conductor 1, attained only by ζ). The virtual curve sits ONE STEP
     above the minimum. Its Q-side analog is therefore not conductor 1 (where T forbids any twin) but conductor q > 1: Q_cond (§8(b)).
     WHY the rigidity fails there and not over Q at conductor 1: over F_q the free data is the L-polynomial, and positivity (b_d ≥ 0)
-    is cheap because ~q^d/d closed points of each degree absorb a bounded change of N_n under Möbius inversion; over Q, T shows that
-    positivity + the archimedean gap (0, 1) leave no free data at all at conductor 1.
+    is cheap — Möbius inversion of N_n = q^n + 1 − Σα_i^n asks roughly |α_i| < q plus finitely many small-degree checks, far weaker
+    than Hasse's |α_i| = √q, because ~q^d/d closed points of degree d absorb the change; over Q, T shows that positivity + the
+    archimedean gap (0, 1) leave no free data at all at conductor 1.
 CONTROL 2 — F_{5,5} = ζ(s)(1 + 5·5^{−s} + 5^{1−2s}). Nonnegative integer coefficients; FE at conductor 25 (theta relation to 1e−60, v1);
     identity (C_q) holds (8.8 = 8.8, v1); zeros of the factor at σ = 0.79899, 0.20101 (v3) — the SAME numbers as the virtual curve,
     because 1 + 5u + 5u² is the L-polynomial of the admissible t = −5 genus-1 datum over F₅. Over F₅ that datum has b_d ≥ 0; over Q
@@ -261,3 +268,52 @@ CONTROL 2 — F_{5,5} = ζ(s)(1 + 5·5^{−s} + 5^{1−2s}). Nonnegative integer
     (v3): Λ(25) < 0. T does not apply (q = 25 ≠ 1). LESSON: at conductor > 1, positive coefficients + exact FE do NOT imply RH;
     only Λ ≥ 0 removes F_{5,5} from the Beurling class — the one-prime obstruction of N3 (the Hasse margin at a single prime),
     seen from the Beurling side. Q_cond asks precisely whether Λ ≥ 0 can coexist with an exact FE at q > 1.
+
+## 10. CLOSE — T (theorem)
+
+THEOREM T (positive Hamburger theorem; rigidity of Spec Z among Beurling systems). If dN ≥ 0 is carried by [1, ∞), has polynomial
+growth, and ξ_F(s) = π^{−s/2}Γ(s/2)∫x^{−s}dN(x) satisfies Riemann's functional equation with poles only at 0 and 1 (simple) and growth
+(G'), then dN = ρΣ_{n≥1}δ_n. Hence the rational primes are the ONLY Beurling system — discrete or continuous, uniformly discrete or
+not — whose zeta satisfies Riemann's functional equation (T1, T2); and a general Dirichlet series with nonnegative coefficients and
+frequencies ≥ 1 satisfying it is a multiple of ζ (T3). Proof §4 (Fejér kernel + periodicity; ≈ 15 lines on top of Prop. R, §3).
+SCOPE (exact): Γ-factor π^{−s/2}Γ(s/2), conductor 1, poles only at 0, 1 (simple), growth (G'), dN ≥ 0 on [1, ∞). Uses neither the
+Euler product (beyond dN({1}) = 1) nor uniform discreteness nor Hamburger. Second, independent proof on the u.d. class (Prop. U,
+§6: Lev–Olevskii + Hilberdink's pigeonhole + Hamburger). Companion: THEOREM C (§8(b)) — conductor q ≥ 1, equality only for ζ, and the
+identity (C_q) for q > 1.
+STATUS. (P) with full proofs in §3, §4, §6, §8(b); numerics in `verify/` (v1, v2, v2b, v3, logs) are consistency checks, not load.
+Recalled, not load-bearing: the LP/Cohn–Elkies folklore remark (§5(g)); Karamata (§3); Kaczorowski–Perelli analogy (§8(b)).
+`[novelty: single-check]` for T1–T3 and C as applications; the measure-theoretic core is probably folklore (§5(g)).
+NEAREST PUBLISHED OBJECTS (10(n)). T3 ↔ Hamburger's second theorem (Burnol 1106.4749 line 160: f ordinary, dual frequencies ≥ 1 ⟹ cζ).
+T1/T2 ↔ the open question of Hilberdink–Lapidus 2006 (p3-22c1 lines 125–128) and Diamond–Zhang p. 1. C ↔ degree-1 conductor rigidity
+in the Selberg class (zoo I.7). (F_R) ↔ Hilberdink–Lapidus Theorem 3.2(b) residual H.
+
+WHAT THIS MEANS FOR THE PROGRAM (read against §0(d)–(f) of the charter).
+1. The rung-Z twin question has answer NO at conductor 1: there is no RH-false (or any other) Beurling system with Riemann's exact FE.
+   The axiom set {Euler product, Λ ≥ 0, exact Riemann FE (poles only at 0, 1; growth (G'))} has exactly ONE model, ζ — and even
+   {dN ≥ 0 on [1,∞), exact FE} does.
+   So no "axiomatic" RH proof from these axioms has any leverage beyond a proof for ζ itself, and no control exists inside the class;
+   N4's survivor property (4) ("fail on the rung-1 twin") has no conductor-1 counterpart over Q.
+2. The rigidity is ARCHIMEDEAN and ADDITIVE: it is the equality case of a Fourier-side linear-programming inequality (Fejér), using
+   positivity only as dN ≥ 0 — the orchestrator's reading ("RH needs multiplicative and additive structure together") is sharpened:
+   at conductor 1 the additive structure plus bare positivity ALREADY determines everything, so the multiplicative structure is
+   never tested. RH-false controls with Λ ≥ 0 and an exact FE exist only after paying one of two prices: extra poles in the strip
+   (orchestrator's continuous systems, §8(a), (d)) or — possibly — conductor q > 1 (Q_cond, open; F_{5,5} misses only Λ ≥ 0).
+3. Extremal reading (answers the shape proposed in the tournament read-F §4): ζ is the UNIQUE equality case of an inequality among
+   positive self-dual measures with gap 1, and the defect 2Σ_k sinc²(n_k) is a positive form — but in the POSITIONS OF THE
+   GENERALIZED INTEGERS, not in the zeros. Transporting it to the zero side is not done here and is not claimed.
+SUCCESSOR QUESTIONS (ranked). (1) Q_cond: a Beurling system (dΠ ≥ 0) with Riemann's FE at conductor q > 1 — construct or refute;
+this is the Q-side location of the virtual-curve twin (§9(iii)). (2) Discrete Beurling systems with FE and finitely many extra poles
+(§8(d)). (3) The signed (complex-coefficient) general-frequency Hamburger problem with frequencies ≥ 1 (§8(e)).
+Charter stop condition: met in the form "the question is settled" — by proof, not by a printed theorem and not by an example.
+
+## 11. Addendum — first moves on Q_cond (recorded for the successor unit; nothing here is load-bearing)
+
+(i) No FINITE Euler-factor modification of ζ reaches conductor q > 1 (P): E(s) = Π(1 − a_i^{−s})^{±1} has all zeros/poles on Re s = 0,
+    while E(s)/E(1 − s) = q^{1/2−s} would need them mirrored onto Re s = 1.
+(ii) Writing E = ζ_P/ζ = q^{1/4 − s/2}H(s) with H(s) = H(1 − s) (necessary and sufficient for the conductor-q FE), H must grow like
+    q^{|σ|/2} in both real directions; every H tried (2cosh((s−½)ℓ/2) products, F_{a,q}-type additions) gives Λ < 0 at high powers
+    of the largest frequency (§8(b)). No proof that this is forced.
+(iii) An LP family that uses the multiplicative structure (P): for a generalized prime p, ν − D_pν ≥ 0 (coefficients of ζ_{P∖{p}}), and
+    FT(ν − D_pν) = ν − p^{−1}D_{1/p}ν + ρ_q(1 − 1/p)δ₀ (the Lebesgue parts cancel). Pairing with the Fejér function of width r gives
+        ρ_q(1 − 1/p) ≥ (2/p) Σ_{n_k < p} c_k (1 − n_k/p),   and for finite S ⊂ P the Möbius-weighted analog (equality for Z).
+    Combining these Euler-side inequalities with (C_q) is the natural first attack on Q_cond (construct-or-refute).

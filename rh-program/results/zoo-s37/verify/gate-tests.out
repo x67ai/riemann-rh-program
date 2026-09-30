@@ -1,0 +1,23 @@
+[PASS] T1 default --out = scratch file in TMPDIR (token still in place)  rc=0  expected success | OK: <scratch>/zoo-insert-s37-out.md written; 711 -> 745 lines (+34); entries 62 (I 9, II 5, III 21, IV 22, V 5); blocks at 39 (count), 136-142 (I.9), 
+[PASS] T1b the default output exists in TMPDIR  rc=0  expected success | 
+[PASS] T2 second run on the inserted file  rc=1  expected refusal | zoo-insert-s37: STOP -- zoo-insert-s37-out.md already carries '### IV.21 ' -- this stream's text is in it; refusing to insert twice. Nothing written.
+[PASS] T3 tampered input (one byte)  rc=1  expected refusal | zoo-insert-s37: STOP -- <scratch>/zoo-tampered.md SHA-256 is c137d4e9014af2ca60b44d47ab1fa1eb89e35f97bfef5b82e534f6f0debf5eb0, expected 90d0ad6afa0933
+[PASS] T4 --out BARRIER-ZOO.md  rc=1  expected refusal | zoo-insert-s37: STOP -- --out names BARRIER-ZOO.md; writing the zoo needs --in-place (with the zoo as --input). Nothing written.
+[PASS] T5 --out = --input  rc=1  expected refusal | zoo-insert-s37: STOP -- --out names the input file; writing over the input needs --in-place. Nothing written.
+[PASS] T6 --in-place while the token remains  rc=1  expected refusal | zoo-insert-s37: STOP -- block iv9 still carries <PRODUCER-B-VERDICT> -- replace it with Producer B's verdict before --in-place. Nothing written.
+[PASS] T6b the scratch copy is unchanged after T6  rc=0  expected success | 
+[PASS] T7 token replaced; --in-place on a scratch copy  rc=0  expected success | OK: <scratch>/zoo-inplace.md written; 711 -> 745 lines (+34); entries 62 (I 9, II 5, III 21, IV 22, V 5); blocks at 39 (count), 136-142 (I.9), 337 (II
+[PASS] T7b the scratch copy now has 745 lines  rc=0  expected success | 
+[PASS] T7c second --in-place run  rc=1  expected refusal | zoo-insert-s37: STOP -- zoo-inplace.md already carries '### IV.21 ' -- this stream's text is in it; refusing to insert twice. Nothing written.
+[PASS] T8 P1 + P2 + P3 applied, token replaced  rc=0  expected success | OK: <scratch>/out-T8.md written; 711 -> 745 lines (+34); entries 62 (I 9, II 5, III 21, IV 22, V 5); blocks at 39 (count), 136-142 (I.9), 337 (III.15 
+[PASS] T9 the brief's literal <ENTRY-DATE> fill at all five sites  rc=0  expected success | OK: <scratch>/out-T9.md written; 711 -> 745 lines (+34); entries 62 (I 9, II 5, III 21, IV 22, V 5); blocks at 39 (count), 136-142 (I.9), 337 (III.15 
+[PASS] T10 the literal fill at four of the five sites  rc=1  expected refusal | zoo-insert-s37: STOP -- block iii15 is not staged Block (iv) with <ENTRY-DATE> filled (and nothing else). Nothing written.
+[PASS] T11 drift in IV.22 SOURCE (one path)  rc=1  expected refusal | zoo-insert-s37: STOP -- block iv22 is not staged Block (i) renumbered IV.21 -> IV.22 with <ENTRY-DATE> filled (and nothing else). Nothing written.
+[PASS] T12 drift in the d4-infty row  rc=1  expected refusal | zoo-insert-s37: STOP -- block xref is not the brief's d4-infty row followed by staged Block X renumbered (rows N1, N3, N4). Nothing written.
+[PASS] T13 P3 applied in part  rc=1  expected refusal | zoo-insert-s37: STOP -- block iv21's STATUS is not the NOTE's line 195 (with P3 applied whole or not at all). Nothing written.
+[PASS] T14 a malformed token replacement ('<…>')  rc=1  expected refusal | zoo-insert-s37: STOP -- the replacement of the token in block iv9 is malformed: '<to be filled>' Nothing written.
+[PASS] T15 the renumbering undone in row N3  rc=1  expected refusal | zoo-insert-s37: STOP -- block xref is not the brief's d4-infty row followed by staged Block X renumbered (rows N1, N3, N4). Nothing written.
+[PASS] T16 wrong line arithmetic in the count paragraph  rc=1  expected refusal | zoo-insert-s37: STOP -- block count is not staged Block C with the pairs C0-C4 (and nothing else). Nothing written.
+[PASS] T17 the I.9 heading demoted to '####'  rc=1  expected refusal | zoo-insert-s37: STOP -- block i9 is not staged Block (iii) with <ENTRY-DATE> filled (and nothing else). Nothing written.
+[PASS] T18 P1's slot filled with a '|' (would break the table)  rc=1  expected refusal | zoo-insert-s37: STOP -- P1's replacement in the N2 row is malformed: 'two | producers' Nothing written.
+ALL GATE TESTS AS EXPECTED: True | BARRIER-ZOO.md still 90d0ad6afa093388… = True

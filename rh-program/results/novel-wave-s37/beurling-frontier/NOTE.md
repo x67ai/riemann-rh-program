@@ -243,3 +243,65 @@ the contour argument of Theorem A applied to ζ(s)/ζ(s + 1 − α) only proves 
 1/(4 − 2α) > α/2 for all α < 1. **Named gap G1:** prove, under RH, Σ_{n≤y}Π_{p|n}(1 − p^{α−1}) = y/ζ(2 − α) + O(y^{α/2+ε}).
 **G2:** upgrade the variance bound to a.s. uniformity (moments of the Bernoulli chaos Σ_d μ_η(d)T(x/d) of unbounded degree;
 monotonicity of N_P reduces uniformity to a grid of mesh x^{α/2}). G1 + G2 would give β(T_α) = α/2 under RH.
+
+## §5. The frontier (task 4): structured surgery, relative obstructions, rung 1
+
+**5.1 Exact variance for finite deletions** [proved here; computed: `verify/finite_R_variance.py`, log `verify/logs/finite_R_variance.log`].
+*Proposition 5.1.* Let R be a finite set of primes, Q = Π_{p∈R}p, ρ = φ(Q)/Q, E(x) = #{n ≤ x : (n, Q) = 1} − ρx. Then E is
+Q-periodic with mean 0 and (1/Q)∫₀^Q E(x)²dx = ρ·2^{|R|}/12.
+*Proof.* E(x) = −Σ_{m|Q}μ(m)ψ(x/m) with ψ(y) = {y} − ½ (Möbius inversion; Σ_{m|Q}μ(m) = 0). Franel's integral
+∫₀¹ψ(au)ψ(bu)du = (a, b)²/(12ab) with a = Q/m, b = Q/m′ gives (1/Q)∫₀^Q ψ(x/m)ψ(x/m′)dx = (m, m′)²/(12mm′). Writing
+(m, m′)² = Σ_{d|(m,m′)}J₂(d) (Jordan's totient) and Σ_{d|m|Q}μ(m)/m = (μ(d)/d)Π_{p|Q/d}(1 − 1/p):
+Σ_{m,m′}μ(m)μ(m′)(m,m′)²/(12mm′) = (ρ²/12)Σ_{d|Q}Π_{p|d}(1 − p^{−2})(1 − 1/p)^{−2} = (ρ²/12)Π_{p∈R}(2p/(p − 1)) = ρ2^{|R|}/12. ∎
+(Exact rational arithmetic confirms it for eight sets R up to Q = 2310.) The mean square equals ρ/12 times the number of
+R-numbers (squarefree products of deleted primes). **Heuristic transfer:** at scale x only the R-numbers m ≤ x oscillate
+(for m > x, {x/m} = x/m is smooth), so for an infinite sparse R one expects mean-square E(x)² ≍ #{R-numbers ≤ x} ≍ x^{α_R},
+where α_R := lim sup log π_R(x)/log x — for **any** R, random or structured. Theorem B proves this for random R.
+
+**5.2 Relative-obstruction conjecture (task 4's question, answered in conjectural form).**
+*Conjecture O.* For every set R of primes with Σ_{p∈R}1/p < ∞ and every set A of added generalized primes, the system
+(ℙ \ R) ∪ A satisfies β ≥ α_R/2. [Status: proved for Bernoulli R (Theorem B); exact over a period for finite R (5.1); tested on a
+deterministic minimal-discrepancy R in §6.3.] Consequence under RH: for systems obtained by surgery on ℙ, α > ½ forces α_R = α
+(the deleted set must carry the deviation, by BDR's Landau argument for pure additions, z-02 lines 1072–1090), hence
+**β ≥ α/2 > ¼: under RH and Conjecture O, ¼ is an exact threshold for the surgery class.** This does not contradict Prop. 2.3,
+because the bound is relative (α_R = 0 for ℙ itself). Additions should not help [heuristic]: the dilates E_{R-free}(x/a), a ∈ ⟨A⟩, have no common
+rational frequencies for generic real a, so their mean squares add rather than cancel.
+
+**5.3 How close to free can bounded error with RH false be?** [proved here] A *finite* surgery (deleting or adding finitely many
+generalized primes q) multiplies ζ by Π(1 − q^{−s})^{±1}, whose zeros and poles lie on Re s = 0; it keeps α = α(ℙ) = Θ and the integer
+error O(log x). So with Λ ≥ 0 (freeness) a finite modification never creates a zero off the line; F_{5,5} = ζ(s)(1 + 5·5^{−s} + 5^{1−2s})
+does it with one Euler factor 1 + 5u + 5u² (u = 5^{−s}) whose logarithm has u²-coefficient −((ω₁ + ω₂)² − 2ω₁ω₂)/2 = −(25 − 10)/2 < 0
+(ω₁,₂ = (−5 ± √5)/2): non-free at 25, as the charter records. Hilberdink 2012 (§1.6) is the periodic-class version: β = 0 in periodic
+form forces a finite modification of ℙ. **To decouple α from Θ one needs infinitely many deletions, and (Theorem B / Conjecture O)
+each such decoupling costs β ≥ α_R/2.** So "free + RH-false + β < ¼" is out of reach of surgery on ℙ, and at β < ½ nothing else is known.
+
+**5.4 Rung-1 control (mandatory).** The virtual curve Z(u) = (1 − 5u + 5u²)/((1 − u)(1 − 5u)) (charter §0(e)) is a Beurling system
+over the norm group 5^ℤ (closed-point counts b_d ≥ 0, free) with effective-divisor counts A_n = (5^n − 1)/4 *exactly* for n ≥ 1 —
+perfect integer regularity — and zeros at Re s = 0.79899 (u = (5 − √5)/10). So in rung 1 **no threshold theorem exists at all**, even
+at "β = 0" and even with the functional equation; any threshold argument over ℚ must use an input that the virtual curve lacks.
+Over ℝ the virtual curve is not even an [α, β]-system (N(x)/x oscillates log-periodically: the norm group is discrete), so the first
+archimedean input is "the norms have a density" — and Theorems A/B show that density plus β < ½ still admits α > ½ (under RH for ζ).
+The input that separates real curves from the virtual one is Castelnuovo/Hodge-index positivity on C × C, whose ℚ-analogue is Weil's
+positivity of the explicit-formula quadratic form — RH-equivalent. So the archimedean input a threshold theorem would need is RH itself.
+
+## §6. Simulation (task 3) — evidence, not theorems
+
+**6.1 Design** [computed: `verify/thin.c`, `verify/thin_aux.c`, driver `verify/run_all.sh`, log `verify/logs/run_all.log`,
+data `verify/data/*.csv`, fits `verify/fit.py` → `verify/logs/fit.log`, `verify/data/fit_summary.json`].
+- **Systems.** (i) T_α (Bernoulli thinning, w_p = p^{α−1}) for α = 0.60, 0.75, 0.90; seeds 1–8; the decision for prime p is a
+  64-bit hash of (p, seed, α), so a run is reproducible from its command line. (ii) *Greedy* (structured) deletion: delete p iff
+  #R∩[2, p) < F(p) := Σ_{q≤p}q^{α−1} — the deterministic set with |π_R(x) − F(x)| < 1, the most regular deletion with the same
+  weights (task 4's "structured surgery"). (iii) Controls with the same code: *none* (ℙ itself; β = 0 expected); *Cramér* (2 prime,
+  n ≥ 3 prime with probability 1/log n, Beurling integers counted with multiplicity by an exact multiplicative DP; a full random
+  discretization, β = ½ expected); the *mean system* Σ_{n≤y}Π_{p|n}(1 − p^{α−1}) − y/ζ(2 − α) (deterministic; tests gap G1).
+- **Exactness.** N_P(n) is an exact integer count for every n ≤ X = 10⁹ (a bitset sieve of R-free integers; deleted primes up to
+  Y = 4·10⁹ enter ρ_P). ρ_P = Π_{p∈R,p≤Y}(1 − 1/p)·exp(−E₁((1 − α)log Y)) (mean tail ∫_Y^∞u^{α−2}du/log u); the tail's random part
+  has standard deviation ≈ (Y^{α−2}/((2−α)log Y))^{1/2}, i.e. ≲ 4% of the signal x^{α/2} at x = X and negligible for x ≤ X/10.
+  For Cramér, log ρ = ½ − γ − log log 3 + D + A + G₂ with D = lim[Σ_{3≤n≤M}1/(n log n) − log log M + log log 3], A = Σ_{n≥3}(1_P(n) −
+  1/log n)/n, G₂ = Σ_{q∈P}(−log(1 − 1/q) − 1/q), summed to Y = 2·10⁹ (derivation: log ζ_P(s) + log(s − 1) → log ρ as s ↓ 1 with
+  ∫₃^∞u^{−s}du/log u = E₁((s − 1)log 3) = −γ − log((s − 1)log 3) + o(1)).
+- **Cross-checks.** `verify/check_small.py` re-derives R, ρ_P and N_P(10⁵) from the same hash in Python: identical (nR(10⁶) = 607,
+  ρ_P = 0.180739782781, E(10⁵) = 2.021722). The Cramér DP matches a brute-force multiset count (N(2000) = 3097).
+- **Statistics.** Log-bins of 20 per decade; per bin the exact sup of |N_P(x) − ρx| over real x and the RMS at half-integers.
+  Exponents = least-squares slopes of log(running sup) and log(RMS) against log x over windows [10^k, 10⁹], k = 4, 5, 6, 7;
+  error bars = standard error over seeds (8 for T_α); the spread between windows is reported as a systematic.

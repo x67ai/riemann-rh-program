@@ -36,3 +36,24 @@ Dated blocks, appended after each batch. Newest at the bottom.
   in (x/2, x], Kolmogorov 0–1 via E′(x) = E(x) − E(x/q)).
 - Gap to β = α/2 under RH: G1 mean-system error Σ_{n≤y}Π_{p|n}(1 − p^{α−1}) − y/ζ(2−α) ≪ y^{α/2+ε} (contour gives only 1/(4−2α));
   G2 moment/uniformity for the chaos. Next: simulation (NOTE §6), incl. direct numerics of the mean-system error T(y).
+
+## 2026-09-30 — block 3: simulation launched (RUNNING NOW / resume here)
+
+- Code: `verify/thin.c` (bern | greedy | none), `verify/thin_aux.c` (cramer | mean); cross-checks passed:
+  `verify/check_small.py` reproduces thin.c exactly (X=1e5: nR=607, rho=0.180739782781, E(X)=2.021722); cramer DP matches
+  brute force N(2000)=3097.
+- Driver `verify/run_all.sh` (background, sequential, idempotent — rerun it to resume; skips finished files):
+  bern alpha ∈ {0.60,0.75,0.90}, X=1e9, Y=4e9, seeds 1–8 → `verify/data/bern_a*.csv`; greedy (deterministic low-discrepancy
+  deletion) → `greedy_a*.csv`; none (β=0 control) → `none.csv`; Cramér random system (β≈½ control) X=2e8 seeds 1–4 →
+  `cramer_s*.csv`; mean system T(y), X=2e8 → `mean_a*.csv`. Log: `verify/logs/run_all.log`.
+- Next on completion: `verify/fit.py` → exponents with error bars → NOTE §6.
+
+## 2026-09-30 — block 4: first fits (X = 1e9, 8 seeds) + extension queued (RUNNING NOW / resume here)
+
+- T_0.60: running-sup slope 0.303 ± 0.008 (window [1e4,1e9]); candidates α/2 = 0.300, 1/(4−2α) = 0.357, 1/(3−α) = 0.417,
+  BDR 2α/(α+2) = 0.462 → only α/2 fits. T_0.75: 0.353 ± 0.013 (α/2 = 0.375, 1/(4−2α) = 0.400, 1/(3−α) = 0.444).
+- Prop 5.1 (exact, finite R): mean square of E over a period = ρ·2^{|R|}/12 — verified in exact arithmetic (`verify/finite_R_variance.py`).
+- NOTE §5 written (Conjecture O: β ≥ α_R/2 for any surgery on ℙ; under RH ⇒ β ≥ α/2 > ¼ for the surgery class; finite surgery
+  cannot move zeros off Re s = 0; rung-1 control).
+- Queued `verify/run_big.sh` (starts after run_all.sh ends): X = 1e10, Y = 2e10, T_α seeds 1–4 + greedy → `verify/data_big/`,
+  log `verify/logs/run_big.log`. Resume: rerun `verify/run_big.sh` (idempotent), then `python3 verify/fit.py verify/data_big`.

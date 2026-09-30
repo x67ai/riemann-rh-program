@@ -24,3 +24,20 @@
 
 - `zoo-entries-proposed.md` (51 340 B): findings, verification, `---`, eight block sections (count with C0–C4 printed in full; i9; iii15; iv9 with the token; iv20; iv21; iv22; xref) and "Nothing else". `build_blocks.py --write` filled the markers from the sources; block hashes (first 16): count e8a2e054…, i9 a0680013…, iii15 19f7b700…, iv9 093666ba…, iv20 6f366c67…, iv21 6e94cbf5…, iv22 ae4446bd…, xref 84713133….
 - Next: `scripts/zoo-insert-s37.py` (re-derives every block from the sources independently of the builder), then the dry run on a scratch copy, then `verify/numbers_check.py` → `numbers-check.log`, then gate tests.
+
+## [2026-10-01 00:20 IST] Insertion script written; dry run produced
+
+- `scripts/zoo-insert-s37.py` (28 335 B): gates 1–4 as in its docstring; re-derives every block from the two sources on its own (not through the builder); token slot, date-fill consistency, P1–P3 optional; `--in-place` refuses while `<PRODUCER-B-VERDICT>` remains.
+- Dry run: `python3 scripts/zoo-insert-s37.py --input <scratch copy of BARRIER-ZOO.md> --out results/zoo-s37/dryrun-BARRIER-ZOO.md` → rc 0; "WARNING: block iv9 still carries <PRODUCER-B-VERDICT>" (expected); 711 → 745 (+34); SHA-256 `b90dbdc8325578fc6a6869f08c028a7c1e7abe6a84878f556019df92249acfdd`. `BARRIER-ZOO.md` still `90d0ad6a…`.
+- `diff` hunks: 38a39,40 / 133a136,143 / 326a337 / 481a493 / 598a611,619 / 599a621,628 / 681a711,715 — seven additions, 34 lines added, 0 removed (diff pairs the inserted leading blanks with the old blank lines; same file).
+
+## [2026-10-01 00:35 IST] numbers_check.py §0, §A–§D written and passing
+
+- §0 hashes (20 files) and six gate checks; §A tallies 8/5/21/20/5 → 9/5/21/22/5, 711 → 745, Group I 1–9 and Group IV order, 'IV.21' / 'IV.22' / 'I.9' on 0 → 3 / 5 / 5 lines; §B seven pure-addition hunks, +34 / −0, subsequence check; §C every block line against its source line (NOTE 190–195; staged 40–46, 52, 58–64, 70, 76, 82–85, 91) with only the sanctioned edits, the heading and the d4-infty row verbatim in the brief, the count block reverting to staged line 91 exactly when C4…C0 are undone; §D all eleven cited entries exist (I.9, IV.21, IV.22 new), and the brief's twelve (I.7, IV.10, V.4, V.5 exist but are not cited).
+- Proposed file finding 7 reworded so the file carries none of the five linted phrases anywhere; `lint_s27.py` exit 0 (one false candidate, "spelling").
+
+## [2026-10-01 00:55 IST] DONE — deliverables on disk; hand-off to the orchestrator
+
+- `zoo-entries-proposed.md` (SHA-256 `8befbdf2…`): findings 1–9, verification, eight blocks filled by code. `scripts/zoo-insert-s37.py` (`a23e6a47…`). `dryrun-BARRIER-ZOO.md`: 745 lines, `b90dbdc8325578fc6a6869f08c028a7c1e7abe6a84878f556019df92249acfdd` (token still in), seven pure-addition hunks, +34/−0. `numbers-check.log` (`4946eb09…`): 166 checks, RESULT: ALL CHECKS PASS. `verify/gate-tests.out`: 22 tests, ALL AS EXPECTED. `BARRIER-ZOO.md` still `90d0ad6a…` (never written).
+- No stop line fired: input hash equal; every anchor unique; every cited entry exists (I.9, IV.21, IV.22 are the new ones); no source conflict beyond the renumbering.
+- For the orchestrator, in order: (1) read the blocks and the dry-run diff at the line; (2) replace `<PRODUCER-B-VERDICT>` in block `iv9` of the proposed file after reading `results/haglund-cert-s37/producer-B/CERT.md` (c4a8ca6b…) — one line, no `<` or `>`; (3) optionally apply P1 (the N2 row's "one producer so far"), P2 (producer-B's CERT path in the IV.9 rider head), P3 ("IV.20 as staged (Theorem R)" → "IV.20 (Theorem R)"); (4) `python3 scripts/zoo-insert-s37.py --in-place` (refuses while the token remains); (5) record the printed SHA-256 in STATUS / LOG. The `<ENTRY-DATE>` fill is "2026-09-30" (decision in finding 3; the literal "2026-09-30 (Session 37)" is also accepted if applied at all five sites).
