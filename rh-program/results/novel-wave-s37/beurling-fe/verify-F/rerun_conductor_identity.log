@@ -1,0 +1,17 @@
+== (1) sum_{n>=1} sinc^2(n/q) vs (q-1)/2  [partial sum to N plus tail bound q/(pi^2 N)] ==
+q= 1: partial=0.00000000  (q-1)/2=0.0000  tail<= 5.07e-07
+q= 2: partial=0.49999899  (q-1)/2=0.5000  tail<= 2.03e-06
+q= 4: partial=1.49999595  (q-1)/2=1.5000  tail<= 8.11e-06
+q= 9: partial=3.99997948  (q-1)/2=4.0000  tail<= 4.10e-05
+q=25: partial=11.99984169  (q-1)/2=12.0000  tail<= 3.17e-04
+== (2) (C_q) for F = zeta(s)(1 + q^{1/2-s}): LHS rho_q(1-q^{-1/2}) with rho_q = sqrt(q)(1+q^{-1/2}); RHS 2 q^{-1/2} (q-1)/2 ==
+q=2: LHS=0.707107 RHS=0.707107  (NOTE v1 Part 3 prints 0.70711)
+q=4: LHS=1.500000 RHS=1.500000  (NOTE v1 Part 3 prints 1.5)
+q=9: LHS=2.666667 RHS=2.666667  (NOTE v1 Part 3 prints 2.66667)
+== (3) F_{5,5} = zeta(s)(1 + 5*5^{-s} + 5*25^{-s}), q = 25: LHS = 5*(1+1+1/5)*(1-1/5) ; RHS = (2/5)[sum S(n/25) + 5 sum S(n/5)] ==
+LHS=8.8000 RHS=8.8000 (NOTE: 8.8 = 8.8)
+== (4) Fejer sum S_F = sum sinc^2(n_k) over generalized integers <= X of the near-solution {2, 3, 8.470247} (v2, K=3) ==
+non-integer generalized integers <= 1000000: 257; S_F = 1.6370e-03  (NOTE v2b: 1.7e-3 for this system; Z gives 0 exactly)
+== (5) theta relation rho+2psi(1/x) = sqrt(x)(rho+2psi(x)) at x=2 for Z (rho=1) and for the near-solution (rho=1) ==
+Z: defect = -1.972e-31
+near-solution: defect = -1.763e-17  (nonzero: the FE fails, as T requires)

@@ -84,3 +84,12 @@ Deliverables: `NOTE.md` (the unit), `verify/` (scripts + logs), `sources/` (text
 - Controls printed (v3): virtual curve and genus-1 F₅ scan (RH-false admissible t = ±5); F_{5,5} = ζ × (t = −5 L-polynomial), Λ(25) < 0.
 - Files: NOTE.md, SHARED.md; verify/ v1, v2, v2b, v3 (.py + .log); sources/ (gate texts, arXiv/Firecrawl captures, queries).
 - Successor (ranked): Q_cond (Beurling + FE at conductor q > 1; §8(b), §11); discrete + extra poles; signed Hamburger with gap.
+
+## 2026-10-01 OPUS READER (read-O.md) block 1 — §1 re-derivations landed
+
+- Reader: Opus 5.5, independent of the orchestrator's read (verify-F/ not opened). Deliverable `read-O.md`, scripts `verify-O/`.
+- §1: Prop. R, Lemma G, Theorem T Steps 0–2, T1, T3, Prop. U, Lemma TB, Theorem C (incl. (C_q) by hand: exact on ζ(1+q^{1/2−s})
+  and F_{5,5}), §8(a)(b)(d), §9 — all re-derived ✓. No error found that affects T. Prose/hypothesis gaps: positivity also enters
+  through Prop. R's linear growth (NOTE line 126 says "only"); T2 needs polynomial growth, which Diamond–Zhang's definition
+  (t-50 lines 592–593) does not supply. §8(e)'s verdict "open" is wrong: an explicit signed counterexample is in hand (§6 of read-O).
+- Next: §2 independent numerics, §3 prior-art gate.

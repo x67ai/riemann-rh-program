@@ -1,0 +1,11 @@
+F_5 (mod poly [1, 1]): #E0 = 2, #E0^twist = 10, sum = 12 = 2(Q+1)? True
+F_25 (mod poly [1, 1, 1]): #E0 = 20, #E0^twist = 32, sum = 52 = 2(Q+1)? True
+F_625 (mod poly [1, 0, 1, 1, 1]): #E0 = 640, #E0^twist = 612, sum = 1252 = 2(Q+1)? True
+
+Line C, g = 1: formal twist count = Q + 1 + a_r (= deg(pi_Q + 1)); lower bound 2(Q+1) - (7)
+  V Q=5^2: N=11, twist=41; (5) "<41": N True, twist False; (7) "<=40" (mu,m,l)=(1, 7, 4) hyp=True: twist False; lower bound N >= 12: False
+  V Q=5^4: N=451, twist=801; (5) "<701": N True, twist False; (7) "<=690" (mu,m,l)=(2, 27, 14) hyp=True: twist False; lower bound N >= 562: False
+  V Q=5^6: N=13376, twist=17876; (5) "<16001": N True, twist False; (7) "<=15940" (mu,m,l)=(3, 127, 64) hyp=True: twist False; lower bound N >= 15312: False
+  E0 Q=5^2: N=20, twist=32; (5) "<41": N True, twist True; (7) "<=40" (mu,m,l)=(1, 7, 4) hyp=True: twist True; lower bound N >= 12: True
+  E0 Q=5^4: N=640, twist=612; (5) "<701": N True, twist True; (7) "<=690" (mu,m,l)=(2, 27, 14) hyp=True: twist True; lower bound N >= 562: True
+  E0 Q=5^6: N=15860, twist=15392; (5) "<16001": N True, twist True; (7) "<=15940" (mu,m,l)=(3, 127, 64) hyp=True: twist True; lower bound N >= 15312: True

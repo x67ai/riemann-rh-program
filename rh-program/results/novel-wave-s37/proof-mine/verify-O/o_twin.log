@@ -1,0 +1,13 @@
+V2: L = 1 - u + 11u^2 - 5u^3 + 25u^4; h = L(1) = 31
+  N_1..6 = [5, 47, 143, 507, 2950, 16319]  b_1..6 = [5, 21, 46, 115, 589, 2689]
+  min N_n, min b_d (<= 40): 5 5  all b_d integers: True
+  |alpha_i| = [np.float64(1.8425), np.float64(1.8425), np.float64(2.7138), np.float64(2.7138)]  sqrt q = 2.2361
+  Re s of zeros (u = q^-s): [0.3797, 0.6203]
+  x-poly x^2 + a1 x + (a2 - 2q) = x^2 - x + 1, disc = -3 (< 0: non-real x_i, RH false)
+  Q=5^2: N-Q-1 = 21; Thm 1 hyp Q>(g+1)^4=False, (7) hyp False; (5) N < 51: True; (7) N <= 52: True
+  Q=5^4: N-Q-1 = -119; Thm 1 hyp Q>(g+1)^4=True, (7) hyp True; (5) N < 751: True; (7) N <= 745: True
+  Q=5^6: N-Q-1 = 693; Thm 1 hyp Q>(g+1)^4=True, (7) hyp True; (5) N < 16251: False; (7) N <= 16212: False
+  Q=5^8: N-Q-1 = -3919; Thm 1 hyp Q>(g+1)^4=True, (7) hyp True; (5) N < 393751: True; (7) N <= 393545: True
+box hits: 111 ; first 5 by (|a1|, a1, |a2|): [(0, 11, 37), (0, 12, 38), (0, 13, 39), (0, 14, 40), (0, 15, 41)]
+(-1, 11) in hits: True
+hits caught by Thm 1 (5) at some Q in {5^4, 5^6, 5^8}: 105 of 111

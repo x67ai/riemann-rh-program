@@ -92,3 +92,9 @@ Dated blocks, appended after each batch. Newest at the bottom.
 - Sharpest conjecture: **U — every Beurling system has α ≤ max{½, 2β}** (implies RH; matches all known constructions; contradicts BDR's
   "every max{α,β} ≥ ½ is populated" in the corner β < α/2). Conjecture O (surgery) is the proved-in-part core of it.
 - Files: NOTE.md §§1–7; verify/ (thin.c, thin_aux.c, run_*.sh, fit.py, analyze_extra.py, branch_constant.py, checks + logs, data).
+
+## 2026-10-01 — block O-0: Opus reader started (read-O.md)
+
+- Reader Opus 5.5, independent of the orchestrator's read. Files: `read-O.md` (built section by section), own
+  re-run scripts and logs in `verify-O/`. Nothing else in the seed folder is touched.
+- Read so far: NOTE.md whole, charter §M1b, SHARED blocks 0–7. Next: §1 re-derivations into read-O.md.

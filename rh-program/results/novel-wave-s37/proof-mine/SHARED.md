@@ -69,3 +69,9 @@ R8: the number now cites Laumon Thm (4.1.3) at (C, C, Q_l) directly; Cor (4.3.1.
 the Kummer sheaf of y^2 = f(x) (ramified at infinity for deg f = 3) — the earlier sentence was wrong and is replaced. R10: the root-level
 "products of Gauss sums" form is labeled [recalled, unverified] (Milne p. 23 gives the Gauss-sum expression of the counts only).
 Unit closed T; final report returned to the orchestrator.
+
+## 2026-10-01 block R-O1 — Opus reader (read-O.md §1 landed)
+Reader Opus 5.5 started the dual-model read (independent of the orchestrator's read). §1 of `read-O.md`: all 14 rows opened at the page
+(Bombieri and Deligne formulas from rendered page images in `verify-O/`). Positivity step at the page: R1–R4, R6–R9, R12, R13; R10 route at
+the page, its positivity step recalled; R11 is a negative row, not a proof; R5, R14 unread. Citation slips found: Hrushovski passages are on
+printed pp. 4, 11, 115 (NOTE says 3, 10, 114); Deligne Thm (3.2) is on p. 284 (range 283–287 still covers it). Next: §2 re-derivations.

@@ -1,0 +1,75 @@
+# read-O — OPUS READER on seed M1a `beurling-fe` (NOTE.md, Theorem T "positive Hamburger")
+
+Reader: Opus 5.5 (second model of the dual-model check; standing orders 5, 7, 11). Date: 2026-10-01.
+Independent of the orchestrator's parallel read (its folder `verify-F/` was not opened).
+Scripts and logs of this read: `verify-O/`. Conventions as in NOTE: ✓ = re-derived at the line; GAP = stated with the fix.
+
+VERDICT LINE: (pending — written when §1–§4 land)
+
+## §1. Re-derivations at the line (NOTE §3, §4, §6, §7, §8(a)(b), §9)
+
+(a) Proposition R. (A)⟹(B) ✓. Mellin inversion ψ(x) = (1/4πi)∫_{(c)}ξ_F(s)x^{−s/2}ds, c > max(A,1): justified by Fubini against the
+    Cahen–Mellin integral (∫|Γ((c+iτ)/2)|dτ · ∫t^{−c}dN < ∞); ψ(x) < ∞ for all x > 0 by polynomial growth. Edges: |ξ_F(c+it)| ≤
+    π^{−c/2}|Γ((c+it)/2)|F(c) = O(|t|^{(c−1)/2}e^{−π|t|/4}); on Re s = 1−c the same by the FE; H(s) = s(s−1)ξ_F(s) is entire with
+    H(1−s) = H(s). Strip width 2c−1; PL needs growth < exp e^{α|t|} with α < π/(2c−1): (G′) with ε < π/(2c−1) gives it ✓. So H is
+    bounded, ξ_F = O(|t|^{−2}) uniformly, horizontal segments vanish. (G′) is used HERE ONLY ✓ (the NOTE says so, §5(d)).
+    Residues ✓: Res_{s=0}ξ_F = −Res_{s=1}ξ_F is FORCED by the FE (ξ_F(s) = ξ_F(1−s) ~ ρ/(1−s−1)); they are not an extra hypothesis.
+    The reflected integral: ∫_{(1−c)}f(s)ds = ∫_{(c)}f(1−s)ds, giving x^{−1/2}ψ(1/x) ✓. Final line ρ + 2ψ(1/x) = √x(ρ + 2ψ(x)) ✓.
+    Side remark (no fix needed): ρ ≥ 0 is automatic — (A)⟹(B)⟹(C) and Steps 1–2 never use its sign (the linear-growth bound
+    holds with |ρ| in place of ρ), and Step 2 ends with a_n = ρ for n ≥ 1, a_n ≥ 0. The hypothesis "for some ρ ≥ 0" is redundant.
+    (B)⟹(A) ✓ (split at 1: ξ_F = ρ/(s−1) − ρ/s + ∫₁^∞ψ(x)(x^{s/2} + x^{(1−s)/2})dx/x; ψ(x) ≤ e^{−π(x−1)}ψ(1) uses t ≥ 1 AND dN ≥ 0;
+    in fact s(s−1)ξ_F = O(|t|²) in strips, stronger than (G′)). (B)⟹N(X) ≤ ½e^π(ρ + 2ψ(1))X ✓ — this step USES dN ≥ 0
+    (N(X) ≤ e^πψ(1/X²) and ψ decreasing). (B)⟹(C) ✓ (ĝ_x = x^{−1/2}g_{1/x} with f̂(ξ) = ∫f e^{−2πixξ}; μ, g_x even).
+    Lemma G ✓ (u(a) = ⟨T, g_y(·−a)⟩ entire; all Taylor coefficients vanish by parity + ⟨T, t^{2k}g_y⟩ = 0; y^{1/2}g_y ∗ φ → φ in S).
+    Karamata remark (not load): (B) ⟹ ψ(y) ~ (ρ/2)y^{−1/2} (y→0+) ⟹ N(x) ~ ρx ✓ (Laplace variable u = t²).
+
+(b) Step 1, the Fejér pairing ✓. φ = (1−|x|)₊ = 1_{[−½,½]} ∗ 1_{[−½,½]}, φ̂ = S = (sin πξ/πξ)² ≥ 0, S = 0 exactly on Z∖{0} ✓.
+    MEASURE side: φ vanishes on |x| ≥ 1, the support of dN + dN^∨ (φ(±1) = 0 absorbs the atom at 1) ⟹ ⟨μ, φ⟩ = ρ.
+    TRANSFORM side: ⟨μ, φ̂⟩ = ρ + 2∫S dN ≥ ρ. Sign ✓: equality forces ∫S dN = 0.
+    Mollification ✓: supp φ_ε ⊂ [−1−ε, 1+ε]; for 1 ≤ t < 1+ε, φ(t−y) ≤ 1 − t + y ≤ ε, so 0 ≤ ∫φ_ε dN ≤ ε·dN([1,1+ε)) → 0;
+    φ̂_ε = S·η̂(ε·), |η̂| ≤ 1, dominated by min(1,(πt)^{−2}) ∈ L¹(dN) BECAUSE N(x) = O(x) — i.e. because of the positivity used in (a).
+    Conclusion "dN carried by N" ✓ (inner regularity: dN(K) = 0 for every compact K ⊂ {S > 0} ∩ [1,∞)).
+    GAP (not an error, prose): NOTE §4 line 126 says positivity enters "only in (F) ⟹ dN carried by N". It also enters in Step 0
+    through Prop. R's linear-growth bound, without which S ∉ L¹(dN) is possible for polynomial growth O(x^A), A ≥ 2, and the
+    dominated-convergence step fails. MINOR pair m1 (§5).
+
+(c) Step 2, periodicity ✓. With μ = Σ_{n∈Z}a_nδ_n, a_n = O(|n|): ⟨μ̂, ψ(·+1)⟩ = Σa_n e^{2πin}ψ̂(n) = ⟨μ̂, ψ⟩, so μ̂ = μ is
+    invariant under x ↦ x+1 and a_{n+1} = a_n ✓. Hence dN = ρΣ_{n≥1}δ_n, F = ρζ, and ρ = Res_{s=1}ξ_F is consistent ✓.
+    Cross-check: Poisson summation makes ρδ_Z self-dual, so the conclusion is attained (T is sharp, not vacuous) ✓.
+
+(d) T1–T3.
+    T1 ✓. dN({1}) = 1 (every p_j > 1) ⟹ ρ = 1; c(x) = #{j : p_j = x} + #{multisets of ≥ 2 indices with product x, all factors < x};
+    strong induction over the locally finite values of the p_j; unique factorization gives the second term 1 (x composite), 0 (x
+    prime or x ∉ N) ✓. Polynomial growth is supplied by NOTE §0's standing assumption (ζ_P absolutely convergent for Re s > 1) ✓.
+    T2 ✓ with one HIDDEN HYPOTHESIS. Diamond–Zhang's definition of a g-number system (t-50 lines 592–593: "a pair of right
+    continuous increasing functions Π and N on [1, ∞) satisfying dN = exp∗ dΠ and Π(1) = 0") carries NO growth condition; growth
+    is an extra assumption there (t-50 lines 1817–1823, "(4.1) lim sup N(x)/x^α < ∞"). So polynomial growth is NOT automatic in the
+    Beurling framework: a system with super-polynomial N has no half-plane of convergence and (A) is not even formulable. T2 must
+    say "with ∫x^{−σ}dΠ < ∞ for some σ" (⟺ ∫x^{−σ}dN = exp∫x^{−σ}dΠ < ∞ ⟺ N polynomial). MINOR pair m2 (it is implicit in (A)).
+    The rest ✓: Π(1) = 0 ⟹ dN({1}) = 1; log F = log ζ with the branch fixed by both sides → 0 as σ → +∞; uniqueness of the
+    Laplace–Stieltjes transform ⟹ dΠ = Σ_pΣ_k k^{−1}δ_{p^k}; the one-line alternative dN ≥ δ₁ + dΠ ✓.
+    T3 ✓ (a_k ≥ 0 makes conditional = absolute convergence, so polynomial growth is automatic once (A) is meaningful; dN({1}) =
+    Σ_{λ_k=1}a_k = ρ). Does T3 use dN ≥ 0 only through the pairing? NO: also through Prop. R's linear growth (see (b)); and the
+    reader's §6 shows positivity cannot be dropped at all (an explicit signed counterexample with every frequency > 1).
+    Prop. U (§6) ✓: Lev–Olevskii Thm 1 (u-30b lines 51–53, complex measures, u.d. support and spectrum) applies; pigeonhole
+    x(a − a′) ∈ hZ, a − a′ ∈ hZ∖{0} ⟹ x ∈ Q ✓; b^k | D ∀k ⟹ b = 1 ✓; Nakamura Thm D (lines 170–177: (H1) abs. conv. σ > 1,
+    (H2) P(s)F(s) entire of finite order, (H3)) — all three are supplied ✓. Lemma TB (§7) ✓ (k = h∗h, k̂ = ĥ² ≥ 0, Parseval with
+    F^{−1}[k(·−a)] = e^{2πiaξ}k̂; μ̂ ≥ 0 gives |⟨μ̂, e^{2πia·}k̂⟩| ≤ ⟨μ̂, k̂⟩).
+
+(e) Theorem C ✓. dN_q = image of dN under t ↦ t/√q, carried by [r,∞), r = q^{−1/2}; ρ_q = Res_{s=1}Λ_F = √q·Res F ✓.
+    Pairing with φ_r = φ(·/r), φ̂_r(ξ) = rS(rξ), r/√q = 1/q: ρ_q = rρ_q + 2r∫S(t/q)dN(t), i.e. (C_q) ✓ (sign and factors re-derived).
+    q < 1: both sides of (C_q) have opposite signs ⟹ ρ_q = 0, dN carried by qN; μ_q carried by √qZ and 1/√q-periodic ⟹ 1/q ∈ N and
+    mass(1/√q) = mass(0) = 0, i.e. dN({1}) = 0 — contradiction ✓. q > 1, ρ_q = 0 ⟹ dN carried by qN ∌ 1 — contradiction ✓.
+    "q = 1 iff F = ρζ": ρζ satisfies the conductor-q FE iff q^{s−1/2} ≡ 1 iff q = 1 ✓.
+    Hand check of (C_q) (no computer): F = ζ(s)(1 + q^{1/2−s}), dN = Σδ_n + √qΣδ_{qn}; Poisson with f̂ = q(1 − q|ξ|)₊ gives
+    Σ_{n≥1}S(n/q) = (q−1)/2; both sides of (C_q) equal (q−1)/√q exactly ✓. F_{5,5}: ρ_q = 5·(1+1+1/5) = 11, LHS 11·(4/5) = 8.8;
+    RHS (2/5)(Σ_{n≥1}S(n/25) + 5Σ_{n≥1}S(n/5)) = (2/5)(12 + 10) = 8.8 ✓ exactly (the NOTE's 8.8 = 8.8 is not a truncation accident).
+
+(f) §8(a) continuous sketch ✓: G(1−s) = G(s) checked factor by factor; log((s−c)/(s−a)) = ∫₁^∞x^{−s}(x^a − x^c)dx/(x log x)
+    (derivatives in s agree, both → 0 as s → +∞) ✓; f ≥ 0 for a ≥ β ≥ ½ since ∂_c(x^c + x^{1−c}) = log x(x^c − x^{1−c}) ≥ 0 ✓.
+    §8(b) Λ < 0 claims ✓: log(1 + q^{1/2}q^{−s}) has mass −q^j/(2j) at q^{2j}; q = √2: dΠ(8) = 1/3 − 2^{3/2}/6 = −0.138 ✓.
+    F_{5,5} ✓: P(s) = 1 + 5^{1−s} + 5^{1−2s} satisfies P(1−s) = 25^{s−1/2}P(s), so the conductor is 25 ✓; with 1 + 5u + 5u² =
+    (1−αu)(1−βu), Λ(5^k)/log 5 = 1 − (α^k + β^k) = 6, −14, 51 ✓. §9 genus 0 ✓ (L(1/(qu)) = L(u), L → L(0) = 1 at ∞, Liouville);
+    genus 1, t = 5: roots of 5u² − 5u + 1 at |u| = 0.7236, 0.2764 ⟹ Re s = 0.20101, 0.79899 ✓; t = 6 is Z ≡ 1 ✓.
+    §8(d) (F_R) ✓ (sign: 2∫S dN = ⟨R, φ⟩ with R := μ̂ − μ; ψ̂ ≥ 0 forces ψ̂ real hence even).
+    §8(e) ✗ as a VERDICT (not as mathematics): "open" is wrong — see §6 R1 and FIX-FIRST F1.

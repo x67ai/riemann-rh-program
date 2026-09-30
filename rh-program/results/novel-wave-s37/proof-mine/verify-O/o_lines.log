@@ -1,0 +1,17 @@
+== V (q, t) = (5, 5)
+  N_1..8 = [1, 11, 76, 451, 2501, 13376, 70001, 361251]  b_1..8 = [1, 5, 25, 110, 500, 2215, 10000, 45100]  min N, min b (<=60): 1 1
+  A: inertia <C1,C2,Delta,Gamma_pi> = (2, 2) ; <C1,C2,Gamma_pi^0..3> = (2, 2)
+  A: def(Gamma_pi - 2 Delta) = -2 ; Cor 1.6 |N_1 - q - 1| = 5 vs 2 sqrt q = 4.4721
+  A: CS on span(Delta, Gamma_pi^n) violated for n in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  D: deg(pi - 2) = -1 ; deg(pi - 1) = 1 = N_1
+  D: Tr((pi-2)(pi-2)^dagger) = -2
+  B: alpha^2 = 13.0902, beta^2 = 1.9098 vs [q^0.5, q^1.5] = [2.2361, 11.1803]
+  B: Rankin |alpha|^(2k) <= q^(k+1): k=1 13.090 <= 25: True; k=2 171.353 <= 125: False
+== E0 (q, t) = (5, 4)
+  N_1..8 = [2, 20, 122, 640, 3202, 15860, 78682, 391680]  b_1..8 = [2, 9, 40, 155, 640, 2620, 11240, 48880]  min N, min b (<=60): 2 2
+  A: inertia <C1,C2,Delta,Gamma_pi> = (1, 3) ; <C1,C2,Gamma_pi^0..3> = (1, 3)
+  A: def(Gamma_pi - 2 Delta) = 2 ; Cor 1.6 |N_1 - q - 1| = 4 vs 2 sqrt q = 4.4721
+  A: CS on span(Delta, Gamma_pi^n) violated for n in []
+  D: deg(pi - 2) = 1 ; deg(pi - 1) = 2 = N_1
+  D: Tr((pi-2)(pi-2)^dagger) = 2
+  B: |alpha|^2 = 5 in [2.2361, 11.1803]; Rankin 5^k <= 5^(k+1) all k
