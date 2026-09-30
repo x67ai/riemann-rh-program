@@ -96,3 +96,11 @@ the page (7 independent), R10 partly recalled, R11 negative; F3 Theorem P is a p
 object V lacks is a class-C object (function field / function to P^1); F4 Lemma Z4's nearest objects are Pritsker Prop 1.3 (p. 4) and
 Diamond BAMS 1982 §9 (at the page), and Z4 kills FIXED supports only — sequences reach PNT strength. Minor m1–m8 (Deligne p. 284/285 split,
 T24 replacement wording keeps the tower, "first" V2 unordered, Landau's oscillation theorem for Z1, Hrushovski's abs(S·S^t) typo for g >= 2).
+
+## 2026-10-01 block R-O5 — Opus reader, final (read-O.md §7 + verdict landed)
+VERDICT: AGREES-WITH-CORRECTIONS on CLOSE T. FIX-FIRST F1–F5 (none numerical; partition stands; record does not kill class C). F5: the NOTE's
+cheapest class-C unit (integer-Chebyshev factors in Pritsker's B(w)) is pre-empted at Pritsker p. 4 ("we did not observe a numerical
+improvement … beyond the factors x and 1 − x"). Reader's unit instead: 2 slots — U-C1 the Chebyshev twin's rate curve (kappa − 1 vs support
+size; best error at scale x; power saving <=> zero-free strip by Z1/Landau; control = Diamond 1982 §9), then U-C2 the same for Pritsker weights
+outside the integer-Chebyshev family. Next question: is there any finite auxiliary-integer certificate of a zero-free strip?
+Files: read-O.md; verify-O/o_{lines,fields,twin,z4,gauss,arxiv}.py + logs, o_trace4.log, rendered page images, sources/ (Diamond 1982 BAMS, arXiv XML).

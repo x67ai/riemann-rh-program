@@ -4,9 +4,18 @@ Reader: Opus 5.5 (independent of the orchestrator's read; not waited for). Date:
 Object read: `NOTE.md` (40 535 bytes, 322 lines, CLOSE T, writer Opus 5.5, 2026-09-30), charter §"Seed M2", `SHARED.md` blocks 0–8.
 My scripts and logs: `verify-O/` (independent route: no import from `verify/`).
 
-**VERDICT LINE:** (pending — filled when §1–§5 have landed)
+**VERDICT LINE: AGREES-WITH-CORRECTIONS on CLOSE T.** Five FIX-FIRST (§5: F1 Hrushovski pages; F2 the proof count — 10 rows with the
+positivity step at the page, 7 independent, not "12"; F3 the partition is by inequality, not by input; F4 Lemma Z4's nearest objects and
+scope — fixed supports only, sequences reach PNT (Diamond 1982 §9); F5 the proposed class-C unit is pre-empted at Pritsker p. 4). No
+number is wrong; no read proof escapes A–D, so the partition stands; the record does not kill class C (stop conditions did not fire).
+**Theorem P** is a finite classification of the READ proofs by the inequality through which each derives RH, verified claim by claim
+(at the page: R1–R4, R6–R9, R12, R13; R10's positivity step recalled; R11 not a proof; R5, R14 unread) with every violation place (ii)
+re-derived — theorem-grade in each claim, survey-grade in scope; (iii) follows from V's existence alone. **Lemma Z4** is routine and KNOWN
+in effect (Pritsker Prop 1.3, p. 4, is its Gelfond–Schnirelman analog; it follows from Littlewood's Ω±; its sequence complement is Diamond
+1982 §9, at the page); the direct combinatorial proof is new only to the record. **V₂** is correct (N_n, b_d ≥ 0 integral to 40, h = 31,
+FE, non-real x_i, 693 > 625 at Q = 5⁶; box count 111 reproduced). **T24 flag**: the NOTE is right (Bombieri p. 239).
 
-Section status: §1 pending · §2 pending · §3 pending · §4 pending · §5 pending · §6 pending · §7 pending
+Section status: §1–§7 landed 2026-10-01.
 
 ## §1 The 14 rows at the page
 
@@ -25,7 +34,7 @@ Bombieri pp. 234–240 and Deligne pp. 283–285, 298, 301, where the text layer
 | R8 Laumon / Weil II (B) | `laumon-…txt` : 142 (p. 133), 3227 (Thm 4.1.3, p. 204), 3260 (4.2.1.3, p. 205), 3305–3325 (Cor 4.3.1.1, Prop 4.3.2.1, p. 206) | (4.3.2.1) "une fonction méromorphe non constante f : X → D", then Fourier + purity | VERIFIED |
 | R9 Kedlaya (B) | `kedlaya-…txt` : 17–21 (abstract), 82 (p. 2, Dwork = rationality), 204–207 (p. 5), 280–281 (p. 7) | R8 transcribed; Rankin squaring on a curve | VERIFIED |
 | R10 Davenport–Hasse / Weil 1949 (C) | `milne-…txt` : 1305–1340 (p. 23) | Gauss-sum expression of the counts (at the page); the positivity step abs(g(χ))² = q ⇒ RH is NOT on p. 23 | PARTIAL: route VERIFIED, positivity step recalled (NOTE labels it) |
-| R11 automorphic (—) | `milne-…pdf` PDF pp. 49, 51, 58 (checked by `pdftotext`) | not a proof of RH: consumers of RH | VERIFIED as a negative row; it is NOT one of the "12 proofs" (see F3) |
+| R11 automorphic (—) | `milne-…pdf` PDF pp. 49, 51, 58 (checked by `pdftotext`) | not a proof of RH: consumers of RH | VERIFIED as a negative row; it is NOT one of the "12 proofs" (see F2) |
 | R12 CCM (A) | `ccm-…txt` : 430–508 (pp. 9–11; (2.35) l. 433, effectivity l. 434, (2.40) l. 473), 530–556 (p. 12 dictionary), 1287–1291 (p. 29, Prop 6.2) | R3's positivity via Riemann–Roch on C | VERIFIED |
 | R13 Hrushovski (A) | `hrushovski-…txt` : 156 (printed p. 4), 508–509 (printed p. 11), 6457–6464 (printed p. 115) | Ex. 11.4, Weil's positivity β | VERIFIED in content; pages cited as 3, 10, 114 are each ONE LOW (F1) |
 | R14 named-not-read | — | Manin, Igusa, Quigley, Roquette, Kani, Weil II 1980, Stark, Stöhr–Voloch | UNVERIFIED (as labeled) |
@@ -57,7 +66,7 @@ side V violates is the lower side, which Bombieri says the argument "does not gi
 G = {1, ι}, ν₁(C, ι) = #ker(π_Q + 1) = Q + 1 + a_r (all fixed points; Σ_η ν₁ = 2(Q + 1) exactly for an elliptic curve). V at Q = 25:
 26 + 15 = **41**: fails "< 41" and "≤ 40". Q = 5⁴: 801 > 701 ((8) as printed) and > 690 ((7)); Q = 5⁶: 17876 > 16001 and > 15940.
 Lower bound 2(Q + 1) − (7): 12, 562, 15312 against N = 11, 451, 13376. **CONFIRMED** (every number in NOTE R6).
-Nuance (MINOR m5): at Q = 25 the twist meets (8) as printed with equality (41 ≤ 41); the violation at 5² is of (5)'s strict form and of (7).
+Nuance (see m8): at Q = 25 the twist meets (8) as printed with equality (41 ≤ 41); the violation at 5² is of (5)'s strict form and of (7).
 
 **(D) Group.** deg(rπ − s) = r²q − rst + s² (Sutherland l. 61–65); deg(π − 2) = 5 − 10 + 4 = **−1** = (α − 2)(β − 2); α − 2 = (1 + √5)/2 = φ,
 a unit of norm −1. (The brief's "q − a + 1" is deg(π − 1) = N₁ = 1, not deg(π − 2).) Rosati: for g = 1 with the principal polarization,
@@ -191,6 +200,8 @@ Effect on the close: the G-content survives — class C's integer-polynomial obj
 (Pritsker Problem 1.4) — but it is now one of two parallel sequence forms, and its Chebyshev twin shows what "B = 1" would and would not buy:
 PNT-strength existence, proved through the PNT, with no rate.
 
+**F5 — the cheapest unit for class C (§4 l. 296–301)** is pre-empted at Pritsker p. 4; OLD/NEW pair in §7(a).
+
 ## §6 Minor (prose; not applied)
 
 - **m1 (R7, l. 138).** OLD "§3 pp. 283–287 (Thm 3.2, Lemmes 3.3–3.6, (3.7), Cor 3.8–3.9)" → NEW "§3 pp. 283–287 (Thm 3.2 and Lemmes 3.3–3.6
@@ -215,3 +226,44 @@ PNT-strength existence, proved through the PNT, with no rate.
   A reader's note on the source, not an error of the NOTE.
 - **m8 (R6).** At Q = 5² the twist meets (8) as printed with equality (41 ≤ 41); the NOTE's "(8) as printed … violated at Q = 5⁴" is
   consistent with this — no change needed; flagged only so no one "fixes" it to 5².
+- **m9 (§3 row D, l. 229).** "IV.10: per-prime Tate curves have End(E_p) = Z, no cross-prime correspondences" → "… essentially no
+  cross-prime correspondences (at most one exceptional partner per prime; zoo IV.10)". The other record quotes in §3 were found verbatim
+  (IV.20 "in particular no surface over a field in Weil's form"; d4-infty Theorem S and Proposition C; III.20 "RATIONALITY"; IV.20 Lemma F;
+  SPEC "End = {id} (R-b′)"; III.14).
+
+## §7 What the reader adds
+
+**(a) The NOTE's cheapest unit for class C is pre-empted at the page it quotes.** NOTE l. 296–301 proposes computing B(w) "for the
+weights w = Π(integer Chebyshev factors)^{α_i}". Pritsker p. 4, three lines below the sentence the NOTE quotes: "we did not observe a
+numerical improvement of the estimate (1.11) when using further factors of the one-dimensional integer Chebyshev polynomials for the
+weight w, beyond the factors x and 1 − x". Re-running that family replicates a printed negative. (Added to FIX-FIRST as **F5**:
+OLD "compute Pritsker's B(w) for the weights w = Π(integer Chebyshev factors)^{α_i} over [0, 1]ⁿ, n ≤ 6, …" → NEW "Pritsker p. 4 reports
+no improvement over (1.11) from further integer-Chebyshev factors; the unit must use weights outside that family (p. 4: multivariate
+Vandermonde determinants, minimal polynomials) and must measure a RATE, see (c)".)
+
+**(b) What deciding class C can and cannot decide.** A proof of sup_w B(w) < 1 kills the Gelfond–Schnirelman sequence form at PNT strength
+only; B = 1 would be a new elementary PNT (Diamond 1982 p. 579 says exactly this of the Chebyshev twin) with no rate. Neither bears on RH.
+What bears on RH is the RATE: any auxiliary-object sequence giving ψ(x) ≤ x + O(x^θ) or ψ(x) ≥ x − O(x^θ) with θ < 1 gives, by the
+NOTE's own Z1(c) (Landau; one side suffices because ζ has no real zeros in (0, 1)), ζ(s) ≠ 0 on Re s > θ — a zero-free strip. So class C at
+power-saving strength is a certificate of a zero-free strip, and at θ = ½ it is RH; below that it is PNT-level. The live question is
+therefore not "B = 1?" but "error at scale x of the best finite object, as a function of its size".
+
+**(c) Cheapest deciding unit, priced: 2 agent-slots, sequential, one session each, no new theory.**
+- **U-C1 (1 slot; first, because its PNT-level answer is known).** The Chebyshev twin's rate curve. For primorial M = 30 … 510510 (and
+  Diamond's μ_T for T ≤ 10⁴) compute, by LP as in `verify-O/o_z4.py`, the frontier of κ_c − 1 against the size S(c) = Σ|c_k| log k that
+  governs the error term, and the implied best bound at scale x, ε(x) = min_c[(κ_c − 1)x + E_c(x)] with E_c explicit. Outcome: if ε(x) ≥
+  x/(log x)^{O(1)} on the whole computed range, record a numerical REFUTATION of the power-saving Chebyshev form and state the lemma to
+  prove (a lower bound for κ − 1 in terms of S); if ε(x) ≤ x^{1−δ} along the range, that is a zero-free-strip CANDIDATE, to be refuted at once.
+- **U-C2 (1 slot, after U-C1).** The same frontier for Pritsker's B(w) with weights OUTSIDE the integer-Chebyshev family (Vandermonde-type,
+  minimal-polynomial factors), calibrated first on Pritsker Cor 1.2 (c_w ≈ 0.1045575588, 0.99035) and preceded by the prior-art gate
+  (Pritsker's post-2013 journal papers; Montgomery, Ten Lectures ch. 10; Diamond–McCurley).
+Both write `verify/` scripts with logs; the known Diamond §9 answer at PNT strength is U-C1's control.
+
+**(d) The next question.** *Is there any finite auxiliary-integer certificate of a zero-free strip?* Precisely: does min over finite c
+of (κ_c − 1)x + E_c(x) (Chebyshev factorial ratios), or the analogous Gelfond–Schnirelman quantity, fall below x^{1−δ} for some δ > 0 at
+all large x? Yes would be the first elementary power saving in the PNT (a construction unit); no, with a proof of the size–κ tradeoff,
+closes class C over Z at every strength above the PNT (a refutation unit). Either answer moves class C from "not dead" to decided.
+
+**(e) Independent confirmations the orchestrator can bank.** V is exactly as the NOTE says (every number reproduced by disjoint code);
+E₀ is the unique short Weierstrass curve over F₅ with trace 4 (`verify-O/o_trace4.log`); V₂ is correct; the box count 111 is reproduced;
+Bombieri's Theorem 1 is one-sided (upper) at the page; R10's Gauss/Jacobi-sum numbers hold (`verify-O/o_gauss.log`).
