@@ -36,3 +36,15 @@ rh-program/fetched-watch/
 
 # Third-party PDF delivered by the sponsor 2026-09-30 (OpenAI Navier-Stokes paper) - local-only, like the corpus (sponsor decision 2026-09-09: no third-party PDFs in history)
 openai-ns/
+
+# Session 38 (2026-10-01), referee finding O1 on the Haglund manuscript: third-party literature
+# saved by agents beside their notes (publisher and arXiv PDFs, their text extractions and page
+# images) is copyrighted material under the same policy as fetched/ — kept locally, never pushed.
+# The files untracked at this commit remain in the repository's HISTORY until the sponsor decides
+# on a purge (LOG.md, Session 38). Program-authored PDFs (results/arxiv/*/main.pdf) stay tracked.
+rh-program/results/**/*.pdf
+!rh-program/results/arxiv/*/main.pdf
+rh-program/results/novel-wave-s36/staircase/lit/*.txt
+rh-program/results/novel-wave-s36/staircase/lit/*-fulltext.md
+rh-program/results/novel-wave-s36/staircase/lit/img/
+rh-program/results/haglund-cert-s37/novelty-F/ahn-thesis-penn.*
