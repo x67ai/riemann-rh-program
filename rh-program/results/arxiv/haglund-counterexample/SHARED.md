@@ -174,3 +174,15 @@ Item 1 (Thm 1.1, §6 vs both CERTs): all numbers match; recomputed c_N, 2U_32, B
 
 ### 2026-10-01 01:35 IST — REFEREE: REFEREE-REPORT.md §2 item 3 landed
 Sections 2-4 vs staircase NOTE + read-F: all theorems faithful, proofs re-derived and correct. Findings F3.1-F3.10 (MINOR/TYPO). Notable: F3.1 — the five "limits" after Prop 3.4 are t^2 Xi_N(t) at t = 8000 (haglund_coeff.log), not the limits; exact limits given. F3.4 — Burnol Corollaire 2 verified at the page; its hypotheses hold but are not stated; Knopp sentence misleading. Brief Thm 4.1 factor-2 note CONFIRMED.
+
+### 2026-10-01 01:47 IST — REFEREE: REFEREE-REPORT.md §2 items 4-6 landed
+Item 4 (Sec. 5 vs NOTE §3/§4.1): all numbers match; F4.1 heuristic-as-fact, F4.2 N=30 wording. Item 5: errata confirmed at the page; factor-4 remark CONFIRMED (Haglund (51) applies (50) at x; ratios 4.0000001 / 4.00000002 / Phi_3 too). Item 6: every quotation verified at the page; F6.1-F6.4 (Ahn numbering sic, LM paraphrase, Ki original, cite Haglund p. 2 for evenness). Riemann 1859 pp. 671-680 verified against the BBAW scan of the Monatsberichte 1859 (evidence saved in lit/referee-monatsber-1859-*.png).
+
+### 2026-10-01 01:48 IST — REFEREE: REFEREE-REPORT.md §2 items 7-8 + other findings landed
+Item 7 scope: satisfied (F7.1 minor). Item 8: all 18 bibliography entries verified at sources; Riemann 1859 pp. 671-680 verified on the BBAW scan. O1 MAJOR: the Data-availability sentence "fetched literature is not redistributed" is false for the public repo (GitHub API shows publisher PDFs under rh-program/results/novel-wave-s36/staircase/lit/ and novelty-F/ahn-thesis-penn.pdf) — sponsor decision before posting. O2: no commit pin / zip host.
+
+### 2026-10-01 01:49 IST — REFEREE: REFEREE-REPORT.md §3 (rulings) landed
+AI footnote: keep README wording. Length: accept. Data availability: accept with (a) O1 resolved, (b) commit pin added by whoever runs git, (c) zip host named. B ladder.log: accept as documented (hash verified). Haglund appendix: p. 16 confirmed. Re-runs: confirmed where checkable.
+
+### 2026-10-01 01:51 IST — REFEREE: REFEREE-REPORT.md complete (§0 verdict, §4 coverage landed)
+Verdict: MINOR REVISION for posting, with one MAJOR non-mathematical item (O1: Data-availability sentence false for the public repo; sponsor decision before posting). Mathematics and certificates: correct. Correction to my earlier block: the bibliography has 17 entries (not 18); all verified. Evidence saved: lit/referee-monatsber-1859-scan{680-p668,683-p671,692-p680}.png. main.tex, certificate/ and all other files untouched.
