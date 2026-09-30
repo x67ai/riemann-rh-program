@@ -54,19 +54,20 @@ if __name__ == '__main__':
     # locate off-line zeros (right half)
     offs = []
     if n_off > 0:
-        grid = {}
-        ns, nt = 40, int((t2 - t1)/mp.mpf('0.05')) + 1
-        for i in range(1, ns + 1):
-            for j in range(nt + 1):
-                z = mp.mpc(mp.mpf(1)/2 + w*mp.mpf(i)/ns, t1 + (t2 - t1)*mp.mpf(j)/nt)
-                grid[(i, j)] = (z, abs(E(z)))
-        for (i, j), (z, v) in grid.items():
-            nb = [grid.get((i + a, j + b)) for a in (-1, 0, 1) for b in (-1, 0, 1) if (a, b) != (0, 0)]
-            nb = [x for x in nb if x is not None]
-            if len(nb) >= 5 and all(v <= x[1] for x in nb):
+        # seeds along the centre line of the box (the departing pair sits near the failing lobe's middle height);
+        # secant from each; keep distinct roots inside the right half of the box (replaces a 1400-point grid)
+        tm = (t1 + t2)/2
+        for dsig in ('0.05', '0.12', '0.2', '0.3', '0.4', '0.55', '0.7', '0.85'):
+            for dt in ('-0.3', '0', '0.3'):
+                z = mp.mpc(mp.mpf(1)/2 + mp.mpf(dsig), tm + mp.mpf(dt))
+                if not (t1 < z.imag < t2):
+                    continue
                 r, it, ok = st.secant_complex(E, z, z + mp.mpc('0.01', '0.01'))
-                if ok and r.real > mp.mpf(1)/2 + mp.mpf('1e-15') and t1 < r.imag < t2 and all(abs(r - q) > 1e-12 for q in offs):
+                if ok and r.real > mp.mpf(1)/2 + mp.mpf('1e-15') and r.real < mp.mpf(1)/2 + w and t1 < r.imag < t2 \
+                        and all(abs(r - q) > 1e-12 for q in offs):
                     offs.append(r)
+            if len(offs) >= n_off // 2:
+                break
         for r in offs:
             rad = min(mp.mpf('0.02'), (r.real - mp.mpf(1)/2)/4)
             pts = [r + rad*mp.expjpi(2*mp.mpf(k)/64) for k in range(65)]
