@@ -83,54 +83,67 @@ def loggamma_stirling(z):
     return s + disc(R.b)
 
 
+def clog(z):
+    """complex-interval logarithm (principal branch; the box must not meet the negative real axis or 0)."""
+    return iv.log(z)
+
+
 def gamma_iv(a, m=25):
-    lg = loggamma_stirling(a + m)
-    num = cexp(lg)
-    den = iv.mpc(1, 0)
+    """Gamma(a) = exp(logGamma(a+m) - sum_{j<m} log(a+j)): log form, no complex products (no wrapping)."""
+    L = loggamma_stirling(a + m)
     for j in range(m):
-        den = den*(a + j)
-    return num/den
+        L = L - clog(a + j)
+    return cexp(L)
 
 
 def zeta_iv(s, N=40, K=24):
-    """Euler-Maclaurin; valid for sigma + 2K + 1 > 0, s != 1."""
+    """Euler-Maclaurin in log form; valid for sigma + 2K + 1 > 0, s != 1.  T_k = B_2k/(2k)! prod_{j=0}^{2k-2}(s+j) N^{1-s-2k};
+    remainder <= |s+2K+1|/(sigma+2K+1) |T_{K+1}|  [Edwards sec. 6.4, recalled, standard]."""
     S = iv.mpc(0, 0)
     for n in range(1, N):
         S += cexp(-s*iv.log(iv.mpf(n)))
     lN = iv.log(iv.mpf(N))
-    NmS = cexp(-s*lN)
-    S += cexp((1 - s)*lN)/(s - 1) + NmS/2
-    poch = s                    # s(s+1)...(s+2k-2) for k = 1
-    Npow = NmS / iv.mpf(N)      # N^{-s-1} = N^{1-s-2k} for k = 1
+    S += cexp((1 - s)*lN)/(s - 1) + cexp(-s*lN)/2
+    Lp = clog(s)                 # log prod_{j=0}^{2k-2}(s+j), k = 1
     for k in range(1, K + 2):
-        Tk = BERN[k - 1] / FACT[2*k] * poch * Npow
+        B = BERN[k - 1]
+        sgn = 1 if B > 0 else -1
+        logT = Lp + (1 - s - 2*k)*lN + iv.log(abs(B)/FACT[2*k])
+        Tk = cexp(logT)*sgn
         if k == K + 1:
             sig = s.real.a
             fac = cabs_upper(s + 2*K + 1) / (sig + 2*K + 1)
-            S += disc((iv.mpf(fac) * iv.mpf(cabs_upper(Tk))).b)
+            S += disc(iv.mpf(fac) * iv.mpf(cabs_upper(Tk)))
             break
         S += Tk
-        poch = poch*(s + 2*k - 1)*(s + 2*k)
-        Npow = Npow / iv.mpf(N)**2
+        Lp = Lp + clog(s + 2*k - 1) + clog(s + 2*k)
     return S
 
 
 def h_iv(a, X, K):
-    """X^{-a} Gamma(a, X) = X^{-a} Gamma(a) - e^{-X} sum_k X^k/(a)_{k+1}."""
+    """X^{-a} Gamma(a, X) = X^{-a} Gamma(a) - e^{-X} sum_{k<K} X^k/(a)_{k+1} - tail.  Each term in log form:
+    X^k/(a)_{k+1} = exp(k log X - sum_{j<=k} log(a+j)); tail bounded with per-factor lower bounds
+    |a+j| >= max(Re a + j, |Im a|) (no wrapping)."""
+    lX = iv.log(X)
     s = iv.mpc(0, 0)
-    poch = a
-    xk = iv.mpf(1)
+    L = iv.mpc(0, 0)
     for k in range(K):
-        s += xk/poch
-        xk = xk*X
-        poch = poch*(a + k + 1)
-    lbp = cabs_lower(poch)           # |(a)_{K+1}|
-    lb_next = mp.mpf(a.real.a) + K + 1
-    q = X.b / lb_next
+        L = L + clog(a + k)
+        s += cexp(k*lX - L)
+    # tail: sum_{k>=K} X^k / |(a)_{k+1}|  <= X^K / prod_{j<=K} lb_j * 1/(1 - X/lb_{K+1})
+    ra = mp.mpf(a.real.a)
+    ia = min(abs(mp.mpf(a.imag.a)), abs(mp.mpf(a.imag.b))) if not (a.imag.a <= 0 <= a.imag.b) else mp.mpf(0)
+    logden = mp.mpf(0)
+    for j in range(K + 1):
+        lb = max(ra + j, ia)
+        assert lb > 0
+        logden += mp.log(lb)
+    lb_next = max(ra + K + 1, ia)
+    q = mp.mpf(X.b) / lb_next
     assert q < 1, (q, K)
-    tail = (xk.b / lbp) / (1 - q)
+    tail = mp.exp(K*mp.log(mp.mpf(X.b)) - logden) / (1 - q) * (1 + mp.mpf(10)**(-30))
     lower = iv.exp(-X) * (s + disc(tail))
-    return cexp(-a*iv.log(X)) * gamma_iv(a) - lower
+    return cexp(-a*lX) * gamma_iv(a) - lower
 
 
 def h_bound(a, X):
