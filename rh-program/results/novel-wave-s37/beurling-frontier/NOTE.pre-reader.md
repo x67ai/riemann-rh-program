@@ -1,6 +1,6 @@
 # NOTE — seed M1b `beurling-frontier`: integer regularity below the square-root barrier vs RH for Beurling systems
 
-Wave 2 (Session 37), 2026-09-30. Agent: Opus. Read at the line Session 38, 2026-10-01: read-F (Fable) AGREES, read-O (Opus) AGREES-WITH-CORRECTIONS — F1–F5, m1–m10 applied; `NOTE.pre-reader.md` kept. Status labels: **[proved here]** (proof in this note),
+Wave 2 (Session 37), 2026-09-30. Agent: Opus. Status labels: **[proved here]** (proof in this note),
 **[computed]** (script + log in `verify/`), **[quoted]** (source on disk under `sources/`, page/line given),
 **[recalled, unverified]** (never load-bearing), **[novelty: single-check]**.
 
@@ -12,7 +12,7 @@ An **[α, β]-system**: ψ_P(x) = x + O(x^{α+ε}) and N_P(x) = ρx + O(x^{β+ε
 
 Sources (all under `sources/`, text by `pdftotext -layout`, line numbers refer to those .txt files):
 - `z-02-…txt` = Broucke–Debruyne–Révész, *Some examples of well-behaved Beurling number systems*,
-  arXiv:2309.01567**v2** (26 Jun 2024) — the arXiv listing (`arxiv-search-wellbehaved.xml`) shows v2 is the latest version. Published as Trans. Amer. Math. Soc. 378 (2025), 477–501 (arXiv metadata); page/line numbers here refer to v2.
+  arXiv:2309.01567**v2** (26 Jun 2024) — the arXiv listing (`arxiv-search-wellbehaved.xml`) shows v2 is the latest version.
 - `w-18a-…txt` = Hilberdink, JNT 112 (2005) 332–344 (page images checked with the PDF reader for the garbled symbols).
 - `z-18-…txt` = Broucke–Vindas, arXiv:2102.08478v2 (discretization).  `t-19a-…txt` = Broucke–Hilberdink, Acta Arith. 212 (2024).
 
@@ -70,10 +70,6 @@ product), hence α(P) = Θ: **a periodic RH-false system exists iff RH is false*
 "Beurling", back to mid-2024; `arxiv-search-wellbehaved.xml`): no paper after BDR v2 (Jun 2024) treats [α, β]-systems with
 β < ½. Items in the window on Beurling primes: 2602.07690, 2507.13780, 2409.10051, 2406.00736 (none on this corner).
 
-**1.7 The question is in print (read-O m6).** DMV, Math. Ann. 334 (2006), p. 4 (`sources/p1-02` l. 203–207): "it may still be the case that (3) with
-θ < 1/2 does imply RH for discrete Beurling generalized numbers" — the M1b question. Prop 2.1 answers it negatively and unconditionally; BDR Thm 1.3
-answers it under RH.
-
 ## §2. The logical frame: what any threshold or obstruction theorem can and cannot say
 
 **Proposition 2.1 (the region is populated unconditionally, non-constructively)** [proved here]. There exists a Beurling
@@ -127,7 +123,7 @@ The factor ζ(s + 1 − α)^{−1} has a pole at s₀ = ρ − 1 + α for every 
 Re s₀ = Re ρ − (1 − α) > α/2, and N_P(x) − ρ_P x ≠ O(x^{σ}) for every σ < Re s₀; so β(P) ≥ Re ρ + α − 1 > α/2.
 *Proof.* If N_P(x) − ρ_P x = O(x^σ), then ζ_P(s) − ρ_P s/(s − 1) = s∫₁^∞(N_P(x) − ρ_P x)x^{−s−1}dx (exact for Re s > 1) is analytic in
 Re s > σ (Mellin transform of an O(x^σ) function), contradicting the pole at s₀ when σ < Re s₀. ∎
-So the pre-derivation's "h ... converges a.s. and is analytic for Re s > β₀/2" **cannot be asserted unconditionally** (it is true under RH; read-O F1): it holds iff ζ(s + 1 − β₀)
+So the pre-derivation's "h ... converges a.s. and is analytic for Re s > β₀/2" is **false unconditionally**: it holds iff ζ(s + 1 − β₀)
 has no zeros in Re s > β₀/2 that are not canceled, i.e. (up to the coincidence clause) iff ζ has no zero with Re ρ > 1 − β₀/2.
 The **fluctuating part X** of h is a.s. analytic in Re s > α/2 exactly as claimed (Lemma 4.1); the **mean part** is not.
 Consequently "β = β₀/2" is not an unconditional statement: it implies a quasi-Riemann hypothesis at level 1 − β₀/2. This is
@@ -167,11 +163,11 @@ Borel–Cantelli along y = 2^j (monotone in y) give S(y) ≪ y^{α/2−δ} a.s. 
 For fixed σ ≥ α/2 + δ and t, Re Y_k and Im Y_k are sums of independent centered terms bounded by M_k = 2^{−kσ} with variance
 ≤ V_k := Σ_{p∈B_k} p^{α−1−2σ} ≤ 2^{−2kδ}. Bernstein: P(|Re Y_k| ≥ 2√(V_k L) + 2M_k L) ≤ 2e^{−L}. (2) Nets: for T = 2^j take the
 grid of mesh 2^{−(j+k)} in (σ, t) ∈ [α/2 + δ, 2] × [−T, T] (≤ 2^{3(j+k)+3} points) and L = 4(j + k)log 2; since |∂Y_k| ≤
-Σ_{p∈B_k}(ε_p + w_p)p^{−α/2} log p ≤ (k+1)2^{k(1−α/2)+1}, off-grid values move by ≤ 2(k+1)2^{−j−kα/2} (summable in k). The failure
+Σ_{p∈B_k}(ε_p + w_p)p^{−α/2} log p ≤ (k+1)2^{k(1−α/2)}, off-grid values move by ≤ 2(k+1)2^{−j−kα/2} (summable in k). The failure
 probabilities sum to ≤ Σ_{j,k} 2^{3(j+k)+5}2^{−4(j+k)} < ∞: by Borel–Cantelli a.s. for all large j, all k and all grid-covered (σ, t),
 |Y_k| ≤ 4√(V_k L) + 4M_k L + 2(k+1)2^{−j−kα/2}. (3) Sum, with the cut y₀ = j^{2/α}: the primes ≤ y₀ contribute ≤ S(y₀) ≪ j^{1−2δ/α};
 the blocks above contribute ≪ Σ_k 2^{−kδ}√(j + k) + (j + log y₀)y₀^{−α/2} + 2^{−j} = O(√j) + O(1). Since j ≍ log T this is (b);
-the same bounds with j fixed give (a). (c): |Q_R(s)| ≤ C_αΣ_{p∈R} p^{−α−2δ}, C_α = (1 − 2^{−α/2})^{−1}, whose mean Σ_p p^{−1−2δ} is finite. ∎
+the same bounds with j fixed give (a). (c): |Q_R(s)| ≤ 2Σ_{p∈R} p^{−α−2δ}, whose mean Σ_p p^{−1−2δ} is finite. ∎
 
 **Proposition 4.2 (structure)** [proved here]. A.s., for Re s > α,
   ζ_P(s) = ζ(s)Π_{p∈R}(1 − p^{−s}) = ζ(s)·ζ(s + 1 − α)^{−1}·U(s),  U(s) := exp(Σ_{k≥2}P(k(s + 1 − α))/k − X(s) − Q_R(s)),
@@ -189,14 +185,13 @@ Th. 13.18, 13.23); ψ(x) = x + O(x^{½+ε}) (the RH form quoted at z-02 lines 26
 [recalled, unverified]: |χ(σ + it)| ≍ |t|^{½−σ} in ζ(s) = χ(s)ζ(1 − s) (Stirling); the truncated Perron formula
 Σ_{n≤x}a_n = (1/2πi)∫_{κ−iT}^{κ+iT}F(s)x^s ds/s + O(x^κ Σ_n |a_n| n^{−κ} min(1, 1/(T|log(x/n)|))); Bernstein's inequality; Phragmén–Lindelöf.
 (i) Primes. ψ_P = ψ − ψ_R and ψ_R(x) = Σ_{p≤x} ε_p log p + O(√x log x). The centered part Σ_{p≤x} η_p log p has variance ≍ x^α log x;
-Bernstein plus Borel–Cantelli on a grid of mesh X^{1−α/2} in each dyadic block [X, 2X] (≍ X^{α/2} points, tail e^{−X^ε} each; between grid
-points Σ_p w_p log p moves by ≪ X^{α/2}log X and Σ_p ε_p log p is monotone — read-O F3) give O(x^{α/2+ε}) a.s. The mean: Σ_{p≤x} p^{α−1}log p =
+Bernstein plus Borel–Cantelli along x = 2^j (monotone pieces between) give O(x^{α/2+ε}) a.s. The mean: Σ_{p≤x} p^{α−1}log p =
 ∫_{2−}^x u^{α−1}dθ(u) = x^α/α + O(x^{α−½+ε}) by partial summation from θ(u) = u + O(u^{½+ε}). As α/2, α − ½ < ½ < α, α(P) = α.
 (ii) Integers. a_n ∈ {0, 1} is supported on ℕ, so with κ = 1 + 1/log x and 2 ≤ T ≤ x the Perron error is O(x log x/T + 1).
 Let c′ = α/2 + δ. Under RH the rectangle [c′, κ] × [−T, T] contains no singularity of ζ_P(s)x^s/s except s = 1 (Prop. 4.2).
 On Re s = c′: |ζ(c′ + it)| = |χ||ζ(1 − c′ − it)| ≪ |t|^{½−c′+δ} (1 − c′ > ½), |ζ(s + 1 − α)^{−1}| ≪ |t|^δ (Re(s + 1 − α) =
 1 − α/2 + δ > ½), |U| ≪ |t|^δ (Lemma 4.1). So |ζ_P(c′ + it)| ≪ (|t| + 2)^{½−c′+3δ}; on the horizontal sides Phragmén–Lindelöf
-interpolates between this and |ζ_P(1 + δ + it)| ≪ |t|^δ (the U factor), so ∫|ζ_P(σ ± iT)|x^σdσ/T ≪ (x + x^{c′}T^{½−c′+3δ})/T. Hence
+interpolates between this and |ζ_P(1 + δ + it)| ≪ 1, so ∫|ζ_P(σ ± iT)|x^σdσ/T ≪ (x + x^{c′}T^{½−c′+3δ})/T. Hence
   N_P(x) = ρ_P x + O(x log x/T + x^{c′}T^{½−c′+3δ}).
 Take T = x^{(1−c′)/(3/2−c′)} (< x): the error is O(x^{1/(3−2c′)+O(δ)}) = O(x^{1/(3−α)+O(δ)}); δ is arbitrary. ∎
 
@@ -213,25 +208,24 @@ so α is unchanged. ∎
 value is unchanged: 1/(3 − α) → 2/5 as α ↓ ½, so Corollary 2.2's cap β* ≤ 2/5 is not improved by Theorem A.
 
 **Theorem B (random thinning cannot beat α/2 — unconditional)** [proved here]. For every α ∈ (0, 1), almost surely
-N_P(x) − ρ_P x ≠ O(x^τ) for every τ < α/2. In particular β(T_α) ≥ α/2 a.s., with no hypothesis on ζ. Here α is the thinning parameter; α(T_α) = α under RH and α(T_α) ≥ α always (3.3).
+N_P(x) − ρ_P x ≠ O(x^τ) for every τ < α/2. In particular β(T_α) ≥ α/2 a.s., with no hypothesis on ζ.
 *Proof.* (1) Formula. With μ_R(m) = Π_{p|m}(−ε_p) on squarefree m, N_P(x) = Σ_m μ_R(m)⌊x/m⌋ and ρ_P = Σ_m μ_R(m)/m (absolutely
 convergent a.s.), so E(x) := N_P(x) − ρ_P x = −Σ_m μ_R(m){x/m}, the sum over all squarefree m ({x/m} = x/m for m > x).
-Write ε_p = w_p + η_p: on squarefree m, μ_R(m) = Σ_{dk=m} μ_w(k)μ_η(d) (d, k coprime; NOT the Dirichlet convolution μ_w * μ_η, which has extra mass
-w_pη_p at p² — read-O F2), μ_w(k) = Π_{p|k}(−w_p), μ_η(d) = Π_{p|d}(−η_p), hence
-  E(x) = −Σ_d μ_η(d)·T_d(x/d),  T_d(y) := Σ_{(k,d)=1} μ_w(k){y/k}  (deterministic; T_d(y) = yΠ_{p∤d}(1 − w_p/p) for y < 1; T := T_1, ρ_w := Π_p(1 − w_p/p)),
+Write ε_p = w_p + η_p: μ_R = μ_w * μ_η with μ_w(k) = Π_{p|k}(−w_p), μ_η(d) = Π_{p|d}(−η_p), hence
+  E(x) = −Σ_d μ_η(d)·T(x/d),  T(y) := Σ_k μ_w(k){y/k}  (deterministic; T(y) = ρ_w y for y < 1, ρ_w := Π_p(1 − w_p/p)),
 where rearrangement is justified by Σ_{d,k}|μ_η(d)μ_w(k)|x/(dk) = xΠ_p(1 + |η_p|/p)(1 + w_p/p) < ∞ a.s.
 (2) 0–1 law. If q ∉ R and R′ = R ∪ {q}, the P′-integers are the P-integers not divisible by q, and those divisible by q are q·(P-integers);
 so N_{P′}(x) = N_P(x) − N_P(x/q), ρ′ = ρ(1 − 1/q), E′(x) = E(x) − E(x/q), and conversely E(x) = Σ_{j≥0}E′(x/q^j) (with |E′(y)| ≤ y
 for y < 1). Hence {E(x) = O(x^τ)} is invariant under changing finitely many ε_p; by Kolmogorov's 0–1 law it has probability 0 or 1.
 (3) One scale. Fix large x, B = ℙ ∩ (x/2, x], G = σ(ε_q : q ∉ B). Split d by its B-part: terms with no B-prime give Y (G-measurable);
-terms with exactly one B-prime p (d = pe) give η_p·c_p with c_p = κ_p·(x/p) − 1, where
-κ_p = Π_{q∈B, q≠p}(1 − w_q/q)·Π_{q∉B}(1 − ε_q/q) > 0 is G-measurable (x/(pek) < 1 unless ek = 1, and (1 − w_q/q)(1 − η_q/(q − w_q)) = 1 − ε_q/q); terms with ≥ 2 B-primes give
-Z = −xΠ_{q∉B}(1 − ε_q/q)Σ_{f⊂B,|f|≥2}(μ_η(f)/f)Π_{q∈B,q∤f}(1 − w_q/q), and (E Z²)^{1/2} ≪ x·Σ_{p∈B}v_p p^{−2} ≪ x^{α−1}. So E(x) = Y + S_B + Z with S_B = Σ_{p∈B}η_p c_p,
+terms with exactly one B-prime p (d = pe) give η_p·c_p with c_p = T(x/p) + ρ_w(x/p)(Π′ − 1) = κ·(x/p) − 1, where
+Π′ = Π_{q∉B}(1 − η_q/q), κ = ρ_wΠ′ > 0 (because for 1 ≤ y < 2, T(y) = ρ_w y − 1, and x/(pe) < 1 for e ≥ 2); terms with ≥ 2 B-primes give
+Z = −ρ_w xΠ′Σ_{f⊂B,|f|≥2}μ_η(f)/f, and E|Z| ≪ x·Σ_{p∈B}v_p p^{−2} ≪ x^{α−1}. So E(x) = Y + S_B + Z with S_B = Σ_{p∈B}η_p c_p,
 the η_p (p ∈ B) independent of G. Given G, S_B has variance σ_B² = Σ_{p∈B}v_p(κx/p − 1)². The y = x/p ∈ [1, 2) with |κy − 1| < θ
 form an interval of length ≤ 2θ/κ; by the prime number theorem in intervals of length ≍ x, at most a fraction 4θ/κ + o(1) of
 the primes of B have x/p there. With θ = min(κ, 1)/16 and v_p ≍ x^{α−1} on B: σ_B² ≥ c·min(κ, 1)²x^α/log x. Berry–Esseen
-(|η_p| ≤ 1, so E|η_p c_p|³ ≤ max|c|·v_p c_p²) gives P(|Y + S_B| ≤ λσ_B | G) ≤ λ + C(2κ + 1)/σ_B. As x → ∞, κ_p → κ_∞ :=
-ρ_P = Π_q(1 − ε_q/q) ∈ (0, ∞) a.s., uniformly in p ∈ B. Therefore for every η₀ > 0 there are λ₀ > 0 and x₀ with
+(|η_p| ≤ 1, so E|η_p c_p|³ ≤ max|c|·v_p c_p²) gives P(|Y + S_B| ≤ λσ_B | G) ≤ λ + C(2κ + 1)/σ_B. As x → ∞, κ = κ_x → κ_∞ :=
+ρ_wΠ_q(1 − η_q/q) ∈ (0, ∞) a.s. Therefore for every η₀ > 0 there are λ₀ > 0 and x₀ with
   P(|E(x)| ≤ λ₀x^{α/2}(log x)^{−1/2}) ≤ P(κ_x < η₀) + P(|Z| > x^{α/3}) + 2λ₀/(√c·η₀) + o(1) ≤ ½  for x ≥ x₀
 (choose η₀ with P(κ_∞ < 2η₀) ≤ ⅛, then λ₀; the Berry–Esseen term is O((1 + E κ)√(log x)/(η₀x^{α/2})) → 0).
 (4) If P(E = O(x^τ)) = 1 for some τ < α/2, then P(sup_x |E(x)|x^{−τ} ≤ C) ≥ ¾ for some C, while Cx^τ < λ₀x^{α/2}(log x)^{−1/2}
@@ -242,7 +236,7 @@ surgery, with no RH. The obstruction is *relative* (it is driven by the deleted 
 contradict Prop. 2.3.
 
 **4.4 The mean system and the gap between α/2 and 1/(3 − α).** E[N_P(x)] = Σ_{n≤x}f(n), f(n) = Π_{p|n}(1 − p^{α−1}), whose Dirichlet
-series is exactly ζ(s)/ζ(s + 1 − α) (f = 1 * g, g(d) = μ(d)d^{α−1}). From (1), E[E(x)] = −T(x) and Var E(x) = Σ_{d>1}V(d)T_d(x/d)²,
+series is exactly ζ(s)/ζ(s + 1 − α) (f = 1 * g, g(d) = μ(d)d^{α−1}). From (1), E[E(x)] = −T(x) and Var E(x) = Σ_{d>1}V(d)T(x/d)²,
 V(d) = Π_{p|d}v_p ≤ d^{α−1}. If T(y) ≪ y^{τ₀+ε} with τ₀ < α/2 then Var E(x) ≪ x^{α+ε}: the pointwise size of E(x) is x^{α/2+o(1)}.
 Under RH the explicit formula for 1/ζ(s + 1 − α) predicts T(y) ≈ y^{α−½} (poles at ρ − 1 + α) [heuristic], and α − ½ < α/2; but
 the contour argument of Theorem A applied to ζ(s)/ζ(s + 1 − α) only proves T(y) ≪ y^{1/(4−2α)+ε} (c′ = α − ½ + δ), and
@@ -297,7 +291,7 @@ positivity of the explicit-formula quadratic form — RH-equivalent. So the arch
 Let 0 < α < 1, c > 0, w_p = min(1, c·p^{α−1}), F(x) = Σ_{p≤x}w_p, and let R be any set of primes with π_R(x) − F(x) = O(x^θ),
 θ < α/k, where k = k_c := min{k ≥ 2 : c/k ∉ ℤ}. (The greedy set "delete p iff #R∩[2, p) < F(p)" has |π_R − F| ≤ 1 for all x — by
 induction, since each step changes F by w_p ≤ 1 — so θ = 0 works.) Then, unless α/k is one of the finitely many coincidence points
-listed below, ζ_{ℙ\R} is not analytic at the real point s = α/k, and hence **β(ℙ \ R) ≥ α/k_c**; if c ∉ ℤ, already s = α is a branch point ((s − α)^c from j = 1) and β ≥ α (read-O F4). For c = 1: β ≥ α/2. For c = 2: β ≥ α/3.
+listed below, ζ_{ℙ\R} is not analytic at the real point s = α/k, and hence **β(ℙ \ R) ≥ α/k_c**. For c = 1: β ≥ α/2. For c = 2: β ≥ α/3.
 For c = 6: β ≥ α/4.
 *Proof.* S₁(s) := Σ_{p∈R}p^{−s} = ∫u^{−s}dF(u) + s∫₁^∞(π_R − F)(u)u^{−s−1}du = c·P(s + 1 − α) + H(s), where H is analytic in Re s > θ
 (and the finitely many p with w_p = 1 contribute an entire correction). log(1/ζ_R(s)) = −Σ_{j≥1}S₁(js)/j. At s near the real point
@@ -305,8 +299,8 @@ For c = 6: β ≥ α/4.
 Σ_m μ(m)log ζ(mw)/m is analytic (ζ has no real zeros in (0, 1)) unless mw = 1 for some squarefree m ≥ 2 — the *coincidence points*
 jα/k = 1/m − 1 + α; for j = k, w = ks + 1 − α → 1 and c·P(w)/k = −(c/k)log(ks − α) + analytic. Hence
   ζ_{ℙ\R}(s) = ζ(s)·(ks − α)^{c/k}·B(s),  B analytic and zero-free near α/k (the other j contribute exp(analytic)),
-and ζ(α/k) ≠ 0. For c/k ∉ ℤ this is a branch point. For c ∈ ℤ the same continuation is reached along the real segment from the half-plane Re s > α (where the
-product converges): the j = 1 term gives (s − α)^c, a zero of order c at s = α, and the points α/j, 2 ≤ j < k, are regular (there (js − α)^{c/j} with c/j ∈ ℤ). If N_P(x) − ρx = O(x^{σ₁}) with
+and ζ(α/k) ≠ 0. For c/k ∉ ℤ this is a branch point. The same continuation is reached along the real segment from s = α (where the
+product converges) because the points α/j, 2 ≤ j < k, are regular (there (js − α)^{c/j} with c/j ∈ ℤ). If N_P(x) − ρx = O(x^{σ₁}) with
 σ₁ < α/k, the Mellin transform s∫(N_P − ρx)x^{−s−1}dx = ζ_P(s) − ρs/(s − 1) would be analytic in Re s > σ₁, contradiction. ∎
 *Also* (same argument): (a) P(w) = Σ_m μ(m)log ζ(mw)/m contains −½log ζ(2w) = ½log(2w − 1) + analytic near w = ½, so
 −c·P(s + 1 − α) contributes (2s + 1 − 2α)^{−c/2}: a pole or branch point at the **real** point s = α − ½ for every c > 0, with
@@ -325,8 +319,7 @@ tested numerically in §6.3.
 
 **6.1 Design** [computed: `verify/thin.c`, `verify/thin_aux.c`, driver `verify/run_all.sh`, log `verify/logs/run_all.log`,
 data `verify/data/*.csv`, fits `verify/fit.py` → `verify/logs/fit.log`, `verify/data/fit_summary.json`].
-- **Systems.** (No generalized primes are added in any run: T_α and the greedy sets are pure deletions; the pre-derivation's add/delete surgery is
-  not simulated — by 3.2 it cannot be realized as stated; read-O m5.) (i) T_α (Bernoulli thinning, w_p = p^{α−1}) for α = 0.60, 0.75, 0.90; seeds 1–8; the decision for prime p is a
+- **Systems.** (i) T_α (Bernoulli thinning, w_p = p^{α−1}) for α = 0.60, 0.75, 0.90; seeds 1–8; the decision for prime p is a
   64-bit hash of (p, seed, α), so a run is reproducible from its command line. (ii) *Greedy* (structured) deletion: delete p iff
   #R∩[2, p) < F(p) := Σ_{q≤p}q^{α−1} — the deterministic set with |π_R(x) − F(x)| < 1, the most regular deletion with the same
   weights (task 4's "structured surgery"). (iii) Controls with the same code: *none* (ℙ itself; β = 0 expected); *Cramér* (2 prime,
@@ -361,7 +354,7 @@ data `verify/data/*.csv`, fits `verify/fit.py` → `verify/logs/fit.log`, `verif
 expected number of squarefree R-numbers — the variance mechanism of §5.1 has the right size for random deletions
 (`verify/analyze_extra.py`, log `verify/logs/analyze_extra.log`).
 **Reading.** The random-thinning exponent sits at α/2, as the pre-derivation predicted and as Theorem B forces from below; the
-rigorous upper bound 1/(3 − α) of Theorem A lies 14σ (α = 0.6) and 7σ (α = 0.75) above the data in seed standard errors (≈ 3σ and 2σ with a ±0.04 systematic), 1/(4 − 2α) lies 7σ and 3.6σ above,
+rigorous upper bound 1/(3 − α) of Theorem A lies 14σ (α = 0.6) and 7σ (α = 0.75) above the data, 1/(4 − 2α) lies 7σ and 3.6σ above,
 and BDR's 2α/(α + 2) is further still.
 At α = 0.9 the candidates α/2 and 1/(4 − 2α) differ by 0.005 and cannot be separated.
 
@@ -405,11 +398,8 @@ not an exponent: **these three runs are uninformative and excluded** (listed in 
 
 **6.4 Extension to X = 10¹⁰ (random thinning, seeds 1–4)** [computed; `verify/logs/fit_big.log`, `verify/logs/run_big.log`]:
 T_0.60: 0.299 ± 0.010 ([10⁶, 10¹⁰]: 0.309 ± 0.016); T_0.75: 0.357 ± 0.011 (0.389 ± 0.013); T_0.90: 0.456 ± 0.015 (0.452 ± 0.026).
-Against α/2 = 0.300 / 0.375 / 0.450: agreement within 1.6σ in the windows [10^k, 10¹⁰], k = 4, 5, 6; the top window [10⁷, 10¹⁰] (also in
-`fit_big.log`; omitted in the first draft — read-O F5) gives 0.312 ± 0.015 / 0.450 ± 0.009 / 0.476 ± 0.026 — at α = 0.75 8σ above α/2 and within 1σ of
-1/(3 − α) = 0.444. So 1/(3 − α) = 0.417 / 0.444 / 0.476 is excluded at α = 0.6 in every window, and at α = 0.75 only in windows starting at ≤ 10⁶
-(4.2σ in [10⁶, 10¹⁰]). The ± are seed standard errors; local two-decade slopes swing by ±0.1–0.15 (read-O §2), so the realistic systematic on
-these slopes is ±0.03–0.05. Peak memory 2.5 GB; every run is reproducible from `verify/run_all.sh`, `run_big.sh`, `run_c2.sh`.
+Against α/2 = 0.300 / 0.375 / 0.450: agreement within 1.6σ in every window; 1/(3 − α) = 0.417 / 0.444 / 0.476 is excluded at
+α = 0.6, 0.75 by > 4σ in every window (6.8σ and 4.2σ in the least favorable one, [10⁶, 10¹⁰]). Peak memory 2.5 GB; every run is reproducible from `verify/run_all.sh`, `run_big.sh`, `run_c2.sh`.
 (5) *Size of the Theorem-C branch term* [computed: `verify/branch_constant.py`, log `verify/logs/branch_constant.log`; K₀ from the
 continuation formula with H(σ) = σ∫D(u)u^{−σ−1}du evaluated on the greedy set to 2·10⁸, P₀ = Σ_{m≥2}μ(m)log ζ(m)/m = −0.315718
 (= Mertens' constant − γ, a check)]: B(x) = −0.206·x^{0.30}(ln x)^{−3/2}, −0.496·x^{0.375}(ln x)^{−3/2}, −1.270·x^{0.45}(ln x)^{−3/2} for
@@ -427,17 +417,13 @@ the deleted primes are actual primes, so ζ's zeros enter the deleted system's z
 only under RH. Any valid threshold β* is ≤ 2/5 and implies RH (Cor. 2.2); any obstruction β ≥ f(α) > 0 over all systems implies
 "no Θ in (½, a)" (Prop. 2.3).
 (2) *Pre-derivation.* Density of log G: correct. Zero at ρ₀ (α ≥ β₀ > ½): correct, unconditionally. "h analytic for Re s > β₀/2":
-**not provable unconditionally** — true for the fluctuation; for the mean, which carries ζ's zeros shifted by β₀ − 1, it is equivalent to a quasi-RH
-(true under RH); the claimed bound
+**false unconditionally** — true for the fluctuation, false for the mean, which carries ζ's zeros shifted by β₀ − 1; the claimed bound
 β ≈ β₀/2 implies a quasi-RH at level 1 − β₀/2 (Prop. 3.2). **Unconditional clause: K.** Under RH: the truncated-Perron route (growth of
 ζ on Re s = β₀/2 + ε, a.s. o(log t) growth of the random series) works and gives β ≤ 1/(3 − β₀) (Theorem A), which already enlarges
 BDR's region (Cor. A′); the matching bound β ≤ β₀/2 needs two named steps, G1 (mean-system error) and G2 (chaos moments).
 Theorem B: β ≥ β₀/2 for random surgery, unconditionally ("nothing below ¼ by this method" is a theorem).
 (3) *Simulation.* Exact counts to 10⁹ (8 seeds) and 10¹⁰ (4 seeds): exponents 0.299 ± 0.010, 0.357 ± 0.011, 0.456 ± 0.015 at β₀ = 0.6, 0.75,
-0.9 — consistent with β₀/2 at all three on full windows (independent re-runs: Opus, numpy to 10⁸, 8 seeds: 0.308 ± 0.008, 0.378 ± 0.012,
-0.465 ± 0.016, read-O §2; the orchestrator, numpy to 10⁷: 0.321 ± 0.030, 0.337 ± 0.013, 0.406 ± 0.025, read-F §2); at β₀ = 0.75 the top window
-[10⁷, 10¹⁰] (0.450 ± 0.009) sits on Theorem A's bound, so α/2 vs 1/(3 − α) is not settled there by sup-slopes; controls give 0.000 (ℙ) and
-0.497 ± 0.006 (Cramér). The stop condition "simulation
+0.9 — the prediction β₀/2 holds at all three; controls give 0.000 (ℙ) and 0.497 ± 0.006 (Cramér). The stop condition "simulation
 contradicts the prediction at all three β₀" is not met.
 (4) *Frontier.* Structured surgery does not beat β₀/2 in the exponent: the greedy c = 1 set has β ≥ α/2 (Theorem C) and data
 E ≈ x^{α/2}/log x; canceling the α/2 branch point (c = 2) leaves the exponent at α/2 (0.278 → 0.299 at α = 0.6). Relative obstruction
@@ -451,16 +437,12 @@ threshold theorem can be formal; the separating input is Weil-type positivity, i
 β(T_α) = max(α/2, Θ + α − 1).
 *Conjecture O (relative square-root law).* Every surgery (ℙ \ R) ∪ A has β ≥ α_R/2. Under RH it follows that within surgery on the
 rational primes β ≤ ¼ forces RH for the system, and with Conjecture R the constant ¼ is sharp.
-*Conjecture U (square-root law, the theorem-shaped extrapolation)* [novelty: single-check]. **Every DISCRETE Beurling [α, β]-system satisfies
+*Conjecture U (square-root law, the theorem-shaped extrapolation)* [novelty: single-check]. **Every Beurling [α, β]-system satisfies
 α ≤ max{½, 2β}.** Status: (a) it implies RH — (P, N) is a [Θ, 0]-system; (b) it is exactly the surgery evidence (Theorems B, C;
 §6.3) extended to all systems; (c) every known construction obeys it (BDR Thm 1.1 has β ≥ ½; BDR Thm 1.3 has 2α/(α+2) ≥ α/2;
-Cor. A′ has 1/(3−α) ≥ α/2), and in the limit α → 1 it predicts β₀ = ½ for the DMV–Zhang [1, β₀]-system (β₀ ≤ ½ is Diamond–Zhang Thm 17.14(i); the
-Theorem-B mechanism gives β₀ ≥ ½ a.s. for their random construction, read-O §4 A3), the value BDR call
+Cor. A′ has 1/(3−α) ≥ α/2), and in the limit α → 1 it predicts β₀ = ½ for the DMV–Zhang [1, β₀]-system, the value BDR call
 "most likely" (z-02 p. 3, footnote 4, line 165); (d) it **contradicts** BDR's populating conjecture (z-02 p. 2, lines 84–85: "for all α, β with
-max{α, β} ≥ 1/2, there must exist a corresponding [α, β]-system") in the corner {β < ½, α > 2β}; (e) it FAILS for continuous systems (DMV p. 4: Malliavin, Diamond; the G-template of the brief is a continuous
-[β₀, 0]-system), so any proof must use discreteness, as Hilberdink's does (read-O m7); (f) "every known construction" means every construction on
-the RECORD — no non-surgery discrete [α, β]-system with α > ½ and β < ½ is known at all, conditionally or not, so the corner {β < α/2} is untested
-rather than empty (read-F P2). Conjecture U is the answer
+max{α, β} ≥ 1/2, there must exist a corresponding [α, β]-system") in the corner {β < ½, α > 2β}. Conjecture U is the answer
 to the brief's framing: a Beurling-type theorem containing RH would not be a fixed threshold β* but the line α = 2β, with RH its
 β = 0 endpoint; the random surgery sits on the line, structured surgery sits on it up to a log, and nothing known lies beyond it.
 The corner {β < α/2} is exactly where a counterexample to U — or a non-surgery construction confirming BDR's conjecture — must live.
