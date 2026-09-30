@@ -55,8 +55,8 @@ def fit_run(d):
     return res
 
 def candidates(alpha):
-    return {"alpha/2": alpha / 2, "1/(4-2a)": 1 / (4 - 2 * alpha), "1/(3-a)": 1 / (3 - alpha),
-            "2a/(a+2) [BDR]": 2 * alpha / (alpha + 2), "a-1/2": alpha - 0.5}
+    return {"alpha/2": alpha / 2, "alpha/3": alpha / 3, "alpha/4": alpha / 4, "1/(4-2a)": 1 / (4 - 2 * alpha),
+            "1/(3-a)": 1 / (3 - alpha), "2a/(a+2) [BDR]": 2 * alpha / (alpha + 2), "a-1/2": alpha - 0.5}
 
 def main():
     summary = {}
@@ -73,7 +73,7 @@ def main():
                     agg[key][q] = (float(v.mean()), float(v.std(ddof=1) / math.sqrt(len(v))) if len(v) > 1 else float("nan"), len(v))
         alpha = None
         if "_a" in name:
-            alpha = float(name.split("_a")[1])
+            alpha = float(name.split("_a")[1].split("_")[0])
         xmax = max(d["hi"].max() for d in runs.values())
         topM = [float(d["M"][-1]) for d in runs.values()]
         summary[name] = dict(alpha=alpha, nruns=len(runs), xmax=xmax, windows=agg,

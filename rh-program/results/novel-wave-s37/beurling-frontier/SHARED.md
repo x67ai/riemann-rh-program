@@ -57,3 +57,16 @@ Dated blocks, appended after each batch. Newest at the bottom.
   cannot move zeros off Re s = 0; rung-1 control).
 - Queued `verify/run_big.sh` (starts after run_all.sh ends): X = 1e10, Y = 2e10, T_α seeds 1–4 + greedy → `verify/data_big/`,
   log `verify/logs/run_big.log`. Resume: rerun `verify/run_big.sh` (idempotent), then `python3 verify/fit.py verify/data_big`.
+
+## 2026-10-01 — block 5: X = 1e9 results in; structured deletion behaves differently (RUNNING NOW / resume here)
+
+- Fits (`verify/logs/fit.log`): T_α sup-slopes 0.303±0.008 / 0.353±0.013 / 0.457±0.012 (α = .6/.75/.9) ≈ α/2; 1/(3−α) and BDR's
+  2α/(α+2) excluded at α = .6, .75. Controls: none 0.000 (β = 0 ✓); Cramér 0.48–0.51 (β = ½ ✓). Mean system (deterministic,
+  gap G1): slopes 0.11–0.13 / 0.25–0.30 / 0.39–0.45 ≈ α − ½ (heuristic y^{α−½} ✓, far below 1/(4−2α)).
+- **Greedy (structured) deletion, c = 1:** sup-slopes 0.234 / 0.309 / 0.395 — BELOW α/2; RMS only 0.17–0.31 × √(ρQ/12) (the diagonal
+  variance heuristic that fits the random runs within ×1–4). Log-corrected (x^{α/2}(log x)^{−3/2}) slopes 0.328 / 0.403 / 0.489.
+- **Theorem C (NOTE §5.5, proved):** a regular deletion with density c·p^{α−1} has ζ_P = ζ(s)(ks − α)^{c/k}B(s) near s = α/k — a branch
+  point at α/k_c, k_c = min{k ≥ 2: c/k ∉ ℤ} — and a real singularity (2s + 1 − 2α)^{−c/2} at α − ½; so β ≥ max(α/k_c, α − ½),
+  unconditionally. c = 1 ⇒ β ≥ α/2 (so the low greedy slopes are the (log x)^{−3/2} approach); c = 2 ⇒ only β ≥ max(α/3, α − ½).
+- Queued `verify/run_c2.sh` (after run_big): greedy c = 2 at α = .6/.75/.9 and c = 6 at α = .6/.75 (X = 1e9), plus c = 2, 6 at
+  α = .6, X = 1e10 → decides whether structured surgery beats α/2. Log `verify/logs/run_c2.log`.

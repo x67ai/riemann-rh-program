@@ -305,3 +305,57 @@ data `verify/data/*.csv`, fits `verify/fit.py` → `verify/logs/fit.log`, `verif
 - **Statistics.** Log-bins of 20 per decade; per bin the exact sup of |N_P(x) − ρx| over real x and the RMS at half-integers.
   Exponents = least-squares slopes of log(running sup) and log(RMS) against log x over windows [10^k, 10⁹], k = 4, 5, 6, 7;
   error bars = standard error over seeds (8 for T_α); the spread between windows is reported as a systematic.
+
+**5.5 Theorem C (the prime-power branch points of a structured deletion — unconditional)** [proved here; novelty: single-check].
+Let 0 < α < 1, c > 0, w_p = min(1, c·p^{α−1}), F(x) = Σ_{p≤x}w_p, and let R be any set of primes with π_R(x) − F(x) = O(x^θ),
+θ < α/k, where k = k_c := min{k ≥ 2 : c/k ∉ ℤ}. (The greedy set "delete p iff #R∩[2, p) < F(p)" has |π_R − F| ≤ 1 for all x — by
+induction, since each step changes F by w_p ≤ 1 — so θ = 0 works.) Then, unless α/k is one of the finitely many coincidence points
+listed below, ζ_{ℙ\R} is not analytic at the real point s = α/k, and hence **β(ℙ \ R) ≥ α/k_c**. For c = 1: β ≥ α/2. For c = 2: β ≥ α/3.
+For c = 6: β ≥ α/4.
+*Proof.* S₁(s) := Σ_{p∈R}p^{−s} = ∫u^{−s}dF(u) + s∫₁^∞(π_R − F)(u)u^{−s−1}du = c·P(s + 1 − α) + H(s), where H is analytic in Re s > θ
+(and the finitely many p with w_p = 1 contribute an entire correction). log(1/ζ_R(s)) = −Σ_{j≥1}S₁(js)/j. At s near the real point
+α/k: for j > k, Re(js + 1 − α) > 1 and S₁(js) is analytic; for j < k, js + 1 − α is real in (1 − α, 1) near s = α/k, where P(w) =
+Σ_m μ(m)log ζ(mw)/m is analytic (ζ has no real zeros in (0, 1)) unless mw = 1 for some squarefree m ≥ 2 — the *coincidence points*
+jα/k = 1/m − 1 + α; for j = k, w = ks + 1 − α → 1 and c·P(w)/k = −(c/k)log(ks − α) + analytic. Hence
+  ζ_{ℙ\R}(s) = ζ(s)·(ks − α)^{c/k}·B(s),  B analytic and zero-free near α/k (the other j contribute exp(analytic)),
+and ζ(α/k) ≠ 0. For c/k ∉ ℤ this is a branch point. The same continuation is reached along the real segment from s = α (where the
+product converges) because the points α/j, 2 ≤ j < k, are regular (there (js − α)^{c/j} with c/j ∈ ℤ). If N_P(x) − ρx = O(x^{σ₁}) with
+σ₁ < α/k, the Mellin transform s∫(N_P − ρx)x^{−s−1}dx = ζ_P(s) − ρs/(s − 1) would be analytic in Re s > σ₁, contradiction. ∎
+*Also* (same argument): (a) P(w) = Σ_m μ(m)log ζ(mw)/m contains −½log ζ(2w) = ½log(2w − 1) + analytic near w = ½, so
+−c·P(s + 1 − α) contributes (2s + 1 − 2α)^{−c/2}: a pole or branch point at the **real** point s = α − ½ for every c > 0, with
+ζ(α − ½) ≠ 0. Hence, unconditionally, **β ≥ max(α/k_c, α − ½)** for structured deletions (when θ < α − ½; for c = 2 the point α − ½
+is a simple pole, i.e. a secondary main term C·x^{α−½} in N_P). (b) Poles of ζ(s + 1 − α)^{−c} at ρ − 1 + α give β ≥ Θ + α − 1
+generically (= α − ½ under RH: the same value as (a)).
+*Remarks.* (i) The prime squares of the deleted set are what produce the α/2 point: S₂(s) = S₁(2s) is a Dirichlet series with
+non-negative coefficients and abscissa α_R/2, singular there by Landau's theorem (quoted in BDR, z-02 lines 1077–1080). This is a
+"relative Hilberdink wall": Hilberdink's ½ is also a square-root phenomenon (the diagonal Σ(1 − ρΛ(n))²n^{−2σ} of his proof, §1.1).
+(ii) For random deletions the branch point is present too, but the Bernoulli fluctuation X(s) (natural scale Re s = α/2) dominates;
+Theorem B holds for every c. (iii) Theorem C gives lower bounds only: the continuation of exp(−H) has no growth control, so no
+Perron upper bound is available for structured deletions. Whether structured deletions *attain* max(α/k_c, α − ½) is the question
+tested numerically in §6.3.
+
+**6.2 Results at X = 10⁹: random thinning and controls** [computed; `verify/logs/fit.log`]. Slopes of log sup_{y≤x}|E(y)| over
+[10⁴, 10⁹] (mean ± s.e. over seeds; in brackets the range over the four windows [10^k, 10⁹], k = 4..7):
+
+| system | seeds | sup-slope | window range | α/2 | 1/(4−2α) | 1/(3−α) (Thm A) | 2α/(α+2) (BDR) |
+|---|---|---|---|---|---|---|---|
+| T_0.60 | 8 | 0.303 ± 0.008 | [0.303, 0.317] | 0.300 | 0.357 | 0.417 | 0.462 |
+| T_0.75 | 8 | 0.353 ± 0.013 | [0.353, 0.373] | 0.375 | 0.400 | 0.444 | 0.545 |
+| T_0.90 | 8 | 0.457 ± 0.012 | [0.455, 0.524] | 0.450 | 0.455 | 0.476 | 0.621 |
+| none (ℙ itself) | 1 | 0.000 | [0.000, 0.000] | — | — | — | — |
+| Cramér (full random) | 4 | 0.497 ± 0.006 | [0.428, 0.628] | — | — | — | — |
+
+(Cramér: per-seed [10⁴, 2·10⁸] slopes 0.496, 0.504, 0.510, 0.480 — the β = ½ control.) RMS-slopes agree within errors
+(0.303 ± 0.013, 0.337 ± 0.021, 0.466 ± 0.026). The measured RMS at the top decade is 0.75–4.4 × √(ρ_P·Q(x)/12), Q(x) = (6/π²)x^α/α the
+expected number of squarefree R-numbers — the variance mechanism of §5.1 has the right size for random deletions
+(`verify/analyze_extra.py`, log `verify/logs/analyze_extra.log`).
+**Reading.** The random-thinning exponent sits at α/2, as the pre-derivation predicted and as Theorem B forces from below; the
+rigorous upper bound 1/(3 − α) of Theorem A lies 14σ (α = 0.6) and 7σ (α = 0.75) above the data, 1/(4 − 2α) lies 7σ and 3.6σ above,
+and BDR's 2α/(α + 2) is further still.
+At α = 0.9 the candidates α/2 and 1/(4 − 2α) differ by 0.005 and cannot be separated.
+
+**6.2′ The mean system (gap G1)** [computed, X = 2·10⁸]: sup-slopes of Σ_{n≤y}Π_{p|n}(1 − p^{α−1}) − y/ζ(2−α): 0.117 (window range
+0.113–0.127) for α = 0.6; 0.247 (0.247–0.298) for α = 0.75; 0.390 (0.390–0.451) for α = 0.9. Predicted by the explicit-formula heuristic:
+α − ½ = 0.10, 0.25, 0.40; the contour bound 1/(4 − 2α) = 0.357, 0.400, 0.455 is far above at α = 0.6, 0.75. So G1 (T(y) ≪ y^{α/2+ε}) is
+strongly supported at α = 0.6 (0.12 vs α/2 = 0.30); at α = 0.75, 0.9 the top window [10⁷, 2·10⁸] drifts up (0.298, 0.451), still
+≤ α/2 within the noise of a 1.3-decade window. Its proof is the open analytic step (§4.4).
