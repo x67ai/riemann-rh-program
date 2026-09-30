@@ -73,7 +73,17 @@ Real zeros of ξ₁: t = 14.16594968814390…, 19.56393886304655… (only these 
 4. **Interlacing of consecutive members**: by Theorem D, ξ_{N+1} = ξ_N − ½(¼+t²)g_{N+1} with g_{N+1} > 0: every real zero of ξ_N moves toward the interior of its negative lobe and new pairs appear only when a lobe's depth exceeds P_{N+1}: consecutive members are "nested" (their negative sets increase with N), not interlacing.
 5. **Taylor–Lagarias chain C3b** F_h = Ξ(s+h) + Ξ(s−h): Hermite–Biehler at level h ⟺ every zero has Re ρ ≤ ½ + h (pairing computation: for a zero pair β, 1 − β at the same height, the product of the four distance ratios exceeds 1 on Re s > ½ iff d² + h² + (σ − β)(σ − 1 + β) > 0, which holds for all σ > ½ iff h ≥ β − ½) — the HB invariant of this chain IS the zero-free region. Real-rootedness vs HB on DH: [pending: taylor_chain.py].
 
-## §5 Controls [pending]
+## §5 Controls (zoo I.1, V.4)
+
+Chains built exactly as C1 from each control's theta series (`stair.py` class `Chain`; full splits verified to ≤ 1.4e−49 against the independently computed functions).
+
+**RH-false control 1 — F_{2.9,2}(s) = ζ(s)(1 + 2.9·2^{−s} + 2^{1−2s})** (multiplicative with the non-unitary local factor (1 + 2.9X + 2X²)/(1 − X) at 2; POSITIVE coefficients 1 + 2.9[2|k] + 2[4|k]; functional equation for q^sΛ(s)(...) = Λ(s)(2^s + 2.9 + 2^{1−s}); off-line zeros at Re s = 0.8238766801660445817, t = 4.5323601418271938096(2j+1)). Theta split: G = −(1+a+q)(1/s + 1/(1−s)) + Σ_k c_k[X^{−s/2}Γ(s/2, X) + X^{−(1−s)/2}Γ((1−s)/2, X)], X = πk²/q². **Every hypothesis of the chain holds**, including the positivity generator: for N ≥ 1 the tail kernels have X = πk²/4 ≥ π > 1.457, so Theorem D holds verbatim (F-members decrease to Ξ_F on the line; lobe law). [census N = 1–3: pending]
+
+**RH-false control 2 — Davenport–Heilbronn** (odd type, conductor 5, no Euler product, signed coefficients). Theorem D fails (the tail constant K_N = lim t²E_N(½+it) = −0.519, +0.130, +0.0128, −1.58e−7 for N = 1–4 changes sign with a_{N+1}); the member's window reaches ≈ 4k*²/5 (k* the next index with a ≠ 0). Complete censuses, box 0 < Im s ≤ 200: N = 1: 143 zeros, 1 real, 71 off-line pairs, lowest 1.564564528419441433388 + 9.909150604943000932711 i; N = 2: 142/2/70, 1.290096753831063523746 + 12.80306894186878263562 i; N = 3: 142/4/69, 1.472571126725683309491 + 17.69860794859359911279 i; N = 4: 141/13/64, 2.031254077670251387832 + 36.03533344512135125377 i; ordering invariant 0 violations; every off-line zero outside the strip (min Re s − ½ = 0.79). [N = 6, 8, 9, 11, 12, 14: pending — the window first covers DH's off-line zero 0.808517182456637 + 85.699348485377592 i at N = 9 (k* = 11, window ≈ 96.8).]
+
+**RH-true controls.** ζ itself (§3, §4) and L(s, χ₄) [N = 11: pending].
+
+**Which invariant breaks first, and which hypothesis separates ζ from the controls.** [to be completed with the pending runs] Structural expectation, from Proposition F and visibility: in each RH-false chain the windowed real-rootedness breaks exactly when the window first covers the limit's off-line zero, the ordering invariant at the same N or as soon as a real zero exists above it; nothing breaks earlier. The chain's hypotheses are (H1) the theta relation — held by both controls — and (H2) nonnegative coefficients, which powers Theorem D — violated by DH but HELD by F_{2.9,2}. F_{2.9,2} is therefore a computed RH-false world satisfying every input of the mechanism: no hypothesis of the staircase separates ζ from it, and the Euler product enters nowhere (F even has one). This is the (K) of §0 in the zoo's sense (I.1: the mechanism is RH-false-world-blind at the axiom level).
 
 ## §6 Rigorous (interval arithmetic, `verify/rigor_xi1.py`, mpmath.iv with outward rounding)
 
