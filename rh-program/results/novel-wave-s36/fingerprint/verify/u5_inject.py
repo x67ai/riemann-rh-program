@@ -64,7 +64,7 @@ for Ts, ds in pairs:
     al, nfail = sfrac_until_fail(c2)
     prof = {}
     if ref is not None:
-        thresholds = [1e-60, 1e-40, 1e-20, 1e-10, 1e-5, 1e-3, 1e-1]
+        thresholds = [1e-50, 1e-30, 1e-20, 1e-10, 1e-5, 1e-3, 1e-1]
         for th in thresholds:
             k = next((n for n in range(1, len(al) + 1)
                       if abs(mp.mpf(al[n - 1].str(66, radius=False)) / ref[n - 1] - 1) > th), None)

@@ -1,0 +1,54 @@
+== (A1) decomposition f_DH = c L(chi) + conj(c) L(conj chi): check at s = 2 + 3i ==
+D_S(2+3i), S = primes < 2e5 : (1.04056725193518 - 0.0964919511916711j)
+dh.f_dh(2+3i)               : (1.04056725199801 - 0.0964919512022981j)   |diff| = 6.37e-11
+kappa = 0.28407904384041229603  c = (1 - i kappa)/2 = (0.5 - 0.142039521920206j)
+
+== (A2) stability of the lifted numerator N_S on the polydisc (primes = +-2 mod 5 only) ==
+zero condition: prod_{p in S2} M_p(z_p) = -conj(c)/c = exp(i*-2.588018)
+S2=[2]: angular reach sum 2 arctan(p^-1/2) = 1.2310 vs needed |arg| = 2.5880 -> minimal polyradius of a zero ~ None  (stable up to r=1.2 scan)
+S2=[3]: angular reach sum 2 arctan(p^-1/2) = 1.0472 vs needed |arg| = 2.5880 -> minimal polyradius of a zero ~ None  (stable up to r=1.2 scan)
+S2=[2, 3]: angular reach sum 2 arctan(p^-1/2) = 2.2782 vs needed |arg| = 2.5880 -> minimal polyradius of a zero ~ 1.19  (stable)
+S2=[2, 7]: angular reach sum 2 arctan(p^-1/2) = 1.9537 vs needed |arg| = 2.5880 -> minimal polyradius of a zero ~ None  (stable up to r=1.2 scan)
+S2=[3, 7]: angular reach sum 2 arctan(p^-1/2) = 1.7699 vs needed |arg| = 2.5880 -> minimal polyradius of a zero ~ None  (stable up to r=1.2 scan)
+S2=[2, 3, 7]: angular reach sum 2 arctan(p^-1/2) = 3.0009 vs needed |arg| = 2.5880 -> minimal polyradius of a zero ~ 0.84  (UNSTABLE (zero inside the unit polydisc))
+S2=[7, 13]: angular reach sum 2 arctan(p^-1/2) = 1.2638 vs needed |arg| = 2.5880 -> minimal polyradius of a zero ~ None  (stable up to r=1.2 scan)
+S2=[2, 13]: angular reach sum 2 arctan(p^-1/2) = 1.7721 vs needed |arg| = 2.5880 -> minimal polyradius of a zero ~ None  (stable up to r=1.2 scan)
+
+== (A3) zeros of the S-truncated DH series D_S(s) near DH's off-line zero ==
+DH off-line zero (dh.find_zero): (0.808517182456637386 + 85.6993484853775922j)  |f_DH| = 5.3e-16
+X=     7: zero of D_S at 0.633366 + 85.779649 i   |D_S|=1.6e-30  |zero - rho| = 0.1927  sigma - 1/2 = +0.1334
+X=    13: zero of D_S at 0.753661 + 85.780407 i   |D_S|=2.1e-30  |zero - rho| = 0.0979  sigma - 1/2 = +0.2537
+X=    30: zero of D_S at 0.804928 + 85.774356 i   |D_S|=7.0e-30  |zero - rho| = 0.0751  sigma - 1/2 = +0.3049
+X=   100: zero of D_S at 0.836297 + 85.763087 i   |D_S|=2.0e-30  |zero - rho| = 0.0695  sigma - 1/2 = +0.3363
+X=   300: zero of D_S at 0.769214 + 85.721146 i   |D_S|=5.0e-30  |zero - rho| = 0.0449  sigma - 1/2 = +0.2692
+X=  1000: zero of D_S at 0.800884 + 85.713671 i   |D_S|=5.3e-30  |zero - rho| = 0.0162  sigma - 1/2 = +0.3009
+X=  3000: zero of D_S at 0.804310 + 85.708057 i   |D_S|=6.2e-30  |zero - rho| = 0.0097  sigma - 1/2 = +0.3043
+X= 10000: zero of D_S at 0.808501 + 85.707440 i   |D_S|=3.7e-30  |zero - rho| = 0.0081  sigma - 1/2 = +0.3085
+
+== (A3b) off-line zeros of D_S in 1/2 < sigma < 1.6, 0 < t < 100 for small S (grid + Newton) ==
+S=[2, 3]: 0 zeros with 1/2 < sigma, 0 < t < 100; first few: []
+S=[2, 3, 7]: 3 zeros with 1/2 < sigma, 0 < t < 100; first few: ['0.5734+5.070i', '0.6338+40.356i', '0.6334+85.780i']
+S=[2, 3, 5, 7, 11, 13]: 3 zeros with 1/2 < sigma, 0 < t < 100; first few: ['0.6955+5.027i', '0.6002+68.695i', '0.7537+85.780i']
+S=[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]: 5 zeros with 1/2 < sigma, 0 < t < 100; first few: ['0.6477+5.142i', '0.6306+12.106i', '0.5055+33.859i', '0.5098+54.917i', '0.8049+85.774i']
+
+== (B) F_{a,q} local factor 1 + (a/sqrt q) z + z^2, z = q^{1/2-s} ==
+q=2 a=3 (2 sqrt q = 2.8284): |roots| = [np.float64(1.414214), np.float64(0.707107)] -> zeros at sigma = [np.float64(0.0), np.float64(1.0)]  OFF the line (local factor not Lee-Yang: Ramanujan fails at q)
+q=5 a=5 (2 sqrt q = 4.4721): |roots| = [np.float64(1.618034), np.float64(0.618034)] -> zeros at sigma = [np.float64(0.201006), np.float64(0.798994)]  OFF the line (local factor not Lee-Yang: Ramanujan fails at q)
+q=3 a=4 (2 sqrt q = 3.4641): |roots| = [np.float64(1.732051), np.float64(0.57735)] -> zeros at sigma = [np.float64(-0.0), np.float64(1.0)]  OFF the line (local factor not Lee-Yang: Ramanujan fails at q)
+q=5 a=4 (2 sqrt q = 4.4721): |roots| = [np.float64(1.0), np.float64(1.0)] -> zeros at sigma = [np.float64(0.5), np.float64(0.5)]  on the line (Lee-Yang)
+q=7 a=6 (2 sqrt q = 5.2915): |roots| = [np.float64(1.668416), np.float64(0.599371)] -> zeros at sigma = [np.float64(0.236948), np.float64(0.763052)]  OFF the line (local factor not Lee-Yang: Ramanujan fails at q)
+
+== (C) RH-true controls ==
+E/F_5 with a_5 = -4: |roots of 1 - (a/sqrt5) z + z^2| = [np.float64(1.0), np.float64(1.0)] (Lee-Yang: all = 1)
+E/F_5 with a_5 = -3: |roots of 1 - (a/sqrt5) z + z^2| = [np.float64(1.0), np.float64(1.0)] (Lee-Yang: all = 1)
+E/F_5 with a_5 = -2: |roots of 1 - (a/sqrt5) z + z^2| = [np.float64(1.0), np.float64(1.0)] (Lee-Yang: all = 1)
+E/F_5 with a_5 = -1: |roots of 1 - (a/sqrt5) z + z^2| = [np.float64(1.0), np.float64(1.0)] (Lee-Yang: all = 1)
+E/F_5 with a_5 = +0: |roots of 1 - (a/sqrt5) z + z^2| = [np.float64(1.0), np.float64(1.0)] (Lee-Yang: all = 1)
+E/F_5 with a_5 = +1: |roots of 1 - (a/sqrt5) z + z^2| = [np.float64(1.0), np.float64(1.0)] (Lee-Yang: all = 1)
+E/F_5 with a_5 = +2: |roots of 1 - (a/sqrt5) z + z^2| = [np.float64(1.0), np.float64(1.0)] (Lee-Yang: all = 1)
+E/F_5 with a_5 = +3: |roots of 1 - (a/sqrt5) z + z^2| = [np.float64(1.0), np.float64(1.0)] (Lee-Yang: all = 1)
+E/F_5 with a_5 = +4: |roots of 1 - (a/sqrt5) z + z^2| = [np.float64(1.0), np.float64(1.0)] (Lee-Yang: all = 1)
+genus 2, p=3, a1=0, a2=-2: |roots| = [np.float64(1.0), np.float64(1.0), np.float64(1.0), np.float64(1.0)]
+non-curve datum q=13, a=8 (|a| > 2 sqrt 13 = 7.21): |roots| = [np.float64(1.589785), np.float64(0.629016)] (not Lee-Yang)
+
+elapsed 53.0 s

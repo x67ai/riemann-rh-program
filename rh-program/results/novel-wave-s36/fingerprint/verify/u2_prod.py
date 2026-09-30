@@ -57,17 +57,19 @@ def log_completed(s, x, deflate_at_one=False):
             base = base + fac.log()
         return base
     if FUNC in ('chi4', 'dh'):
+        # at s0 = 1 the Hurwitz poles cancel (coefficients sum to 0): use deflated Hurwitz series there
+        DEFL = bool(deflate_at_one)
         q = 4 if FUNC == 'chi4' else 5
         qq = arb(q)
         pre = ((s + 1) / 2) * (qq / arb.pi()).log() + ((s + 1) / 2).lgamma()
         if FUNC == 'chi4':
             # L(s, chi4) = 4^{-s} (zeta(s, 1/4) - zeta(s, 3/4))
-            L = (-(s * qq.log())).exp() * (s.zeta(arb(1) / 4) - s.zeta(arb(3) / 4))
+            L = (-(s * qq.log())).exp() * (s.zeta(arb(1) / 4, deflate=DEFL) - s.zeta(arb(3) / 4, deflate=DEFL))
         else:
             s5 = arb(5).sqrt()
             kap = ((10 - 2 * s5).sqrt() - 2) / (s5 - 1)
-            L = (-(s * qq.log())).exp() * (s.zeta(arb(1) / 5) + kap * s.zeta(arb(2) / 5)
-                                           - kap * s.zeta(arb(3) / 5) - s.zeta(arb(4) / 5))
+            L = (-(s * qq.log())).exp() * (s.zeta(arb(1) / 5, deflate=DEFL) + kap * s.zeta(arb(2) / 5, deflate=DEFL)
+                                           - kap * s.zeta(arb(3) / 5, deflate=DEFL) - s.zeta(arb(4) / 5, deflate=DEFL))
         c0 = L.coeffs()[0]
         if c0 < 0:
             L = -L
@@ -113,7 +115,7 @@ else:
         ctx.prec = prec
         ctx.cap = N + 3
         w = arb_series([0, 1]); s1 = 1 + w
-        d = log_completed(s1, w, deflate_at_one=(FUNC == 'zeta' or FUNC.startswith('faq') or FUNC.startswith('eul'))).coeffs()
+        d = log_completed(s1, w, deflate_at_one=True).coeffs()
         lam = [arb(0)] + [n * sum((arb(comb(n - 1, j - 1)) * d[j] for j in range(1, n + 1)), arb(0)) for n in range(1, N + 2)]
         mm = [lam[n + 1] - 2 * lam[n] + (lam[1] if n == 0 else lam[n - 1]) for n in range(0, N + 1)]
         return lam, mm

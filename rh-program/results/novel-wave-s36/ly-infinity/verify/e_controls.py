@@ -141,8 +141,8 @@ def main():
     print('zero condition: prod_{p in S2} M_p(z_p) = -conj(c)/c = exp(i*%.6f)' % np.angle(target))
     for S2 in ([2], [3], [2, 3], [2, 7], [3, 7], [2, 3, 7], [7, 13], [2, 13]):
         r = min_polyradius(S2)
-        reach = sum(2 * np.arcsin(p ** -0.5) for p in S2)
-        print(f'S2={S2}: angular reach sum 2 arcsin(p^-1/2) = {reach:.4f} vs needed |arg| = {abs(np.angle(target)):.4f}'
+        reach = sum(2 * np.arctan(p ** -0.5) for p in S2)   # max |arg| of the Cayley factor over the closed disc = 2 arctan(c_p)
+        print(f'S2={S2}: angular reach sum 2 arctan(p^-1/2) = {reach:.4f} vs needed |arg| = {abs(np.angle(target)):.4f}'
               f' -> minimal polyradius of a zero ~ {r}  ({"UNSTABLE (zero inside the unit polydisc)" if (r is not None and r < 1) else "stable up to r=1.2 scan" if r is None else "stable"})')
 
     print('\n== (A3) zeros of the S-truncated DH series D_S(s) near DH\'s off-line zero ==')

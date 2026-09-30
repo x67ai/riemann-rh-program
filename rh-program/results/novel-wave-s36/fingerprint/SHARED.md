@@ -128,3 +128,21 @@ smooth density θ′/π plus the boundary term −f(T)S(T). Against the Arb Tayl
 - Euler factor removed, symmetrized, ξ(s)(1 − p^{−s})(1 − p^{s−1}) (= F_{−(p+1),p}): p = 2, 3, 7: α_1 < 0 (index 1);
   p = 10⁹+7: α_2 < 0 (J-index 1). Positivity dies at the first index — see task (d).
 - Running: DH real side (16 000 bits, M = 600).
+
+## 2026-09-30 20:20 — Unit 5b: Davenport–Heilbronn — the fingerprint is a MAP of the off-line zeros (u2_prod dh real; u5b_dh_offline.py/.json)
+
+- DH real side (16 000 bits, M = 600, tables/dh_real_P16000_S600.json): α_1..α_147 certified positive; first negative
+  α_148 (J-index 74: b_74² < 0). Negative S-indices up to 599: {148, 150, 217, 219, 351, 353, 372, 374, 539, 541} —
+  five isolated "−+−" motifs (α_m < 0, α_{m+1} ≫ 0, α_{m+2} < 0), everything else certified positive.
+- Newton on f_DH (dh.py, 30 digits, |f| ≤ 8e-30) from literature seeds gives the five off-line zeros with t ≤ 241:
+  0.808517182456637 + 85.699348485377592i, 0.650830080609737 + 114.163342730757i, 0.574356050450806 + 166.479305913168i,
+  0.724257694626810 + 176.702461242856i, 0.869530579640643 + 240.404672351441i.  (The recalled seed
+  0.646008 + 240.935500i did NOT reproduce — Newton from it converged to the last root listed; recorded as a recall error.)
+- ONE-TO-ONE: motif k sits right after the WKB turning point t_n = 1/(2√α_n) passes the height of off-line zero k:
+  motif 148 ↔ 85.70 (t_142..147 = 84.3, 87.8, 88.8, 90.4, 94.6, 109); 217 ↔ 114.16 (t ≈ 117–125); 351 ↔ 166.48
+  (t ≈ 169–181); 372 ↔ 176.70 (t ≈ 181–185); 539 ↔ 240.40 (t ≈ 238–256). Lag ≤ ~6 indices.
+- **Visibility law (IV.9), first form:** an off-line quadruple at height T (displacement δ = 0.07..0.37 here) is
+  flagged at S-index n_fail ≈ the first n with t_n ≥ T, i.e. n_fail ≈ π N(T) + O(T) (π coefficients per zero), at a
+  precision cost of ≈ 6 digits per index. For DH's first zero: n = 148 at ~900 digits lost. Li's criterion needs
+  n ~ T²/δ (≈ 3×10⁵ for this zero; Voros's exponential-asymptotic analysis) — the Jacobi fingerprint sees the same
+  zero ~2000 times earlier in index. Injection study (δ → 0 dependence) next.
