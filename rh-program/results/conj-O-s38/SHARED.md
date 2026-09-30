@@ -15,7 +15,7 @@ Append-only log of batches. Newest block last. Times IST.
 - Source hygiene: MV vol. II draft (on disk under `fetched-r2/`) extracted to `sources/mv2-draft.txt` for Theorem G.16 /
   (G.28) (Montgomery–Vaughan Hilbert inequality, p. 427, lines 23037–23060).
 
-## 2026-10-01 02:55 — batch 1: task 1, identity + the reflected route's limit
+## 2026-10-01 02:38 — batch 1: task 1, identity + the reflected route's limit
 - `verify/t1_classsums.py` → `logs/t1_classsums.log` (22 s): additive class sums c(a/b) = ρμ(b)b/(2πiaφ(b)) exact on 9 finite
   sets (coeff. to 1e-13; (1/Q)∫E² = ρ2^|R|/12 in rationals); reflected diagonal: the brief's Euler product MISSES the coprimality
   factor (1 − p^{2σ−2}) — brute force = corrected product to 1e-31 on 4 sets, sketch off (R={2}, σ=0.2: 6.929 vs 9.215).
@@ -26,3 +26,18 @@ Append-only log of batches. Newest block last. Times IST.
 - Found the repair (writing next, §1.4): take LOGARITHMS (Hilberdink 2005's device, w-18a p. 336; Borel–Carathéodory as in
   Broucke–Hilberdink 2024 ll. 200–212): if P_R = Σ_{p∈R}p^{−s} continues analytically (finite order) to {σ > τ₀, |t| > T₀},
   τ₀ < α_R/2, then under RH β₂(R) ≥ α_R/2. Regular (Theorem-C) deletions satisfy this for EVERY c ⇒ corner A8 closed under RH.
+
+## 2026-10-01 02:45 — batch 2: task 1 closed (G with T-parts), task 2 closed
+- NOTE §1.4 Theorem Z [proved here, RH, single-check]: if P_R continues analytically with finite order to {σ > τ₀, |t| > T₀},
+  τ₀ < α_R/2, then β₂(R) ≥ α_R/2 (mean-square form of O). Proof = Hilberdink's order-zero/Carlson device on log(ζ_P/ζ):
+  (Z1) E ⇒ ζ_P ≪ |t|; (Z2) log D_R analytic, D_R zero-free; (Z3) RH ⇒ |D_R| ≪ |t|² (PL in the band, Lemma Z.b proved);
+  (Z4) Borel–Carathéodory (Lemma Z.a proved) ⇒ |log D_R| ≪ log t; (Z5) smoothed Dirichlet polynomial + MV (G.27) ⇒
+  Σ_{p∈R,p≤N}p^{−2σ} ≪ log²N, contradiction for 2σ < α_R.
+- §1.5 Corollary Z.1 [RH]: every regular deletion (π_R = Σ min(1, cp^{α−1}) + O(x^θ), θ < α/2), EVERY c ⇒ β₂ ≥ α/2. The A8
+  corner (c = 2 etc.) is closed as a refutation corner (U ⇒ RH, so RH-conditional suffices).
+- §1.6 Lemma G (the exact missing lemma for general R) + Prop 1.6 (anatomy of a counterexample: P_R has no natural boundary in
+  σ > β₂; ζ_P must have infinitely many zeros with Re in (τ₀, ½) for every τ₀ < α_R/2; π_R irregular at scale x^{α_R/2}).
+- §1.7 additions: covered under a separation hypothesis; the A-clause "any A" is probably false as stated (near-cancelling
+  additions a_p = p(1 + e^{−p}); heuristic).
+- §2 task 2: named obstruction "sub-polynomial resonance"; the L² (Parseval) converse = Theorem Z.
+- Next: task 3 (dyadic mean square from the on-disk CSVs; finite-R rung; new feedback design; 8 more T_0.75 seeds at 1e10).

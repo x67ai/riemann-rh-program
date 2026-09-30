@@ -1,0 +1,58 @@
+Part A: identity (E) on self-dual examples (exact Poisson closed form on the left)
+== zeta (q=1): rho_q = 1.0
+   w=delta1                     lhs =                        0.0  rhs =                        0.0  diff = 0.0
+   w=d1-d2                      lhs =                        0.0  rhs =                        0.0  diff = 0.0
+   w=d1-d3                      lhs =                        0.0  rhs =  1.3363823550460978231e-51  diff = -1.34e-51
+   w=(d1-d2)(d1-d3)             lhs =                        0.0  rhs =                        0.0  diff = 0.0
+   w=(d1-d2)(d1-d3)(d1-d5)      lhs =                        0.0  rhs = -6.6819117752304891154e-52  diff = 6.68e-52
+== zeta(1+2^{1/2-s}) (q=2): rho_q = 2.4142135623731
+   w=delta1                     lhs =      0.7071067811865475244  rhs =      0.7071067811865475244  diff = 2.67e-51
+   w=d1-d2                      lhs =      0.7071067811865475244  rhs =      0.7071067811865475244  diff = 1.34e-51
+   w=d1-d3                      lhs =     0.62853936105470891058  rhs =     0.62853936105470891058  diff = 0.0
+   w=(d1-d2)(d1-d3)             lhs =     0.62853936105470891058  rhs =     0.62853936105470891058  diff = 1.34e-51
+   w=(d1-d2)(d1-d3)(d1-d5)      lhs =     0.60339778661252055416  rhs =     0.60339778661252055416  diff = 2.67e-51
+== zeta(1+2^{1-2s}) (q=4): rho_q = 3.0
+   w=delta1                     lhs =                        1.5  rhs =                        1.5  diff = 0.0
+   w=d1-d2                      lhs =                        1.0  rhs =                        1.0  diff = 0.0
+   w=d1-d3                      lhs =      1.3333333333333333333  rhs =      1.3333333333333333333  diff = 0.0
+   w=(d1-d2)(d1-d3)             lhs =     0.88888888888888888889  rhs =     0.88888888888888888889  diff = -1.34e-51
+   w=(d1-d2)(d1-d3)(d1-d5)      lhs =     0.85333333333333333333  rhs =     0.85333333333333333333  diff = -2.67e-51
+== zeta(1+9^{1/2-s}) (q=9): rho_q = 4.0
+   w=delta1                     lhs =      2.6666666666666666667  rhs =      2.6666666666666666667  diff = -5.35e-51
+   w=d1-d2                      lhs =                        1.5  rhs =                        1.5  diff = 0.0
+   w=d1-d3                      lhs =                        2.0  rhs =                        2.0  diff = -5.35e-51
+   w=(d1-d2)(d1-d3)             lhs =                        1.0  rhs =                        1.0  diff = 0.0
+   w=(d1-d2)(d1-d3)(d1-d5)      lhs =                       0.78  rhs =                       0.78  diff = -1.34e-51
+== F55 (q=25): rho_q = 11.0
+   w=delta1                     lhs =                        8.8  rhs =                        8.8  diff = 0.0
+   w=d1-d2                      lhs =                        5.0  rhs =                        5.0  diff = 0.0
+   w=d1-d3                      lhs =      6.6666666666666666667  rhs =      6.6666666666666666667  diff = 1.07e-50
+   w=(d1-d2)(d1-d3)             lhs =      3.6111111111111111111  rhs =      3.6111111111111111111  diff = 0.0
+   w=(d1-d2)(d1-d3)(d1-d5)      lhs =      3.2222222222222222222  rhs =      3.2222222222222222222  diff = 0.0
+
+Part B: reduced u.d. family F = zeta*D (NOTE §2.4 Step 4); positivity of Pi on the q-part <=> log h >= 0 coefficientwise
+== q=2: D = 1 + sqrt(2) 2^-s (no parameter). Pi(2^k) for k=1..6: 2.4142, -0.5000, 1.2761, -0.7500, 1.3314, -1.1667; first negative at k=2 (frequency B = 2^2 = 4)
+== q=3: D = 1 + sqrt(3) 3^-s (no parameter). Pi(3^k) for k=1..6: 2.7321, -1.0000, 2.0654, -2.0000, 3.3177, -4.3333; first negative at k=2 (frequency B = 3^2 = 9)
+== q=5: D = 1 + sqrt(5) 5^-s (no parameter). Pi(5^k) for k=1..6: 3.2361, -2.0000, 4.0601, -6.0000, 11.3803, -20.6667; first negative at k=2 (frequency B = 5^2 = 25)
+== q=4: D = 1 + e*2^-s + 2*4^-s; c(n) >= 0 <=> e >= -1. Coef k=2 = 2 + 1/2 - e^2/2 < 0 for e >= 2.24607 (upper enclosure at E0: -0.02241068; it decreases for e > 0).
+   [-1, 2.24607] covered: 4 pieces, failures 0; max degree used 5 (B = 2^5 = 32)
+     e in [-1.0, -0.18848301]: negative coefficient k=5 (freq 2^5)
+     e in [-0.18848301, 0.62303399]: negative coefficient k=4 (freq 2^4)
+     e in [0.62303399, 2.246068]: negative coefficient k=3 (freq 2^3)
+== q=9: D = 1 + e*3^-s + 3*9^-s; c(n) >= 0 <=> e >= -1. Coef k=2 = 3 + 1/2 - e^2/2 < 0 for e >= 2.65575 (upper enclosure at E0: -0.026507513; it decreases for e > 0).
+   [-1, 2.65575] covered: 2 pieces, failures 0; max degree used 4 (B = 3^4 = 81)
+     e in [-1.0, 0.82787566]: negative coefficient k=4 (freq 3^4)
+     e in [0.82787566, 2.6557513]: negative coefficient k=3 (freq 3^3)
+== q=25: D = 1 + e*5^-s + 5*25^-s; c(n) >= 0 <=> e >= -1. Coef k=2 = 5 + 1/2 - e^2/2 < 0 for e >= 3.32662 (upper enclosure at E0: -0.033216248; it decreases for e > 0).
+   [-1, 3.32662] covered: 2 pieces, failures 0; max degree used 4 (B = 5^4 = 625)
+     e in [-1.0, 1.1633124]: negative coefficient k=4 (freq 5^4)
+     e in [1.1633124, 3.3266248]: negative coefficient k=3 (freq 5^3)
+   F55 (e = 5): Pi(5^k) = 6.0000, -7.0000, 17.0000, -43.5000, 125.2000, -374.8333  (BFE: Lambda(5^k)/log 5 = k*Pi = 6, -14, 51, ...)
+
+== q=6 (two primes): D = 1 + a 2^-s + a(sqrt6/2) 3^-s + sqrt6 6^-s; h = D/((1-2^-s)(1-3^-s)); u = 2^-s, v = 3^-s
+   c(n) >= 0 <=> a >= -0.81649658; coefficient at uv = sqrt6(1 - a^2/2) = -sqrt(6)*a**2/2 + sqrt(6) < 0 for a > sqrt2 (decreasing in |a|)
+   [-0.816497, 1.42421] covered: 4 pieces, failures 0; largest frequency used B = 108
+     a in [-0.81649658, -0.25631905]: negative coefficient u^2v^3 (freq 2^23^3=108)
+     a in [-0.25631905, 0.30385849]: negative coefficient u^2v^2 (freq 2^23^2=36)
+     a in [0.30385849, 0.86403603]: negative coefficient u^1v^2 (freq 2^13^2=18)
+     a in [0.86403603, 1.4242136]: negative coefficient u^0v^2 (freq 2^03^2=9)
