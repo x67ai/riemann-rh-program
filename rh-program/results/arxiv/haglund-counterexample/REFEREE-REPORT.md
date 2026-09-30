@@ -170,4 +170,72 @@ whose z-image is 2508.2839748053 − 0.3159896243 i: the conjugate of the Thm 7.
 ξ_w(1/2 + i z̄) = conj ξ_w(1/2 + iz). OLD: `Certificate A finds winding` NEW: `Certificate A finds (in the $s$-plane; the
 symmetry $\xi_{24}(\tfrac12 + i\bar z) = \overline{\xi_{24}(\tfrac12 + iz)}$ carries its squares to those of (b)) winding`
 
+(Place of F2.1: main.tex l. 1009-1010, "Certificate A finds / winding number 1 along the s-plane squares".)
+
+### Item 3 — §§2-4 against staircase NOTE §1-§2 as corrected by read-F F1-F5
+
+Map checked: Lemma 2.1 ↔ PRIOR-ART §0 (relation and c_N; the printed recurrence proof re-derived line by line, correct:
+h(a+1) = (a h(a) + e^{−X})/X, 2X²h(a+2) − 3Xh(a+1) = (2a² − a)h(a) + (2a − 1 + 2X)e^{−X}, 2a² − a = ½s(s−1) at a = s/2 and
+(1−s)/2, 2a − 1 summing to 4X − 1; Σ(4πn² − 1)e^{−πn²} = ½ recomputed to 60 digits). Thm 3.1 ↔ D; Cor 3.2 ↔ D1 (counts 2, 6, 16,
+32, 52, 80); Thm 3.3 ↔ D′ with F1 applied (+0.291, +0.0395; recomputed 0.290944, 0.0394988); Prop 3.4 ↔ D′(2); Cor 3.5 ↔ D′(1)
+with F5 applied (Ξ(0) = 0.497120778 recomputed); Thm 4.1 ↔ A with F2; Thm 4.2 ↔ B; Prop 4.3 ↔ F with F3 for (ii). All faithful.
+Brief's Thm 4.1 note: CONFIRMED. From φ̃_n = (4y² − 6y)e^{u/2}Σ_k(−y)^k/k!, the coefficient of y^{k+1}e^{u/2} is −2(2k+3)(−1)^k/k!,
+so Φ_w = Σ w_n φ̃_n has coefficient −2π(2k+3)(−π)^k/k!·Σ w_n n^{2k+2} of e^{(5/2+2k)u}: twice the NOTE's (whose φ_n = φ̃_n/2).
+
+F3.1 (MINOR, after Prop 3.4, l. 465-468; same slip in NOTE D′(2)). The five numbers are not the limits: they are t²Ξ_N(t) at
+t = 8000 (`verify/haglund_coeff.log`, last column). The limits, from the closed form −2Σ_{n>N}(8X³ − 30X² + 15X)e^{−X} at
+50 digits (and equal to +2Σ_{n≤N}(...) as the evenness requires; Σ_{all n} = −9e−51): −0.078997531, −1.6530559·10^{−7},
+−2.7834517·10^{−16}, −5.7394724·10^{−28}, −1.707458·10^{−42}. The printed N = 3, 4, 5 values are wrong in the 4th digit and
+the N = 2 value misrounds. OLD: `Evaluated at $40$ digits the
+limits are $-0.078997$,
+$-1.6530\cdot10^{-7}$, $-2.7831\cdot10^{-16}$, $-5.7375\cdot10^{-28}$ and
+$-1.7062\cdot10^{-42}$ for $N = 1, \ldots, 5$.` NEW: `The limits are $-0.0789975$,
+$-1.65306\cdot10^{-7}$, $-2.78345\cdot10^{-16}$, $-5.73947\cdot10^{-28}$ and
+$-1.70746\cdot10^{-42}$ for $N = 1, \ldots, 5$ (at $t = 8000$, $t^2\Xi_N(t)$ agrees with them to a relative $10^{-3}$).` (Relative gaps
+in the log: 1.3·10^{−4}, 3.5·10^{−4}, 7.5·10^{−4} for N = 3, 4, 5.)
+(The abstract's and §1.4's claim, "negative for every N", is unaffected.)
+
+F3.2 (MINOR, Thm 3.1, l. 363; same in NOTE D). The statement is weaker than what Cor 3.2's proof uses (P_w > 0 at every t).
+OLD: `with equality for all $t$ only if $w \equiv 1$. In particular` NEW: `and $P_w(t) > 0$ for every real $t$ unless
+$w \equiv 1$. In particular`
+
+F3.3 (MINOR, proof of Thm 4.2, l. 581; same in NOTE B). OLD: `decays super-exponentially at $0$ and at
+$\infty$,` NEW: `decays faster than every power of $x$ at $0$ and at
+$\infty$ (exponentially at $\infty$, and like $x^{-1/2}\delta(1/x)$ at $0$),`
+
+F3.4 (MINOR, l. 593-597). Burnol verified at the page (`lit/burnol-1106.4749.txt` l. 102-134, pp. 2-3): Corollaire 2 assumes
+(1) meromorphic continuation with finitely many poles, (2) f = O(e^{exp ε|s|}) in vertical strips, (3) g(s) = χ(s)f(1−s) =
+O(|s|^N y^{−s}) as Re s → +∞ for some y > ½, (4) g(σ) = c + O(σ^{−k}) for all k; conclusion f = cζ. All four hold here
+(f entire; f = π^{s/2}M(s)/Γ(s/2) with M bounded in strips; g = f = (w_1 − 1) + O(2^{−σ}), y = 1), so the proof is sound. But
+the paper states none of (1)-(4), and its Knopp sentence (Knopp not read; reported from Nakamura p. 4, whose (K) keeps his (H2)
+and (H3)) makes Burnol look contradicted. OLD: `needs convergence only
+for $\re s$ large. Some such hypothesis is needed: with absolute convergence only
+in \emph{some} half-plane, Knopp exhibits infinitely many linearly independent
+solutions of the functional equation (as reported in \cite[p.~4]{Nak}).` NEW: `needs convergence only
+for $\re s$ large, together with finitely many poles, $f(s) = O(e^{\exp\epsilon|s|})$ in vertical strips, and, for
+$g(s) = \chi(s)f(1-s)$, $g(s) = O(|s|^N y^{-s})$ with $y > \tfrac12$ and $g(\sigma) = c + O(\sigma^{-k})$ for every $k$; here
+$g = f = (w_1 - 1) + O(2^{-\sigma})$, so all of these hold. (Hamburger's theorem needs more than the functional equation:
+see \cite[p.~4]{Nak} for Knopp's solutions when (H1) is weakened.)` A self-contained alternative is in §1 R8.
+
+F3.5 (MINOR, l. 613-623). (a) "(Theorem 3.1: real zeros are never lost as N grows)": what Thm 3.1 gives is nesting of the
+negative sets (NOTE §4 item 4: "their negative sets increase with N"); zero counts can drop by merging. OLD: `(Theorem~\ref{thm:polya}:
+real zeros are never lost as $N$ grows)` NEW: `(Theorem~\ref{thm:polya}: the set where $\xi_N(\tfrac12+it) < 0$ grows with $N$,
+so a lobe that carries real zeros keeps carrying them)`. (b) "(ii) holds for all large N" is a one-line sketch of read-F F3,
+whose two-regime estimate is correct (re-derived); add its two inequalities or label the paragraph a remark.
+
+F3.6 (TYPO, l. 295). OLD: `valid for all $s \in \Cx$:` NEW: `valid for all $s \in \Cx \setminus \{0, 1\}$:`
+
+F3.7 (MINOR, l. 306). OLD: `For weights $w\colon \N \to \R$ put` NEW: `For weights $w\colon \N \to \R$ with
+$|w_n| \le Cn^A$ put` (this is all that Thms 4.1-4.2 use; the series then converges absolutely and locally uniformly).
+
+F3.8 (MINOR, l. 197 and l. 483). OLD (both): `the positive zeros of` NEW: `the positive real zeros of`
+
+F3.9 (MINOR, l. 462). OLD: `Since the full kernel $\sum_{n \ge 1}\tphi_n$ is even,` NEW: `Since the full kernel
+$\sum_{n \ge 1}\tphi_n$ is even (with $K(u) = e^{u/2}\psi(e^{2u})$, the theta relation gives $K(u) - K(-u) = -\sinh(u/2)$,
+so $K'' - K/4$ is even),`
+
+F3.10 (MINOR, §1.5, l. 236-237). OLD: `$\xi_w = \tfrac12 + \tfrac12 s(s-1)\sum_n w_n g_n$ with $0 \le w_n \le 1$ and
+$w \not\equiv 1$,` NEW: `$\xi_w = \tfrac12 + \tfrac12 s(s-1)\sum_n w_n g_n$ with $w \not\equiv 0$ and either $0 \le w_n \le 1$,
+$w \not\equiv 1$,` (ξ_0 = ½ has no zeros at all).
+
 <!-- END -->

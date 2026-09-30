@@ -17,8 +17,8 @@ mp.mp.dps = 40
 
 def T(e):
     e = mp.mpf(e)
-    K = int(mp.ceil(e)) - 1
-    s = 1 + 2 * mp.fsum(1 - k / e for k in range(1, K + 1))
+    K = int(mp.ceil(e)) - 1                      # number of k >= 1 with k < e
+    s = 1 + 2 * (K - mp.mpf(K) * (K + 1) / (2 * e))  # closed form of 1 + 2 sum_{k=1}^{K} (1 - k/e)
     return (s / e - 1) / 2
 
 def S(x):
@@ -54,7 +54,8 @@ near = {  # best-per-K near-solutions, as printed in verify/v2_lsq_exotic_search
 removed_all = [2, 3, 5, 7, 11]
 
 print("T(e) sanity: T(1..4) =", [mp.nstr(T(k), 5) for k in range(1, 5)], "; T(1.5) =", mp.nstr(T(1.5), 12),
-      " brute sum_{n<=2e5} S(1.5n) =", mp.nstr(mp.fsum(S(1.5 * n) for n in range(1, 200001)), 12))
+      " brute sum_{n<=2e4} S(1.5n) + tail 1/(2 pi^2 * 1.5^2 * 2e4) [mean sin^2 = 1/2] =",
+      mp.nstr(mp.fsum(S(1.5 * n) for n in range(1, 20001)) + 1 / (2 * mp.pi**2 * 2.25 * 20000), 12))
 for name, free in near.items():
     # the free primes 2, 3 cancel against the removed 2, 3 exactly; keep the multiset honest anyway
     rem = list(removed_all); fr = []

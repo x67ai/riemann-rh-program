@@ -171,3 +171,6 @@ First read of main.pdf done before opening any source. 26 first-read findings (R
 
 ### 2026-10-01 01:30 IST — REFEREE: REFEREE-REPORT.md §2 items 1-2 landed
 Item 1 (Thm 1.1, §6 vs both CERTs): all numbers match; recomputed c_N, 2U_32, B tail, E values, z*-c, |Phi_28|, |Xi|; hashes of both CERT.md and the zip verified. Findings F1.1-F1.8 (MINOR/TYPO). R11 withdrawn. Item 2 (Thm 7.1): numbers match; F2.1 (A proves the s-plane mirror square; state the symmetry).
+
+### 2026-10-01 01:35 IST — REFEREE: REFEREE-REPORT.md §2 item 3 landed
+Sections 2-4 vs staircase NOTE + read-F: all theorems faithful, proofs re-derived and correct. Findings F3.1-F3.10 (MINOR/TYPO). Notable: F3.1 — the five "limits" after Prop 3.4 are t^2 Xi_N(t) at t = 8000 (haglund_coeff.log), not the limits; exact limits given. F3.4 — Burnol Corollaire 2 verified at the page; its hypotheses hold but are not stated; Knopp sentence misleading. Brief Thm 4.1 factor-2 note CONFIRMED.

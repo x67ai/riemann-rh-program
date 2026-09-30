@@ -73,3 +73,29 @@ VERDICT LINE: (pending — written when §1–§4 land)
     genus 1, t = 5: roots of 5u² − 5u + 1 at |u| = 0.7236, 0.2764 ⟹ Re s = 0.20101, 0.79899 ✓; t = 6 is Z ≡ 1 ✓.
     §8(d) (F_R) ✓ (sign: 2∫S dN = ⟨R, φ⟩ with R := μ̂ − μ; ψ̂ ≥ 0 forces ψ̂ real hence even).
     §8(e) ✗ as a VERDICT (not as mathematics): "open" is wrong — see §6 R1 and FIX-FIRST F1.
+
+## §2. Independent re-run (`verify-O/`, own routes; the writer's scripts were read for inputs only, never re-executed)
+
+o1 `o1_fejer_exact.{py,log}` — the Fejér sum in CLOSED FORM. Route: Poisson for x ↦ S(ex) gives T(e) := Σ_{n≥1}S(ne) =
+  ½[e^{−1}(1 + 2Σ_{1≤k<e}(1 − k/e)) − 1] (= 0 iff e ∈ N); a near-solution is P = primes ∖ {5,7,11} ∪ {free primes} (2, 3 cancel),
+  dN_P = dN_Z ⊛ E (E = signed Euler-factor measure), so S_F = Σ_e E(e)T(e) — no truncation in n (writer: brute sum to 20000).
+  Sanity: T(1.5) = 1/18 = 0.0555555555556 = brute sum + mean-value tail. Results (atoms e ≤ 1e10; e ≤ 1e6 agrees to 1e−13):
+    K=3 S_F = 1.654343e−3 (writer 1.6541e−3) · K=4 5.358231e−3 (5.3576e−3) · K=5 2.612375e−3 (2.6116e−3) · K=6 3.075454e−3 (not in v2b)
+    · K=7 8.744635e−3 (8.7432e−3) · Z: S_F = T(1) = 0 EXACTLY. The writer's values sit 2e−7..1.4e−6 below the exact ones = their
+    truncation tail. Every near-solution violates (F) by 2S_F = 3.3e−3 … 1.7e−2; Z satisfies it exactly. ✓ NOTE §5(h), §7.
+o2 `o2_theta_defect_jtheta.{py,log}` — theta defect by Jacobi theta: ψ_P(x) = Σ_e E(e)ψ_Z(e²x), ψ_Z via mpmath jtheta, 40 digits,
+  x = 2^{−6}..2^{6}. ρ = 1 on 2^{−3}..2^{3}: 1.09e−4, 8.69e−5, 1.08e−4, 2.50e−5, 9.83e−5 (K = 3..7) — matches v2b to 3 digits ✓.
+  ρ = ρ_true (the residue (B) demands; 0.7068, 0.8559, 0.9340, 1.0760, 1.2032): max |D| = 1.32, 0.73, 0.18, 0.64, 1.59 on the wider
+  range. Z: 1.8e−40. Mellin side: |E(s) − E(1−s)| at s = 0.3+7i = 0.77, 0.35, 0.87, 0.44, 0.18 (FE fails outright) ✓.
+o3 `o3_signed_counterexample.{py,log}` — POSITIVITY IS NECESSARY (new; see §6 R1). μ_s = Σ_{n∈Z}χ₅(n)δ_{n/√5} − (√5δ_{√5Z} + δ_{Z/√5})
+  + (√5δ_{(√5/2)Z} + 2δ_{(2/√5)Z}): atoms at 1/√5, 2/√5 cancel exactly (0, 0); mass at 0 is 1; smallest positive atom √5/2 = 1.1180;
+  first atoms 1.1180: +√5, 1.3416: −2, 1.7889: +2. Theta relation to 5.5e−40; Fejér: Σ_{t>0}m(t)S(t) = 0 (closed form, −1e−41), so
+  (F) HOLDS with non-integral atoms; ξ_F(s) = ξ_F(1−s) to 1e−41; Res_{s=1}F = D(1) = 1.
+o4/o4b `o4_signed_rh_false.{py,log}`, `o4b_locate_offline.{py,log}` — that signed F is RH-FALSE: zero at
+  s = 1.32691215092364 + 33.2635142708346i (|F| = 5e−41; FE partner −0.3269 + 33.2635i, |ξ_F| = 5e−52), inside the half-plane of
+  absolute convergence. Argument principle on [−1,2]×[0.5,40]: 5 zeros; sign changes of ξ_F(½+it): 3 (t = 19.1868, 25.6164,
+  36.5260) — the deficit 2 is exactly the off-line pair. (A first version of o4 keyed its grid by floats and missed the zero;
+  fixed, logged in the script.)
+o5 `o5_conductor_new_example.{py,log}` — (C_q) on a positive example the writer did not use: F = ζ(s)(1 + 5^{1/2−s}) + L(s,χ₅), q = 5,
+  coefficients 1 + χ₅(m) + √5·1_{5|m} ≥ 0: LHS = RHS = 4/√5 = 1.788854382 (m ≤ 2e5 + exact periodic tail); the sub-identity
+  Σχ₅(m)S(m/5) = 0 to 2e−16; conductor-5 FE to 1e−31 ✓. (It fails Λ ≥ 0 — a Selberg-class-free positive solution, as NOTE §8(b) says.)

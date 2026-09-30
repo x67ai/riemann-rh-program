@@ -121,3 +121,36 @@ Dated blocks, appended after each batch. Newest at the bottom.
 - Own re-run (verify-O/thin_O.py, numpy, PCG64, quad tail; X = 1e8, 8 seeds): [1e4,1e8] slopes 0.308±0.008 (α=.6),
   0.378±0.012 (α=.75), 0.465±0.016 (α=.9) (BS estimator) — agree with α/2. Controls ✓; Prop 5.1 checked numerically (1.02299
   vs 1.022977). Local 2-decade slopes swing ±0.1–0.15 → realistic systematic ±0.03–0.05. Next: §3 prior art.
+
+## 2026-10-01 — block O-3: reader §3 (prior art) landed
+
+- BDR: v2 is latest; published Trans. AMS 378 (2025) 477–501. Conjecture (p. 2) and Thms 1.1/1.3 quoted exactly ✓.
+- DMV 2006 p. 4 asked the M1b question in print ("θ < 1/2 may imply RH for discrete systems") — NOTE should cite it.
+- DZ book Thm 17.14 (DMV + Zhang): [1, β₀], β₀ ≤ ½; BDR footnote 4: β₀ = ½ "most likely", smaller "still possible".
+  U ⟺ β₀ = ½ for that system — the cleanest in-print test of U, undecided. BDV 2004.11501 is [½, 1] (not [1, ½]).
+- arXiv (3 queries, saved in sources/): nothing on random thinning of ℙ as a Beurling system. Next: §4 attack on U.
+
+## 2026-10-01 — block O-4: reader §4 (attack on Conjecture U) landed — U NOT refuted
+
+- 11 attempts (read-O.md §4). No in-print discrete system has β < α/2. A refutation needs only an RH-conditional example
+  (RH false ⇒ ℕ refutes U). Quadratic fields: U ⇒ no zero of L(s, χ_D) in Re s > ⅔, and GRH for ζ_K if β_K = ¼.
+- DZ Thm 17.14 [1, β₀ ≤ ½]: U ⟺ β₀ = ½; the Theorem-B mechanism (α = 1, Poisson-thin g-primes in (x/2, x]) gives
+  β₀ = ½ a.s. (sketch) — consistent. Open corner: structured deletions with integer c ≥ 2, α < ¾ (Theorem C bound α/3).
+- U fails for continuous/weighted systems (DMV p. 4; G-template [β₀, 0]) — it is a discreteness statement. Next: §5–§7.
+
+## 2026-10-01 — block O-5: reader §5 (FIX-FIRST F1–F5) and §6 (MINOR m1–m11) landed
+
+- F1 K wording ("false unconditionally" → "cannot be asserted unconditionally; true under RH"); F2 Theorem B coprime
+  convolution T_d, κ_p → ρ_P; F3 Theorem A(i) grid of mesh X^{1−α/2}; F4 Theorem C j = 1 term (c ∉ ℤ ⇒ branch point at α,
+  β ≥ α); F5 6.4/7.1(3) omit the [1e7, 1e10] window (α = .75: 0.450 ± 0.009). None falsifies a theorem. Next: §7 + verdict.
+
+## 2026-10-01 — block O-6: reader CLOSE — read-O.md complete (§§1–7 + verdict line). Nothing running.
+
+- Verdict: T AGREES-WITH-CORRECTIONS; K AGREES (F1 wording). A: AWC (F3), NEW. A′: AGREES, NEW. B: AWC (F2), stands, NEW.
+  C: AWC (F4), NEW/routine (Landau). Props 2.1–2.3, 3.2, 5.1: AGREE. Simulation: AWC (F5); own 1e8 re-run ≈ α/2.
+  U: NEW, not refuted, consistent with all printed discrete systems (contradicts BDR's conjecture only).
+- Reader's addition: DZ Thm 17.14's β₀ (BDR fn. 4) = ½ a.s. by the Theorem-B mechanism at α = 1 (sketch) — consistent with U.
+- Next unit proposed (read-O §7): mean-square square-root law for sifted sets (Conjecture O in mean square) — prove, or
+  refute via a structured integer-c deletion at α < ¾ (would refute U). Side items: A3 lemma; 8 more seeds at 1e10, α = .75.
+- Reader files: read-O.md; verify-O/ (thin_O.py, run_O.sh, fit_O.py, local_O.py, audit_writer_data.py, data/, logs/);
+  sources/arxiv-search-O-*.xml (3 arXiv queries).

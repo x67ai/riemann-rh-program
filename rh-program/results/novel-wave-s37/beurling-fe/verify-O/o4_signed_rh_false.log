@@ -1,0 +1,7 @@
+grid minima with |F| < 0.5 in 1.2 <= sigma <= 2.9, 0.25 <= t <= 59.75: 1
+  zero of F: s = (1.32691215092364 + 33.2635142708346j)   |F(s)| = 4.59e-41   |xi_F(1-s)| = 5.48e-52
+zeros of F with Re s > 1 found (t <= 60): 1
+min |F| on the grid (sigma >= 1.1): 0.012625
+--- Part 2 (python3 o4_signed_rh_false.py --count; run 2026-10-01, 155 s) ---
+T = 40: zeros of xi_F in [-1,2] x [0.5,T] (argument principle) = 5.0;  sign changes of xi_F(1/2+it) = 3
+  (Im xi_F(1/2+it) = 0 by the FE and real coefficients; a deficit Nrect - sc > 0 means zeros OFF the critical line)

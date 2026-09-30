@@ -3,7 +3,13 @@
 Reader: Opus 5.5 (independent of the orchestrator's read; not waited for). Started 2026-10-01.
 Object: `NOTE.md` (50,809 bytes, read whole), charter §M1b, `SHARED.md` blocks 0–7, `verify/`, `sources/`.
 
-**Verdict line:** (filled in at the close of this file — see the last section)
+**Verdict line (2026-10-01):** close **T — AGREES-WITH-CORRECTIONS**; **K** (pre-derivation's unconditional clause) —
+**AGREES**, with its wording fixed (F1). Theorem A: AGREES-WITH-CORRECTIONS (F3), NEW. Cor. A′: AGREES, NEW. Theorem B:
+AGREES-WITH-CORRECTIONS (F2), stands as stated, NEW. Theorem C: AGREES-WITH-CORRECTIONS (F4), NEW but a routine
+consequence of Landau's non-negative-coefficient argument. Prop 3.2, Cor 2.2, Props 2.1, 2.3, 5.1: AGREE. Simulation:
+AGREES-WITH-CORRECTIONS (F5); independent re-run (10⁸, 8 seeds) consistent with β₀/2 at 0.6, 0.75, 0.9. Conjecture U:
+NEW, **not refuted** (11 attempts, §4); consistent with every printed discrete system; contradicts BDR's printed
+conjecture only. FIX-FIRST: F1–F5 (none falsifies a theorem). MINOR: m1–m11. No stop condition met.
 
 Status marks used below: ✓ = re-derived at the line and correct; GAP = a step that does not follow as written (FIX-FIRST
 pair in §5); MINOR = prose/constant (pair in §6); UNVERIFIED = a tool or fact I could not read at the page in any source
@@ -153,3 +159,147 @@ Controls (same code): ℙ itself — sup|E| ≡ 1 on every bin (slope 0), RMS 0.
 of my errors, reproducing the writer's numbers by an independent route; the prediction is NOT contradicted. At β₀ = 0.6,
 1/(4−2α) and 1/(3−α) are excluded (≥ 4σ with any honest systematic). At β₀ = 0.75, the top windows of both data sets drift
 up toward 1/(3−α); α/2 is favored on full windows only. At β₀ = 0.9 the candidates are inseparable. AGREES-WITH-CORRECTIONS (F5).
+
+## §3. Prior-art gate (read at the page; files under `sources/` unless noted)
+
+| source | location read | what it proves / states | its (α, β) | relation to NOTE; obeys U (α ≤ max{½, 2β})? |
+|---|---|---|---|---|
+| BDR, arXiv:2309.01567**v2** (26 Jun 2024; latest version per arXiv API 2026-10-01; journal ref **Trans. AMS 378 (2025) 477–501**, published text not read) | z-02 l. 84–87 (p. 2) | "One may conjecture that for all α, β with max{α, β} ≥ 1/2, there must exist a corresponding [α, β]-system. The main goal of this paper is to establish this conjecture in certain ranges" | — | NOTE's reading ✓. U contradicts it on {β < ½, α > 2β} ✓ |
+| BDR Thm 1.1, 1.3 | l. 131 (p. 3); l. 183 (p. 4) | 1.1: every α ∈ [0,1), β ∈ [½,1); 1.3 (RH): [½, β] for 0 ≤ β < ½, and [α, β] for ½ < α < 2/3, 2α/(α+2) ≤ β < ½ | as stated | NOTE's region statements exact ✓; all obey U |
+| BDR p. 3, footnote 4 | l. 139–141, 165 | a [1, β₀]-system "in [7, Ch. 17] ... for some β₀ ≤ 1/2"; "Most likely the value of β₀ equals 1/2, but in principle it is still possible that β₀ could be smaller." | [1, β₀ ≤ ½] | U ⟺ β₀ = ½ exactly: **a sharp test of U, undecided in print** |
+| BDR Rem. 5.3(2),(3); Lemma 5.1 | l. 1366–1395; 1024–1040 | hyperbola method may be improvable; number fields: N_K = a_K x + O(x^{1−2/(n+1)}) and Ω(x^{½−1/(2n)}) (Landau, via BDR's ref. [11]); conjectured [½, ½ − 1/(2n)] | [Θ_K, β_K] | see §4 A2 |
+| Diamond–Montgomery–Vorhauer, Math. Ann. 334 (2006) | p1-02 l. 183–207 (pp. 3–4) | Thm 1: for ½ < θ < 1, N_B = κx + O(x^θ), ζ_B zeros on σ = 1 − a/log t, ψ_B − x = Ω±(x e^{−2√(a log x)}). p. 4: continuous examples (Malliavin, Diamond) with (3) and a zero anywhere in (0,1); "**it may still be the case that (3) with θ < 1/2 does imply RH for discrete Beurling generalized numbers**" | [1, β ≤ θ] | the M1b question is DMV's; NOTE does not cite it (m6). Obeys U iff β ≥ ½ (undecided) |
+| Diamond–Zhang, *Beurling Generalized Numbers* (AMS Surv. 213, 2016), Ch. 17 (fetched-r2/t-50) | text l. 11483–11560, 12108–12304 (pp. 195–209) | Thm 17.11: N_R = k₁x + O(x^{½}e^{c(log x)^{2/3}}), no zeros in σ > ½, π_R = li + O(x^{½}); Thm 17.14: N_B = k₂x + O(x^{½}e^{c(log x)^{2/3}}), zeros on σ = 1 − 1/log t, ψ_B − x = Ω±(x e^{−2√log x}); p. 196: "(optimality is not known for θ ≤ 1/2)"; g-primes = Bernoulli selection from a dense {v_k} | 17.11: [½, ≤½]; 17.14: [1, ≤½] | 17.11 obeys U; 17.14 = BDR's [1, β₀] (U ⟺ β₀ = ½) |
+| Zhang, Math. Ann. 337 (2007) | **not on disk**; read only via DZ Ch. 17 (built on it) and BDR l. 121–123 | first unconditional well-behaved system: ψ = x + O(x^{½+ε}), N = ax + O(x^{½+ε}) | [≤½, ≤½] | obeys U. Primary text UNVERIFIED |
+| Broucke–Debruyne–Vindas, arXiv:2004.11501v2 (the task's "1810.05939" is not its number) | z-01 l. 1–25 | primes π = Li + O(√x); integers N = ρx + Ω±(x e^{−c√(log x log log x)}) | [½, 1] | obeys U (α = ½); it is the mirror image, not a [1, ½] system |
+| Broucke–Vindas, arXiv:2102.08478v2 | via BDR l. 125–126 | existence of [0, ½]-systems | [0, ½] | obeys U |
+| Hilberdink, JNT 112 (2005) | w-18a l. 195–200 (p. 335) | Thm 1: max{α, β} ≥ ½; Cor. 2 | wall | the NOTE's quotes ✓ |
+| arXiv sweeps by this reader (saved: `sources/arxiv-search-O-beurling-random.xml` (15 hits), `…-O-genprimes-random.xml` (20), `…-O-random-sieve.xml` (9)) | titles + abstracts | **nothing on Bernoulli/random thinning of the rational primes as a Beurling system**, nor on Ω-bounds for integers free of a random sparse prime set. Nearest: Aymone arXiv:2009.09240 (random ±1 multiplicative functions, fixed P(f(p) = −1) — a different object); Hawkins random sieve (math/0607196) | — | T_α's analysis not in print as far as read |
+
+**Novelty verdicts (task 5), each "not in any source read" unless a page is given:**
+- **Theorem A / Cor. A′: NEW** as statements (BDR's §5 reaches only 2α/(α+2) by the hyperbola method and flags possible
+  improvement, Rem. 5.3(2)); the technique (truncated Perron + convexity of ζ on Re s = α/2 + ε under RH) is standard —
+  BDR themselves run Perron for the *deleted* system N_S on Re s > α/2 (z-02 l. 1205–1208).
+- **Theorem B: NEW** (single-check; no printed anti-concentration lower bound for random sparse deletions found).
+- **Theorem C: NEW but elementary** — it is Landau's non-negative-coefficient argument (quoted in BDR l. 1072–1090 for
+  additions) applied to the prime squares of a deleted set; I would call it a routine consequence of that argument.
+- **Conjecture U: NEW** as a conjecture. It contradicts BDR's printed conjecture (l. 84–87) in the corner β < α/2, and it is
+  the corrected, quantitative form of DMV's p. 4 speculation (whose literal form is false unconditionally by Prop 2.1).
+- Prop 2.1 (dichotomy) answers DMV's speculation negatively and unconditionally; not stated in BDR (their l. 1090 is
+  "if RH is true"); routine. Prop 5.1: not located on disk; plausibly classical (Franel-type); no novelty claimed.
+
+## §4. Attack on Conjecture U (every discrete [α, β]-system has α ≤ max{½, 2β})
+
+Preliminary: **a refutation needs no RH input.** If some construction gives, *under RH*, a discrete system with
+α > max{½, 2β}, then U is false unconditionally (RH false ⇒ (P, N) is a [Θ, 0]-system with Θ > ½, which already violates U).
+So "RH-conditional" is enough for a counterexample; this sharpens what the corner {β < α/2} search must find.
+Also: U ⇒ β* = ¼ is a valid threshold (β ≤ ¼ ⇒ α ≤ ½), consistent with Cor. 2.2's cap β* ≤ 2/5.
+
+| # | system (source) | (α, β) on the record | what U asserts there | verdict |
+|---|---|---|---|---|
+| A1 | (P, N) (Prop 2.1) | [Θ, 0] | Θ = ½ (RH) | undecidable on the record |
+| A2 | ideal norms of a quadratic field K (BDR Rem. 5.3(3), quoting Landau) | β_K ∈ [¼, ⅓] (O(x^{1−2/(n+1)}) and Ω(x^{½−1/(2n)}), n = 2); α_K = Θ_K = sup Re ρ over zeros of ζ_K = ζ·L(·, χ_D) (α_K ≥ Θ_K by the Mellin argument of 2.1; ≤ is the classical explicit formula, UNVERIFIED at the page) | ζ_K ≠ 0 on Re s > 2β_K: **no zero of L(s, χ_D) with Re s > ⅔ for every quadratic character** (a quasi-GRH), and **GRH for ζ_K** if the conjectured β_K = ¼ holds (BDR l. 1387: conjectured O(x^{½−1/(2n)+ε})) | consistent with everything printed; undecidable. U is strictly stronger than RH. For n ≥ 3, U gives Θ_K ≤ 2β_K, informative only where β_K < ½ is proved (cubic: Müller, BDR ref. [14], exponent not read) |
+| A3 | DZ Thm 17.14 = DMV + Zhang (book pp. 195–209); DMV Thm 1 | [1, β₀], β₀ ≤ ½ (17.14); [1, ≤ θ], θ ∈ (½, 1) (DMV) | β₀ = ½ exactly (resp. β ≥ ½) | undecidable in print (BDR fn. 4). **Reader's sketch, consistent with U:** the DZ g-primes are Bernoulli(p_k) selections from the grid v_k = n + ℓ/2ⁿ (17.13) with p_k = ∫_{v_{k−1}}^{v_k} f ≈ 2^{−n}/log n, so the g-primes in (x/2, x] are ≈ Poisson with mean ≍ x/log x. With no g-primes in (1, 2) (Rem. 17.12), the Theorem-B decomposition applies verbatim with α = 1: c_k = κx/v_k − 1, conditional variance ≍ x/log x ⇒ a.s. N − ρx ≠ O(x^τ) for τ < ½. With 17.14(i), **β₀ = ½ for almost every realization** — the random DMV/DZ systems sit on the line α = 2β. (Single-check sketch; see §7.) |
+| A4 | BDR Thm 1.1, 1.3; Cor. A′ | β ≥ ½; 2α/(α+2) ≥ α/2; 1/(3−α) ≥ α/2 | — | consistent |
+| A5 | BDV 2004.11501; DZ 17.11; Zhang's first system; Broucke–Vindas | [½, 1]; [½, ≤½]; [≤½, ≤½]; [0, ½] | nothing (α ≤ ½) | consistent |
+| A6 | ζ(s)ζ(ks): add {p^k} as g-primes, k ≥ 2 | [Θ, 1/k] (N = Σ_m⌊x/m^k⌋ = ζ(k)x + ζ(1/k)x^{1/k} + smaller: the residue of ζ(s)ζ(ks)x^s/s at s = 1/k; ψ gains kψ(x^{1/k})) | Θ ≤ max(½, 2/k) | consistent under RH; ⇔ RH for k ≥ 4 |
+| A7 | finite surgery on ℙ (NOTE 5.3); periodic N − cx (Hilberdink 2012) | [Θ, 0] | RH | same as A1 |
+| A8 | structured deletions, integer c (Theorem C) | proved β ≥ max(α/k_c, α − ½); for c = 2, α ∈ (½, ¾): bound α/3 < α/2 | β ≥ α/2 | **the only surgery corner where a counterexample is not excluded by a theorem.** No upper-bound technique reaches it (Theorem C has no Perron companion); the writer's data at c = 2, α = 0.6 climb to α/2 (0.278 → 0.299 on [10⁷, 10¹⁰]); c = 6 runs uninformative. Undecidable; numerically consistent |
+| A9 | T_α with RH-false ζ (NOTE Conj. R: β = max(α/2, Θ+α−1)) | — | — | moot: RH false already refutes U via A1 |
+| A10 | continuous / weighted systems: G-template ζ = (s−ρ₀)(s−ρ̄₀)/(s(s−1)) gives N = ρx + c log x + c′ (β = 0) with α = β₀; DMV p. 4 cites Malliavin and Diamond for continuous dΠ ≥ 0 with (3) and a zero anywhere in (0,1); the weighted mean system ζ(s)/ζ(s+1−α) has β ≈ α − ½ < α/2 (NOTE data 6.2′) | [β₀, 0]; [α, ≈ α−½] | — | **U fails outside discrete systems** (as Hilberdink's wall does). U must be stated for discrete systems (it is, via the NOTE's definition); any proof of U must use discreteness (m7) |
+| A11 | the virtual curve (NOTE 5.4) | not an [α, β]-system over ℝ | — | excluded |
+
+**Outcome of §4:** no system on the record refutes U; every in-print discrete system is consistent with it; the stop
+condition (an RH-false-compatible system on the record with β < α/2) is **not** met. U is a strong conjecture: it implies
+RH, a quasi-GRH at level ⅔ for every quadratic field, and full GRH for quadratic fields given the Hardy-type conjecture
+β_K = ¼. Its sharpest in-print test is BDR's footnote 4 (β₀ of DZ 17.14), which the Theorem-B mechanism answers β₀ = ½ a.s.
+(consistent). Its only open surgery corner is A8 (integer c ≥ 2, α < ¾).
+
+## §5. FIX-FIRST items (OLD/NEW pairs against NOTE.md as read: 50,809 bytes, md5 b32d4d57b51c5156886d3799ab4502e4)
+
+Not applied by the reader. None of them makes a theorem false; F2 and F4 repair proofs, F1 and F5 repair verdict sentences.
+
+**F1 — the K verdict is mis-worded (§3.2 l. 126; §7.1(2) l. 419–420).** The analyticity claim holds under RH, so it is not
+"false"; Prop 3.2 shows it is equivalent (up to the coincidence clause) to a quasi-RH.
+- OLD (l. 126): `So the pre-derivation's "h ... converges a.s. and is analytic for Re s > β₀/2" is **false unconditionally**: it holds iff ζ(s + 1 − β₀)`
+- NEW: `So the pre-derivation's "h ... converges a.s. and is analytic for Re s > β₀/2" **cannot be asserted unconditionally** (it is true under RH): it holds iff ζ(s + 1 − β₀)`
+- OLD (l. 419–420): `"h analytic for Re s > β₀/2":` / `**false unconditionally** — true for the fluctuation, false for the mean, which carries ζ's zeros shifted by β₀ − 1;`
+- NEW: `"h analytic for Re s > β₀/2":` / `**not provable unconditionally** — true for the fluctuation; for the mean, which carries ζ's zeros shifted by β₀ − 1, it is equivalent to a quasi-RH (true under RH);`
+
+**F2 — Theorem B, step (1): μ_R is not the Dirichlet convolution μ_w * μ_η (§4, l. 214–216, 221–223, 228, 239).**
+Π_p(1 − w_pp^{−s})(1 − η_pp^{−s}) = Π_p(1 − ε_pp^{−s} + w_pη_pp^{−2s}): the convolution carries extra mass at p²∣n.
+- OLD (l. 214): `Write ε_p = w_p + η_p: μ_R = μ_w * μ_η with μ_w(k) = Π_{p|k}(−w_p), μ_η(d) = Π_{p|d}(−η_p), hence`
+- NEW: `Write ε_p = w_p + η_p: on squarefree m, μ_R(m) = Σ_{dk=m} μ_w(k)μ_η(d) (d, k coprime; not the Dirichlet convolution μ_w * μ_η, which has extra mass w_pη_p at p²), μ_w(k) = Π_{p|k}(−w_p), μ_η(d) = Π_{p|d}(−η_p), hence`
+- OLD (l. 215): `E(x) = −Σ_d μ_η(d)·T(x/d),  T(y) := Σ_k μ_w(k){y/k}  (deterministic; T(y) = ρ_w y for y < 1, ρ_w := Π_p(1 − w_p/p)),`
+- NEW: `E(x) = −Σ_d μ_η(d)·T_d(x/d),  T_d(y) := Σ_{(k,d)=1} μ_w(k){y/k}  (deterministic; T_d(y) = yΠ_{p∤d}(1 − w_p/p) for y < 1; T := T_1, ρ_w := Π_p(1 − w_p/p)),`
+- OLD (l. 221–222): `give η_p·c_p with c_p = T(x/p) + ρ_w(x/p)(Π′ − 1) = κ·(x/p) − 1, where` / `Π′ = Π_{q∉B}(1 − η_q/q), κ = ρ_wΠ′ > 0 (because for 1 ≤ y < 2, T(y) = ρ_w y − 1, and x/(pe) < 1 for e ≥ 2);`
+- NEW: `give η_p·c_p with c_p = κ_p·(x/p) − 1, where` / `κ_p = Π_{q∈B, q≠p}(1 − w_q/q)·Π_{q∉B}(1 − ε_q/q) > 0 is G-measurable (x/(pek) < 1 unless ek = 1, and (1 − w_q/q)(1 − η_q/(q − w_q)) = 1 − ε_q/q);`
+- OLD (l. 223): `Z = −ρ_w xΠ′Σ_{f⊂B,|f|≥2}μ_η(f)/f, and E|Z| ≪ x·Σ_{p∈B}v_p p^{−2} ≪ x^{α−1}.`
+- NEW: `Z = −xΠ_{q∉B}(1 − ε_q/q)Σ_{f⊂B,|f|≥2}(μ_η(f)/f)Π_{q∈B,q∤f}(1 − w_q/q), and (E Z²)^{1/2} ≪ x·Σ_{p∈B}v_p p^{−2} ≪ x^{α−1}.`
+- OLD (l. 227–228): `As x → ∞, κ = κ_x → κ_∞ :=` / `ρ_wΠ_q(1 − η_q/q) ∈ (0, ∞) a.s.`
+- NEW: `As x → ∞, κ_p → κ_∞ :=` / `ρ_P = Π_q(1 − ε_q/q) ∈ (0, ∞) a.s., uniformly in p ∈ B.`
+- OLD (l. 239): `From (1), E[E(x)] = −T(x) and Var E(x) = Σ_{d>1}V(d)T(x/d)²,`
+- NEW: `From (1), E[E(x)] = −T(x) and Var E(x) = Σ_{d>1}V(d)T_d(x/d)²,`
+
+**F3 — Theorem A (i): dyadic Borel–Cantelli does not control the centered prime sum between grid points (l. 188).**
+- OLD: `Bernstein plus Borel–Cantelli along x = 2^j (monotone pieces between) give O(x^{α/2+ε}) a.s.`
+- NEW: `Bernstein plus Borel–Cantelli on a grid of mesh X^{1−α/2} in each dyadic block [X, 2X] (≍ X^{α/2} points, tail e^{−X^{ε}} each; between grid points Σ_p w_p log p moves by ≪ X^{α/2}log X and Σ_p ε_p log p is monotone) give O(x^{α/2+ε}) a.s.`
+
+**F4 — Theorem C: the continuation ignores the j = 1 term; for c ∉ ℤ, s = α is itself a branch point (l. 294, 302–303).**
+The statement stays true (β ≥ α ≥ α/k_c), but the proof as written is wrong for c ∉ ℤ and the bound is not the right one there.
+- OLD (l. 294): `listed below, ζ_{ℙ\R} is not analytic at the real point s = α/k, and hence **β(ℙ \ R) ≥ α/k_c**. For c = 1: β ≥ α/2. For c = 2: β ≥ α/3.`
+- NEW: `listed below, ζ_{ℙ\R} is not analytic at the real point s = α/k, and hence **β(ℙ \ R) ≥ α/k_c**; if c ∉ ℤ, already s = α is a branch point ((s − α)^c from j = 1) and β ≥ α. For c = 1: β ≥ α/2. For c = 2: β ≥ α/3.`
+- OLD (l. 302–303): `The same continuation is reached along the real segment from s = α (where the` / `product converges) because the points α/j, 2 ≤ j < k, are regular (there (js − α)^{c/j} with c/j ∈ ℤ).`
+- NEW: `For c ∈ ℤ the same continuation is reached along the real segment from the half-plane Re s > α (where the` / `product converges): the j = 1 term gives (s − α)^c, a zero of order c at s = α, and the points α/j, 2 ≤ j < k, are regular (there (js − α)^{c/j} with c/j ∈ ℤ).`
+
+**F5 — §6.4 and §7.1(3) mis-report the window scan (l. 400–402, 426).** `verify/logs/fit_big.log` prints a fourth
+window, [10⁷, 10¹⁰]: sup-slopes 0.3118 ± 0.0145 / **0.4504 ± 0.0094** / 0.4756 ± 0.0260 (α = .6/.75/.9).
+- OLD (l. 401–402): `Against α/2 = 0.300 / 0.375 / 0.450: agreement within 1.6σ in every window; 1/(3 − α) = 0.417 / 0.444 / 0.476 is excluded at` / `α = 0.6, 0.75 by > 4σ in every window (6.8σ and 4.2σ in the least favorable one, [10⁶, 10¹⁰]).`
+- NEW: `Against α/2 = 0.300 / 0.375 / 0.450: agreement within 1.6σ in the windows [10^k, 10¹⁰], k = 4, 5, 6; the top window [10⁷, 10¹⁰] gives 0.312 ± 0.015 / 0.450 ± 0.009 / 0.476 ± 0.026 — at α = 0.75 8σ above α/2 and within 1σ of 1/(3 − α) = 0.444. So 1/(3 − α) = 0.417 / 0.444 / 0.476 is excluded at` / `α = 0.6 in every window, and at α = 0.75 only in windows starting at ≤ 10⁶ (4.2σ in [10⁶, 10¹⁰]). The ± are seed standard errors; local two-decade slopes swing by ±0.1–0.15 (read-O §2), so the realistic systematic on these slopes is ±0.03–0.05.`
+- OLD (l. 426): `0.9 — the prediction β₀/2 holds at all three; controls give 0.000 (ℙ) and 0.497 ± 0.006 (Cramér).`
+- NEW: `0.9 — consistent with β₀/2 at all three on full windows (independent numpy re-run to 10⁸, 8 seeds: 0.308 ± 0.008, 0.378 ± 0.012, 0.465 ± 0.016, read-O §2); at β₀ = 0.75 the top window [10⁷, 10¹⁰] (0.450 ± 0.009) sits on Theorem A's bound, so α/2 vs 1/(3 − α) is not settled there; controls give 0.000 (ℙ) and 0.497 ± 0.006 (Cramér).`
+
+## §6. MINOR pairs (prose and constants)
+
+- **m1** (l. 166) OLD `≤ (k+1)2^{k(1−α/2)}` → NEW `≤ (k+1)2^{k(1−α/2)+1}` (Σ_{p∈B_k}(ε_p + w_p) ≤ 2^{k+1}).
+- **m2** (l. 170) OLD `(c): |Q_R(s)| ≤ 2Σ_{p∈R} p^{−α−2δ}` → NEW `(c): |Q_R(s)| ≤ C_αΣ_{p∈R} p^{−α−2δ}, C_α = (1 − 2^{−α/2})^{−1}`.
+- **m3** (l. 211, after "with no hypothesis on ζ.") add: `Here α is the thinning parameter; α(T_α) = α under RH and α(T_α) ≥ α always (3.3).`
+- **m4** (l. 193–194) OLD `and |ζ_P(1 + δ + it)| ≪ 1` → NEW `and |ζ_P(1 + δ + it)| ≪ |t|^δ` (the U factor).
+- **m5** (§6.1, first bullet) add: `No generalized primes are added in any run: T_α and the greedy sets are pure deletions (the pre-derivation's add/delete surgery is not simulated; by 3.2 it cannot be realized as stated).`
+- **m6** (§1, new item 1.7) add: `DMV, Math. Ann. 334 (2006), p. 4 (sources/p1-02 l. 203–207): "it may still be the case that (3) with θ < 1/2 does imply RH for discrete Beurling generalized numbers" — the M1b question in print. Prop 2.1 answers it negatively and unconditionally; BDR Thm 1.3 answers it under RH.`
+- **m7** (§7.2, Conjecture U) OLD `**Every Beurling [α, β]-system satisfies` → NEW `**Every discrete Beurling [α, β]-system satisfies`; add to its status: `(e) it fails for continuous systems (DMV p. 4: Malliavin, Diamond; the G-template of the brief is a continuous [β₀, 0]-system), so any proof must use discreteness, as Hilberdink's does.`
+- **m8** (l. 443) OLD `it predicts β₀ = ½ for the DMV–Zhang [1, β₀]-system` → NEW `it predicts β₀ = ½ for the DMV–Zhang [1, β₀]-system (β₀ ≤ ½ is Diamond–Zhang Thm 17.14(i); the Theorem-B mechanism gives β₀ ≥ ½ a.s. for their random construction, read-O §4 A3)`.
+- **m9** (§1, l. 14–15) add the journal reference: `published as Trans. Amer. Math. Soc. 378 (2025), 477–501 (arXiv metadata); page/line numbers here refer to v2`.
+- **m10** (l. 357) OLD `lies 14σ (α = 0.6) and 7σ (α = 0.75) above the data` → NEW `lies 14σ (α = 0.6) and 7σ (α = 0.75) above the data in seed standard errors (≈ 3σ and 2σ with a ±0.04 systematic)`.
+- **m11** (§2, Prop 2.3 l. 94) `[recalled, unverified]` stays: no copy of Ingham or MV I is on disk (reader checked `fetched*/`).
+
+## §7. What the reader adds, and the next unit to fund
+
+**Added by this read.**
+1. Two proof repairs that keep the theorems (F2: Theorem B's coprime convolution, with κ_∞ = ρ_P; F4: Theorem C's j = 1
+   term, which for c ∉ ℤ strengthens the bound to β ≥ α) and one gap fix (F3).
+2. The correct form of K (F1): the pre-derivation's analyticity is *equivalent to a quasi-RH*, true under RH — not false.
+3. A data correction (F5): the omitted [10⁷, 10¹⁰] window puts α = 0.75 on Theorem A's bound; an independent numpy re-run
+   (different sieve, RNG, ρ tail, estimators; 8 seeds to 10⁸) reproduces α/2 on full windows at α = 0.6, 0.75, 0.9, and a
+   local-slope scan shows ±0.1–0.15 swings, so finite-range slopes carry a ±0.03–0.05 systematic the NOTE does not state.
+4. Prior art: DMV (2006, p. 4) posed the M1b question in print; Prop 2.1 answers it negatively and unconditionally.
+   BDR is published (Trans. AMS 378 (2025)). BDV 2004.11501 is a [½, 1]-system (not [1, ½]).
+5. On U: a counterexample needs only RH-conditional input; U ⇒ β* = ¼ threshold, RH, and a quasi-GRH at level ⅔ for
+   every quadratic field (GRH for ζ_K if β_K = ¼); U is false for continuous systems (a discreteness statement);
+   **the sharpest in-print test (BDR fn. 4: β₀ of Diamond–Zhang Thm 17.14) is answered β₀ = ½ a.s. by the Theorem-B
+   mechanism at α = 1** (sketch: Poisson-thin g-primes in (x/2, x] from the grid v_k = n + ℓ/2ⁿ, conditional variance
+   ≍ x/log x) — consistent with U, and it settles BDR's "most likely ½" for almost every realization of their construction.
+
+**Next unit I would fund (standing order 10: a construct-or-refute unit).** *"The square-root law for sifted sets"*:
+prove, for every set R of primes with Σ_{p∈R}1/p < ∞ and π_R(x) = x^{α_R+o(1)}, the mean-square lower bound
+(1/X)∫_X^{2X}(N_{ℙ∖R}(x) − ρx)²dx ≫ X^{α_R−ε} — or refute it by a structured R (the integer-c corner A8, α < ¾, where
+Theorem C permits α/3). Why this unit: (i) it is exactly Conjecture O in mean square, i.e. the surgery part of U — the
+only part of U not RH-hard (U itself implies RH, so no full proof is fundable); (ii) a refutation would refute U outright
+(an RH-conditional corner example suffices, §4 preamble) and would confirm BDR's printed conjecture in the corner β < α/2;
+(iii) the tool is concrete: E = −Σ_m μ_R(m)ψ(x/m) with the Franel/GCD kernel (m, m′)²/(mm′), which is positive definite
+(Σ_d J₂(d)(·)², Prop 5.1's computation) — a pair (m, m′) whose period lcm(m, m′) is ≤ X averages over [X, 2X] to the
+Franel value up to a relative O(lcm(m, m′)/X), so the open analytic step is the pairs with lcm(m, m′) > X (the
+near-diagonal Fourier terms |hm′ − h′m| < mm′/X). Companion items, each small: (a) write out the A3 sketch
+(DZ 17.14 has β₀ = ½ a.s.) as a lemma; (b) compute side-task: 8 more seeds of `verify/thin` at X = 10¹⁰, α = 0.75, to decide
+whether the [10⁷, 10¹⁰] excess (0.450 ± 0.009 on 4 seeds) is a small-sample fluctuation; (c) G1 by Montgomery–Vaughan-type
+methods for ζ(s)/ζ(s+1−α) under RH (the squarefree-problem analogue), which would lower Theorem A's 1/(3 − α).

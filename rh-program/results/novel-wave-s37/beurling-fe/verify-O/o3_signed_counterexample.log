@@ -1,0 +1,7 @@
+(a) atoms of mu_s in (0,2] (position: mass): 1.11803: 2.23607, 1.34164: -2, 1.78885: 2
+    smallest positive atom: 1.118033989   cancelled atoms at 1/sqrt5, 2/sqrt5: ['0', '0']
+(b) max |Theta(1/x) - sqrt(x) Theta(x)| over x = 2^-4..2^4: 5.5101e-40   Theta(1) = 1.07428407724
+(c) sum_{t>0} m(t) S(t): closed form = -1.14794e-41   direct over atoms t <= 60 = -0.000862249 (tail O(1/60))   => <mu,phi> = <mu,phi^> = 1 + 2*0 = rho = 1 with NON-integral atoms
+(d) s = (0.3 + 7.0j): |xi_F(s) - xi_F(1-s)| = 2.2421e-44   |xi_F(s)| = 0.0085653
+(d) s = (2.5 - 3.0j): |xi_F(s) - xi_F(1-s)| = 1.007e-41   |xi_F(s)| = 0.0698212
+(e) Res_{s=1} F = D(1) = 1.0   (rho = 1); F(3) from the atoms t <= 60: 1.1604227  closed form F(3) = 1.1605575

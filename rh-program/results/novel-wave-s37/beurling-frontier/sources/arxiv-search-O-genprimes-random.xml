@@ -1,0 +1,437 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/WMOEJXoKRsHwXWC8mjarAbpIHWA</id>
+  <title>arXiv Query: search_query=(all:"generalized primes" OR all:"generalized integers" OR all:"Beurling primes" OR all:"Beurling integers") AND (all:random OR all:probabilistic OR all:Bernoulli OR all:thinning)&amp;id_list=&amp;start=0&amp;max_results=100</title>
+  <updated>2026-09-30T20:05:04Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(all:%22generalized+primes%22+OR+(all:%22generalized+integers%22+OR+(all:%22Beurling+primes%22+OR+all:%22Beurling+integers%22)))+AND+(all:random+OR+(all:probabilistic+OR+(all:Bernoulli+OR+all:thinning)))&amp;start=0&amp;max_results=100&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>
+  <opensearch:totalResults>20</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2301.11782v3</id>
+    <title>A note on Bohr's theorem for Beurling integer systems</title>
+    <updated>2023-03-09T08:53:13Z</updated>
+    <link href="https://arxiv.org/abs/2301.11782v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2301.11782v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Given a sequence of frequencies $\{λ_n\}_{n\geq1}$, a corresponding generalized Dirichlet series is of the form $f(s)=\sum_{n\geq 1}a_ne^{-λ_ns}$. We are interested in multiplicatively generated systems, where each number $e^{λ_n}$ arises as a finite product of some given numbers $\{q_n\}_{n\geq 1}$, $1 &lt; q_n \to \infty$, referred to as Beurling primes. In the classical case, where $λ_n = \log n$, Bohr's theorem holds: if $f$ converges somewhere and has an analytic extension which is bounded in a half-plane $\{\Re s&gt; θ\}$, then it actually converges uniformly in every half-plane $\{\Re s&gt; θ+\varepsilon\}$, $\varepsilon&gt;0$. We prove, under very mild conditions, that given a sequence of Beurling primes, a small perturbation yields another sequence of primes such that the corresponding Beurling integers satisfy Bohr's condition, and therefore the theorem. Applying our technique in conjunction with a probabilistic method, we find a system of Beurling primes for which both Bohr's theorem and the Riemann hypothesis are valid. This provides a counterexample to a conjecture of H. Helson concerning outer functions in Hardy spaces of generalized Dirichlet series.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.FA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-01-27T15:39:24Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Math. Ann. (2023)</arxiv:journal_ref>
+    <author>
+      <name>Frederik Broucke</name>
+    </author>
+    <author>
+      <name>Athanasios Kouroupis</name>
+    </author>
+    <author>
+      <name>Karl-Mikael Perfekt</name>
+    </author>
+    <arxiv:doi>10.1007/s00208-023-02756-x</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s00208-023-02756-x" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2102.08478v2</id>
+    <title>A new generalized prime random approximation procedure and some of its applications</title>
+    <updated>2024-06-17T10:04:30Z</updated>
+    <link href="https://arxiv.org/abs/2102.08478v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2102.08478v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present a new random approximation method that yields the existence of a discrete Beurling prime system $\mathcal{P}=\{p_{1}, p_{2}, \dotso\}$ which is very close in a certain precise sense to a given non-decreasing, right-continuous, nonnegative, and unbounded function $F$. This discretization procedure improves an earlier discrete random approximation method due to H. Diamond, H. Montgomery, and U. Vorhauer [Math. Ann. 334 (2006), 1-36], and refined by W.-B. Zhang [Math. Ann. 337 (2007), 671-704].
+  We obtain several applications. Our new method is applied to a question posed by M. Balazard concerning Dirichlet series with a unique zero in their half plane of convergence, to construct examples of very well-behaved generalized number systems that solve a recent open question raised by T. Hilberdink and A. Neamah in [Int. J. Number Theory 16 05 (2020), 1005-1011], and to improve the main result from [Adv. Math. 370 (2020), Article 107240], where a Beurling prime system with regular primes but extremely irregular integers was constructed.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-02-16T22:32:21Z</published>
+    <arxiv:comment>15 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Math Z. 307(2024), Article 62</arxiv:journal_ref>
+    <author>
+      <name>Frederik Broucke</name>
+    </author>
+    <author>
+      <name>Jasson Vindas</name>
+    </author>
+    <arxiv:doi>10.1007/s00209-024-03526-4</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s00209-024-03526-4" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2402.02664v1</id>
+    <title>Statistical Inference for Generalized Integer Autoregressive Processes</title>
+    <updated>2024-02-05T01:31:03Z</updated>
+    <link href="https://arxiv.org/abs/2402.02664v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2402.02664v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A popular and flexible time series model for counts is the generalized integer autoregressive process of order $p$, GINAR($p$). These Markov processes are defined using thinning operators evaluated on past values of the process along with a discretely-valued innovation process. This class includes the commonly used INAR($p$) process, defined with binomial thinning and Poisson innovations. GINAR processes can be used in a variety of settings, including modeling time series with low counts, and allow for more general mean-variance relationships, capturing both over- or under-dispersion. While there are many thinning operators and innovation processes given in the literature, less focus has been spent on comparing statistical inference and forecasting procedures over different choices of GINAR process. We provide an extensive study of exact and approximate inference and forecasting methods that can be applied to a wide class of GINAR($p$) processes with general thinning and innovation parameters. We discuss the challenges of exact estimation when $p$ is larger. We summarize and extend asymptotic results for estimators of process parameters, and present simulations to compare small sample performance, highlighting how different methods compare. We illustrate this methodology by fitting GINAR processes to a disease surveillance series.</summary>
+    <category term="stat.ME" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-02-05T01:31:03Z</published>
+    <arxiv:primary_category term="stat.ME"/>
+    <author>
+      <name>Pashmeen Kaur</name>
+    </author>
+    <author>
+      <name>Peter F. Craigmile</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2004.11501v2</id>
+    <title>Beurling integers with RH and large oscillation</title>
+    <updated>2020-05-26T19:00:04Z</updated>
+    <link href="https://arxiv.org/abs/2004.11501v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2004.11501v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We construct a Beurling generalized number system satisfying the Riemann hypothesis and whose integer counting function displays extremal oscillation in the following sense. The prime counting function of this number system satisfies $π(x)= \operatorname*{Li} (x)+ O(\sqrt{x})$, while its integer counting function satisfies the oscillation estimate $N(x) = ρx + Ω_{\pm}\bigl(x\exp(-c\sqrt{\log x\log\log x})\bigr)$ for some $c&gt;0$, where $ρ&gt;0$ is its asymptotic density. The construction is inspired by a classical example of H. Bohr for optimality of the convexity bound for Dirichlet series, and combines saddle-point analysis with the Diamond-Montgomery-Vorhauer probabilistic method via random prime number system approximations.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-04-24T01:07:57Z</published>
+    <arxiv:comment>31 pages, 2 figures</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Adv. Math. 370 (2020), Article Numbers 107240</arxiv:journal_ref>
+    <author>
+      <name>Frederik Broucke</name>
+    </author>
+    <author>
+      <name>Gregory Debruyne</name>
+    </author>
+    <author>
+      <name>Jasson Vindas</name>
+    </author>
+    <arxiv:doi>10.1016/j.aim.2020.107240</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.aim.2020.107240" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2009.09240v1</id>
+    <title>Random multiplicative functions: The Selberg-Delange class</title>
+    <updated>2020-09-19T14:40:32Z</updated>
+    <link href="https://arxiv.org/abs/2009.09240v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2009.09240v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $1/2\leqβ&lt;1$, $p$ be a generic prime number and $f_β$ be a random multiplicative function supported on the squarefree integers such that $(f_β(p))_{p}$ is an i.i.d. sequence of random variables with distribution $\mathbb{P}(f(p)=-1)=β=1-\mathbb{P}(f(p)=+1)$. Let $F_β$ be the Dirichlet series of $f_β$. We prove a formula involving measure-preserving transformations that relates the Riemann $ζ$ function with the Dirichlet series of $F_β$, for certain values of $β$, and give an application. Further, we prove that the Riemann hypothesis is connected with the mean behavior of a certain weighted partial sums of $f_β$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-09-19T14:40:32Z</published>
+    <arxiv:comment>9 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Marco Aymone</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1406.7078v1</id>
+    <title>Close to Uniform Prime Number Generation With Fewer Random Bits</title>
+    <updated>2014-06-27T06:12:05Z</updated>
+    <link href="https://arxiv.org/abs/1406.7078v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1406.7078v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper, we analyze several variants of a simple method for generating prime numbers with fewer random bits. To generate a prime $p$ less than $x$, the basic idea is to fix a constant $q\propto x^{1-\varepsilon}$, pick a uniformly random $a&lt;q$ coprime to $q$, and choose $p$ of the form $a+t\cdot q$, where only $t$ is updated if the primality test fails. We prove that variants of this approach provide prime generation algorithms requiring few random bits and whose output distribution is close to uniform, under less and less expensive assumptions: first a relatively strong conjecture by H.L. Montgomery, made precise by Friedlander and Granville; then the Extended Riemann Hypothesis; and finally fully unconditionally using the Barban-Davenport-Halberstam theorem. We argue that this approach has a number of desirable properties compared to previous algorithms.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-06-27T06:12:05Z</published>
+    <arxiv:comment>Full version of ICALP 2014 paper. Alternate version of IACR ePrint Report 2011/481</arxiv:comment>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Pierre-Alain Fouque</name>
+    </author>
+    <author>
+      <name>Mehdi Tibouchi</name>
+    </author>
+    <arxiv:doi>10.1007/978-3-662-43948-7_82</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/978-3-662-43948-7_82" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2005.04698v3</id>
+    <title>Spectral quasi correlations and phase-transitions for the nodal length of Arithmetic Random Waves</title>
+    <updated>2021-09-09T10:02:23Z</updated>
+    <link href="https://arxiv.org/abs/2005.04698v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2005.04698v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Spectral quasi correlations are small sums of lattice points lying on the same circle; we show that, for generic integers representable as the sum of two squares, there are no spectral quasi-correlations. Moreover, we apply our result to study the nodal length of Arithmetic Random Waves at small scales: we show that there exists a phase-transition for the distribution of the nodal length at a logarithmic power above Planck-scale. Furthermore, we give strong evidence for the existence of an intermediate phase between Arithmetic and Berry's random waves.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-05-10T15:39:37Z</published>
+    <arxiv:comment>Comments are welcome!</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Andrea Sartori</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2008.05807v2</id>
+    <title>Perturbation symmetries in shear-thinning viscoelastic pipe flows and the Petrov-Galerkin implementation</title>
+    <updated>2021-04-01T12:27:45Z</updated>
+    <link href="https://arxiv.org/abs/2008.05807v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2008.05807v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The perturbations of the laminar shear-thinning viscoelastic pipe flow under Finitely Extensible Nonlinear Elastic model with Peterlin approximation (FENE-P) are shown to exhibit leading-order power-law behaviours, and the expected odd-even parities with respect to the radial coordinate that depend on the azimuthal wave\-number, $n$. The analysis helps regularizing the governing system of equations at the centreline, and allows for a complete stability analysis of three-dimensional perturbations for a general integer value of $n$, which has hitherto remained a challenge for FENE-P models. It is shown here that the symmetry and analytic behaviours of the velocity and pressure fields of the Newtonian counterpart are both preserved in this flow, and the reason is elucidated. For $|n|=1$, the perturbations to the correlations between the axial component and the radial or azimuthal components of the end-to-end polymer vector exhibit behaviour similar to that of the velocity perturbations close to the centreline, and are traced to the uniformity of axial traction with respect to the azimuthal direction. For all values of $n$, the fluctuation to the end-to-end length of the polymer chain vanishes at the centreline. The ansatzes for the perturbations to the components of conformation tensor arrived here, using heuristics, are later proved in two separate ways: Frobenius method, and a method that utilizes observations from Fourier analysis. We also reveal the existence of natural modes of polymers with trivial velocity perturbations in the limit of vanishing polymer viscosity. The complex frequency spectrum of these modes is continuous with radial stratification. Finally, the ansatzes are implemented using a Petrov--Galerkin spectral scheme.</summary>
+    <category term="physics.flu-dyn" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-08-13T10:43:17Z</published>
+    <arxiv:primary_category term="physics.flu-dyn"/>
+    <author>
+      <name>M Malik</name>
+    </author>
+    <author>
+      <name>Martin Skote</name>
+    </author>
+    <author>
+      <name>Roland Bouffanais</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1502.06321v2</id>
+    <title>A Linear Network Code Construction for General Integer Connections Based on the Constraint Satisfaction Problem</title>
+    <updated>2016-07-02T15:22:10Z</updated>
+    <link href="https://arxiv.org/abs/1502.06321v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1502.06321v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The problem of finding network codes for general connections is inherently difficult in capacity constrained networks. Resource minimization for general connections with network coding is further complicated. Existing methods for identifying solutions mainly rely on highly restricted classes of network codes, and are almost all centralized. In this paper, we introduce linear network mixing coefficients for code constructions of general connections that generalize random linear network coding (RLNC) for multicast connections. For such code constructions, we pose the problem of cost minimization for the subgraph involved in the coding solution and relate this minimization to a path-based Constraint Satisfaction Problem (CSP) and an edge-based CSP. While CSPs are NP-complete in general, we present a path-based probabilistic distributed algorithm and an edge-based probabilistic distributed algorithm with almost sure convergence in finite time by applying Communication Free Learning (CFL). Our approach allows fairly general coding across flows, guarantees no greater cost than routing, and shows a possible distributed implementation. Numerical results illustrate the performance improvement of our approach over existing methods.</summary>
+    <category term="cs.IT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-02-23T05:48:53Z</published>
+    <arxiv:comment>submitted to TON (conference version published at IEEE GLOBECOM 2015)</arxiv:comment>
+    <arxiv:primary_category term="cs.IT"/>
+    <author>
+      <name>Ying Cui</name>
+    </author>
+    <author>
+      <name>Muriel Médard</name>
+    </author>
+    <author>
+      <name>Fan Lai</name>
+    </author>
+    <author>
+      <name>Edmund Yeh</name>
+    </author>
+    <author>
+      <name>Douglas Leith</name>
+    </author>
+    <author>
+      <name>Ken Duffy</name>
+    </author>
+    <author>
+      <name>Dhaivat Pandya</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1411.3356v1</id>
+    <title>Prime number generation and factor elimination</title>
+    <updated>2014-10-06T18:39:52Z</updated>
+    <link href="https://arxiv.org/abs/1411.3356v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1411.3356v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We have presented a multivariate polynomial function termed as factor elimination function,by which, we can generate prime numbers. This function's mapping behavior can explain the irregularities in the occurrence of prime numbers on the number line. Generally the different categories of prime numbers found till date, satisfy the form of this function. We present some absolute and probabilistic conditions for the primality of the number generated by this method. This function is capable of leading to highly efficient algorithms for generating prime numbers.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-10-06T18:39:52Z</published>
+    <arxiv:comment>PO-03-1498 Abstract Book [Poster Session], ICM 2014, Seoul, South Korea</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Vineet Kumar</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2101.09151v1</id>
+    <title>Probability Analysis and Comparison of Well-Known Integer Factorization Algorithms</title>
+    <updated>2021-01-21T06:50:05Z</updated>
+    <link href="https://arxiv.org/abs/2101.09151v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2101.09151v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Two prominent methods for integer factorization are those based on general integer sieve and elliptic curve. The general integer sieve method can be specialized to quadratic integer sieve method. In this paper, a probability analysis for the success of these methods is described, under some reasonable conditions. The estimates presented are specialized for the elliptic curve factorization. These methods are compared through heuristic estimates. It is shown that the elliptic curve method is a probabilistic polynomial time algorithm under the assumption of uniform probability distribution for the arising group orders and clearly more likely to succeed, faster asymptotically.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-01-21T06:50:05Z</published>
+    <arxiv:primary_category term="math.GM"/>
+    <arxiv:journal_ref>Global Journal of Pure and Applied Mathematics, Volume 17, Number 1 (2021), pp. 1-8 (ISSN 0973-1768)</arxiv:journal_ref>
+    <author>
+      <name>Duggirala Meher Krishna</name>
+    </author>
+    <author>
+      <name>Duggirala Ravi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1207.5220v3</id>
+    <title>Integer factoring and modular square roots</title>
+    <updated>2015-07-28T15:37:55Z</updated>
+    <link href="https://arxiv.org/abs/1207.5220v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1207.5220v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Buresh-Oppenheim proved that the NP search problem to find nontrivial factors of integers of a special form belongs to Papadimitriou's class PPA, and is probabilistically reducible to a problem in PPP. In this paper, we use ideas from bounded arithmetic to extend these results to arbitrary integers. We show that general integer factoring is reducible in randomized polynomial time to a PPA problem and to the problem WEAKPIGEON in PPP. Both reductions can be derandomized under the assumption of the generalized Riemann hypothesis. We also show (unconditionally) that PPA contains some related problems, such as square root computation modulo n, and finding quadratic nonresidues modulo n.</summary>
+    <category term="cs.CC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2012-07-22T12:19:38Z</published>
+    <arxiv:comment>24 pages; to appear in Journal of Computer and System Sciences</arxiv:comment>
+    <arxiv:primary_category term="cs.CC"/>
+    <arxiv:journal_ref>Journal of Computer and System Sciences 82 (2016), no. 2, pp. 380--394</arxiv:journal_ref>
+    <author>
+      <name>Emil Jeřábek</name>
+    </author>
+    <arxiv:doi>10.1016/j.jcss.2015.08.001</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.jcss.2015.08.001" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/0301179v1</id>
+    <title>Primality Proving via One Round in ECPP and One Iteration in AKS</title>
+    <updated>2003-01-16T21:15:36Z</updated>
+    <link href="https://arxiv.org/abs/math/0301179v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0301179v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  In this paper, a random primality proving algorithm is proposed, which generates prime certificate of length O(log n). The certificate can be verified in deterministic time O(log^4 n). The algorithm runs in heuristical time tilde{O}(log^4 n), some supporting evidences are provided.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2003-01-16T21:15:36Z</published>
+    <arxiv:comment>10 pages, No figure</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Qi Cheng</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/0211020v2</id>
+    <title>Entropy and the Law of Small Numbers</title>
+    <updated>2004-11-17T10:26:58Z</updated>
+    <link href="https://arxiv.org/abs/math/0211020v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0211020v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  Two new information-theoretic methods are introduced for establishing Poisson approximation inequalities. First, using only elementary information-theoretic techniques it is shown that, when $S_n=\sum_{i=1}^nX_i$ is the sum of the (possibly dependent) binary random variables $X_1,X_2,...,X_n$, with $E(X_i)=p_i$ and $E(S_n)=\la$, then \ben D(P_{S_n}\|\Pol)\leq \sum_{i=1}^n p_i^2 + \Big[\sum_{i=1}^nH(X_i) - H(X_1,X_2,..., X_n)\Big], \een where $D(P_{S_n}\|{Po}(\la))$ is the relative entropy between the distribution of $S_n$ and the Poisson($\la$) distribution. The first term in this bound measures the individual smallness of the $X_i$ and the second term measures their dependence. A general method is outlined for obtaining corresponding bounds when approximating the distribution of a sum of general discrete random variables by an infinitely divisible distribution.
+  Second, in the particular case when the $X_i$ are independent, the following sharper bound is established, \ben D(P_{S_n}\|\Pol)\leq \frac{1}λ \sum_{i=1}^n \frac{p_i^3}{1-p_i}, % \label{eq:abs2} \een and it is also generalized to the case when the $X_i$ are general integer-valued random variables. Its proof is based on the derivation of a subadditivity property for a new discrete version of the Fisher information, and uses a recent logarithmic Sobolev inequality for the Poisson distribution.</summary>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2002-11-01T17:21:52Z</published>
+    <arxiv:comment>15 pages. To appear, IEEE Trans Inform Theory</arxiv:comment>
+    <arxiv:primary_category term="math.PR"/>
+    <arxiv:journal_ref>IEEE Transactions on Information Theory, Vol 51/2, 2005, pages 466-472</arxiv:journal_ref>
+    <author>
+      <name>Ioannis Kontoyiannis</name>
+    </author>
+    <author>
+      <name>Peter Harremoes</name>
+    </author>
+    <author>
+      <name>Oliver Johnson</name>
+    </author>
+    <arxiv:doi>10.1109/TIT.2004.840861</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1109/TIT.2004.840861" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.08745v1</id>
+    <title>Exclusion reshapes the operational manifestation of preparation contextuality</title>
+    <updated>2026-05-09T07:15:35Z</updated>
+    <link href="https://arxiv.org/abs/2605.08745v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.08745v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Replacing the task of retrieval with exclusion changes how preparation contextuality manifests operationally under parity-oblivious constraints, with exclusion showing a quantum advantage where retrieval does not. We introduce the parity-oblivious random exclusion code (POREC) and show that for prime symbol size $m$, classical and preparation-noncontextual encodings provide a tight noncontextual bound. For the first nontrivial case (two digits, three symbols), our derived exact qubit optimum violates this bound, in contrast to parity-oblivious retrieval, which displays no quantum advantage. This characteristic difference is absent without parity constraints. For general prime $m$, qubit strategies achieve a quantum-to-noncontextual gap that grows linearly relative to the random exclusion code (REC) gap, exceeding both parity-oblivious retrieval and standard REC. The exact qubit bound yields a sharp semi-device-independent certification of dimension $d \geq 3$. Our analysis of noise robustness demonstrates POREC to be amenable for experimental implementation on existing prepare-and-measure platforms, establishing parity-oblivious exclusion as a distinct operational probe of preparation contextuality, as well as a practical information processing protocol with wide applications.</summary>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-09T07:15:35Z</published>
+    <arxiv:comment>5 pages (double column) + 13 pages (single column), 1 figure; Comments are welcome</arxiv:comment>
+    <arxiv:primary_category term="quant-ph"/>
+    <author>
+      <name>Pritam Roy</name>
+    </author>
+    <author>
+      <name>Thansingh Jankawat</name>
+    </author>
+    <author>
+      <name>Ranendu Adhikary</name>
+    </author>
+    <author>
+      <name>A. S. Majumdar</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2203.05446v1</id>
+    <title>Algorithms for the Maximum Eulerian Cycle Decomposition Problem</title>
+    <updated>2022-03-10T16:13:13Z</updated>
+    <link href="https://arxiv.org/abs/2203.05446v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2203.05446v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Given an Eulerian graph G, in the Maximum Eulerian Cycle Decomposition problem, we are interested in finding a collection of edge-disjoint cycles {E_1, E_2, ..., E_k} in G such that all edges of G are in exactly one cycle and k is maximum. We present an algorithm to solve the pricing problem of a column generation Integer Linear Programming (ILP) model introduced by Lancia and Serafini (2016). Furthermore, we propose a greedy heuristic, which searches for minimum size cycles starting from a random vertex, and a heuristic based on partially solving the ILP model. We performed tests comparing the three approaches in relation to the quality of solutions and execution time, using distinct sets of Eulerian graphs, each set grouping graphs with different numbers of vertices and edges. Our experimental results show that the ILP based heuristic outperforms the other methods.</summary>
+    <category term="cs.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-03-10T16:13:13Z</published>
+    <arxiv:primary_category term="cs.DS"/>
+    <arxiv:journal_ref>LIII S. Brasileiro de Pesquisa Operacional (SBPO 2021), Galoa, 2021. v. 53. p. 139228</arxiv:journal_ref>
+    <author>
+      <name>Pedro O. Pinheiro</name>
+    </author>
+    <author>
+      <name>Alexsandro Oliveira Alexandrino</name>
+    </author>
+    <author>
+      <name>Andre R. Oliveira</name>
+    </author>
+    <author>
+      <name>Cid C. de Souza</name>
+    </author>
+    <author>
+      <name>Zanoni Dias</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2406.06354v1</id>
+    <title>On the Minimal Degree Bias in Generalization on the Unseen for non-Boolean Functions</title>
+    <updated>2024-06-10T15:14:33Z</updated>
+    <link href="https://arxiv.org/abs/2406.06354v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2406.06354v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We investigate the out-of-domain generalization of random feature (RF) models and Transformers. We first prove that in the `generalization on the unseen (GOTU)' setting, where training data is fully seen in some part of the domain but testing is made on another part, and for RF models in the small feature regime, the convergence takes place to interpolators of minimal degree as in the Boolean case (Abbe et al., 2023). We then consider the sparse target regime and explain how this regime relates to the small feature regime, but with a different regularization term that can alter the picture in the non-Boolean case. We show two different outcomes for the sparse regime with q-ary data tokens: (1) if the data is embedded with roots of unities, then a min-degree interpolator is learned like in the Boolean case for RF models, (2) if the data is not embedded as such, e.g., simply as integers, then RF models and Transformers may not learn minimal degree interpolators. This shows that the Boolean setting and its roots of unities generalization are special cases where the minimal degree interpolator offers a rare characterization of how learning takes place. For more general integer and real-valued settings, a more nuanced picture remains to be fully characterized.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-06-10T15:14:33Z</published>
+    <arxiv:comment>9 pages of main body, 24 pages in total. 7 figures Proceedings of the 41-st International Conference on Machine Learning, Vienna, Austria. PMLR 235, 2024</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Denys Pushkin</name>
+    </author>
+    <author>
+      <name>Raphaël Berthier</name>
+    </author>
+    <author>
+      <name>Emmanuel Abbe</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2207.04666v2</id>
+    <title>Improved bounds on the gain coefficients for digital nets in prime power base</title>
+    <updated>2022-11-22T02:26:44Z</updated>
+    <link href="https://arxiv.org/abs/2207.04666v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2207.04666v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study randomized quasi-Monte Carlo integration by scrambled nets. The scrambled net quadrature has long gained its popularity because it is an unbiased estimator of the true integral, allows for a practical error estimation, achieves a high order decay of the variance for smooth functions, and works even for $L^p$-functions with any $p\geq 1$. The variance of the scrambled net quadrature for $L^2$-functions can be evaluated through the set of the so-called gain coefficients.
+  In this paper, based on the system of Walsh functions and the concept of dual nets, we provide improved upper bounds on the gain coefficients for digital nets in general prime power base. Our results explain the known bound by Owen (1997) for Faure sequences, the recently improved bound by Pan and Owen (2021) for digital nets in base 2 (including Sobol' sequences as a special case), and their finding that all the nonzero gain coefficients for digital nets in base 2 must be powers of two, all in a unified way.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-07-11T07:08:00Z</published>
+    <arxiv:comment>minor revision, 14 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NA"/>
+    <arxiv:journal_ref>Journal of Complexity, Volume 76, Article 101722, 2023</arxiv:journal_ref>
+    <author>
+      <name>Takashi Goda</name>
+    </author>
+    <author>
+      <name>Kosuke Suzuki</name>
+    </author>
+    <arxiv:doi>10.1016/j.jco.2022.101722</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.jco.2022.101722" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1008.3187v1</id>
+    <title>Polynomial-Time Approximation Schemes for Knapsack and Related Counting Problems using Branching Programs</title>
+    <updated>2010-08-18T23:45:28Z</updated>
+    <link href="https://arxiv.org/abs/1008.3187v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1008.3187v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We give a deterministic, polynomial-time algorithm for approximately counting the number of {0,1}-solutions to any instance of the knapsack problem. On an instance of length n with total weight W and accuracy parameter eps, our algorithm produces a (1 + eps)-multiplicative approximation in time poly(n,log W,1/eps). We also give algorithms with identical guarantees for general integer knapsack, the multidimensional knapsack problem (with a constant number of constraints) and for contingency tables (with a constant number of rows). Previously, only randomized approximation schemes were known for these problems due to work by Morris and Sinclair and work by Dyer.
+  Our algorithms work by constructing small-width, read-once branching programs for approximating the underlying solution space under a carefully chosen distribution. As a byproduct of this approach, we obtain new query algorithms for learning functions of k halfspaces with respect to the uniform distribution on {0,1}^n. The running time of our algorithm is polynomial in the accuracy parameter eps. Previously even for the case of k=2, only algorithms with an exponential dependence on eps were known.</summary>
+    <category term="cs.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2010-08-18T23:45:28Z</published>
+    <arxiv:primary_category term="cs.DS"/>
+    <author>
+      <name>Parikshit Gopalan</name>
+    </author>
+    <author>
+      <name>Adam Klivans</name>
+    </author>
+    <author>
+      <name>Raghu Meka</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1802.05791v1</id>
+    <title>A Faster FPTAS for #Knapsack</title>
+    <updated>2018-02-15T23:21:58Z</updated>
+    <link href="https://arxiv.org/abs/1802.05791v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1802.05791v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Given a set $W = \{w_1,\ldots, w_n\}$ of non-negative integer weights and an integer $C$, the #Knapsack problem asks to count the number of distinct subsets of $W$ whose total weight is at most $C$. In the more general integer version of the problem, the subsets are multisets. That is, we are also given a set $ \{u_1,\ldots, u_n\}$ and we are allowed to take up to $u_i$ items of weight $w_i$.
+  We present a deterministic FPTAS for #Knapsack running in $O(n^{2.5}\varepsilon^{-1.5}\log(n \varepsilon^{-1})\log (n \varepsilon))$ time. The previous best deterministic algorithm [FOCS 2011] runs in $O(n^3 \varepsilon^{-1} \log(n\varepsilon^{-1}))$ time (see also [ESA 2014] for a logarithmic factor improvement). The previous best randomized algorithm [STOC 2003] runs in $O(n^{2.5} \sqrt{\log (n\varepsilon^{-1}) } + \varepsilon^{-2} n^2 )$ time. Therefore, in the natural setting of constant $\varepsilon$, we close the gap between the $\tilde O(n^{2.5})$ randomized algorithm and the $\tilde O(n^3)$ deterministic algorithm.
+  For the integer version with $U = \max_i \{u_i\}$, we present a deterministic FPTAS running in $O(n^{2.5}\varepsilon^{-1.5}\log(n\varepsilon^{-1} \log U)\log (n \varepsilon) \log^2 U)$ time. The previous best deterministic algorithm [APPROX 2016] runs in $O(n^3\varepsilon^{-1}\log(n \varepsilon^{-1} \log U) \log^2 U)$ time.</summary>
+    <category term="cs.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-02-15T23:21:58Z</published>
+    <arxiv:primary_category term="cs.DS"/>
+    <author>
+      <name>Paweł Gawrychowski</name>
+    </author>
+    <author>
+      <name>Liran Markin</name>
+    </author>
+    <author>
+      <name>Oren Weimann</name>
+    </author>
+  </entry>
+</feed>

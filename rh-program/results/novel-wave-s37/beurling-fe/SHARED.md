@@ -93,3 +93,13 @@ Deliverables: `NOTE.md` (the unit), `verify/` (scripts + logs), `sources/` (text
   through Prop. R's linear growth (NOTE line 126 says "only"); T2 needs polynomial growth, which Diamond–Zhang's definition
   (t-50 lines 592–593) does not supply. §8(e)'s verdict "open" is wrong: an explicit signed counterexample is in hand (§6 of read-O).
 - Next: §2 independent numerics, §3 prior-art gate.
+
+## 2026-10-01 OPUS READER block 2 — §2 independent numerics landed (verify-O/ o1–o5)
+
+- o1: Fejér sums of the v2 near-solutions in CLOSED FORM (Poisson + Euler-factor convolution, no truncation): 1.654343e−3, 5.358231e−3,
+  2.612375e−3, 3.075454e−3 (K=6, new), 8.744635e−3; Z exactly 0. Writer's v2b values confirmed (they sit 2e−7..1.4e−6 low = tail).
+- o2: theta defects via jtheta confirm v2b (ρ = 1, [1/8, 8]) to 3 digits; with the true residue: 0.18–1.6 on [2^−6, 2^6].
+- o3/o4: a SIGNED self-dual measure with gap (−1,1)∖{0} that is not δ_Z (χ₅-comb + two dilated comb pairs): exact Riemann FE, simple
+  poles at 0, 1, all frequencies ≥ √5/2 > 1 — and RH-FALSE (zero at 1.32691 + 33.26351i). NOTE §8(e)'s "open" is answered.
+- o5: (C_q) exact on ζ(1+5^{1/2−s}) + L(s,χ₅), q = 5.
+- Next: §3 prior-art gate.
