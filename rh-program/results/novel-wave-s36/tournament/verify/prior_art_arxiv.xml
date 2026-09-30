@@ -1,118 +1,366 @@
-=== QUERY: all:%22Epstein%20zeta%22%20AND%20all:%22von%20Mangoldt%22 === Wed Sep 30 21:56:48 IST 2026
+=== QUERY: ti:Epstein+AND+ti:zeta === Wed Sep 30 21:58:04 IST 2026
 <?xml version='1.0' encoding='UTF-8'?>
 <feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
-  <id>https://arxiv.org/api/fJEuvlqwBGt11dQF5+8r52yARPk</id>
-  <title>arXiv Query: search_query=all:"Epstein zeta" AND all:"von Mangoldt"&amp;id_list=&amp;start=0&amp;max_results=8</title>
-  <updated>2026-09-30T16:26:49Z</updated>
-  <link href="https://arxiv.org/api/query?search_query=all:%22Epstein+zeta%22+AND+all:%22von+Mangoldt%22&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <id>https://arxiv.org/api/Rp/8MK5JUxXrgsXAS1sH2ZLhzzA</id>
+  <title>arXiv Query: search_query=ti:Epstein AND ti:zeta&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-09-30T16:28:04Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=ti:Epstein+AND+ti:zeta&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
+  <opensearch:totalResults>28</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/1102.0367v1</id>
+    <title>On the zeros of the Epstein zeta function</title>
+    <updated>2011-02-02T06:18:54Z</updated>
+    <link href="https://arxiv.org/abs/1102.0367v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1102.0367v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this article, we count the number of consecutive zeros of the Epstein zeta-function, associated to a certain quadratic form, on the critical line with ordinates lying in $[0,T], T$ sufficiently large and which are separated apart by a given positive number $V$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2011-02-02T06:18:54Z</published>
+    <arxiv:comment>13 pages, to appear in proceedings of CINTAA, 2006</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Proc. in honour of Prof. T. C. Vasudevan, RMS Lecture Note Series, No. 15 (2011), pp. 73-87</arxiv:journal_ref>
+    <author>
+      <name>Anirban Mukhopadhyay</name>
+    </author>
+    <author>
+      <name>Krishnan Rajkumar</name>
+    </author>
+    <author>
+      <name>Kotyada Srinivas</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1508.05836v3</id>
+    <title>On the universality of the Epstein zeta function</title>
+    <updated>2019-06-25T14:02:35Z</updated>
+    <link href="https://arxiv.org/abs/1508.05836v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1508.05836v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study universality properties of the Epstein zeta function $E_n(L,s)$ for lattices $L$ of large dimension $n$ and suitable regions of complex numbers $s$. Our main result is that, as $n\to\infty$, $E_n(L,s)$ is universal in the right half of the critical strip as $L$ varies over all $n$-dimensional lattices $L$. The proof uses an approximation result for Dirichlet polynomials together with a recent result on the distribution of lengths of lattice vectors in a random lattice of large dimension and a strong uniform estimate for the error term in the generalized circle problem. Using the same approach we also prove that, as $n\to\infty$, $E_n(L_1,s)-E_n(L_2,s)$ is universal in the full half-plane to the right of the critical line as $(L_1,L_2)$ varies over all pairs of $n$-dimensional lattices. Finally, we prove a more classical universality result for $E_n(L,s)$ in the $s$-variable valid for almost all lattices $L$ of dimension $n$. As part of the proof we obtain a strong bound of $E_n(L,s)$ on the critical line that is subconvex for $n\geq 5$ and almost all $n$-dimensional lattices $L$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-08-24T15:07:06Z</published>
+    <arxiv:comment>v3: 22 pages. Accepted for publication in Commentarii Mathematici Helvetici. Clarified proof of Proposition 3.3, fixed minor flaw in proof of Theorem 1.11 + minor changes. v2: 20 pages. Fixed proof of Theorem 1.11 + minor changes. v1: 17 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Commentarii Mathematici Helvetici, Volume 95, Issue 1, 2020, pp 183-209</arxiv:journal_ref>
+    <author>
+      <name>Johan Andersson</name>
+    </author>
+    <author>
+      <name>Anders Södergren</name>
+    </author>
+    <arxiv:doi>10.4171/CMH/485</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.4171/CMH/485" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1204.6297v1</id>
+    <title>On the zeros of Epstein zeta functions</title>
+    <updated>2012-04-27T19:04:12Z</updated>
+    <link href="https://arxiv.org/abs/1204.6297v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1204.6297v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We investigate the zeros of Epstein zeta functions associated with a positive definite quadratic form with rational coefficients. Davenport and Heilbronn, and also Voronin, proved the existence of zeros of Epstein zeta functions off the critical line when the class number of the quadratic form is bigger than 1. These authors give lower bounds for the number of zeros in strips that are of the same order as the more easily proved upper bounds. In this paper, we improve their results by providing asymptotic formulas for the number of zeros.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2012-04-27T19:04:12Z</published>
+    <arxiv:comment>Recently revised version</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Yoonbok Lee</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1410.8312v2</id>
+    <title>Ramanujan Series for Epstein Zeta Functions</title>
+    <updated>2015-03-28T09:48:41Z</updated>
+    <link href="https://arxiv.org/abs/1410.8312v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1410.8312v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In the spirit of Ramanujan, we derive exponentially fast convergent series for Epstein zeta functions $ E^{\varGamma_0(N)}(z,s)$ on the Hecke congruence groups $ \varGamma_0(N),N\in\mathbb Z_{&gt;0}$, where $z$ is an arbitrary point in the upper half-plane $ \mathfrak H$, and $s\in\mathbb Z_{&gt;1}$. These Ramanujan series can be reformulated as integrations of modular forms, in the framework of Eichler integrals. Particular cases of these Eichler integrals recover part of the recent results reported by Wan and Zucker (arXiv:1410.7081v1).</summary>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-10-30T10:24:22Z</published>
+    <arxiv:comment>Minor changes. An addendum to arXiv:1312.6352v4. 15 pages</arxiv:comment>
+    <arxiv:primary_category term="math.CA"/>
+    <arxiv:journal_ref>Ramanujan J (2016) 40:367-388</arxiv:journal_ref>
+    <author>
+      <name>Yajun Zhou</name>
+    </author>
+    <arxiv:doi>10.1007/s11139-015-9695-7</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s11139-015-9695-7" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/0806.1999v1</id>
+    <title>On the minima and convexity of Epstein Zeta function</title>
+    <updated>2008-06-12T04:46:54Z</updated>
+    <link href="https://arxiv.org/abs/0806.1999v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/0806.1999v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  Let $Z_n(s; a_1,..., a_n)$ be the Epstein zeta function defined as the meromorphic continuation of the function
+  \sum_{k\in\Z^n\setminus\{0\}}(\sum_{i=1}^n [a_i k_i]^2)^{-s},
+  \text{Re} s&gt;\frac{n}{2}
+  to the complex plane. We show that for fixed $s\neq n/2$, the function $Z_n(s; a_1,..., a_n)$, as a function of $(a_1,..., a_n)\in (\R^+)^n$ with fixed $\prod_{i=1}^n a_i$, has a unique minimum at the point $a_1=...=a_n$. When $\sum_{i=1}^n c_i$ is fixed, the function $$(c_1,..., c_n)\mapsto Z_n(s; e^{c_1},..., e^{c_n})$$ can be shown to be a convex function of any $(n-1)$ of the variables $\{c_1,...,c_n\}$. These results are then applied to the study of the sign of $Z_n(s; a_1,..., a_n)$ when $s$ is in the critical range $(0, n/2)$. It is shown that when $1\leq n\leq 9$, $Z_n(s; a_1,..., a_n)$ as a function of $(a_1,..., a_n)\in (\R^+)^n$, can be both positive and negative for every $s\in (0,n/2)$. When $n\geq 10$, there are some open subsets $I_{n,+}$ of $s\in(0,n/2)$, where $Z_{n}(s; a_1,..., a_n)$ is positive for all $(a_1,..., a_n)\in(\R^+)^n$. By regarding $Z_n(s; a_1,..., a_n)$ as a function of $s$, we find that when $n\geq 10$, the generalized Riemann hypothesis is false for all $(a_1,...,a_n)$.</summary>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2008-06-12T04:46:54Z</published>
+    <arxiv:comment>27 pages</arxiv:comment>
+    <arxiv:primary_category term="math-ph"/>
+    <arxiv:journal_ref>J. Math. Phys. 49 (2008), 073513</arxiv:journal_ref>
+    <author>
+      <name>S. C. Lim</name>
+    </author>
+    <author>
+      <name>L. P. Teo</name>
+    </author>
+    <arxiv:doi>10.1063/1.2953513</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1063/1.2953513" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1511.06824v2</id>
+    <title>Zero-density estimates for Epstein zeta functions</title>
+    <updated>2015-11-24T03:45:53Z</updated>
+    <link href="https://arxiv.org/abs/1511.06824v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1511.06824v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We investigate the zeros of Epstein zeta functions associated with a positive definite quadratic form with rational coefficients in the vertical strip $ σ_1 &lt; \Re s &lt; σ_2 $, where $ 1/2 &lt; σ_1 &lt; σ_2 &lt; 1 $. When the class number of the quadratic form is bigger than 1, Voronin gives a lower bound and Lee gives an asymptotic formula for the number of zeros. In this paper, we improve their results by providing a new upper bound for the error term.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-11-21T03:40:32Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Steven Gonek</name>
+    </author>
+    <author>
+      <name>Yoonbok Lee</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1602.02326v1</id>
+    <title>Epstein zeta-functions, subconvexity, and the purity conjecture</title>
+    <updated>2016-02-07T01:11:43Z</updated>
+    <link href="https://arxiv.org/abs/1602.02326v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1602.02326v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Subconvexity bounds are proved for general Epstein zeta functions of k-ary quadratic forms. This is related to sup-norm bounds for Eisenstein series on GL(k), and the exact sup-norm exponent is determined to be (k-2)/8 for k &gt;= 2. In particular, if $k$ is odd, this exponent is not in Z/4, which shows that Sarnak's purity conjecture does not hold for Eisenstein series.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-02-07T01:11:43Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Valentin Blomer</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2504.11989v2</id>
+    <title>Epstein zeta method for many-body lattice sums</title>
+    <updated>2026-06-12T14:07:30Z</updated>
+    <link href="https://arxiv.org/abs/2504.11989v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2504.11989v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Many-body interactions arise naturally in the perturbative treatment of classical and quantum many-body systems and play a crucial role in the description of condensed matter systems. In the case of three-body interactions, the Axilrod-Teller-Muto (ATM) potential is highly relevant for the quantitative prediction of material properties. This work solves the long-standing issue of the numerical computation of the resulting energies in $d$-dimensional lattice systems. We present an efficiently computable representation of many-body lattice sums in terms of singular integrals over products of Epstein zeta functions. For three-body interactions in three dimensions, this approach reduces the runtime for computing the ATM lattice sum from weeks to minutes. Our approach further extends to a broad class of $n$-body lattice sums. We demonstrate that the computational cost of our method only increases linearly with $n$, evading the exponential increase in complexity of direct summation. We discuss techniques for numerically computing the arising singular integrals and compare the accuracy of our results against computable special cases and against direct summation in low dimensions, achieving full precision for exponents greater than the system dimension. Finally, we apply our method to study the stability of a three-dimensional lattice system with Lennard-Jones two-body interactions under the inclusion of an ATM three-body term at finite pressure, finding a transition from the face-centered-cubic to the body-centered-cubic lattice structure with increasing ATM coupling strength. This work establishes both the numerical and analytical foundation for an ongoing investigation into the influence of many-body interactions on the stability of matter.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cond-mat.mtrl-sci" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cond-mat.str-el" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-04-16T11:30:11Z</published>
+    <arxiv:primary_category term="math.NA"/>
+    <author>
+      <name>Andreas A. Buchheit</name>
+    </author>
+    <author>
+      <name>Jonathan K. Busse</name>
+    </author>
+  </entry>
+</feed>
+
+=== QUERY: abs:%22von%20Mangoldt%22+AND+abs:Epstein === Wed Sep 30 21:58:08 IST 2026
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/mpXiz2+ibSfCM2wG9/K9DHBcUQw</id>
+  <title>arXiv Query: search_query=abs:"von Mangoldt" AND abs:Epstein&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-09-30T16:28:08Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22von+Mangoldt%22+AND+abs:Epstein&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
   <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
   <opensearch:totalResults>0</opensearch:totalResults>
   <opensearch:startIndex>0</opensearch:startIndex>
 </feed>
 
-=== QUERY: all:%22Epstein%22%20AND%20all:%22Euler%20product%22%20AND%20all:%22logarithmic%20derivative%22 === Wed Sep 30 21:56:52 IST 2026
+=== QUERY: abs:%22Euler%20product%22+AND+abs:%22Epstein%22+AND+abs:%22Riemann%20hypothesis%22 === Wed Sep 30 21:58:11 IST 2026
 <?xml version='1.0' encoding='UTF-8'?>
 <feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
-  <id>https://arxiv.org/api/zV3FwlASpYO3IgWd5uLVcKhQDT0</id>
-  <title>arXiv Query: search_query=all:"Epstein" AND all:"Euler product" AND all:"logarithmic derivative"&amp;id_list=&amp;start=0&amp;max_results=8</title>
-  <updated>2026-09-30T16:26:53Z</updated>
-  <link href="https://arxiv.org/api/query?search_query=all:%22Epstein%22+AND+(all:%22Euler+product%22+AND+all:%22logarithmic+derivative%22)&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <id>https://arxiv.org/api/PDIJra6lfA4BPZc5/Va4Hkh/cck</id>
+  <title>arXiv Query: search_query=abs:"Euler product" AND abs:"Epstein" AND abs:"Riemann hypothesis"&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-09-30T16:28:11Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22Euler+product%22+AND+(abs:%22Epstein%22+AND+abs:%22Riemann+hypothesis%22)&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
   <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
   <opensearch:totalResults>0</opensearch:totalResults>
   <opensearch:startIndex>0</opensearch:startIndex>
 </feed>
 
-=== QUERY: all:%22von%20Mangoldt%22%20AND%20all:nonnegative%20AND%20all:%22functional%20equation%22%20AND%20all:%22Riemann%20hypothesis%22 === Wed Sep 30 21:56:56 IST 2026
+=== QUERY: abs:%22Weil%20bound%22+AND+abs:%22functional%20equation%22+AND+abs:%22Euler%20product%22+AND+abs:%22zeta%22 === Wed Sep 30 21:58:15 IST 2026
 <?xml version='1.0' encoding='UTF-8'?>
 <feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
-  <id>https://arxiv.org/api/z7CPOdjJVBoLk8OBVmnEHZOjyCU</id>
-  <title>arXiv Query: search_query=all:"von Mangoldt" AND all:nonnegative AND all:"functional equation" AND all:"Riemann hypothesis"&amp;id_list=&amp;start=0&amp;max_results=8</title>
-  <updated>2026-09-30T16:26:56Z</updated>
-  <link href="https://arxiv.org/api/query?search_query=all:%22von+Mangoldt%22+AND+(all:nonnegative+AND+(all:%22functional+equation%22+AND+all:%22Riemann+hypothesis%22))&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <id>https://arxiv.org/api/6Ws1dey9166x0REypek5NySSPhM</id>
+  <title>arXiv Query: search_query=abs:"Weil bound" AND abs:"functional equation" AND abs:"Euler product" AND abs:"zeta"&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-09-30T16:28:15Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22Weil+bound%22+AND+(abs:%22functional+equation%22+AND+(abs:%22Euler+product%22+AND+abs:%22zeta%22))&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
   <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
   <opensearch:totalResults>0</opensearch:totalResults>
   <opensearch:startIndex>0</opensearch:startIndex>
 </feed>
 
-=== QUERY: all:%22Hasse%22%20AND%20all:%22virtual%22%20AND%20all:%22zeta%20function%22%20AND%20all:%22point%20counts%22 === Wed Sep 30 21:56:59 IST 2026
+=== QUERY: abs:%22negative%20squares%22+AND+abs:zeta === Wed Sep 30 21:58:18 IST 2026
 <?xml version='1.0' encoding='UTF-8'?>
 <feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
-  <id>https://arxiv.org/api/UsX0FdSK4tVHb6IzZmYqk4Y0PLQ</id>
-  <title>arXiv Query: search_query=all:"Hasse" AND all:"virtual" AND all:"zeta function" AND all:"point counts"&amp;id_list=&amp;start=0&amp;max_results=8</title>
-  <updated>2026-09-30T16:27:00Z</updated>
-  <link href="https://arxiv.org/api/query?search_query=all:%22Hasse%22+AND+(all:%22virtual%22+AND+(all:%22zeta+function%22+AND+all:%22point+counts%22))&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <id>https://arxiv.org/api/lCtPf+Ab8tH9r0L86meYdGj61I0</id>
+  <title>arXiv Query: search_query=abs:"negative squares" AND abs:zeta&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-09-30T16:28:18Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22negative+squares%22+AND+abs:zeta&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
   <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
   <opensearch:totalResults>0</opensearch:totalResults>
   <opensearch:startIndex>0</opensearch:startIndex>
 </feed>
 
-=== QUERY: all:Krein%20AND%20all:%22negative%20squares%22%20AND%20all:zeta === Wed Sep 30 21:57:03 IST 2026
+=== QUERY: abs:Nevanlinna+AND+abs:%22Riemann%20hypothesis%22 === Wed Sep 30 21:58:22 IST 2026
 <?xml version='1.0' encoding='UTF-8'?>
 <feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
-  <id>https://arxiv.org/api/gxhL9CC68bI1ynPOYnzjR6WmBo8</id>
-  <title>arXiv Query: search_query=all:Krein AND all:"negative squares" AND all:zeta&amp;id_list=&amp;start=0&amp;max_results=8</title>
-  <updated>2026-09-30T16:27:03Z</updated>
-  <link href="https://arxiv.org/api/query?search_query=all:Krein+AND+(all:%22negative+squares%22+AND+all:zeta)&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <id>https://arxiv.org/api/iBY+SyqjHvsuYE8T7yThXw7LcE4</id>
+  <title>arXiv Query: search_query=abs:Nevanlinna AND abs:"Riemann hypothesis"&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-09-30T16:28:22Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:Nevanlinna+AND+abs:%22Riemann+hypothesis%22&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
+  <opensearch:totalResults>3</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/1407.4545v1</id>
+    <title>Riemann hypothesis is not correct</title>
+    <updated>2014-07-17T03:20:38Z</updated>
+    <link href="https://arxiv.org/abs/1407.4545v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1407.4545v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper use Nevanlinna's Second Main Theorem of the value distribution theory, we got an important conclusion by Riemann hypothesis. this conclusion contradicts the Theorem 8.12 in Titchmarsh's book "Theory of the Riemann Zeta-functions", therefore we prove that Riemann hypothesis is incorrect.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-07-17T03:20:38Z</published>
+    <arxiv:comment>9 pages</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>JinHua Fei</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1008.0499v1</id>
+    <title>On the Instability of the Riemann Hypothesis over Finite Fields</title>
+    <updated>2010-08-03T09:47:13Z</updated>
+    <link href="https://arxiv.org/abs/1008.0499v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1008.0499v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We show that it is possible to approximate the zeta-function of a curve over a finite field by meromorphic functions which satisfy the same functional equation and moreover satisfy (respectively do not satisfy) the analogue of the Riemann hypothesis. In the other direction, it is possible to approximate holomorphic functions by simple manipulations of such a zeta-function. We also consider the value distribution of zeta-functions of function fields over finite fields from the viewpoint of Nevanlinna theory.</summary>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2010-08-03T09:47:13Z</published>
+    <arxiv:comment>16 pages</arxiv:comment>
+    <arxiv:primary_category term="math.CV"/>
+    <author>
+      <name>P. M. Gauthier</name>
+    </author>
+    <author>
+      <name>N. Tarkhanov</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/0806.0044v2</id>
+    <title>The Riemann Hypothesis for Function Fields over a Finite Field</title>
+    <updated>2008-06-09T19:39:45Z</updated>
+    <link href="https://arxiv.org/abs/0806.0044v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/0806.0044v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We discuss Enrico Bombieri's proof of the Riemann hypothesis for curves over a finite field. Reformulated, it states that the number of points on a curve $\C$ defined over the finite field $\F_q$ is of the order $q+O(\sqrt{q})$. The first proof was given by André Weil in 1942. This proof uses the intersection of divisors on $\C\times\C$, making the application to the original Riemann hypothesis so far unsuccessful, because $\spec\Z\times\spec\Z=\spec\Z$ is one-dimensional. A new method of proof was found in 1969 by S. A. Stepanov. This method was greatly simplified and generalized by Bombieri in 1973.
+  Bombieri's method uses functions on $\C\times\C$, again precluding a direct translation to a proof of the original Riemann hypothesis. However, the two coordinates on $\C\times\C$ have different roles, one coordinate playing the geometric role of the variable of a polynomial, and the other coordinate the arithmetic role of the coefficients of this polynomial. The Frobenius automorphism of $\C$ acts on the geometric coordinate of $\C\times\C$. In the last section, we make some suggestions how Nevanlinna theory could provide a model of $\spec\Z\times\spec\Z$ that is two-dimensional and carries an action of Frobenius on the geometric coordinate.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2008-05-31T00:12:33Z</published>
+    <arxiv:comment>30 pages, 2 figures all ø's are now \mathcal{O}</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Machiel van Frankenhuijsen</name>
+    </author>
+  </entry>
+</feed>
+
+=== QUERY: abs:Krein+AND+abs:%22Riemann%20hypothesis%22 === Wed Sep 30 21:58:25 IST 2026
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/2t+SO8oaMkbBvJyuAjIIAaUJFq4</id>
+  <title>arXiv Query: search_query=abs:Krein AND abs:"Riemann hypothesis"&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-09-30T16:28:25Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:Krein+AND+abs:%22Riemann+hypothesis%22&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
+  <opensearch:totalResults>3</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2504.07928v1</id>
+    <title>Riemann zeros and the KKR determinant</title>
+    <updated>2025-04-10T17:43:43Z</updated>
+    <link href="https://arxiv.org/abs/2504.07928v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2504.07928v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We transform the counting function for the Riemann zeros into a Korringa-Kohn-Rostoker (KKR) determinant, assisted by Krein's theorem. This is based on our observation that the function derived from a few methods can all be recast into two terms: one corresponds to the scattering phase, and the other is similar to structure constants related to the Green function. We also discuss the possible physical realizations. Our method provides a new physical pathway towards the solution of the Riemann hypothesis.</summary>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-04-10T17:43:43Z</published>
+    <arxiv:comment>6 pages, 1 figure</arxiv:comment>
+    <arxiv:primary_category term="quant-ph"/>
+    <author>
+      <name>Zongrui Pei</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2503.09644v3</id>
+    <title>A Majorana Relativistic Quantum Spectral Approach to the Riemann Hypothesis in (1+1)-Dimensional Rindler Spacetimes</title>
+    <updated>2025-07-22T07:20:32Z</updated>
+    <link href="https://arxiv.org/abs/2503.09644v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2503.09644v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Following the Hilbert-Pólya approach to the Riemann Hypothesis, we present an exact spectral realization of the nontrivial zeros of the Riemann zeta function $ζ(z)$ with a Mellin-Barnes integral that explicitly contains it. This integral defines the spectrum of the real-valued energy eigenvalues $E_n$ of a Majorana particle in a $(1+1)$-dimensional Rindler spacetime or equivalent Kaluza-Klein reductions of $(n+1)$-dimensional geometries. We show that the Hamiltonian $H_M$ describing the particle is hermitian and the spectrum of energy eigenvalues $\{E_n\}_{n \in \mathbb{N}}$ is countably infinite in number in a bijective correspondence with the imaginary part of the nontrivial zeros of $ζ(z)$ having the same cardinality as required by Hardy-Littlewood's theorem from number theory. The correspondence between the two spectra with the essential self-adjointness of $H_M$, confirmed with deficiency index analysis, boundary triplet theory and Krein's extension theorem, imply that all nontrivial zeros have real part $\Re ( z )=1/2$, i.e., lie on the ``critical line''. In the framework of noncommutative geometry, $H_M$ is interpreted as a Dirac operator $D$ in a spectral triple $(\mathcal{A}, \mathcal{H}, D)$, linking these results to Connes' program for the Riemann Hypothesis. The algebra $\mathcal{A}$ encodes the modular symmetries underlying the spectral realization of $ζ(z)$ in the Hilbert space $\mathcal{H}$ of Majorana wavefunctions, integrating concepts from quantum mechanics, general relativity, and number theory. This analysis offers a promising Hilbert-Pólya-inspired path to prove the Riemann Hypothesis.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-03-12T06:35:32Z</published>
+    <arxiv:comment>73 pages, 2 columns, 84 references. Corrected typos in the text and in formulae, added in the appendix E a toy example of replacing ζ(2s) by the Dirichlet beta function $β(2s)$ validating the results with $ζ(2s)$ function. Part of the logical procedure was tested also with Isabelle 2025</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Fabrizio Tamburini</name>
+      <arxiv:affiliation>Rotonium - Quantum Computing, Le Village by CA, Padova, Italy</arxiv:affiliation>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1708.02653v25</id>
+    <title>On Hilbert's 8th Problem</title>
+    <updated>2026-09-19T16:54:02Z</updated>
+    <link href="https://arxiv.org/abs/1708.02653v25" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1708.02653v25" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This note takes the probabilistic half of the Riemann Xi story on its own terms. Every object in the subject is a first passage time: Riemann's kernel is the law of the logarithm of a sum of two hitting times of a three dimensional Bessel process, Polya's approximation is the first passage of a Brownian motion with drift, and the reciprocal Xi function, under the Riemann hypothesis, is the Laplace transform of an infinite convolution of exponentials whose rates are the squared zeros. That reciprocal is written as $F_α(s)=ξ(α)/ξ(α+\sqrt s)$, and complete monotonicity, unconditional for $α\ge1$, is conjectured to persist to the critical basepoint $α=1/2$. Kent's eigenvalue expansion says which laws can arise this way, namely those whose Thorin measure is a Dirichlet spectrum with unit atoms, and Krein's inverse spectral theory turns the hypothesis into the existence of a string. The passage from Riemann to Polya is a flow, not a jump: the Cauchy semigroup on Thorin measures, each step an Esscher tilt followed by a Brownian subordination along a curvature family of hyperbolic Bessel processes, with the arithmetic surviving as Fourier modes damped like $e^{-2πk\varepsilon}$. The arithmetic lives in the atoms and nowhere else. Approximations rank by what they keep: Polya keeps neither atoms nor tempering and is off by a factor of three, a fitted Bessel dimension reaches one per cent, and a few atoms with an erfc tempering stay better than one part in a thousand across four decades. And the flow runs backwards: the Thorin measure of the reciprocal is evaluated from a prime sieve with no reference to any zero, and nonnegative deconvolution of it returns the first ten zero ordinates with unit masses, nine of them to four decimals and one to three. All identities are verified with mpmath, and the scripts are included.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-08-07T12:53:52Z</published>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Nicholas G. Polson</name>
+    </author>
+  </entry>
+</feed>
+
+=== QUERY: abs:Landau+AND+abs:%22Riemann%20hypothesis%22+AND+abs:nonnegative === Wed Sep 30 21:58:29 IST 2026
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/s+5rOJ0ze7VnLOgBLKBLxxRhIf4</id>
+  <title>arXiv Query: search_query=abs:Landau AND abs:"Riemann hypothesis" AND abs:nonnegative&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-09-30T16:28:29Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:Landau+AND+(abs:%22Riemann+hypothesis%22+AND+abs:nonnegative)&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
   <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
   <opensearch:totalResults>0</opensearch:totalResults>
   <opensearch:startIndex>0</opensearch:startIndex>
 </feed>
 
-=== QUERY: all:%22generalized%20Nevanlinna%22%20AND%20all:%22Riemann%20hypothesis%22 === Wed Sep 30 21:57:06 IST 2026
+=== QUERY: abs:%22mean%20square%22+AND+abs:%22prime%20number%20theorem%22+AND+abs:%22Riemann%20hypothesis%22 === Wed Sep 30 21:58:32 IST 2026
 <?xml version='1.0' encoding='UTF-8'?>
 <feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
-  <id>https://arxiv.org/api/dcxlI8za+Bc20yFxv7HSxnvEbZU</id>
-  <title>arXiv Query: search_query=all:"generalized Nevanlinna" AND all:"Riemann hypothesis"&amp;id_list=&amp;start=0&amp;max_results=8</title>
-  <updated>2026-09-30T16:27:07Z</updated>
-  <link href="https://arxiv.org/api/query?search_query=all:%22generalized+Nevanlinna%22+AND+all:%22Riemann+hypothesis%22&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <id>https://arxiv.org/api/kWyUaPT0D/g9GZCm2k3hcPn5CeQ</id>
+  <title>arXiv Query: search_query=abs:"mean square" AND abs:"prime number theorem" AND abs:"Riemann hypothesis"&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-09-30T16:28:32Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22mean+square%22+AND+(abs:%22prime+number+theorem%22+AND+abs:%22Riemann+hypothesis%22)&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
   <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
   <opensearch:totalResults>0</opensearch:totalResults>
   <opensearch:startIndex>0</opensearch:startIndex>
 </feed>
 
-=== QUERY: all:Pick%20AND%20all:kernel%20AND%20all:%22Riemann%20hypothesis%22%20AND%20all:%22xi%22 === Wed Sep 30 21:57:10 IST 2026
+=== QUERY: abs:Deligne+AND+abs:%22Riemann%20hypothesis%22+AND+abs:%22tensor%20power%22 === Wed Sep 30 21:58:36 IST 2026
 <?xml version='1.0' encoding='UTF-8'?>
 <feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
-  <id>https://arxiv.org/api/qEIxq0798Y4CYlF+9qLcAAlLKbc</id>
-  <title>arXiv Query: search_query=all:Pick AND all:kernel AND all:"Riemann hypothesis" AND all:"xi"&amp;id_list=&amp;start=0&amp;max_results=8</title>
-  <updated>2026-09-30T16:27:10Z</updated>
-  <link href="https://arxiv.org/api/query?search_query=all:Pick+AND+(all:kernel+AND+(all:%22Riemann+hypothesis%22+AND+all:%22xi%22))&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
-  <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
-  <opensearch:totalResults>0</opensearch:totalResults>
-  <opensearch:startIndex>0</opensearch:startIndex>
-</feed>
-
-=== QUERY: all:%22mean%20square%22%20AND%20all:Landau%20AND%20all:%22Riemann%20hypothesis%22%20AND%20all:Mellin === Wed Sep 30 21:57:13 IST 2026
-<?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
-  <id>https://arxiv.org/api/xH+qMqBaS4wnPuJ/NpI/6Ozh9d0</id>
-  <title>arXiv Query: search_query=all:"mean square" AND all:Landau AND all:"Riemann hypothesis" AND all:Mellin&amp;id_list=&amp;start=0&amp;max_results=8</title>
-  <updated>2026-09-30T16:27:14Z</updated>
-  <link href="https://arxiv.org/api/query?search_query=all:%22mean+square%22+AND+(all:Landau+AND+(all:%22Riemann+hypothesis%22+AND+all:Mellin))&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
-  <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
-  <opensearch:totalResults>0</opensearch:totalResults>
-  <opensearch:startIndex>0</opensearch:startIndex>
-</feed>
-
-=== QUERY: all:%22tensor%20power%20trick%22%20AND%20all:%22Riemann%20hypothesis%22 === Wed Sep 30 21:57:17 IST 2026
-<?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
-  <id>https://arxiv.org/api/70Bazv0k/4K2tJ82kO66GMRYlfY</id>
-  <title>arXiv Query: search_query=all:"tensor power trick" AND all:"Riemann hypothesis"&amp;id_list=&amp;start=0&amp;max_results=8</title>
-  <updated>2026-09-30T16:27:18Z</updated>
-  <link href="https://arxiv.org/api/query?search_query=all:%22tensor+power+trick%22+AND+all:%22Riemann+hypothesis%22&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
-  <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
-  <opensearch:totalResults>0</opensearch:totalResults>
-  <opensearch:startIndex>0</opensearch:startIndex>
-</feed>
-
-=== QUERY: all:Deligne%20AND%20all:%22Landau%22%20AND%20all:%22tensor%20power%22%20AND%20all:zeta === Wed Sep 30 21:57:21 IST 2026
-<?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
-  <id>https://arxiv.org/api/bQP1rhhRYTSwXYFS78rtLa3yqbo</id>
-  <title>arXiv Query: search_query=all:Deligne AND all:"Landau" AND all:"tensor power" AND all:zeta&amp;id_list=&amp;start=0&amp;max_results=8</title>
-  <updated>2026-09-30T16:27:21Z</updated>
-  <link href="https://arxiv.org/api/query?search_query=all:Deligne+AND+(all:%22Landau%22+AND+(all:%22tensor+power%22+AND+all:zeta))&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <id>https://arxiv.org/api/O91cV/gVBPPpbvzNyUzSdLdJYrw</id>
+  <title>arXiv Query: search_query=abs:Deligne AND abs:"Riemann hypothesis" AND abs:"tensor power"&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-09-30T16:28:36Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:Deligne+AND+(abs:%22Riemann+hypothesis%22+AND+abs:%22tensor+power%22)&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
   <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
   <opensearch:totalResults>0</opensearch:totalResults>
   <opensearch:startIndex>0</opensearch:startIndex>

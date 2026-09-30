@@ -65,3 +65,13 @@ Agent: Opus 5.5 (subagent), 2026-09-30. Charter: `results/novel-wave-s36/WAVE-CH
 
 - D_1^X(σ) = ∫_1^X (ψ_F(x) − x·[pole])² x^{−σ−1}dx; growth per decade of log10 D (last decade 10^6→10^7): ζ: σ=0.9 0.045, σ=1.0 0.014 (constant: log growth, abscissa 1), σ ≥ 1.3 → 0. F_{2.9,2}: σ=1.0 0.664 (theory 2Θ_F − σ = 0.648), 1.3 0.349 (0.348), 1.5 0.143 (0.148), 1.7 0.025 → 0: abscissa 1.648 read correctly from X = 10^4. DH: σ=1.0 0.22 → 0.35 → 0.52 (theory 0.617), σ=1.3 0.10 (0.317), σ=1.5 0.012 (0.117): not yet asymptotic — the off-line term (amplitude x^{0.8085}/85.7) dominates only for X ≳ 85.7^{1/0.3085} ≈ 10^{6.3} (IV.9 visibility: X ≳ |ρ|^{1/δ}).
 - Rung 1: Σ_N (N_N − 1 − q^N)^{2k} q^{−Ns} is rational with nonnegative coefficients for the RH-false virtual curve (5,5) too; positivity + rationality + FE give only "abscissa = largest pole". Deligne's real input is the weight bound from the Lefschetz-pencil family (monodromy + induction), absent for a single virtual curve and absent over Z.
+
+## 2026-09-30 block 13 — prior art (`verify/prior_art_arxiv.{sh,xml,log}`)
+
+- 10 arXiv export-API queries (one at a time, 3 s apart). Phrase combinations for DD1 (Epstein + von Mangoldt / Euler product; Weil bound + FE + Euler product), DD2 (negative squares + zeta), DD3 (Landau + nonnegative; mean square PNT; Deligne + tensor power): totalResults = 0 each. Broad: ti:Epstein AND ti:zeta 28 titles (zeros, universality, zero density — none on Λ-sign); abs:Nevanlinna AND RH 3 (incl. 1008.0499 "On the Instability of the Riemann Hypothesis over Finite Fields" — adjacent to DD1's virtual curves, not read); abs:Krein AND RH 3 (none on Krein–Langer invariance). Label: [novelty: single-check]; the classical inputs (Krein–Langer, Landau, Cramér, Deligne) predate arXiv, and per zoo V.5 absence is not evidence either way.
+- Next: §3 compressed table, §4 synthesis, §0 verdict.
+
+## 2026-09-30 block 14 — NOTE complete (44.8 kB): §0 close (N), §1 35 rows, §2 DD1–DD3 + prior art, §3 table, §4 synthesis
+
+- Close: (N) NOTHING — correctly: 26 DEAD, 9 EQUIV, 0 OPEN; no survivor for G or K. Recorded control results: Λ ≥ 0 pointwise separates DH, F_{a,q}, Epstein (h = 2, 3, 4); rung-1 virtual curve (5,5) is RH-false with Euler product, Λ ≥ 0, FE, rationality; Krein–Langer instrument exact but ≈ 6 digits per unit height; exact squeeze D_k positivity free, continuation RH-equivalent, visibility X ≳ |ρ|^{1/δ}.
+- Files: NOTE.md, SHARED.md, verify/{faq_control, dd1_lambda_sign, dd1_rung1_virtual, dd2_pick_kernel, dd2_visibility, dd3_landau_squeeze}.{py,log}, verify/prior_art_arxiv.{sh,xml,log}. No commits (charter).

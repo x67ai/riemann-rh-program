@@ -1,20 +1,34 @@
-Q: all:%22Epstein%20zeta%22%20AND%20all:%22von%20Mangoldt%22
+Q: ti:Epstein+AND+ti:zeta
+  totalResults=28
+   - 1102.0367v1  On the zeros of the Epstein zeta function
+   - 1508.05836v3  On the universality of the Epstein zeta function
+   - 1204.6297v1  On the zeros of Epstein zeta functions
+   - 1410.8312v2  Ramanujan Series for Epstein Zeta Functions
+   - 0806.1999v1  On the minima and convexity of Epstein Zeta function
+   - 1511.06824v2  Zero-density estimates for Epstein zeta functions
+   - 1602.02326v1  Epstein zeta-functions, subconvexity, and the purity conjecture
+   - 2504.11989v2  Epstein zeta method for many-body lattice sums
+Q: abs:%22von%20Mangoldt%22+AND+abs:Epstein
   totalResults=0
-Q: all:%22Epstein%22%20AND%20all:%22Euler%20product%22%20AND%20all:%22logarithmic%20derivative%22
+Q: abs:%22Euler%20product%22+AND+abs:%22Epstein%22+AND+abs:%22Riemann%20hypothesis%22
   totalResults=0
-Q: all:%22von%20Mangoldt%22%20AND%20all:nonnegative%20AND%20all:%22functional%20equation%22%20AND%20all:%22Riemann%20hypothesis%22
+Q: abs:%22Weil%20bound%22+AND+abs:%22functional%20equation%22+AND+abs:%22Euler%20product%22+AND+abs:%22zeta%22
   totalResults=0
-Q: all:%22Hasse%22%20AND%20all:%22virtual%22%20AND%20all:%22zeta%20function%22%20AND%20all:%22point%20counts%22
+Q: abs:%22negative%20squares%22+AND+abs:zeta
   totalResults=0
-Q: all:Krein%20AND%20all:%22negative%20squares%22%20AND%20all:zeta
+Q: abs:Nevanlinna+AND+abs:%22Riemann%20hypothesis%22
+  totalResults=3
+   - 1407.4545v1  Riemann hypothesis is not correct
+   - 1008.0499v1  On the Instability of the Riemann Hypothesis over Finite Fields
+   - 0806.0044v2  The Riemann Hypothesis for Function Fields over a Finite Field
+Q: abs:Krein+AND+abs:%22Riemann%20hypothesis%22
+  totalResults=3
+   - 2504.07928v1  Riemann zeros and the KKR determinant
+   - 2503.09644v3  A Majorana Relativistic Quantum Spectral Approach to the Riemann Hypothesis in (1+1)-Dimensional Rin
+   - 1708.02653v25  On Hilbert's 8th Problem
+Q: abs:Landau+AND+abs:%22Riemann%20hypothesis%22+AND+abs:nonnegative
   totalResults=0
-Q: all:%22generalized%20Nevanlinna%22%20AND%20all:%22Riemann%20hypothesis%22
+Q: abs:%22mean%20square%22+AND+abs:%22prime%20number%20theorem%22+AND+abs:%22Riemann%20hypothesis%22
   totalResults=0
-Q: all:Pick%20AND%20all:kernel%20AND%20all:%22Riemann%20hypothesis%22%20AND%20all:%22xi%22
-  totalResults=0
-Q: all:%22mean%20square%22%20AND%20all:Landau%20AND%20all:%22Riemann%20hypothesis%22%20AND%20all:Mellin
-  totalResults=0
-Q: all:%22tensor%20power%20trick%22%20AND%20all:%22Riemann%20hypothesis%22
-  totalResults=0
-Q: all:Deligne%20AND%20all:%22Landau%22%20AND%20all:%22tensor%20power%22%20AND%20all:zeta
+Q: abs:Deligne+AND+abs:%22Riemann%20hypothesis%22+AND+abs:%22tensor%20power%22
   totalResults=0

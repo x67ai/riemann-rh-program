@@ -7,15 +7,15 @@ while IFS= read -r q; do
   for t in $(seq 1 60); do curl -sL --max-time 60 "https://export.arxiv.org/api/query?search_query=$q&max_results=8" > "$TMP" 2>/dev/null && grep -q "totalResults" "$TMP" && break; sleep 60; done
   cat "$TMP" >> "$OUT"; echo "" >> "$OUT"; sleep 3
 done <<'Q'
-all:%22Epstein%20zeta%22%20AND%20all:%22von%20Mangoldt%22
-all:%22Epstein%22%20AND%20all:%22Euler%20product%22%20AND%20all:%22logarithmic%20derivative%22
-all:%22von%20Mangoldt%22%20AND%20all:nonnegative%20AND%20all:%22functional%20equation%22%20AND%20all:%22Riemann%20hypothesis%22
-all:%22Hasse%22%20AND%20all:%22virtual%22%20AND%20all:%22zeta%20function%22%20AND%20all:%22point%20counts%22
-all:Krein%20AND%20all:%22negative%20squares%22%20AND%20all:zeta
-all:%22generalized%20Nevanlinna%22%20AND%20all:%22Riemann%20hypothesis%22
-all:Pick%20AND%20all:kernel%20AND%20all:%22Riemann%20hypothesis%22%20AND%20all:%22xi%22
-all:%22mean%20square%22%20AND%20all:Landau%20AND%20all:%22Riemann%20hypothesis%22%20AND%20all:Mellin
-all:%22tensor%20power%20trick%22%20AND%20all:%22Riemann%20hypothesis%22
-all:Deligne%20AND%20all:%22Landau%22%20AND%20all:%22tensor%20power%22%20AND%20all:zeta
+ti:Epstein+AND+ti:zeta
+abs:%22von%20Mangoldt%22+AND+abs:Epstein
+abs:%22Euler%20product%22+AND+abs:%22Epstein%22+AND+abs:%22Riemann%20hypothesis%22
+abs:%22Weil%20bound%22+AND+abs:%22functional%20equation%22+AND+abs:%22Euler%20product%22+AND+abs:%22zeta%22
+abs:%22negative%20squares%22+AND+abs:zeta
+abs:Nevanlinna+AND+abs:%22Riemann%20hypothesis%22
+abs:Krein+AND+abs:%22Riemann%20hypothesis%22
+abs:Landau+AND+abs:%22Riemann%20hypothesis%22+AND+abs:nonnegative
+abs:%22mean%20square%22+AND+abs:%22prime%20number%20theorem%22+AND+abs:%22Riemann%20hypothesis%22
+abs:Deligne+AND+abs:%22Riemann%20hypothesis%22+AND+abs:%22tensor%20power%22
 Q
 rm -f "$TMP"

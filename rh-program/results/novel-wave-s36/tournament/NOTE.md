@@ -4,7 +4,11 @@ Agent: Opus 5.5 (replacement subagent), 2026-09-30. Charter: `results/novel-wave
 
 ## §0 Verdict
 
-(PENDING — filled in last.)
+**Close: (N) NOTHING — correctly.** 35 mechanisms from all sixteen charter domains ran the zoo §0 protocol: 26 DEAD, 9 EQUIV, 0 OPEN (§1, §3). No survivor to close G or K on. Three rows left computable questions, now decided (§2):
+- **DD1** — pointwise Λ ≥ 0 separates all three RH-false controls. Epstein x²+5y² first fails at n = 36, Λ(36) = −2 log 36 (h = 2, 3, 4: thousands of failures to 2·10⁵). DH fails at n = 3, every F_{a,q} at q². But its rung-1 twin, the virtual curve (1 − 5u + 5u²)/((1−u)(1−5u)), has Euler product, Λ ≥ 0, FE and rationality, and violates RH.
+- **DD2** — the Krein–Langer Pick kernel on a disk in Re s > 1 decides RH exactly. It flags DH (one negative square) and passes ζ. But its visibility is local: ≈ 6 digits per unit of height offset.
+- **DD3** — the ζ-analog of Deligne's squeeze, D_k = ∫(ψ − x)^{2k}x^{−s−1}dx, reads 2Θ correctly (F: 1.648; ζ: 1). Its positivity is free, and its needed continuation is RH-equivalent (mean-square PNT). DH is visible only for X ≳ |ρ|^{1/δ}.
+Synthesis (§4): a survivor must consume Λ ≥ 0 jointly with the FE, act globally, survive divergent prime mass, and use an input with no single-curve rung-1 twin (over Z: FE rigidity).
 
 ## §1 The candidate table
 
@@ -52,7 +56,7 @@ Each row: **G** generator theorem · **A** point of application to ζ · **E** w
 
 **T16. Quantum graphs with bonds of length log p.** G: self-adjointness of a metric-graph Laplacian; secular equation det(I − S e^{ikL}) = 0, S unitary (Kottos–Smilansky; Kurasov–Sarnak quasicrystals). A: bond lengths log p. Kill: a finite graph's secular function is a Lee–Yang restriction in finitely many prime variables — N1 Theorem K (zeros in (−14.1, 14.1)); a graph with all primes has total length ∞ and Weyl counting ≈ (Σ log p)·k/π = ∞, not (1/2π)log(t/2π). E: bond lengths only. **V: DEAD** (N1 Theorem K; Weyl law).
 
-**T17. Mayer's Gauss-map transfer operator (Selberg zeta of PSL₂(Z)).** G: Z_{PSL₂(Z)}(s) = det(1 − L_s²), L_s f(z) = Σ_n (z+n)^{−2s} f(1/(z+n)) (Mayer `[recalled, unverified]`); Krein–Rutman: for real σ, L_σ is positive with leading eigenvalue λ₁(σ) decreasing, λ₁(1) = 1; domination |L_s f| ≤ L_σ|f| gives ρ(L_s) ≤ λ₁(σ). A: Z vanishes at s = ρ/2 through the scattering determinant φ(s) = ξ(2s−1)/ξ(2s) `[recalled]`. Domination excludes eigenvalue ±1 only where λ₁(σ) < 1, i.e. σ > 1: nothing in the strip. E: none — the Gauss map encodes SL₂(Z), not primes. C: Hecke triangle groups carry the same formalism (Mayer–Mühlenbruch–Strömberg `[recalled]`) with resonances off any line ⇒ the RH-false world passes. **V: DEAD** — zoo III.19 ("Every RH-equivalence the QUE/microlocal corner owns … is the explicit formula in dynamical clothing") and III.3.
+**T17. Mayer's Gauss-map transfer operator (continued-fraction domain; Selberg zeta of PSL₂(Z)).** G: Z_{PSL₂(Z)}(s) = det(1 − L_s²), L_s f(z) = Σ_n (z+n)^{−2s} f(1/(z+n)) (Mayer `[recalled, unverified]`); Krein–Rutman: for real σ, L_σ is positive with leading eigenvalue λ₁(σ) decreasing, λ₁(1) = 1; domination |L_s f| ≤ L_σ|f| gives ρ(L_s) ≤ λ₁(σ). A: Z vanishes at s = ρ/2 through the scattering determinant φ(s) = ξ(2s−1)/ξ(2s) `[recalled]`. Domination excludes eigenvalue ±1 only where λ₁(σ) < 1, i.e. σ > 1: nothing in the strip. E: none — the Gauss map encodes SL₂(Z), not primes. C: Hecke triangle groups carry the same formalism (Mayer–Mühlenbruch–Strömberg `[recalled]`) with resonances off any line ⇒ the RH-false world passes. **V: DEAD** — zoo III.19 ("Every RH-equivalence the QUE/microlocal corner owns … is the explicit formula in dynamical clothing") and III.3.
 
 **T18. Control theory: positive-real lemma, passivity of ξ′/ξ.** G: Kalman–Yakubovich–Popov — positive-real ⟺ passive realization with a storage function; parallel and feedback interconnections of passive systems are passive. A: ξ′/ξ on Re s > ½ (positive-real ⟺ RH, Lagarias). Parallel split ξ′/ξ = arch′ + Σ_p G_p, G_p(s) = −log p·p^{−s}/(1 − p^{−s}): with w = p^{−s}, Re[w/(1−w)] = −|w|/(1+|w|) < 0 at w = −|w| and > 0 at w = |w| (derived), so no block is passive; absorbing them needs an archimedean margin ≥ Σ_p log p·p^{−σ}/(1 − p^{−σ}), divergent for σ ≤ 1. The feedback version (ξ as a lossless system's characteristic function) is Hermite–Biehler. C: Beurling systems pass every block estimate and fail RH maximally — zoo I.2 ("Beurling generalized number systems have a full Euler product … and Λ_P(n) ≥ 0 … yet violate RH maximally"). **V: DEAD** (I.2 for parallel; III.5 Conrey–Li for feedback).
 
@@ -119,4 +123,54 @@ No row passed brief time as OPEN (26 DEAD, 9 EQUIV). Carried instead: the three 
 **Computed** (`verify/dd3_landau_squeeze.{py,log}`, X = 10⁷, midpoint rule per unit interval + exact 1/12 term): growth of log₁₀D₁^X(σ) per decade (10⁶ → 10⁷). ζ: 0.045 (σ = 0.9), 0.014 (σ = 1, constant across decades: logarithmic growth, abscissa 1), → 0 for σ ≥ 1.3. F_{2.9,2}: 0.664, 0.349, 0.143, 0.025 at σ = 1, 1.3, 1.5, 1.7 against the prediction 2Θ_F − σ = 0.648, 0.348, 0.148, 0 — the abscissa 2Θ_F = 1.648 is legible from X = 10⁴ (F's off-line zeros are low, height 4.53). DH: 0.22 → 0.35 → 0.52 at σ = 1 (prediction 0.617), 0.10 at σ = 1.3 (0.317): not yet asymptotic, because the off-line term x^ρ/ρ (|ρ| = 85.7, δ = β − ½ = 0.3085) overtakes the on-line background only for X ≳ |ρ|^{1/δ} ≈ 10^{6.3}. **Visibility (IV.9):** the squeeze sees an off-line zero only at X ≳ |ρ|^{1/δ}, hopeless for the zeros that verification has not already excluded.
 
 **First lemma, stated exactly.** (L3) For some k ≥ 1 and every ε > 0, D_k continues analytically to Re s > k(1 + ε). Landau's lemma then gives 2kΘ ≤ k, i.e. RH; conversely RH gives L3 for k = 1 (the mean-square prime-number-theorem error `[recalled, unverified: Cramér]`). So L3 is RH-equivalent, and its prime-side proof needs 2k-point correlations of Λ with square-root error — zoo IV.3. **Rung 1:** Σ_N(N_N − 1 − q^N)^{2k}q^{−Ns} is rational with nonnegative coefficients for EVERY curve and ALSO for the RH-false virtual curve (5, 5) of §2.1: positivity + rationality + FE yield only "the abscissa is the largest pole". Deligne's actual input is the weight bound carried by a Lefschetz-pencil family (monodromy, induction on dimension) — absent for a single virtual curve, and absent over Z (zoo III.20(A), IV.20). **Estimate:** < 0.3%. **Verdict:** EQUIV confirmed; the squeeze's positivity is free, its content is the continuation.
+
+### §2.4 Prior art for DD1–DD3 (`verify/prior_art_arxiv.{sh,xml,log}`)
+
+Ten arXiv export-API queries, one at a time, 3 s apart. Specific phrase combinations for the three objects (Epstein + von Mangoldt / Euler product; Weil bound + FE + Euler product; negative squares + zeta; Landau + nonnegative + RH; Deligne + tensor power + RH): 0 results each. Broad queries: ti:Epstein ∧ ti:zeta, 28 titles, none on the sign of Λ; abs:Nevanlinna ∧ RH, 3, including arXiv:1008.0499 "On the Instability of the Riemann Hypothesis over Finite Fields" (adjacent to §2.1's virtual curves; not read); abs:Krein ∧ RH, 3, none on Krein–Langer invariance. Label: `[novelty: single-check]`. The classical inputs (Krein–Langer, Landau, Cramér, Deligne) predate arXiv, and per zoo V.5 an empty search is evidence of nothing.
+
+## §3 Summary table (35 rows: 26 DEAD, 9 EQUIV, 0 OPEN)
+
+| # | mechanism | verdict — reason |
+|---|---|---|
+| T1 | interlacing families, random prime signs | DEAD — extreme root of some leaf only; I.5 |
+| T2 | Gårding hyperbolicity, log-prime lines | DEAD — N1 Theorem K / ACV |
+| T3 | Euler factor as LP multiplier | DEAD — local zeros at Re s ∈ {0,1} |
+| T4 | Schoenberg PF∞ for 1/Ξ | EQUIV — LP membership; product diverges |
+| T5 | Hurwitz limit of Hasse-compliant factors | DEAD — a zero at \|t\| ≤ 4.53 per factor |
+| T6 | ID tilted Riemann kernel | DEAD — ID ⇒ zero-free entire ch.f. |
+| T7 | information functionals on dBN flow | DEAD — III.6, forward-only |
+| T8 | free convolution / subordination | DEAD — no free structure; Pick = EQUIV |
+| T9 | OT / electrostatics of zeros | DEAD — every zero set is critical |
+| T10 | zeta distribution in the strip | EQUIV — Lévy mass ∞ for σ ≤ 1 |
+| T11 | tropical / amoebas | DEAD — III.10, magnitude-blind |
+| T12 | hyperfinite Euler products | EQUIV — Euler-product convergence |
+| T13 | proof complexity (Π⁰₁) | DEAD — no generator |
+| T14 | Kronecker flow rigidity | DEAD — III.1, density only |
+| T15 | designed symbolic dynamics | DEAD — log p are Q-independent |
+| T16 | quantum graphs, bonds log p | DEAD — N1 Theorem K; Weyl |
+| T17 | Mayer transfer operator | DEAD — III.19; reaches σ > 1 only |
+| T18 | passivity / KYP of ξ′/ξ | DEAD — I.2 Beurling; III.5 |
+| T19 | truncated-Eisenstein Gram positivity | DEAD — depth-blind unitarity |
+| T20 | conic dual certificate | EQUIV — Weil, multiplier 1 |
+| T21 | Deligne squeeze on Prop.-B regrading | DEAD — regraded "RH" free; Theorem S |
+| T22 | Landau squeeze on (ψ − x)^{2k} | EQUIV — mean-square PNT (DD3) |
+| T23 | Rankin-type Landau positivity | DEAD — no amplification |
+| T24 | Stepanov auxiliary polynomials | DEAD — III.4 parity; III.20(A) |
+| T25 | condensed archimedean cohomology | DEAD — III.14 |
+| T26 | Lorentzian / matroid Hodge | DEAD — III.16 |
+| T27 | Krein–Langer Pick kernel on Re s > 1 | EQUIV — Weil; local visibility (DD2) |
+| T28 | one-sided majorants (Pólya, Mertens, Turán) | DEAD — refuted conjectures |
+| T29 | Jensen hierarchy via Hermite limit | DEAD — filtration; axiom-blind |
+| T30 | derivative descent (Ki–Kim) | EQUIV — per level |
+| T31 | Selberg Λ² squares | DEAD — III.4 parity |
+| T32 | modular bootstrap with Hecke | DEAD — I.1 Epstein passes |
+| T33 | lattice-modulus continuity (Lagarias–Suzuki) | DEAD — I.1 Epstein passes |
+| T34 | Carleman det₂ | EQUIV — continuation of log ζ |
+| T35 | Beurling–Deny Weil symbol | EQUIV — infinite prime jump mass |
+
+## §4 Synthesis — what the deaths share, and what a survivor must have
+
+**Four ways to die.** (a) *Local objects own zeros or own none.* Anything built prime by prime either carries zeros periodically at every height (T2, T5, T16; N1 Theorem K: a zero at |t| ≤ π/log q per factor, density ≥ log 2/2π) or carries them at Re s ∈ {0, 1} (T3; N3 Theorem D). ξ's zeros are collective: archimedean density plus a bounded prime correction; no prime owns one. (b) *Finiteness hypotheses fail exactly on the line.* Every generator needing a finite prime mass — Lévy/ID (T6, T10), Dirichlet forms (T35), Hilbert–Schmidt determinants (T34), convergent products (T4, T12), passive blocks (T18) — breaks because Σ_p p^{−σ} = ∞ for σ ≤ 1; each renormalization that repairs it is Weil's distributional one (IV.1). (c) *Hypotheses satisfied by an RH-false world* (T1, T11, T17, T19, T32, T33: Epstein, DH, Beurling, non-arithmetic groups). (d) *Wrong output type* — density, one extreme root, an asymptotic filtration (T1, T7, T14, T29; III.1). Every EQUIV row, stripped of its failed generator, is Weil/Li/Lagarias positivity with multiplier 1.
+
+**What a survivor must have that none of the dead had.** (1) It consumes pointwise Λ ≥ 0 *jointly* with the FE: DD1 shows this is the one input that DH, every F_{a,q} and Epstein (h = 2, 3, 4) all violate. (2) It is global: primes move zeros without owning them. (3) It survives divergent prime mass on the line with a renormalization that is not Weil's — or it works where the mass is finite (Re s > 1) and transports the result inward; Krein–Langer makes that transport exact in principle (DD2) but it costs ≈ 6 digits per unit of height, so the transport itself must be a theorem, not a computation. (4) It fails at rung 1 on a single curve: the virtual curve (q, a) = (5, 5) has Euler product, Λ ≥ 0, FE and rationality and violates RH (DD1), and the squeeze's positivity is free there too (DD3). In function fields the missing input is a family (Deligne) or a surface (Hodge index); over Z the only candidate with no rung-1 twin is the rigidity of the FE (Hamburger; degree-one rigidity I.7), and no known positivity generator consumes rigidity. A survivor must be that generator.
 
