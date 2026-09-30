@@ -1,7 +1,7 @@
 /* thin2.c — conj-O-s38 task 3. Extends the frontier NOTE's thin.c (copied verbatim as thin_fr.c; same hash, sieve, E1, bins and
  * CSV format: run,bin_lo,bin_hi,maxEplus,minEminus,sumE2,count,psiR) with three modes:
  *   finite  X p1 p2 ... pk          finite deletion R = {p_i}; rho exact; header also carries the exact one-period mean square.
- *   feedback alpha X Y K [c]        NEW structured design: online error-feedback deletion (see NOTE §3.4). Target weights
+ *   feedback alpha X Y K [c [corr]] NEW structured design: online error-feedback deletion (see NOTE §3.5). Target weights
  *                                   w_p = min(1, c p^(alpha-1)); discrepancy D = #R(<=p) - F(p) kept in |D| <= K p^(alpha/2);
  *                                   inside the band, delete p iff that makes |N(p) - rho_hat p| smaller. Primes in (X, Y] are
  *                                   decided greedily around the frozen offset D(X).
@@ -61,6 +61,7 @@ static int mode_finite(int argc, char **argv) {
 static int mode_feedback(int argc, char **argv) {
     double alpha = atof(argv[2]); uint64_t X = (uint64_t)atof(argv[3]), Y = (uint64_t)atof(argv[4]); double Kb = atof(argv[5]);
     double cm = argc > 6 ? atof(argv[6]) : 1.0; if (Y < X) Y = X; sieve(Y);
+    int corr = (argc > 7 && !strcmp(argv[7], "corr"));   /* corr: minimise |e - rho_hat*D| (future-discrepancy correction, §3.5) */
     rfree = malloc((X >> 3) + 1); memset(rfree, 0xFF, (X >> 3) + 1);
     double u0 = log(2.0), du = 1e-4; int G = (int)((log((double)Y) - u0) / du) + 3;     /* tail(u) = -c E1((1-alpha)u), u = ln p */
     double *tab = malloc(sizeof(double) * (G + 1)); for (int i = 0; i <= G; i++) tab[i] = -cm * E1((1.0 - alpha) * (u0 + i * du));
@@ -70,7 +71,8 @@ static int mode_feedback(int argc, char **argv) {
             double D = (double)nR - F, B = Kb * exp(0.5 * alpha * lp); int d;
             if (D - w < -B) { d = 1; nforced++; } else if (D + 1.0 - w > B) { d = 0; nforced++; }
             else { double x = (lp - u0) / du; int i = (int)x; double fr = x - i, tl = tab[i] * (1 - fr) + tab[i + 1] * fr;
-                double rk = exp(logrho + tl), ek = (double)(N + 1) - rk * p, ed = (double)N - rk * p + rk; d = (fabs(ed) < fabs(ek)); }
+                double rk = exp(logrho + tl), ek = (double)(N + 1) - rk * p, ed = (double)N - rk * p + rk;
+                if (corr) { ek -= rk * (D - w); ed -= rk * (D + 1.0 - w); }   /* E = e - rho*D if the future D returns to 0 (§3.5) */ d = (fabs(ed) < fabs(ek)); }
             if (d) { nR++; nRX++; kahan_add(&logrho, &lc, log1p(-1.0 / p)); clear_multiples(n, X); if (fd) fwrite(&n, 8, 1, fd); }
             F += w; double r = fabs((double)nR - F) / exp(0.5 * alpha * lp); if (r > maxD && n > 1000) maxD = r; }
         if ((rfree[n >> 3] >> (n & 7)) & 1) N++; }
@@ -79,7 +81,7 @@ static int mode_feedback(int argc, char **argv) {
     for (uint64_t q = X + 1; q <= Y; q++) { if (!isprime(q)) continue; double w = cm * exp((alpha - 1.0) * log((double)q)); if (w > 1.0) w = 1.0;
         int d = ((double)nR - F < DX); F += w; if (d) { nR++; kahan_add(&logrho, &lc, log1p(-1.0 / (double)q)); } }
     double tail = -cm * E1((1.0 - alpha) * log((double)Y)), rho = exp(logrho + tail); char run[96];
-    snprintf(run, sizeof run, "feedback_a%.3f_K%g_c%g", alpha, Kb, cm);
+    snprintf(run, sizeof run, "feedback_a%.3f_K%g_c%g%s", alpha, Kb, cm, corr ? "_corr" : "");
     printf("# run=%s alpha=%.4f X=%llu Y=%llu K=%g c=%g nR(Y)=%llu nR(X)=%llu D(X)=%.3f max|D|/p^(a/2)=%.3f forced=%llu logrho_Y=%.12f "
         "tail=%.12f rho=%.12f\n", run, alpha, (unsigned long long)X, (unsigned long long)Y, Kb, cm, (unsigned long long)nR,
         (unsigned long long)nRX, DX, maxD, (unsigned long long)nforced, logrho, tail, rho);

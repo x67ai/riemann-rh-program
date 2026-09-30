@@ -207,3 +207,67 @@ slopes of log M over [10^k, X_max] (k = 4…7) and the top three decades; a log-
 intercept of the local two-decade slopes regressed on 1/ln X. Why these: a finite window cannot separate X^{α−δ} from
 X^α(ln X)^{−κ} (at X ≈ 10⁷, κ = 3 mimics δ ≈ 0.19), and §1 proves that for regular R the exponent IS α (RH), so a pure-power
 deficit there measures κ, not a counterexample.
+
+**3.2 Rung 1: finite R reproduces Prop. 5.1** [computed: `verify/t3_rung1.py` → `verify/logs/t3_rung1.log`; data `verify/data/finite_*.csv`
+from `thin2 finite 1e8 …`]. R = {2, …, 13} (Q = 30030): the exact one-period mean square (long double, in the header) is
+1.022977022977090 against ρ2^{|R|}/12 = 1.022977022977023 (rel. 7·10⁻¹⁴); the dyadic code gives M(X)/(ρ2^{|R|}/12) − 1 =
+−7·10⁻⁴, +7·10⁻⁶, −2·10⁻⁵ at X = 6·10⁵, 5·10⁶, 4·10⁷. R = {3, …, 19} (Q = 4 849 845): 3.648512478207 vs 3.648512478234 (7·10⁻¹²),
+dyadic −3.9·10⁻³, −6.9·10⁻⁴ at X = 5·10⁶, 4·10⁷ (Q/X = 0.97, 0.12). Pure-power slopes 0.000 ± 0.03. The pipeline is calibrated.
+
+**3.3 Rung 2: random R (T_α), and the α = 0.75 tension** [computed: `verify/t3_seeds.py` → `logs/t3_seeds.log`,
+`verify/t3_analysis.py` → `logs/t3_analysis.log`, `verify/t3_ratio.py` → `logs/t3_ratio.log`, `verify/t3_kappa.py` → `logs/t3_kappa.log`].
+Mean-square slopes over [10⁴, 10¹⁰] (mean ± s.e. over seeds; in brackets [10⁷, 10¹⁰]): T_0.60 (4 seeds) 0.606 ± 0.034 [0.642 ± 0.067];
+T_0.75 (12 seeds: fr 1–4 + new 5–12) 0.723 ± 0.018 [0.787 ± 0.059]; T_0.90 (4) 0.923 ± 0.044 [0.910 ± 0.079]. Against (a) α = 0.60,
+0.75, 0.90 (the diagonal); (b) the local exponent of Q_R(X) = #⟨R⟩ ∩ [1, X], computed exactly by `rnums`: 0.602 ± 0.001, 0.750 ± 0.000
+(and of W: 0.601, 0.750); (c) the one-scale value X^α/ln X of Theorem B: slope 0.534, 0.684, 0.834 on the same window. The data sit
+between (c) and (a), consistent with M ≍ X^α(ln X)^{−κ}, 0 ≤ κ ≤ 1. M/M_diag has no trend (log-power index κ = −2.9 … +0.3, errors
+1.2–2.0 per seed; pure-power −0.01 … +0.18 ± 0.09 per decade) and sits at 5–70: for random R the mean square EXCEEDS the truncated
+Franel diagonal several-fold — the incomplete periods of the R-numbers near X (Theorem B's one-scale block) carry most of it.
+*The tension (read-O F5).* Top window [10⁷, 10¹⁰], T_0.75, running-sup slope (fr fit.py convention): seeds 1–4 0.450 ± 0.009 (the
+fr value, reproduced); the eight new seeds 0.363 ± 0.014; all twelve **0.392 ± 0.016** — 1.1σ above α/2 = 0.375 and 3.3σ below
+1/(3 − α) = 0.444. Side by side, the dyadic mean-square slope on the same window: all twelve 0.787 ± 0.059 against α = 0.75 (0.6σ)
+and 2/(3 − α) = 0.889 (1.7σ). Seed by seed (log): the four fr seeds are the four highest top-window sup-slopes of twelve (0.433–0.474
+vs 0.313–0.429). **The four-seed excess was a small-sample fluctuation; the tension resolves toward α/2 (sup) and α (mean square).**
+
+**3.4 Rung 3: structured R (greedy c = 1, 2) — below X^{α−δ} in pure-power slope, and why that is not a counterexample.**
+| design | X | ms-slope [10⁴,X] / [10⁶,X] / top 3 dec. | sup-slope [10⁴,X] | Q_R slope | M/M_diag: 6·10⁵ → 2.5·10⁹ | κ (X ≥ 10⁶) |
+|---|---|---|---|---|---|---|
+| greedy c=1, α=0.60 | 10¹⁰ | 0.445 / 0.433 / 0.447 | 0.238 | 0.600 | 0.71 → 0.22 | 3.00 ± 0.15 |
+| greedy c=1, α=0.75 | 10¹⁰ | 0.577 / 0.594 / 0.598 | 0.308 | 0.750 | 0.52 → 0.10 | 2.80 ± 0.15 |
+| greedy c=2, α=0.60 | 10¹⁰ | 0.497 / 0.522 / 0.527 | 0.278 | 0.656 | 0.81 → 0.22 | 2.32 ± 0.24 |
+| greedy c=2, α=0.75 (new run) | 10¹⁰ | 0.676 / 0.467 / 0.442 | 0.354 | 0.805 | 9.7 → 0.92 | 5.9 ± 0.3 |
+(κ: fit of log(M/M_diag) = a − κ log ln X; Q_R slope for c = 2 exceeds α by the (ln X)^{c−1} factor; c = 2, α = 0.75 deletes every
+prime ≤ 13, and its early windows carry that fundamental-lemma transient — ratio 9.7 at 6·10⁵ — cf. fr §6.3(4).)
+*Reading.* Every greedy set has pure-power mean-square slope below α by 0.13–0.31 over ≥ 3 decades and a ratio M/M_diag falling
+like X^{−0.13…−0.33} — **the stop line's literal trigger ("dyadic mean square below X^{α_R−δ} over three decades") is met.** It is
+met, however, by sets for which β₂ ≥ α/2 is a theorem: for c = 1 UNCONDITIONALLY — fr Theorem C holds in mean-square form, because
+β₂ < α/2 would make ζ_P(s) = ρs/(s−1) + s∫_1^∞E(x)x^{−s−1}dx analytic on σ > β₂ (Prop. 1.3(i)), across the branch point s = α/2
+[proved here, one line] — and for c = 2 under RH (Corollary Z.1). So on these sets the deficit IS a log-power, κ ≈ 2.3–3 relative
+to the diagonal (the c = 1 sets are an unconditional calibration: a pure-power fit over six decades undershoots a proved exponent
+by 0.16), and the c = 2 decline has the same form and size as the c = 1 one. For c = 2, α = 0.75 the top-window slope 0.442 is even
+below the UNCONDITIONAL mean-square bound 2α/3 = 0.5 from Theorem C (branch point at α/3, c/3 ∉ ℤ): a finite window undershoots a
+proved exponent by ≥ 0.06 there. **No structured set is a counterexample; the trigger, as phrased, cannot tell one from a log-power.**
+
+**3.5 A new design built to defeat the diagonal: online error-feedback deletion** [computed: `verify/thin2.c` mode `feedback`,
+`verify/run_t3.sh`, `verify/run_t3b.sh`, logs `logs/t3_kappa.log`, `logs/t3_feedback.log`, `logs/t3_analysis.log`].
+*What was tried and why.* Theorem Z (RH) kills every R whose prime count is regular to within o(x^{α/2}) — even with a smooth
+offset — so a counterexample must use discrepancy D(x) = π_R(x) − F(x) of size ≈ x^{α/2} and use it against the integer error. The
+design: sweep n = 1, …, X keeping the exact R-free count; at each prime p choose deletion or not, subject to |D| ≤ K·p^{α/2}, so as to
+minimise |N(p) − ρ̂p| (ρ̂ = product over deleted primes so far × the mean tail exp(−c·E₁((1−α)ln p))); variant `corr` minimises
+|N(p) − ρ̂p + ρ̂D|; primes in (X, Y] are decided greedily around the frozen offset D(X). Runs: α ∈ {0.6, 0.75}, c ∈ {1, 2},
+K ∈ {0.5, 2, 8}, X = 10⁹ (16 runs), and the one run whose band never bound (α = 0.75, c = 1, K = 2) extended to X = 10¹⁰.
+*Result.* No run beats greedy. Plain feedback: 11 of 12 runs have M/M_diag GROWING (κ from −0.5 to −16; M/M_diag at the top 1–5600;
+mean-square slopes 0.62–1.56); the band binds ("forced" decisions up to 3.6·10⁷) and D rides its edge. The unbound run (α = 0.75,
+c = 1, K = 2) looked flat to 10⁹ (ratio 0.29, κ = −0.5 ± 0.7) but at 10¹⁰ its D has drifted to 1.37·p^{α/2} and the ratio grows
+(κ = −4.4 ± 1.1, top-window mean-square slope 1.11): random-like. `corr`: α = 0.6, K = 0.5: κ = 0.8 ± 0.2 (ratio 0.41), K = 2:
+κ = 3.0 ± 0.8 (ratio 2.1; pure-power slope 0.436 on [10⁶, X], the lowest measured, but inside the greedy calibration κ ≈ 3 of §3.4,
+and its D rides the band edge, i.e. π_R = F + 2x^{α/2} + (bounded excursions), a smooth offset of the kind Theorem Z covers);
+α = 0.75 `corr` runs grow.
+*Mechanism of the failure* [proved here, from fr Thm B step (2) and §1.4]: deleting q changes E(y) by exactly −E(y/q) for all y
+(the 0–1-law identity E_{R∪{q}}(y) = E_R(y) − E_R(y/q)), a mean-zero sawtooth at the smaller scale — so a decision has no lasting
+lever on E beyond the step at y ≈ q. The only persistent lever is D, and it enters linearly: with ρ̂ the controller's estimate,
+E(x) = [N(x) − ρ̂x] − ρx∫_x^∞(D(u) − D(x))u^{−2}du + O(x^{2α−2}·x). A controller that pins D to a band edge adds the smooth term
+ρK·x^{α/2}·(α/2)/(1 − α/2) to E — the growth seen. Beating the diagonal would need D to fluctuate at scale x^{α/2}, irregularly (else
+Theorem Z applies) and anti-correlated with the integer error at every later scale — by Prop. 1.6, equivalently infinitely many
+zeros of ζ_P with real parts in (τ₀, ½) for every τ₀ < α_R/2. No design here produces that.
+**Close of task 3: N** — no structured R below X^{α−δ} beyond the log-power calibration; the α = 0.75 tension resolved (§3.3).

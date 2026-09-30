@@ -136,3 +136,63 @@ real 12.62
 user 12.59
 sys 0.03
 [2026-10-01 03:02:59] env RDUMP=rdump/feedback_a0.75_c1_K2_1e9.bin ./thin2 feedback 0.75 1e9 4e9 2 1 > feedback_a0.75_c1_K2_1e9.csv
+real 12.74
+user 12.70
+sys 0.02
+[2026-10-01 03:03:12] env RDUMP=rdump/feedback_a0.75_c1_K8_1e9.bin ./thin2 feedback 0.75 1e9 4e9 8 1 > feedback_a0.75_c1_K8_1e9.csv
+real 12.85
+user 12.81
+sys 0.02
+[2026-10-01 03:03:25] env RDUMP=rdump/feedback_a0.75_c2_K0.5_1e9.bin ./thin2 feedback 0.75 1e9 4e9 0.5 2 > feedback_a0.75_c2_K0.5_1e9.csv
+real 13.08
+user 13.03
+sys 0.04
+[2026-10-01 03:03:38] env RDUMP=rdump/feedback_a0.75_c2_K2_1e9.bin ./thin2 feedback 0.75 1e9 4e9 2 2 > feedback_a0.75_c2_K2_1e9.csv
+real 12.99
+user 12.95
+sys 0.03
+[2026-10-01 03:03:51] env RDUMP=rdump/feedback_a0.75_c2_K8_1e9.bin ./thin2 feedback 0.75 1e9 4e9 8 2 > feedback_a0.75_c2_K8_1e9.csv
+real 12.96
+user 12.92
+sys 0.03
+[2026-10-01 03:04:04] all done
+[2026-10-01 03:07:47] env RDUMP=rdump/feedback_a0.60_c1_K0.5_corr_1e9.bin ./thin2 feedback 0.60 1e9 4e9 0.5 1 corr > feedback_a0.60_c1_K0.5_corr_1e9.csv
+real 11.72
+user 11.68
+sys 0.02
+[2026-10-01 03:07:59] env RDUMP=rdump/feedback_a0.60_c1_K2_corr_1e9.bin ./thin2 feedback 0.60 1e9 4e9 2 1 corr > feedback_a0.60_c1_K2_corr_1e9.csv
+real 11.92
+user 11.89
+sys 0.02
+[2026-10-01 03:08:11] env RDUMP=rdump/feedback_a0.75_c1_K0.5_corr_1e9.bin ./thin2 feedback 0.75 1e9 4e9 0.5 1 corr > feedback_a0.75_c1_K0.5_corr_1e9.csv
+real 12.26
+user 12.23
+sys 0.03
+[2026-10-01 03:08:23] env RDUMP=rdump/feedback_a0.75_c1_K2_corr_1e9.bin ./thin2 feedback 0.75 1e9 4e9 2 1 corr > feedback_a0.75_c1_K2_corr_1e9.csv
+real 12.36
+user 12.32
+sys 0.03
+[2026-10-01 03:08:35] env RDUMP=rdump/feedback_a0.75_c1_K2_1e10.bin ./thin2 feedback 0.75 1e10 2e10 2 1 > feedback_a0.75_c1_K2_1e10.csv
+real 80.66
+user 80.43
+sys 0.22
+[2026-10-01 03:09:56] run_t3b all done
+[2026-10-01 03:11:15] corr sign fixed (minimise |e - rho_hat D|); earlier corr outputs renamed *_corrplus_* (they used +rho_hat D)
+[2026-10-01 03:11:15] env RDUMP=rdump/feedback_a0.60_c1_K0.5_corr_1e9.bin ./thin2 feedback 0.60 1e9 4e9 0.5 1 corr > feedback_a0.60_c1_K0.5_corr_1e9.csv
+real 11.82
+user 11.79
+sys 0.02
+[2026-10-01 03:11:27] env RDUMP=rdump/feedback_a0.60_c1_K2_corr_1e9.bin ./thin2 feedback 0.60 1e9 4e9 2 1 corr > feedback_a0.60_c1_K2_corr_1e9.csv
+real 11.99
+user 11.96
+sys 0.02
+[2026-10-01 03:11:39] env RDUMP=rdump/feedback_a0.75_c1_K0.5_corr_1e9.bin ./thin2 feedback 0.75 1e9 4e9 0.5 1 corr > feedback_a0.75_c1_K0.5_corr_1e9.csv
+real 12.30
+user 12.27
+sys 0.02
+[2026-10-01 03:11:51] env RDUMP=rdump/feedback_a0.75_c1_K2_corr_1e9.bin ./thin2 feedback 0.75 1e9 4e9 2 1 corr > feedback_a0.75_c1_K2_corr_1e9.csv
+real 12.35
+user 12.33
+sys 0.02
+[2026-10-01 03:12:03] run_t3b all done
+[2026-10-01 03:12:40] env RDUMP=rdump/feedback_a0.75_c1_K2_corr_1e10.bin ./thin2 feedback 0.75 1e10 2e10 2 1 corr > feedback_a0.75_c1_K2_corr_1e10.csv
