@@ -58,8 +58,10 @@ def square_run(N, cx, cy, radii, Rad, rho, m, K, nbox, tag):
         k, st = winding(D, E, c, r, log=log)
         log('  %s: half-width r = %s  ->  winding number k = %s' % (tag, r, k))
         res[r] = k
-    z0 = newton_on_model(D, c)
-    log('  model zero estimate (non-rigorous): %s' % mp.nstr(z0, 25))
+    z0 = None
+    if any(k == 1 for k in res.values()):          # only meaningful when a zero was certified inside
+        z0 = newton_on_model(D, c)
+        log('  model zero estimate (non-rigorous): %s' % mp.nstr(z0, 25))
     return res, z0
 
 

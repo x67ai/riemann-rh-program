@@ -101,7 +101,7 @@ numbers. Every truncation adds a disk whose radius is a bound proved in §B. Scr
 The ladder exercised every component: Stirling with shift (small |w|), Euler–Maclaurin at low height, h by the lower series
 (n ≤ 6) and by integration by parts (n = 7), the tail bound, the Taylor model and the boundary walk (both outcomes k = 1 and k = 0).
 
-## D. N = 27 details (`cert27.py` → `logs/cert27.log`, 57 s)
+## D. N = 27 details (`cert27.py` → `logs/cert27.log`, 56 s incl. H2\* and X4)
 
 - Tail route: Ξ₂₇ = Ξ − Φ₂₈ − Φ₂₉ − Φ₃₀ − T₃₀; ζ: N = 1012, m = 94; h for n = 28–30 always by B3 (no fallback needed).
   |Ξ(3144.8946)| = 1.4923145335789e−1066, |Φ₂₈| = 1.49249055304208e−1066: the tail route resolves Ξ₂₇ ≈ 1e−1070 with ≈ 50 spare digits.
@@ -135,7 +135,7 @@ The ladder exercised every component: Stirling with shift (small |w|), Euler–M
 
   They also agree with the brief's Arb reference values (−1.76019463128e−1070, +1.06871649226e−1070, +1.12975694292e−1070,
   −1.14913915363e−1070) to all 12 digits given. X4 (`cert27.py`): at the brief's 22-digit point z₂₂ the enclosure is
-  Ξ₂₇(z₂₂) ∈ @X4@ (brief: 2.58e−1085 + 1.70e−1084 i).
+  Ξ₂₇(z₂₂) ∈ 2.57878203163e−1085 + 1.7049877229e−1084 i (brief: 2.58e−1085 + 1.70e−1084 i; = D₁·(z₂₂ − z*) to 4 digits).
 - **X1.** The Ξ boxes (Stirling + E–M) contain mpmath's ordinary 400-bit ζ·Γ values at the four points and at c.
 - **X2.** h at X = 784π (the four arguments of Φ₂₈(c)): B3 at 200 bits (relative radius 2.8e−57) and B4 at 4400 bits (≈ 1e−106,
   the Stirling bound) overlap for all four. (At 1400 bits B4's box was useless: ~5000 box rotations in u_k = u_{k−1}X/(w+k) wrap.)
@@ -160,7 +160,7 @@ Hence ξ₂₄ has a non-real zero in Q (z-variable) with real part < 2508.285 <
 
 `cd producer-B && python3 selftest.py && python3 ladder.py && python3 cert27.py && python3 cert_h5.py && python3 crosscheck.py X1 X2
 && python3 crosscheck.py X3` (one process at a time; Apple M4 (Mac16,10), macOS 27.0.1, single core). Times: selftest 2 s, ladder 118 s,
-cert27 ≈ 60 s, cert_h5 17 s, crosscheck X1X2 16 s, X3 ≈ 670 s. Python 3.9.6; mpmath 1.3.0, backend `python` (no gmpy);
+cert27 56 s, cert_h5 17 s, crosscheck X1X2 16 s, X3 664 s. Python 3.9.6; mpmath 1.3.0, backend `python` (no gmpy);
 no Arb, no python-flint, no other numerical library. Working precision 200 bits (4400 bits in X2/X3); every truncation bound
 targets 2^{−190}. Logs: `logs/selftest.log`, `ladder.log`, `cert27.log`, `cert_h5.log`, `crosscheck-X1X2.log`, `crosscheck-X3.log`
 (`crosscheck-run1-X2invalid.log` kept for the record: same X3 values; its X2 used 1400 bits and is void, see SHARED.md).

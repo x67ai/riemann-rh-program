@@ -74,3 +74,29 @@
 - Run 2 (full script) was stopped during X3 (it repeated run 1's X3 exactly). NOTE: my first `pkill -f "python3 crosscheck.py"`
   did not match (the process shows as `Python crosscheck.py`), so run 2 overlapped the 16-s X1/X2 job; killed by PID afterwards.
 - X3 relaunched alone (`python3 crosscheck.py X3` → `logs/crosscheck-X3.log`, ≈ 11 min).
+
+## 2026-09-30 23:32 — final: cross-checks done, CERT.md final, SHA-256
+- X3 run 2 (`logs/crosscheck-X3.log`, 664 s): identical to run 1 at all four points (literal = tail to 16 digits, overlap, same sign).
+- cert27.py re-run (56 s) adds X4: Ξ₂₇(z₂₂) ∈ 2.57878203163e−1085 + 1.7049877229e−1084 i at the brief's 22-digit point (brief: 2.58e−1085 + 1.70e−1084 i).
+- CERT.md final: 170 lines. Theorem H: H1, H2 (k = 1, r = 1e−3 … 3.7e−11), H3, H4 certified; H2* (z₀ to ±1e−48); optional H5 certified.
+- SHA-256 (shasum -a 256):
+```
+b6cd08293de237296e829934e65ec97d39d9c724c897677087494512defda8d9  CERT.md
+ba7fa801a0c3e199afc2f5eb1fac5c09df4d04a954dece64449e577d96f3d7a6  logs/cert_h5.log
+33f5350d6b2be31bc12f1cb8f5cb540b799f524db4a95501c781fcde51bbbf4f  logs/cert27.log
+e7cee476cbfde23f9e47e47f0605e0deb571e7ae9e3894afd101edc4d3bba1ae  logs/crosscheck-run1-X2invalid.log
+26fcdcc6df28f1e91f5b6559ff7a78ab9ff2428de9f9655c14aeae67b909a2d1  logs/crosscheck-X1X2.log
+c01d148cae240d50e80b22210130f075489879ba69feaad83c287799bf0ea195  logs/crosscheck-X3.log
+461538eeed2b779f56b448c2ab9dc8de50edbff6f31c35b19b523ce6da43355a  logs/ladder.log
+d88370f390a5f2d652b87605297a2617791f84921ceef4152809385bc67c122e  logs/selftest.log
+3945713223b4d8e90fc78f4a2029b0667530536ece9be77711058ae471afe29d  cert_h5.py
+f973648d4bdf7554ab2bf17c6689c62f34679bd46ed14cfce52dfa8f51abf250  cert27.py
+01bcc1cc0ced434b4d0d469b2124aa05f589543ffaf67cde1d9611160cf38b82  crosscheck.py
+56836f9e893f55b491796d257b1221e206478e7251f35b310dcad06057f92d82  ivc.py
+6359bd71f111d971f0d0793d930c7b0b11287ca1360d9828c46935263da46596  ladder.py
+88f27b60b5c854bc65cb766e89b9ef31c595a2b317a577d44e7955079e40e5a5  selftest.py
+2d6f06265d9b56b6fa6c25b74c1ef259d44205da3b022d6c3e57638434302683  specfun.py
+5a831eace8447f5424128930f5aca9d42b8bef5d24dfdc21c16084bb068837df  winding.py
+faa873aa32e874db2f4888353b731e781264eefd22d56b7aa643252f940d5274  xin.py
+3fcd947afe8bb6eea43f584d863612ce02056e61460949f1f9c510df0d6efdcb  lit/html2txt.py
+```
