@@ -1137,6 +1137,27 @@ fidelity:
     the grid; general harmonics u_j); Prop. 4.1's ledger, (T2), (T4), (T5); the VALUE of F1 − S2 or of ā; ζ, RH, any zero.  Ledger
     text: results/h4-pair-lean-s33/FIDELITY.md; the attack on the typing note's derivations with the errata (E7: the note's dyadic π
     bracket does not follow from pi_gt_d6 — unused; E5, E9): results/h4-pair-lean-s33/PREDERIVATION-ERRATA.md.
+    (aa) [Session 36, 2026-09-30; theoremR-lean-s36, topic ResidueRank — Theorem R's arithmetic core, Lemma F, Theorem R on the
+    abstract pair, two scoped real-algebra statements.]  Where the formal statements differ from the record (NOTE.md §1.1, §2.0 Lemma F,
+    §2.3 H3.3(b), Theorem R, T3; read-O.md §2.5): (aa1) the abstract pair — `cls : ℕ → ι` stands for n ↦ c(Γ_n) and `v : ι → ℝ` for the
+    diagonal row D ↦ (Δ · D)_Y, both arbitrary; A7's graph structure is dropped (the NOTE: "The proof reads only the fibers of c on
+    components"), and Lemma F(b) keeps only multiplicativity, without φ(1) = 1.  (aa2) fibers and span over m, n ≥ 2 (Γ_1 the diagonal,
+    excluded as in the NOTE's fiber sum; ℕ's 0 excluded); A5 built in as Mathlib's `ArithmeticFunction.vonMangoldt`; A9 as an
+    unconditional `HasSum` with ONE real κ.  (aa3) κ: no sign needed by Lemma F; `theoremR` displays the SPEC's κ > 0 and its proof does
+    NOT use it (program side `theoremR_of_A9`; κ = 0 contradicts A9 at n = 2, κ < 0 is satisfiable and the conclusion holds —
+    PREDERIVATION-ERRATA E1, which corrects the brief's parenthetical "for κ ≤ 0 the hypothesis is contradictory").  (aa4) displayed but
+    removable, kept verbatim, each removal kernel-checked on the program side only: item 3's positivity (`rank_span_log_le_of_supp`, E4),
+    item 4's 2 ≤ n (`lemmaF_finite_fiber_all`, E2), item 5's 1 ≤ a (`lemmaF_infinite_order_all`, E3), item 8's 0 ≤ g (`theoremS_abs`,
+    E5).  (aa5) "infinite-dimensional" as ¬ Module.Finite ℚ of the span; the rank bound in Cardinal; Mathlib's Real.log 0 = 0,
+    Real.sqrt of a negative number = 0 and x / 0 = 0 are excluded by item 2's positivity, item 7's 0 ≤ g, item 8's κ > 0.  (aa6) the
+    program theorems name their unused displayed hypothesis `_hpos`, `_hκ` (the linter); the trusted statements and the Solution carry
+    the displayed names.  (aa7) no ChallengeDeps module: the comparison is against Mathlib's own constants.  Fidelity divergences in the
+    brief's sense (a hypothesis beyond the statements' own): NONE.  NOT covered, and stated nowhere in Lean: the SPEC's A6–A8 (and A7's
+    graphs, A10, A13); the existence or non-existence of a target Y; the general-base Theorem R (char(B), Λ_B, residue fields); Lemma
+    F(a)'s second clause as a topic statement (it is the program lemma `fiber_sum_eq_log`) and Lemma F(c); the κ-scaling of the converse;
+    the rung-1 side; the geometric reading of items 7–8 (the Session-36 Theorem S, under read — items 7–8 are real algebra, SCOPED); T1,
+    T2, Prop. 2.2.1, Cor. 3.1–3.2, routes (a)/(b); ζ, its zeros, RH.  Ledger text: results/theoremR-lean-s36/FIDELITY.md; the attack on
+    the brief's statements and sketches: results/theoremR-lean-s36/PREDERIVATION-ERRATA.md (no statement error; E1 against a sketch).
 
 review:
   status: "self-assessed"
@@ -1340,6 +1361,20 @@ review:
     comparator/Challenge/PairChannel.lean against the record; the independent clean-clone check (Opus 5,
     results/h4-pair-lean-s33/CHECK-O.md) is the next job.  These statements carry no "modulo H" label.
 
+    Comparator run, topic ResidueRank (results/theoremR-lean-s36/comparator-run.log, 2026-09-30 17:37 IST, 32.26 s, eight
+    theorem_names ResidueRank.*; Session 36 builder Opus 5.5): the same tool chain and shim (comparator v4.33.0, lean4export v4.33.0-rc2,
+    nanoda 0.4.17, fake-landrun — NOT sandboxed, as above; tool SHA-256s printed in the log), from the repository root
+    ~/rh-lean-work/checker-clone-s33-h4 with the challenge and the solution built by comparator itself (pre-built artifacts removed
+    first, prerun-cleanup.log; no ChallengeDeps module); final lines verbatim: "Running nanoda kernel on solution" / "Nanoda kernel
+    accepts the solution" / "Running Lean default kernel on solution." / "Lean default kernel accepts the solution" / "Your solution is
+    okay!"; exit code 0.  Statement identity challenge/solution: 8 IDENTICAL on the build tree and on the program tree, 8 IDENTICAL
+    against the typing probe, and the challenge's text from `import Mathlib` to the end identical to the probe's (statement-identity.log);
+    #print axioms on the 8 names and on all 27 program-side declarations of Zeta23/ResidueRank/{LogPrimes,Pair,GenusBound}.lean:
+    [propext, Classical.choice, Quot.sound] (print-axioms.log, program-axioms.log); trust greps with comments stripped on the six Lean
+    files, both roots: the 8 deliberate challenge `sorry`s only (trust-greps.log).  No human has read
+    comparator/Challenge/ResidueRank.lean against the record; the independent clean-clone check (Opus,
+    results/theoremR-lean-s36/CHECK-O.md) is the next job.  These statements carry no "modulo H" label.
+
 alignment:
   namespaces:
     - "DBN"
@@ -1357,6 +1392,8 @@ alignment:
     - "Zeta23.PairCeiling.PairRow"
     - "Zeta23.PairCeiling.PairCert"
     - "PairChannel"
+    - "Zeta23.ResidueRank"
+    - "ResidueRank"
   statements:
     - source: "SPEC §1.1 — the target theorem in ray form (Λ ≤ 0.2 without the word Λ), row 2, mpmath-ball leg; the referee's statement"
       lean: "dbn_ray_le_point2_mp"
@@ -1518,6 +1555,18 @@ alignment:
       lean: "prop45, abar_sq_le, floor_holds_integer, floor_fails_anchor"
       module: "Challenge.PairChannel / Solution.PairChannel over ChallengeDeps.PairChannel (Mathlib only); sources Zeta23/PairCeiling/PairRow.lean, Zeta23/PairCeiling/PairCert.lean"
       status: "proved (prop45 for general n with no hypothesis; floor_fails_anchor by two generic cosh bounds, four power sums by decide +kernel, pi_gt_d6/pi_lt_d6 and one norm_num — the certificate module builds in 1.8 s), the only hypothesis 1 ≤ m of floor_holds_integer is the chain's subject; Comparator PASS with nanoda (results/h4-pair-lean-s33/comparator-run.log). Says nothing about (MI), which holds at this anchor"
+    - source: "β-shapes NOTE §2.3 H3.3(b) ('{log ℓ : ℓ prime} is Q-linearly independent … unique factorization in Z forces every c_ℓ = 0'), the proof of Theorem R ('put S := ∪_i supp(log N_{D_i}), a finite set of primes … Therefore char(B) ⊆ S, which is finite'), and read-O §2.5's converse ('dim_Q G ≤ |char(B)|') — the arithmetic core"
+      lean: "ResidueRank.log_primes_linearIndependent, ResidueRank.span_log_not_finite, ResidueRank.rank_span_log_le"
+      module: "Challenge.ResidueRank / Solution.ResidueRank (Mathlib only, no ChallengeDeps module); source Zeta23/ResidueRank/LogPrimes.lean"
+      status: "proved, no displayed hypothesis (the positivity of rank_span_log_le is displayed and unused); Comparator PASS with nanoda (results/theoremR-lean-s36/comparator-run.log)"
+    - source: "β-shapes NOTE §2.0 Lemma F (a) finiteness clause and (b), and §2.3 T3 = Theorem R at B = Spec Z ('Theorem R gives dim_Q G = ∞') — on the abstract pair: cls : ℕ → ι for n ↦ c(Γ_n), v : ι → ℝ for the diagonal row, A5 as von Mangoldt's Λ, A9 as a HasSum over each fiber with one real κ"
+      lean: "ResidueRank.lemmaF_finite_fiber, ResidueRank.lemmaF_infinite_order, ResidueRank.theoremR"
+      module: "Challenge.ResidueRank / Solution.ResidueRank (Mathlib only); sources Zeta23/ResidueRank/Pair.lean, Zeta23/ResidueRank/LogPrimes.lean"
+      status: "proved, no displayed hypothesis (theoremR's κ > 0 is the SPEC's, displayed and unused — PREDERIVATION-ERRATA E1); Comparator PASS with nanoda (results/theoremR-lean-s36/comparator-run.log). A6–A8, A7's graphs, the target Y and the general-base Theorem R are not stated"
+    - source: "UNIT-BRIEF items 7–8 (the real-algebra core of the Session-36 Theorem S, results/d4-infty-s36/, under read) — SCOPED: real inequalities true on their face; their geometric reading is not claimed"
+      lean: "ResidueRank.theoremS_bound, ResidueRank.theoremS"
+      module: "Challenge.ResidueRank / Solution.ResidueRank (Mathlib only); source Zeta23/ResidueRank/GenusBound.lean"
+      status: "proved (theoremS_bound by nlinarith on the brief's derivation, 62 lines; theoremS from it and the infinitude of primes), no displayed hypothesis; Comparator PASS with nanoda (results/theoremR-lean-s36/comparator-run.log)"
 
 acknowledgements: >-
   Built on Anthropic's Zeta23 library and on Lean 4, Mathlib, Lake, Comparator, lean4export and nanoda; the two ported

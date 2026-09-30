@@ -1,0 +1,10 @@
+# FETCH-LIST — ROUND 9 (opened 2026-09-30, Session 36) — ALL ROWS OPTIONAL
+
+**Plain English for the sponsor:** nothing here blocks any work. These are classical textbook pages that two notes quote from memory in sentences that carry no weight. If you happen to have the books, a photo or PDF of the named page is enough; if not, ignore this list.
+
+| # | Item (full citation) | Exact page wanted | Priority | Why (which note, which sentence) |
+|---|---|---|---|---|
+| r9-01 | E. C. Titchmarsh (rev. D. R. Heath-Brown), *The Theory of the Riemann Zeta-Function*, 2nd ed., Oxford 1986 — OR H. M. Edwards, *Riemann's Zeta Function*, Academic Press 1974 | Titchmarsh Thm 2.12 / §9.4, or Edwards §2.4 (Hadamard: ζ has infinitely many nontrivial zeros) | optional | `results/beta-shapes-s35/NOTE.md` §6.5 stop line (iv): used only to say h = ∞ in the sub-shape (D4-∞); not load-bearing |
+| r9-02 | A. E. Ingham, *The Distribution of Prime Numbers*, Cambridge 1932 — OR H. L. Montgomery, R. C. Vaughan, *Multiplicative Number Theory I*, Cambridge 2007 | Ingham Thm 34, or MV Thm 15.11 (Littlewood 1914: ψ(x) − x = Ω±(√x log log log x)) | optional | same note, route (b) general fibers — a heuristic, superseded by Theorem R |
+| r9-03 | A. Baker, *Transcendental Number Theory*, Cambridge 1975 (or 1990 reprint) | Thm 2.1 (logarithms of algebraic numbers that are linearly independent over Q are linearly independent over the algebraic numbers) | optional | `results/d4-infty-s36/` Proposition A (the finite-Lefschetz sub-shape with algebraic eigencharacter values) — a side cell; the unit's main theorems do not use it |
+| r9-04 | Any standard text with Chebyshev's bound θ(x) ≥ c·x (e.g. Hardy & Wright, *An Introduction to the Theory of Numbers*, Thm 414–415; or MV I §2.2) | the statement and its page | optional | `results/d4-infty-s36/` Proposition B, the all-N tail of the regrading (the first 22 blocks are computed; the tail cites Chebyshev) |

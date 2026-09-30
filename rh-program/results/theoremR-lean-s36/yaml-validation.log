@@ -1,0 +1,40 @@
+== Wed Sep 30 17:41:27 IST 2026 row letter uniqueness: occurrences of (aa) as a row marker in lean/formalization.yaml
+1140:    (aa) [Session 36, 2026-09-30; theoremR-lean-s36, topic ResidueRank — Theorem R's arithmetic core, Lemma F, Theorem R on the
+count of (aa) markers: 1
+
+== python3 results/d1-m2a/dr8/validate_yaml_sigma_strong.py (the D5/H5/H4 validator), from the repository root rh-program
+PyYAML 6.0.3, jsonschema 4.25.1
+on-disk formalization.schema.dispatcher.json     sha256 22bd0b61631535fc68efbdf01e3013362437673ac836d721dfbdf80773244ec3
+   upstream: IDENTICAL to the on-disk copy
+on-disk v0.3.schema.json                         sha256 93247a8093ea0bb622650e8f387bcc95c4e4c7941408974d6779341844262b27
+   upstream: IDENTICAL to the on-disk copy
+on-disk v0.4.schema.json                         sha256 25ff6b25ca4511635aff4443cf20480c15e59dddf19591c730950b442ea54fce
+   upstream: IDENTICAL to the on-disk copy
+
+VALIDATION errors: 0
+top-level keys: ['version', 'project', 'repository', 'sources', 'related_formalizations', 'classification', 'status', 'automation', 'fidelity', 'review', 'alignment', 'acknowledgements']
+main_results: 33   alignment.statements: 43   fidelity.divergences: 42070 chars
+
+Lean names referenced in status.main_results + alignment.statements: 142
+   Zeta23.ResidueRank.fiber_sum_eq_log                      Zeta23/ResidueRank/Pair.lean
+   Zeta23.ResidueRank.lemmaF_finite_fiber                   comparator/Solution/ResidueRank.lean, comparator/Challenge/ResidueRank.lean, Zeta23/ResidueRank/Pair.lean
+   Zeta23.ResidueRank.lemmaF_infinite_order                 comparator/Solution/ResidueRank.lean, comparator/Challenge/ResidueRank.lean, Zeta23/ResidueRank/Pair.lean
+   Zeta23.ResidueRank.log_primes_linearIndependent          comparator/Solution/ResidueRank.lean, comparator/Challenge/ResidueRank.lean, Zeta23/ResidueRank/LogPrimes.lean
+   Zeta23.ResidueRank.rank_span_log_le                      comparator/Solution/ResidueRank.lean, comparator/Challenge/ResidueRank.lean, Zeta23/ResidueRank/LogPrimes.lean
+   Zeta23.ResidueRank.span_log_not_finite                   comparator/Solution/ResidueRank.lean, comparator/Challenge/ResidueRank.lean, Zeta23/ResidueRank/LogPrimes.lean
+   Zeta23.ResidueRank.theoremR                              comparator/Solution/ResidueRank.lean, comparator/Challenge/ResidueRank.lean, Zeta23/ResidueRank/Pair.lean
+   Zeta23.ResidueRank.theoremR_of_A9                        Zeta23/ResidueRank/Pair.lean
+   Zeta23.ResidueRank.theoremS                              comparator/Solution/ResidueRank.lean, comparator/Challenge/ResidueRank.lean, Zeta23/ResidueRank/GenusBound.lean
+   Zeta23.ResidueRank.theoremS_bound                        comparator/Solution/ResidueRank.lean, comparator/Challenge/ResidueRank.lean, Zeta23/ResidueRank/GenusBound.lean
+
+RESULT: PASS — errors: 0, undeclared names: 0
+validator exit=0
+
+== the yaml parses (python yaml.safe_load) and the seven additions are present
+main_results: 33 ; last file: comparator/Solution/ResidueRank.lean
+alignment.namespaces has ResidueRank: True ; Zeta23.ResidueRank: True
+alignment.statements: 43 ; last lean: ResidueRank.theoremS_bound, ResidueRank.theoremS
+fidelity row (aa) present: True
+review notes mention the ResidueRank run: True
+status.scope mentions Session 36: True
+automation models: ['Claude Fable 5.1', 'Claude Opus 5', 'Claude Opus 5.5']

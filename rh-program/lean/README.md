@@ -614,6 +614,55 @@ row; nothing about ζ or RH. The fidelity ledger — pairs on grid sites, the fl
 mark types, the character's sign, the certificate as a strict inequality with Mathlib's d6 decimals for π, `W2`'s `_j` binder — is
 `results/h4-pair-lean-s33/FIDELITY.md`, mirrored in `formalization.yaml` (`fidelity.divergences` row (z)).
 
+## ResidueRank (Session 36, 2026-09-30): Theorem R's arithmetic core in Lean — the logarithms of the primes are ℚ-independent, Lemma F, and Theorem R on the abstract pair — `Zeta23/ResidueRank/LogPrimes.lean`, `Pair.lean`, `GenusBound.lean`, `comparator/{Challenge,Solution,PrintAxioms}/ResidueRank.lean`, `config-residue-rank.json`
+
+**What the topic is (unit brief `results/theoremR-lean-s36/UNIT-BRIEF.md`, typing probe `typing-probe.lean` there, build record
+`results/theoremR-lean-s36/BUILD-NOTES.md`, ledger `FIDELITY.md`, the attack on the brief's statements and sketches
+`PREDERIVATION-ERRATA.md`).** The arithmetic core of Theorem R of `results/beta-shapes-s35/NOTE.md` (§2.0 Lemma F, §2.3 H3.3(b), Theorem R,
+T3; the reader's converse, `read-O.md` §2.5) as ONE Comparator topic over Mathlib alone — there is no ChallengeDeps module, since every
+constant the statements mention (`Nat.Primes`, `Real.log`, `Submodule.span ℚ`, `Module.Finite`, `Module.rank`, `LinearIndependent`,
+`HasSum`, `IsPrimePow`, `ArithmeticFunction.vonMangoldt`, `Real.sqrt`) is Mathlib's. The pair is abstract: `cls : ℕ → ι` stands for
+n ↦ c(Γ_n), `v : ι → ℝ` for the diagonal row, the weights are von Mangoldt's Λ (the SPEC's A5), and A9 is a `HasSum` over each fiber
+{m ≥ 2 : cls m = cls n} with value κ · v(cls n) for ONE real κ.
+
+| file | module | trusted? | content |
+|---|---|---|---|
+| `Zeta23/ResidueRank/LogPrimes.lean` | `Zeta23.ResidueRank.LogPrimes` | no (source of the proofs) | `expVec` (the exponent vector of n on the primes) and `linearCombination_expVec` (Σ_q v_q(n) log q = log n); `log_primes_linearIndependent` (over ℤ first by `LinearIndependent.iff_fractionRing ℤ ℚ`, then an integer relation makes Π p^{m_p} = 1 and the q-adic valuation gives m_q = 0 — Mathlib at the pin has no such lemma); `span_log_not_finite` (coordinates by `LinearIndependent.repr`; a prime outside the finite union of the generators' supports has coordinate v_q(N q) ≥ 1); `rank_span_log_le` (with `rank_span_log_le_of_supp`, which needs no positivity) |
+| `Zeta23/ResidueRank/Pair.lean` | `Zeta23.ResidueRank.Pair` | no (source of the proofs) | `lemmaF_finite_fiber` (a prime power weighs ≥ log 2; a summable nonnegative family has finitely many terms ≥ log 2), `fiber_sum_eq_log` (κ·v(cls n) = log Π minFac over the fiber's prime powers), `lemmaF_infinite_order` (the injective family j ↦ p^{a+jk} in one fiber), `theoremR_of_A9` (Theorem R with no hypothesis on κ: the ℚ-linear map x ↦ κx and `span_log_not_finite`), `theoremR` (the displayed κ > 0, unused), and the errata's E2/E3 (`lemmaF_finite_fiber_all`, `lemmaF_infinite_order_all`) |
+| `Zeta23/ResidueRank/GenusBound.lean` | `Zeta23.ResidueRank.GenusBound` | no (source of the proofs) | `theoremS_bound` (L ≤ (1 + 2g)(1 + (1 + √(1 + 8g))/2) from the two inequalities; `nlinarith` on the brief's derivation), `theoremS` (a prime above exp(κ · bound)), `theoremS_abs` (E5: no `0 ≤ g`) — SCOPED real algebra |
+| `comparator/Challenge/ResidueRank.lean` | `Challenge.ResidueRank` | yes — read it | the eight statements with `sorry` (from `import Mathlib` to the end, the typing probe character for character), namespace `ResidueRank`, and the WHAT IS CLAIMED / NOT paragraph |
+| `comparator/Solution/ResidueRank.lean` | `Solution.ResidueRank` | no | the eight statements byte-identical, each the program theorem of the same name applied to the same arguments |
+| `config-residue-rank.json`, `PrintAxioms/ResidueRank.lean` | — | yes / — | comparator configuration (the 8 names `ResidueRank.*`; `propext`, `Quot.sound`, `Classical.choice`; `enable_nanoda: true`) and the quick check |
+
+**Quick check (no extra tooling), from the repository root:**
+
+```sh
+lake build Solution.ResidueRank
+lake env lean comparator/PrintAxioms/ResidueRank.lean      # eight lines, each [propext, Classical.choice, Quot.sound]
+python3 results/theoremR-lean-s36/tools/statement_identity_s36.py ResidueRank comparator/config-residue-rank.json \
+  results/theoremR-lean-s36/typing-probe.lean . -- <the eight names>                  # IDENTICAL ×8, RESULT: PASS
+python3 results/theoremR-lean-s36/tools/trust_greps_s36.py .                          # the 8 challenge sorrys only
+```
+
+Recorded runs (2026-09-30, `results/theoremR-lean-s36/`): `rung1-build.log` and `rung1-print-axioms.log` (items 1–3 built alone first),
+`program-build.log` (the three modules, one `lake` at a time: 3.2 s / 3.1 s / 7.3 s of Lean, 0 warnings), `program-axioms.log` (all 27
+program-side names), `build-comparator-topic.log` (`lake build Challenge.ResidueRank Solution.ResidueRank`: 8701 jobs, the 8 deliberate
+`sorry` warnings of the challenge, 0 from the solution), `print-axioms.log`, `statement-identity.log`, `trust-greps.log`, and the
+Comparator run with nanoda `comparator-run.log` — `Nanoda kernel accepts the solution`, `Lean default kernel accepts the solution`,
+`Your solution is okay!`, exit 0, 32.3 s (runner `tools/run.sh`; NOT sandboxed, the fake-landrun shim as in every prior macOS record).
+
+**Honest label, verbatim (UNIT-BRIEF §1(3)): "Theorem R's arithmetic core Comparator-checked: the logarithms of the primes are ℚ-linearly
+independent, a family of positive integers N_p with p | N_p has logarithms spanning an infinite-dimensional ℚ-space, the converse rank
+bound, Lemma F, and Theorem R on the abstract pair (von Mangoldt weights, real fiber sums, one κ) — over Mathlib alone, no displayed
+hypothesis, the three standard axioms, replayed by nanoda".** What it means: a target whose diagonal-row values are κ⁻¹ · log of integers
+N_p with p | N_p cannot have a finite-dimensional ℚ-span, because the logarithms of the primes are ℚ-independent and there are infinitely
+many primes — kernel-checked. What it does NOT say (FIDELITY.md §2): nothing about the SPEC's geometric clauses A6–A8 or A7's graph
+structure; nothing about the existence or non-existence of a target Y; not the general-base Theorem R; not the geometric reading of the two
+scoped real-algebra statements (items 7–8, whose reading belongs to the Session-36 unit `results/d4-infty-s36/`, under read); nothing about
+ζ, its zeros, or RH (Theorem R is RH-blind). The displayed κ > 0 of `theoremR` is the SPEC's and is not used by the proof
+(PREDERIVATION-ERRATA E1). The fidelity ledger is `results/theoremR-lean-s36/FIDELITY.md`, mirrored in `formalization.yaml`
+(`fidelity.divergences` row (aa)).
+
 ## What these build against, and why it is not here
 
 They extend **Zeta23**, the Lean 4 formalization released as the companion artifact to
