@@ -34,18 +34,18 @@ def log_completed(s, x, deflate_at_one=False):
     """log Lambda(s) as an arb_series in x, where s = s0 + x (s passed as arb_series).
     For zeta at s0 = 1 the pole is handled by deflation: (s-1) zeta(s) = 1 + (s-1) zeta_defl(s)."""
     half = arb(1) / 2
-    if FUNC == 'zeta' or FUNC.startswith('faq') or FUNC.startswith('eul'):
+    if FUNC == 'zeta' or FUNC.startswith('faq') or FUNC.startswith('eul') or FUNC.startswith('dvl'):
         logpi = arb.pi().log()
         if deflate_at_one:
             base = half.log() + s.log() - (s / 2) * logpi + (s / 2).lgamma() + (1 + x * s.zeta(deflate=True)).log()
         else:
             # at s0 = 1/2: s(s-1) < 0 and zeta < 0
             base = half.log() + (s * (1 - s)).log() - (s / 2) * logpi + (s / 2).lgamma() + (-(s.zeta())).log()
-        if FUNC.startswith('faq') or FUNC.startswith('eul'):
+        if FUNC.startswith('faq') or FUNC.startswith('eul') or FUNC.startswith('dvl'):
             parts = FUNC.split(':')
             if FUNC.startswith('faq'):
                 a = arb(parts[1]); q = arb(parts[2])
-            else:
+            else:   # eul: multiply by the symmetrized Euler factor; dvl: DIVIDE by it (one Euler factor added)
                 q = arb(parts[1]); a = -(q + 1)
             lq = q.log()
             u = (s - half) * lq
@@ -54,7 +54,7 @@ def log_completed(s, x, deflate_at_one=False):
             f0 = fac.coeffs()[0]
             if f0 < 0:
                 fac = -fac
-            base = base + fac.log()
+            base = base + fac.log() if not FUNC.startswith('dvl') else base - fac.log()
         return base
     if FUNC in ('chi4', 'dh'):
         # at s0 = 1 the Hurwitz poles cancel (coefficients sum to 0): use deflated Hurwitz series there

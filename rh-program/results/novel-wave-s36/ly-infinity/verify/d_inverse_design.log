@@ -1,0 +1,28 @@
+
+=== slots=[2, 3, 5, 7] n=4 W=5.3471 T*=1319.47 +-23.0 train/test zeros = 20/19  params 16 (effective 13)
+  fitted U      : J_train=2.861e-02  train 0.0812  TEST 0.1680
+  best random U : train 0.1935  TEST 0.3363
+  Gram (no primes): train 0.2271  TEST 0.2472
+  LY-aligned product (no fit): train 0.1413  TEST 0.1462
+  |U| = [[0.532, 0.45, 0.665, 0.27], [0.454, 0.518, 0.571, 0.448], [0.438, 0.383, 0.343, 0.737], [0.565, 0.619, 0.339, 0.428]]
+  eigphases(U) = [-2.5228, -1.3573, 1.6859, 2.9155]  |diag U| = [0.5321, 0.5178, 0.3426, 0.4279]  p^-1/2 = [0.7071, 0.5774, 0.4472, 0.378]
+  [17.9 s]
+
+=== slots=[2, 3, 5, 7, 11] n=5 W=7.7450 T*=14514.16 +-40.0 train/test zeros = 49/49  params 25 (effective 21)
+  fitted U      : J_train=2.178e-02  train 0.0853  TEST 0.2152
+  best random U : train 0.1984  TEST 0.2782
+  Gram (no primes): train 0.1900  TEST 0.2195
+  LY-aligned product (no fit): train 0.1559  TEST 0.1908
+  |U| = [[0.525, 0.525, 0.328, 0.293, 0.506], [0.069, 0.541, 0.648, 0.421, 0.325], [0.574, 0.292, 0.427, 0.493, 0.4], [0.549, 0.353, 0.235, 0.24, 0.679], [0.299, 0.471, 0.485, 0.661, 0.131]]
+  eigphases(U) = [-2.9149, -2.2688, -1.0566, 1.5005, 2.2884]  |diag U| = [0.5246, 0.541, 0.4269, 0.2404, 0.1314]  p^-1/2 = [0.7071, 0.5774, 0.4472, 0.378, 0.3015]
+  [201.4 s]
+
+=== slots=[2, 2, 3, 5, 7] n=5 W=6.0403 T*=2638.94 +-32.5 train/test zeros = 30/32  params 25 (effective 21)
+  fitted U      : J_train=1.974e-02  train 0.0864  TEST 0.1909
+  best random U : train 0.2026  TEST 0.2690
+  Gram (no primes): train 0.2158  TEST 0.2283
+  LY-aligned product (no fit): train 0.1963  TEST 0.2508
+  |U| = [[0.641, 0.536, 0.283, 0.334, 0.333], [0.423, 0.239, 0.592, 0.607, 0.212], [0.418, 0.294, 0.421, 0.565, 0.492], [0.141, 0.55, 0.171, 0.367, 0.717], [0.465, 0.517, 0.602, 0.258, 0.297]]
+  eigphases(U) = [-2.6711, -2.4832, -1.0307, 1.527, 2.1977]  |diag U| = [0.6408, 0.2389, 0.4211, 0.3668, 0.2966]  p^-1/2 = [0.7071, 0.7071, 0.5774, 0.4472, 0.378]
+  [60.2 s]
+[stopped by the agent during the 4th configuration (slots [2,3,5,7,11,13], T*=188684) to respect the ~10-minute single-run limit; three configurations completed]

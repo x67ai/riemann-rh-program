@@ -164,3 +164,48 @@ smooth density θ′/π plus the boundary term −f(T)S(T). Against the Arb Tayl
   to 1e-37..1e-43 for p = 2, 3, 7, 10⁹+7, m = 1..6; c_0(ξ g_p) = s_1(ξ) − (log p)²/(4 sinh²(log p/4)):
   −3.937097 (p = 2), −3.877815 (3), −3.675740 (7), +0.009524 (10⁹+7). The k = 0 node sits at y = −4 (zeros of g_p
   at s = 0, 1) with mass −4 and dominates every moment: s_m − s_m(ξ) ≈ (−4)^m.
+
+## 2026-09-30 18:57 — Unit 5d/8: PSLQ (null), circle controls, first injections; NOTE.md drafted
+
+- **PSLQ (verify/u8_pslq.py):** sanity recovers s_1 = −4 + (π²+8G)/8 + (ζ″/ζ − (ζ′/ζ)²)(1/2)/2. Final battery at 300
+  digits (inputs recomputed at 1300 bits), coefficients ≤ 10⁸, basis {1, π, π², log π, log 2, γ, G, ζ(3), ζ″/ζ(1/2),
+  (ζ′/ζ(1/2))²}: NO relation for α_1..α_6, b_1², b_2², Verblunsky α_0, 1 − α_0. Method lessons logged: ζ′/ζ(1/2) is
+  basis-dependent (ξ′(1/2) = 0); 60-digit runs give spurious height-10⁵ relations.
+- **Circle controls:** χ₄: λ_1..λ_601 certified positive, all |α_n| < 1 (n < 600) ✓. Euler-removed ξ·g_p: the Li
+  expansion point s = 1 IS a zero of g_p (Carathéodory function has a pole at z = 0: failure at index 0). F_{3,2}:
+  |α_n| ≥ 1 first at n = 2 (then 4, 9, 11, 24, …). DH at 24 000 bits returned non-finite λ_n (n ≥ 2) — rerun queued at
+  16 000 bits (run_queue2.sh). F_{3,2} Li: λ_1..λ_151 positive (Li blind at these indices).
+- **Injections (verify/u5_inject.py; ζ + one off-line quadruple (T ± iδ)):** first negative α at S-index
+  T = 30: 20 (δ = 0.3), 29 (0.03), 32 (0.003); T = 60: 64, 69, 72 — failure index grows only ~logarithmically as δ → 0
+  (precision, not index, pays for small δ). Every failure is a "−+−" motif. The "deviation from plain ζ" profile is
+  not diagnostic (an injected pair ADDS mass; α_1 moves by > 1e-3); announcement study vs the on-line DOUBLE zero
+  queued (u5c_announce.py).
+- NOTE.md drafted (§0 verdict K for task (d) via Theorem D; §1 errata E-1..E-7; §2 Prop. S; §4 law; §5 counting;
+  §6 Theorem D; §8 PSLQ); pending: injection table, DH circle, primes, next step.
+
+## 2026-09-30 19:04 — Unit 5e: visibility table (verify/u5d_inject_table.py/.json; run_inject_1..3.out)
+
+ζ + one off-line quadruple {±T ± iδ}, first certified negative α (S-index; always a "−+−" motif) vs n_WKB(T) (first n
+with t_n(ζ) ≥ T) and πN(T):
+T=30: δ 0.3/0.03/0.003 → 20/29/32 (n_WKB 13, πN 11.2); T=60 → 64/69/72 (50; 40.4);
+T=100: δ 0.3/0.1/0.03/0.01/0.003/0.001 → 121/125/128/130/133/135 (105; 91.1);
+T=200: 0.3/0.03/0.003 → 293/307/314 (275; 248.8); T=300: 0.3/0.03 → 483/519 (455; 432.6).
+Lag n_fail − n_WKB: 7..28 at δ = 0.3; + ≈5 (T=100) to ≈36 (T=300) indices per decade of 1/δ: logarithmic in δ.
+Precision consumed ≈ 6 digits/index (7224 → 5794 digits at n = 519). Shape law (u4c_shape.py): NO monotonicity or
+convexity law — α_n increases at 441/998 steps, log-convexity fails 501×, log-concavity 496×; A_n = 4n√α_n decreases at
+458/998 steps: only the smooth WKB envelope is regular.
+Queued/running: DH circle at 16 000 bits (the 24 000-bit run gave non-finite λ_n for n ≥ 2 — not diagnosed; the 8 000-bit
+probe at length 1003 is clean), then u4b_primes.py, then u5c_announce.py.
+
+## 2026-09-30 19:07 — Unit 5f: DH circle side; division by an Euler factor; primes run 1 (broken, rerun queued)
+
+- **DH circle (16 000 bits, N = 600; tables/dh_circle_P16000_S600.json):** λ_1..λ_601 ALL certified positive (Li blind),
+  while |α_n| > 1 exactly at {147,149, 216,218, 350,352, 371,373, 538,540} = real-side motifs shifted by one
+  (Proposition S, confirmed on an RH-false function).
+- **Dividing by the symmetrized Euler factor** (one Euler factor ADDED; u2_prod.py FUNC dvl:p): s_2 < 0 < s_1 ⇒ α_1 < 0
+  for p = 2, 3, 10⁹+7. Both directions of task (d) fail at index 1.
+- **Primes run 1 (u4b_primes_run1_broken.log):** INVALID — the Gauss–Laguerre tail reached t ≈ T·e^230, the Lanczos vectors
+  underflowed (overflow/divide warnings), truncation check vs Arb off by 0.24 at n ≤ 600. Kept only as a record. What
+  it did show independently of the Lanczos: the periodogram of the zero displacements d_k = γ_k − t_k (t_k: N0(t_k) =
+  k − 1/2) has its top lines at 0.693, 1.098, 1.610, 1.946, 1.387, 2.398, 2.566, 2.197 = log 2, 3, 5, 7, 4, 11, 13, 9.
+  Rerun with a Gauss–Legendre tail on v ∈ [0, 40] and K = 8000 queued (run_queue4.sh).

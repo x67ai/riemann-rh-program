@@ -1,0 +1,9 @@
+FUNC dvl:3 SIDE real P 3000 SIZE 60 P2 4000
+series 0.1s; Lambda(1/2) = [1.606719612602809339765093 +/- 1.76e-25]
+FE check (odd coefficients contain 0): True
+s_1..s_3: ['[3.924025356604141786285402 +/- 2.23e-25]', '[-16.00184447283592965826283 +/- 4.84e-24]', '[63.99995080360636927938835 +/- 1.78e-24]']
+S-fraction 59 coeffs in 0.0s
+certified digits: [(1, 900)]
+first S-index with al_n not certified positive: 1  sign string head: -+++-+---+-+-+-++-+-++++-+-++-+-++++++--+--+++++-+-++++++++
+first J-index with b_n^2 not certified positive: 1
+saved tables/dvl-3_real_P3000_S60.json  total 0.1s

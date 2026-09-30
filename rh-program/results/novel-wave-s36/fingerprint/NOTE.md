@@ -32,9 +32,10 @@ What survives, as instruments and theorems (not as a route to RH):
 4. **Counting theorem (Proposition M, proved; §5):** the number of negative b_n² equals twice the number of off-line
    zero pairs resolved; DH's fingerprint shows exactly five "−+−" motifs up to n = 599, one per off-line zero with
    t ≤ 241, each at the S-index where the WKB height t_n = 1/(2√α_n) first exceeds that zero's height.
-5. **Visibility (zoo IV.9; §5):** the fingerprint flags an off-line zero at height T at S-index ≈ πN(T) (DH:
-   n = 148 for T = 85.7) at a cost of ≈ 6 digits per index; Li's λ_n need n ~ T²/δ (≈ 3×10⁵ for the same zero).
-   [PENDING-INJECT]
+5. **Visibility (zoo IV.9; §5):** the fingerprint flags an off-line zero at height T at S-index ≈ n_WKB(T) + lag
+   (n_WKB ≈ πN(T) + O(T); lag 7–64, logarithmic in 1/δ; injections T = 30..300, δ = 0.3..0.001; DH: n = 148 for
+   T = 85.7) at ≈ 6 digits per index; Li's λ_n need n ~ T²/δ (≈ 3×10⁵ for DH's zero) — and on F_{3,2} Li is still
+   positive for n ≤ 151 while |α_2| > 1 on the circle.
 6. **Primes (§7):** the prime side enters only through the zero fluctuations (explicit formula), at relative size
    ≲ 4% at n ≤ 999; [PENDING-PRIMES].
 
@@ -175,9 +176,24 @@ up to 599: {148,150, 217,219, 351,353, 372,374, 539,541}; negative J-indices {74
 where t_n first exceeds the k-th height: t_142..t_147 = 84.3, 87.8, 88.8, 90.4, 94.6, 109 before motif 148 (85.70);
 ≈ 117–125 before 217 (114.16); 169–181 before 351 (166.48); 181–185 before 372 (176.70); 238–256 before 539
 (240.40). The fingerprint is a spectral MAP of the off-line zeros, with lag ≤ 6 indices at these depths.
-**Visibility pricing.** [PENDING-INJECT-TABLE] Li's criterion needs λ_n < 0, i.e. |z_ρ|^n ≳ (n/2)log n with
-|z_ρ| − 1 ≈ δ/T²: n ~ (T²/δ) log(T²/δ) ≈ 3×10⁵ for DH's first zero (λ_n > 0 for all n ≤ 1001 for DH, computed:
-[PENDING-DH-CIRCLE]). Cost: fingerprint index πN(T) at ≈ 6 digits/index (≈ 19 N(T) digits); Li index T²/δ at
+**Visibility pricing (verify/u5_inject.py, u5d_inject_table.py/.json).** ζ plus ONE injected off-line quadruple
+{±T ± iδ} (E → E(1 − w/z)(1 − w/z̄), z = (T + iδ)², exact in the moments), 24 000 bits. n_fail = first certified
+α_n < 0 (always a "−+−" motif); n_WKB(T) = first n with t_n(ζ) ≥ T:
+
+| T | δ = 0.3 | 0.1 | 0.03 | 0.01 | 0.003 | 0.001 | n_WKB(T) | πN(T) |
+|---|---|---|---|---|---|---|---|---|
+| 30 | 20 | – | 29 | – | 32 | – | 13 | 11.2 |
+| 60 | 64 | – | 69 | – | 72 | – | 50 | 40.4 |
+| 100 | 121 | 125 | 128 | 130 | 133 | 135 | 105 | 91.1 |
+| 200 | 293 | – | 307 | – | 314 | – | 275 | 248.8 |
+| 300 | 483 | – | 519 | – | – | – | 455 | 432.6 |
+
+Law: n_fail ≈ n_WKB(T) + lag, lag = 7..28 at δ = 0.3 and growing by ≈ 5 (T = 100) to ≈ 36 (T = 300) indices per decade
+of 1/δ — logarithmic in δ: a displacement of 10⁻³ is flagged only 14 indices after one of 0.3 at T = 100. The index is
+cheap; the price is precision (≈ 6 digits per index: 1430 digits consumed at n = 519). Li's criterion needs λ_n < 0, i.e. |z_ρ|^n ≳ (n/2)log n with
+|z_ρ| − 1 ≈ δ/T²: n ~ (T²/δ) log(T²/δ) ≈ 3×10⁵ for DH's first zero. Computed (tables/dh_circle_P16000_S600.json):
+DH's λ_1..λ_601 are ALL certified positive, while its Verblunsky coefficients have |α_n| > 1 exactly at
+{147, 149, 216, 218, 350, 352, 371, 373, 538, 540} — the real-side motifs shifted by one, as Proposition S predicts. Cost: fingerprint index πN(T) at ≈ 6 digits/index (≈ 19 N(T) digits); Li index T²/δ at
 ≈ 0.03 digits/index (binomial cancellation). Both are far costlier than direct zero location (Odlyzko–Schönhage
 [recalled]); neither is a practical detector beyond small T, but the fingerprint wins over Li by a factor ~T/(δ log T)
 in index.
@@ -209,7 +225,9 @@ Proof: (i) zeros of a product are the union of zeros; F = −E′/E is additive.
 **Checks (verify/u6_theoremD_checks.py; run_controls.out).** s_m(ξg_p) − s_m(ξ) equals the lattice sum to 1e-37..1e-43
 (p = 2, 3, 7, 10⁹+7; m ≤ 6); c_0(ξg_p) = −3.937097, −3.877815, −3.675740, +0.009524. The node at y = −4 (w_0 = −1/4:
 the Euler factor's zeros at s = 0, 1) dominates: s_m − s_m(ξ) ≈ (−4)^m. First failure: α_1 < 0 (p = 2, 3, 7);
-b_1² < 0 (p = 10⁹+7). Closed-form certificate: by Poisson, Σ_k (k + iβ)^{−6} = −(2π)⁶/120·Σ_{m≥1} m⁵e^{−2πmβ} < 0, so
+b_1² < 0 (p = 10⁹+7). Division (one Euler factor ADDED, ξ/g̃_p; `dvl:p` in u2_prod.py): s_2 < 0 < s_1, so α_1 < 0 for
+p = 2, 3, 10⁹+7. On the circle side the Euler-removed function vanishes at the Li point s = 1 itself (g_p(1) = 0), so
+C(z) has a pole at z = 0: failure at index 0. Closed-form certificate: by Poisson, Σ_k (k + iβ)^{−6} = −(2π)⁶/120·Σ_{m≥1} m⁵e^{−2πmβ} < 0, so
 c_2(ξg_p) = s_3(ξ) − (ℓ⁶/120)Li_{−5}(p^{−1/2}) < 0 for all p up to ≈ 10³⁰, a negative diagonal Hankel entry.
 F_{a,q} with a > 2√q: first failure at S-index 3 ((3, 2), (2.9, 2)) and 4 ((4.5, 5)); F_{2,2} (|a| < 2√2): all 599
 coefficients certified positive. "Fake curves" (Hasse broken, c1 = 5, 6, 9 over F₅): α_1 < 0.

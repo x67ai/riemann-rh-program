@@ -18,7 +18,7 @@ logf = open(os.path.join(here, 'u4b_primes.log'), 'w')
 def say(*a):
     t = ' '.join(str(x) for x in a); print(t, flush=True); logf.write(t + '\n'); logf.flush()
 mp.mp.dps = 30
-K = 2600          # model zeros (t_K ~ 3000)
+K = 8000          # model zeros (t_K ~ 8000); run 1 used 2600 and broke down (see u4b_primes_run1_broken.log)
 NMAX = 1000
 # ---- model zeros
 def theta(t): return mp.siegeltheta(t)
@@ -51,13 +51,19 @@ def lanczos_sym(u, W, nmax):
         v = x * Q[:, k] - (bprev * Q[:, k - 1] if k > 0 else 0.0)
         for _ in range(2):
             v -= Q[:, :k + 1] @ (Q[:, :k + 1].T @ v)
-        b = np.linalg.norm(v); out.append(b * b); Q[:, k + 1] = v / b; bprev = b
+        b = np.linalg.norm(v)
+        if not np.isfinite(b) or b == 0:
+            raise RuntimeError('Lanczos breakdown at step %d' % k)
+        out.append(b * b); Q[:, k + 1] = v / b; bprev = b
     return np.array(out)
 
 def with_tail(zs, Tt, S_T):
-    tq, wq = np.polynomial.laguerre.laggauss(60)
-    tt = Tt * np.exp(tq)
-    wt = wq * np.array([dtheta(x) / np.pi for x in tt]) / Tt          # t^-2 dens dt = T^-1 e^-v dens dv
+    # Gauss-Legendre on v = log(t/T) in [0, 40] (tail mass beyond T e^40 is ~e^-40 of the tail): the run-1
+    # Gauss-Laguerre nodes reached t ~ T e^230, underflowed in the Lanczos vectors and broke the recurrence.
+    xg, wg = np.polynomial.legendre.leggauss(80)
+    v = 20.0 * (xg + 1.0); wv = 20.0 * wg
+    tt = Tt * np.exp(v)
+    wt = wv * np.exp(-v) * np.array([dtheta(x) / np.pi for x in tt]) / Tt   # t^-2 dens dt = T^-1 e^-v dens dv
     u = np.concatenate([1 / zs, 1 / tt])
     W = np.concatenate([1 / zs ** 2, wt])
     if S_T != 0:

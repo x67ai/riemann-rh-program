@@ -30,15 +30,26 @@ def B7(s):
     return abs(s*(s - 1))/2 * mp.fsum(abs(Z.T(s, n)) for n in range(8, 30))
 
 
+def B6(s):
+    return abs(s*(s - 1))/2 * mp.fsum(abs(Z.T(s, n)) for n in range(7, 30))
+
+
 worst = mp.mpf(0)
 where = None
+worst6 = mp.mpf(0)
+where6 = None
 pts = [mp.mpc(smax, mp.mpf(j)/50) for j in range(1, int(T*50) + 1)]
 pts += [mp.mpc(mp.mpf(1)/2 + (smax - mp.mpf(1)/2)*mp.mpf(j)/1475, T) for j in range(0, 1476)]
 for s in pts:
-    r = B7(s)/abs(xi(s))
+    ax = abs(xi(s))
+    r = B7(s)/ax
     if r > worst:
         worst, where = r, s
+    r6 = B6(s)/ax
+    if r6 > worst6:
+        worst6, where6 = r6, s
 print(f'(i) max B_7/|xi| on the boundary grid ({len(pts)} points) = {mp.nstr(worst, 5)} at {mp.nstr(where, 8)}  ({time.time()-t00:.0f}s)')
+print(f'(i) max B_6/|xi| on the boundary grid = {mp.nstr(worst6, 5)} at {mp.nstr(where6, 8)}  (covers C2 with S = {{2,3,5}}: tail n >= 7)')
 n, mn = st.count_zeros_rect(xi, 1 - smax, smax, mp.mpf('0.01'), T, n0=64, dmax=0.5)
 print(f'(i) zeros of xi in [1-smax, smax] x [0.01, 200]: {mp.nstr(n, 10)}  ({time.time()-t00:.0f}s)')
 L = json.load(open('lobes_T320.json'))
@@ -47,7 +58,7 @@ ok = [(a, b, r, has) for (a, b, r, has) in rows if mp.mpf(a) <= 200]
 minratio = min(mp.mpf(r) for (a, b, r, has) in ok)
 allhave = all(has for (a, b, r, has) in ok)
 print(f'(ii) negative lobes with left end <= 200: {len(ok)}; all carry two zeros of xi_7: {allhave}; min depth/P_7 = {mp.nstr(minratio, 5)}')
-res = {'max_B7_over_xi': mp.nstr(worst, 6), 'argmax': mp.nstr(where, 10), 'xi_zero_count_box': mp.nstr(n, 12),
+res = {'max_B7_over_xi': mp.nstr(worst, 6), 'argmax': mp.nstr(where, 10), 'max_B6_over_xi': mp.nstr(worst6, 6), 'argmax6': mp.nstr(where6, 10), 'xi_zero_count_box': mp.nstr(n, 12),
        'neg_lobes_le_200': len(ok), 'all_lobes_two_zeros_N7': allhave, 'min_depth_over_P7': mp.nstr(minratio, 6),
        'conclusion': 'for every N >= 7: 79 zeros with 0 < Im s <= 200, all on the line' if (worst < 1 and allhave) else 'FAILED'}
 json.dump(res, open('rouche_N7.json', 'w'), indent=1)
