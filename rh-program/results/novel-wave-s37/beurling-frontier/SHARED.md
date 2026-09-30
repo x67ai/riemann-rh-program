@@ -80,3 +80,15 @@ Dated blocks, appended after each batch. Newest at the bottom.
   log factor, not an exponent. Conjecture O (β ≥ α_R/2 for all surgery) stands. c = 6 (α = .6, .75) and c = 2 at α = .9 delete all
   primes ≤ 88/1296/1024 → fundamental-lemma transient (u = log x/log y ≈ 3–4.6) dominates; excluded as uninformative.
 - NOTE §§5.2, 5.5, 6.2–6.4 updated. Remaining: NOTE §7 (answers, conjecture, close) and the report.
+
+## 2026-10-01 — block 7: CLOSE — T (with K on the pre-derivation's unconditional clause). Nothing running.
+
+- T: Theorem A / Cor. A′ (RH) — [α, β]-systems for all ½ < α < 1, 1/(3−α) < β < ½ (strictly contains BDR region III, extends α past 2/3);
+  Theorem B (unconditional) — random surgery β ≥ α/2; Theorem C (unconditional) — regular deletion of density c·p^{α−1} has
+  β ≥ max(α/k_c, α − ½); Props 2.1–2.3 (dichotomy; thresholds ≤ 2/5 and imply RH; absolute obstructions are RH-hard), 5.1, 5.3.
+- K: "h analytic for Re s > β₀/2" / "β = β₀/2" unconditionally — the mean of a prime deletion carries ζ's zeros (Prop 3.2).
+- G1/G2 named for Conjecture R ([α, α/2] under RH). Data: random α/2 confirmed (1e9 ×8 seeds, 1e10 ×4); structured = α/2 up to a log;
+  c = 2 does not reach α/3.
+- Sharpest conjecture: **U — every Beurling system has α ≤ max{½, 2β}** (implies RH; matches all known constructions; contradicts BDR's
+  "every max{α,β} ≥ ½ is populated" in the corner β < α/2). Conjecture O (surgery) is the proved-in-part core of it.
+- Files: NOTE.md §§1–7; verify/ (thin.c, thin_aux.c, run_*.sh, fit.py, analyze_extra.py, branch_constant.py, checks + logs, data).

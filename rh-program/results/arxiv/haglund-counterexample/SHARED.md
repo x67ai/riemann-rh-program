@@ -67,3 +67,15 @@ Dated blocks, newest last. Writer: Opus 5.5 (default effort), on `WRITER-BRIEF.m
   Riemann Xi Approximant", author Mayk Loide Baccaro, citation_doi 10.5281/zenodo.22059236,
   published August 22, 2026, v1.0.0, preprint. Description quoted in the paper: "The result covers
   only the first interpolation." Condition of the brief met: it is cited.
+
+## 2026-10-01 00:48 IST — main.tex: front matter, Section 1, Section 2 on disk
+
+- `main.tex` so far: preamble (template class and packages), title, author with the README
+  footnote, date October 1, 2026, abstract; Section 1 (Haglund's objects and exact quotes of the
+  definition, Conjecture 1, Proposition 1, Remark 1, the "no rigorous error bounds" sentence;
+  Theorem 1.1; scope with the Platt-Trudgian quote; mechanism and the two corrections; companion
+  family; prior work: Haglund, Ahn (title page and p. 10 quote read on disk), Baccaro (Zenodo
+  record), Lagarias-Montague p. 24 (exact words re-checked on disk), Ki p. 198, LMOZ Thm 1.7;
+  organization); Section 2 (Riemann's identity, the family xi_w, Lemma 2.1 relating Phi_n and g_n
+  with a proof re-typed from PRIOR-ART §0's derivation, the constants c_1..c_5 from the NOTE).
+- Next: Section 3 (Theorems D, D', lobe law, odd count, tail coefficient).

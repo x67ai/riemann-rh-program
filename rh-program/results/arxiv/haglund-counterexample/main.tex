@@ -261,8 +261,10 @@ Baccaro \cite{Bac}, whose record states that ``The result covers only the first
 interpolation.'' We found no test of Conjecture~\ref{conj:H} beyond $N = 10$, and
 no refutation of it, in the literature we could reach; a null search is not a
 proof of absence. Lagarias and Montague study a related Fourier-integral family
-whose members have only finitely many zeros on the critical line, and point to
-Haglund's paper for ``a possibly related situation involving the $\xi$-function,
+whose members have only finitely many zeros on the critical line; they ask
+whether monotone increase of the imaginary parts of the zeros in the first
+quadrant would be a sufficient condition for all zeros to be on the line, and
+point to Haglund's paper as a related situation ``involving the $\xi$-function,
 where such a monotonicity implies the RH'' \cite[p.~24]{LM}. Truncations that keep
 all but finitely many zeros \emph{on} the line are known in another setting: Ki
 proved that for $y \ge 1$ all but finitely many complex zeros of any partial sum
@@ -286,4 +288,65 @@ and the lobe scan. Section~\ref{sec:cert} is the certificate for
 Theorem~\ref{thm:main}, and Section~\ref{sec:xi24} the companion violation at
 $N = 24$.
 
-%% SECTION 2
+\section{Riemann's identity and the two families}
+\label{sec:riemann}
+
+Let $\psi(x) = \sum_{n \ge 1} e^{-\pi n^2 x}$. Splitting
+$\int_0^\infty \psi(x)x^{s/2-1}\,dx$ at $x = 1$ and using
+$\psi(1/x) = \sqrt{x}\,\psi(x) + (\sqrt{x}-1)/2$ gives Riemann's identity
+\cite{Rie, Edw}, valid for all $s \in \Cx$:
+\begin{equation}\label{eq:riemann}
+\Lambda(s) := \pi^{-s/2}\Gamma(s/2)\zeta(s) = -\frac1s - \frac{1}{1-s}
++ \sum_{n \ge 1} g_n(s), \qquad
+g_n(s) = \frac{\Gamma(s/2, X)}{X^{s/2}} + \frac{\Gamma((1-s)/2, X)}{X^{(1-s)/2}},
+\quad X = \pi n^2 .
+\end{equation}
+Hence $\xi(s) = \tfrac12 s(s-1)\Lambda(s) = \tfrac12 + \tfrac12 s(s-1)\sum_{n\ge1}
+g_n(s)$. For weights $w\colon \N \to \R$ put
+\begin{equation}\label{eq:xiw}
+\xi_w(s) := \tfrac12 + \tfrac12 s(s-1)\sum_{n \ge 1} w_n\, g_n(s),
+\end{equation}
+and write $\xi_N$ for $w = \mathbf{1}_{[1,N]}$. Every $\xi_w$ satisfies
+$\xi_w(1-s) = \xi_w(s)$ and $\xi_w(\bar s) = \overline{\xi_w(s)}$, so
+$\xi_w(\tfrac12 + it)$ is real for real $t$; and
+$|g_n(s)| \le g_n(\re s)$, since $|\Gamma(a, X)| \le \Gamma(\re a, X)$.
+Throughout, $s = \tfrac12 + iz$; on the critical line $z = t$ is real, and we
+write $\Xi(t) = \xi(\tfrac12 + it)$ and
+$P_w(t) := \xi_w(\tfrac12 + it) - \Xi(t)$.
+
+\begin{lemma}\label{lem:relation}
+For every $n \ge 1$, $\Phi_n(z) = \tfrac12 s(s-1)g_n(s) + (4\pi n^2 - 1)e^{-\pi n^2}$.
+Consequently
+\[
+\Xi_N(z) = \xi_N(s) - c_N, \qquad
+c_N := \sum_{n > N}(4\pi n^2 - 1)e^{-\pi n^2} > 0 .
+\]
+\end{lemma}
+
+\begin{proof}
+Put $h(w) = X^{-w}\Gamma(w, X)$ with $X = \pi n^2$. Since $iz = s - \tfrac12$,
+one has $\tfrac94 + \tfrac{iz}{2} = 2 + \tfrac s2$ and
+$\tfrac94 - \tfrac{iz}{2} = 2 + \tfrac{1-s}{2}$, and the same with $1$ in place
+of $2$ for $b = \tfrac54$; so definition \eqref{eq:XiN} reads
+$\Phi_n = 2X^2[h(\tfrac s2 + 2) + h(\tfrac{1-s}2 + 2)]
+- 3X[h(\tfrac s2 + 1) + h(\tfrac{1-s}2 + 1)]$.
+The recurrence $\Gamma(w+1, X) = w\Gamma(w, X) + X^w e^{-X}$ gives
+$h(w+1) = (w\,h(w) + e^{-X})/X$, and applying it twice,
+$2X^2 h(a+2) - 3X h(a+1) = (2a^2 - a)h(a) + (2a - 1 + 2X)e^{-X}$. For
+$a = s/2$ and for $a = (1-s)/2$ one has $2a^2 - a = \tfrac12 s(s-1)$, while
+$2a - 1$ equals $s - 1$ and $-s$ respectively; adding the two gives the first
+claim. Summing over $n \le N$ and using
+$\sum_{n \ge 1}(4\pi n^2 - 1)e^{-\pi n^2} = \tfrac12$ (differentiate
+$\theta(1/x) = \sqrt{x}\,\theta(x)$, $\theta = 1 + 2\psi$, at $x = 1$) gives the
+second.
+\end{proof}
+
+Numerically $c_1 = 1.7180566258547875025\cdot 10^{-4}$,
+$c_2 = 5.891258854396012012\cdot 10^{-11}$,
+$c_3 = 2.9589851955455663928\cdot 10^{-20}$,
+$c_4 = 2.4342009049056017\cdot 10^{-32}$ and
+$c_5 = 3.443519624082649\cdot 10^{-47}$. So Haglund's zero sets are the
+level sets $\{\xi_N = c_N\}$ of the truncations $\xi_N$, not their zero sets; the
+two families have different zeros, and both are studied below.
+
+%% SECTION 3

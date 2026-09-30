@@ -388,7 +388,10 @@ with (ln x)^{3/2} they overshoot by 0.03–0.04. Empirically E_greedy ≈ x^{α/
 (3) **Canceling the α/2 branch point (c = 2) does not lower the exponent**: at α = 0.6 the slope *rises* to 0.278 → 0.299 as the window moves up to [10⁷, 10¹⁰] (Theorem C
 alone would allow 0.20; with a (ln x) factor it overshoots to 0.34, so this error is closer to a pure x^{α/2}); the denser deleted set has relatively more composite R-numbers, and the error moves *toward* the random
 value α/2. So the α/2 barrier of surgery is not the branch point but the arithmetic fluctuation of the sieve by R — present for
-structured R too, with a log-power discount. (4) Designs with c·p^{α−1} ≥ 1 on a long initial range (c = 6 at α = 0.6, 0.75; c = 2 at
+structured R too, with a log-power discount. An empirical model fits both designs [computed, `verify/logs/analyze_extra.log`]:
+E_struct ≈ √(Q_R(x))/log x, where Q_R(x) ~ C·x^α(log x)^{c−1} counts squarefree R-numbers (Π_p(1 + c·p^{α−1−s}) ≈ C/(s − α)^c);
+it predicts raw slopes α/2 − 1/ln x ≈ 0.24 (c = 1) and α/2 − 1/(2 ln x) ≈ 0.27 (c = 2) at α = 0.6, x ≈ 10⁷ — measured 0.238 and 0.278.
+(Against the c = 1 count formula the c = 2 RMS ratio is 0.65–1.01, because its Q_R carries the extra log x.) (4) Designs with c·p^{α−1} ≥ 1 on a long initial range (c = 6 at α = 0.6, 0.75; c = 2 at
 α = 0.9) delete *all* primes up to y = c^{1/(1−α)} = 88, 1296, 1024; at X ≤ 10¹⁰ they are in the fundamental-lemma regime
 (Φ(x, y) = ρx(1 + O(u^{−u})), u = log x/log y ≈ 3–4.6), and their huge errors (sup|E| = 1.6·10⁴ … 2.8·10⁵ at 10⁹) are that transient,
 not an exponent: **these three runs are uninformative and excluded** (listed in the log for completeness).
