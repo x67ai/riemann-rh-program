@@ -27,3 +27,11 @@ R2: Xi_1, centre c = 20.62534600592171760132974 + 2.697151842339519632505712 i; 
 (R3) negative control: square centre 17 + 1 i, half-width 1/4 (Haglund list: no zero of Xi_1 there)
 R3: Xi_1, centre c = 17 + 1 i;  Taylor model R = 1.5, rho = 0.6, m = 48, K = 24
   crude bound M_R = 330740.0 on |z-c| = 1.5 (48 boxes)
+  |D_0| ~ 0.000716711  |D_1| ~ 0.000340663  (model built in 70.5 s)
+  winding: 32 pieces, all enclosures exclude 0 (min |F| over pieces >= 0.0006149, E = 3.741e-10); sum/2pi in [-1.2447027008e-5, 1.24470207955e-5] -> k = 0
+  R3: half-width r = 0.25  ->  winding number k = 0
+  model zero estimate (non-rigorous): (30.9666408877922698650309 - 35.18392141300695641348284j)
+  R3 time 118.2 s
+
+SUMMARY: R1 certified;  R2 winding numbers {'1e-3': 1, '1e-8': 1} (expected 1);  R3 winding number {'0.25': 0} (expected 0);  total 118.2 s
+methods used for h(w): [((1, 'lower'), 16), ((2, 'lower'), 624), ((3, 'lower'), 624), ((4, 'lower'), 624), ((5, 'lower'), 624), ((6, 'lower'), 624), ((7, 'ibp'), 313), ((7, 'lower'), 311)]

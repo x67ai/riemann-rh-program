@@ -1,0 +1,60 @@
+cert27.py  mpmath 1.3.0  iv.prec = 200 bits  relbits = 190  N = 27
+
+(H1) real zero in (3144.8946, 3144.8947)
+  Xi_27(3144.8946) in [-1.760194631277516e-1070, -1.760194631277516e-1070] + i[-5.83302468037792e-1121, 4.192158719081025e-1121]   (M = 30, zeta E-M N,m,bound = (1012, 94, '2.5e-58'); 0.43 s)
+  Xi_27(3144.8947) in [1.068716492261707e-1070, 1.068716492261707e-1070] + i[-5.952757701986719e-1121, 4.083159593406128e-1121]   (M = 30, zeta E-M N,m,bound = (1012, 94, '2.5e-58'); 0.38 s)
+  => H1: strict opposite signs of the real parts: True -> real zero of Xi_27 in (3144.8946, 3144.8947): CERTIFIED
+
+(H4) second real zero in (3145.5998, 3145.5999)
+  Xi_27(3145.5998) in [1.129756942916642e-1070, 1.129756942916642e-1070] + i[-5.06630860190411e-1121, 3.746426942595045e-1121]   (M = 30, zeta E-M N,m,bound = (1012, 94, '2.61e-58'); 0.38 s)
+  Xi_27(3145.5999) in [-1.149139153627783e-1070, -1.149139153627783e-1070] + i[-4.956236696734706e-1121, 3.703142147045194e-1121]   (M = 30, zeta E-M N,m,bound = (1012, 94, '2.61e-58'); 0.37 s)
+  => H4: strict opposite signs of the real parts: True -> real zero of Xi_27 in (3145.5998, 3145.5999): CERTIFIED
+  time 1.6 s
+
+(H2) Taylor model of Xi_27 at c = 3143.2206824215 + 0.3152587994 i:  R = 0.1, rho = 0.002, m = 24, K = 12, 32 boxes
+  crude bound M_R = 2.09255e-1065 on |z-c| = 0.1 (32 boxes)
+  model built in 24.5 s;  D_0 = [1.65573706402e-1076, 1.65573706402e-1076] + i[2.01786756791e-1076, 2.01786756791e-1076]
+  D_1 = [-9.1645674419e-1067, -9.1645674419e-1067] + i[-6.06123185485e-1066, -6.06123185485e-1066]
+  direct f(c) = [1.65573706402e-1076, 1.65573706402e-1076] + i[2.01786756791e-1076, 2.01786756791e-1076];  |f(c) - D_0| must be <= M_R q^m/(1-q^m) = 3.511e-1106
+  consistency: True
+  winding: 32 pieces, all enclosures exclude 0 (min |F| over pieces >= 5.891e-1069, E = 1.358e-1087); sum/2pi in [1.0, 1.0] -> k = 1
+  H2: r = 1e-3 -> winding number k = 1
+  winding: 32 pieces, all enclosures exclude 0 (min |F| over pieces >= 5.904e-1071, E = 3.511e-1106); sum/2pi in [1.0, 1.0] -> k = 1
+  H2: r = 1e-5 -> winding number k = 1
+  winding: 32 pieces, all enclosures exclude 0 (min |F| over pieces >= 5.901e-1073, E = 3.511e-1106); sum/2pi in [1.0, 1.0] -> k = 1
+  H2: r = 1e-7 -> winding number k = 1
+  winding: 32 pieces, all enclosures exclude 0 (min |F| over pieces >= 5.68e-1075, E = 3.511e-1106); sum/2pi in [1.0, 1.0] -> k = 1
+  H2: r = 1e-9 -> winding number k = 1
+  winding: 32 pieces, all enclosures exclude 0 (min |F| over pieces >= 3.668e-1076, E = 3.511e-1106); sum/2pi in [1.0, 1.0] -> k = 1
+  H2: r = 1e-10 -> winding number k = 1
+  winding: 32 pieces, all enclosures exclude 0 (min |F| over pieces >= 7.407e-1077, E = 3.511e-1106); sum/2pi in [1.0, 1.0] -> k = 1
+  H2: r = 5e-11 -> winding number k = 1
+  winding: 33 pieces, all enclosures exclude 0 (min |F| over pieces >= 1.775e-1077, E = 3.511e-1106); sum/2pi in [1.0, 1.0] -> k = 1
+  H2: r = 4e-11 -> winding number k = 1
+  winding: 36 pieces, all enclosures exclude 0 (min |F| over pieces >= 1.97e-1078, E = 3.511e-1106); sum/2pi in [1.0, 1.0] -> k = 1
+  H2: r = 3.7e-11 -> winding number k = 1
+  winding: 33 pieces, all enclosures exclude 0 (min |F| over pieces >= 5.754e-1078, E = 3.511e-1106); sum/2pi in [-7.20540929091e-29, 7.20540929091e-29] -> k = 0
+  H2: r = 3.5e-11 -> winding number k = 0
+  model zero estimate (non-rigorous): (3143.220682421536585287281 + 0.3152587993782148453822864j)
+  smallest certified half-width with k = 1: 3.7e-11
+
+(C27) control square centred at c + 0.01, r = 1e-3 (same model; r' = 0.01 + sqrt(2) 1e-3)
+  winding: 32 pieces, all enclosures exclude 0 (min |F| over pieces >= 5.464e-1068, E = 1.155e-1076); sum/2pi in [-3.05259185908e-8, 3.05259188055e-8] -> k = 0
+  C27: winding number k = 0 (expected 0)
+
+(H2*) refinement: model re-centred at the Newton zero z* of the first model (rounded to 55 decimals)
+  z* = 3143.220682421536585287281295989417800119257644961983569 + 0.3152587993782148453822863730092717652956513976685290909 i
+  crude bound M_R = 2.09255e-1065 on |z-c| = 0.1 (32 boxes)
+  refined model: D_0 = [-3.375667e-1118, -3.2916639e-1118] + i[-2.2085513e-1117, -2.2001621e-1117],  D_1 = [-9.1645674e-1067, -9.1645674e-1067] + i[-6.0612319e-1066, -6.0612319e-1066]
+  winding: 32 pieces, all enclosures exclude 0 (min |F| over pieces >= 5.904e-1096, E = 2.093e-1145); sum/2pi in [1.0, 1.0] -> k = 1
+  H2*: square z* + [-r, r]^2, r = 1e-30 -> winding number k = 1
+  winding: 32 pieces, all enclosures exclude 0 (min |F| over pieces >= 5.904e-1106, E = 2.093e-1145); sum/2pi in [1.0, 1.0] -> k = 1
+  H2*: square z* + [-r, r]^2, r = 1e-40 -> winding number k = 1
+  winding: 32 pieces, all enclosures exclude 0 (min |F| over pieces >= 5.904e-1111, E = 2.093e-1145); sum/2pi in [0.9999999837, 1.0000000163] -> k = 1
+  H2*: square z* + [-r, r]^2, r = 1e-45 -> winding number k = 1
+  winding: 32 pieces, all enclosures exclude 0 (min |F| over pieces >= 5.901e-1114, E = 2.093e-1145); sum/2pi in [0.999983700508, 1.00001629957] -> k = 1
+  H2*: square z* + [-r, r]^2, r = 1e-48 -> winding number k = 1
+
+(H3) logic with r = 1e-3: Im z0 >= 0.3152587994 - 0.001 = 0.3142587994 > 0; Re z0 <= 3143.2216824215 <= 3143.2217 < 3144.8946
+SUMMARY: H1 True; H4 True; H2 k(r=1e-3) = 1, smallest r = 3.7e-11; control k = 0; H3 HOLDS; total 57.4 s
+methods used for h(w): [((28, 'ibp'), 532), ((29, 'ibp'), 532), ((30, 'ibp'), 532)]

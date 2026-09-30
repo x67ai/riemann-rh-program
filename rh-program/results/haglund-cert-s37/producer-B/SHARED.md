@@ -11,3 +11,30 @@
   h(w) = X^{−w}Γ(w,X) = ∫₁^∞ e^{−Xu}u^{w−1}du enclosed by repeated integration by parts (large X) or Γ(w) − lower series (small X),
   each with a remainder proved in CERT.md; explicit tail bound for n > M. Winding numbers by a Taylor model
   (DFT of tight point enclosures on a circle + Cauchy bound from a crude box enclosure on a larger circle), piecewise along ∂S.
+
+## 2026-09-30 23:25 — ladder (R1–R3), `python3 ladder.py` → `logs/ladder.log` (118 s, one process)
+- Code: `ivc.py` (complex boxes over mp.iv), `specfun.py` (Stirling Γ, Euler–Maclaurin ζ, h by integration by parts / lower
+  series), `xin.py` (Ξ, Φ_n literal (14), tail route, proved tail bound), `winding.py` (Taylor model + boundary walk). iv.prec = 200.
+- R1 CERTIFIED: Ξ₁(14.04543957) ∈ +1.347060456146727e−11 (±2e−55 imag. noise), Ξ₁(14.04543959) ∈ −1.704102125314551e−11;
+  Ξ₂(39.5324810797) ∈ +3.605517254360067e−21, Ξ₂(39.5324810799) ∈ −4.5934187710153e−21. Tail route (Ξ − Σ_{N<n≤7} Φ_n − tail)
+  and literal sum (13) overlap at all four points (16 printed digits agree).
+- R2 CERTIFIED: Ξ₁ around Haglund's Appendix zero 20.62534600592171760132974 + 2.697151842339519632505712 i: winding k = 1 at
+  r = 1e−3 and at r = 1e−8 (32 pieces each, every piece's enclosure excludes 0; E = 8.7e−26 resp. 5.5e−36 vs min|F| 8.1e−8 resp. 8.2e−13).
+  Model zero (non-rigorous) 20.62534600592171685 + 2.69715184233951977 i: Haglund's value good to ~7e−16.
+- R3 CERTIFIED control: square 17 + i, r = 1/4 (no zero of Ξ₁ by Haglund's list): winding k = 0 (sum/2π ∈ ±1.3e−5).
+- Kernel h used: lower series for n ≤ 7 (small X), integration by parts for n = 7 on some inputs; both routes exercised.
+
+## 2026-09-30 23:40 — N = 27: H1, H4, H2, control; `python3 cert27.py` → `logs/cert27.log` (26 s, one process)
+- Same code as the ladder. Tail route Ξ₂₇ = Ξ − Φ₂₈ − Φ₂₉ − Φ₃₀ − T₃₀ (|T₃₀| ≤ 18·900π·e^{−900π}); ζ by E–M with N = 1012,
+  m = 94 (remainder ≤ 2.6e−58); h(w) for n = 28–30 by integration by parts (all 732 kernel calls; no fallback needed).
+- H1 CERTIFIED: Ξ₂₇(3144.8946) ∈ −1.760194631277516e−1070 (radius ~1e−1121), Ξ₂₇(3144.8947) ∈ +1.068716492261707e−1070.
+  Agrees with the brief's Arb literal-sum reference values (−1.76019463128e−1070, +1.06871649226e−1070) to all 12 digits given.
+- H4 CERTIFIED: Ξ₂₇(3145.5998) ∈ +1.129756942916642e−1070, Ξ₂₇(3145.5999) ∈ −1.149139153627783e−1070 (reference agrees).
+- H2 CERTIFIED: model at c = 3143.2206824215 + 0.3152587994 i (R = 0.1, M_R = 2.09e−1065 from 32 boxes; ρ = 0.002, m = 24, K = 12);
+  direct f(c) = D₀ = (1.65573706402 + 2.01786756791 i)e−1076 (consistent); D₁ = (−0.91645674419 − 6.06123185485 i)e−1066.
+  Winding k = 1 for r = 1e−3 (32 pieces, min|F| ≥ 5.9e−1069 vs E = 1.4e−1087), 1e−5, 1e−7, 1e−9, 1e−10, 5e−11, 4e−11, 3.7e−11;
+  k = 0 at r = 3.5e−11 (zero just outside). Smallest certified half-width at the brief's centre: r = 3.7e−11.
+- Control C27 (square at c + 0.01, r = 1e−3, same model): k = 0.
+- H3 HOLDS: z₀ ∈ S(r = 1e−3) ⇒ Im z₀ ≥ 0.3142587994 > 0, Re z₀ ≤ 3143.2216824215 < 3144.8946 < real zero of H1.
+- Next: refined tiny square around the Newton-refined zero; cross-checks (mpmath reference for Ξ; h by both routes at
+  X = 784π; literal sum (13) at N = 27 at the H1/H4 points at ~4600 bits, if affordable); then CERT.md.

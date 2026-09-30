@@ -58,10 +58,12 @@ def horner(D, zc):
     return acc
 
 
-def winding(D, E, c, r, pieces_per_side=8, maxdepth=14, log=print):
-    """argument-principle count on the square c + [-r, r]^2 (counterclockwise) with the model (D, E)."""
+def winding(D, E, c, r, pieces_per_side=8, maxdepth=14, log=print, sc=None):
+    """argument-principle count on the square sc + [-r, r]^2 (counterclockwise; sc defaults to the model centre c) with the
+    model (D, E) centred at c.  E must be valid for r' >= |sc - c| + sqrt(2) r."""
     rr = R(r)
-    V = [c + C(-rr, -rr), c + C(rr, -rr), c + C(rr, rr), c + C(-rr, rr)]
+    sc = c if sc is None else sc
+    V = [sc + C(-rr, -rr), sc + C(rr, -rr), sc + C(rr, rr), sc + C(-rr, rr)]
     stats = {'pieces': 0, 'minabs': None, 'maxwidth': mp.mpf(0)}
 
     def F(zbox):
@@ -110,10 +112,11 @@ def winding(D, E, c, r, pieces_per_side=8, maxdepth=14, log=print):
 
 def newton_on_model(D, c, steps=6):
     """non-rigorous location estimate of the model's zero near c (midpoint arithmetic)."""
-    a = [d.mid() for d in D]
-    e = mp.mpc(0)
-    for _ in range(steps):
-        p = sum(a[k] * e ** k for k in range(len(a)))
-        dp = sum(k * a[k] * e ** (k - 1) for k in range(1, len(a)))
-        e = e - p / dp
-    return c.mid() + e
+    with mp.workprec(iv.prec + 20):
+        a = [d.mid() for d in D]
+        e = mp.mpc(0)
+        for _ in range(steps):
+            p = sum(a[k] * e ** k for k in range(len(a)))
+            dp = sum(k * a[k] * e ** (k - 1) for k in range(1, len(a)))
+            e = e - p / dp
+        return c.mid() + e
