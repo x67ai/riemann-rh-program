@@ -75,7 +75,13 @@ Real zeros of ξ₁: t = 14.16594968814390…, 19.56393886304655… (only these 
 
 ## §5 Controls [pending]
 
-## §6 Rigorous (interval arithmetic) [pending]
+## §6 Rigorous (interval arithmetic, `verify/rigor_xi1.py`, mpmath.iv with outward rounding)
+
+The seed's task (d) — a computer-assisted proof of real-rootedness of the smallest members — asks for something false (Theorem A). Replaced by certificates about the first member ξ₁:
+- **(R1) ξ₁(½+it) ≥ 2.9e−7 > 0 for every t ≥ 30.** On the line ξ₁ = ½ + e^{−π}(¼+t²)Re Σ_k π^k/(a)_{k+1} − (¼+t²)Re[π^{−a}Γ(a)], a = ¼ + it/2. With u = 1/t the k = 0 term is identically 1 and the terms k = 1…13 are rational functions regular at u = 0; they are enclosed on an adaptive cover of [0, 1/30]; the tail k ≥ 14 is ≤ (¼+t²)(2/t)(2π/t)^{14}/(1 − 2π/t) (from |(a)_{k+1}| ≥ (t/2)^{k+1}), and the Γ-term ≤ (¼+t²)π^{−1/4}√(2π)|5/4 + it/2|^{3/4}e^{1/(6|5/4+it/2|)}e^{−πt/4}/|¼ + it/2| (Stirling with Re z = 5/4, |R(z)| ≤ 1/(6|z|)); both decrease on [30, ∞).
+- **(R4) Exactly one zero of ξ₁ in the square of half-width 1e−8 centred at 5.165902026924569091939 + 22.91546577056082331413 i** — a certified off-line zero (rigorous winding number 1 over 164 boundary pieces, each piece's enclosure excluding 0).
+- **(R2)/(R3)** [pending]: exactly two zeros on the line with 0 < t ≤ 30.
+Enclosures use ξ₁ = ξ − R₁ (both parts small near the line, so no catastrophic cancellation), products in logarithmic form (no wrapping), ζ by Euler–Maclaurin (Edwards §6.4 remainder — recalled, standard), Γ by Stirling at a + 25 (DLMF 5.11 remainder — recalled, standard), g_n for n = 2–4 by the γ-series with rigorous tails, and |X^{−a}Γ(a, X)| ≤ e^{−X}/(X − max(Re a − 1, 0)) for n ≥ 5. The two cited remainder bounds are the only unread ingredients.
 
 ## §7 Prior art (read on disk by the literature sub-agent; `lit/PRIOR-ART.md`, pages cited there)
 

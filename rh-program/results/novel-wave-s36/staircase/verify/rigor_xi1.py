@@ -233,13 +233,35 @@ def run_R1(rep):
             acc += (num/den).real
         return acc
 
-    nsub = 300
-    worst = None
-    for j in range(nsub):
-        u = iv.mpf([mp.mpf(j)/(nsub*T0), mp.mpf(j + 1)/(nsub*T0)])
-        val = iv.mpf(1)/2 + E_PI*rational_part(u)
-        worst = val.a if worst is None else min(worst, val.a)
+    # tail and Gamma-term bounds first (both decreasing in t for t >= 30), then an ADAPTIVE cover of u = 1/t in
+    # [0, 1/30]: a subinterval is accepted when the enclosure's lower bound exceeds 2*(tail + Gamma bound); otherwise
+    # it is bisected (interval division overestimates the real part through the imaginary linear term in u).
     t = iv.mpf(T0)
+    tail0 = ((iv.mpf(1)/4 + t*t)*(2/t)*(2*PI/t)**Kr/(1 - 2*PI/t)).b
+    z0 = iv.mpc(iv.mpf(5)/4, t/2)
+    gb0 = ((iv.mpf(1)/4 + t*t) * PI**(-iv.mpf(1)/4) * iv.sqrt(2*PI) * abs(z0)**(iv.mpf(3)/4)
+           * iv.exp(1/(6*abs(z0))) * iv.exp(-PI*t/4) / abs(iv.mpc(iv.mpf(1)/4, t/2))).b
+    need = 2*(mp.mpf((E_PI*tail0).b) + mp.mpf(gb0))
+    work = [(mp.mpf(j)/(300*T0), mp.mpf(j + 1)/(300*T0), 0) for j in range(300)]
+    worst = None
+    nacc = 0
+    failed = []
+    while work:
+        ua, ub, d = work.pop()
+        val = iv.mpf(1)/2 + E_PI*rational_part(iv.mpf([ua, ub]))
+        if mp.mpf(val.a) > need:
+            worst = mp.mpf(val.a) if worst is None else min(worst, mp.mpf(val.a))
+            nacc += 1
+            continue
+        if d >= 14:
+            failed.append((ua, ub, mp.mpf(val.a)))
+            continue
+        um = (ua + ub)/2
+        work.append((ua, um, d + 1))
+        work.append((um, ub, d + 1))
+    if failed:
+        worst = min(v for (_, _, v) in failed)
+    print(f'(R1) adaptive cover: {nacc} accepted subintervals, {len(failed)} failed')
     tail = ((iv.mpf(1)/4 + t*t)*(2/t)*(2*PI/t)**Kr/(1 - 2*PI/t)).b
     z = iv.mpc(iv.mpf(5)/4, t/2)
     gb = ((iv.mpf(1)/4 + t*t) * PI**(-iv.mpf(1)/4) * iv.sqrt(2*PI) * abs(z)**(iv.mpf(3)/4)
