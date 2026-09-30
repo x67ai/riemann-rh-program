@@ -1,0 +1,29 @@
+{
+ "chain": "zeta",
+ "N": 24,
+ "box": [
+  "2507.5",
+  "2509.2"
+ ],
+ "w": "1.0",
+ "count_dps30": "2.0",
+ "count_dps45": "2.0",
+ "real_zeros_box": [],
+ "offline_in_box": 2,
+ "offline_zeros": [
+  {
+   "zero": "(0.8159896243043424688941 + 2508.283974805324153202j)",
+   "dist_to_line": "0.3159896243",
+   "circle_radius": "0.02",
+   "circle_count": "1.0",
+   "resolve_dps50": "(0.81598962430434246889408636 + 2508.2839748053241532015228j)",
+   "shift": "8.75e-29"
+  }
+ ],
+ "real_zeros_passing_lobe": [
+  "2510.202662988481522755",
+  "2510.708684036602828246"
+ ],
+ "violation_certified": true,
+ "elapsed_s": 1916
+}
