@@ -1,0 +1,25 @@
+# ZOO STREAM `zoo-s39` — I.10 "Rigidity at conductor 1", riders on I.2 (×2), I.9, III.20, a V.4 pointer, five cross-reference rows, the count paragraph — WRITER BRIEF
+
+**Written Session 39, 2026-10-01 (orchestrator Fable 5.1).** Bookkeeping stream on the model of `results/zoo-s37/BRIEF.md` (read it first; `scripts/zoo-insert-s37.py` is the template for the insertion script; `results/zoo-s37/` for the deliverables' shape). One WRITER (Opus, default effort); the READ is the orchestrator's own, at the line; the orchestrator runs the script. Paths contain spaces — quote them. U.S. English. Do not commit. Do NOT modify `BARRIER-ZOO.md` — you produce a proposed text, an insertion script and a dry run; the orchestrator inserts. Input zoo: `BARRIER-ZOO.md` at SHA-256 fa0d729377df6a53566d19cf80bc0ad9bbdd22648135135467de75d3601f393e (745 lines, 62 entries 9/5/21/22/5) — recompute and gate on the full hash.
+
+## What is inserted (exact words are staged — copy, do not rewrite)
+Source: `results/novel-wave-s37/ZOO-LINES-STAGED.md` (93e7e394…), blocks (i)–(vi) and C, with its **8-row insertion map** (enter bottom-up). The orchestrator's decisions, adopted from the digest (`results/novel-wave-s37/insights-digest.md` §F, and STATUS SESSION 39 QUEUE item 0(a)):
+1. **NEW Group-I entry I.10 "Rigidity at conductor 1"** (block (i)) — a calibration bracket beside I.7; heading in the house style with "NEW, Session 38 (`results/novel-wave-s37/beurling-fe/NOTE.md` …; entered 2026-10-01, Session 39)"; placed after I.9's STATUS. Include the clause on the signed RH-false control at conductor 1 (read-O R1) as staged.
+2. **Rider on I.2 — the (α, β) frontier** (block (ii)): Theorems A/A′/B/C, Conjectures O and U (DISCRETE systems), BDR's conjecture quoted at the page, DMV 2006's question answered by Prop. 2.1.
+3. **Rider on I.2 — thresholds and obstructions** (block (v), Cor. 2.2/Prop. 2.3): a RIDER, not a Group-IV entry (the count stays 63). Also fix I.2's clause (b) "β < 1/2 only under RH" as the digest §E directs: the region {α > ½, β < ½} is populated unconditionally, non-constructively (Prop. 2.1) — as a dated bracket appended to that clause, quoting the digest's words, never rewriting the old text.
+4. **Rider on I.9 — the one-sided caveat, V₂, E₀** (block (iii)), with the wording fix: F_{5,5}'s factor is the L-polynomial of t = −5, V's quadratic twist, not of V.
+5. **Rider on III.20 — Theorem P and class C** (block (iv)) carrying the T24 record correction; class C is ALIVE, so no Group-V line.
+6. **Pointer on V.4** (block (iv′)).
+7. **Five cross-reference rows** (block (vi)); **the count paragraph** (block C): final state **63 entries** (I 10, II 5, III 21, IV 22, V 5); Group I 9 → 10; entry date 2026-10-01 (Session 39); stream folder `results/zoo-s39/`; input hash fa0d7293…; output hash to be filled by the orchestrator.
+8. Fill every `<ENTRY-DATE>` with "2026-10-01 (Session 39)", `<STREAM-FOLDER>` with `results/zoo-s39/`; recompute every unit hash the staged text cites (`results/novel-wave-s37/*/NOTE.md`, `read-O.md`) and use the real ones.
+9. **Nothing else.** No edits to existing text beyond the sanctioned rider appends, the I.2(b) dated bracket and the count paragraph.
+Also owed and yours (insertion-only, dated lines, quote the digest §E): (a) annotate `results/novel-wave-s36/tournament/NOTE.md` line 75 (T24's G-line) with the record correction the digest states; (b) the charter `results/novel-wave-s37/WAVE-CHARTER.md` §0(f) "β ≥ ½" imprecision — a dated bracket after the sentence. Report both in SHARED.md with before/after hashes.
+
+## Deliverables (under `results/zoo-s39/`)
+`zoo-entries-proposed.md` (every block with its unique anchor line, quoted); `../../scripts/zoo-insert-s39.py` (idempotence guard; full-SHA-256 gate on the input; every anchor asserted unique; writes to a path given on the command line, default a scratch file, NEVER in place unless `--in-place`); `dryrun-BARRIER-ZOO.md` with its SHA-256, line count and diff hunk summary; `numbers-check.log` (heading tallies by regex before/after: `### I.`, `### II.`, `### III.`, `### IV.`, `### V.`; line counts; every zoo entry cited inside the new text exists; the staged text byte-identical to its source apart from the sanctioned fills); `SHARED.md` (dated blocks as you go).
+**Stop and report when:** the input hash differs from fa0d7293… (someone edited the zoo — stop); an anchor is not unique; the staged text cites an entry that does not exist; a block's "Where" conflicts with the map in a way you cannot resolve from the digest.
+
+## On completion (orchestrator)
+Read the proposed blocks and the dry-run diff at the line; run the script in place; hash; STATUS, LOG, commit + push.
+
+HARD OUTPUT RULE: never write more than about 6 kB of text in a single response or tool call. Build every deliverable incrementally on disk — create the file, then append one section (or five table rows) at a time — and append a dated block to SHARED.md after each batch. Keep reasoning between tool calls short; think in the files, not in long messages. Your final report is under 60 lines.
