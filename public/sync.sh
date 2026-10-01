@@ -4,5 +4,6 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 cp rh-program/results/arxiv/a4-no-go/main.pdf   public/cubic-augmentation-no-go.pdf
 cp rh-program/results/arxiv/seed-no-go/main.pdf public/tate-products-no-go.pdf
+cp rh-program/results/arxiv/haglund-counterexample/main.pdf public/haglund-counterexample.pdf
 echo "synced:"
 ls -lh public/*.pdf | awk '{printf "  %-8s %s\n", $5, $9}'
