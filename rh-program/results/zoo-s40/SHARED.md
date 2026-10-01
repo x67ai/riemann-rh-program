@@ -94,3 +94,51 @@ inserts); git is not run.
   "Two proofs" (line 11 "both proofs re-derived"; lines 23–29); "So BDR's …" (line 20–21; the frontier rider's A3 sketch is zoo line 87
   item (3)); finite rung (lines 31–32); NOT said (lines 39–41); OPEN (line 392, quoted; A1 from line 11 and line 392); prior art
   (lines 42–43).
+
+## 12:53 IST 2026-10-01 block 4 — blocks `i2s5`, `i9`, `i10` written
+
+- `i2s5` — DRAFTED; sentence by sentence: head (read-F line 5 verdict; read-O line 8 verdict, quoted; the 10(c) shape from the brief
+  item 4 / KICKSTART 10(c)); "crosses U's line numerically" (read-F §2 lines 14–15 and F1 line 24: "the slope of the running sup of |E|
+  on [10³, 10⁹]"; u-offsurgery NOTE lines 114–116, 175: F_X, X = 10⁹; read-O line 8 for the Opus reproduction); "BUT … carriers"
+  (read-F C1 line 18, C2 line 19; s5 NOTE line 36); n_K, f_G, 2,525, the exact test, log₁₀ 42.577 (s5 NOTE lines 86–91); the three
+  code paths (s5 NOTE lines 92–96 and the orchestrator's `verify-F/recount_nK_F.log`); "Hence … vacuous" (s5 NOTE lines 15–17, 100–105,
+  incl. c < 1.876 and f_G(n) ≤ (1 + log₂ n)^{|G|}); exponents (line 311; marginal line 18); T1–T4 in ONE clause labeled
+  "[single-check; read owed]" (brief item 4) — nothing else rests on them; KILLS / RETURNS and TEST (BLOCK:i2 line 316, reworded only to
+  name full paths; 0.383 = Re ρ₁/2 from line 19). Every cited file checked to exist (fcert.c, checkK.py, search2.c, recount_nK_F.py,
+  s5gen_F.c, zero_taylor_F.py); UT-M1/UT-M2 exist at s5 NOTE lines 289, 293.
+- `i9` — COPIED by program from `fejer-form-s39/NOTE.md` line 331 (BLOCK:i9) with E1; checked equal (1,262 chars + 38).
+- `i10` — COPIED by program from `qcond-s38/ZOO-LINES-STAGED.md` Block (i) with D1, E1 (2,275 chars), then " " + A1 (1,128 chars,
+  DRAFTED, one sentence): "Successor … (NOTE §0.4, §2, §4, §7.2, §8; reads, line 11)"; G1 (lines 128–130, "the masses may take
+  infinitely many values" quoted); L‴ (lines 203–205 and COVERAGE line 214: "countably many atoms, continuous parts, any irrational
+  frequencies"); (R1)–(R4) infinite-dimensional (lines 63–66); 𝒯 and its one condition (lines 67–69, 316–319); "no construction …
+  no new Group-I control is claimed" (line 70); Hilberdink 2012 as the printed core (line 346; F2 at line 11).
+
+## 13:02 IST 2026-10-01 block 5 — block `i11` written (DRAFTED whole; lemmaG NOTE 41f195d4… at the line)
+
+- Heading: title from the brief item 5, descriptor from line 77 ("the necklace deletion is exactly regular") and UT-L3 line 379 ("the
+  method's named no-go"); session form as I.10 (session of both reads; O1 offers Session 39).
+- STATEMENT: R1 quoted (lines 61–64, markup stripped); definitions (lines 57–60); proof gist (lines 65–67; D_R line 85; u line 80);
+  Anatomy (a) lines 81–84, (b) lines 85–88; Inputs (c) lines 89–94; the 10(c) statement in bold = Statement (G₁) lines 100–102 (quoted)
+  with the exception "besides zero-freeness" from lines 24, 340, and the class name from line 343; labels line 79 (quoted), line 343
+  (two quoted pieces), lines 343–344 (quoted); "Why norm-injectivity" lines 96–100, quote line 97; "Beside it, over ℚ" §6 (T) lines
+  332–338 (T2 injective choice line 149; tight ℚ-necklace line 338 and F4 line 11), Theorem F line 337, 𝒞_self lines 342, 345.
+- KILLS / RETURNS: drafted from (G₁) and (c) (line 92: "Theorem Z's HYPOTHESIS is void at rung 1 for every deletion with α_R > 0");
+  guard from §6 (T), line 345, line 94–95 ("obey O for the other reasons") and line 364.
+- EXECUTABLE TEST: (1) lines 70–73 (F_3[T] brute force; degree-60 generating functions); (2) lines 96–97; (3) §3.4 lines 191–194, T5,
+  line 338.
+- SOURCE: section and line map of the NOTE; reader artifacts verified to exist (`verify-F/necklace_F.py`, `verify-O/o_rung1_*.py`);
+  read-O line 13 for the F_3/F_5/F_7 brute force.
+- STATUS: line 11 (verdicts, F1–F5, 17 minor, 31 pairs); read-F line 5 (quoted); line 103 (Hilberdink 2012 Thm A, quoted; the
+  cyclotomic identity's attribution). "CALIBRATION … as I.9 binds positivity generators" is the writer's classification, by analogy
+  with I.9's KILLS line (zoo line 143) — flagged here as drafted, not quoted.
+
+## 13:09 IST 2026-10-01 block 6 — blocks `iv1` and `xref` written; all nine blocks on disk
+
+- `iv1` — COPIED by program from `fejer-form-s39/NOTE.md` line 327 (BLOCK:iv1) with E1 (1,640 chars).
+- `xref` — rows 1 and 3 COPIED by program (qcond Block (ii), conj-O Block (ii), verbatim). Rows 2, 4, 5, 6, 7 DRAFTED in the table's
+  shape (| casualty | verdict | killing barriers |, three cells each, checked): row 2 qtwin (NOTE lines 70, 128–130, 203–205, 63–69);
+  row 4 dz-half (NOTE lines 13–21, 39–40; U-1 line 389); row 5 S5 (read-F C1, s5 NOTE lines 12, 15, 92–97; "≈ 3.78·10⁴²" line 12);
+  row 6 lemmaG (NOTE lines 61–64, 79, 340, 332–338, 345); row 7 fejér (NOTE line 7 "Found nothing new, correctly", line 10 "THE
+  INEQUALITY EXISTS ON RUNG 1, AND IT IS WEIL POSITIVITY WITH MULTIPLIER 1; THE LITERAL FEJÉR TRANSPORT IS V-BLIND", line 9 dual read).
+- Cosmetic: two block-header quotations with nested backticks rewritten with double backticks (headers only; no block text touched).
+- Next: `scripts/zoo-insert-s40.py` on the s39 template, then the dry run and `numbers-check.log`.

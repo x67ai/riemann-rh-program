@@ -15,7 +15,8 @@ starts later) and **α ≈ 0.80–0.82 by three routes** — running sup of |ψ_
 11.0877411i and ρ₂ = 0.8052963 + 20.2490762i, stable to 2·10⁻⁵ from X = 10⁷ to 10⁹, each with winding number 1 on a box at X = 10⁹;
 no other zero in σ ≥ 0.70 below height 100), and the Beurling Möbius sums (γ = 0.795–0.817, which Neamah–Hilberdink Thm 1 forces
 to equal α when β < ½). **α − max{½, 2β} = +0.18…+0.29 on every window**, over six and a half decades; ρ = 0.75, 0.8, 0.9, 1.1 are
-also above the line at 10⁹ from 10⁴–10⁵ on (+0.05…+0.31); ρ = 1.25 sits below it; ρ = 1.5 runs away (§2). The prime-side
+also above the line at 10⁹ from 10⁴–10⁵ on (+0.05…+0.31), and their top zeros (X = 10⁸) sit at Re 0.806, 0.746, 0.840 for
+ρ = 0.75, 0.8, 1.1 (§3.6); ρ = 1.25 sits below the line; ρ = 1.5 runs away (§2). The prime-side
 fluctuation is coherent, not a random walk (sup|T|/V = 12.6 at 10⁹, growing like x^{0.3}, §3.5).
 **Close: K-candidate + K-conditional theorem + G.**
 - **K₇ (Theorem, §4)** [proved here, modulo the floating-point evaluation of F_X on ∂B₁]: if |N_P(u) − 0.6⌊u⌋| ≤ u^{0.40} for all
@@ -101,7 +102,8 @@ least-squares slopes of log(running sup) against log x over the bins of [10^k, X
 inf E = −105.6, sup|ψ_P − x| = 1.75·10⁷, sup|M_g| = 19,814, max a_n = 825, max m_p = 106; b_sup (k = 3…7) = .307 .295 .276 .272 .259,
 a_sup = .796 .802 .803 .810 .807, **a − 2b = +.18 +.21 +.25 +.27 +.29**; local slope of sup E from 10⁹ to 4·10⁹: 0.23.
 RMS exponents b_rms (k = 3…7) at ρ = 0.6: .265 .243 .228 .217 .204; the M_g exponent μ ≈ 0.50–0.52 at every density ≤ 1.1.
-Integer-error fits fall as the window starts later at every ρ ≤ 1.1 (no sign of a rising exponent on [10³, 10⁹]); α-fits are flat.
+Integer-error fits fall as the window starts later at every ρ ≤ 1.1, up to rises ≤ 0.01 on the last window at ρ = 0.75 and 0.9
+(no sign of a rising exponent on [10³, 10⁹]); α-fits are flat to ±0.03 except ρ = 0.75 (0.72 → 0.84).
 
 **2.2 Anatomy: refused, doubled, tripled** (decade [10⁸, 10⁹), 45,086,079 primes; `D 8` lines of the logs). Fractions with
 m_p = 0 / 1 / 2 / 3 / ≥ 4: ρ = 0.6: .844 / .022 / .017 / .017 / .100; 0.75: .854 / .017 / .016 / .018 / .095; 0.8: .865 / .013 /
@@ -178,6 +180,19 @@ V(x) = (Σ_{p≤x}(m_p − 1)²log²p)^{1/2} (the size T would have with indepen
 x = 10⁴, 10⁵, 10⁶, 10⁷, 10⁸, 10⁹. The ratio grows like x^{0.3} ≈ x^{Re ρ₁ − ½}: the m_p − 1 are long-range correlated exactly as an
 explicit formula with a zero at 0.82 + 11.09i requires. So route 1's a_sup is not the artifact flagged in the 11:49 SHARED block.
 
+**3.6 Route 2 at ρ = 0.75, 0.8, 1.1** (`verify/run_family.sh`: a_n to 10⁸, scans of F_X at X = 10⁷ on [0.70, 1.00] × [0.1, 100],
+`verify/zmap.py` to locate, Newton at 10⁸; logs `logs/zeros/zcount_r{075,08,11}_1e7.log`, `zmap_family_1e7.log`,
+`newton_r{075,08,11}_X1e{7,8}.log`; moves 10⁷ → 10⁸ ≤ 1.1·10⁻⁴). Zero counts in the σ-strips [0.70, 0.80] / [0.80, 0.90] / [0.90, 1.00]:
+
+| ρ | counts | top zero (X = 10⁸) | further zeros (X = 10⁸) | a_sup at 10⁹ | α − 2b_sup (route 2, k = 3…7 range) |
+|---|---|---|---|---|---|
+| 0.75 | 3 / 1 / 0 | 0.80563 + 92.34370i | 0.75449 + 46.69157i, 0.72829 + 29.76598i, 0.70844 + 30.70061i | 0.72–0.84 | +0.14…+0.28 |
+| 0.8 | 3 / 0 / 0 | 0.74647 + 30.69772i | 0.74615 + 29.85767i, 0.73874 + 59.17205i | 0.69–0.72 | +0.04…+0.19 |
+| 1.1 | 6 / 2 / 0 | 0.83989 + 20.33964i | 0.81395 + 29.98087i (+ six in [0.70, 0.80], not refined) | 0.79–0.80 | +0.01…+0.36 |
+
+Route 2 tracks route 1 at every density tried; the crossing is clear at 0.6 and 0.75, marginal on early windows at 0.8, and
+window-dependent at 1.1 (its b-fits fall from 0.42 to 0.24). No box certificates were made at these three densities.
+
 ## §4. What is proved: U reduces, for S7(3/5), to one growth bound with room
 
 **Theorem K₇ (conditional refutation of U)** [proved here, modulo the floating-point evaluation of F_X on ∂B₁ recorded in §3.3].
@@ -200,6 +215,23 @@ data ≈ 0.30, S7's needs θ ≤ 0.40 against data ≈ 0.26–0.28: more room, s
 **"Tame multiplicities" — what holds and what does not.** Multiplicities are bounded by ρ·(prime-power gap) + 1 + ρ (Lemma 1.2), so
 a_n is multiplicative with local values that are polylogarithmic if Cramér's conjecture holds [recalled, unverified]; but they are
 NOT bounded (max m_p = 79 at 10⁹) and the refused fraction rises with x (§2.2), so a_n ≪ n^ε is not proved here (§8, UT-L4).
+
+**4.2 The capped variant S7^{≤2}: tame by construction** (brief task 4, variant "cap m_n ≤ 2", `s7gen` variant 2: m_n := min(m_n, 2)).
+**Lemma 4.1** [proved here]. If every m_{p^k} ≤ 2, then a_n ≪_ε n^ε for every ε > 0.
+*Proof.* Coefficientwise c_p(e) ≤ p₂(e) := [u^e]Π_{k≥1}(1 − u^k)^{−2} (all coefficients are ≥ 0 and (1 − u^k)^{−m} ≤ (1 − u^k)^{−2}
+coefficientwise for m ≤ 2). For 0 < x < 1, 1 − x^j = (1 − x)(1 + ⋯ + x^{j−1}) ≥ j(1 − x)x^{j−1}, so x^j/(1 − x^j) ≤ 1/(j(1 − x)) and
+log Σ_e p₂(e)x^e = 2Σ_{j≥1} j^{−1}x^j/(1 − x^j) ≤ (2/(1 − x))Σ_j j^{−2} = π²/(3(1 − x)). With 1 − x = e^{−1/2} (e ≥ 4):
+x^{−e} ≤ exp(√e/(1 − e^{−1/2})) ≤ exp(2√e), so p₂(e) ≤ exp((2 + π²/3)√e) ≤ exp(6√e); directly p₂(1), p₂(2), p₂(3) = 2, 5, 10. Hence
+c_p(e) ≤ exp(7√e) for all e ≥ 1, and a_n ≤ exp(7Σ_{p|n}√e_p) ≤ exp(7√(ω(n)Ω(n))) (Cauchy–Schwarz). Ω(n) ≤ log₂n, and n ≥ ω! ≥
+(ω/e)^ω gives ω(n) ≪ log n/log log n; so a_n ≤ exp(O(log n/√(log log n))) = n^{o(1)}. ∎
+So S7^{≤2} satisfies the Ramanujan condition of Révész–Pintz's class (ℕ-supported, a_n ≪ n^ε); on the data a_n ≤ 72, a_n > d(n) for
+15,033 n ≤ 10⁹ only, max a_n/d(n) = 2.5. The price of the cap: the rule can no longer refill a deficit at one prime, so the
+downward side grows (inf E = −197.8 against −93.2 uncapped) — and yet sup|E| falls fourfold.
+**Route 1 at X = 10⁹, ρ = 0.6** (`logs/sweep/s7_v2_r3-5_X1000000000.log`, `fits_v2_r06_1e9.log`) [computed]: m_p = 0 / 1 / 2 for
+24,626,463 / 1,710,292 / 24,510,779 primes ≤ 10⁹ (so g(p) = m_p − 1 = ±1 for 96.6 % of primes, in nearly equal numbers — a
+feedback-chosen ±1 pseudo-character at the primes; higher prime powers with m > 0 in [10⁸, 10⁹): 1,063, of which 990 with m = 2); sup E = 218.4, inf E = −197.8, sup|ψ_P − x| = 5.0·10⁶, sup|M_g| =
+7803; b_sup (k = 3…7) = .215 .207 .204 .204 .192, b_rms = .152 .138 .126 .120 .113, a_sup = .794 .804 .804 .806 .827;
+**a − 2b = +.36 +.39 +.40 +.40 +.44** — a wider crossing than the uncapped system's, with provably tame coefficients.
 
 ## §5. Theory for the class (task 5; shortened by the stop rule)
 
@@ -268,7 +300,7 @@ Thm 1): with ψ_P = x + O(x^{α+ε}), N_P = ρx + O(x^{β+ε}), M_P = O(x^{γ+ε
 | Quantity | Current best value | Result file | Dated |
 |---|---|---|---|
 | (α, β) of the prime-local integer-greedy system S7(ρ) (g-primes are prime powers, a_n multiplicative; numerical, not proved) | ρ = 0.6, X = 4·10⁹: β ≈ 0.26–0.31 (running sup of \|E\|, windows 10³…10⁷ → 4·10⁹: .307 .295 .276 .272 .259, falling), α ≈ 0.80–0.81 (running sup of \|ψ_P − x\|), γ (Beurling Möbius sums) 0.80–0.82; α − 2β = +0.18…+0.29 on every window. X = 10⁹: ρ = 0.75 / 0.8 / 0.9 / 1.1 above the line from 10⁴ / 10⁴ / 10⁵ / 10⁵ (+0.05…+0.31); ρ = 1.25 below (−0.02…−0.10); ρ = 1.5 runs away. One producer; generator re-derived independently (additive DP, 0 mismatches to 10⁷) | `local-greedy-s40/NOTE.md` §2; `…/verify/logs/sweep/fits_v0_1e9.log`, `fits_v0_r06_4e9.log` | 2026-10-01 |
-| Off-line zeros of S7(0.6)'s ζ_P (route 2; the zeros behind Theorem K₇) | ρ₁ = 0.8209965 + 11.0877411i, ρ₂ = 0.8052963 + 20.2490762i (Newton at X = 10⁷, 10⁸, 10⁹; stable to 2·10⁻⁵); winding number 1 on B₁ = [0.8010, 0.8410] × [11.0677, 11.1077] (min\|F_X\| = 0.0654 vs tail ≤ 0.0068 under H_0.40) and on B₂ (0.0838 vs 0.018); no other zero in σ ≥ 0.70, t ≤ 100 at X = 10⁷. One producer | `local-greedy-s40/NOTE.md` §3; `…/verify/logs/zeros/cert_r06_z1_1e9.log`, `newton_r06_X1e9.log`, `zcount_r06_1e7.log` | 2026-10-01 |
+| Off-line zeros of S7(0.6)'s ζ_P (route 2; the zeros behind Theorem K₇) | ρ₁ = 0.8209965 + 11.0877411i, ρ₂ = 0.8052963 + 20.2490762i (Newton at X = 10⁷, 10⁸, 10⁹; stable to 2·10⁻⁵); winding number 1 on B₁ = [0.8010, 0.8410] × [11.0677, 11.1077] (min\|F_X\| = 0.0654 vs tail ≤ 0.0068 under H_0.40) and on B₂ (0.0838 vs 0.018); no other zero in σ ≥ 0.70, t ≤ 100 at X = 10⁷. Route 2 also at ρ = 0.75 / 0.8 / 1.1: top zeros 0.80563 + 92.34370i / 0.74647 + 30.69772i / 0.83989 + 20.33964i (X = 10⁸, not boxed). One producer. Scratch data: `/private/tmp/rh-s40-local-greedy/a_r06_1e9.u16` (a_n, n ≤ 10⁹), `x_r06_1e9.u32` (non-default decisions) | `local-greedy-s40/NOTE.md` §3; `…/verify/logs/zeros/cert_r06_z1_1e9.log`, `newton_r06_X1e9.log`, `zcount_r06_1e7.log` | 2026-10-01 |
 | Lemma H₇ on the computed range (the one hypothesis of Theorem K₇) | max\|N(u) − 0.6⌊u⌋\|/u^{0.40} per decade 10³…10⁹: 1.05, 0.86, 0.93, 0.60, 0.45, 0.35 (needed: ≤ 1 for all u > 10⁹) | `local-greedy-s40/verify/logs/zeros/hcheck_r06_1e9.log` | 2026-10-01 |
 
 ## §8. Untried (format of the directions' lists)

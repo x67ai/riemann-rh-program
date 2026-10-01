@@ -58,3 +58,21 @@ validated at the corners by direct sums), the 4·10⁹ run (with Beurling Möbiu
   b_sup over [10^k, 4·10⁹), k = 3…7: .307 .295 .276 .272 .259 (still falling); a_sup: .796 .802 .803 .810 .807.
 - Third route: Beurling Möbius sums M_P (μ_P = a^{∗−1}; control: M(10⁶) = 212 at ρ = 1, independent numpy sieve): sup|M_P| = 4.37·10⁶
   by 4·10⁹; exponent γ = .795 .808 .807 .814 .817 — Neamah–Hilberdink Thm 1 (two largest of α, β, γ equal) predicts γ = α: it is.
+
+## 2026-10-01 12:30 IST — route 2 at three more densities [computed]
+Scans of F_X at X = 10⁷ on [0.70, 1.00] × [0.1, 100] (`logs/zeros/zcount_r075_1e7.log`, `…_r08_…`, `…_r11_…`), zeros located by
+`verify/zmap.py` and refined by Newton at X = 10⁸ (`logs/zeros/newton_r*_X1e8.log`; moves 10⁷ → 10⁸ ≤ 1.1·10⁻⁴):
+- ρ = 0.75: counts 3 / 1 / 0 in σ-strips [.70,.80] / [.80,.90] / [.90,1.0]; top zero **0.80563 + 92.34370i**; others 0.75449 + 46.69157i,
+  0.72829 + 29.76598i, 0.70844 + 30.70061i.
+- ρ = 0.8: counts 3 / 0 / 0; top zero **0.74647 + 30.69772i**; 0.74615 + 29.85767i, 0.73874 + 59.17205i.
+- ρ = 1.1: counts 6 / 2 / 0; top zero **0.83989 + 20.33964i**; 0.81395 + 29.98087i.
+Route 2 tracks route 1 (a_sup at 10⁹: 0.72–0.84, 0.69–0.72, 0.79–0.80). With b_sup at 10⁹ the crossing margins α − 2β are
++0.14…+0.28 (0.75), +0.04…+0.19 (0.8, marginal on early windows), +0.01…+0.36 (1.1, window-dependent). ρ = 0.6 stays the clearest case.
+
+## 2026-10-01 12:33 IST — the capped variant S7^{≤2}(0.6) (m_n ≤ 2): tame AND across the line on route 1 [computed]
+Run to settle the K-close's "tame multiplicities" clause (brief task 4, one variant; the others stay unrun under the stop rule).
+`verify/logs/sweep/s7_v2_r3-5_X1000000000.log`, `fits_v2_r06_1e9.log`: m_p ∈ {0, 1, 2} (24.6M refused, 1.7M single, 24.5M doubled
+below 10⁹ — a pseudo-quadratic-field local structure), max a_n = 72, a_n > d(n) for only 15,033 n ≤ 10⁹ (max a_n/d(n) = 2.5);
+**sup E = 218.4, inf E = −197.8; b_sup (k = 3…7) = .215 .207 .204 .204 .192; a_sup = .794 .804 .804 .806 .827 → a − 2b = +.36…+.44.**
+Bounded local multiplicities give a_n ≪ n^ε (the Ramanujan condition of Révész–Pintz's class; proof in NOTE §4). Next: route 2
+for this variant (dump to 10⁹, scan, Newton, box), then the close.
