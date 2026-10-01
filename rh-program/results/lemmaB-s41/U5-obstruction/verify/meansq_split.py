@@ -14,9 +14,11 @@ Lc = np.concatenate([[1.0], lat[lat <= X]])
 def EX(at): return len(at) - rho*(X - 1) - 1
 def parseval_rhs(at, sig):
     a = np.append(at, X); c = np.arange(1, len(at) + 1) - 1 + rho       # E(u) = c_j - rho u on [a_j, a_{j+1})
-    w = 2*sig; lo, hi = a[:-1], a[1:]
-    I0 = (lo**(-w) - hi**(-w))/w; I1 = (hi**(1 - w) - lo**(1 - w))/(1 - w); I2 = (hi**(2 - w) - lo**(2 - w))/(2 - w)
-    return 2*np.pi*np.sum(c*c*I0 - 2*c*rho*I1 + rho*rho*I2)
+    lo, hi = a[:-1], a[1:]; l = hi - lo; e0 = c - rho*lo; w = 2*sig
+    tot = 0.0
+    for xg, wg in ((0.0, 8/9), (np.sqrt(0.6), 5/9), (-np.sqrt(0.6), 5/9)):  # Gauss-Legendre 3 on each piece
+        v = l*(1 + xg)/2; tot += np.sum(wg*l/2*(e0 - rho*v)**2*(lo + v)**(-w - 1))
+    return 2*np.pi*tot
 def Ehat(at, s):
     lg = np.log(at); e = EX(at); out = np.empty(len(s), complex)
     for j in range(0, len(s), 200):
@@ -39,3 +41,15 @@ for sig in (0.10, 0.30, 0.45):
         print(f" [{a:7.2f},{b:7.1f}]  {row[0][0]:.4e}  {row[1][0]:.4e}  {row[0][0]/row[1][0]:6.3f}  | {row[0][1]:10.3f} {row[1][1]:10.3f}   {diag:10.3f}")
         sys.stdout.flush()
     print(f" 2*sum over windows [0, 2048]: S8 {2*tot['S8']:.5f}   L {2*tot['L']:.5f}   (tail |t| > 2048 not included)")
+# (4) block mean squares (1/U) int_U^{2U} E^2 du — Prop. 3.2: >= 1/12 - o(1) for unit atoms at density rho, = 1/12 for L
+g6 = np.fromfile('/private/tmp/rh-s41-lemmaB-U5-obstruction/g_pi16_1e6.bin', dtype=np.float64)
+S8b = np.concatenate([[1.0], g6[g6 <= 1e6]]); k6 = np.arange(1, int((1e6 - 1)*rho + 0.5) + 2); L6 = np.concatenate([[1.0], (1 + (k6 - 0.5)*t)])
+def blockms(at, U):
+    a = at[(at > U) & (at < 2*U)]; edges = np.concatenate([[U], a, [2*U]])
+    Nst = np.searchsorted(at, U, 'right') + np.arange(len(edges) - 1)        # N on [edges_j, edges_{j+1})
+    c = Nst - 1 + rho; lo, hi = edges[:-1], edges[1:]                       # E = c - rho u
+    e0 = c - rho*lo; l = hi - lo                                             # re-centred: E = e0 - rho v, v in [0, l]
+    return np.sum(e0*e0*l - e0*rho*l*l + rho*rho*l**3/3)/U
+print("\n(4) block mean square of E on [U, 2U]:   U      S8(pi/16)     L       1/12 = 0.083333")
+for U in (1e3, 1e4, 1e5, 4.9e5):
+    print(f"   {U:9.0f}   {blockms(S8b, U):10.4f}   {blockms(L6, U):9.6f}")

@@ -161,3 +161,36 @@ coincidence layer, a sum over q > p₁₀ of 0/1 events "W/q contains a g-prime"
 large-sieve bound. U1: a rule cannot remove composites; its only lever on a burst at x is the placement of g-primes at the scales x/q for
 q in the coincidence range (q > p₁₀ = 64.7 for π/16, 118.1 for π/32; p₁₁ = 79.9, 128.3; p₁₀₀₀ ≈ 1.0·10⁴, 1.5·10⁴), all fixed by the time
 the sweep passes x/p₁₁ — a look-ahead rule must therefore look at least a factor p₁₁ ahead to see the coincidence layer coming.
+
+**3.2 Window variances against Poisson** [computed: `verify/winvar.py`, logs `verify/logs/b16_top.win`, `b32_top.win` (cells with
+x ∈ [10^9.5, 10^9.6): 1.6·10⁸ and 8.0·10⁷ cells), `*_mid.win` ([10^8.5, 10^8.6), all variants)]. Non-overlapping windows of h cells,
+straight-line detrended (the arrival rate drifts by 10⁻³ across the band). F = variance/mean (Poisson: F = 1). A = all arrivals,
+A1 = arrivals divisible by p₁, R4 = arrivals with smallest factor > p₄, P = g-primes (idle cells).
+
+| h (cells) | F(A) π/16 | Var(A)/h | Var(A1) | F(R4) | F(P) | F(A) π/32 | Var(A)/h | Var(A1) | F(R4) | F(P) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | 0.971 | 0.749 | 0.26 | 0.998 | 0.77 | 0.975 | 0.568 | 0.15 | 0.997 | 0.58 |
+| 4 | 0.894 | 0.689 | 0.84 | 0.993 | 1.21 | 0.902 | 0.526 | 0.46 | 0.991 | 0.82 |
+| 16 | 0.774 | 0.597 | 2.26 | 0.972 | 1.71 | 0.763 | 0.445 | 1.03 | 0.971 | 0.92 |
+| 64 | 0.625 | 0.482 | 3.96 | 0.917 | 1.83 | 0.614 | 0.358 | 1.44 | 0.896 | 0.82 |
+| 256 | 0.501 | 0.386 | 4.37 | 0.866 | 1.61 | 0.487 | 0.284 | 1.39 | 0.791 | 0.67 |
+| 1024 | 0.420 | 0.324 | 4.32 | 0.823 | 1.39 | 0.396 | 0.231 | 1.42 | 0.686 | 0.55 |
+| 4096 | 0.369 | 0.284 | 4.38 | 0.779 | 1.24 | 0.316 | 0.184 | 1.41 | 0.567 | 0.44 |
+| 16384 | 0.342 | 0.264 | 4.30 | 0.746 | 1.15 | 0.268 | 0.156 | 1.41 | 0.488 | 0.37 |
+| 65536 | 0.347 | 0.268 | 4.31 | 0.765 | 1.17 | 0.238 | 0.139 | 1.55 | 0.437 | 0.33 |
+| 262144 | 0.349 | 0.269 | 4.81 | 0.772 | 1.17 | 0.191 | 0.111 | 1.39 | 0.351 | 0.27 |
+
+**Pattern 3.2 (hyperuniform core, Poisson fringe)** [computed; the bounded part is proved]. (a) Var(A1) is bounded in h — flat at 4.3
+(π/16) and 1.4 (π/32) from h ≈ 128 to h ≈ 10⁶ — as (I1) forces: A1(W) = h/p₁ + ΔE(W/p₁), so Var(A1) ≤ 2·Var(E at x/p₁) + o(1) [proved
+form: |A1(W) − h/p₁| ≤ sup_{u≤x/p₁} E(u) + τ]. The same holds for the arrivals divisible by p₂ (flat at 3.9, π/16). (b) The rough part R4
+is Poissonian at short range (F(R4) ≥ 0.97 for h ≤ 16) and only mildly sub-Poisson at long range. (c) F(A) falls monotonically from 0.97
+at one cell through 0.77 at 16 cells to a plateau ≈ 0.34 (π/16, h ≥ 10⁴; π/32 still falling at 10⁶: 0.19). The arrivals are a rigid
+superposition (dilated copies of the system at x/q for small q) plus a Poisson-like fringe; the sub-Poisson tail of the queue (3.1) is
+the trace of the rigid part at the busy-period scale h ≈ 16–64.
+**Conjecture C3.2 (local Kingman law)** [computed across 12 systems, §6]: κ/κ_P·F_A(16) ≈ const — the sub-Poisson factor of the queue
+tail is (nearly) the inverse Fano factor of the arrivals over 16 cells. Data (band [10^8.5, 10⁹); F_A(16) from the [10^8.5, 10^8.6)
+windows), pairs (F_A(16), κ/κ_P): π/16 — δ = t/4 (0.528, 2.03), τ = ¼ (0.598, 1.85), δ = ½ (0.662, 1.80), δ = t/8 (0.664, 1.70), base
+(0.746, 1.59), τ = ¾ (0.803, 1.51), product 1.07–1.21; π/32 — δ = t/4 (0.547, 1.60), τ = ¼ (0.600, 1.57), δ = t/8 (0.646, 1.47), δ = ½
+(0.694, 1.41), base (0.732, 1.33), τ = ¾ (0.792, 1.27), product 0.88–1.01. Within each density the six rules are in the SAME order by
+F_A(16) and by κ/κ_P. Use: a proof of
+(C3.1) needs only second-moment (and tail) control of the arrivals over windows of O(1)–O(log x) cells — a local statement.

@@ -1,6 +1,6 @@
 # NOTE — unit `lemmaB-s41/U6-certificate`: interval certificates for the real zero of S8(π/16) and S8(π/32)
 
-Started 17:04 IST 2026-10-01. Writer: Opus 5.5 (agent). Labels as in `../CHARTER.md` §4: **[proved here]**, **[computed]**
+Started 17:04 IST 2026-10-01, closed 17:34 IST 2026-10-01. Writer: Opus 5.5 (agent). Labels as in `../CHARTER.md` §4: **[proved here]**, **[computed]**
 (script + log in `verify/`), **[quoted]** (source opened at the line), **[recalled, unverified]** (never load-bearing).
 Notation as in `free-greedy-s40/theory/NOTE.md` (cited below as s40-NOTE): t = 1/ρ, lattice points x_k = 1 + (k − ½)t,
 T(u) = ρ(u − 1) + 1, E = N − T, w(u) := ρ(u − 1) + ½ (so w(x_k) = k), F_X(s) = Σ_{n≤X} n^{−s} + ρX^{1−s}/(s − 1) − E(X)X^{−s}.
@@ -16,15 +16,17 @@ F_X(0.895076517592) = (1.4 ± 0.1)·10⁻¹² > 0; real zero in (0.895076517592,
 Labels: the inequalities are [computed] with proved ordering (1.51·10⁹ and 5.7·10⁸ cell decisions, each proved by a floating-point
 error bound or decided exactly in GMP from a Machin enclosure of π — 4,726 and 785 of them) and interval (arb) evaluation of F_X from
 block moments with proved error terms (§2–§3); the implications are [proved here] (§1).
-**The exponent left to prove:** Lemma B with θ ≤ 0.3973776850 (π/16) or θ ≤ 0.4475382587 (π/32) — s40 had 0.395 and 0.445.
+**The exponent left to prove:** Lemma B with θ ≤ 0.3973776850 (π/16) or θ ≤ 0.4475382587 (π/32) — s40 had 0.395 and 0.445; in
+mean square (Cor. 1.4(b), the orchestrator's Lemma L re-derived), θ₂ ≤ 0.0960665275 (π/16) or 0.1713073881 (π/32) refutes U itself.
 Addendum (§5.4): π/64, θ ≤ 0.4738170951; π/128, θ ≤ 0.4871322811 (the deficit from ½ is ≈ 0.53ρ).
 **New criterion (§1)** [proved here]: E ≥ ½ − {ρ(u − 1) + ½} (integrality of N plus E > −½), so at a lattice point the tail of the
 Mellin integral is positive and the certificate condition is F_{x_K}(σ₁) ≥ 0 — the −½X^{−σ₁} of s40 Cor. 1.7(iii) disappears, and the
 criterion holds under the mean-square hypothesis of ORCH O1 as well (Theorem 1.3). Unconditionally F_{x_{k+1}}(σ) > F_{x_k}(σ) for
 every σ > 0 (Prop. 1.6): a certificate persists for all larger lattice truncations with no hypothesis, and under (B) the certified
 σ₁(x_k) increase to the real zero σ*.
-**Upper bracket (§6)**: if E(u) ≤ 0.1·log²u beyond X (twice the measured envelope), the zero lies in (σ₁, 0.794755510) for π/16 and
-(σ₁, 0.895076525) for π/32; under Lemma B at the U-exponent with constant 1 beyond X, in (σ₁, 0.794799754) and (σ₁, 0.895083982).
+**Upper bracket (§6)**: if E(u) ≤ 0.1·log²u beyond X (twice the measured envelope), EVERY real zero of ζ_P right of σ₁ lies in
+(σ₁, 0.794755510) for π/16 and (σ₁, 0.895076525) for π/32, and there is one; under Lemma B at the U-exponent with constant 1 beyond
+X, in (σ₁, 0.794799754) and (σ₁, 0.895083982). (Proved concavity of F_X on [σ₁, 1), Lemma 6.3, turns the sign change into this.)
 **Ceiling (§7.2)** [proved here]: under (B), no real-zero certificate can pass σ*, so this proof class cannot relax the exponent of
 Lemma B beyond σ*/2 — because ζ_P < 0 on (σ*, 1); under the 0.1·log²u envelope the certificates above are within 1.4·10⁻⁷ and
 7.4·10⁻⁹ of that ceiling.
@@ -69,6 +71,12 @@ uses only the continuation of ζ_P, which (B₂) supplies as well as (B). ∎
 θ < σ₁/2, then β(P) ≤ θ < σ₁/2 and α(P) > σ₁ > ½, so α(P) > max{½, 2β(P)} and **Conjecture U is false**. Under (B₂) with θ₂ < σ₁/2
 the same holds for the mean-square variant of U (α ≤ max{½, 2β₂}, O1). So each certificate (F_{x_K}(σ₁) ≥ 0, proved in §5) leaves
 exactly one statement to prove: **Lemma B with exponent θ < σ₁/2** (pointwise), or its mean-square form.
+(b) *Mean square refutes U itself* (the orchestrator's Lemma L, `../SHARED.md` 17:25; re-derived here) [proved here]. For any Beurling
+system, E decreases at slope ρ between g-integers and jumps only upward, so E(u) ≥ E(x) − ρ(u − x) for u ≥ x and E(u) ≤ E(x) + ρ(x − u)
+for u ≤ x. If |E(x)| = H ≤ ρx, then |E| ≥ H/2 on an interval of length H/(2ρ) inside [x/2, 2x], so ∫_{x/2}^{2x}E² ≥ H³/(8ρ); under (B₂)
+this is ≪ x^{1+2θ₂}, so H ≪ x^{(1+2θ₂)/3} (a larger H only strengthens the bound: |E| ≥ H/2 on all of [x, 2x] or [x/2, x]) and
+β ≤ (1 + 2θ₂)/3. Hence, with α > σ₁: **(B₂) with θ₂ < (3σ₁ − 2)/4 refutes U itself**
+(2β ≤ 2(1 + 2θ₂)/3 < σ₁ < α).
 
 **Remark 1.5 (against s40 Cor. 1.7(iii)).** There the tail was bounded below by −½X^{−σ₁} (E > −½ alone), so the criterion read
 F_X(σ₁) > ½X^{−σ₁}. Lemma 1.2 removes that term when X is a lattice point: the integrality of N turns the one-sided bound into a
@@ -269,9 +277,24 @@ at σ₁ and ζ_P(σ₂) = F_X(σ₂) + tail ≤ F_X(σ₂) + (bound). **So F_X(
 Scale of the hypotheses against the data [computed: `logs/s8cert_pi{16,32}_1e10.log`; s8o agrees, §4]: sup_{u≤x_K}E/log²u =
 26.137/530.2 = 0.049 (π/16) and 15.434/530.2 = 0.029 (π/32); so K = 0.1 is about twice the measured envelope, K = 1, 10, 100 are generous.
 
-**Theorem 6.2 (the zero boxed)** [computed: `logs/certify_pi{16,32}_1e10.log`; proved here: Lemma 6.1 + Theorem 1.3]. With P, X, σ₁
-as in Theorems 5.1/5.2: if E satisfies the hypothesis of a row for all u ≥ X (row 7: for all Y ≥ X), then F_X(σ₂) + bound(σ₂) < 0
-is proved, so ζ_P(σ₁) > 0 > ζ_P(σ₂) and ζ_P has a real zero in (σ₁, σ₂). ϑ is σ₁/2 truncated to 9 decimals (0.397377685 for π/16,
+**Lemma 6.3 (F_X is concave right of σ₁)** [proved here; computed: `verify/concavity.py`, `run_concavity.sh`, logs
+`logs/concavity_pi{16,32,64,128}_K*.log`]. For σ ≥ σ_a, F_X″(σ) = ζ_c″(σ) + ∫_1^X E(u)u^{−σ−1}(σ log²u − 2 log u)du with
+ζ_c″ = −2ρ/(1 − σ)³ (differentiate F_X = ζ_c + σ∫_1^X E u^{−σ−1}du twice), so F_X″(σ) ≤ −2ρ/(1 − σ_a)³ + Q,
+Q := ∫_1^X |E|u^{−σ_a−1}(2 log u + log²u)du. Since E ≥ f := ½ − {w} (Lemma 1.1) and f ≥ −½, |E| = E + 2max(0, −E) ≤ E + 1, hence
+Q ≤ 2A_1 + A_2 + 2/σ_a² + 2/σ_a³ with A_m := ∫_1^X E u^{−σ_a−1}log^m u du. A_m is evaluated in arb from the block moments of
+n^{−σ}log^m n (Taylor coefficients of (1 + x)^{−σ}log^i(1 + x), tails ≤ 15x⁷ for x ≤ 2⁻⁸, perturbation n vs ñ as in Lemma 3.1) through
+∫_1^X N u^{−σ−1}log^m u du = N(X)W_m(X) + Σ_n n^{−σ}P_m(log n), W_m = −u^{−σ}P_m(log u), P_0 = 1/σ, P_1 = L/σ + 1/σ², P_2 = L²/σ + 2L/σ² + 2/σ³,
+minus the explicit integral of T. Self-tests in each log: A_0 equals (F_X − ζ_c)/σ to 12 digits, and Σn^{−σ}log n equals a central
+difference of S. At σ_a = σ₁ and X = x_K ≈ 10¹⁰: Q ≤ 7.90 < 45.42 (π/16), 5.39 < 169.99 (π/32), 4.32 < 683.7 (π/64), 3.97 < 2880 (π/128).
+So F_X is strictly concave on [σ₁, 1); with F_X(σ₁) > 0 > F_X(σ₁ + 10⁻¹²) it has exactly one zero there and is strictly decreasing
+on [σ₁ + 10⁻¹², 1) (a concave function lies below its secants' extensions). ∎
+
+**Theorem 6.2 (the zero boxed)** [computed: `logs/certify_pi{16,32}_1e10.log`; proved here: Lemmas 6.1, 6.3 + Theorem 1.3]. With P,
+X, σ₁ as in Theorems 5.1/5.2: if E satisfies the hypothesis of a row for all u ≥ X (row 7: for all Y ≥ X), then F_X(σ₂) + bound(σ₂) < 0
+is proved, so ζ_P(σ₁) > 0 > ζ_P(σ₂). Moreover each bound in Lemma 6.1 is decreasing in σ (τ_X = X^{−σ}(L² + 2L/σ + 2/σ²); for (b) the
+σ-derivative has the sign of −ϑ − σL(σ − ϑ); for (c) σX^{ϑ−σ} decreases once σL > 1 and 1/(1 − 2^{ϑ−σ}) decreases), and F_X decreases on
+[σ₂, 1) by Lemma 6.3, so ζ_P(σ) ≤ F_X(σ) + bound(σ) ≤ F_X(σ₂) + bound(σ₂) < 0 on [σ₂, 1): **every real zero of ζ_P in (σ₁, 1) lies in
+(σ₁, σ₂), and there is at least one.** ϑ is σ₁/2 truncated to 9 decimals (0.397377685 for π/16,
 0.447538258 for π/32): rows 5–7 are Lemma B at the exponent that refutes U, with an explicit constant beyond X.
 
 | hypothesis beyond X | σ₂ (π/16) | σ₂ − σ₁ | σ₂ (π/32) | σ₂ − σ₁ |
@@ -286,14 +309,16 @@ is proved, so ζ_P(σ₁) > 0 > ζ_P(σ₂) and ζ_P has a real zero in (σ₁, 
 
 So under Lemma B at the U-refuting exponent with constant 1 beyond 10¹⁰ (row 5), the real zero is pinned to 4.5·10⁻⁵ (π/16) and
 7.5·10⁻⁶ (π/32); under the data-sized envelope 0.1·log²u to 1.4·10⁻⁷ and 7.4·10⁻⁹. Not proved here: that the zero in (σ₁, σ₂) is
-unique, or that ζ_P < 0 on [σ₂, 1) (the sign change gives an odd number of zeros in the box, with multiplicity).
+simple or unique (the sign change gives an odd number of zeros there, with multiplicity).
 
 ## §7. What is left to prove
 
 **7.1 The one missing statement.** By Theorems 5.1, 5.2 (and 5.4), Conjecture U is false as soon as ONE of the following is proved:
   Lemma B_{π/16}: N(u) − (π/16)u = O(u^θ) with θ ≤ 0.3973776850;   Lemma B_{π/32}: the same with π/32 and θ ≤ 0.4475382587;
   (addendum) Lemma B_{π/64} with θ ≤ 0.4738170951;   Lemma B_{π/128} with θ ≤ 0.4871322811.
-The mean-square forms (B₂) with the same exponents refute the mean-square variant of U (ORCH O1). A real zero right of σ₁ follows
+The mean-square forms (B₂) with the same exponents refute the mean-square variant of U (ORCH O1), and by Corollary 1.4(b) a
+mean-square bound refutes U ITSELF once θ₂ ≤ 0.0960665275 (π/16), 0.1713073881 (π/32), 0.2107256426 (π/64), 0.2306984217 (π/128)
+(= (3σ₁ − 2)/4, truncated). A real zero right of σ₁ follows
 already from (B) or (B₂) with any exponent < σ₁ (Theorem 1.3), no constant. Nothing in this unit bounds E from above; the data
 (E = O(log²x) to 10¹⁰, §6) are far inside every one of these exponents, and none of them is proved (`../CHARTER.md` §1: not even
 E = o(x) is).
