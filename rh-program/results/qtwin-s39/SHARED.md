@@ -39,3 +39,18 @@ Append-only, dated blocks. Writer: Opus 5.5 (unit agent). Outputs only under `re
   Theorem L‴ general form; route (iii) verdict incl. the "zeta-zero repair" G = R(s) + q^{½−s}R(1−s), R with poles at zeros of ζ —
   an exact-FE family whose continuous part satisfies the FE alone, so it falls back on the atomic theory.
 - Next: §7 instrument on the smallest open sub-class (thick positive Poisson mixtures), §8 prior art, attack log, close.
+
+## 2026-10-01 06:50 IST — batch 4 (the instrument; the one-condition class 𝒯)
+- NOTE §7.1: exact-certificate table — every parametrizable family on which the exact FE can be imposed is excluded by a theorem
+  (G1, G1′, D, L′, L‴ + Prop. S, U_q, P1, W3). §7.2: the smallest open sub-class 𝒯 (positive J-symmetric Poisson mixtures with thick
+  rational part): FE, self-duality, dN ≥ 0 and the gap are automatic; the ONLY open condition is Π_ζ + log*(m) ≥ 0.
+- verify/v4_thick_mixture_probe.{py,log} (+ firstpass log), v4b_thick_grid.{py,log}: q = 4 truncations, max-min of Π_F on [1, 64]:
+  M = 2 global −0.680; M = 3, 4 local −0.401, −0.311 (rising with more primes); q = 9: −0.506 / −0.526. Evidence only.
+- Next: prior art at the page (arXiv API returning 503 — retry loop running in background), attack log, close §0.4, rows.
+
+## 2026-10-01 07:10 IST — batch 5 (prior art at the page; attack log)
+- sources/: KNS 2023 (2306.14013, pdf + txt), Córdoba 1989 landing page via Firecrawl (abstract only — body paywalled), arXiv
+  sweeps q2–q6 (Beurling+FE; crystalline+positive; Fourier quasicrystal to 2026-08; three abstracts incl. Boyvalenkov–Favorov 2025,
+  Favorov–Değer 2026). No printed theorem closes the weighted case; KS 2020 line 49 "probably very difficult"; BSS §8 open.
+- NOTE §8 (prior-art table), §9 (attack log on Lemma M, M1, G1 Step 3, Prop. S, L‴, route (ii) P2 incl. the retracted heuristic).
+- Next: §0.4 the close as THEOREM G; §10 the Instruments row, Untried entries, waste line; header status.

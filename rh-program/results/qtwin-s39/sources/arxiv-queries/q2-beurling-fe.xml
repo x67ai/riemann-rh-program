@@ -1,10 +1,95 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>503</title>
-  </head>
-  <body>
-    503
-  </body>
-</html>
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/b2ZBMm8OljH1aiMCjgFcbrWEIzc</id>
+  <title>arXiv Query: search_query=all:"Beurling" AND all:"functional equation"&amp;id_list=&amp;start=0&amp;max_results=25</title>
+  <updated>2026-10-01T00:28:19Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22Beurling%22+AND+all:%22functional+equation%22&amp;start=0&amp;max_results=25&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>25</opensearch:itemsPerPage>
+  <opensearch:totalResults>5</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2209.01689v3</id>
+    <title>The Carlson-type zero-density theorem for the Beurling zeta function</title>
+    <updated>2024-11-12T17:11:51Z</updated>
+    <link href="https://arxiv.org/abs/2209.01689v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2209.01689v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In a previous paper we proved a Carlson type density theorem for zeroes in the critical strip for Beurling zeta functions satisfying Axiom A of Knopfmacher. There we needed to invoke two additonal conditions, the integrality of the norm (Condition B) and an "average Ramanujan Condition" for the arithmetical function counting the number of different Beurling integers of the same norm (Condition G).
+  Here we implement a new approach of Pintz, using the classic zero detecting sums coupled with Halász' method, but otherwise arguing in an elementary way avoiding e.g. large sieve type inequalities. This way we give a new proof of a Carlson type density estimate--with explicit constants--avoiding any use of the two additional conditions, needed earlier.
+  Therefore it is seen that the validity of a Carlson-type density estimate does not depend on any extra assumption--neither on the functional equation, present for the Selberg class, nor on growth estimates of coefficients say of the "average Ramanujan type"-but is a general property, presenting itself whenever the analytic continuation is guaranteed by Axiom A.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-09-04T20:29:55Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Szilárd Gy. Révész</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2012.09045v3</id>
+    <title>Distribution of Beurling primes and zeroes of the Beurling zeta function I. Distribution of the zeroes of the zeta function of Beurling</title>
+    <updated>2022-06-25T10:08:36Z</updated>
+    <link href="https://arxiv.org/abs/2012.09045v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2012.09045v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove three results on the density resp. local density and clustering of zeros of the Beurling zeta function $ζ(s)$ close to the one-line $σ:=\Re s=1$. The analysis here brings about some news, sometimes even for the classical case of the Riemann zeta function. Theorem 4 provides a zero density estimate, which is a complement to known results for the Selberg class. Note that density results for the Selberg class rely on use of the functional equation of $ζ$, which we do not assume in the Beurling context. In Theorem 5 we deduce a variant of a well-known theorem of Turán, extending its range of validity even for rectangles of height only $h=2$. In Theorem 6 we will extend a zero clustering result of Ramachandra from the Riemann zeta case. A weaker result -- which, on the other hand, is a strong sharpening of the average result from the classic book \cite{Mont} of Montgomery -- was worked out by Diamond, Montgomery and Vorhauer. Here we show that the obscure technicalities of the Ramachandra paper (like a polynomial with coefficients like $10^8$) can be gotten rid of, providing a more transparent proof of the validity of this clustering phenomenon.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-12-16T16:07:06Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Sz. Gy. Révész, Density theorems for the Beurling zeta function, Mathematika, 68 (2022), 1045--1072</arxiv:journal_ref>
+    <author>
+      <name>Szilárd Gy. Révész</name>
+    </author>
+    <arxiv:doi>10.1112/mtk.12156</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1112/mtk.12156" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1407.4089v2</id>
+    <title>Homomorphisms from Functional Equations: The Goldie Equation</title>
+    <updated>2014-11-07T18:38:16Z</updated>
+    <link href="https://arxiv.org/abs/1407.4089v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1407.4089v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The theory of regular variation, in its Karamata and Bojanić-Karamata/de Haan forms, is long established and makes essential use of the Cauchy functional equation. Both forms are subsumed within the recent theory of Beurling regular variation, developed elsewhere. Various generalizations of the Cauchy equation, including the Gołąb-Schinzel functional equation (GS), are prominent there. Here we unify their treatment by `algebraicization': extensive use of group structures introduced by Popa and Javor in the 1960s turn all the various solutions into homomorphisms, and show that (GS) is present everywhere, even if in a thick disguise.</summary>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-07-15T18:38:12Z</published>
+    <arxiv:comment>Sequel to:N. H. Bingham and A. J. Ostaszewski, Cauchy's functional equation and extensions: Goldie's equation and inequality, the Gołąb-Schinzel equation and Beurling's equation, arxiv.org/abs/1405.3947 Related to: N. H. Bingham and A. J. Ostaszewski, Beurling moving averages and approximate homomorphisms. Redrafted with additional results</arxiv:comment>
+    <arxiv:primary_category term="math.CA"/>
+    <author>
+      <name>Adam J. Ostaszewski</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1405.3947v2</id>
+    <title>Cauchy's functional equation and extensions: Goldie's equation and inequality, the Gołąb-Schinzel equation and Beurling's equation</title>
+    <updated>2014-06-02T18:20:54Z</updated>
+    <link href="https://arxiv.org/abs/1405.3947v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1405.3947v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Cauchy functional equation is not only the most important single functional equation, it is also central to regular variation. Classical Karamata regular variation involves a functional equation and inequality due to Goldie; we study this, and its counterpart in Beurling regular variation, together with the related Gołąb-Schinzel equation.</summary>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-05-15T18:59:49Z</published>
+    <arxiv:comment>Companion paper to: Additivity, subadditivity and linearity: automatic continuity and quantifier weakening</arxiv:comment>
+    <arxiv:primary_category term="math.CA"/>
+    <author>
+      <name>N. H. Bingham</name>
+    </author>
+    <author>
+      <name>A. J. Ostaszewski</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/0410270v1</id>
+    <title>Beurling Zeta Functions, Generalised Primes, and Fractal Membranes</title>
+    <updated>2004-10-11T12:32:21Z</updated>
+    <link href="https://arxiv.org/abs/math/0410270v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0410270v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We study generalised prime systems $\mathcal{P}$ $(1&lt;p_1\leq p_2\leq...,$ with $p_j\in\R$ tending to infinity) and the associated Beurling zeta function $ζ_{\mathcal{P}}(s) =\prod_{j=1}^{\infty} (1-p_j^{-s})^{-1}$. Under appropriate assumptions, we establish various analytic properties of $ζ_{\mathcal{P}}(s)$, including its analytic continuation and we characterise the existence of a suitable generalised functional equation. In particular, we examine the relationship between a counterpart of the Prime Number Theorem (with error term) and the properties of the analytic continuation of $ζ_{\mathcal{P}}(s)$. Further we study `well-behaved' g-prime systems, namely, systems for which both the prime and integer counting function are asymptotically well-behaved. Finally, we show that there exists a natural correspondence between generalised prime systems and suitable orders on $\N^2$.
+  Some of the above results may be relevant to the second author's theory of `fractal membranes', whose spectral partition functions are precisely given by Beurling zeta functions.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2004-10-11T12:32:21Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>T. W. Hilberdink</name>
+    </author>
+    <author>
+      <name>M. L. Lapidus</name>
+    </author>
+  </entry>
+</feed>

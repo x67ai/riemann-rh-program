@@ -262,8 +262,83 @@ EXACTLY (ζ(s)/(s − ρ) is entire; ζ(s)R(1 − s) likewise, 1 − ρ being a 
 q^{ρ−½}x^{−ρ}1_{[q,∞)}]dx: a positive-looking head plus oscillating densities ≍ x^{−½}. A direct computation shows the continuous part
 G_c = Σ_ρ c_ρ[(s − ρ)^{−1} − √q q^{−s}(s − 1 + ρ)^{−1}] satisfies the FE BY ITSELF (q^{s−½}G_c(s) = G_c(1 − s), term by term), so
 the atomic part 1 + √q q^{−s} must satisfy it alone — the case of Prop. S — and (Π_F)_atomic = Π_ζ + log*(δ₁ + √qδ_q) has the mass
-Π_ζ(q²) − q/2 < 0 at q². More atoms in m_a lead back to L‴. So route (iii) produces no exact solution outside the residue of §4.
+Π_ζ(q^{2k}) − q^k/(2k) ≤ 1 − q^k/(2k) at q^{2k}, negative for large k (BFE §8(b); q = √2: first at 8). More atoms in m_a lead back to L‴. So route (iii) produces no exact solution outside the residue of §4.
 COVERAGE OF L‴ (general). All of route (i) with thin rational part, continuous parts included; every zeta-zero repair whose atomic
 part is thin; every solution whose quotient F/ζ converges absolutely to the left of ½ with thin atoms. What it CANNOT see: solutions
 with F/ζ not absolutely convergent beyond ½ (F does not contain ζ: Davenport–Heilbronn-like twisted combinations, model sets), and
 the thick case.
+
+## 7. The instrument: exact certificates on every parametrizable family, and a probe of the one-condition class 𝒯
+
+### 7.1 Exact certificates (each is a theorem or an exact finite computation; none is a truncated LP)
+| family (design space) | parameters | certificate | where |
+|---|---|---|---|
+| finite generalized Dirac combs (route (i), any weights) | lattices, cosets, trig weights | THEOREM G1 | §2 |
+| purely atomic, finitely many mass values | positions, values | Lemma M + M1 + G1 (G1′) | §1–§2 |
+| discrete (integer multiplicities) | prime multiset | Theorem D, now unconditional | §1.4 |
+| ζ·D, D any finite generalized Dirichlet polynomial | frequencies, coefficients | QC Theorem L′ | QC §2.3 |
+| ζ·D, D abs. convergent left of ½, thin rational part (incl. the whole cone 𝒦_r with thin atoms, continuous parts, zeta-zero repairs) | a measure m | THEOREM L‴ + Prop. S | §4, §6 |
+| u.d. generalized integers | everything | QC Theorem U_q | QC §2.4 |
+| model sets with finite Hermite weights (exactly self-dual) | Hermite coefficients | Prop. P1 (finitely many zeros vs Z_j infinite) | §5 |
+| rung 1, genus 1 over F₅, real weights | t ∈ R | (W3): s₁..s₄ ≤ 1 has no real solution | §3, v1 |
+The "LP over self-dual positive measures with the gap" of the brief is not the decisive instrument here, for the reason QC §2.5
+and §3(b) record: every LINEAR constraint available on small generalized integers is satisfied by the non-Beurling self-dual
+examples (F_{5,5}, ζ(s)(1 + q^{½−s}), all of 𝒦_r), so a truncated LP cannot certify anything the multiplicative (Landau) structure
+does not; the certificates above are where the multiplicative structure enters exactly.
+
+### 7.2 The one-condition class 𝒯 and a probe (C: `verify/v4_thick_mixture_probe.{py,log}`, `v4b_thick_grid.{py,log}`)
+𝒯 := positive atomic measures m on [1, q], m({1}) = 1, J-symmetric (m_{q/b} = √q·m_b/b), whose atoms generate a group with THICK rational
+part (σ_S ≥ ½). For m ∈ 𝒯, F = ζ·D_m has Riemann's exact FE at q, μ_q ∈ 𝒦_r is self-dual and positive, dN = 1_N∗m ≥ 0, and the gap
+holds — AUTOMATICALLY. Q_cond restricted to 𝒯 is the single condition
+      Π_ζ + log*(m) ≥ 0   (log*(m) = Σ_j (−1)^{j+1}(m − δ₁)^{*j}/j, multiplicative convolution).
+Every finite truncation of 𝒯 has finite S and is excluded by L′; the probe measures how far the violation can be pushed. q = 4
+(m₁ = 1, m₄ = 2, m₂ = t, atoms n/d ∈ (1, 2) with d ≤ M and their J-partners), maximize min_{x≤64}Π_F(x) over the weights:
+ M = 2 (one pair 3/2 ↔ 8/3): GLOBAL (201² grid + polish) max-min = −0.6801 at (t, w) = (2.041, 0.250), binding at x = 16/3.
+ M = 3, 4 (local search, values are achieved, hence lower bounds for the max-min): −0.4007, −0.3106 (binding x = 16/5, 384/7).
+ q = 9, M = 2 (atoms 3/2, 5/2): achieved −0.506 (local) / −0.526 (41³ grid + polish); M = 3: local search reached only −0.553 <
+ −0.506 although M = 3 contains M = 2 — the local searches are not global, and these numbers are evidence only.
+READING. Adding atoms with new primes raises the best attainable minimum (q = 4: −0.68 → −0.40 → −0.31), as the Landau picture
+predicts (more Euler factors visible on the multiplier's monoid); the probe cannot reach the thick limit and decides nothing about 𝒯.
+CONTROLS ON THE PROBE: F_{5,5} (q = 25, D = 1 + 5·5^{−s} + 5·25^{−s}, S = {5}) has Π_F(25) = ½ + 5 − 25/2 = −7 (QC v2), the finite-S
+violation L′ predicts; ζ(s)(1 + q^{½−s}) has Π_F(q^{2k}) ≤ 1 − q^k/(2k) < 0 for large k, every q > 1 (q = √2: first at 8).
+
+## 8. Prior-art gate at the page (paths: [BFE] = `novel-wave-s37/beurling-fe/sources/`, [QC] = `qcond-s38/sources/`, [here] = `sources/`)
+| source | what it prints (at the line) | bearing on the weighted corner |
+|---|---|---|
+| Meyer 1970, LNM 117, p. 25 (`fetched-r9/…ocr.txt` 677–709) | unit masses: μ̂ = Σ_Λδ_λ, |μ| TB ⟹ Λ = finite union of α_jZ + β_j up to a finite set (Cohen–Rosenthal) | used: Lemma M (finitely many values by Lagrange); says nothing about infinitely many values |
+| Córdoba 1989, Lett. Math. Phys. 17, 191–196 ([here] `cordoba-1989-springer-landing.md`, abstract only; body paywalled) | "finite superpositions of periodic structures" for Dirac sums with Dirac FT; per Lev–Olevskii 2015 ([BFE] 1312.6884 lines 63–66) the finitely-many-values case | same class as Lemma M; no infinitely-valued statement |
+| Lev–Olevskii 2015 Invent. ([BFE] 1312.6884, 61–68, Thm 1 103–105) | equal atoms + positive pure point FT ⟹ lattice (Córdoba); finitely many values [17 p. 25], [6], [11], via Helson–Cohen idempotents; u.d. support+spectrum ⟹ finite union of lattice translates | needs u.d. or finitely many values |
+| Kurasov–Sarnak 2020 ([BFE] u-20b, 43–49, 56–58, 792–796) | Meyer's finite-values theorem as quoted; "any such classification is probably very difficult [5]"; positive crystalline non-comb examples, |μ̂| not TB | non-comb positive examples are not self-dual (QC §1.3(iii)) |
+| Meyer 2016 PNAS ([BFE] meyer-2016-pnas.md 5, 77, 129) | crystalline measures beyond Poisson (Guinand), signed | no positive self-dual gap theorem |
+| Baake–Spindeler–Strungaru 2023 ([QC] 2104.06812, §8 Outlook) | classification of doubly sparse measures OPEN | the general corner is this open problem plus Euler |
+| Favorov 2024 Thm 4 ([BFE] u-34b 95–105); Gonçalves 2023 Thm 5 ([BFE] u-28b 662–668) | positive Poisson measures with masses ≥ c and separation; u.d. positive measures with a spectral gap | need separation / u.d.; QC U_q already covers u.d. |
+| Kulikov–Nazarov–Sodin 2023 ([here] 2306.14013, Def. 2 101–118, Thm 1 137–139) | supercritical pairs are uniqueness pairs, subcritical pairs NON-uniqueness pairs, in S | Prop. P2: route (ii)'s zero set does not force k = 0 |
+| Boyvalenkov–Favorov 2025 (2503.19567), Favorov–Değer 2026 (2605.10766) ([here] `arxiv-queries/q6-abstracts.xml`, abstracts) | growth of masses of crystalline measures (squares of masses TB) | consistent with QC §1.4 Cor. 2; no classification |
+| Hilberdink–Lapidus 2006 ([BFE] p3-22c1 125–128) | the Beurling FE question "difficult", not answered | open in print |
+| Saias–Weingartner 2009 ([QC] 0807.0783) | periodic coefficients: zeros in Re s > 1 unless one character | used only through QC §2.7 inside G1 |
+| arXiv sweeps 2026-10-01 ([here] `arxiv-queries/q2…q6`): "Beurling"+"functional equation" (5 hits), "crystalline measure"+positive (3), "Fourier quasicrystal" (25, to 2026-08) | titles/abstracts read | no statement of Lemma M's Lagrange step, G1, Prop. S, L‴, or a classification of positive self-dual measures with a gap |
+GATE VERDICT. No printed theorem closes the weighted case; the general corner contains the open problem "classify positive
+self-dual (doubly sparse) measures" (BSS §8; KS line 49). Novelty labels: Lemma M = Meyer + a standard reduction `[single-check]`;
+G1, Prop. S, L‴, P1–P2 as applied, 𝒯 `[novelty: single-check]`.
+
+## 9. Attack log — on this unit's own claims
+(a) Lemma M. The weak-* limit is a subnet limit (C(bR) is not separable); the full sequence μ̂_n(t) converges, so every cluster
+    point has the same transform. Lagrange needs a(t) ∈ V ∪ {0} for EVERY t, which holds because a(t) is defined as the atom of μ̂.
+    The level sets are closed and discrete because μ̂ is Radon and the values are bounded below in modulus. ✓
+(b) M1. Pairwise intersections of progressions are progressions, points or empty; the corrections are finitely many points; their
+    inverse transforms are characters, which are a.c. — killed by pure-pointness of μ. ✓ (Sanity check on π_a in §1.3.)
+(c) G1 Step 3 is the new step. ω̂_I is carried both by finitely many irrational cosets and by a finite union of sets βQ ∪ {0}; a
+    coset (θ + Z)/α with θ ∉ Q meets βQ at most once and misses 0. A measure that is pure point and has finitely supported transform
+    is 0. ✓ Step 2's "≤ 2|Γ| + 1 points" counts both signs and the origin. ✓ What G1 does NOT cover: continuous parts (the Eberlein
+    pure-point/continuous split does not commute with μ̂ = μ), infinitely many lattices.
+(d) Prop. S. Wiener's theorem is applied to finite continuous measures on the line log x (x^{−½}m_c is finite by (i)). The FE of D_a
+    is then proved on the line and continued. The log* splitting needs ‖m − δ₁‖_σ → 0, true by dominated convergence. ✓
+(e) L‴. Landau–Widder for Laplace–Stieltjes transforms of positive measures needs no local finiteness `[recalled, standard]`. The
+    identity "Π_{F_a}|_G = log*(m_a) + Euler terms at S" uses G ∩ {prime powers} = {p^k : p ∈ S} (both inclusions). σ* < ½ is used
+    once, to make the two zero-free half-planes cover C. ✓ It is sharp for the method: at σ_S ≥ ½ the argument proves only
+    zero-freeness right of σ_S, and §7.2's probe shows the violation weakening as primes are added.
+(f) Route (iii) example: the FE of G_c was checked term by term; nothing about dN ≥ 0 is claimed for it.
+(g) Route (ii): P2 rests on KNS Thm 1(ii) as printed (S, sequences indexed by Z, gaps bounded below). A first heuristic ("Fourier
+    uniqueness when q < 4") was wrong for S and is retracted in §5.1 rather than deleted.
+(h) Numerics carry no load: v1 (exact root isolation, used as a certificate only for the rung-1 statements), v3/v3d (acceptance test
+    and probe), v4/v4b (probe; local searches flagged non-global).
