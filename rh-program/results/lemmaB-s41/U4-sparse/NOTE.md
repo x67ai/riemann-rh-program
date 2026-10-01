@@ -186,6 +186,58 @@ such measures on [0, ∞) (products of the restrictions to [0, S + 1]² converge
 ∫_I Σ_{n≥1}(−1)^{n+1}v^{n−1}/n! dv = ∫_I f₀. Finally μ̃_ρ − μ_ρ has total mass ≤ 2Σ_a x_a^{−2} ≤ 10ρ² (prime powers). ∎
 *Corollary* [proved here]: below τ_c (Theorem 4.1 gives the hypothesis with ε_ρ = O(ρ)), the Mertens-type law Σ_{p≤x} 1/p →
 Ein(ρ log x) holds uniformly on τ ≤ S < τ_c. For the lattice itself Σ_{x_a≤x} 1/x_a → τ; Ein(τ) = τ − τ²/4 + … records the busy steps.
+**Theorem 4.4 (macroscopic law in the scaling limit, every τ)** [proved here; single-check]. For every S > 0, as ρ → 0,
+  sup_{1≤y<x≤e^{S/ρ}} |π(y, x] − Π₀(y, x]|/(ρx) → 0,  sup |C(y, x] − Λ₀(y, x]|/(ρx) → 0,  sup_{x≤e^{S/ρ}} (E(x) − ½)/(ρx) → 0
+(the first two over x ≥ p₁²). So at every τ the queue's arrival intensity per step is λ₀(τ) = 1 − (1 − e^{−τ})/τ in every window of
+fixed relative length (y = x(1 − η)), the g-primes fill the fraction f₀(τ), the queue content is o(ρx), and by Lemma 4.3
+Σ_{p≤x} 1/p → Ein(τ) for every τ — no restriction to τ < τ_c.
+*Proof.* Put α_ρ(v) := sup{|π(y, x] − Π₀(y, x]|/(ρx) : 1 ≤ y < x, p₁² ≤ x ≤ e^{v/ρ}}, β_ρ(v) the same with C, Λ₀; both are
+nondecreasing in v and bounded (α_ρ ≤ 2 since π(y, x] ≤ ρ(x − y) + 1; β_ρ ≤ Λ(S) + 2 by Theorem 2.1's C ≤ C^lat and Lemma 2.2).
+Let A, B be their limsups as ρ → 0.
+*Step 1 (queue).* Lemma 4.2(iii) and Λ₀(y, x] ≤ ρ(x − y) give −½ < E(x) ≤ ½ + β_ρ(v)ρx for x ≤ e^{v/ρ}.
+*Step 2 (primes).* Lemma 4.2(i) with ρ(x − y) = Π₀ + Λ₀ gives π − Π₀ = (Λ₀ − C) + E(x) − E(y), so α_ρ(v) ≤ 2β_ρ(v) + 4ρ (as
+1/(ρp₁²) ≤ 4ρ). Hence A ≤ 2B.
+*Step 3 (composites).* By Lemma 4.2(ii), C(y, x] − Λ₀(y, x] = T₁ + T₂ with T₁ := Σ_{M′}(π(J_{M′}) − Π₀(J_{M′})) and
+T₂ := Σ_{M′}Π₀(J_{M′}) − Λ₀(y, x]. Each J_{M′} is a window with right end x/m′. If x/m′ ≥ p₁² its error is ≤ α_ρ(v − u)ρx/m′,
+u := ρ log m′; if x/m′ < p₁², all lattice points in J are g-primes (Lemma 1.1) and the error is ≤ ρ(x/m′)·2s₁ + 1. With
+κ_ρ := Σ_{M′: m′P⁺(M′)≤x} δ_{ρ log m′}/m′ and Q(x) ≤ 4ρ²x e^{2S+4ρ} (§2):
+  |T₁| ≤ ρx∫α_ρ(v − u)dκ_ρ(u) + 2s₁ρx·κ_ρ([0, v]) + Q(x).
+κ_ρ is dominated by the lattice monoid exp*(λ_ρ) − δ₀; smoothing λ_ρ (λ_ρ(I) ≤ |I| + 2ρ) by the uniform law on [0, 2ρ] as in
+Lemma 4.3(c) gives κ_ρ(I) ≤ K_S(|I| + ρ log(1/ρ)), K_S := 4e^{2S+2}. As α_ρ is nondecreasing, summing over a partition of [0, v]
+into intervals of length δ_ρ := (ρ log(1/ρ))^{1/2} gives |T₁| ≤ ρx[K_S∫₀^v α_ρ(w)dw + o(1)].
+For T₂ use Lemma 4.6 below: |T₂| ≤ ρx[L_S·D_ρ(v/2) + O(ρ)], D_ρ(w) := sup_{I⊂[0,w]} |μ_ρ(I) − ∫_I f₀|, L_S := 4e^{S+2}.
+*Step 4 (discrepancy from window errors).* For I = (w₁, w₂] ⊂ [2s₁, w], a = e^{w₁/ρ}, b = e^{w₂/ρ}: μ_ρ(I) − ∫_I f₀ =
+Δ(b)/b − Δ(a)/a + ∫_a^b Δ(u)u^{−2}du with Δ(u) := π(a, u] − Π₀(a, u] (integration by parts on dπ − dΠ₀), and |Δ(u)| ≤ α_ρ(ρ log u)ρu;
+so |μ_ρ(I) − ∫_I f₀| ≤ 2ρα_ρ(w) + ∫_{w₁}^{w₂}α_ρ. On [0, 2s₁] every lattice point is a g-prime and the discrepancy is ≤ λ_ρ-vs-Lebesgue
+error + 2s₁·(1 − f₀(2s₁)) = O(ρ log(1/ρ)). Hence D_ρ(w) ≤ ∫₀^w α_ρ + o(1).
+*Step 5 (closing).* Steps 3–4 give β_ρ(v) ≤ (K_S + L_S)∫₀^v α_ρ + o(1); with Step 2 and reverse Fatou (0 ≤ α_ρ ≤ 2 on [0, S]):
+A(v) ≤ 2(K_S + L_S)∫₀^v A(w)dw, A nondecreasing and bounded. If A ≢ 0 on [0, S], let v₁ := inf{v : A(v) > 0}; for
+v₁ < v < v₁ + 1/(4(K_S + L_S)): A(v) ≤ 2(K_S + L_S)(v − v₁)A(v) ≤ ½A(v), so A(v) = 0 — a contradiction. So A ≡ 0, B ≤ (K_S + L_S)∫A ≡ 0,
+and Step 1 gives (E(x) − ½)/(ρx) ≤ β_ρ(S) → 0. ∎
+**Lemma 4.6 (the cofactor functional is Lipschitz in the prime discrepancy)** [proved here]. For p₁² ≤ x ≤ e^{S/ρ}, v = ρ log x,
+y < x: |Σ_{M′}Π₀(J_{M′}) − Λ₀(y, x]| ≤ ρx[L_S·D_ρ(v/2) + O(ρ)].
+*Proof.* (a) Closed form. With L := log(x/y) and u = ρ log m′, σ = ρ log P⁺(M′), substituting w = x e^{−u/ρ−θ}:
+Π₀(J_{M′}) = (ρx/m′)·g(u, σ), g(u, σ) := ∫₀^{min(L, (v−u−σ)/ρ)} f₀(v − u − ρθ)e^{−θ}dθ ∈ [0, 1] (g := 0 if v − u − σ < 0).
+Replacing f₀(v − u − ρθ) by f₀(v − u) changes g by ≤ ρ sup|f₀′| ≤ ρ/2; so g = g₁ + O(ρ), g₁(u, σ) := f₀(v − u)·h(v − u − σ),
+h(r) := 1 − e^{−min(L, r/ρ)} nondecreasing on [0, ∞), h := 0 on (−∞, 0).
+(b) Multisets. Every element of a contributing M′ lies in [0, v/2] (Lemma 4.2(ii)). Σ_{M′}(1/m′)φ(M′) = Σ_{j≥1}(1/j!)∫φ dμ_ρ^{⊗j}
+(μ_ρ restricted to [0, v/2]) up to repeated-element terms of total weight ≤ 5ρ²Σ_n η_n = O(ρ²) (as in Prop. 3.1), for any φ ∈ [0, 1].
+The template satisfies the same decomposition by the largest element with μ₀ := f₀dv on [0, v/2] and no repetition terms (ties are
+null), and Λ₀(y, x] = ρx Σ_j (1/j!)∫g(Σu_i, max u_i)dμ₀^{⊗j}: both sides count the products m′·P with P ≥ max(M′) in (y, x] for the
+continuous prime measure (the largest-element decomposition of exp*(μ₀) − δ₀ − μ₀).
+(c) Sections. Write f₀(v − s) = f₀(v) − ∫₀^s f₀′(v − r)dr·(−1)… precisely, for s ∈ [0, v]: f₀(v − s) = f₀(v − v) − ∫_s^v ψ(r)dr with
+ψ(r) := −(d/dr)f₀(v − r) ≤ 0, so f₀(v − s) = 1 − ∫₀^v ψ(r)·1{r ≥ s}dr·(−1) — i.e. a mixture, with total weight TV(f₀) ≤ 1, of the
+constant 1 and indicators 1{s ≤ r}. Likewise h(r′) = ∫₀^1 1{h(r′) > θ}dθ and {h > θ} = {r′ > r_θ}. Hence g₁(Σu, max u) is a mixture,
+with total weight ≤ 2, of indicators of sets R = {u ∈ [0, v/2]^j : Σu ≤ r, Σu + max u < v − r_θ}. For fixed coordinates u_k (k ≠ i), the
+section of R in u_i is an interval [0, c) (both conditions are monotone in u_i). Telescoping μ^{⊗j} − μ₀^{⊗j} = Σ_i μ^{⊗(i−1)} ⊗ (μ − μ₀)
+⊗ μ₀^{⊗(j−i)} and integrating the i-th factor over the section first: |(μ^{⊗j} − μ₀^{⊗j})(R)| ≤ j·D_ρ(v/2)·M^{j−1}, M := v/2 + 2ρ
+(masses of μ_ρ, μ₀ on [0, v/2]). Summing over j with weights 1/j! and the mixture weight 2: |T₂|/(ρx) ≤ 2e^{M}D_ρ(v/2) + O(ρ). ∎
+(The constant L_S = 4e^{S+2} of Theorem 4.4 covers 2e^{M}.)
+*Status of Theorem 4.4.* Every step is written above; it is single-checked (this unit only). The two places most worth a second
+reader: the uniform local mass bound for κ_ρ (smoothing argument, Step 3) and the section argument of Lemma 4.6(c), which needs
+each region to have interval sections — true here because Σu and Σu + max u are nondecreasing in every coordinate.
+
+
 
 ## §5. The local arrival process and the maximal queue length
 
