@@ -36,7 +36,11 @@ def main():
                 j += 1
             n = new_re.match(lines[j]) if j < len(lines) else None
             if n:
-                pairs.append((m.group(2).strip(), n.group(2).strip(), i + 1))
+                o, w = m.group(2).strip(), n.group(2).strip()
+                # some readers wrap the quoted text in one pair of backticks
+                if len(o) > 1 and o[0] == "`" and o[-1] == "`" and len(w) > 1 and w[0] == "`" and w[-1] == "`":
+                    o, w = o[1:-1], w[1:-1]
+                pairs.append((o, w, i + 1))
                 i = j
         i += 1
     applied = missed = ambiguous = skipped = 0
