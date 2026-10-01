@@ -41,3 +41,26 @@ in every printed digit, as are the checkpoints at 10⁵, 10⁶ and the first six
 sup E = 9.857826 at 99,631,883, gap 397.2507, 10 factors — identical to `s8dd_pi32_1e8.log`; the smallest decision margin sits at
 71,112,777, the same composite the s40 audit flagged as its tightest. Run times: 0.06 s (π/16, 10⁷), 0.3 s (π/32, 10⁸), 9.3 s and
 330 MB (π/16, 10⁹), 3.9 s (π/32, 10⁹). FLAG count 0 in every run reported in this NOTE; smallest margins are listed per run.
+
+## §2. The two systems to 10¹⁰ (headline data)
+
+[computed: `verify/run_1e10.sh`, logs `verify/logs/b16_1e10.log`, `b32_1e10.log`; 118 s and 807 MB (π/16), 48 s and 556 MB (π/32);
+smallest decision margins 3.0·10⁻¹¹ and 1.7·10⁻¹⁰ cell, FLAG = 0; at most 18 and 12 g-prime factors in a composite.]
+π/16 to 10¹⁰: K = 1,963,495,408 cells, N(x_K) = 1,963,495,409, π = 449,911,828, composites 1,513,583,580. π/32 to 10¹⁰: K = 981,747,704,
+N = 981,747,705, π = 409,388,073, composites 572,359,631. Both end with e_K = 0. G = largest g-prime gap, emax = max e_k.
+
+| x | sup E π/16 | /log²x | emax | G (cells) | G/log²x | G/log³x | sup E π/32 | /log²x | emax | G (cells) | G/log²x | G/log³x |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 10⁶ | 9.636 | 0.0505 | 9 | 49 | 1.31 | 0.095 | 6.393 | 0.0335 | 5 | 17 | 0.91 | 0.066 |
+| 10⁷ | 12.838 | 0.0494 | 12 | 66 | 1.29 | 0.080 | 8.928 | 0.0344 | 8 | 25 | 0.98 | 0.061 |
+| 10⁸ | 16.364 | 0.0482 | 15 | 106 | 1.59 | 0.086 | 9.858 | 0.0291 | 9 | 39 | 1.17 | 0.064 |
+| 10⁹ | 18.537 | 0.0432 | 18 | 155 | 1.84 | 0.089 | 13.223 | 0.0308 | 12 | 53 | 1.26 | 0.061 |
+| 10¹⁰ | 26.137 | 0.0493 | 25 | 240 | 2.31 | 0.100 | 15.434 | 0.0291 | 14 | 73 | 1.40 | 0.061 |
+
+**Pattern 2.1 (two different polylog laws)** [computed]. sup_{u≤x} E(u)/log²x stays in [0.043, 0.052] (π/16) and [0.029, 0.035]
+(π/32) over 10⁵–10¹⁰, while the largest gap G(x)/log²x rises steadily (1.29 → 2.31 for π/16) and G(x)/log³x is flat (0.061 ± 0.003 for π/32
+over 10⁷–10¹⁰; 0.080–0.100 for π/16). Both match a queue of load λ = 1 − π′ with π′ ≍ 1/(ρ log x) the idle fraction per cell: the stationary
+tail rate is κ ≍ π′, so sup e ≍ log(#cells)/κ ≍ ρ log²x, while a busy period of length L needs ≈ L arrivals in L cells, a large deviation of
+rate ≍ π′²/2, so G ≍ log(#cells)/π′² ≍ ρ² log³x [heuristic]. **Consequence for the proof units:** Prop. 2.1 (E ≤ ρG − ½) loses a full
+factor log x against the data, so Lemma G_ρ is the weaker target only in name: the route through gaps must prove a log³-type bound, the
+direct route a log²-type bound; both give B_ρ with any θ > 0.
