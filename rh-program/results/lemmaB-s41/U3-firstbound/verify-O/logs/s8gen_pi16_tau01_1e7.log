@@ -1,0 +1,29 @@
+rho = 0.19634954084936207 (+7.654e-18), t = 5.0929581789406511, X0 = 1e+07, tau = 0.1
+generated: G=1963499 g-integers, 486012 g-primes, 1477484 composites, up to B=10000007.068292; ties(rel<1e-22)=0
+min lattice margin of a composite (lattice units) = 7.393e-07 at c = 174751.090328  [dd error bound ~1e-22 units]
+first g-primes: 1.509296 47.345919 52.438878 57.531836 67.717752 77.903669 98.275501 113.554376
+x=1e+03: N=198 pi=67 supE=3.8753 (at 11.821)
+x=1e+04: N=1965 pi=620 supE=4.1693 (at 4481.941)
+x=1e+05: N=19637 pi=5723 supE=5.9517 (at 88577.974)
+x=1e+06: N=196352 pi=52660 supE=7.2017 (at 815173.766)
+sup_{1<u<=X0} E/(u-1) = 1.7671458676 at u = 1.509296 (rho = 0.1963495408); largest over g-integers other than p1 = 1.368628 at u = 2.2780
+sup_{u<=X0} E/u = 0.767818 at u = 2.277974; sup E = 9.2222 at 3814223.20; N(X0) = 1963497
+B1: max over g-primes y <= X0 of F(y) - (log y + rho)/y = -0.041844 (at y = 1.5093)
+psi(X0) = 7331578.546776 (psi/X0 = 0.733158), S(X0) = 7.82724496, S - log X0 = -8.290851, D(X0) = 8.024009, P0 = 9999963.778148, #primes<=X0 = 486012
+T(P0) = 1.771347e-04 (exact part 1.767986e-04 + tail bound 3.361e-07); lattice-uniform T <= 5.773498e-04; eta(P0) = 1.631e-06
+exact primes  : eps0 = 1.610527e-04, D0 = 4.582842, T1' constant = 0.02185566 (= rho + -1.7449e-01); Delta0 = 3.582842, T1 record bound = 0.027956
+   => E(x) <= 1.767146 (x-1) for all x>1 iff sup_{u<=X0} E/(u-1) <= that; N(x) <= 1.963495 (x-1) + 1
+lattice-uniform: eps0 = 5.212463e-04, D0 = 4.581008, T1' constant = 0.02194304 (= rho + -1.7441e-01); Delta0 = 3.581008, T1 record bound = 0.028071
+   => E(x) <= 1.767146 (x-1) for all x>1 iff sup_{u<=X0} E/(u-1) <= that; N(x) <= 1.963495 (x-1) + 1
+(*) at x = 1000.50: LHS = -4.871235256, RHS = -4.871235256, diff = 9.77e-14 | (A1): sum log n = 1155.988343, sum Lambda N(x/d) = 1155.988343, diff = 0.00e+00
+    E(x) = 0.748634, psi/x = 0.402246, D(x) = 4.243081, psi/(xD) - rho = -0.101549, W(x) = 0.426208
+(*) at x = 123456.70: LHS = -8.705722167, RHS = -8.705722167, diff = -9.56e-11 | (A1): sum log n = 259939.809808, sum Lambda N(x/d) = 259939.809808, diff = 0.00e+00
+    E(x) = 0.529990, psi/x = 0.607426, D(x) = 6.593343, psi/(xD) - rho = -0.104222, W(x) = 0.687104
+(*) at x = 9876543.21: LHS = 3.603221432, RHS = 3.603221403, diff = 2.97e-08 | (A1): sum log n = 29293751.784993, sum Lambda N(x/d) = 29293751.784993, diff = 0.00e+00
+    E(x) = 1.471887, psi/x = 0.732814, D(x) = 8.020692, psi/(xD) - rho = -0.104984, W(x) = 0.842045
+  sum_{p<=1e+02} 1/p - loglog = -0.769267
+  sum_{p<=1e+03} 1/p - loglog = -1.024742
+  sum_{p<=1e+04} 1/p - loglog = -1.168745
+  sum_{p<=1e+05} 1/p - loglog = -1.259355
+  sum_{p<=1e+06} 1/p - loglog = -1.319850
+T2 <= 1.303191; proved asymptotic floor log rho - T2 - 1/e - E1(1) = -3.518314

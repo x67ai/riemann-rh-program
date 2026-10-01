@@ -67,3 +67,43 @@ Where rho < 1/2 is used: only in C1 (F decreasing between prime powers; eta decr
 Where E = +1/2 at a g-prime is used: only in B1. Where E > −1/2 is used: B1 (twice). Nothing assumes N = O(x), a bound on psi,
 or convergence of an integral of E: every quantity is a finite sum at finite x. The initial range is covered by (i) exactly
 (T1' is "for all x > 1", not "for x >= X0").
+
+## §2 Independent re-run (verify-O/s8gen.c; logs verify-O/logs/s8gen_*.log)
+Own C generator written from the s40 charter definition (no unit script imported or copied). Double-double arithmetic (fma
+two-product), SEGMENTED exact sweep: all composites in (B(Ma), B(Mb)] are generated before any decision in that range, which is
+legitimate because B(Mb) < p1·B(Ma) forces every factor below B(Ma); B(M) = 1 + M t are lattice MIDPOINTS (no boundary
+ambiguity). Each composite c is located against the lattice by u(c) = (c − 1)rho + 1/2 in double-double; the minimum distance
+of any composite to a lattice point is 9.4·10⁻⁸ lattice units (pi/16, 4.10·10⁶ composites) and 2.3·10⁻⁶ (pi/32), against a
+double-double error below 10⁻²² units: every placement decision to 3·10⁷ is certified, and no two composites coincide
+(0 pairs closer than 10⁻²² relative). Rule: a g-prime at x_k iff N(x_k−) = k (with an assertion that N(x_k−) < k never occurs).
+Generator control: rho = pi/4, X = 10⁶ gives N = 785,400, pi_P = 78,134, sup E = 39.53, first g-primes 1.6366, 4.1831, 6.7296,
+10.5493, 15.6423, 16.9155 — the s40 charter's and theory NOTE's values. Runtime 0.6 s, 254 MB, for pi/16 to 3·10⁷.
+
+| quantity | NOTE (pi/16) | read-O (pi/16) | NOTE (pi/32) | read-O (pi/32) |
+|---|---|---|---|---|
+| sup_{1<u<=3e7} E/(u−1), at | rho at p1 = 3.5465 | 0.1963495408 = rho at 3.546479 | rho at p1 = 6.0930 | 0.0981747704 = rho at 6.092958 |
+| next largest, at | 0.0655 (u = 8.64) | 0.065450 (8.6394) | 0.0402 (37.1) | 0.040237 (37.1241) |
+| sup_{u<=3e7} E/u | 0.14099 | 0.140985 | 0.08206 | 0.082062 |
+| max over g-primes of F(y) − eta(y) (B1) | −0.221 | −0.221148 | −0.155 | −0.155243 |
+| D(X0) | 4.596 | 4.595645 | 7.741 | 7.740841 |
+| eps0 = eta(P0) + T(P0)/2 | 8.1·10⁻⁵ | 8.10261·10⁻⁵ (P0 = 29999951.4685) | 6.0·10⁻⁵ | 5.98115·10⁻⁵ (P0 = 29999984.5728) |
+| Delta0 | 1.546 | 1.546066 | 4.092 | 4.092349 |
+| T1 record bound | 0.32346 | 0.323454 | 0.12220 | 0.122194 |
+| T1' constant rho + 2eps0/D0 | 0.196413 | 0.19641319 | 0.098198 | 0.09819826 |
+| N(x) <= (.)(x − 1) + 1 | 0.392763 | 0.39276273 | 0.196373 | 0.19637303 |
+
+Also reproduced: N(10⁶) = 196,350 and sup E = 9.6362, 12.8385 at 10⁶, 10⁷ (pi/16); 6.3931, 8.9279 (pi/32) — O7's values;
+Σ_{p<=x}1/p − log log x = −0.867, −0.995, −1.054, −1.082, −1.096, −1.103 (pi/16, 10²…10⁷) and −1.170 … −1.687 (pi/32), as at
+NOTE l. 222-223. Every number the close rests on reproduces to the digits printed, EXCEPT that two printed constants are
+rounded DOWN below what the proof gives (0.098198 < 0.09819826; 0.196413 < 0.19641319; "rho + 6.3·10⁻⁵" for 6.365·10⁻⁵, "rho
++ 2.3·10⁻⁵" for 2.349·10⁻⁵; "+ 0.80", "+ 0.90" for 1 − rho = 0.8037, 0.9018 in the §1.7 table): minor m2, m3.
+
+**Identity (*) at three x with my generator (target (a)).** LHS − RHS = −4.6·10⁻¹⁴, −4.4·10⁻¹¹, −1.2·10⁻⁷ at x = 1000.5,
+123456.7, 9876543.21 (pi/16; terms of size x log x ≈ 1.6·10⁸, so relative 10⁻¹⁵), and 5.0·10⁻¹⁴, −1.5·10⁻¹¹, −2.0·10⁻⁸
+(pi/32); (A1) Σ log n = Σ Λ(d)N(x/d) to 10⁻¹³ at all six points. ∫E du/u computed exactly piece by piece.
+
+**Robustness of the certificate.** The finite run enters T1' only through sup_{1<u<=X0} E/(u − 1) (attained at p1, where
+nothing depends on the run), P0, D(X0) (it enters only through D0 = min{D(X0), 1/(2rho) − eps0/rho}, and D(X0) exceeds the
+second entry by 2.05 and 2.65) and T(P0). Replacing T(P0) by the same sum over ALL lattice points (a bound valid for any set
+of g-primes on the lattice) gives eps0 <= 1.766·10⁻⁴ and 8.85·10⁻⁵ and T1' constants rho + 1.39·10⁻⁴ and rho + 3.48·10⁻⁵:
+the theorem's constants do not hinge on fine details of the 3·10⁷ run.
