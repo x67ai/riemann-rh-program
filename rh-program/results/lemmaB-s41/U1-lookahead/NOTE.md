@@ -120,3 +120,59 @@ any window by at most n_j, so P′ also inherits every short-interval prime-coun
 argument that passes from bounds on E (or on prime counts in windows of length ≫ v^θ) at scales below y to the bound at y can work
 uniformly over R(w); a proof of (B) must use the specific rule — the fine positions of its primes at all smaller scales.** This is the
 deterministic face of the s40 finding that random early placement makes E worse.
+
+## §4. A design result: the threshold moves the real zero to 1 − τ, so U needs only θ < ½ − τ/2, for every density
+
+**Theorem 4.1 (power bump)** [proved here]. Let P be a discrete Beurling system, ρ ∈ (0, 1), τ ∈ (0, 1), with
+E(u) := N(u) − ρ(u − 1) − 1 ≥ −τ for all u ≥ 1, and E(u) = O(u^θ) for some θ < 1. Put p* := 1 + τ/ρ, a := log p*,
+k(u) := ⌊log u / a⌋ and
+  Λ_{ρ,τ}(σ) := 1 − τ − ρ/(1 − σ) + σ∫_1^∞ (k(u) − ρ(u − 1) + τ)⁺ u^{−σ−1} du.
+Then ζ_P(σ) ≥ Λ_{ρ,τ}(σ) for θ < σ < 1. Hence if θ < σ₁ < 1 and Λ_{ρ,τ}(σ₁) > 0, ζ_P has a real zero in (σ₁, 1) and α(P) > σ₁.
+*Proof.* (1) The first g-prime satisfies p₁ ≤ p*: on [1, p₁) only the unit is counted, so E(u) = −ρ(u − 1), and E ≥ −τ there
+forces p₁ ≤ 1 + τ/ρ. (2) Every power p₁ʲ is a g-integer, so N(u) ≥ 1 + #{j ≥ 1 : p₁ʲ ≤ u} ≥ 1 + k(u) (p₁ ≤ p* makes the count
+larger), i.e. E(u) ≥ k(u) − ρ(u − 1); with E ≥ −τ, E(u) ≥ −τ + (k(u) − ρ(u − 1) + τ)⁺. (3) By s40 Lemma 1.5 (valid on σ > θ by
+continuation), ζ_P(σ) = 1 − ρ/(1 − σ) + σ∫_1^∞E(u)u^{−σ−1}du; insert (2) and use σ∫_1^∞u^{−σ−1}du = 1. (4) ζ_P is real-analytic on
+(θ, 1) and ζ_P(σ) → −∞ as σ → 1⁻ (pole with residue ρ > 0); the intermediate value theorem gives the zero; α > σ₁ as in s40 Thm 1.6. ∎
+(The integral is a finite sum: on [p*^k, min(p*^{k+1}, c_k)], c_k := 1 + (k + τ)/ρ, the integrand is (k + τ + ρ − ρu)u^{−σ−1}, with
+primitive −(k + τ + ρ)u^{−σ}/σ − ρu^{1−σ}/(1 − σ); beyond the first k with p*^k ≥ c_k and p* ≥ 1 + 1/(k + ρ + τ) all pieces are empty.)
+**Theorem 4.1 always improves s40 Theorem 1.6**: dropping the integral leaves 1 − τ − ρ/(1 − σ), whose root is r₀/(r₀ + ρ),
+r₀ = 1 − ρ − τ. The improvement comes from discreteness (the forced powers of p₁); the continuous template has E ≡ 0 and its zero
+stays at 1 − ρ.
+**Corollary 4.2 (what U now needs)** [proved here]. If a discrete system with E ≥ −τ has N(u) − ρu = O(u^θ) with θ < σ₁/2 and
+Λ_{ρ,τ}(σ₁) > 0, Conjecture U is false (α > σ₁ > 2θ ≥ 2β, and σ₁ > ½). Certified instances [computed, `verify/powerbump_iv.py`,
+mpmath interval arithmetic at 50 digits with integration endpoints rounded inward, so every rounding lowers the bound; log
+`verify/powerbump_iv.log`]:
+
+| ρ | τ | σ₁ | certified Λ(σ₁) ≥ | U refuted by (B) with θ < | s40 route (Cor 1.7) needed |
+|---|---|---|---|---|---|
+| π/16 | ½ | 0.763 | 0.000612 | 0.3815 | θ ≤ 0.304 (Thm 1.6), 0.395 (computed certificate) |
+| π/16 | 1/10 | 0.911 | 0.0127 | 0.4555 | — |
+| π/16 | 1/50 | 0.979 | 0.461 | 0.4895 | — |
+| π/16 | 1/100 | 0.989 | 1.653 | 0.4945 | — |
+| π/32 | ½ | 0.888 | 0.00287 | 0.444 | θ ≤ 0.402, 0.445 (certificate) |
+| π/32 | 1/100 | 0.990 | 0.426 | 0.495 | — |
+| π/8 | 1/100 | 0.989 | 2.306 | 0.4945 | none (ρ > ¼) |
+| π/4 | 1/10 | 0.869 | 0.0112 | 0.4345 | none |
+| π/4 | 1/100 | 0.989 | 3.612 | 0.4945 | none |
+| 0.95π/3 | 1/100 | 0.989 | 4.308 | 0.4945 | none |
+| π/4 | 1/1000 | 0.998 | 387.9 | 0.499 | none |
+
+**Proposition 4.3 (σ_L → 1)** [proved here]. Let σ_L(ρ, τ) be the largest root of Λ_{ρ,τ}. For every ρ ∈ (0, 1) and c > 1 there is
+τ₀(ρ, c) > 0 with σ_L(ρ, τ) ≥ 1 − cτ for τ < τ₀. So for every ε > 0 some threshold makes "(B) with some θ < ½ − ε" sufficient.
+*Proof.* Take σ = 1 − cτ, U := 1/(ρa) and note τ/(2ρ) ≤ a ≤ τ/ρ for τ ≤ ρ. On [1, U], k(u) ≥ log u/a − 1 and
+(k − ρ(u − 1) + τ)⁺ ≥ log u/a − 1 − ρu; dropping (U, ∞) only lowers the integral. With ∫_1^U log u·u^{−σ−1}du ≥ ∫_1^U log u·u^{−2}du
+= 1 − (1 + log U)/U, ∫_1^U u^{−σ−1}du ≤ 1/σ and ∫_1^U u^{−σ}du ≤ U^{1−σ}log U:
+Λ(σ) ≥ −τ − ρ/(cτ) + (σ/a)(1 − ρa(1 + log U)) − ρσU^{cτ}log U ≥ (ρ/τ)(1 − 1/c) − C_ρ(1 + log(1/τ)) for τ < τ₁(ρ, c),
+using σ/a ≥ (1 − cτ)ρ/τ, ρa ≤ τ, U ≤ 2/τ and U^{cτ} ≤ (2/τ)^{cτ} ≤ 2. The right side is positive for τ small. ∎
+**Sharpness** [computed: `verify/zero_tau_1e7.log`, `zero_tau_1e8.log`, `zero_bigrho_1e7.log`, roots by `verify/powerbump_bound.py`,
+log `powerbump_bound.log`]. Real zero σ* of F_X for the greedy τ-systems (double precision, X = 10⁷; identical to 6 digits at 10⁸
+for τ = 1/50, 1/100) against the bound's root σ_L: π/16: τ = ½: 0.79476 vs 0.76318; ¼: 0.84021 vs 0.83163; 1/10: 0.91235 vs 0.91150;
+1/20: 0.95195 vs 0.95181; 1/50: 0.97998 vs 0.97997; 1/100: 0.98993 vs 0.98992. π/4: 1/10: 0.87079 vs 0.86923; 1/100: 0.98953 vs
+0.98953 (at τ = ½ the bound has no root, the measured zero is 0.51451). For small τ the real zero of the whole system is the power bump
+of its first prime, to 4–5 digits. (Mechanism: the bump E ≈ (ρ/τ)log(1/τ) on [1, ≈ 1/(ρa)] gives Ê(σ) ≈ ρ/τ, and 1 + σÊ − ρ/(1 − σ) = 0
+gives 1 − σ* ≈ τ.) The low prime density of these systems in the computed range (π(W)·log x/|W| ≈ 0.30 at 10⁸ for τ = 1/50) is the
+same fact seen from ψ: ψ_P(x) ≈ x − x^{σ*}/σ*.
+**What it changes.** s40 needed ρ < ¼ and θ ≤ ½ − ρ (θ < 0.395 with a computed certificate) for one explicit system. Now: **one
+never-undershooting discrete system of ANY density, with undershoot depth 1/100 and integer error O(u^{0.494}), refutes U**; and the
+greedy rule with threshold 1/100 costs nothing at large scales (top half-decade sup E = 13.99 at 10⁸ against 16.36 for τ = ½,
+`verify/zero_tau_1e8.log`). The proof target is now the weakest sub-square-root statement — exactly the boundary of Hilberdink's wall.

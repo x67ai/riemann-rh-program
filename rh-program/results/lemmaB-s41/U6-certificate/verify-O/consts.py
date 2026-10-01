@@ -17,7 +17,7 @@ from fractions import Fraction as Fr
 from flint import arb, ctx
 
 D = int(sys.argv[1]); KFIN = int(sys.argv[2]); OUT = sys.argv[3]
-F, F2, R = 90, 320, 40
+F, F2 = 90, 320
 
 def atan_bracket(x, nterms):
     # atan(1/x) = sum_k (-1)^k / ((2k+1) x^(2k+1)); alternating, decreasing terms
@@ -69,6 +69,10 @@ def limbs(n, k=6):
     return " ".join("%016x" % ((n >> (64 * i)) & (2 ** 64 - 1)) for i in range(k))
 
 t = arb(D) / PI
+# R = largest r with kappa_r 2^F < 2^120 (the generator stops if a composite has more than R factors)
+R = 2
+while ((t ** R) / arb(2) ** (R + 1) * arb(2) ** F).upper() < arb(2) ** 120:
+    R += 1
 cps = sorted(set(int((arb(10) ** (arb(h) / 2)).floor().unique_fmpz()) for h in range(6, 21)))
 # storage cap for g-primes: index n with x_n <= X/p1 (+ margin); X = x_KFIN, p1 = 1 + t/2
 X = 1 + (arb(KFIN) - arb(1) / 2) * t

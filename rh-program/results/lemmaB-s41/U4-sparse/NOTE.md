@@ -225,17 +225,38 @@ h(r) := 1 − e^{−min(L, r/ρ)} nondecreasing on [0, ∞), h := 0 on (−∞, 
 The template satisfies the same decomposition by the largest element with μ₀ := f₀dv on [0, v/2] and no repetition terms (ties are
 null), and Λ₀(y, x] = ρx Σ_j (1/j!)∫g(Σu_i, max u_i)dμ₀^{⊗j}: both sides count the products m′·P with P ≥ max(M′) in (y, x] for the
 continuous prime measure (the largest-element decomposition of exp*(μ₀) − δ₀ − μ₀).
-(c) Sections. Write f₀(v − s) = f₀(v) − ∫₀^s f₀′(v − r)dr·(−1)… precisely, for s ∈ [0, v]: f₀(v − s) = f₀(v − v) − ∫_s^v ψ(r)dr with
-ψ(r) := −(d/dr)f₀(v − r) ≤ 0, so f₀(v − s) = 1 − ∫₀^v ψ(r)·1{r ≥ s}dr·(−1) — i.e. a mixture, with total weight TV(f₀) ≤ 1, of the
-constant 1 and indicators 1{s ≤ r}. Likewise h(r′) = ∫₀^1 1{h(r′) > θ}dθ and {h > θ} = {r′ > r_θ}. Hence g₁(Σu, max u) is a mixture,
-with total weight ≤ 2, of indicators of sets R = {u ∈ [0, v/2]^j : Σu ≤ r, Σu + max u < v − r_θ}. For fixed coordinates u_k (k ≠ i), the
-section of R in u_i is an interval [0, c) (both conditions are monotone in u_i). Telescoping μ^{⊗j} − μ₀^{⊗j} = Σ_i μ^{⊗(i−1)} ⊗ (μ − μ₀)
+(c) Sections. φ(s) := f₀(v − s) is nondecreasing on [0, v] with values in [f₀(v), 1], so φ(s) = φ(0) + ∫_{(0,v]} 1{s ≥ r}dφ(r):
+a mixture of 1 and of indicators 1{s ≥ r}, total weight φ(v) ≤ 1. Likewise h(r′) = ∫₀¹ 1{r′ > r_θ}dθ for nondecreasing h. Hence
+g₁(Σu, max u) is a mixture, total weight ≤ 1, of indicators of sets R = {u ∈ [0, v/2]^j : Σu ≥ r, Σu + max u < v − r_θ} (r = 0 allowed).
+For fixed u_k (k ≠ i) the section of R in u_i is an interval [c₁, c₂): Σu ≥ r is a lower bound on u_i, and Σu + max u is nondecreasing
+in u_i. Telescoping μ^{⊗j} − μ₀^{⊗j} = Σ_i μ^{⊗(i−1)} ⊗ (μ − μ₀)
 ⊗ μ₀^{⊗(j−i)} and integrating the i-th factor over the section first: |(μ^{⊗j} − μ₀^{⊗j})(R)| ≤ j·D_ρ(v/2)·M^{j−1}, M := v/2 + 2ρ
-(masses of μ_ρ, μ₀ on [0, v/2]). Summing over j with weights 1/j! and the mixture weight 2: |T₂|/(ρx) ≤ 2e^{M}D_ρ(v/2) + O(ρ). ∎
-(The constant L_S = 4e^{S+2} of Theorem 4.4 covers 2e^{M}.)
+(masses of μ_ρ, μ₀ on [0, v/2]). Summing over j with weights 1/j! and the mixture weight 1: |T₂|/(ρx) ≤ e^{M}D_ρ(v/2) + O(ρ). ∎
+(The constant L_S = 4e^{S+2} of Theorem 4.4 covers e^{M}.)
 *Status of Theorem 4.4.* Every step is written above; it is single-checked (this unit only). The two places most worth a second
 reader: the uniform local mass bound for κ_ρ (smoothing argument, Step 3) and the section argument of Lemma 4.6(c), which needs
 each region to have interval sections — true here because Σu and Σu + max u are nondecreasing in every coordinate.
+**4.7 The macroscopic law on the data** [computed: `logs/collapse.log`, `logs/mertens.log` (`verify/mertens.py`, runs `m_*_1e10`),
+`verify/s8sp.c` with the per-bin sum of 1/p]. (i) Prime fraction per step minus f₀(τ), at fixed τ, ρ decreasing: τ = 0.3: +0.0377,
++0.0301, +0.0251 (ρ = 0.0245, 0.0164, 0.0123); τ = 0.6: +0.0398, +0.0333, +0.0288 (ρ = 0.0491, 0.0327, 0.0245); τ = 1.15: +0.0274,
++0.0259, +0.0235 (ρ = 0.0982, 0.0654, 0.0491). (ii) Σ_{p≤x}1/p − Ein(τ): τ ≈ 0.565: −0.0413 (π/64, x = 10⁵), −0.0280 (π/128, x = 10¹⁰);
+τ ≈ 0.28: −0.0369 (π/128, 10⁵), −0.0240 (π/256, 10¹⁰). (iii) E/(ρx) ≤ 10⁻⁷ at the top of every run. The offsets fall like
+ρ log(1/ρ) (halving ρ multiplies them by 0.65–0.68; ρ log(1/ρ) gives 0.59–0.62).
+*Where the offset comes from* [proved here for the lattice; heuristic for S8]: in the variable v, the lattice has
+λ_ρ([0, v]) = v − Δ_ρ + o(ρ), Δ_ρ := ρ(log(1/ρ) + ψ(½)) (digamma, §2): the discrete system starts "late" by Δ_ρ. Removing prime mass Δ
+at v = 0 from the template and solving the linearized Volterra equation δf(v) = Δ − ∫₀^v δf (kernel = density 1 of exp*(f₀) − δ₀) gives
+δf(v) = Δe^{−v}: about +0.022 at τ = 0.3 for π/256 against +0.0251 measured; a heuristic first-order account, not a proof.
+
+**4.8 What Theorem 4.4 is and is not.** It identifies the MACROSCOPIC arrival process of the charter's queue in the scaling limit:
+intensity λ₀(τ) per step at every τ, the same function for every ρ (Lemma 1.3), and the queue content o(ρx). It is a law of large
+numbers in the window of relative size η, uniform on τ ≤ S for each fixed S. It is not a statement about S8(ρ) at fixed ρ as x → ∞:
+the constants K_S, L_S grow like e^{S}, and the error o(ρx) is θ = 1 in the language of Lemma B. Why it says nothing at fixed ρ, precisely: the proof
+needs (a) the queue margin, here f₀(S) > 0 fixed, and (b) a Gronwall factor e^{O(S)}; at fixed ρ and τ → ∞ the margin is
+f₀(τ) ≈ 1/τ → 0 while the factor grows like e^{Kτ}, so the same inequalities give no bound. The limit dynamics is the Volterra
+equation f = (1 − c[f])⁺ (c[f] = Σ_{j≥2} f^{*j}/j!), whose unique solution is f₀ — f₀ > 0, so the clip never binds; the comparison with
+the template is exact at every scale (Lemma 4.6(b)), so no first-order expansion around the template is needed, which is where
+Session 40's route (a) stopped (`../../free-greedy-s40/theory/NOTE.md` §3.1, Lemma M) [quoted].
+
 
 
 

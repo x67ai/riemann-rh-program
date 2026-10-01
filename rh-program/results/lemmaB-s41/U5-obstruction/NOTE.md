@@ -18,10 +18,11 @@ Landau's theorem on R − r₀ ≥ 0, Theorem 1.6 — can prove that (A) and (B)
 control L_ρ(s) = 1 + ρ^s ζ(s, ½ + ρ) (atoms at 1 and at S8's prime lattice 1 + (k − ½)/ρ) satisfies all those premises with
 E_L ∈ (−½, ½] and has a real zero in (1 − 2ρ, 1) (π/16: 0.788933; S8: 0.794755; template: 0.803650) plus complex zeros right of ½.
 (ii) No argument using positivity of the prime measure (PNT, Mertens, Λ ≥ 0, non-vanishing on Re s = 1) without integrality can: the
-template has all of it with E ≡ 0. (iii) Even integrality and positivity together are not enough without the continuum of norms: the
-virtual curve V over F₅ has both, a real zero 0.79899 and a constant degree-level integer error −¼.
-**Where discreteness must enter: the clip.** L_ρ is S8's lattice with every composite cancelled by an integer Euler exponent of the
-wrong sign (m = −1 at every 2-fold product, (−1)^{k+1}(k − 1)! at k distinct factors; Prop. 1.1(v)). A proof must use that composites of a
+template has all of it with E ≡ 0. (iii) Integrality and positivity together, with a real zero > ½, still allow an exactly regular count when the
+norms lie on a geometric lattice: the virtual curve V over F₅ has both, a real zero 0.79899 and a constant degree-level integer error
+−¼ (it undershoots, so it fails (A)); a proof must use the continuum of norms, or (A) beyond its consequence "there is a real zero".
+**Where discreteness must enter: the clip.** L_ρ is S8's lattice with every composite cancelled by integer Euler exponents of
+alternating sign (m = −1 at every 2-fold product, (−1)^{k+1}(k − 1)! at k distinct factors; Prop. 1.1(v)). A proof must use that composites of a
 discrete positive system are atoms of weight +1 that nothing removes (Π ≥ 0 at products of g-primes), at real (archimedean) positions.
 
 **Consequences proved here.** (a) Conjecture U is FALSE for signed discrete systems: L_ρ has α_L ≥ σ*_L > ½ = max{½, 2β_L} (§1.3); with the
@@ -72,7 +73,7 @@ at s = 3, 2.5 against L = 1.0247173, 1.0501717 (truncation tail ≈ 6·10⁻⁷,
 *Every (A)-parameter has a control* [proved here, same proof]: for 0 < ρ < r₀ < 1 − ρ, L_{ρ,r₀}(s) := 1 + ρ^s ζ(s, 1 − r₀) has atoms
 at 1 and (k − r₀)/ρ, k ≥ 1, N − ρx ∈ (r₀, r₀ + 1], and a real zero in [r₀/(r₀ + ρ), 1) by Remark 1.6′ of s40; L_ρ is the case r₀ = ½ − ρ.
 
-**1.3 What L is.** L is S8's prime lattice with EVERY lattice point an atom of N and every composite cancelled by a negative multiplicity.
+**1.3 What L is.** L is S8's prime lattice with EVERY lattice point an atom of N and every composite cancelled by integer multiplicities (−1 at 2-fold products).
 S8 has the same slots, but its composites are forced atoms with multiplicity +1 that nothing removes: the rule can only refuse slots
 (the clip, s40 §2.2). L is therefore a *signed discrete Beurling system* (integer N, integer Euler exponents of both signs) satisfying
 (A) and (B) with θ = 0, a real zero > ½ (for ρ ≤ ¼), and α_L ≥ σ*_L by (iv): **Conjecture U fails for signed discrete systems** [proved here].
@@ -86,7 +87,7 @@ S8 has the same slots, but its composites are forced atoms with multiplicity +1 
 | π/16 | 0.6073 | 0.803650 | 0.788933 | 0.789824 | 0.794752 | 0.803650 |
 | π/8 | 0.2146 | 0.607301 | 0.589399 | 0.589755 | 0.656529 | 0.607301 |
 
-The three objects have real zeros within 0.01 of each other for ρ ≤ π/16 and integer errors 0, O(1) and (numerically) ≈ 0.05 log²x.
+The three objects have real zeros within 0.015 of each other for ρ ≤ π/16 and integer errors 0, O(1) and (numerically) ≈ 0.05 log²x.
 L(0) = 1 + ζ(0, ½ + ρ) = 1 − ρ is the logarithmic mean of R_L (Abelian limit of sF(s), F = Mellin transform of R).
 
 **1.5 S8 data from this unit's own generator** [computed: `verify/s8u5.c` (event heap, double; statistics only), logs
@@ -105,7 +106,7 @@ integer coefficients); (P) then says Σ_{j: μ^j = λ} m_μ/j ≥ 0 at every λ,
 
 **Theorem 2.1 (two controls)** [proved here]. Fix ρ ∈ (0, ¼).
 (a) The lattice control L_ρ has (D), (A) with r₀ = ½ − ρ > ρ, and (B) with θ = 0 (Prop. 1.1); it violates (P) exactly at the products of
-two or more atoms (m = −1 at every 2-fold product).
+an even number of atoms (Π_L(λ) = c(e) of Prop. 1.1(v) has the sign (−1)^{k+1}; −1 at every 2-fold product).
 (b) The template T has (P), (A) with r₀ = 1 − ρ, and (B) with E ≡ 0; it violates (D) (N is continuous on (1, ∞)).
 Consequently: (c) no statement of the form "(A) and (D) imply E ≠ O(f)" with f → ∞ is true, and no such statement follows from (A) and (P);
 in particular "E is unbounded" — the weakest Ω-statement — is already false on each of the two classes separately. (d) Any proof that
@@ -117,7 +118,7 @@ satisfy (A), (B) and have bounded E. ∎
 
 **What (c)–(d) mean in words.** Discreteness enters only through the CLIP: a composite of a discrete positive system is an atom of N of
 weight +1 that no later choice can remove (Π ≥ 0 at products), while the g-primes themselves are placed freely. The template has no atoms
-to clip; the lattice control removes every composite by a negative multiplicity. The obstruction, if true, is a statement about how
+to clip; the lattice control removes every composite by multiplicities of alternating sign. The obstruction, if true, is a statement about how
 unavoidable composites cluster — §5 makes this exact for S8.
 
 **Scope of the controls (stated so that nobody over-reads 2.1).** (i) L_ρ does NOT have an Euler product with Π ≥ 0, so it need not satisfy
@@ -131,7 +132,7 @@ that we have at the page are treated in §6: the Legendre–Mertens identity (s4
 hypotheses it states, hence for L_ρ; so none of them can prove the obstruction, or even E unbounded, on class (A):
 (1) Parseval/Plancherel for Ê on vertical lines and Carlson-type mean values of Σ a_n n^{−s} (§3); (2) Hilberdink's mean-value inequality
 (3.2)–(3.3) and its contradiction scheme (JNT 112, pp. 337–340), and his Remark C (§4); (3) Neamah–Hilberdink's Theorem 1 (§4);
-(4) Landau's theorem applied to the non-negative function R − r₀ (§3.3); (5) Theorem 1.6 and every bound on the location of the real
+(4) Landau's theorem applied to the non-negative function R − r₀ (§6.3(a)); (5) Theorem 1.6 and every bound on the location of the real
 zero derived from it. Verification for each item is in the section named.
 
 **Remark 2.3 (a third control at rung 1: (D) and (P) jointly are still not enough)** [re-derived and computed: `verify/curveV_check.py`
@@ -230,6 +231,14 @@ and L_ρ have the same jumps at the same density; its whole content for E is Pro
 which the rigid lattice lacks). A lower bound for (ii) would detect clustering, but the real zero is a statement at t = 0 and L_ρ has the
 zero with no clustering at all. Integer weights force irregularity at additive scale 1, which is harmless; (B) is about multiplicative scale 1.
 
+**4.6 U1's relative wall (SHARED 17:33), re-derived, and why it is an Ω for the PRIMES, not for E** [proved here, following U1's
+sketch]. Let P have (D) and (B) with θ < ½, and suppose Π_P − Π_ref = O(u^{α′}), α′ < ½, for a reference whose ζ_ref is meromorphic with
+finitely many zeros right of some γ₀ < ½ (e.g. ζ_c). Then ζ_P = ζ_ref·exp(η̂), η̂(s) = s∫(Π_P − Π_ref)u^{−s−1}du analytic on Re s > α′, so ζ_P
+has finitely many zeros right of max(θ, α′, γ₀) < ½ — against Remark C/Cor. 2(b) (4.1; valid under (D), and for signed data by 4.3). So on
+class (A)&(B) the g-primes deviate from every finitely-zeroed reference by u^{½−ε}: the primes must be wild. This does not touch E: ℕ has
+wild primes and bounded E, and L_ρ satisfies the wall's conclusion (its Π_L is far from tame: ≥ 12 zeros right of ½, §3.4) with E_L
+bounded. The obstruction would need the converse direction, wild primes ⇒ large E, which ℕ refutes in general.
+
 ## §5. Where discreteness must enter: the clip, and the exact form of the obstruction for S8
 
 **Proposition 5.1 (the clip bound)** [proved here]. Let P be a discrete Beurling system with E ≥ −c on [1, ∞). For every interval
@@ -259,15 +268,19 @@ range, but the heuristic's mechanism is visibly absent: in S8 the deficit is not
 composites have taken it (Prop. 2.1 of s40: E = ½ + C(p_k, x] − ρ(x − p_k) on every gap), so the deficit tracks the composites instead of
 adding independent noise to them. s40 §3.1 measured the converse: random offsets of width 50 raise sup E at 10⁷ from 12.8 to 58–171.
 
-**5.3 Where a composite clump could come from** [proved here: identities; the conclusion is a GAP]. For a g-prime q and a window I,
-#{n ∈ I : q | n} = N(I/q) = ρ|I|/q + ΔE(I/q) (free monoid; = orchestrator note O3): the multiples of a small g-prime in a window are as
-regular as N one scale down, so an excess there is an excess of E at scale x/q, carried up without amplification. By inclusion–exclusion
-over d | P(z), the composites with a g-prime factor ≤ z have count ρ|I|(1 − M(z)) − S_z(I), S_z(I) := Σ_{d|P(z), d>1} μ(d)ΔE(I/d), whose mean
-leaves the slack ρ|I|M(z) ≫ |I|/log x. A clump of size x^θ at scale x therefore needs either (i) E-increments at the scales x/d, d | P(z),
-that add coherently with the signs −μ(d) to size x^θ (an excess already present below — no source), or (ii) a clump of z-ROUGH
-composites (all factors > z): products of a bounded number of large g-primes in a short window. (ii) is the bilinear question of
-orchestrator note O4. So the obstruction for S8 reduces to: *products of two (or k) large g-primes cluster by x^θ in some window of
-length ≲ x^θ·log x.* No unit has a tool for (ii) in either direction; it is the same object on which Lemma B_ρ's proof is stuck.
+**5.3 Where a composite clump must come from** [proved here: identity and bound; the reduction beyond it is a GAP]. Fix z and an
+interval I = (a, b] with a > z. Inclusion–exclusion over squarefree d | P(z) (free monoid: the multiples of d are exactly d·G) gives
+  C(I) − ρ|I| = [C_rough(I) − ρ|I|M(z)] − S_z(I),  S_z(I) := Σ_{d|P(z), d>1} μ(d)·ΔE(I/d),
+with M(z) = Π_{p≤z}(1 − 1/p), ΔE(J) = N(J) − ρ|J|, and C_rough(I) the composites in I with every g-prime factor > z. (Derivation: the
+composites with a factor ≤ z number N(I) − Σ_{d|P(z)}μ(d)N(I/d) = ρ|I|(1 − M(z)) − S_z(I), and the g-integers in I prime to P(z) are the
+g-primes > z and the z-rough composites.) Every I/d (d > 1) lies below b/p₁, so
+  |S_z(I)| ≤ 2^{π(z)+1}·max_{y≤b/p₁}|E(y)|.
+So, for FIXED z, a composite excess at scale x larger than 2^{π(z)+1} times the largest |E| one scale down is a clump of z-ROUGH
+composites in excess of their share ρ|I|M(z) (a share they split with the g-primes > z). For z = p₁ this is orchestrator note O3:
+multiples of p₁ in a window are as regular as N one scale down. A power-size clump therefore has to be built from rough composites at
+the scale where E first becomes large; the natural target — products of two g-primes in (x^{1/3}, x^{2/3}) clustering by x^θ in a
+window of length ≲ x^θ·log x, orchestrator note O4 — is not reached by this bound (2^{π(z)} explodes when z grows with x). No unit has a
+tool for rough-composite clustering in either direction; it is the object on which Lemma B_ρ's proof is stuck from the other side.
 
 ## §6. Attempts at a weaker Ω-theorem, and where each stops
 
@@ -294,7 +307,7 @@ identity ∫_I log u dN(u) = Σ_β Λ(β)N(I/β) (exact; β over prime powers) i
 and Mertens' Σ_{β≤x}Λ(β)/β = log x − A/ρ + o(1), A := ρ + ∫_1^∞R(u)u^{−2}du (the constant term of ζ_P at 1; the o(1) needs a PNT with
 error o(x/log x) [recalled: Landau-type PNT under (B)]), ψ(I) ≥ 0 reads
   (★) Σ_{β≤x} Λ(β)·ΔR(I/β) ≤ ΔR(I)·log x + A·h + o(h) + O(N(I)·h/x).
-(★) holds automatically for every Beurling system. For L_ρ it fails at short windows around every product with m_λ < 0, in
+(★) holds automatically for every Beurling system. For L_ρ it fails at short windows around every product of an even number of atoms (where Π_L < 0), in
 particular every ℓ_aℓ_b (for h → 0 the Mertens term is multiplied by h and drops out, so L's lack of a PNT does not matter): there the images
 I/ℓ_a ∋ ℓ_b and I/ℓ_b ∋ ℓ_a carry atoms (left side ≈ log ℓ_a + log ℓ_b ≈ log x) while I carries none (right side ≈ 0) — the negative
 "prime" of Prop. 1.1(v), seen locally. A proof that E is unbounded on class (A) along Hilberdink's lines must show that (A), (D) and
@@ -306,13 +319,15 @@ all 1600 windows; A = ρ + ∫R u^{−2} = 0.937500 (template: 1; π/32: 0.93164
 window, with minimal slack 0.057, 0.286, 1.147, 5.851 for h = 1, 5, 20, 100; slack − ψ(I) = (0.0645–0.0650)·h on average (max 0.078h) — the
 Mertens remainder, which on the template is exactly h·x^{−ρ} = 0.076h at x = 5·10⁵: the real zero's prime deficit, seen locally.
 
-**6.3 Three smaller attempts** [proved here]. (a) *Landau on R − r₀ ≥ 0.* Ĝ(s) := ∫_1^∞(R − r₀)u^{−s−1}du is a Laplace transform of a
+**6.3 Four smaller attempts** [proved here unless marked]. (a) *Landau on R − r₀ ≥ 0.* Ĝ(s) := ∫_1^∞(R − r₀)u^{−s−1}du is a Laplace transform of a
 non-negative function: |Ĝ(σ + it)| ≤ Ĝ(σ), and its abscissa is a real singularity. This gives |ζ_P(s) − ρs/(s − 1) − r₀| ≤ |s|Ĝ(σ), the
 growth O(|t|) that (B) gives anyway, and abscissa ≤ θ. L_ρ satisfies it. (b) *The value at 0.* For bounded R, ζ_P(0⁺) = lim sF(s) is
 the logarithmic mean of R (Abelian), ≥ r₀ > 0, while ζ_P(1⁻) = −∞: a second proof of the real zero when θ = 0. Each subsystem P ∖ {q}
 has ζ(0⁺) = 0 (factor 1 − q^{−s}), i.e. R(x) − R(x/q) has log-mean 0. Consistent with R ≥ r₀; L_ρ satisfies all of it (log-mean 1 − ρ =
 L(0), §1.4). (c) *The zero as a constraint on E.* ζ_P(σ*) = 0 ⟺ ∫_1^∞E(u)u^{−σ*−1}du = −ζ_c(σ*)/σ*: one linear functional of E, equal to
-−0.0545 for S8(π/16) and −0.0884 for L_{π/16} [computed from §1.4]. It carries no information on the amplitude of E.
+−0.0545 for S8(π/16) and −0.0884 for L_{π/16} [computed from §1.4]. It carries no information on the amplitude of E. (d) *Legendre–Mertens* [quoted: s40 read-O F1, l. 227–243; s40 NOTE §3.4]. Freeness and the system's Mertens
+law, (D) and (P) jointly, give π(I) = ρ|I|M(√b) + ΔE(I) + S(I) and the bias S(u, 2u] = (1 − 2e^{−γ} + o(1))u/log u: a statement about long
+intervals, consistent with small E; as a bound on E it gives only |S| ≤ 2 sup|E|·#{d} ≍ u (Legendre's sieve, here as for ℕ) — nothing.
 
 ## §7. Instruments, what was not done, and why
 

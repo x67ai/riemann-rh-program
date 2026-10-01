@@ -48,3 +48,112 @@ rh-program/results/novel-wave-s36/staircase/lit/*.txt
 rh-program/results/novel-wave-s36/staircase/lit/*-fulltext.md
 rh-program/results/novel-wave-s36/staircase/lit/img/
 rh-program/results/haglund-cert-s37/novelty-F/ahn-thesis-penn.*
+
+# ---- Session 41 (2026-10-01): third-party literature stays out of the repository for good ----
+# Proposed by the read-only inventory in rh-program/results/purge-s41/ (PATHS-THIRD-PARTY.txt).
+# APPEND THIS BLOCK AT THE VERY END of .gitignore. Git applies the LAST matching line, so the
+# negations ("!") below must come after every ignore line, including the older ones above.
+# Ignoring a path does not untrack it: files already tracked leave the index only through the
+# purge itself (or "git rm --cached"). Block A is the proposal; blocks B and C are optional and
+# only for the owner's decisions recorded in PATHS-OWNER-DECIDES.md.
+
+# ================================ BLOCK A (proposed) ================================
+
+# A1. Folders that only ever held third-party literature (anthropic/ is already ignored above).
+/lamzouri/
+/misc/
+/rh-program/sources-extracted/
+/rh-program/fetched*/
+
+# A2. PDFs anywhere. The program's own builds stay trackable.
+*.pdf
+!/public/*.pdf
+!/rh-program/results/arxiv/*/main.pdf
+!/rh-program/results/c3-r/s14/alkl23-note.pdf
+!/rh-program/results/c3-r/s14/alkl23-derivations.pdf
+
+# A3. Page images. Every PNG ever committed under results/ was a scan, render or crop of a
+# published page. A figure the program makes itself needs its own "!" line (or git add -f).
+/rh-program/results/**/*.png
+/rh-program/results/**/*.jpg
+/rh-program/results/**/*.jpeg
+
+# A4. Fetched text, markup and API dumps inside literature folders: sources*, *-sources, lit,
+# pa, prior-art, fetched*, pages, img, api, zbmath, arxiv-queries. Logs and scripts (.log,
+# .sh, .py) stay trackable; program notes kept in these folders use the names negated in A6.
+/rh-program/results/**/sources*/**/*.txt
+/rh-program/results/**/sources*/**/*.md
+/rh-program/results/**/sources*/**/*.html
+/rh-program/results/**/sources*/**/*.htm
+/rh-program/results/**/sources*/**/*.json
+/rh-program/results/**/sources*/**/*.tmp
+/rh-program/results/**/sources*/**/jstor-*
+/rh-program/results/**/*-sources/**
+/rh-program/results/**/lit/**/*.txt
+/rh-program/results/**/lit/**/*.md
+/rh-program/results/**/lit/**/*.html
+/rh-program/results/**/lit/**/*.json
+/rh-program/results/**/pa/**
+/rh-program/results/**/prior-art/**
+/rh-program/results/**/fetched*/**
+/rh-program/results/**/pages/**
+/rh-program/results/**/img/**
+/rh-program/results/**/api/**/*.json
+/rh-program/results/**/api/**/*.md
+/rh-program/results/**/api/**/*.html
+/rh-program/results/**/zbmath/**
+/rh-program/results/**/arxiv-queries/**/*.html
+
+# A5. Third-party files that sat outside literature folders, and generic name guards.
+/rh-program/results/**/*-fulltext.*
+/rh-program/results/**/*.abs.html
+/rh-program/results/**/sources-read-excerpts.txt
+/rh-program/results/external/cognition-rsa260-2026/page.md
+/rh-program/results/external/openai-ns-2026/openai-announcement-*.md
+/rh-program/results/external/prove2me/faq-*.md
+/rh-program/results/external/prove2me/start.md
+/rh-program/results/grossmann-rescout-s22/verify/abs-*.html
+/rh-program/results/grossmann-rescout-s22/verify/*-text.txt
+/rh-program/results/program-digest-s32/suzuki-v*.txt
+/rh-program/results/watch-poll-s34/*v[0-9].txt
+/rh-program/results/watch-poll-s34/lamzouri-v1v2-delta.txt
+/rh-program/results/fesenko-pricing-s32/verify/[stu]-[0-9][0-9][a-z].txt
+/rh-program/results/fesenko-pricing-s32/verify-O/chunk.txt
+/rh-program/results/c3-r/s14/novelty/*-published.txt
+
+# A6. Program-authored files inside those folders stay trackable (PATHS-KEEP.md).
+!/rh-program/results/**/README*
+!/rh-program/results/**/PRIOR-ART*.md
+!/rh-program/results/**/prior-art-log.txt
+!/rh-program/results/**/*-transcription.txt
+!/rh-program/results/arxiv/haglund-counterexample/lit/crossref-*.txt
+!/rh-program/results/arxiv/haglund-counterexample/lit/*-meta.txt
+!/rh-program/results/arxiv/haglund-counterexample/lit/*-title.txt
+!/rh-program/results/arxiv/haglund-counterexample/lit/zbmath-hamburger-1921.txt
+!/rh-program/results/fejer-form-s39/verify-O/sources/crossref_hp19_min.txt
+
+# A7. Owner-decides files inside literature folders stay trackable until the owner decides
+# (ABSTRACT-LISTINGS and PUBLIC-DATA; arXiv API .xml listings are not matched by block A).
+!/rh-program/results/**/sources/pa-arxiv-q-*.txt*
+!/rh-program/results/dz-half-s39/sources/arxiv-*.txt
+!/rh-program/results/u-offsurgery-s39/sources/abstracts-related.txt
+!/rh-program/results/e1-m5u/sources*/lmfdb-nf-3.3.*.html
+!/rh-program/results/e1-m5u/sources/lmfdb-frobenius-extract.txt
+!/rh-program/results/fejer-form-s39/sources/odlyzko-zeros1.txt
+
+# ============ BLOCK B (optional: only if the owner also purges ABSTRACT-LISTINGS) ============
+# /rh-program/results/**/*.xml
+# /rh-program/results/**/sources/pa-arxiv-q-*.txt*
+# /rh-program/results/dz-half-s39/sources/arxiv-*.txt
+# /rh-program/results/u-offsurgery-s39/sources/abstracts-related.txt
+# /rh-program/results/watch-poll-s34/abstracts.txt
+# /rh-program/results/novel-wave-s36/fingerprint/verify/arxiv/summary*.json
+
+# ============== BLOCK C (optional: only if the owner also purges PUBLIC-DATA) ===============
+# /rh-program/results/e1-m5u/sources*/lmfdb-*
+# /rh-program/results/fejer-form-s39/sources/odlyzko-zeros1.txt
+# /rh-program/results/d1-m2a/gomila/gomila-scalars.json
+# /rh-program/results/d1-m2a/gomila/gomila-chain-manifest.json
+
+# Session 41: a third party's private email quoted verbatim is not the program's to publish (kept locally).
+/rh-program/results/**/correspondence/*-reply.md
