@@ -223,4 +223,22 @@ L(0), §1.4). (c) *The zero as a constraint on E.* ζ_P(σ*) = 0 ⟺ ∫_1^∞E(
 
 ## §7. Instruments, what was not done, and why
 
-(pending)
+**Scripts and logs** (all in `verify/`; scratch dumps of g-integers under `/private/tmp/rh-s41-lemmaB-U5-obstruction/`, < 2 MB each):
+`s8u5.c` (own S8 generator: event heap over largest-prime-index factorizations, double precision; per-decade N, π, C, sup E, sup Q,
+largest gap; reproduces s40's π/16 and π/32 rows to every printed digit) → `s8u5_pi16_1e7.log`, `s8u5_pi16_1e8.log`, `s8u5_pi32_1e8.log`;
+`hurwitz_control.py` → `hurwitz_control.log` (E_L range, σ*_L for four ρ, the Thm 1.6 floor, L(0), signed Euler exponents and the
+truncated-product check); `zeros_L_S8.py` → `zeros_L_S8.log` (exploratory argument-principle counts for F_{10⁵} of S8(π/16) and for L,
+σ₁ of L, search for zeros of L right of Re s = 1); `meansq_split.py` → `meansq_split.log` (§3); `star_check.py` → `star_check.log`
+(§6.2: exact local Chebyshev identity and (★) on S8(π/16) windows at 2·10⁵–9·10⁵, template comparison).
+
+**Recalled, unverified (none load-bearing):** the continuation of Hurwitz ζ(s, a) to ℂ and its digamma constant term; Lindemann
+(π transcendental, so t = 16/π, 32/π and ½ + ρ are transcendental — used only for the closed form of m_λ in Prop. 1.1(v); integrality
+of m_λ holds for every ρ); Bohr's theorem on values of Dirichlet series with independent frequencies (only to explain why zeros of L
+right of 1 should exist); a PNT with error o(x/log x) under (B) (only for the Mertens form of (★); the exact identity in §6.2 needs none).
+
+**Not done, and why.** (i) The obstruction is not proved, and the weakest Ω — "E unbounded on class (A)" — is open (GAP of §6.2): every
+argument I could write either applies to L_ρ or T (Theorem 2.1), or needs a statement about clustering of products of two large
+g-primes in short windows (§5.3), for which neither direction has a tool. (ii) No search of the printed literature beyond the on-disk
+sources was made for further joint (D)+(P) results; Hilberdink 2012 is the one found. (iii) The zero counts of §3.4 are exploratory
+(no certified argument principle); nothing in the close rests on them. (iv) S8 data come from a double-precision generator: statistics,
+not certificates (the ordering margin issue of s40 §3.0 applies above ~7·10⁷).

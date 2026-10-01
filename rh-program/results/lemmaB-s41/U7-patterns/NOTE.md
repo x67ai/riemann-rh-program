@@ -159,4 +159,5 @@ at most the range of E there; its share of large bursts falls below its share of
 **For the proof units.** U3: the inherited layer is controlled by induction on scale through (I1) at no cost; everything left is the
 coincidence layer, a sum over q > p₁₀ of 0/1 events "W/q contains a g-prime" at well-separated scales — the place for a second-moment or
 large-sieve bound. U1: a rule cannot remove composites; its only lever on a burst at x is the placement of g-primes at the scales x/q for
-q in the coincidence range, all of which are fixed before x/p₁ — so look-ahead must act about p₁₁ = 60–200 scale-units ahead (π/16).
+q in the coincidence range (q > p₁₀ = 64.7 for π/16, 118.1 for π/32; p₁₁ = 79.9, 128.3; p₁₀₀₀ ≈ 1.0·10⁴, 1.5·10⁴), all fixed by the time
+the sweep passes x/p₁₁ — a look-ahead rule must therefore look at least a factor p₁₁ ahead to see the coincidence layer coming.
