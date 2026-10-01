@@ -27,3 +27,15 @@ Append-only, dated blocks. Writer: Opus 5.5 (unit agent). Outputs only under `re
   no Beurling solution at any q ≠ 1 — covers the whole Poisson-pair cone 𝒦_r with thin rational part, continuous parts included.
 - Residue of route (i) named: thick rational part (σ_S ≥ ½) and infinitely many twisted combs.
 - Next: controls (verify/v2: exact self-duality test on F55, R1, a thick-S mixture probe; DH noted), route (ii) model sets.
+
+## 2026-10-01 06:20 IST — batch 3 (route (ii) model sets; route (iii) and the FE splitting)
+- verify/v3_pisot_model_set.{py,log}: μ_k = Σ_{x∈Z[φ]}k(x^σ/5^{1/4})δ_{x/5^{1/4}} is exactly self-dual iff k̂ = k (Poisson on a unimodular
+  lattice); acceptance test on the Gaussian: theta 2.7e−51, Fejér within the ξ^{−2} tail bound. The gap at q = √5φ^{2j} ⟺ k = 0 on the
+  cut-and-project set Z_j (u.d., density 2/(5^{1/4}φ^j)). Finite Hermite k: excluded exactly (finitely many zeros). KNS 2023 Thm 1(ii)
+  (fetched to sources/, at the page): zeros alone do NOT force k = 0 — my earlier "q < 4 uniqueness" heuristic is retracted.
+- verify/v3d_pisot_beurling_probe.{py,log}: Gaussian weights fail Euler positivity (j = 0 at n = 4/φ; j ≥ 1 already on the unit orbit,
+  Π(φ²) = c(φ²) − c(φ)²/2 < 0). Mechanism: super-polynomial decay breaks c(n₁n₂) ≳ c(n₁)c(n₂); admissible k must be non-smooth.
+- NOTE §5 (route ii), §6: Proposition S (if F/ζ converges absolutely left of ½, the FE splits and the atomic part is itself a solution);
+  Theorem L‴ general form; route (iii) verdict incl. the "zeta-zero repair" G = R(s) + q^{½−s}R(1−s), R with poles at zeros of ζ —
+  an exact-FE family whose continuous part satisfies the FE alone, so it falls back on the atomic theory.
+- Next: §7 instrument on the smallest open sub-class (thick positive Poisson mixtures), §8 prior art, attack log, close.

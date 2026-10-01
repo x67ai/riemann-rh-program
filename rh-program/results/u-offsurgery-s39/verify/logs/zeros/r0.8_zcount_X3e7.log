@@ -1,0 +1,7 @@
+strip sigma in [0.60,0.65] x t in [0.1,60]: zeros = +1.000  (max phase step 2.43 rad, min|F| on contour 0.0231, tail bound <= 0.98)
+strip sigma in [0.65,0.70] x t in [0.1,60]: zeros = +1.000  (max phase step 2.21 rad, min|F| on contour 0.054, tail bound <= 0.38)
+strip sigma in [0.70,0.75] x t in [0.1,60]: zeros = +0.000  (max phase step 2.10 rad, min|F| on contour 0.0585, tail bound <= 0.15)
+strip sigma in [0.75,0.80] x t in [0.1,60]: zeros = +1.000  (max phase step 2.10 rad, min|F| on contour 0.0585, tail bound <= 0.059)
+strip sigma in [0.80,0.90] x t in [0.1,60]: zeros = +0.000  (max phase step 1.18 rad, min|F| on contour 0.0783, tail bound <= 0.023)
+strip sigma in [0.90,1.10] x t in [0.1,60]: zeros = +0.000  (max phase step 0.30 rad, min|F| on contour 0.221, tail bound <= 0.0037)
+total over [0.60,1.10]: +3.000

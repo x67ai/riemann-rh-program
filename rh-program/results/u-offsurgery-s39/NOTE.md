@@ -83,3 +83,51 @@ b_sup = 0.305, 0.299, 0.297, 0.307; b_rms = 0.190, 0.175, 0.166, 0.163; a_sup = 
 sup|ψ − x| = 7.35·10⁵ at the top. **So α ≈ 0.74–0.76 and β ≈ 0.30 over six decades: α − max{½, 2β} ≈ 0.14 — the brief's stop condition
 ("α > max{½, 2β} + 0.05 numerically over two decades") is met.** Route 2 for α (zeros of ζ_P) is §2.1.
 
+## §3. The ladder and the other designs
+
+**3.1 Rung 1 (over F_q) — what it teaches** [quoted + proved here]. For a Beurling system over F_q (norms q^n) the integer count A_n is
+an integer sequence and "β" degenerates: for every genuine curve A_n = h(q^{n−g+1} − 1)/(q − 1) exactly for n > 2g − 2 (Riemann–Roch),
+and Weil gives α = ½ — so U's analog holds for curves and is RH itself. The virtual curve V (fr/NOTE §5.4: Z = (1 − 5u + 5u²)/((1 − u)(1 − 5u)),
+A_n = (5^n − 1)/4 exactly, zeros at Re s = 0.79899) has perfect regularity and RH false: U's analog FAILS on rung 1 as soon as geometry
+(Castelnuovo/Hodge index) is dropped. Lesson recorded before §2 was run: integer regularity alone never confines zeros on rung 1; a line
+α ≤ 2β over ℚ could only come from the archimedean continuum of norms (a "square-root price" paid by integers that move by real amounts).
+§2 is the ℚ-analog of V: an ℕ-supported system with near-regular integers and zeros off the line, built by choosing the primes to fit the
+integers (V is built the same way: b_d ≥ 0 closed points fitted to the prescribed A_n).
+
+**3.2 Design (i) in tracking form is forbidden in print (S1)** [quoted; corollary proved here]. Hilberdink 2005 (w-18a, JNT 112), Remark C
+(text l. 496–500, p. 340): "for an [α, β]-system with β < α, if ζ_P(s) has finitely many zeros for σ > η with η ∈ (β, α), then η ≥ ½"
+(via Remark B(ii), l. 228–232: finitely many zeros ⇒ ζ_P and ζ′_P/ζ_P of zero order there). *Corollary.* Let R be a rational template
+(finitely many zeros) and Q a discrete system with Π_Q(x) − Π_R(x) = O(x^{a}), a < ½. Then log(ζ_Q/R) = ∫x^{−s}d(Π_Q − Π_R) is analytic in
+σ > a, so ζ_Q has exactly R's zeros in σ > a — finitely many — and Remark C forces β(Q) ≥ ½. *Proof.* If β(Q) < ½, pick η ∈ (max(β, a), ½);
+ζ_Q has finitely many zeros in σ > η; Remark C gives η ≥ ½, contradiction. ∎ So S1 (greedy discretization with |Π_Q − Π_R| ≤ ½, a = 0)
+of the planted template R₀ — whose density [1 + u^{2β₀−2} − 2u^{β₀−1}cos(γ₀ log u)]/log u = |1 − u^{β₀−1+iγ₀}|²/log u ≥ 0 makes it a
+legitimate continuous system with α = β₀ — has β ≥ ½: consistent with U, and it is BDR's p. 4 heuristic (z-02 l. 171–179, derived there
+from Hilberdink for the template s/(s − 1)) made a theorem for every rational template. Design (i) can only escape through a ≥ ½: random
+selection (S2, the Diamond–Zhang rung: β = ½, the sibling unit `results/dz-half-s39/`) or a structured, ζ-like prime discrepancy.
+Not run numerically: the printed theorem settles S1, and S2 is the sibling unit's object.
+
+**3.3 Design (ii) in periodic form is a number field, or crosses U only through an off-line Dirichlet zero (S3 periodic)** [proved here].
+Let P be supported on ℕ with m_{p,1} = F(p mod q) for p ∤ q (F: (ℤ/q)^× → ℤ_{≥0}), and write F = Σ_χ c_χ χ, so c_{χ₀} = 1 (simple pole)
+and log ζ_P(s) = Σ_χ c_χ log L(s, χ) + h(s), h analytic in σ > ½ (the prime-square and higher terms converge absolutely there).
+(a) Every zero or singularity of ζ_P in σ > ½ is a zero of some L(s, χ) with c_χ ≠ 0 (e^{h} ≠ 0). Hence **a zero of ζ_P with Re s > ½ is an
+off-line zero of a Dirichlet L-function mod q**, and a U-crossing in this class planted by a zero needs an L-zero with Re > 2β(P). (b) If moreover c_χ ∈ ℤ_{≥0} for all χ (the
+case without branch points), then F = [G : H]·1_H for a subgroup H of G = (ℤ/q)^×, i.e. P is the ideal system of the abelian field
+fixed by H up to factors analytic in σ > ½. *Proof of (b).* Σ_a F(a) = |G|c_{χ₀} = |G|, Σ_a F(a)² = |G|Σ_χ c_χ² (Parseval), and F(a) ≤
+F(1) = Σ_χ c_χ (positive-definite), so |G|Σc_χ² = ΣF² ≤ F(1)ΣF = |G|Σ c_χ. With c_χ ∈ ℤ_{≥0} this forces c_χ ∈ {0, 1} and equality
+F(a)² = F(1)F(a), i.e. F ∈ {0, F(1)}; F = F(1)1_H with c_χ = (F(1)/|G|)Σ_{a∈H}χ̄(a) ∈ {0, 1}, which forces F(1) = |G|/|H| and every χ
+with c_χ = 1 trivial on ⟨H⟩; counting such χ gives |⟨H⟩| ≤ |H|, so H is a subgroup. ∎ (Integrality of c_χ is what "no branch point at an
+L-zero in σ > β" gives at each zero ρ: Σ_χ c_χ ord_ρ L(s, χ) ∈ ℤ; deducing c_χ ∈ ℤ needs a zero of L(s, χ) not shared with the other
+L(s, χ′) mod q — recalled as known for a positive proportion of zeros, unverified here, so (b) is stated with integrality as hypothesis.)
+So the periodic twisted class cannot cross U without an off-line Dirichlet zero; the class that crossed numerically (S5) is aperiodic.
+
+**2.1 Route 2 for α: the zeros of ζ_P (ρ = 0.8)** [computed]. For an ℕ-supported system, ζ_P(s) − ρζ(s) = Σ_{n≥1}(a_n − ρ)n^{−s}, whose
+partial sums C(y) = N(y) − ρ⌊y⌋ are O(y^{0.31}) on the data, so the series converges in σ > 0.31 and the truncation at X costs at most
+|C(X)|X^{−σ} + |s|∫_X^∞|C(u)|u^{−σ−1}du. Instruments: `verify/zscan.c` (vertical lines by recurrence in t, horizontal segments by recurrence
+in σ; ζ by Euler–Maclaurin, checked against mpmath at ½ + 14.13i), `verify/zcount.py` (argument principle on strips), `verify/zpoint.c` +
+`verify/znewton.py` (Newton with ζ, ζ′ from mpmath). (a) Strip counts, X = 3·10⁷, t ∈ [0.1, 60] (`logs/zeros/r0.8_zcount_X3e7.log`):
+one zero each in σ ∈ [0.60, 0.65], [0.65, 0.70], [0.75, 0.80]; none in [0.70, 0.75], [0.80, 1.10]. (b) Newton from 0.77 + 30.35i
+(`logs/zeros/r0.8_newton_30_X3e7.log`, `…_Xconv.log`): the zero of the truncated function at X = 3·10⁷, 10⁸, 3·10⁸, 10⁹ is
+0.7658596 + 30.3260636i, 0.7658709 + 30.3260583i, 0.7658696 + 30.3260661i, **ρ₁ = 0.7658722 + 30.3260650i** (|ζ′_P(ρ₁)| = 2.03): stable
+to ~10⁻⁵ as X grows thirtyfold. So Re ρ₁ ≈ 0.766, matching route 1's α ≈ 0.74–0.76, and 2β ≈ 0.60 lies far below it. Other zeros near
+0.66 + 40.75i and 0.62 + 42.95i (minima of |ζ_P| on the scanned lines).
+

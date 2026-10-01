@@ -193,3 +193,77 @@ many Euler factors. This is exactly the Q-side imitation of the rung-1 mechanism
 infeasible (L′), but Π(x) depends on every atom once x ≥ q, so truncation certificates say nothing about the infinite mixture.
 (R-i-2) mixtures that also contain infinitely many twisted combs Σχ(n)δ_{n/√m} (F = ζ·D + Σ_χ E_χL(s, χ) with infinitely many χ):
 Saias–Weingartner's two-character theorem (QC Lemma S–W′) needs finitely many characters.
+
+## 5. Route (ii): cut-and-project (Pisot model-set) measures — exact reduction, acceptance test, and why the route stays open
+
+### 5.1 The exact reduction (P; C: `verify/v3_pisot_model_set.{py,log}`)
+K = Q(√5), O_K = Z[φ], σ: √5 ↦ −√5, c := 5^{1/4}. The lattice {(x/c, x^σ/c) : x ∈ O_K} ⊂ R² has covolume 1 and (trace form) dual
+{(z/c, −z^σ/c)}; Poisson summation for g ⊗ k gives, for μ_k := Σ_{x∈O_K}k(x^σ/c)δ_{x/c}:
+      μ̂_k = μ_{k̂}   (Fourier transform on R; k even),   so μ_k is EXACTLY self-dual iff k̂ = k.
+Every even Hermite combination k = Σ_m a_m h_{4m} (eigenvalue 1) passes. Acceptance test on k = e^{−πt²} (v3 Part A): theta pairing
+equal to 2.7e−51 at y = 0.37, 1, 2.2 (whole lattice, terms < 1e−60 dropped); Fejér pairing at L = 0.3, 0.7, 1.3 equal within the
+explicit ξ^{−2} tail bound (diff 8.4e−4 / 3.6e−4 / 2.0e−4 against bounds 1.8e−3 / 7.6e−4 / 4.1e−4). These measures are positive, pure
+point, with DENSE support and infinitely many mass values — exactly QC §2.6(d)'s shape — and they are not generalized Dirac combs.
+GAP AND MONOID. Put the atom "1" at x₁ = φ^{−j} (a unit, so the generalized integers n = x/x₁ = xφ^j form a sub-monoid of O_K):
+q = √5·φ^{2j} (2.236, 5.854, 15.33, 40.12 for j = 0..3), 𝒩 ⊂ O_K ∩ [1, ∞), c(n) = K_j(n^σ) with K_j(t) := k(tφ^j/c). The gap
+(−r, r) is EQUIVALENT to k = 0 on the cut-and-project set
+      Z_j := {n^σφ^j/c : n ∈ O_K, 0 < |n| < 1}   (uniformly discrete, relatively dense, density 2/(cφ^j) per unit length),
+first points (v3 Part C) j = 0: ±1.0820, ±1.7508, ±2.8328, …; j = 1: ±1.7508, ±2.8328, ±4.5836, …. For k = e^{−πt²} the gap fails
+(v3 Part B: largest masses inside (0, r): 2.5e−2 (j = 0), 6.6e−5 (j = 1), 1.1e−11 (j = 2), 2.2e−29 (j = 3)).
+PROPOSITION P1 (finite Hermite expansions are excluded exactly). If k = P(t)e^{−πt²} with P a polynomial (every finite Hermite
+combination), k has finitely many zeros, while Z_j is infinite: no member of the finite-dimensional exactly-self-dual families has the
+gap, at any q = √5φ^{2j}. (P; one line.)
+PROPOSITION P2 (Fourier uniqueness does NOT close the route) (Q: `sources/arxiv-2306.14013-kulikov-nazarov-sodin.txt`, Definition 2
+lines 101–118, Theorem 1(ii) lines 137–139): a pair (Λ, M) with lim inf_{|j|→∞}|λ_j|^{p−1}(λ_{j+1} − λ_j) > ½ and the same for M (1/p + 1/q = 1)
+is a NON-uniqueness pair for S. Z_j is uniformly discrete, so (Z_j, Z_j) is subcritical for every p > 1: there are f ∈ S∖{0} with
+f|_{Z_j} = f̂|_{Z_j} = 0. The zero conditions alone therefore do not force k = 0; positivity (k ≥ 0, double zeros) and the Euler
+condition remain. [A density-product heuristic considered while writing — "uniqueness when q < 4" — is WRONG for S and is retracted.]
+
+### 5.2 The Euler condition in route (ii) (C: `verify/v3d_pisot_beurling_probe.{py,log}`; P for the mechanism)
+Probe on k = e^{−πt²} normalized so that c(1) = 1 (not admissible — it violates the gap — but it shows the multiplicative test):
+ j = 0 (q = √5, ρ = 4.08): first Π < 0 at n = 4/φ = 2.4721 (Π = −2.5e−8), from 4/φ = 2·(2/φ) with c(2)c(2/φ) = 2.5e−8 ≫ c(4/φ) =
+   1.1e−25; 150 negative values in [1, 60], worst Π(6 + 9φ) = −0.215.
+ j ≥ 1: the UNIT ORBIT already fails: Π(φ²) = c(φ²) − c(φ)²/2 = −24.0 (j = 1), −7.0e4 (j = 2), −1.7e13 (j = 3).
+MECHANISM (P). (a) Along the units, c(φ^m) = k(φ^{j−m}/c)/k(φ^j/c) rises from 1 to ρ = k(0)/k(φ^j/c); the orbit {φ^m} is a divisor-
+closed submonoid, so Σ_m c(φ^m)u^m = exp(Σ π_m u^m) with π_m ≥ 0 — e.g. Π(φ²) ≥ 0 ⟺ 2c(φ²) ≥ c(φ)²; for a Gaussian this fails as
+soon as e^{πφ^{2j−2}/√5} > 2, i.e. for every j ≥ 1. (b) For n = n₁n₂ with c(n) tiny and c(n₁)c(n₂) not, Π(n) < 0 at first order; a
+weight decaying faster than every power of |t| makes K_j(t₁t₂) ≪ K_j(t₁)K_j(t₂) once |t₁|, |t₂| > 1. So an admissible k must decay at
+most polynomially along the multiplicative structure — hence (k̂ = k) k cannot be smooth — AND vanish on Z_j, AND rise gradually
+along the unit orbit. Positive self-dual k with polynomial decay exist (k = e^{−2π|t|} + 1/(π(1 + t²)): FT pairs, sum self-dual,
+decay 1/(πt²)); whether one of them also vanishes on Z_j is the open harmonic-analysis core of route (ii).
+VERDICT route (ii): no member of any finite-dimensional exactly-self-dual family has the gap (P1); the zero conditions are not
+contradictory (P2); the Gaussian member fails the Euler condition on the unit orbit (j ≥ 1) and on 4/φ (j = 0). The route survives
+only in an infinite-dimensional, non-smooth class — named in §0.4 as part of the residue.
+
+## 6. Route (iii) and mixed systems: the FE SPLITS for ζ-divisible solutions — Proposition S and Theorem L‴ in general form (P)
+
+Write m := dN ∗ μ_Möb (μ_Möb = Σμ(n)δ_n), so F = ζ·D, D(s) = ∫x^{−s}dm — always true formally; the question is where D converges.
+PROPOSITION S (splitting). Let F be a Beurling solution with (A) at q, and suppose ∫x^{−σ₀}d|m| < ∞ for some σ₀ < ½. Then the
+atomic part m_a satisfies the FE by itself, D_a(1 − s) = q^{s−½}D_a(s); D_a is entire of order ≤ 1; and F_a := ζ·D_a is a Beurling
+solution of (A) at q with Π_{F_a} = (Π_F)_atomic.
+ Proof. On Re s = ½ all four transforms D_a(s), D_a(1−s), D_c(s), D_c(1−s) converge absolutely (∫x^{−½}d|m| < ∞), and
+ E(t) := D_a(½−it) − q^{it}D_a(½+it) = q^{it}D_c(½+it) − D_c(½−it). The left side is a uniformly almost periodic function of t
+ (absolutely convergent generalized Dirichlet series); the right side is a combination of Fourier–Stieltjes transforms of the
+ CONTINUOUS finite measures x^{−½}m_c (in the variable log x), whose quadratic means vanish (Wiener: lim (2T)^{−1}∫_{−T}^{T}|ν̂|² =
+ Σ|atoms of ν|² = 0). So M(|E|²) = 0, every Bohr coefficient of E vanishes, E ≡ 0, and the FE of D_a holds on the line, hence on the
+ strip σ₀ < σ < 1 − σ₀ where D_a converges; the FE then continues D_a to C, bounded in vertical strips and O(q^{|σ|}). The log*
+ decomposition of Lemma A (§4) holds verbatim (‖m − δ₁‖_σ → 0 as σ → ∞ by dominated convergence), so (Π_F)_atomic = Π_ζ + log*(m_a)
+ ≥ 0. ∎
+THEOREM L‴ (general form). Let F be a Beurling solution with (A) at q. If (i) ∫x^{−σ₀}d|m| < ∞ for some σ₀ < ½ ("F is ζ-divisible
+beyond the critical line") and (ii) the rational primes S occurring in the group generated by the atoms of m have σ_S < ½, then
+q = 1 and F = ζ.  Proof. Proposition S, then §4 steps (1)–(4) verbatim for F_a (Landau–Widder needs no local finiteness; D_a entire of
+order ≤ 1 by Prop. S), then BFE Theorem T. ∎   (§4's bounded-frequency case is σ₀ = −∞.)
+ROUTE (iii) — VERDICT (P). (a) The continuous systems of BFE §8(a) buy positivity with double poles at a, 1 − a; (A) forbids them, and
+E2 caps any continuous prime mass by log ρ_q, so the pole at 1 must be carried by atoms. (b) The exact-FE repairs of a continuous
+head are not lost in general position: the conductor-q FE for F = ζ·G is G(1 − s) = q^{s−½}G(s), whose rational-times-exponential
+solutions G = R(s) + q^{½−s}R(1 − s) have poles at the poles of R and at their mirrors; (A) allows them only at zeros of ζ. Example
+(the "zeta-zero repair"): R(s) = 1 + Σ_ρ c_ρ/(s − ρ) over finitely many nontrivial zeros, c_ρ̄ = c̄_ρ. Then F = ζ·G satisfies (A)
+EXACTLY (ζ(s)/(s − ρ) is entire; ζ(s)R(1 − s) likewise, 1 − ρ being a zero), and m = δ₁ + √qδ_q + Σ_ρ c_ρ[x^{ρ−1}1_{[1,∞)} −
+q^{ρ−½}x^{−ρ}1_{[q,∞)}]dx: a positive-looking head plus oscillating densities ≍ x^{−½}. A direct computation shows the continuous part
+G_c = Σ_ρ c_ρ[(s − ρ)^{−1} − √q q^{−s}(s − 1 + ρ)^{−1}] satisfies the FE BY ITSELF (q^{s−½}G_c(s) = G_c(1 − s), term by term), so
+the atomic part 1 + √q q^{−s} must satisfy it alone — the case of Prop. S — and (Π_F)_atomic = Π_ζ + log*(δ₁ + √qδ_q) has the mass
+Π_ζ(q²) − q/2 < 0 at q². More atoms in m_a lead back to L‴. So route (iii) produces no exact solution outside the residue of §4.
+COVERAGE OF L‴ (general). All of route (i) with thin rational part, continuous parts included; every zeta-zero repair whose atomic
+part is thin; every solution whose quotient F/ζ converges absolutely to the left of ½ with thin atoms. What it CANNOT see: solutions
+with F/ζ not absolutely convergent beyond ½ (F does not contain ζ: Davenport–Heilbronn-like twisted combinations, model sets), and
+the thick case.

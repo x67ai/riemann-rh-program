@@ -5,7 +5,17 @@ Object: `NOTE.md` (41,290 bytes, 340 lines, read whole; SHA-256 c1050e62fd1892ff
 `BRIEF.md`, `SHARED.md` (batches 0–5), `verify/` (thin2.c, thin_fr.c, rnums.c, dyadic_ms.py, t1/t3 scripts, logs), `sources/`,
 and the frontier it builds on (`fr/NOTE.md`, `fr/read-O.md`, `fr/read-F.md`). Independent re-runs: `verify-O/` (shares no code with `verify/`).
 
-**Verdict line (2026-10-01):** VERDICT-PLACEHOLDER
+**Verdict line (2026-10-01):** close **G (Lemma G named) with T-parts — AGREES-WITH-CORRECTIONS.** Theorem Z (RH): **AGREES** —
+re-derived at the line (Lemmas Z.a, Z.b; steps Z1–Z5), NEW. Cor. Z.1 (RH; every regular deletion, every c; A8 closed as a refutation
+corner): **AGREES**, NEW (its analytic input for c = 1 is already BDR §5, m11). Theorem C in mean square (unconditional): AGREES.
+Prop. 1.1: AGREES-WITH-CORRECTIONS (F1: (a) omits the b = 1 frequencies; the brief's correction (1 − p^{2σ−2}) and ρ2^{|R|}/12 are
+confirmed by raw-grouping brute force and exact integers). Prop. 1.3: AGREES. Rem. 1.3′: AGREES (m3: an α/3 barrier at α = ½, not
+"α/4 is the limit"). Lemma G, (G′), Prop. 1.6: AGREES-WITH-CORRECTIONS (F2: under RH Lemma G is equivalent to O₂ set by set — a
+reformulation, not a weaker input). §1.7, §2: AGREE. §3: every number reproduced by own code; the writer's data are bin-exact;
+AGREES-WITH-CORRECTIONS (F3: an independent 8-seed sample gives a top-window mean-square slope 0.860 ± 0.039, pooled 20 seeds
+0.816 ± 0.039 — α vs 2/(3−α) undecided; the sup statement stands; F4: "provably log-powers" is a fit). Stirling: verified, error
+O(t^{−2}). FIX-FIRST F1–F4 (none falsifies a theorem); MINOR m1–m12. Reader adds Prop. O1: β₂(R) ≥ α_R(1 − α_R)/4 for EVERY R,
+unconditionally (§7.1). No stop condition met.
 
 Status marks: ✓ = re-derived at the line and correct; GAP = a step that does not follow as written (FIX-FIRST pair, §5);
 MINOR = prose/constant (pair, §6); UNVERIFIED = a tool or fact not readable at the page in any source on disk.
@@ -261,3 +271,77 @@ Theorem Z ⇒ β₂(R) ≥ α_R/2; and β₂(R) ≥ α_R/2 makes Lemma G's hypot
 - NEW: `τ₀ < α_R/2 and T₀. — By Theorem Z, RH + Lemma G ⟹ Conjecture O (mean-square form, pure deletions) for every R; conversely, if β₂(R) ≥ α_R/2 Lemma G holds vacuously for R, so under RH Lemma G for R is EQUIVALENT to β₂(R) ≥ α_R/2 (read-O F2): its content is the form (a mean-square saving must force the continuation of P_R) and the one-directional sufficient conditions below. Equivalent form`
 - OLD (l. 311): `**Close: G — the exact missing lemma is Lemma G (§1.6) — with T-parts; task 2 a named obstruction; task 3 N.**`
 - NEW: `**Close: G — the exact missing lemma is Lemma G (§1.6; under RH equivalent to O₂ set by set — a reformulation, read-O F2) — with T-parts; task 2 a named obstruction; task 3 N.**`
+
+**F3 — the α = 0.75 verdict in mean square (l. 28–29; l. 260; l. 307; l. 326–327).** Re-run §2.4: an independent 8-seed sample at
+10¹⁰ (own code, own RNG) gives a top-window mean-square slope 0.860 ± 0.039; pooled 20 seeds 0.816 ± 0.039, i.e. 1.7σ above α and
+1.9σ below 2/(3 − α); the sup statement (0.399 ± 0.011; pooled 0.395 ± 0.010) stands.
+- OLD (l. 28–29): `(5) Data: rung 1 exact; the α = 0.75 tension was a four-seed` / `fluctuation (12 seeds: top-window sup-slope 0.392 ± 0.016, mean-square slope 0.787 ± 0.059; note (iii) answered); greedy sets fall`
+- NEW: `(5) Data: rung 1 exact; the α = 0.75 tension was a four-seed` / `fluctuation in the sup statistic (12 seeds: top-window sup-slope 0.392 ± 0.016; with read-O's 8 independent seeds 0.395 ± 0.010), while the top-window mean-square slope (12 seeds 0.787 ± 0.059; 20 seeds 0.816 ± 0.039) does not separate α from 2/(3 − α) — note (iii) answered for the sup only; full windows sit at α; greedy sets fall`
+- OLD (l. 260): `vs 0.313–0.429). **The four-seed excess was a small-sample fluctuation; the tension resolves toward α/2 (sup) and α (mean square).**`
+- NEW: `vs 0.313–0.429). **The four-seed excess was a small-sample fluctuation (a post-selection effect: these four realizations raised the question); in the sup the tension resolves toward α/2. In mean square the top window does not decide: an independent 8-seed sample (read-O §2.4) gives 0.860 ± 0.039, the two fresh samples differ by 2.9σ of their own errors, and the pooled 20 seeds give 0.816 ± 0.039 (1.7σ above α, 1.9σ below 2/(3 − α)); full windows [10⁴, 10¹⁰] sit at α (pooled 0.735 ± 0.014).**`
+- OLD (l. 307): `artefact of a frozen future); the α = 0.75 tension resolved (§3.3); rung 1 reproduced exactly (§3.2).`
+- NEW: `artefact of a frozen future); the α = 0.75 sup tension resolved, the top-window mean square undecided (§3.3, read-O §2.4); rung 1 reproduced exactly (§3.2).`
+- OLD (l. 326–327): `the α = 0.75 tension resolved by 12 seeds (top-window` / `sup-slope 0.392 ± 0.016; the fr four seeds are the four highest);`
+- NEW: `the α = 0.75 sup tension resolved by 12 seeds (top-window` / `sup-slope 0.392 ± 0.016; the fr four seeds are the four highest; read-O's 8 independent seeds 0.399 ± 0.011), the top-window mean square undecided between α and 2/(3 − α) (20 seeds 0.816 ± 0.039);`
+
+**F4 — "provably log-powers" (l. 30; l. 275).** What is proved for the greedy sets is β₂ ≥ α/2 (c = 1 unconditionally by Theorem C
+in mean-square form, c = 2 under RH by Cor. Z.1), so a pure-power deficit cannot persist; that the deficit has the form
+(ln X)^{−κ} with κ ≈ 2.3–3 is a fit (reproduced, §1.9; the writer's `t3_kappa.py`: "over one data range both fit").
+- OLD (l. 30): `below X^{α−δ} in pure-power slope but are provably log-powers (κ ≈ 2.3–3), and a new feedback design fails for a proved reason.`
+- NEW: `below X^{α−δ} in pure-power slope although β₂ ≥ α/2 is proved for them (c = 1 unconditionally, c = 2 under RH), so the deficit is a finite-range effect, fitted as a log-power (κ ≈ 2.3–3); a new feedback design fails for a proved reason.`
+- OLD (l. 275): `[proved here, one line] — and for c = 2 under RH (Corollary Z.1). So on these sets the deficit IS a log-power, κ ≈ 2.3–3 relative`
+- NEW: `[proved here, one line] — and for c = 2 under RH (Corollary Z.1). So on these sets the pure-power deficit cannot be the exponent; fitted as a log-power it has κ ≈ 2.3–3 relative`
+
+## §6. MINOR pairs (prose and constants)
+
+- **m1** (l. 48) OLD `R = {2}, σ = 0.2: 6.92914577326 (sum) = 6.92914577326 (corrected` → NEW `R = {2}, σ = 0.2: ρ^{−2}·(sum) = 6.92914577326 = ρ^{−2}·(corrected` (with the displayed ρ² both are 1.73228644332).
+- **m2** (l. 74) OLD `≤ 2π(2T+1)²V(σ) ≪ T².` → NEW `≤ 2π(2T+1)²(V(σ) + ρ²/(2 − 2σ)) ≪ T² (the second term is the (0, 1) part of the Mellin integral).`
+- **m3** (l. 68) OLD `**1.3 The reflected route pushed to its limit: α_R/4, and why growth information stops there.**` → NEW `**1.3 The reflected route pushed through: α_R/4, and why growth information cannot reach α_R/2.**`; (l. 94) OLD `fails on (α/3, α/2); no mean-value theorem driven by growth alone closes the gap.` → NEW `fails on (α/3, α/2) at α = ½ (η(ks), α = 1/k, gives only (α/(2+2α), α/2)); no mean-value theorem driven by growth alone reaches α/2 — whether growth alone can pass α/4 is not decided.`
+- **m4** (l. 107) OLD `M + |g(z₀)| (M′ ≥ 0 as Re h has mean 0 on the circle); φ = h/(2M′ − h) is analytic` → NEW `M + |g(z₀)| (M′ ≥ 0 as Re h has mean 0 on the circle), hence Re h ≤ M′ inside (maximum principle; 2M′ − h ≠ 0 unless h ≡ 0); φ = h/(2M′ − h) is analytic`.
+- **m5** (l. 117) OLD `and D_R = ζ_P/ζ there (identity theorem on each component of U₊, each of which meets σ > 1).` → NEW `and D_R = ζ_P/ζ on U₊ ∩ {σ > β₂} (identity theorem on each component, each of which meets σ > 1).`; (l. 118) OLD `(Z3) Polynomial bound on U′ = {σ ≥ τ + δ/2, |t| ≥ T₁}.` → NEW `(Z3) Polynomial bound on U′ = {σ ≥ τ + δ/2, |t| ≥ T₁}, T₁ := max(T₀, 1) + 1 (so U′ ⊂ U₊).`
+- **m6** (l. 138, l. 197) OLD `fr §6.3(iv)` → NEW `fr §6.2′(iv), l. 373` (both occurrences).
+- **m7** (l. 161–162) OLD `branch points in every half-plane σ > τ₀, τ₀ < α_R/2.` → NEW `branch points in every half-plane σ > τ₀, τ₀ < α_R/2, or has infinite order there (as in Theorem Z's contrapositive).`; (l. 320) OLD `finitely many zeros and poles in some σ > τ₀, τ₀ < α_R/2.` → NEW `finitely many zeros and poles, and finite order, in some σ > τ₀, τ₀ < α_R/2.`
+- **m8** (l. 169) OLD `as for random R, which Theorem B excludes almost surely.` → NEW `as for random R, which Theorem B excludes almost surely (Theorem B is a sup statement; its mean-square form follows a.s. by Fubini over [X, 2X], reverse Fatou along X = 2^j and the 0–1 law of its step (2) — read-O §1.6).`
+- **m9** (l. 176) OLD `the error Σ|a_n|²/δ_n forces N ≤ T^{1/(K+1)}, and the diagonal` → NEW `the error Σ|a_n|²/δ_n ≤ N^KΣ|a_n|² allows N = T^{1/K−ε} (any fixed power suffices; Hilberdink's (3.1) gives K = A + 1), the frequencies must be distinct (a ∉ R, no a^k = p^j), and the diagonal`.
+- **m10** (l. 24) OLD `(2) The repair is Hilberdink's: take logarithms.` → NEW `(2) The repair is Hilberdink's order-zero device (he uses the logarithmic derivative φ_P = −ζ′_P/ζ_P, w-18a p. 336; here the logarithm, with Borel–Carathéodory as in Broucke–Hilberdink 2024).`
+- **m11** (l. 186) OLD `Broucke–Hilberdink 2024 ll. 200–210.` → NEW `Broucke–Hilberdink 2024 ll. 200–210. Cor. Z.1's hypothesis check ↔ BDR §5 (z-02 ll. 1183–1203: log ζ_S(s) = log ζ(s+1−α) + O_ε(√log|t|) on Re s ≥ α/2 + ε under RH, for their c = 1 selection, used there for upper bounds).`
+- **m12** (l. 277) OLD `and the c = 2 decline has the same form and size as the c = 1 one.` → NEW `and the c = 2 decline has the same form and size as the c = 1 one relative to M_diag (κ 2.32 vs 2.80–3.00; relative to X^α the c = 2, α = 0.6 deficit is κ₀ = 1.40 ± 0.24, read-O §1.9).`
+
+## §7. What the reader adds, and the next unit
+
+**7.1 An unconditional positive exponent for EVERY R** [proved by the reader; single-check; novelty: not in any source read].
+*Proposition O1.* If Σ_{p∈R}1/p < ∞ and α_R < 1, then for every ε > 0 and all large X, (1/X)∫_X^{2X}E(x)²dx ≫_{R,ε} Q_R(X^{(1−α_R)/2−ε});
+hence β₂(R) ≥ α_R(1 − α_R)/4, with no hypothesis on ζ and none on the regularity of R.
+*Proof.* Local coefficients ĉ_X(ν) := (1/X)∫_X^{2X}E(x)e(−νx)dx at ν = a/b, b ∈ ⟨R⟩, (a, b) = 1. On [X, 2X], E = −Σ_{m≤2X}μ(m)(½ + f_m(x))
+− xΣ_{m>2X}μ(m)/m, f_m(y) = {y/m} − ½ = −Σ_{h≠0}e(hy/m)/(2πih) (boundedly convergent). (i) The constant and the linear tail contribute
+O(bQ_R(2X)/(|a|X)) and O(bΣ_{m>2X}1/m/|a|), both ≪ bX^{α_R−1+ε}/|a| (Rankin: Q_R(Y) ≪ Y^{α_R+ε}). (ii) b | m: f_m(x)e(−νx) is
+m-periodic with mean −b/(2πiam); the incomplete period costs (m/X)·O(1/|h|) = O(b/(|a|X)) (h = am/b, integration by parts on
+({u} − ½)e(−hu)); for X < m ≤ 2X the same bound holds directly. (iii) b ∤ m: no h/m equals a/b; with j = hb − am ≠ 0 (a residue class
+mod b), |(1/X)∫_X^{2X}e((h/m − ν)x)dx| ≤ min(1, mb/(πX|j|)), and splitting h at |a|m/(2b) and 2|a|m/b gives a leakage
+≪ b²log(|a|X)/(|a|X) per m. Summing: ĉ_X(a/b) = c(a/b) + O(b²X^{α_R−1+ε}/|a|), c(a/b) = ρμ(b)b/(2πiaφ(b)) (the full sum over m, b | m).
+(iv) The frequencies ±1/b, b ∈ ⟨R⟩, b ≤ B, are 1/B²-separated; the dual of the MV mean-value inequality (from (G.27)) gives
+X²Σ|ĉ_X(±1/b)|² ≤ (X + O(B²))∫_X^{2X}E². With B = X^{(1−α_R)/2−ε} every |ĉ_X(±1/b)| ≥ ρ/(4π) for large X, so (1/X)∫_X^{2X}E² ≥
+(ρ²/(8π²))Q_R(B)(1 + o(1)). Q_R(B) ≥ π_R(B) ≥ B^{α_R−ε} infinitely often. ∎
+*Check* (`verify-O/bessel_O.py` → `logs/bessel_O.log`, reader's T_0.75 seed 1001): |ĉ_X(1/b) − c(1/b)|/|c(1/b)| ≤ 0.017, 0.007, 0.0012 at
+X = 10⁶, 10⁷, 10⁸ for all eighteen R-numbers b ≤ 58 — far inside the proved leakage scale b²X^{α−1} (signs cancel in practice).
+*Remarks.* (a) For α_R < ½ it is weaker than Prop. 1.3 (α_R/4 under RH) but it is unconditional and covers every R; the NOTE has no
+unconditional bound for irregular R. (b) Its natural ceiling is α_R/4 even with perfect leakage control: only frequencies a/b with
+b ≤ √X are resolved by a window of length X, and their diagonal is Q_R(√X) ≍ X^{α_R/2}. That Prop. 1.3 stops at the same α_R/4 is no
+coincidence — both see only the resolved part of the spectrum; α_R/2 needs the unresolved pairs (incomplete periods of b ∈ (√X, X]),
+the step read-F (fr) §4(a) names and Lemma G encodes analytically. (c) A smooth window should improve the leakage to b^{2−α_R}X^{α_R−1+ε}
+and the exponent to α_R(1 − α_R)/(2(2 − α_R)) [heuristic, not checked].
+
+**7.2 Smaller additions.** Theorem B in mean-square form a.s. (§1.6, m8). Lemma G's logical status (F2). The writer's data are exact
+(hash reproduction, §2.1). The top-window mean-square question is open, not resolved (F3). BDR §5 already contains Cor. Z.1's analytic
+input for c = 1 (m11). Hilberdink's 2010 mean-value Ω-result has a published corrigendum; the NOTE's MV-based lower bounds avoid it.
+
+**7.3 Next unit (standing order 10: construct or refute).** *"The resolved/unresolved split for Conjecture O."* Prove, unconditionally
+and for every R, β₂(R) ≥ α_R/4 (Prop. O1 with an averaged leakage bound over b ≤ √X — the Farey ceiling), then attack α_R/4 → α_R/2
+through the incomplete-period Franel pairs (b, b′ ∈ (√X, X], lcm > X), the one step every route in this unit and the frontier
+leaves open. Refutation side, same unit: Prop. 1.6 fixes the only shape a counterexample can have — D_R with infinitely many zeros
+(not branch points) of real part in (α_R/2, α_R], i.e. π_R carrying infinitely many unit-amplitude oscillations x^{β₀ ± iγ_k},
+β₀ ∈ (α/2, α), on top of a c = 2 density (so that every Landau branch point sits below α/2). Build it by a greedy selection from
+dF = (2u^{α−1} + 2Σ_k u^{β₀−1}cos(γ_k log u)·1[u ≥ U_k]) du/log u (U_k chosen so dF ≥ 0), run it to 10¹⁰ with the κ-calibrated
+trigger (NOTE §3.4), and either prove β₂ ≥ α/2 for it by a route that does not need P_R's continuation, or report the first
+structured counterexample to O (and to U, under RH). Companion items: apply F1–F4 and m1–m12; restate O's A-clause with a
+separation hypothesis (§1.7); NOTE's next units (a)–(c) stand.

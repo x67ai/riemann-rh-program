@@ -117,3 +117,17 @@ Append-only log of batches. Newest block last. Times IST.
   has log ζ_S(s) = log ζ(s+1−α) + O(√log|t|) on Re s ≥ α/2 + ε under RH — the analytic input of Cor Z.1 for c = 1, used there for
   upper bounds); Hilberdink 2010 + 2025 erratum (mean-value Ω for ζ_P, flawed proof). Reader arXiv sweep (10 queries,
   `verify-O/arxiv/`): nothing on Theorem Z / Lemma G.
+
+## 2026-10-01 06:05 — reader O, batch 3: read-O.md complete (verdict AGREES-WITH-CORRECTIONS)
+- `read-O.md` (≈ 46 kB): verdict line; §1 re-derivations (Prop 1.1 both forms + Parseval, Prop 1.3, Rem 1.3′, Theorem Z with
+  Lemmas Z.a/Z.b, Cor Z.1, Lemma G/(G′), Prop 1.6, §1.7, §2, §3 claims); §2 independent re-run; §3 prior-art table at the page;
+  §4 recalled input; §5 FIX-FIRST F1–F4 (OLD/NEW, all 26 OLD fragments verified verbatim in NOTE.md); §6 MINOR m1–m12; §7 additions.
+- Verdict: close G with T-parts AGREES-WITH-CORRECTIONS. Theorem Z AGREES (NEW); Cor Z.1 AGREES (NEW; c = 1 input is BDR §5).
+  F1: Prop 1.1(a) must include b = 1. F2: under RH Lemma G ⇔ O₂(R) (reformulation). F3: top-window mean square undecided
+  (reader's 8 fresh seeds 0.860 ± 0.039; pooled 20: 0.816 ± 0.039). F4: "provably log-powers" → fitted log-powers.
+- Reader adds Prop O1 (unconditional, every R): (1/X)∫_X^{2X}E² ≫ Q_R(X^{(1−α_R)/2−ε}) ⇒ β₂(R) ≥ α_R(1−α_R)/4, via local Fourier
+  coefficients at 1/b (b ∈ ⟨R⟩) and the dual MV large sieve; checked numerically (`verify-O/bessel_O.py`). Ceiling of the method:
+  α_R/4 (Farey resolution), the same as Prop 1.3 — α_R/2 needs the unresolved incomplete-period pairs.
+- Next unit proposed (read-O §7.3): the resolved/unresolved split for O (unconditional α_R/4 for every R, then the Franel pairs
+  with lcm > X); refutation side: the "zero-carrying deletion" (c = 2 density + switched-on unit-amplitude oscillations at
+  β₀ ± iγ_k, β₀ ∈ (α/2, α)) — the only shape Prop 1.6 allows.

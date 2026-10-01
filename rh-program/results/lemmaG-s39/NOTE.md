@@ -75,3 +75,126 @@ Moreau 1872) [recalled, unverified]; the rung-1 dictionary "RH-true curve with p
 curve V (a whole system over 5^ℤ). Difference: here a DELETION from the exact system F_q[T] (Weil-RH ambient, a genuine function
 field), with α_R > 0 prescribed, is exactly regular — a statement about Conjecture O's own class, which V is not.
 
+## §2. Over ℚ: the local structure of P_R left of the product, the criterion, and the sharpened anatomy
+
+**2.1 Theorem (local structure; unconditional)** [proved here; novelty: single-check]. Let R be any deletion; β₂ := β₂(R) ≤ α_R
+(|E(x)| ≤ Q_R(x) + xΣ_{m∈⟨R⟩, m>x}1/m ≪ x^{α_R+ε}). Then:
+(a) D_R = ζ_P/ζ is meromorphic on {σ > β₂}. For w there put n(w) := ord_w D_R ∈ ℤ. Then n(w) = 0 if Re w > α_R, and n(w) < 0
+only at zeros of ζ, with n(w) ≥ −ord_w ζ.
+(b) For Re s₀ > β₂ the sum κ(s₀) := Σ_{m≥1}μ(m)n(ms₀)/m is finite, and P_R continues analytically along every path in {σ > β₂}
+avoiding the discrete set Σ_R := {w/m : n(w) ≠ 0, m ≥ 1}; near s₀ every branch is P_R(s) = −κ(s₀)log(s − s₀) + h(s), h analytic at s₀.
+(c) Hence κ(s₀) = n(s₀) ∈ ℤ if Re s₀ > α_R/2; κ(s₀) = n(s₀) − n(2s₀)/2 ∈ ½ℤ if Re s₀ = α_R/2; κ(s₀) ∈ (1/L)ℤ, L = lcm{m ≤ α_R/Re s₀},
+if β₂ < Re s₀ < α_R/2.
+*Proof.* (a) On σ > β₂, ζ_P(s) = ρs/(s − 1) + s∫_1^∞E(x)x^{−s−1}dx is analytic except for the simple pole at 1 (cO Prop. 1.3(i)); ζ is
+meromorphic with a simple pole at 1, so D_R = ζ_P/ζ is meromorphic with D_R(1) = ρ ≠ 0. For Re w > α_R the product converges
+absolutely and is ≠ 0. Where ζ(w) ≠ 0, w ≠ 1, D_R is analytic; so poles sit at zeros of ζ, of order ≤ ord_w ζ. (b) For σ > α_R,
+L(s) = −Σ_k P_R(ks)/k gives, by Möbius inversion, P_R(s) = −Σ_m μ(m)m^{−1}L(ms). L = log D_R continues along paths avoiding the zeros
+and poles of D_R. On a compact K ⊂ {σ > β₂} the terms with m > (α_R + 2)/min_K σ have Re(ms) > α_R + 2 and are O(2^{−m·min_K σ})
+uniformly, so the series defines the continuation along every admissible path; Σ_R ∩ K is finite (w/m ∈ K with n(w) ≠ 0 forces
+Re w ≤ α_R, so m ≤ α_R/min_K σ, and D_R has finitely many zeros and poles in the compact mK). Near s₀, D_R(w) = (w − ms₀)^{n(ms₀)}g_m(w)
+with g_m analytic and nonzero at ms₀, so L(ms) = n(ms₀)log(s − s₀) + (analytic), and summing gives (b). (c): for m ≥ 2 and
+Re s₀ > α_R/2, Re(ms₀) > α_R, so n(ms₀) = 0; at Re s₀ = α_R/2 only m = 2 survives besides m = 1 (μ(2) = −1). ∎
+**2.2 Corollary (the criterion; unconditional).** β₂(R) ≥ Re s₀ for every point s₀ at which P_R (continued from σ > α_R along some
+path) has a singularity NOT of the form −κ log(s − s₀) + analytic with κ in the set 2.1(c) allows. In particular:
+(i) a natural boundary of P_R on σ = σ_b gives β₂ ≥ σ_b (= cO Prop. 1.6(i));
+(ii) a pole, an essential singularity, an algebraic branch point or a non-isolated singularity at Re s₀ = σ₀ gives β₂ ≥ σ₀;
+(iii) a logarithmic singularity with κ ∉ ℤ at Re s₀ > α_R/2 gives β₂ ≥ Re s₀; at Re s₀ = α_R/2, κ + n(2s₀)/2 ∉ ℤ gives β₂ ≥ α_R/2;
+(iv) a logarithmic singularity with κ ∈ ℤ, κ < 0 at Re s₀ > α_R/2 with ord_{s₀}ζ < −κ (e.g. ζ(s₀) ≠ 0) gives β₂ ≥ Re s₀ (D_R would
+have a pole of order −κ at s₀, which (a) forbids right of β₂).
+*Proof.* If β₂ < Re s₀, Theorem 2.1 applies at s₀, and in (i) on a neighbourhood of a whole segment of the line. ∎
+*What it buys.* For a concrete R, Conjecture O (even β₂ ≥ σ₀ > α_R/2) reduces to exhibiting ONE forbidden singularity of P_R at
+Re s₀ ≥ α_R/2. It sharpens cO Prop. 1.6(i) from "no natural boundary" to an exact list of the admissible local germs.
+**2.3 Proposition (the anatomy sharpened; RH)** [proved here]. Assume RH, α_R < ½, and β₂(R) < α_R/2. Then (a) D_R is ANALYTIC on
+σ > β₂ (its poles could only sit at zeros of ζ, which lie on σ = ½ > α_R, where n = 0), with |D_R(s)| ≪_δ |t|^{O(1)} on σ ≥ β₂ + δ,
+|t| ≥ 1 (cO Theorem Z steps Z1, Z3); (b) for every τ₀ ∈ (β₂, α_R/2), D_R has infinitely many ZEROS in τ₀ < σ ≤ α_R. *Proof of (b).*
+If only finitely many, take T₀ above them: L = log D_R is analytic on U = {σ > τ₀, |t| > T₀} with Re L ≤ O(log|t|), so |L| ≪ log|t|
+on {σ ≥ τ₀ + η} (Lemma Z.a), and P_R = −Σ_m μ(m)L(ms)/m is analytic on U (ms ∈ U for s ∈ U) with |P_R| ≪ log|t|: Theorem Z's hypothesis,
+so β₂ ≥ α_R/2, a contradiction. ∎ This replaces cO Prop. 1.6(ii)'s "zeros or poles" by "zeros, no poles" (α_R < ½); rung 1 (§1.3(b))
+realizes exactly this anatomy.
+
+## §3. Deterministic irregular classes on which O is a theorem (the T-parts)
+
+Gap inputs used below, all [recalled, unverified; standard]: Ingham 1937, p_{n+1} − p_n ≪ p_n^{5/8+ε}; Huxley 1972, π(y + y^{7/12+ε}) − π(y)
+≍ y^{7/12+ε}/log y; the first nontrivial zero ρ₁ = ½ + 14.1347…i is simple and ζ has no zero in {0 < σ < 1, 0 < |t| < 14.13}.
+
+**3.1 Theorem T2 (prime-power mimics; unconditional)** [proved here; novelty: single-check]. Let k ≥ 2, θ′ := 5/8 + ε, and for each
+prime p ≥ p₀ let r_p be a prime in [p^k, p^k + p^{kθ′}] (it exists by Ingham; the intervals are disjoint for p ≥ p₀). Put R_k := {r_p}.
+Then α_R = 1/k, and **β₂(R_k) ≥ 1/(2k) = α_R/2.** Under RH, D_R has a pole at every ρ/k (all on σ = α_R/2) and P_R has logarithmic
+branch points there: P_R neither continues past α_R/2 off the axis nor has a natural boundary on σ = α_R/2.
+*Proof.* |r_p^{−s} − p^{−ks}| = |s∫_{p^k}^{r_p}u^{−s−1}du| ≤ |s|p^{kθ′}p^{−k(σ+1)}, summable over p iff σ > σ_C := 1/k − 1 + θ′, and
+σ_C < 1/(2k) because θ′ < 1 − 1/(2k). So C(s) := Π_{p≥p₀}(1 − r_p^{−s})/(1 − p^{−ks}) converges absolutely on σ > σ_C (analytic,
+zero-free), and D_R(s) = C(s)·Π_{p<p₀}(1 − p^{−ks})^{−1}·ζ(ks)^{−1}. At s₀ := ρ₁/k: Re s₀ = 1/(2k) > σ_C, 0 < Im s₀ = γ₁/k < γ₁, so
+ζ(s₀) ≠ 0, while 1/ζ(ks) has a simple pole at s₀ and the other factors are finite and ≠ 0: D_R has a pole at s₀. If β₂ < Re s₀,
+Theorem 2.1(a) would force ζ(s₀) = 0. Hence β₂ ≥ 1/(2k). π_R(x) = π(x^{1/k}) + O(1) gives α_R = 1/k. ∎
+*Why the class matters.* π_R(x) − li(x^{1/k}) = Ω_±(x^{1/(2k)}(log x)^{−1}log log log x) (Littlewood) [recalled]: R_k is irregular at
+scale x^{α_R/2}, outside Cor. Z.1 and outside cO Lemma G's decomposition clause (any M with π_R = M + O(x^θ), θ < α_R/2, carries the
+branch points of P(ks) at ρ/k). Under RH ζ_P/ζ = D_R has infinitely many POLES of real part α_R/2: the anatomy of cO Prop. 1.6
+(necessary for a counterexample) holds, and O holds anyway — the anatomy is not sufficient. If RH is false with a zero ρ, Re ρ = Θ > ½,
+and ζ(ρ/k) ≠ 0, the pole at ρ/k gives β₂(R_k) ≥ Θ/k > α_R/2: these deterministic deletions see an off-line zero directly.
+*Nearest published object:* the squarefree-number error Q(x) − 6x/π², whose Ω-results come from the poles of 1/ζ(2s) at ρ/2
+(Evelyn–Linfoot; Montgomery–Vaughan 1981) [recalled, unverified]. Difference: the "squares" are replaced by single primes r_p ≈ p^k,
+which makes the object a deletion of primes (Conjecture O's class) with α_R = 1/k.
+
+**3.2 Theorem T3 (a pole of P_R at α_R; unconditional)** [proved here]. Let k ≥ 3, r_n a prime in [n^k, n^k + n^{kθ′}] (n ≥ n₀; distinct,
+as (n+1)^k − n^k ≫ n^{k−1} > n^{kθ′}), R := {r_n}. Then α_R = 1/k and **β₂(R) = α_R** (the maximum; β₂ ≤ α_R always).
+*Proof.* As in 3.1, P_R(s) = ζ(ks) − Σ_{n<n₀}n^{−ks} + H(s) with H analytic on σ > θ′ − 1 + 1/k (< 1/k): P_R has a simple pole at
+s = 1/k = α_R, which Corollary 2.2(ii) forbids right of β₂. ∎ For k = 2 (r_n = nextprime(n²)) the same holds as long as the r_n are
+distinct (Legendre's conjecture; checked for n ≤ 3·10⁵ in the run, 0 collisions). *Predicted law* [heuristic: Mellin inversion around the
+essential singularity exp(−(1/k)/(s − 1/k)) of D_R]: E(x) ≈ A·x^{1/k}(log x)^{−3/4}cos(2√(log x/k) + φ) — for k = 2 a frequency
+√(2 log x) in √log x, with no free parameter. Tested in §4.
+
+**3.3 Theorem T4 (modulated deletions; a deterministic natural boundary at α_R/2; unconditional)** [proved here; novelty: single-check].
+Let 0 < α < 1, c > 0, F_c(x) = Σ_{p≤x}min(1, cp^{α−1}), and T = F_c + G with G(x) = x^{α/2}Σ_j a_j cos(γ_j log x), where (γ_j) is an
+enumeration of the positive rationals by height and a_j = ε·2^{−j}/(1 + γ_j) (ε small). The greedy set R ("delete p iff #R∩[2, p) < T(p)")
+has |π_R − T| ≤ 1 for large x (T increases by ≤ 1 between consecutive primes there). Then α_R = α and **P_R has a natural boundary on
+σ = α/2; so β₂(R) ≥ α/2.** More generally, for any R with π_R = F_c + G + O(x^θ), θ < α/2: if Ĝ(s) := ∫u^{−s}dG(u) has at some s₀,
+Re s₀ ≥ α/2, a singularity forbidden by Corollary 2.2, then β₂ ≥ Re s₀; if Ĝ continues with finite order past α/2 off the axis, then
+β₂ ≥ α/2 under RH (the proof of Cor. Z.1 verbatim).
+*Proof.* P_R(s) = cP(s + 1 − α) + (entire) + Σ_j (a_j/2)(s_j/(s − s_j) + s̄_j/(s − s̄_j)) + H(s), s_j := α/2 + iγ_j, H analytic on σ > 0
+(partial summation, |π_R − T| ≤ 1); the j-series converges on σ > α/2 (Σa_j|s_j| < ∞), and near each s_j the term cP(s + 1 − α)
+(argument w = 1 − α/2 + iγ_j, Re w ∈ (½, 1)) is analytic or has at most a logarithmic singularity (at a zero of ζ), which cannot cancel a
+pole. At s = s_j + δ, δ ↓ 0, the j-th term is a_js_j/(2δ) → ∞ while the
+others are bounded by Σ_{i≠j}a_i|s_i|/|γ_i − γ_j| ≤ Σ_i a_i|s_i|q_iq_j < ∞ (q = denominators; |γ_i − γ_j| ≥ 1/(q_iq_j)). So every s_j is a
+singularity, and {s_j} is dense on σ = α/2. Corollary 2.2(i)–(ii). ∎ (One planted j already gives β₂ ≥ α/2; the density is what makes
+the brief's natural-boundary shape (ii) true for a deterministic R.)
+
+**3.4 The rung-1 counterexample transplanted to ℚ: necklace deletions.** a = 2, λ = log 4, c_N := M(2, N) (§1.2). Over ℚ the
+frequency N log q cannot carry c_N primes, so the cluster must be realized by distinct primes near 4^N. Two transplants, both α_R = ½:
+R_tight = the first c_N primes after 4^N (they lie in [4^N, 4^N + 4^{(7/12+ε)N}] for large N, Huxley); R_spr = {nextprime(4^N + j⌊4^N/c_N⌋) :
+0 ≤ j < c_N} (distinct for large N: 4^N/c_N ≈ N2^N exceeds the Ingham gap 4^{(5/8+ε)N}).
+*Theorem T5 (spread necklace; unconditional)* [proved here]. **β₂(R_spr) = α_R = ½.** *Proof.* |r^{−s} − (4^N(1 + j/c_N))^{−s}| ≤
+|s|(4^{(5/8+ε)N} + c_N)4^{−N(σ+1)}, so summing the c_N terms of each N, P_R(s) = Σ_N 4^{−Ns}Σ_{j<c_N}(1 + j/c_N)^{−s} + (analytic on
+σ > 1/8 + ε). Euler–Maclaurin: Σ_{j<c}(1 + j/c)^{−s} = cΦ(s) + ½(1 − 2^{−s}) + O(|s|²/c), Φ(s) := ∫_1^2v^{−s}dv. So
+P_R(s) = Φ(s)𝒩(s) + (analytic near s = ½), 𝒩(s) := Σ_N c_N4^{−Ns} = −Σ_m (μ(m)/m)log(1 − 2·4^{−ms}), whose m = 1 term is
+−log(s − ½) + analytic near ½ (the m ≥ 2 terms are analytic there). Hence near s₀ = ½ = α_R, P_R = −Φ(s)log(s − ½) + analytic: the
+coefficient Φ(½) = 2(√2 − 1) = 0.828… is not an integer (and the germ is not even of the form κ·log + analytic), which Corollary 2.2
+forbids at Re s₀ = α_R > α_R/2. So β₂ ≥ ½ = α_R ≥ β₂. ∎ [Predicted: D_R ≈ (s − ½)^{0.828}B(s), E ≈ C·x^{1/2}(log x)^{−1.83}, M ≈
+X(log X)^{−3.66}: local mean-square slope ≈ 1 − 3.66/ln X = 0.82 at 10⁹ — §4.]
+*The tight necklace is the exact transplant.* On σ > 1/12 + ε, D_R(R_tight) = (1 − 2·4^{−s})·C(s) with
+C(s) := Π_{N,j}(1 − r_{N,j}^{−s})/(1 − 4^{−Ns}) absolutely convergent (Σ_N c_N·4^{(7/12+ε)N}·4^{−N(σ+1)} < ∞), analytic and zero-free
+(the cyclotomic identity Π_N(1 − 4^{−Ns})^{c_N} = 1 − 2·4^{−s} is §1.2's with u = 4^{−s}). So D_R continues analytically past α_R/2 = ¼
+with infinitely many simple zeros at ½ + 2πik/log 4, no poles; P_R has logarithmic branch points with the coefficients 2.1(c) allows
+(κ = 1 on σ = ½, κ = −½ on σ = ¼): exactly rung 1's anatomy (§1.3(b)), and Corollary 2.2 is silent. What separates it from rung 1 is
+the factor C, whose logarithm carries the coefficient −1 at every log r (r ∈ R) — the prime diagonal. That is what the next theorem uses.
+
+**3.5 Theorem F (model factorization; RH)** [proved here; novelty: single-check]. Let α_R < ½, τ₀ < α_R/2, T₀ ≥ 1, and suppose D_R
+continues analytically to Ω := {σ > τ₀, |t| > T₀} and factors there as D_R = G·C with:
+(F1) C analytic and zero-free on Ω ∪ {σ > α_R}; log C (the branch → 0 as σ → +∞) equals, for σ > σ₁, an absolutely convergent
+Σ_λ b_λe^{−λs} with frequencies λ ≥ λ₀ > 0 separated by |λ − λ′| ≥ e^{−K max(λ,λ′)};
+(F2) G analytic on Ω, G → 1 as σ → +∞ uniformly in t, |G| ≤ C₀|t|^A on Ω, and polynomial minimum modulus on circles: for every centre
+z₀ = α_R + 2 + it₀ (|t₀| large) and radius ρ₁ ≤ α_R + 2 − τ₀ there is ρ′ ∈ [ρ₁ − η, ρ₁] with log|G| ≥ −A log|t₀| on |s − z₀| = ρ′ (η > 0 fixed);
+(F3) for every σ < α_R/2: Σ_{λ≤log N}|b_λ|²e^{−2σλ} ≥ N^{δ₀(σ)} for infinitely many N, some δ₀(σ) > 0.
+**Then β₂(R) ≥ α_R/2.** (Theorem Z is the case G ≡ 1, where (F3) is Σ_{p∈R}p^{−2σ} = ∞.)
+*Proof.* Theorem Z's proof (cO §1.4) with L replaced by log C. Suppose β₂ < α_R/2 and fix τ, δ, σ* as there with τ > max(β₂, τ₀),
+η < δ/4. (Z1), (Z3) are unchanged: |D_R| ≪ |t|^{O(1)} on σ ≥ τ + δ/2 (this is where RH enters). On the circles of (F2),
+log|C| = log|D_R| − log|G| ≤ O(log|t₀|); Lemma Z.a needs Re g ≤ M only on the boundary circle, so (Z4) gives |log C| ≪ log|t| on
+σ ≥ τ + δ. (Z5) runs with A_N(s) := Σ_λ b_λe^{−λs}e^{−e^λ/N} and N := T^{1/(K+1)}: the Mellin–Barnes shift uses only analyticity and
+the log bound of log C, and the Montgomery–Vaughan inequality (G.27) holds for any distinct reals; the separation keeps its error term
+below the diagonal, as in cO §1.7. Result: Σ_{λ≤log N}|b_λ|²e^{−2σ*λ} ≪ (log N)², contradicting (F3). ∎
+*Corollary F.1 (RH): β₂(R_tight) ≥ α_R/2.* G := 1 − 2·4^{−s}: periodic in t with simple zeros on σ = ½ only, |G| ≤ 3 on σ ≥ 0, and a
+radius ρ′ ∈ [ρ₁ − η, ρ₁] keeping the circle at distance ≥ η/10 from the zeros exists (the zeros are 2π/log 4 ≈ 4.5 apart), so (F2)
+holds with a constant lower bound. (F1): log C has frequencies k log r (r ∈ R) and n log 4, distinct (r^k ≠ 4^n) and separated by
+≥ 1/(2e^λ); absolutely convergent for σ > ½. (F3): b = −1 at every log r, r ∈ R, so the diagonal is ≥ Σ_{r∈R, r≤N}r^{−2σ}
+≥ N^{½ − 2σ − ε} infinitely often. ∎ So the faithful transplant of the rung-1 counterexample obeys O (under RH): the realization factor
+C — the gap between log r and N log 4 — carries the full prime diagonal.
+

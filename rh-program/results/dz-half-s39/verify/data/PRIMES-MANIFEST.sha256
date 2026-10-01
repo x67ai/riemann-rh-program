@@ -1,0 +1,30 @@
+# SHA-256 of the g-prime lists (float64, sorted) of every run, recorded 2026-10-01 before deletion (1.09 GB).
+# Regenerate bit-for-bit with run_main.sh / run_ta.sh (seeded numpy PCG64: dzgen [seed, template, 20261001];
+# controls t1 [seed, 7, 20261001], ta [seed, round(1000 alpha), 20261001]); compare with: shasum -a 256 data/*.primes.f64
+8ca1958394eb3bc3ceba8739166f5f0aa4da3c8fb1f6d1f99ec8a8fa0d87a8f8  data/ctl_det.primes.f64
+c06c15a00f9e873b58b2149a16a0ecd5a5b65c2df8b4ea6bd6eae5e0d6f3fae5  data/ctl_primes.primes.f64
+cd8278d9e5fa6942907afcbb80498cc67a1e275633cfa947ef8aa53536fa5c9c  data/ctl_t1_s1.primes.f64
+440e4c24cc6eab9c2c407460f7d020ef439a58f70ab31905701290023eb424f9  data/ctl_t1_s2.primes.f64
+bc3bcd9c5faef44227fe59a4fbe9c194822e1b42ba6a822295054f6a3b726026  data/ctl_t1_s3.primes.f64
+ce66018ea282b55b10798d43aac5ff108233716e0509b2650b2c7b3aec6a77c4  data/ctl_t1_s4.primes.f64
+19d8fa951e0a87b504901b45ab8a935192a183bcb9d9330f0b20aa4173fae17d  data/ctl_t1_s5.primes.f64
+8e1227d6cd3e0b1fffff2d374931668f2f407116fa810d4461f83ef7fbbf77d4  data/ctl_ta0.90_s1.primes.f64
+073bd2475c9d72265adf53110bdab291e9d5a8e2f67440a947b036d07c6ef0b9  data/ctl_ta0.90_s2.primes.f64
+7e1c24df8fba8642c729e3530013931b4a735515d566360305a99281ea335ee4  data/ctl_ta0.90_s3.primes.f64
+062dc5859d1415e9aec9e5ee846ff3e0415114a1060eeaaa99485bb3a4413807  data/ctl_ta0.90_s4.primes.f64
+7514f9202e864cc51c0310393e0a2a2427ae0bf0585b8a30fc64e7e7567eccfe  data/ctl_ta0.90_s5.primes.f64
+68bb96beaa174182f2032b0cc7517a3804b9f446f1d937cb9be30178863b8d89  data/ctl_ta0.95_s1.primes.f64
+bebdc3c62607868d5102ffef219e8d3319ea643b55c28072bd96ff7e3a1f25d8  data/ctl_ta0.95_s2.primes.f64
+3cb1b6dcb9749cf0530ad6c6a4ad3203f92aad6785d680a3831198d82ba0bc8b  data/ctl_ta0.95_s3.primes.f64
+e79e43c827dd00a63966189869a079837d3f114b03389fd7c026314ec8f1529e  data/ctl_ta0.95_s4.primes.f64
+4ae27a4cb266606c2d9a3be2892a3f5e6d3bb95efa54573ec683742b73da9e51  data/ctl_ta0.95_s5.primes.f64
+ea71aef504432058620b05cbf31616e55dd85b867a87e3bf9a88d5360773df8c  data/dz_C_s1.primes.f64
+331d062d9e3fa446f31c6ea437d38da174cb0025cf5e1a7268d343a9ad0bd059  data/dz_C_s2.primes.f64
+4a98d41d4454307179cb0c9a34e33da83a1b80be3e65f411884d485e8085c655  data/dz_C_s3.primes.f64
+1112acd6a1de524e83e6cc02c7122f4fca3e5e705aa0735e731f386f01a1905a  data/dz_C_s4.primes.f64
+3530096cc382e264483da5336f32f9ed2cd6094fe08d8179471f47129ce40734  data/dz_C_s5.primes.f64
+22de76b46c2466bdb9a3da7175f7b116a2a35afd114e2411d693216fae980999  data/dz_R_s1.primes.f64
+9241fd8e8f8b0a8f9207ea6da07fee20af20125ac760d738681a2476f2c2bd23  data/dz_R_s2.primes.f64
+a8229aff78980462b636741471c720806ab76baa09c3728e96ebb6b2ce112e9c  data/dz_R_s3.primes.f64
+3808ba21968475ed4ccfed7f2bf39133a119efcaa4b981c0fa851a56fe4050b6  data/dz_R_s4.primes.f64
+4f10630c5497d4bf74411ddb56eb6e19466b7b33b1c906663f51266ab1d51f37  data/dz_R_s5.primes.f64
