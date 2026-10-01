@@ -168,3 +168,36 @@ inserts); git is not run.
 - DRY RUN (real zoo as read-only input; `--out results/zoo-s40/dryrun-BARRIER-ZOO.md`): exit 0, "765 -> 788 lines (+23); 63 -> 64
   entries, I: 11, II: 5, III: 21, IV: 22, V: 5; mode 'house' (date fill '2026-10-01'); optional pairs applied: none"; cited entries
   I.10, I.11, I.2, I.7, I.9, IV.1; SHA-256 d532e72904002ab1b814eed5e2015a65f44fdf60f069f68f240288facfbdb38d. BARRIER-ZOO.md still e42d544d….
+
+## 12:40 IST 2026-10-01 block 8 — safety tests (scratch copies under the session scratchpad; BARRIER-ZOO.md read only)
+
+- Dry run re-run after the finding-4 edit (front matter only): same SHA-256 d532e729…, exit 0.
+- T1 idempotence (input = the dry-run output): STOP "already carries '### I.11 '". T2 --out = input: STOP. T3 --out BARRIER-ZOO.md:
+  STOP. T4 default scratch output (TMPDIR = scratchpad): OK, wrote zoo-insert-s40-out.md there.
+- T5 literal mode (D1 = "2026-10-01 (Session 40)", no E1 at the four copied heads): exit 0, mode 'literal', SHA-256 e54aedd6c085d3bc….
+  T6 O1 applied: exit 0, "optional pairs applied: O1", SHA-256 e4eb6f3bec08cd61…. T10 mixed modes (literal i2o, house i9): STOP on i9.
+- T7 one extra space inside iv1: STOP. T8 one word changed inside an i11 quotation: STOP (quotation not in lemmaG NOTE/read-F).
+  T11 an extra "T3" mention in i2s5: STOP (T1–T4 once, one clause). T9 one byte added to a scratch copy of the zoo: STOP on its SHA-256.
+- BARRIER-ZOO.md after all runs: e42d544d… (unchanged).
+
+## 12:43 IST 2026-10-01 block 9 — `numbers-check.log` written (§A–§H; the writer's checker lives in the session scratchpad)
+
+- §A tallies 63 (10/5/21/22/5) → 64 (11/5/21/22/5); Group I order I.1–I.11. §B 765 → 788 lines, 449,952 → 478,652 B; diff -U0 7 hunks,
+  +23 / −0. §C cited entries I.2, I.7, I.9, I.10, IV.1 exist in the input; I.11 in the result; no "zoo line N" citations.
+- §D 62 checks of drafted quotations and numbers at their cited lines (both in the source window and in the block), 0 misses. The
+  first pass had 3 misses, all citation windows of mine, not facts: `equal: True` is on recount-log line 15 (not 16); qtwin
+  "(the masses may take infinitely many values)" spans lines 129–130, and "L‴ adds countably many atoms, continuous parts, any
+  irrational frequencies" spans 214–215 (block 4's "COVERAGE line 214" means 214–215; the i10 block header now says §4 lines
+  203–215). No block text changed.
+- §E i2o, i10 (staged part), iv1, i9, rows 1 and 3 byte-identical to their sources with D1/E1; A1 one sentence (1,128 chars).
+  §F count figures = the recount; seven row names = the seven rows. §G positions 43, 90–92, 153, 162, 164–170, 443, 752–758.
+  §H the twelve source hashes, the script and the proposed file.
+
+## 12:43 IST 2026-10-01 block 10 — DONE; hand-off to the orchestrator
+
+- Deliverables (SHA-256, full): `results/zoo-s40/zoo-entries-proposed.md` 5253bed3661fb0a48282be369989eb5dbeb06d03617cb4b0b18747c0f3d18496
+  (117 lines, 45,587 B); `scripts/zoo-insert-s40.py` 628caa7e44070efba5f3bbc04525bb4a0aac17d8b861e70df56d524a1fc9d226 (430 lines,
+  27,107 B); `results/zoo-s40/dryrun-BARRIER-ZOO.md` d532e72904002ab1b814eed5e2015a65f44fdf60f069f68f240288facfbdb38d (788 lines,
+  478,652 B); `results/zoo-s40/numbers-check.log` d10a4da746b3a5cc1fa0e125e9101f7b88f426684d47f5d17ab1cdb86652afe3 (142 lines).
+- `BARRIER-ZOO.md` untouched: e42d544d… (765 lines). No git command run. Written only under `results/zoo-s40/` and the one script.
+- To insert: `python3 scripts/zoo-insert-s40.py --in-place`; printed hash d532e729… if the proposed file is unchanged.

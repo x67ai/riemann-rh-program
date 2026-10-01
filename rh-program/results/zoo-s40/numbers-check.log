@@ -1,0 +1,142 @@
+# numbers-check.log — zoo stream zoo-s40 (generated 2026-10-01 12:43 IST by the writer's checker; BARRIER-ZOO.md read only)
+
+## §A Heading tallies by regex (before = BARRIER-ZOO.md, after = dryrun-BARRIER-ZOO.md)
+BARRIER-ZOO.md                           ### I.=10  ### II.=5  ### III.=21  ### IV.=22  ### V.=5  total=63  all '### '=63
+results/zoo-s40/dryrun-BARRIER-ZOO.md    ### I.=11  ### II.=5  ### III.=21  ### IV.=22  ### V.=5  total=64  all '### '=64
+Group I in file order (after): I.1, I.2, I.3, I.4, I.5, I.6, I.7, I.8, I.9, I.10, I.11
+
+## §B Line counts and the diff
+BARRIER-ZOO.md                           lines=765  bytes=449952  SHA-256=e42d544dc144df1edb6342f00dca462738ccfa2f74ef6c9834c47a221aec4186  ends-with-one-newline=True
+results/zoo-s40/dryrun-BARRIER-ZOO.md    lines=788  bytes=478652  SHA-256=d532e72904002ab1b814eed5e2015a65f44fdf60f069f68f240288facfbdb38d  ends-with-one-newline=True
+diff -U0 hunks: 7  (+ lines 23, - lines 0)
+  @@ -42,0 +43,2 @@
+  @@ -87,0 +90,3 @@
+  @@ -147,0 +153 @@
+  @@ -155,0 +162 @@
+  @@ -156,0 +164,8 @@
+  @@ -427,0 +443 @@
+  @@ -735,0 +752,7 @@
+No '-' line: insertion only.
+
+## §C Every zoo entry cited inside the new text exists
+  I.2     in input: True  in result: True
+  I.7     in input: True  in result: True
+  I.9     in input: True  in result: True
+  I.10    in input: True  in result: True
+  I.11    in input: False in result: True
+  IV.1    in input: True  in result: True
+  'zoo line N' citations in the new text: 0
+
+## §D Drafted words: quotations and numbers at their cited lines (whitespace/markup-normalized; window = exactly the lines)
+  OK    i2dz  dz-half-s39/NOTE.md 16-17  in block: True  'lim sup_{x→∞} |N_B(x) − k₂x| / (x/log x)^{1/2} > 0, so N_B(x) − '
+  OK    i2dz  dz-half-s39/NOTE.md 20-20  in block: True  'could not be determined'
+  OK    i2dz  dz-half-s39/NOTE.md 20-20  in block: True  'Most likely the value of β₀ equals 1/2'
+  OK    i2dz  dz-half-s39/NOTE.md 392-392  in block: True  'is N − ρx = O(x^{1/2}) (DZ p. 196, θ = ½)?'
+  OK    i2dz  dz-half-s39/NOTE.md 31-32  in block: True  '0.492 ± 0.012'
+  OK    i2dz  dz-half-s39/NOTE.md 31-32  in block: True  '0.479 ± 0.020'
+  OK    i2dz  dz-half-s39/NOTE.md 11-11  in block: True  '11 + 2 pairs applied'
+  OK    i2dz  dz-half-s39/NOTE.md 19-20  in block: True  '(Corollary 2.6)'
+  OK    i2s5  u-offsurgery-s39/read-O.md 8-8  in block: True  'DISAGREES with the close as stated: the theorems stand, the nume'
+  OK    i2s5  u-offsurgery-s39/NOTE.md 13-13  in block: True  "the numerical crossing of Conjecture U's line by S5(0.8) is WITH"
+  OK    i2s5  u-offsurgery-s39/NOTE.md 20-20  in block: True  'undetermined (≥ 0.339 at 10^{37.9}, rising)'
+  OK    i2s5  u-offsurgery-s39/NOTE.md 20-20  in block: True  'stay near 0.27 for ρ = 0.95 (to 10^{38.8}) and near 0.285 for ρ '
+  OK    i2s5  u-offsurgery-s39/read-F.md 14-14  in block: True  'N(10⁹) = 800,000,008'
+  OK    i2s5  u-offsurgery-s39/read-F.md 14-14  in block: True  'sup E = 274.8'
+  OK    i2s5  u-offsurgery-s39/read-F.md 14-14  in block: True  'max a_n = 276'
+  OK    i2s5  u-offsurgery-s39/read-F.md 15-15  in block: True  '0.7658722066 + 30.3260649609i'
+  OK    i2s5  u-offsurgery-s39/read-F.md 15-15  in block: True  'winding number 1.000000'
+  OK    i2s5  u-offsurgery-s39/read-F.md 18-18  in block: True  'n = 902538000 = 2⁴·3²·5³·7·13·19·29'
+  OK    i2s5  u-offsurgery-s39/read-F.md 18-18  in block: True  'E jumps from −0.4 to 274.8'
+  OK    i2s5  u-offsurgery-s39/read-F.md 19-19  in block: True  '"carriers"'
+  OK    i2s5  u-offsurgery-s39/read-F.md 19-19  in block: True  '5, 19, 29, 41, …'
+  OK    i2s5  u-offsurgery-s39/read-F.md 24-24  in block: True  'the slope of the running sup of |E| on [10³, 10⁹]'
+  OK    i2s5  u-offsurgery-s39/read-F.md 36-36  in block: True  'undetermined, not refuted, as an asymptotic statement'
+  OK    i2s5  s5-multiplicity-s40/NOTE.md 11-11  in block: True  'n_K = 2⁸·3⁵·5⁹·7³·11²·13·17·19³·23·29²·37·41²·59·61·79·89·109·14'
+  OK    i2s5  s5-multiplicity-s40/NOTE.md 12-12  in block: True  '3,403,961,916,617,140 > 3.76·n_K^{0.35} + 3'
+  OK    i2s5  s5-multiplicity-s40/NOTE.md 87-87  in block: True  '42.577414'
+  OK    i2s5  s5-multiplicity-s40/NOTE.md 89-89  in block: True  '2,525 of them divide n_K'
+  OK    i2s5  s5-multiplicity-s40/NOTE.md 91-91  in block: True  '(25(f − 3))²⁰ > 94²⁰·n_K⁷'
+  OK    i2s5  s5-multiplicity-s40/NOTE.md 15-15  in block: True  'every θ ≤ 0.35 and every constant c < 1.88'
+  OK    i2s5  s5-multiplicity-s40/NOTE.md 103-103  in block: True  '1.876'
+  OK    i2s5  s5-multiplicity-s40/NOTE.md 105-105  in block: True  'f_G(n) ≤ (1 + log₂ n)^{|G|}'
+  OK    i2s5  s5-multiplicity-s40/NOTE.md 311-311  in block: True  '0.2726 (9.0), 0.3294 (20.3), 0.3493 (29.9)'
+  OK    i2s5  s5-multiplicity-s40/NOTE.md 311-311  in block: True  '0.3648 (42.6)'
+  OK    i2s5  s5-multiplicity-s40/NOTE.md 18-18  in block: True  'marginal exponents 0.37–0.46 and no decline'
+  OK    i2s5  s5-multiplicity-s40/NOTE.md 19-19  in block: True  '0.383 = Re ρ₁/2'
+  OK    i2s5  s5-multiplicity-s40/NOTE.md 316-316  in block: True  'θ < ½ ⇒ RH for discrete systems'
+  OK    i2s5  s5-multiplicity-s40/verify-F/recount_nK_F.log 15-15  in block: True  'equal: True'
+  OK    i10   qtwin-s39/NOTE.md 129-130  in block: True  '(the masses may take infinitely many values)'
+  OK    i10   qtwin-s39/NOTE.md 203-203  in block: True  'bounded-frequency multipliers with thin rational part'
+  OK    i10   qtwin-s39/NOTE.md 214-215  in block: True  'L‴ adds countably many atoms, continuous parts, any irrational f'
+  OK    i10   qtwin-s39/NOTE.md 68-69  in block: True  'Π_ζ + log*(m) ≥ 0'
+  OK    i10   qtwin-s39/NOTE.md 70-70  in block: True  'no new Group-I control is claimed'
+  OK    i10   qtwin-s39/NOTE.md 346-346  in block: True  'printed core of L′/L‴ for rational finite multipliers'
+  OK    i10   qtwin-s39/NOTE.md 11-11  in block: True  'Hilberdink 2012 Prop. 3.4, Thms 4.3, 4.4, C'
+  OK    i11   lemmaG-s39/NOTE.md 61-64  in block: True  'Let 2 ≤ a < q be integers and R any set of monic irreducibles co'
+  OK    i11   lemmaG-s39/NOTE.md 343-343  in block: True  'Carlson–Montgomery–Vaughan diagonal on log(D_R/G)'
+  OK    i11   lemmaG-s39/NOTE.md 101-102  in block: True  'a proof must use the injectivity of the norm on ⟨R⟩, equivalentl'
+  OK    i11   lemmaG-s39/NOTE.md 79-79  in block: True  'statements about the rung-1 dictionary, not theorems over ℚ'
+  OK    i11   lemmaG-s39/NOTE.md 343-343  in block: True  'true by the definition of 𝒞_self'
+  OK    i11   lemmaG-s39/NOTE.md 343-343  in block: True  'a tautology, not an obstruction theorem'
+  OK    i11   lemmaG-s39/NOTE.md 343-344  in block: True  'is not vacuous in the axioms that method consumes: its F_q[T] an'
+  OK    i11   lemmaG-s39/NOTE.md 97-97  in block: True  'a strictly stronger property for general g-primes'
+  OK    i11   lemmaG-s39/NOTE.md 24-24  in block: True  'except zero-freeness of D_R'
+  OK    i11   lemmaG-s39/read-F.md 5-5  in block: True  'Theorem R1, Theorem 2.1, Corollary 2.2, Proposition 2.3, T2, T3,'
+  OK    i11   lemmaG-s39/NOTE.md 103-103  in block: True  'over real norms exact regularity forces a finite deletion, and R'
+  OK    i11   lemmaG-s39/NOTE.md 71-72  in block: True  '2, 1, 2, 3, 6, 9, 18, 30'
+  OK    i11   lemmaG-s39/NOTE.md 72-73  in block: True  'D_R(u) = 1 − 2u exactly'
+  OK    i11   lemmaG-s39/NOTE.md 73-73  in block: True  'ρ_R = 1/3'
+  OK    i11   lemmaG-s39/NOTE.md 11-11  in block: True  '17 minor; 31 pairs applied'
+  OK    i11   lemmaG-s39/NOTE.md 149-149  in block: True  'an injective choice is made greedily'
+  OK    i11   lemmaG-s39/NOTE.md 338-338  in block: True  "also holds unconditionally by Lemma 3.6 with Selberg's sieve"
+  OK    i11   lemmaG-s39/NOTE.md 94-95  in block: True  'obey O for the other reasons'
+  62 checks, 0 misses
+
+## §E Copied words byte-identical to their sources apart from the sanctioned pairs (D1 '2026-10-01'; E1)
+  OK    i2o = conj-O Block (i) + D1 + E1             (source 2554 chars)
+  OK    i10 = qcond Block (i) + D1 + E1 + ' ' + A1   (source 2239 chars)
+  OK    iv1 = fejér BLOCK:iv1 + E1                   (source 1602 chars)
+  OK    i9 = fejér BLOCK:i9 + E1                     (source 1262 chars)
+  OK    xref row 1 = qcond Block (ii)                (source 276 chars)
+  OK    xref row 3 = conj-O Block (ii)               (source 396 chars)
+  A1: 1128 chars; sentence-internal '. [A-Z]': 0; ends 'Arith. 152, Prop. 3.4, Thms 4.3, 4.4, C.'
+
+## §F The count paragraph's figures against the recount of the result
+  OK    '**64 entries**'
+  OK    'I: 11, II: 5, III: 21, IV: 22, V: 5'
+  OK    '11 + 5 + 21 + 22 + 5 = 64'
+  OK    '765 → 788 lines'
+  OK    'SHA-256 at launch e42d544d…'
+  OK    'Group I 10 → 11'
+  OK    '`results/zoo-s40/`'
+  rows named: 7; each a row head of xref: True
+
+## §G Positions in the result (1-based)
+  line  43  count          **Entry count (dated, Session 40, 2026-10-01).** I.11 (Conjecture O is false at the functi
+  line  90  i2o            - **[RIDER 2026-10-01, Session 39 (unit `conj-O-s38`: `results/conj-O-s38/NOTE.md` §1.4–§1
+  line  91  i2dz           - **[RIDER 2026-10-01, Session 40 (unit `dz-half-s39`: `results/dz-half-s39/NOTE.md` §0, §
+  line  92  i2s5           - **[RIDER 2026-10-01, Session 40 (unit `u-offsurgery-s39`: `results/u-offsurgery-s39/read
+  line 153  i9             - **[RIDER 2026-10-01, Session 39 (`results/fejer-form-s39/NOTE.md` §4, §6, §7; entered at
+  line 162  i10            - **[RIDER 2026-10-01, Session 39 (unit `qcond-s38`: `results/qcond-s38/NOTE.md` §2.3–§2.7
+  line 164  i11 heading    ### I.11 Conjecture O is false at the function-field rung (the necklace deletion — an exac
+  line 166  i11 STATEMENT  - **STATEMENT.** **Theorem R1** (NOTE §1.2, lines 61–64): "Let 2 ≤ a < q be integers and R
+  line 170  i11 STATUS     - **STATUS.** program-adjudicated — dual-model: writer Opus 5.5, Session 39; reader Fable 
+  line 443  iv1            - **[RIDER 2026-10-01, Session 39 (`results/fejer-form-s39/NOTE.md` §3, §5; entered at the
+  line 752  xref row 1     | unit `qcond-s38` (Q_cond: a Beurling system with Riemann's exact FE at conductor q > 1) 
+  line 758  xref row 7     | unit `fejer-form-s39` (the Fejér defect as a positive form transported to the zeros — Un
+
+## §H Source hashes now (full SHA-256)
+  61728f384770772ef9da4fcd3da82803b420868429aae666995494287434abbd  results/qcond-s38/ZOO-LINES-STAGED.md
+  e75fb34759810ed6be3ccce5f3f59dfe2b48a85ef2dad688418a3022eac1bf79  results/conj-O-s38/ZOO-LINES-STAGED.md
+  0ab5f19ed976a72ed507b271b40eb698d5b9cbfabad319214fc9eb4c406893c0  results/fejer-form-s39/NOTE.md
+  0a7ea6be2449adf8f8a5cb5cf248e04d7c2317d6e0b9526b9fbaf2f1fa206af5  results/qtwin-s39/NOTE.md
+  51e062e9ddc3bb0edd092d1e9357e0f1c232df377c98554a826712b7d53bac3b  results/dz-half-s39/NOTE.md
+  c30a9ee3883b67b4f43dbfdcf89b37c4651473277ad964fdc49bf85c23406058  results/u-offsurgery-s39/read-F.md
+  f25749d79f2424a0daef8cf4de875d12132effbdc828fe30d5fd81a96211f4b5  results/u-offsurgery-s39/read-O.md
+  ef143a4354b75580c17d619024d779de4484b0688fe886d7fce1cae9fddfc668  results/u-offsurgery-s39/NOTE.md
+  ced8b67448b79cddb4af13291230b550d15399ccb6fc349bf0fc7e8eaa5370ac  results/s5-multiplicity-s40/NOTE.md
+  8d959037a8f0a6b292ddf9543d543a7f892cdf3c29c6f8a3e4f32b071e8ee902  results/s5-multiplicity-s40/verify-F/recount_nK_F.log
+  41f195d40705ae77819b9a3805cd1323f0e5b7f3468e447c4db04b9e93b65d61  results/lemmaG-s39/NOTE.md
+  1766f908ad081350bd246137f9c8b040f2d6b6aa7b1ec8353026fb7fb54f60e9  results/lemmaG-s39/read-F.md
+  628caa7e44070efba5f3bbc04525bb4a0aac17d8b861e70df56d524a1fc9d226  scripts/zoo-insert-s40.py
+  5253bed3661fb0a48282be369989eb5dbeb06d03617cb4b0b18747c0f3d18496  results/zoo-s40/zoo-entries-proposed.md
