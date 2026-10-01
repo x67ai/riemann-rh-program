@@ -30,3 +30,15 @@ Opened 2026-10-01 11:26 IST (machine clock), Opus 5.5 agent. Charter `../CHARTER
 
   The zero ρ₁ = 0.896212491 + 14.549935589i moves by ≤ 1.1·10⁻⁶ from X = 10⁷ to 10¹⁰ and by 6.7·10⁻⁹ from X/4 to X; all 44 zeros of X = 10¹⁰ have a partner within 6·10⁻⁴ at X = 10⁷ (displacements shrink with X; `verify/zeros_track.py`). The 45th zero at 10⁷–10⁸ sits at σ = 0.50004 and leaves the rectangle through σ = ½ by 10⁹. Largest real part by height cut-off at X = 10¹⁰: 0.896212 for every cut-off 25, 50, 100, 150, 200 (2, 9, 19, 26, 44 zeros) — **no creep toward 1**. Next real parts: 0.7163 (t = 28.359), 0.7126 (67.295), 0.6667 (53.915), 0.6619 (185.212), 0.6558 (80.684), 0.6525 (198.612), 0.6414 (40.647). Stop lines (c), (d) not triggered.
 - 12:13 — **explicit formula, route 2 for α [computed]** (`verify/explicit.py`, `verify/logs/explicit_pi4_1e10.txt`): P(x) = −Σ 2Re(x^ρ/ρ) over the 44 zeros (σ > ½, t ≤ 200) against the measured ψ_P(x) − x at 100 points per decade: per-decade correlation +0.995 (10⁴–10⁵), +0.999, +1.000, +1.000, +1.000, +1.000 (10⁹–10¹⁰); rms ratio 0.946, 1.010, 0.992, 0.999, 1.001, 1.000; total residual 0.5 % of the rms of ψ_P − x on [10⁴, 10¹⁰]. ψ_P(10¹⁰) − 10¹⁰: measured −109,031,795, predicted −109,146,583. So α(S8(π/4)) is zero-driven and equals the real part of ρ₁, 0.8962 (route 1: per-decade slopes of sup|ψ_P − x| 0.84, 0.91, 0.92 over 10⁷…10¹⁰; 2x^{0.8962}/|ρ₁| = 1.26·10⁸ at 10¹⁰ against the measured sup 1.22·10⁸).
+- 12:19 — **Rouché margins at X = 10¹⁰ [computed]** (`verify/rouche.py`; `verify/logs/rouche_pi4_1e10_z{1,2,3}.txt`). ζ_P = F_X + R_X with |R_X(s)| ≤ |s|∫_X^∞|E(u)|u^{−σ−1}du; if |E(u)| ≤ B·log²u for u > X then |R_X(s)| ≤ B·K(s), K(s) = |s|X^{−σ}(log²X/σ + 2log X/σ² + 2/σ³). On the boundary of the square box of half-side r about the zero (400 samples per side, min|F_X| lowered by max|F'|·h/2 for the gaps between samples):
+
+| zero of F_X (X = 10¹⁰) | r | winding | min\|F_X\| on boundary | B_max (log² tail) | B_max for \|E\| ≤ B·u^b, b = 0.25 / 0.40 / 0.50 |
+|---|---|---|---|---|---|
+| 0.896212491 + 14.549935589i | 0.01 | +1 | 0.0429 | 3384 | 4491 / 108.5 / 8.6 |
+| | **0.03** | **+1** | **0.1234** | **6515** | 8589 / 205.5 / 16.1 |
+| | 0.10 | +1 | 0.3573 | 4599 | 5898 / 135.3 / 10.1 |
+| | 0.30 | +1 | 0.7382 | 149 | 168 / 3.0 / 0.15 |
+| 0.716282256 + 28.358983966i | 0.03 | +1 | 0.0712 | 23.4 | 28.3 / 0.59 / 0.038 |
+| 0.712605244 + 67.294748105i | 0.03 | +1 | 0.0888 | 12.0 | 14.4 / 0.30 / 0.019 |
+
+  Against the data: max_{10⁴ ≤ u ≤ 10¹⁰} E(u)/log²u = 0.307 (at u = 4.85·10⁷; 0.223 at the 10¹⁰ record), and E ≥ −½ everywhere. So **if |E(u)| ≤ 6515·log²u for all u > 10¹⁰ — a bound 2·10⁴ times weaker than what E does on [10⁴, 10¹⁰] — then ζ_P has exactly one zero in the box |σ − 0.8962| ≤ 0.03, |t − 14.5499| ≤ 0.03.** The same holds under |E(u)| ≤ 205·u^{0.4} (at u = 10¹⁰ that allows E = 2·10⁶), so the existence of this zero does not depend on how the β-question is settled below ~0.5. [computed; the tail hypothesis is the only unproved input]

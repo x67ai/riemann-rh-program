@@ -1,0 +1,12 @@
+# read-F (PARTIAL) — the orchestrator's read of `results/free-greedy-s40/theory/NOTE.md` (Fable 5.1, Session 40, written 12:19 IST 2026-10-01)
+
+NOTE at SHA-256 caeb71db64b81ea3…. **Only Theorem 1.6 is read at the line here (from the unit's report and the definitions); the full read of §1–§6 and an Opus `read-O.md` are owed (SESSION 41 QUEUE).**
+
+## Theorem 1.6 — re-derived, CORRECT
+Statement: a discrete Beurling system with R(u) := N(u) − ρu ≥ r₀ > 0 for all u ≥ 1 and R(u) = O(u^θ), θ < r₀/(r₀ + ρ), has a real zero of ζ_P in [r₀/(r₀ + ρ), 1); hence α ≥ r₀/(r₀ + ρ).
+Re-derivation. For σ > 1, ζ_P(σ) = σ∫₁^∞ N(u)u^{−σ−1}du = ρσ/(σ − 1) + σ∫₁^∞ R(u)u^{−σ−1}du, and the right side is analytic on σ > θ away from 1 (R = O(u^θ)), so it is the continuation. For θ < σ < 1: σ∫₁^∞ R(u)u^{−σ−1}du ≥ σ·r₀·∫₁^∞ u^{−σ−1}du = r₀, hence ζ_P(σ) ≥ r₀ − ρσ/(1 − σ), which is > 0 exactly when σ < r₀/(r₀ + ρ). The hypothesis θ < r₀/(r₀ + ρ) puts such σ inside the domain. As σ → 1⁻ the R-integral stays bounded (≤ C/(σ − θ)) while −ρσ/(1 − σ) → −∞. ζ_P is real and continuous on (θ, 1): a zero σ* exists, and σ* ≥ r₀/(r₀ + ρ) because ζ_P > 0 to the left of that point. A zero at σ* makes ζ′_P/ζ_P singular there, so ψ_P(x) − x ≠ O(x^σ) for σ < σ*: α ≥ σ*. ∎ (Elementary; uses only N(u) ≥ ρu + r₀, the O-bound, and discreteness nowhere.)
+For S8 (threshold ½): E = N − T ≥ −½ with T(u) = ρu + (1 − ρ), so r₀ = ½ − ρ (positive iff ρ < ½) and the zero is ≥ (½ − ρ)/½ = 1 − 2ρ, which exceeds ½ iff ρ < ¼. **Consequence: for ρ < ¼, Conjecture U (α ≤ max{½, 2β}) fails for S8(ρ) as soon as N(x) − ρx = O(x^θ) for some θ < ½ − ρ** — no zero-finding, no Rouché margin, no certificate. With a rule that never lets N fall below T by more than τ, r₀ = 1 − ρ − τ and the zero is ≥ (1 − ρ − τ)/(1 − τ) — toward the template's zero 1 − ρ as τ → 0.
+Remark (the orchestrator's): the statement does not need the system to be discrete — the continuous template dN = δ₁ + ρdx has R ≡ 1 − ρ and its zero is exactly 1 − ρ = r₀/(r₀ + ρ): the bound is sharp. What discreteness adds is that Conjecture U is about discrete systems; for them the open point is ONLY the O-bound on N.
+
+## Not read here
+Lemmas 1.0–1.5, the reflection and gap identities (Prop. 2.1: E ≤ ρ·(largest g-prime gap) − ½), the Legendre form, where routes (a)–(c) break, Theorems 4.1–4.2, the prior-art log (Diamond 1970 p. 24; Malliavin 1961 §6; BDR pp. 16–17; Lagarias 1999).
