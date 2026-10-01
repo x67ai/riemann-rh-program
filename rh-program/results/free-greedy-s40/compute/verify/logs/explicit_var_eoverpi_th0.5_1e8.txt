@@ -1,0 +1,7 @@
+# explicit logs/zeros_var_eoverpi_th0.5_1e8.txt vs var_eoverpi_th0.5_1e8: 59 zeros (t > 0 counted with their conjugates; real zeros: [])
+#  decade        rms(measured)   rms(predicted)  ratio   corr    | measured psi-x at end   predicted
+  [1e4,1e5]            518.2           389.3   0.751  +0.970   |         -943.0          -503.3
+  [1e5,1e6]           2780.1          2649.2   0.953  +0.995   |         -148.4           674.5
+  [1e6,1e7]          15562.5         15446.1   0.993  +0.998   |        -3851.2          2461.1
+  [1e7,1e8]         104763.9        104841.7   1.001  +0.999   |          594.7         12135.7
+# residual (measured - predicted): rms over x >= 1e+04 relative to rms(measured): 0.081

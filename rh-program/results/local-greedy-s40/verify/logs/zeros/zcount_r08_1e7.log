@@ -1,0 +1,13 @@
+# r08 X=10000000: boxes with nonzero winding number (sigma range, t range, count, max phase step, min|F| on contour)
+box [0.70,0.80] x [20,30]: +1.000  (max step 0.60 rad, min|F| 0.11)
+box [0.70,0.80] x [30,40]: +1.000  (max step 0.58 rad, min|F| 0.126)
+box [0.70,0.80] x [50,60]: +1.000  (max step 0.68 rad, min|F| 0.11)
+strip [0.70,0.80] x [0.1,100]: +3.000  (max phase step on its box contours 2.15 rad, min|F| 0.0348)
+strip [0.80,0.90] x [0.1,100]: -0.000  (max phase step on its box contours 0.38 rad, min|F| 0.126)
+strip [0.90,1.00] x [0.1,100]: +0.000  (max phase step on its box contours 0.14 rad, min|F| 0.27)
+total zeros in [0.70,1.00] x [0.1,100]: +3.000; largest phase step on any contour 2.15 rad
+# local minima of |F| < 0.1 on the vertical lines (sigma, t, |F|)
+  0.70 40.725 0.0747
+  0.70 46.800 0.0348
+  0.70 87.150 0.0655
+  0.70 92.425 0.0515

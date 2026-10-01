@@ -8,7 +8,9 @@ xmin = float(sys.argv[3]) if len(sys.argv) > 3 else 1e4
 Z = []
 for ln in open(zf):
     p = ln.split()
-    if p and not p[0].startswith("#"):
+    if ln.startswith("# real zeros of F_X") and "none" not in ln:
+        Z += [complex(float(v), 0.0) for v in ln.split(":", 1)[1].replace(",", " ").split()]
+    elif p and not p[0].startswith("#"):
         Z.append(complex(float(p[0]), float(p[1])))
 F = np.array([[float(v) for v in ln.split()[1:]] for ln in open(f"{V}/logs/{tag}.log") if ln.startswith("F ")])
 x, d = F[:, 0], F[:, 4]
@@ -18,7 +20,7 @@ P = np.zeros_like(x)
 for z in Z:
     term = np.exp(z * lx) / z
     P -= (2 * term.real) if z.imag > 1e-9 else term.real
-print(f"# explicit {zf} vs {tag}: {len(Z)} zeros (t > 0 counted with their conjugates)")
+print(f"# explicit {zf} vs {tag}: {len(Z)} zeros (t > 0 counted with their conjugates; real zeros: {[z.real for z in Z if abs(z.imag) < 1e-9]})")
 print("#  decade        rms(measured)   rms(predicted)  ratio   corr    | measured psi-x at end   predicted")
 for k in range(int(math.log10(xmin)), int(math.log10(x[-1]) + 1e-9)):
     s = (x >= 10.0 ** k) & (x <= 10.0 ** (k + 1) * 1.0001)

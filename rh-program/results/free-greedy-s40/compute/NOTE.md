@@ -42,3 +42,21 @@ Opened 2026-10-01 11:26 IST (machine clock), Opus 5.5 agent. Charter `../CHARTER
 | 0.712605244 + 67.294748105i | 0.03 | +1 | 0.0888 | 12.0 | 14.4 / 0.30 / 0.019 |
 
   Against the data: max_{10⁴ ≤ u ≤ 10¹⁰} E(u)/log²u = 0.307 (at u = 4.85·10⁷; 0.223 at the 10¹⁰ record), and E ≥ −½ everywhere. So **if |E(u)| ≤ 6515·log²u for all u > 10¹⁰ — a bound 2·10⁴ times weaker than what E does on [10⁴, 10¹⁰] — then ζ_P has exactly one zero in the box |σ − 0.8962| ≤ 0.03, |t − 14.5499| ≤ 0.03.** The same holds under |E(u)| ≤ 205·u^{0.4} (at u = 10¹⁰ that allows E = 2·10⁶), so the existence of this zero does not depend on how the β-question is settled below ~0.5. [computed; the tail hypothesis is the only unproved input]
+- 12:23 — explicit formula with the real zero 0.51474 added: residual 0.3 % of the rms of ψ_P − x on [10⁴, 10¹⁰] (`verify/logs/explicit_pi4_1e10.txt`, rerun).
+- 12:25 — **variants, zeros at X = 10⁸ [computed]** (`verify/logs/zeros_var_*_1e8.txt`, `verify/logs/explicit_var_*_1e8.txt`): every variant has zeros of F_X far right of ½ (rectangle 0.5 < σ < 1.05, t ≤ 200; winding = found in every case):
+
+| ρ, θ | zeros | real zero | largest real part (t) | explicit formula vs ψ_P − x on [10⁴, 10⁸]: residual / rms |
+|---|---|---|---|---|
+| π/4, ½ (main) | 45 | 0.51466 | 0.89621 (14.550) | 0.003 (at 10¹⁰) |
+| e/π, ½ | 59 | — | 0.84210 (42.662) | 0.081 |
+| 1/√2, ½ (1/ρ = √2) | 40 | — | 0.83124 (14.020) | 0.044 |
+| 0.95π/3, ½ | 63 | — | 0.91477 (18.057) | 0.011 |
+| 0.6√2π/e, ½ | 52 | — | 0.88526 (17.937) | 0.011 |
+| 4/5, ½ (rational) | 43 | 0.51567 | 0.89904 (14.681) | 0.006 |
+| π/4, ¼ | 24 | 0.61888 | 0.70850 (48.956) | 0.037 |
+| π/4, ¾ | 69 | — | 0.89699 (76.228) | 0.010 |
+
+  Per-decade correlation between the zero sum and the measured ψ_P − x ≥ 0.995 in every run. For θ = ¼ the real zero 0.6189 dominates ψ_P − x (x^{0.619}/0.619 = 1.5·10⁵ at 10⁸ against sup|ψ_P − x| = 1.8·10⁵).
+- 12:26 — `s8win` == `s8gen` on all S rows at X = 10⁹ as well (`verify/logs/win_pi4_1e9.log`); 33 s against 108 s.
+- 12:26 — **mechanism of the record burst [computed]** (`verify/logs/trace_pi4_burst_4.85e7.log`, `verify/trace_summary.py`): events in [48,497,500, 48,499,400] (the busy period of the record E = 95.86) against a typical stretch of the same length at 6·10⁷: the burst has 1140 composites from multiplier cursors (n·q with q > √X) against 1017, and 354 against 359 from small-prime cursors; the excess is carried by the smallest multipliers n = q₀ (76 vs 60), q₀² (65 vs 47), q₁ (43 vs 24), i.e. by simultaneous surpluses of g-primes near x/q₀, x/q₀², x/q₁ (65 g-primes in the 709-long interval near x/q₀² = 1.81·10⁷, where 709/log(1.81·10⁷) = 42 are expected). A prime surplus at y = x/n turns into a composite surplus at n·y: the integer error is driven by g-prime clustering at the multiplicatively shifted points x/n, the same multiplicative oscillation the zeros describe.
+- 12:27 — launched ρ = π/4, X = 10¹¹ with `s8win` (`verify/logs/win_pi4_1e11.log`; checkpoint every 15 min to `/private/tmp/rh-s40-free-greedy/win_pi4_1e11.ckpt`; resume with `S8BIN=s8win verify/run_s8.sh pi4 rule 1e11 0.5 win_pi4_1e11 resume`). Expected ≈ 1 h, ≈ 3.3 GB.
