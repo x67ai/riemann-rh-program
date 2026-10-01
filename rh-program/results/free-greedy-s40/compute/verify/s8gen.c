@@ -189,6 +189,7 @@ static void new_prime(int64_t k, dd x) {
         }
         dd v; if (next_small(i, &v)) { hent e = { v, i }; hpush(e); }
     } else {
+        if (G.nL > 0 && ddv(x) * Pv[0].hi > G.X) { G.nL++; G.npark = 0; return; }   /* q0 * q > X: never read */
         if (G.nL == 0) { G.Kbase = k; G.Klast = k; }
         ld_append(k - G.Klast); G.Klast = k; G.nL++;
         if (G.nL == 1) init_mult();
@@ -415,7 +416,7 @@ int main(int argc, char **argv) {
         dd xc = haveC ? (dd){ Hhi[0], Hlo[0] } : (dd){ INFINITY, 0.0 };
         int64_t kp; dd xp;
         if (!G.sieve) { kp = G.N; xp = prime_value(kp); }
-        else { kp = sieve_next(G.sieveNext, (int64_t)X); if (kp < 0) { xp.hi = INFINITY; xp.lo = 0; } else { xp.hi = (double)kp; xp.lo = 0; } }
+        else { static int64_t cachedP = -2, cachedFrom = -2; if (cachedFrom != G.sieveNext) { cachedP = sieve_next(G.sieveNext, (int64_t)X); cachedFrom = G.sieveNext; } kp = cachedP; if (kp < 0) { xp.hi = INFINITY; xp.lo = 0; } else { xp.hi = (double)kp; xp.lo = 0; } }
         if (!G.sieve && haveC) {
             double m = fabs(ddv(ddsub(xc, xp))) / xp.hi;
             if (m < G.wMinMargin) G.wMinMargin = m;

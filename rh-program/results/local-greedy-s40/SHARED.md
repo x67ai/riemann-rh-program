@@ -21,3 +21,13 @@ Sweep at 10⁸ (`logs/sweep/fits_v0_1e8.log`; windows [10^k, 10⁸)): b_sup / a_
 1.5: runaway (N(10⁸)/10⁸ = 1.510, b ≈ 0.9). **Face-value a − 2b is +0.1…+0.2 at ρ = 0.6, 0.75, 0.9 on windows from 10⁵ — the
 K-trigger region — but this is 10⁸, not the contracted 10⁹, and route 1 alone (a random walk with growing step size also gives
 a_sup > ½).** Next: 10⁹ for six densities, 4·10⁹ for two, then route 2 (zeros).
+
+## 2026-10-01 11:49 IST — STOP LINE (c) MET ON ROUTE 1 AT 10⁹ — reported before any proof attempt [computed]
+`verify/logs/sweep/s7_v0_r*_X1000000000.log`, fits by `verify/fit7.py` (running sups over windows [10^k, 10⁹)), k = 3…7:
+- ρ = 0.6: b_sup = 0.315, 0.303, 0.281, 0.278, 0.264; a_sup = 0.794, 0.801, 0.802, 0.811, 0.808 → **a − 2b = +0.16, +0.20, +0.24, +0.26,
+  +0.28** (sup|E| = 948.8, inf E = −93.2, sup|ψ_P − x| = 5.57·10⁶ by 10⁹).
+- ρ = 0.75: a − 2b = +0.05, +0.10, +0.18, +0.24, +0.31; ρ = 0.8: +0.01, +0.07, +0.12, +0.09, +0.14; ρ = 0.9: −0.03, +0.02, +0.09, +0.17, +0.16.
+So "α > max{½, 2β} + 0.05 numerically over two decades" holds on route 1 for ρ = 0.6 on every window, and for 0.75 from 10⁴.
+Caveat recorded now: route 1 for α is a running-sup slope; a random walk Σ(m_p − 1)log p with growing step variance would also give
+a_sup > ½. Route 2 (zeros of F_X, stable under X) decides whether the excess is zero-driven. Doing route 2 at ρ = 0.6 next, then
+4·10⁹; variants and the long theory are deferred by the stop rule.

@@ -130,7 +130,8 @@ int main(int argc, char **argv){
       if(n >= bnext){ b = (int)(BPD*log10((double)n)); if(b >= nb) b = nb - 1; bnext = (uint64_t)ceil(pow(10.0, (b + 1.0)/BPD)); }
       i128 Ed = (i128)DEN*N - (i128)NUM*(int64_t)(n - 1) - DEN; double E = (double)Ed/(double)DEN;
       if(E > Emax[b]) Emax[b] = E; if(E - rho < Emin[b]) Emin[b] = E - rho; E2[b] += E*E; cnt[b]++;
-      if(E > supE) supE = E; if(E - rho < infE) infE = E - rho;
+      if(E > supE){ if(E > 50 && E > 1.02*supE) printf("rec n=%llu E=%.2f a_n=%lld\n", (unsigned long long)n, E, (long long)a); supE = E; }
+      if(E - rho < infE) infE = E - rho;
       double psi = pshi + pslo, d1 = fabs(psi - (double)n), d2 = fabs(psi - (double)(n + 1)); if(d2 > d1) d1 = d2; if(d1 > Pmax[b]) Pmax[b] = d1;
       if((double)Mg > Gmx[b]) Gmx[b] = (double)Mg; if((double)Mg < Gmn[b]) Gmn[b] = (double)Mg; if(fabs((double)Mg) > supMg) supMg = fabs((double)Mg);
       double Tt = (double)n*((s1hi - rho) + s1lo), W = E - Tt - rho + 1.0;
