@@ -1,0 +1,18 @@
+rho = 0.8, X = 1000000; #g-primes = 78765, total multiplicity = 78765, first composite g-primes = [20, 30, 38, 57, 58, 82, 87, 110, 133, 150, 158, 178]
+primes <= X refused (m_p = 0): 66803  of 78498
+  x = 1e2: running sup|E| = 0.800   N(x) = 80  rho*x = 80
+  x = 1e3: running sup|E| = 3.800   N(x) = 800  rho*x = 800
+  x = 1e4: running sup|E| = 6.800   N(x) = 8001  rho*x = 8000
+  x = 1e5: running sup|E| = 17.800   N(x) = 80000  rho*x = 80000
+  x = 1e6: running sup|E| = 33.000   N(x) = 800003  rho*x = 800000
+  sup-slope on [1e3, 1e4]: 0.253
+  sup-slope on [1e4, 1e5]: 0.418
+  sup-slope on [1e5, 1e6]: 0.268
+python3 integer_greedy_rederive.py 0.8 1000000  4.82s user 0.02s system 99% cpu 4.836 total
+  x = 1e3: psi(x) - x = -30.8   running sup|psi - x| = 31.0   local exponent log10(sup)/k = 0.497
+  x = 1e4: psi(x) - x = 25.0   running sup|psi - x| = 171.2   local exponent log10(sup)/k = 0.558
+  x = 1e5: psi(x) - x = 590.1   running sup|psi - x| = 906.4   local exponent log10(sup)/k = 0.591
+  x = 1e6: psi(x) - x = 3282.6   running sup|psi - x| = 3615.1   local exponent log10(sup)/k = 0.593
+  alpha-slope (sup|psi-x|) on [1e3, 1e4]: 0.742
+  alpha-slope (sup|psi-x|) on [1e4, 1e5]: 0.724
+  alpha-slope (sup|psi-x|) on [1e5, 1e6]: 0.601

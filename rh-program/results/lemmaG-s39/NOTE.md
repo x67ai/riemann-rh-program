@@ -198,3 +198,61 @@ holds with a constant lower bound. (F1): log C has frequencies k log r (r ∈ R)
 ≥ N^{½ − 2σ − ε} infinitely often. ∎ So the faithful transplant of the rung-1 counterexample obeys O (under RH): the realization factor
 C — the gap between log r and N log 4 — carries the full prime diagonal.
 
+**3.6 Lemma (cluster lemma; unconditional, elementary)** [proved here]. If (y, y + h] (integers) contains c primes of R, all > z, and
+ρ_z := Π_{p∈R, p≤z}(1 − 1/p), then E(y + h) − E(y) ≤ (ρ_z − ρ)h + 2^{π_R(z)} − c; so max(|E(y)|, |E(y+h)|) ≥ J/2 with
+J := c − 2^{π_R(z)} − (ρ_z − ρ)h. *Proof.* E(y+h) − E(y) = #{R-free n ∈ I} − ρh, and #{R-free n ∈ I} ≤ #{n ∈ I : (n, Π_{p∈R,p≤z}p) = 1} − c
+≤ ρ_z h + 2^{π_R(z)} − c (Legendre). ∎ For R_tight (computed, `verify/cluster_check.py` → `logs/cluster_check.log`, N ≤ 16): the cluster
+spans h_N with h_N/(c_N log 4^N) = 0.98, 1.05, 0.99, 1.00, 1.00 (N = 12…16); the guaranteed jump J_N ≈ 0.8c_N (N = 16: J = 3273 for
+c_N = 4080); the measured max|E| next to the cluster is 1.9c_N (7781). So |E| ≍ x^{1/2}/log x at x = 4^N: β(R_tight) = α_R on the
+computed range — as long as the clusters stay this tight (h_N ≪ c_N log 4^N), sup|E| ≥ x^{α_R}/(C log x) infinitely often.
+
+## §4. Computation at scale (the instrument; evidence, not theorems)
+
+**4.1 Instrument and second routes** [computed]. `verify/lg.c` + `lg_core.h` build each family's R, ρ (long double; tails analytic:
+1/ζ(k)-type, N₁/(N₁+1), mean tails, cyclotomic), the R-free bitset to X, and bins in the format of cO's `thin2.c` (its statistics code
+unchanged; an optional side file of per-bin sums of E); the truncated Franel diagonal M_diag = ρ²W/12 by depth-first enumeration of
+squarefree R-numbers. The exact dyadic statistic is cO's (`dyadic_ms_cO.py`, a verbatim copy of cO/verify/dyadic_ms.py), driven by
+`verify/dyadic.py`. Second routes: (i) `xcheck_small.py`, `xcheck_planted.py` (X = 10⁵): every R regenerated in Python is identical; every
+bin's Σ E² recomputed with N(n) = Σ_{m∈⟨R⟩, m≤n}μ(m)⌊n/m⌋ — inclusion–exclusion, not the sieve — agrees to print precision (≤ 5·10⁻⁷);
+ρ(sq), ρ(nsq) by independent products agree to 3·10⁻¹², 3·10⁻¹⁵. (ii) `controls.py` runs this pipeline on cO's own greedy data and
+reproduces cO §3.4's row exactly (0.577 / 0.594 / 0.598, κ = 2.80). (iii) The family-specific predictions below are independent routes
+to the same numbers. Runs (`run_all.sh`, `run_big.sh`; logs `run_all.log`, `run_big.log`): 10⁹ and 10¹⁰, 1–140 s each, one at a time.
+
+**4.2 Results at X = 10¹⁰** (`logs/dyadic_1e10.log`, `logs/controls.log`; 10⁹ in `logs/dyadic_1e9.log` — same values on the common range).
+| family (theorem) | Q_R slope | ms-slope [10⁴,X] / [10⁶,X] / top 3 dec. | sup-slope | M/M_diag at 10⁴, 10⁶, 8·10⁷, 10⁹ | κ |
+|---|---|---|---|---|---|
+| sq = {nextprime(p²)} (T2: β₂ ≥ ¼ uncond.) | 0.499 | 0.431 / 0.422 / 0.431 | 0.231 | 1.06, 0.91, 0.81, 0.32 | 1.41 |
+| nsq = {nextprime(n²)} (T3: β₂ = ½) | 0.635* | 0.511 / 0.438 / 0.485 | 0.279 | 19.9, 35.9, 11.7, 6.55 | 3.69 |
+| Weyl {p : {p√2} < p^{−0.4}} (none; pseudo-random) | 0.604 | 0.478 / 0.745 / 0.552 | 0.266 | 36.4, 0.83, 10.5, 9.87 | −2.88 |
+| Weyl {p : {p√2} < p^{−0.25}} (none) | 0.749 | 0.687 / 0.650 / 0.546 | 0.352 | 2.05, 2.16, 4.93, 1.36 | 1.72 |
+| tight ℚ-necklace (F.1: β₂ ≥ ¼ under RH) | 0.500 | 0.801 / 0.792 / 0.789 | 0.479 | 16.3, 46.1, 165, 371 | −5.23 |
+| spread ℚ-necklace (T5: β₂ = ½) | 0.492 | 0.770 / 0.869 / 0.885 | 0.341 | 2.41, 1.56, 6.90, 20.7 | −6.78 |
+| planted pole 0.45 ± 5i, α = 0.6 (RH-false-type control) | 0.600 | 0.906 / 0.913 / 0.940 | 0.428 | 13.4, 63.4, 174, 489 | −5.58 |
+| T_0.75 seeds 1–4 (Theorem B control; fr data) | 0.750 | 0.69–0.76 / 0.77–0.93 / 0.76–1.04 | 0.34–0.39 | 1.8–116 (all ≥ 1.7) | −2.9…−0.1 |
+| greedy c = 1, α = 0.75 (fr Thm C; cO data) | 0.750 | 0.577 / 0.594 / 0.598 | 0.308 | 0.73, 0.22, 0.12, 0.073 | 2.80 |
+(*nsq's R-number count grows like X^{1/2}e^{c√log X}, since Π(1 + n^{−2s}) ≈ exp ζ(2s): its local exponent is 0.635, not ½.)
+
+**4.3 Pattern discovery and the family-specific second routes.**
+(a) *sq is driven by the zeros of ζ, at the line α_R/2* [computed: `verify/sq_explicit.py` → `logs/sq_explicit_200.log`]. Under RH,
+Mellin inversion of ζ(s)C(s)/ζ(2s)·x^s/s gives E(x) = Σ_ρ c_ρx^{ρ/2} + O(x^{0.03}), c_ρ = ζ(ρ/2)C(ρ/2)/(ρζ′(ρ)) (|c_{ρ₁}| = 0.0364,
+|c_{ρ₂}| = 0.0210, |c_{ρ₅}| = 0.0256), with C(ρ/2) from the 9592 R-primes of the run. Each bin's mean of E against the exact bin average
+of the 200-zero sum, normalized by x^{1/4}: correlation 0.882 on all 120 bins with x ≥ 10⁴, **0.980 for x ≥ 10⁶ and 0.998 for x ≥ 10⁸**
+(residual rms 0.0093 against a signal rms 0.069). So the pure-power deficit of sq (slope 0.422 on [10⁶, 10¹⁰]; M/M_diag = 0.32 in the
+10⁹ window) is a log-periodic beat of the low zeros (frequencies (γ − γ′)/2 in log X), not a log-power and not a counterexample:
+β₂ ≥ ¼ is Theorem T2.
+(b) *nsq follows Theorem T3's law with the residue-fixed frequency* [computed: `verify/nsq_bessel.py` → `logs/nsq_bessel.log`]. Fitting
+E/x^{1/2} = K₁f₁(L) + K₂f₁′(L), f₁(L) = J₁(w√(2L))/√L, L = ln x, to the 120 bin means (10⁴ ≤ x ≤ 10¹⁰): R² = 0.9952 at the predicted
+w = 1, against 0.9927 (w = 1.05), 0.9869 (0.95), 0.975 (0.9), 0.979 (1.1), 0.950 (1.2, 1.3) — best at the prediction. The data span less
+than one period of the Bessel oscillation, so this is supportive, not decisive. E/x^{1/2} falls from −0.10 (10⁴) through 0 near 10⁹ —
+why the mean-square slope on [10⁶, 10¹⁰] (0.438) understates β₂ = ½ = α_R.
+(c) *The rung-1 transplant is the worst deletion on the record.* The tight ℚ-necklace — whose D_R has exactly rung 1's analytic
+anatomy (§3.4) — has M/M_diag = 371 at 10⁹ and sup-slope 0.479 ≈ α_R: coherent clusters (§3.6). Spreading the clusters turns its zeros
+into branch points (T5): slope 0.885 against T5's (log X)^{−3.66} law, whose local slope 1 − 3.66/ln X is 0.80–0.84 over the window
+(consistent up to O(1/log X) corrections).
+(d) *Controls.* The planted pole at σ₁ = 0.45 > α/2 = 0.3 is read off at slope 0.906 / 0.913 / 0.940 against 2σ₁ = 0.90; the Weyl
+(pseudo-random) sets scatter around α like the T_α seeds (M/M_diag 0.83–36 vs 1.8–116); greedy c = 1 reproduces cO.
+(e) *The stop-line trigger.* "Pure-power mean-square slope below α_R − δ over ≥ 3 decades" fires for sq (δ ≈ 0.08) and greedy c = 1
+(δ ≈ 0.16) — both sets on which β₂ ≥ α_R/2 is an UNCONDITIONAL theorem (T2; fr Thm C). cO's κ-calibration answers the greedy case
+(a log-power); the sq case needs a second calibration — log-periodic modulation by zeros (here of ζ itself, at ρ/2) — which a κ-fit
+reads as κ = 1.41. **No family is a K-candidate**: every sub-diagonal window is explained by a proved mechanism.
+

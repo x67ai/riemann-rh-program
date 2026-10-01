@@ -29,3 +29,12 @@
   (D_R = (1 − 2·4^{−s})·C, analytic past α_R/2, infinitely many zeros, no poles; criterion silent).
 - Theorem F (RH): Theorem Z with a model G divided out — if D_R = G·C, C zero-free with divergent diagonal, G polynomially bounded with
   polynomial min-modulus on circles, then β₂ ≥ α_R/2. Cor F.1: tight ℚ-necklace obeys O (C carries the prime diagonal).
+## 2026-10-01 07:20 — computation batch (lemmaG-s39), X = 1e9 and 1e10
+- Exact dyadic M(X) for 5 deterministic families + 2 controls to 1e10 (table NOTE §4.2). Controls fire: planted pole 0.45 ± 5i read at
+  slope 0.906–0.940 (pred. 0.90); tight ℚ-necklace M/M_diag = 371 at 1e9 (coherent clusters, sup-slope 0.479 ≈ α_R); spread necklace
+  slope 0.885 (T5's (log)^{−3.66} law); Weyl pseudo-random sets scatter like T_α.
+- sq = {nextprime(p²)}: pure-power slope 0.422 on [1e6,1e10], M/M_diag 0.9 → 0.32 — the trigger fires on a PROVED set (T2). Explained:
+  bin-mean E matches the 200-zero explicit formula Σ c_ρ x^{ρ/2} (corr 0.998 for x ≥ 1e8): log-periodic beat of ζ's low zeros.
+- nsq = {nextprime(n²)}: T3's Bessel law J₁(√(2 ln x)) fits with R² = 0.995 at the residue-fixed frequency (best among w ∈ [0.7,1.3]).
+- Cluster lemma checked: R_tight clusters span h_N ≈ c_N log 4^N; max|E| near cluster ≈ 1.9 c_N (N ≤ 16).
+- No K-candidate; every sub-diagonal window is a proved mechanism.

@@ -20,3 +20,13 @@ Dated blocks, appended as the work lands. Writer: Opus 5.5 (agent). U.S. English
 - STOP CONDITION of the brief met numerically. Next: route 2 for α (argument principle on ζ_P = ρζ + Σ(a_n − ρ)n^{−s}), then report.
 - Design (i) in tracking form is forbidden in print: Hilberdink 2005 Remark C (w-18a l. 496–500) + Remark B(ii): finitely many zeros
   in σ > η with η ∈ (β, α) forces η ≥ ½; a tracking discretization of a rational template has only the template's zeros, so β ≥ ½.
+
+## 2026-10-01 — block 3: route 2 confirms; close K-conditional + T + G; STOP and report
+
+- Route 2 for α (S5, ρ = 0.8): zero ρ₁ = 0.76587 + 30.32606i of ζ_P = 0.8ζ + Σ(a_n − 0.8)n^{−s}, stable to 10⁻⁵ from X = 3·10⁷ to 10⁹;
+  winding number 1 on a box at X = 10⁹ (min|F_X| 0.0394 vs tail ≤ 0.021 if |N(u) − 0.8⌊u⌋| ≤ u^{0.35} beyond 10⁹). Strip counts to t = 60:
+  zeros in σ ∈ [0.60, 0.65], [0.65, 0.70], [0.75, 0.80].
+- Robustness: 9 tie-break variants (ρ = 0.8, 0.95, 1.05; δ = −0.3, 0.3, 0.45) all on or above α = 2β; ρ = 0.95, 1.05 at 10⁹ also 0.10–0.19 above.
+- Theorem K′ (NOTE §4): Lemma H (|N(u) − 0.8⌊u⌋| ≪ u^{0.35}) ⇒ U false. T: design (i) tracking ⇒ β ≥ ½ (Hilberdink Remark C);
+  periodic design (ii) ⇒ abelian field or off-line Dirichlet zero. G: Lemma H; smallest undecided class S5(ρ), ρ ∈ (0.5, 1.3).
+- Stopped per the brief (stop condition met; report before proving). Not run: S3, S4, 30-digit certification, proof of Lemma H (Untried UT-U1…U5).
