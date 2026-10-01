@@ -63,3 +63,31 @@ lattice on n₀, then the v_p identity at exponent 1 for the top primes, memoize
 107,416,400,010 at log₁₀n = 31.41 with two and with three top primes). `verify/fsplit.c` (counts only factorizations in which no
 factor contains two primes of a chosen set L): loses a factor 4.7 to 150 on the same n — multi-large-prime g-primes carry much of
 the count, so it is not used for bounds.
+
+**2.3 Close K: an explicit integer beyond the Rouché tolerance [computed, two code paths].**
+
+  n_K = 2⁸·3⁵·5⁹·7³·11²·13·17·19³·23·29²·37·41²·59·61·79·89·109·149
+      = 3,779,321,386,617,192,025,903,153,574,378,164,500,000,000   (log₁₀ n_K = 42.577414),
+
+  a_{n_K} ≥ f_G(n_K) = **3,403,961,916,617,140**   (G = the g-primes ≤ 10⁹ of S5(0.8); 2,525 of them divide n_K),
+
+and f_G(n_K) > 3.76·n_K^{0.35} + 3, checked in exact integers as (25(f − 3))²⁰ > 94²⁰·n_K⁷; the ratio is f/(3.76 n^{0.35}) = 1.1342,
+i.e. a_{n_K} ≥ 4.2647·n_K^{0.35} (exponent log f/log n = 0.36479). Paths: (1) `verify/fcert.c` — 128-bit lattice on n₀ = n_K/(89·109·149)
+(τ(n₀) = 29,859,840) plus the exponent-1 v_p identity for 89, 109, 149, no overflow (`logs/fcert_K1.log`, 10 s); (2)
+`verify/checkK.py` — shares no code: verifies that every listed divisor is in the g-prime dump (binary search) and that the list is
+complete (all 500,886 divisors ≤ 10⁹ of n_K scanned), recounts by a numpy slice-DP plus a recursive derivation step modulo three
+primes near 2³¹ — all three residues agree with (1) — and runs the exact-integer K test (`logs/checkK_K1.log`, 3 min). (3) The
+float full-lattice DP of `search2.c` (τ = 238,878,720) gave log₁₀ f = 15.5320, matching. The list: `verify/certK/K1_gdiv.txt`
+(SHA-256 2dfd9f2c…c935036e; largest member 999,086,975).
+
+*Consequence [proved here, given the dump].* E(n) − E(n − 1) = C(n) − C(n − 1) = a_n − 0.8. If |C(u)| ≤ c·u^θ for all u > 10⁹ with
+θ ≤ 0.35 and c < 1.88, then a_{n_K} − 0.8 ≤ c n_K^θ + c (n_K − 1)^θ < 3.76 n_K^{0.35}, contradicting a_{n_K} > 3.76 n_K^{0.35} + 3.
+**So hypothesis H_θ of Theorem K′ is false for every θ ≤ 0.35 and every constant c < 1.88 (in particular for c = 1 as stated);
+Theorem K′ is vacuous as stated** — the Rouché step at X = 10⁹ needs c < 0.0394/0.0210 = 1.876, and any valid constant must be
+≥ (a_{n_K} − 0.8)/(2 n_K^{0.35}) ≥ 2.13. What this does NOT refute: Lemma H in its ≪ form (unspecified constant). A fixed finite G
+cannot do that — f_G(n) ≤ (1 + log₂ n)^{|G|} — so refuting "≪ x^{0.35}" needs g-primes beyond any fixed bound, i.e. a theorem
+(§4) or a growing exact system (§3). The data are the orchestrator's dump; its independent re-verification is §2.5.
+
+*Anatomy.* The primes of n_K are 2, 3, 7, 11, 13, 17, 23, 37 (accepted) and **5, 19, 29, 41, 59, 61, 79, 89, 109, 149 — ten of the
+eleven refused primes ≤ 149** (139 is the one left out). The search, told nothing about refusal, chose the refused primes: the
+multiplicity is carried by refused primes, each entering through its carriers (§5).

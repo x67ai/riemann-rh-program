@@ -103,7 +103,45 @@ falls below ½ (ℕ itself, ρ = 1 and E = −{x} ∈ (−1, 0], has ζ < 0 on (
 
 ## §2. The mechanism (task 2)
 
-(pending)
+**Proposition 2.1 (gap identity)** [proved here]. Let g_k := p_{k+1} − p_k and C(a, b) the number of composites in the open interval.
+(i) E(x) = ½ + C(p_k, x] − ρ(x − p_k) for x ∈ [p_k, p_{k+1}); (ii) ρg_k = 1 + C(p_k, p_{k+1}); (iii) sup_{u≤x}E(u) ≤ ρG(x) − ½, G(x) :=
+max{g_k : p_{k+1} ≤ x} (and the gap containing x). *Proof.* E(p_k) = ½ (1.0(ii)); no prime lies in (p_k, p_{k+1}), so N grows only by
+composites there, giving (i). E(p_{k+1}−) = −½ (1.0(i)) inserted in (i) gives (ii). From (i), E(x) ≤ ½ + C(p_k, p_{k+1}) = ρg_k − ½. ∎
+So **(B) follows from a prime-gap bound G(x) = O(x^θ)**. The converse fails: composites spread evenly over a long gap keep E small.
+Data (π/16, 10⁷): G = 336.1, ρG − ½ = 65.5 against sup E = 12.84 (`verify/mech_pi16_1e7.log`); G ≈ 1.3 log²x.
+
+**2.2 Linearization, the clip, and the real zero.** Write R(u) := N(u) − ρu = 1 − ρ + E(u). For Re s > 1,
+ζ_P(s) = ρs/(s − 1) + s∫_1^∞R(u)u^{−s−1}du, and with the template R_c ≡ 1 − ρ this is ζ_c. A perturbation dw of the prime measure from
+dΠ_c gives ζ_P = ζ_c·exp(ŵ), so to first order sÊ = ζ_c·ŵ: exact tracking (E ≡ 0) forces ŵ ≡ 0, the continuous template, which no
+discrete system can be. The zeros of ζ_P are the points where ŵ has a logarithmic singularity, i.e. where sÊ(s) = −ζ_c(s): the neutral
+modes of the loop. The clip (π′ ≥ 0, the rule can add g-integers but never remove one) is what makes E one-signed below: E > −½, i.e.
+R(u) ≥ ½ − ρ =: r₀ for all u (attained at every prime: R(p−) = ½ − ρ; `verify/lin_sweep_1e6.log`, column inf R).
+*Remark 1.6′ (the cleanest form of Theorem 1.6)* [proved here]. If R(u) ≥ r₀ > 0 for all u and R = O(u^θ), then
+ζ_P(σ) ≥ r₀ − ρσ/(1 − σ) > 0 for θ < σ < r₀/(r₀ + ρ), and ζ_P has a real zero in [r₀/(r₀ + ρ), 1). An integer count that never dips
+below its linear part forces a real (Siegel-type) zero; ℕ escapes because ⌊u⌋ − u ≤ 0. U needs r₀/(r₀ + ρ) > ½, i.e. r₀ > ρ: for S8,
+½ − ρ > ρ, i.e. ρ < ¼.
+*Where the zero sits.* ζ_c has a simple zero at s₀ = 1 − ρ with ζ_c′(s₀) = −1/ρ, so to first order σ* ≈ s₀ + ρζ_P(s₀). Test
+(`verify/s8_lin.py`, X = 10⁶) [computed]: π/64: 0.947841 vs σ* = 0.947634; π/32: 0.895479 vs 0.895076; π/16: 0.794932 vs 0.794752;
+π/8: 0.671073 vs 0.656529 (second order visible); π/4: the linearization fails (shift 0.92), the zero at 0.514 is not the template's.
+For ρ ≤ ¼ the real zero of S8 is the template zero 1 − ρ, displaced left by ρ|ζ_P(1 − ρ)| ≈ 0.003–0.009 because the early stretch
+E(u) = −ρ(u − 1) on [1, p₁) dominates the weight u^{−σ−1}. For ρ ≥ ¼ it is a genuinely nonlinear zero in (½, 0.66).
+
+**2.3 The queue heuristic, tested.** By Prop. 2.1, E is exactly the content of a queue: unit arrivals (composites), constant service
+rate ρ, reflection at −½ effected by unit insertions (primes). If composites at scale u were Poisson of rate ρ − μ, μ ≈ (1 − u^{−ρ})/log u
+the prime density, the quasi-stationary law of E has the Cramér–Lundberg tail e^{−κh}, κ solving (ρ − μ)(e^κ − 1) = ρκ, so
+κ ≈ 2μ/ρ ≈ 2/(ρ log u), mean ≈ ρ log u/2, and the running maximum ≈ log(x)/κ ≈ (ρ/2)·log²x. [heuristic, not proved]
+Data, π/16, top half-decade [10^6.5, 10⁷] (`mech_pi16_1e7.log`) [computed]: time-mean of E 0.907 vs 1.58 predicted (ratio 0.57, both
+∝ log x: the mean grows by 0.16 per decade, predicted 0.23); tail rate 0.981 vs 0.632 (ratio 1.55, stable over four half-decades:
+1.48–1.65). So composite arrivals are SUB-Poissonian, effective variance ≈ 0.6 of Poisson, and sup E ≈ 0.3ρ·log²x: measured
+sup E/log²x = 0.018, 0.034, 0.049, 0.080, 0.112, 0.207 at ρ = π/64 … π/4 (§1.8), i.e. (0.37–0.53)·ρ, against 0.3ρ predicted.
+The heuristic's law — polylogarithmic E, tail rate ∝ 1/(ρ log u) — matches; its constant does not, and the discrepancy (sub-Poisson
+variance) is the trace of the correlations a proof would have to control.
+
+**2.4 Real parts.** Hilberdink 2005 Cor. 2(b) [quoted: `novel-wave-s37/beurling-frontier/sources/w-18a…txt` l. 210–213, JNT 112
+p. 336]: if N_P(x) = ρx + O(x^β), β < ½, then for every γ ∈ (β, ½), ψ_P(x) − x = Ω(x^γ) and ζ_P has infinitely many zeros in
+γ < Re s < 1. So (B) with θ < ½ forces infinitely many zeros right of θ, not right of ½; nothing printed that we have read forces
+sup Re = 1. The real zero is a fixed σ* < 1, stable to 3·10⁻⁶ between 10⁶ and 10⁷ (π/16). Whether complex zeros climb toward 1
+is the compute unit's question (its task 3(ii)); see §4 for what arrives.
 
 ## §3. The proof problem (task 3)
 

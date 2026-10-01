@@ -133,3 +133,18 @@ VERDICT LINE: (provisional — filled at the end of the read)
         = number of unknowns (6 weights + τ). Exact re-evaluation with rational weights by a SECOND algorithm (convolution-power
         series in Fractions): min Π_F = −0.293650523 at 64/7 ✓. So the NOTE's M = 4 entry (lines 69, 331, 334, 384) is not the best
         attainable; the trend reading (−0.68 → −0.40 → −0.29) is unchanged in direction (F3).
+
+## §3. Prior art at the page
+
+| source (opened) | at the line | verdict on the NOTE's use |
+|---|---|---|
+| Meyer 1970, LNM 117, §4.2 p. 25 (`fetched-r9/…pisot-salem.pdf` p. 25 as an image; OCR 677–713) | unit masses; dμ_n = n^{−1}Ψ(n^{−1}x)dμ; Rosenthal [7] th. 1.6 p. 22; p. 26 "On retrouve donc la formule de Poisson habituelle" | quoted exactly ✓; Rosenthal (inside Meyer's proof) not on disk — label it (m3) |
+| QC `read-O.md` §2 (05:20 IST) and QC-now (579f22e3…) §1.3(ii), Theorem D step (1) | finite-values form proved via Meyer's Bohr passage + Lagrange idempotents; D unconditional via μ_q − (ρ_q − 1)·Lebesgue | SAME results as the NOTE's Lemma M, M1, §1.4, earlier on the record — credit missing (F1) |
+| Hilberdink 2012, Acta Arith. 152, 217–241 (BFE `sources/p3-22c2-…txt`) | Thm 4.3 (812–905): Q(s) = Σ_{d∣P}q(d)d^{−s}, t(n) ≥ 0 off prime powers ⟹ t(n) = 0 there, by a several-variable Landau argument on Q̃(p₁^{β}, x₂, …, x_r); Thm 4.4 (1028–1066): τ_n = Σμ_r^n ≤ 1 ∀n ⟹ |μ₁| ≤ 1 (k = 1), |μ_r| < 1 (k > 1) | NOT CITED by the NOTE (flagged on disk by QC read-O F2 at 05:20). Thm 4.4 with k = 2, μ = α, β, |αβ| = 5 gives (W3)'s emptiness for every real t at once; Thm 4.3 is the printed finite-S, integer-frequency core of the L′/L‴ mechanism and the printed precedent for UT-QT1's "several-variable Landau" (F2) |
+| Kurasov–Sarnak 2020 (BFE u-20b) | 43–44 Meyer as quoted (finite values, |μ̂| TB); 47–49 "any such classification is probably very difficult [5]"; 56–58 positive non-comb question; 792–796 (A) answered | quoted correctly ✓ |
+| Baake–Spindeler–Strungaru 2023 (QC 2104.06812) | §8 Outlook 1235–1241: "the characterisation of all doubly sparse measures, an important open problem … is equivalent to the characterisation of all doubly sparse eigenmeasures"; Thm 7.5 (1160–1172): doubly sparse eigenmeasures with LARGE GAPS around 0 (signed) | quoted correctly ✓; Thm 7.5 is worth a line: gapped self-dual measures abound once signs are allowed (consistent with BFE read-O R1) (m8) |
+| Kulikov–Nazarov–Sodin 2023 (sources/ 2306.14013) | Def. 2 101–118; Thm 1 137–139; Thm 1-NUP 1871; Lemma 6 2000–2016 (free interpolation on Λ′_L, M′_L) | Thm 1(ii) quoted correctly ✓; P2 needs Lemma 6 to reach even self-dual k (m7, §7 A3) |
+| Lev–Olevskii 2015 (BFE 1312.6884) | 63–68 "finitely many different values … [17, p. 25], [6], [11] … Helson-Cohen"; Thm 1 103–105 | quoted correctly ✓; LO's "[17, p. 25]" over-attributes (p. 25 is unit masses) — the NOTE's §1.1 says so; its §8 row should too (m9) |
+| Widder, The Laplace Transform, Thm II.5b (NOTE lines 222, 370, "[recalled, standard]") | not opened | not needed: QC Lemma L's proof covers it (m5) |
+| Wiener's lemma (Prop. S) | not opened | re-proved at the line in §1(j) |
+| arXiv, reader's queries q7–q9 (`verify-O/sources/`) | see §8 for status | — |

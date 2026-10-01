@@ -1,7 +1,7 @@
 /* fcount.c -- exact count of factorizations of n into the g-primes of a .gp list (read-O, Session 40, claim C3).
    f(n) = #{multisets of listed g-primes (with multiplicity m_q as distinct copies) with product n}, by an unbounded-knapsack
    DP over the mixed-radix divisor lattice of n. Since S5's rule never removes a g-prime, f(n) <= a_n for every n, and for
-   n <= max(list) with every g-prime < n listed, f(n) = a_n exactly.  usage: fcount file.gp "2^5*3^3*5^4*7*..." */
+   n <= max(list) with every g-prime < n listed, f(n) = a_n exactly.  usage: fcount file.gp "2^5*3^3*5^4*7*..." [B: use only g-primes <= B] */
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -17,9 +17,10 @@ int main(int argc,char**argv){
   stride[0]=1; for(int i=0;i<K;i++) stride[i+1]=stride[i]*(uint64_t)(E[i]+1);
   uint64_t Lsz=stride[K]; fprintf(stderr,"lattice %llu entries, log10 n = %.4f\n",(unsigned long long)Lsz,l10);
   uint64_t *f=calloc(Lsz,8); if(!f){fprintf(stderr,"alloc\n");return 1;} f[0]=1;
-  FILE *fp=fopen(argv[1],"rb"); uint32_t q; uint8_t m; uint64_t nq=0, nmult=0; int ovf=0;
+  uint64_t B = argc>3 ? (uint64_t)atof(argv[3]) : ~0ULL; FILE *fp=fopen(argv[1],"rb"); uint32_t q; uint8_t m; uint64_t nq=0, nmult=0; int ovf=0;
   int v[MAXK], e[MAXK];
   while(fread(&q,4,1,fp)==1 && fread(&m,1,1,fp)==1){
+    if(q>B) continue;
     uint64_t t=q; int ok=1; for(int i=0;i<K;i++){ v[i]=0; while(t%pr[i]==0){ t/=pr[i]; v[i]++; } if(v[i]>E[i]){ok=0;break;} }
     if(!ok || t!=1) continue;
     nq++; nmult+=m; uint64_t off=0; for(int i=0;i<K;i++) off+=v[i]*stride[i];

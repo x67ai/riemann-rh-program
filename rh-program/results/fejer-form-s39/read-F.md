@@ -17,3 +17,9 @@ None from this side.
 
 ## 4. Close
 K by theorem; UT-4 closed; the two riders of §11 go to the zoo stream after read-O's check against entries IV.1 and I.9.
+
+## 5. Reconciliation with read-O (11:46 IST 2026-10-01)
+read-O: AGREES-WITH-CORRECTIONS, 29 pairs (2 FIX-FIRST items of 7 pairs each; 9 minor items, 15 pairs). Both FIX-FIRST concern the wording of the close, which this side accepted as written — verified by hand before applying:
+- **F1** ✓: from D_k = h(q^{g−1+k} − 1), on P¹ (g = 0, h = 1) D_k = q^{k−1} − 1 = 0, 4, 24 at q = 5 for k = 1, 2, 3; so 'equality exactly at genus 0' is a statement about D₁, and 'D_k > 0 on every zeta datum' needs 'of genus ≥ 1'.
+- **F2** ✓: over F₅ the functional I = 17g/4 + N₁ − 6 vanishes at P¹, is ≥ g/4 > 0 on every genuine curve of genus ≥ 1 (Serre: N₁ ≥ q + 1 − g⌊2√q⌋ = 6 − 4g) and equals −3/4 on V; its f(θ) = 17/4 − 2√5 cos θ is negative at θ = 0 (4.25 − 4.472). So a separating affine inequality need not be a Weil test; Theorem W(ii) is correct as stated (separation from the Weil region), and the close's shorthand 'the separating ones are the Toeplitz cone' overreached. The boundary of the new inequality is the printed Weil–Serre bound, so stop line 2 still fires and K stands.
+All 29 pairs applied; NOTE 3ad9a31e… → 0ab5f19e… (`NOTE.pre-reader.md` kept). The two zoo riders of §11 are accurate after F1, F2 and m9 (read-O checked them against the zoo's IV.1 and I.9 text by grep) and go to the zoo stream.
