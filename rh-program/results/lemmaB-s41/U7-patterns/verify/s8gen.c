@@ -23,19 +23,21 @@ static inline int ddlt(dd a, dd b){ return a.hi<b.hi || (a.hi==b.hi && a.lo<b.lo
 
 #define FLAGTOL 1e-15
 static dd T, RHO, DELTA; static double TAU;
-static dd *P = NULL; static uint32_t *PK = NULL; static long np = 0, npcap = 0, npblock = 0;
+static uint32_t *PK = NULL; static double TH1; /* prime j has value 1 + (PK[j]-1+tau)t - delta */ static long np = 0, npcap = 0, npblock = 0;
 static long K0, K1;                 /* current chunk: cells K0..K1 */
 static uint8_t *cc, *c1, *c2;       /* per-cell counts in chunk: total, spf = p1, Omega = 2 */
 static float *lastf;                /* largest fractional position of a composite in the cell */
 static long nflag = 0, ncomp = 0, nover = 0; static double minmargin = 1.0, minmargin_x = 0;
 static FILE *fflag = NULL, *fwatch = NULL;
-static int stk[256], depth_max = 0;
+static int stk[256], depth_max = 0, depth_top = 0;
 static long *wa = NULL, *wb = NULL; static int nw = 0;   /* watch windows (cell ranges) */
 /* checkpoints */
 #define NCK 64
 static int nck = 0; static double ckx[NCK]; static long ckcell[NCK]; static double ckf[NCK]; static long ckpart[NCK];
 
 static dd xlat(long k){ return ddaddd(ddmuld(T, (double)(k-1)+TAU), 1.0); }       /* lattice point x_k */
+static inline dd pvj(long j){ return ddadd(ddaddd(ddmuld(T, (double)PK[j]-1.0+TAU), 1.0), (dd){-DELTA.hi, -DELTA.lo}); }
+static inline double pvh(long j){ return TH1 + ((double)PK[j]-1.0)*T.hi; }
 static dd pval(long k){ dd x = xlat(k); return ddadd(x, (dd){-DELTA.hi, -DELTA.lo}); } /* prime placed at cell k */
 
 /* cell of a value c: returns k (cell index) and fractional position f in (0,1); audits the margin */
@@ -51,7 +53,7 @@ static inline long cellof(dd c, double *fout){
 static int inwatch(long k){ int lo=0, hi=nw-1; while (lo<=hi){ int mid=(lo+hi)/2; if (k<wa[mid]) hi=mid-1; else if (k>wb[mid]) lo=mid+1; else return 1; } return 0; }
 
 static inline void record(dd c, int depth){   /* stk[0..depth] = factor indices, nondecreasing */
-  double f; depth_max = depth; long k = cellof(c, &f);
+  double f; depth_max = depth; if (depth > depth_top) depth_top = depth; long k = cellof(c, &f);
   if (k < K0 || k > K1) return;
   long j = k - K0; ncomp++;
   if (cc[j] == 255) nover++; else cc[j]++;
@@ -67,14 +69,14 @@ static inline void record(dd c, int depth){   /* stk[0..depth] = factor indices,
 }
 
 static dd LB, RB;
-static long lower_idx(double v, long from){ long lo=from, hi=npblock; while (lo<hi){ long mid=(lo+hi)/2; if (P[mid].hi < v) lo=mid+1; else hi=mid; } return lo; }
+static long lower_idx(double v, long from){ long lo=from, hi=npblock; while (lo<hi){ long mid=(lo+hi)/2; if (pvh(mid) < v) lo=mid+1; else hi=mid; } return lo; }
 static void dfs(dd m, long i, int depth){         /* m = product of stk[0..depth-1] */
   if (depth >= 1){
     long j = lower_idx(LB.hi / m.hi * (1 - 1e-13), i);
-    for (; j < npblock; j++){ dd c = ddmul(m, P[j]); if (c.hi > RB.hi) break; stk[depth] = (int)j; record(c, depth); }
+    for (; j < npblock; j++){ dd c = ddmul(m, pvj(j)); if (c.hi > RB.hi) break; stk[depth] = (int)j; record(c, depth); }
   }
   for (long j = i; j < npblock; j++){
-    dd mq = ddmul(m, P[j]); if (mq.hi * P[j].hi > RB.hi) break;
+    dd pj = pvj(j); dd mq = ddmul(m, pj); if (mq.hi * pj.hi > RB.hi) break;
     stk[depth] = (int)j; dfs(mq, j, depth + 1);
   }
 }
@@ -100,19 +102,19 @@ int main(int argc, char **argv){
   long W = 1L << 25; cc = malloc(W); c1 = malloc(W); c2 = malloc(W); lastf = malloc(W*sizeof(float));
   uint8_t *eb = malloc(W);
   double xcap = X / (1.0 + TAU*T.hi - DELTA.hi) * 1.0000001 + 10;   /* store dd values of primes below X/p1 */
-  npcap = 1 << 20; P = malloc(npcap*sizeof(dd));
+  npcap = 1 << 20; PK = malloc(npcap*sizeof(uint32_t)); TH1 = 1.0 + TAU*T.hi - DELTA.hi;
   long e = 0, lastpk = 0, maxgap = 0, maxgap_k = 0, ckdone = 0, npr = 0, busy = 0, maxbusy = 0, maxbusy_k = 0;
   double supE = 0, supE_x = 1; int emax = 0;
   /* cell 1: always a prime */
   { uint8_t z = 0; fwrite(&z,1,1,fc); fwrite(&z,1,1,fe); fwrite(&z,1,1,f1); fwrite(&z,1,1,f2); uint32_t k1 = 1; fwrite(&k1,4,1,fp);
-    P[np++] = pval(1); npr = 1; lastpk = 1; supE = (1 - TAU) + drho; }
+    PK[np++] = 1; npr = 1; lastpk = 1; supE = (1 - TAU) + drho; }
   long Kdone = 1;
   printf("s8gen: t=%.17g%+.3g rho=%.17g tau=%g delta=%.17g (delta/t=%.6g) X=%.6g Kmax=%ld\n", T.hi, T.lo, RHO.hi, TAU, DELTA.hi, drho, X, Kmax);
   while (Kdone < Kmax){
     npblock = np;
-    dd B = xlat(Kdone); dd Bmax = ddmul(P[0], B);
+    dd B = xlat(Kdone); dd Bmax = ddmul(pvj(0), B);
     long Knext = cell_plain(Bmax) - 1;
-    if (Knext <= Kdone){ Knext = Kdone + 1; dd xn = xlat(Knext); if (!(xn.hi / P[0].hi < xn.hi - DELTA.hi)){ fprintf(stderr, "block guard fails at K=%ld\n", Kdone); return 2; } }
+    if (Knext <= Kdone){ Knext = Kdone + 1; dd xn = xlat(Knext); if (!(xn.hi / pvh(0) < xn.hi - DELTA.hi)){ fprintf(stderr, "block guard fails at K=%ld\n", Kdone); return 2; } }
     if (Knext > Kmax) Knext = Kmax;
     for (long a = Kdone + 1; a <= Knext; a += W){
       long b = a + W - 1; if (b > Knext) b = Knext; long n = b - a + 1;
@@ -133,7 +135,7 @@ int main(int argc, char **argv){
         }
         if (isp){
           Ecell = (1 - TAU) + drho; npr++; uint32_t kk = (uint32_t)k; fwrite(&kk, 4, 1, fp);
-          dd pv = pval(k); if (pv.hi < xcap){ if (np == npcap){ npcap *= 2; P = realloc(P, npcap*sizeof(dd)); } P[np++] = pv; }
+          dd pv = pval(k); if (pv.hi < xcap){ if (np == npcap){ npcap *= 2; PK = realloc(PK, npcap*sizeof(uint32_t)); } PK[np++] = (uint32_t)k; }
           long g = k - lastpk; if (g > maxgap){ maxgap = g; maxgap_k = k; } lastpk = k; busy = 0;
         } else { e = e + c - 1; busy++; if (busy > maxbusy){ maxbusy = busy; maxbusy_k = k; } }
         if (Ecell > supE){ supE = Ecell; supE_x = xlat(k - 1).hi + (c > 0 ? lastf[j] : 0) * T.hi; }
@@ -148,8 +150,8 @@ int main(int argc, char **argv){
   }
   printf("FINAL Kmax=%ld x_K=%.10g N(x_K)=%ld pi=%ld composites=%ld supE=%.6f at %.10g supE/log2X=%.5f maxgap=%ld cells (%.4f) at cell %ld maxbusy=%ld at cell %ld emax=%d e_K=%ld\n",
          Kmax, xlat(Kmax).hi, e + Kmax + 1, npr, ncomp, supE, supE_x, supE/(log(X)*log(X)), maxgap, maxgap*T.hi, maxgap_k, maxbusy, maxbusy_k, emax, e);
-  printf("AUDIT minmargin=%.4e at %.10g flagged(<%.0e)=%ld count-overflow=%ld depth-max-seen=%d\n", minmargin, minmargin_x, FLAGTOL, nflag, nover, depth_max);
-  printf("first primes:"); for (int i = 0; i < 6 && i < np; i++) printf(" %.10f", P[i].hi); printf("\n");
+  printf("AUDIT minmargin=%.4e at %.10g flagged(<%.0e)=%ld count-overflow=%ld max-factors=%d\n", minmargin, minmargin_x, FLAGTOL, nflag, nover, depth_top + 1);
+  printf("first primes:"); for (int i = 0; i < 6 && i < np; i++) printf(" %.10f", pvj(i).hi); printf("\n");
   fclose(fc); fclose(fe); fclose(f1); fclose(f2); fclose(fp); fclose(fflag); if (fwatch) fclose(fwatch);
   return 0;
 }
