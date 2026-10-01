@@ -1,0 +1,8 @@
+S8 rho=0.392699081699 tau=0.5 X0=1e+07: N=3926991 primes=660717 time=7.5s; min E(x-) = -0.500000 (> -tau)
+sup_(u<=X0) E(u)/u = 0.263831 at u = 5.167618   (1/(2 p1) = 0.219950 for tau = 1/2 only)
+P0 = 9999997.6463; eta(P0) = 1.651e-06; T(P0) known = 3.174e-04, lattice tail = 6.722e-07; eps0 = 1.6067e-04
+D(X0) = 2.64914 vs (1-tau)/rho = 1.27324; D0 = 1.27283; Delta0 = 0.27283
+record bound beyond X0: rho tau/r0 = 1.829896 + 3.333e-03 = 1.833229
+THEOREM T1 constant: E(x) <= 1.833229 x for all x >= 1; N(x) <= 2.225928 x + 0.6073
+T1': sup_(1<u<=X0) E(u)/(u-1) = 0.392699 at u = 2.273240; records beyond X0 <= 0.392952
+THEOREM T1' constant: E(x) <= 0.392952 (x - 1) for all x > 1; N(x) <= 0.785651 (x - 1) + 1

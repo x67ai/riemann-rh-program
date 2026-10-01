@@ -194,3 +194,81 @@ of the real zero" is fine); P ∖ {q} has R(x) − R(x/q) (N_{P∖q} = N(x) − 
 | (★) for L (l. 310–313) | fails at even products | LHS − RHS = −Π_L(λ)log λ, 9 windows (`star_L_O.log`) | ✓ |
 | S8(π/16) at 10³…10⁶ (l. 94–96, 252, 261) | π(10⁶) = 72,603 (l. 317); sup E 9.636; Q 9.754 | own sweep generator (`s8_O.py`): π = 72603, C = 123746, sup E = 9.6362, Q = 9.7537; 10³–10⁵ rows equal the unit's log | all digits |
 | S8(π/32) sup E at 10⁶ (l. 95) | 6.393 | 6.3931 | ✓ |
+
+## §3. Prior art at the page
+
+**Sources the NOTE cites, opened at the lines.** Hilberdink 2005 (`novel-wave-s37/beurling-frontier/sources/w-18a-…JNT112.txt`): [α, β]-system
+l. 117–124; Thm 1 l. 195; Cor. 2 l. 197–214; Theorem A (= HL Thm 2.3) l. 222–228; Remark B l. 230–233; (3.2) l. 320, (3.3) l. 354, (3.4)
+l. 455, contradiction l. 476–494; Remark C l. 496–501; proof of Cor. 2 l. 659–673. The NOTE's quotations are accurate; what 4.3 omits is
+the [α, β] hypothesis (α < 1) under Theorem A. Hilberdink–Lapidus (`p3-22c1-…arxiv.txt`) Thm 2.3 l. 740–812: zero-freeness right of α
+(l. 756) and |φ(z)| ≤ φ(ℜz) (l. 788). Neamah–Hilberdink (`local-greedy-s40/sources/neamah-hilberdink-1901.06866v2.txt`): abscissa-1
+convention l. 83–84, Thm 1 l. 104–105, Theorem B (α, β < 1) l. 205–209, proof l. 226–244 with |μ_P| ≤ ΔN_P at l. 230. Hilberdink 2012
+(`p3-22c2-…periodic-counting.txt`): Thm A l. 102–110, class T l. 264–270, Def. 1.3 l. 326–333, Thm 1.1(b) l. 371–378, Thm 2.1 l. 404–416 —
+all as the NOTE says.
+**Missed prior art (changes a novelty label; F4).** T. W. Hilberdink, *Flows of Mellin transforms with periodic integrator*, J. Théor.
+Nombres Bordeaux 23 (2011) 455–469, doi 10.5802/jtnb.771 (fetched: `verify-O/sources/hilberdink-2011-jtnb771.pdf/.txt`; it is ref. [7]
+of the 2012 paper the NOTE uses). It studies exactly the NOTE's object class: N with N(1) = 1, N(x) − x periodic, and explicitly NO
+g-prime-system assumption ("However, we shall not assume this here", l. 114); Thm 1 (l. 190–200): continuation to ℂ ∖ {1}, finite order,
+a functional relation; Cor. 2 (l. 209–215): Lindelöf function µ(σ) ≥ µ₀(σ); abstract (l. 57–60): unless N(x) = x, the zeros have real
+parts with supremum ≥ ½; remark (a) (l. 347–348): Thm 1 and Cor. 2 extend to N(x) − cx periodic. N_L (N_L − ρx periodic with period t)
+is in this class, so "a non-positive integer N with periodic error and zeros right of ½" is in print; the specific lattice/Hurwitz control
+L_ρ, its real zero in (1 − 2ρ, 1), its signed Euler exponents and its use against method classes are not there.
+**Prior art for the addition §1.8 (zeros of L right of 1).** The method is classical: Davenport–Heilbronn (1936) and Cassels (1961) for
+ζ(s, α) [recalled via Chatterjee–Gun l. 31–38, at the page; the 1936 paper itself not opened]; T. Chatterjee, S. Gun, arXiv:1407.8319
+(fetched: `verify-O/sources/chatterjee-gun-1407.8319v1.txt`) Thm 1.1 (l. 72–74: α transcendental, f periodic, pole at 1 ⇒ infinitely
+many zeros with σ > 1), proved by Kronecker (Prop. 3.1, l. 121–135), a sign-flipped model with a real zero (l. 236–262) and Rouché
+(l. 229) — the same three steps as §1.8; Saias–Weingartner 2009 Thm 4 (`qcond-s38/sources/arxiv-0807.0783-…txt` l. 103–108): zeros in
+1/2 < σ ≤ 1 + η for periodic coefficients. L = 1 + ρ^sζ(s, ½ + ρ) is not of their form L(s, f, α) (the coefficient sequence of
+2^{−s}ρ^{−s}L over m + 2ρ is [m = 0] + [m odd], not periodic), so §1.8 is new as a statement on a printed core.
+**Not found in print (disk + 4 arXiv API queries, `verify-O/sources/arxiv-*.xml`):** the method-class Theorem 2.1/Cor. 2.2, Prop. 3.2
+(elementary), the clip bound 5.1 (elementary), (★). Cor. 6.1 is an immediate corollary of Hilberdink 2012 Thm A.
+
+## §4. FIX-FIRST pairs (line numbers at hash 55df58db…)
+
+**F1** (close (a); §1.8–1.9 of this read). l. 28:
+OLD: (a) Conjecture U is FALSE for signed discrete systems: L_ρ has α_L ≥ σ*_L > ½ = max{½, 2β_L} (§1.3); with the
+NEW: (a) Conjecture U is FALSE for signed discrete systems, but only in a degenerate way: L_ρ has infinitely many zeros in 1 < Re s < σ₁ (real parts dense in [1, σ₁]; Kronecker + Rouché, read-O §1.8), so α_L = σ₁ > 1 > ½ = max{½, 2β_L} and the PNT ψ_L ~ x fails — the violation sits right of 1, where (P) forbids zeros, not at the real zero σ*_L (§1.3); with the
+**F2** (§1.3). l. 79:
+OLD: (A) and (B) with θ = 0, a real zero > ½ (for ρ ≤ ¼), and α_L ≥ σ*_L by (iv): **Conjecture U fails for signed discrete systems** [proved here].
+NEW: (A) and (B) with θ = 0, a real zero > ½ (for ρ ≤ ¼), and infinitely many zeros in 1 < Re s < σ₁ (read-O §1.8), so α_L = σ₁ > 1 and ψ_L ~ x fails: **Conjecture U fails for signed discrete systems**, through zeros right of 1, which says nothing about signed systems that keep a prime number theorem [proved here].
+**F3** (scope (i)). l. 126:
+OLD: absolutely only for Re s > σ₁ > 1 (§3.4 computes σ₁), and zeros of L in 1 < Re s < σ₁ are possible (searched for in §3.4). (ii) T satisfies
+NEW: absolutely only for Re s > σ₁ > 1 (§3.4 computes σ₁), and L has infinitely many zeros in 1 < Re s < σ₁, none on Re s ≥ σ₁ (read-O §1.8; their heights are astronomically large, which is why §3.4's scan saw none). (ii) T satisfies
+**F4** (§3.4). l. 190–191:
+OLD: |L| on Re s = 1.02, 0 < t < 1000, for zeros right of 1 exceeded 30 minutes and was stopped (stop line (iii); `zeros_L_S8.log`): whether
+L vanishes in 1 < Re s < σ₁ was not settled numerically.
+NEW: |L| on Re s = 1.02, 0 < t < 1000, for zeros right of 1 exceeded 30 minutes and was stopped (stop line (iii); `zeros_L_S8.log`). The question is settled by proof (read-O §1.8): L vanishes infinitely often in 1 < Re s < σ₁, at heights far beyond any scan (on Re s = 1.02 the fraction of t with Re X ≤ −1 is below 10⁻³¹, read-O `chernoff_O.log`); the argument principle finds no zero in [1, 1.25] × [½, 1000].
+**F5** (close (i): the method list). l. 16:
+OLD: lines, the L² abscissa ½ of integer-coefficient series, Hilberdink 2005's (3.2)–(3.4), Remark C and Cor. 2, Neamah–Hilberdink's Thm 1,
+NEW: lines, the L² abscissa ½ of integer-coefficient series, Hilberdink 2005's mean-square lower bound (3.2)–(3.3),
+**F6** (close (i), continued; same sentence). l. 18:
+OLD: control L_ρ(s) = 1 + ρ^s ζ(s, ½ + ρ) (atoms at 1 and at S8's prime lattice 1 + (k − ½)/ρ) satisfies all those premises with
+NEW: control L_ρ(s) = 1 + ρ^s ζ(s, ½ + ρ) (atoms at 1 and at S8's prime lattice 1 + (k − ½)/ρ) satisfies all those premises (Hilberdink's contradiction scheme (3.4)/Remark C/Cor. 2 and Neamah–Hilberdink's Thm 1 are NOT in the list: they need an [α, β]-system with α < 1, zero order via Hilberdink–Lapidus Thm 2.3, which L fails; they are excluded on class (A) by §4.2 and §4.4 instead) with
+**F7** (Cor. 2.2). l. 132 and l. 134:
+OLD: hypotheses it states, hence for L_ρ; so none of them can prove the obstruction, or even E unbounded, on class (A):
+NEW: hypotheses it states; items (1), (2′), (4), (5) hold for L_ρ, so none of them can prove the obstruction, or even E unbounded, on class (A); items (2″), (3) need an [α, β]-system (α < 1: JNT 112 l. 117–124; Hilberdink–Lapidus Thm 2.3 uses ζ ≠ 0 right of α, arXiv text l. 756) and fail for L_ρ (zeros in 1 < Re s < σ₁), so for them the reason is §4.2 / §4.4 (on class (A) their zero-order input is unavailable left of ½, and their conclusion constrains α and γ, not β):
+**F8** (Cor. 2.2, items (2)–(3)). l. 134:
+OLD: (3.2)–(3.3) and its contradiction scheme (JNT 112, pp. 337–340), and his Remark C (§4); (3) Neamah–Hilberdink's Theorem 1 (§4);
+NEW: (3.2)–(3.3) [= (2′), valid for L]; (2″) its contradiction scheme (JNT 112, pp. 337–340) and his Remark C (§4), and (3) Neamah–Hilberdink's Theorem 1 (§4) [not valid for L; see the lead sentence];
+**F9** (§4.3). l. 213–217:
+OLD: absolutely convergent beyond it), and the proof runs with 1 replaced by σ₁ (κ → (σ₁ − σ)/(σ₁ − Θ) < 1: zero order again). Hence every
+conclusion of 4.1–4.2 holds for L_ρ (with E_L bounded): Cor. 2(b) predicts infinitely many zeros of L in η < Re s < 1 for each
+η ∈ (0, ½); exploratory counts are in §3.4. So no strengthening of this method to "β ≥ f(σ*)" with f > 0 is possible: L_ρ is an
+object to which the method applies, with σ*_L > ½ and β_L = 0.
+NEW: absolutely convergent beyond it), but Borel–Carathéodory also needs log L analytic on Re s > Θ, and L has infinitely many zeros in 1 < Re s < σ₁ (read-O §1.8): the proof runs only for Θ ≥ σ₁, where it says nothing. So the contradiction scheme (3.4)/Remark C/Cor. 2 does NOT apply to L: Cor. 2(b)'s step "finitely many zeros in (γ, 1) ⇒ [α′, β′]-system" (JNT l. 670–673) needs ζ ≠ 0 on Re s ≥ 1; for L the method gives only "infinitely many zeros in Re s > η", true by the zeros right of 1, and predicts nothing in η < Re s < 1 (the 12 zeros below height 100 in ½ < Re s < ¾ are numerical facts, §3.4). Only (3.2)–(3.3) transfer to L. The scheme's failure on class (A) is §4.2's argument, not the control; whether it can be strengthened to "β ≥ f(σ*)" is not decided by L_ρ, which is not an [α, β]-system.
+**F10** (§4.4, L-part). l. 222–223:
+OLD: On L_ρ: 1/L has integer coefficients μ_L (on the
+semigroup of §1.2), and the same steps (with σ₁ for 1, as in 4.3) give γ_L = α_L ≥ σ*_L with β_L = 0.
+NEW: On L_ρ: 1/L has integer coefficients μ_L (on the semigroup of §1.2), but the proof does not transfer (Theorem B needs α, β < 1; 1/L has poles in 1 < Re s < σ₁; the bound |μ_P| ≤ ΔN_P of 1901.06866 l. 230 fails, e.g. μ_L(ℓ₁ℓ₂ℓ₃) = −6 where N_L has no atom); the conclusion holds anyway, directly: γ_L = α_L = σ₁ > 1, β_L = 0 (read-O §1.8).
+**F11** (§3.4). l. 188:
+OLD: same way — a real zero near 1 − ρ plus complex zeros right of ½ (Cor. 2(b) of Hilberdink predicts infinitely many for both) — with
+NEW: same way — a real zero near 1 − ρ plus complex zeros right of ½ (for S8, Cor. 2(b) of Hilberdink predicts infinitely many IF (B) holds with θ < ½, i.e. given Lemma B; for L it predicts nothing there, §4.3 as corrected) — with
+**F12** (§4.6). l. 237:
+OLD: has finitely many zeros right of max(θ, α′, γ₀) < ½ — against Remark C/Cor. 2(b) (4.1; valid under (D), and for signed data by 4.3). So on
+NEW: has finitely many zeros right of max(θ, α′, γ₀) < ½ — against Remark C/Cor. 2(b) (4.1; valid under (D) and (P); not established for signed data — §4.3 as corrected, and for signed Π the three-circles step has no bounded M₁). So on
+**F13** (missed prior art; §1.2 novelty label). l. 52:
+OLD: **1.2 The lattice control L_ρ** [novelty: single-check].
+NEW: **1.2 The lattice control L_ρ** [novelty: new as a statement on a printed core — Hilberdink, J. Théor. Nombres Bordeaux 23 (2011) 455–469 (doi 10.5802/jtnb.771), Thm 1, Cor. 2 and remark (a) (l. 347–348 of the fetched text): Mellin transforms of N with N(1) = 1 and N − cx periodic, no g-prime assumption, sup Re(zeros) ≥ ½ unless N − cx is constant; the lattice control is an instance; single-check].
+
+**Total: 13 FIX-FIRST pairs (F1–F13).** F1–F4: one finding (L has infinitely many zeros right of 1; α_L = σ₁ > 1); F5–F12: one
+finding (the Hilberdink contradiction scheme and Neamah–Hilberdink Thm 1 need α < 1 and do not apply to L); F13: missed prior art.
