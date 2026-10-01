@@ -1,0 +1,36 @@
+# 14:59 IST 2026-10-01  s8dd pi4 X=1e7 args: 0 0
+s8dd: t = 1.2732395447351628 + -7.87e-17, rho = 0.78539816339744828, X = 1e+07, ratio cap 100
+CK x=1000 N=793 pi=156 supE=8.2174 (at 987.484) supE/log2x=0.1722 maxgap=118.4113 (at 714.651) minmargin_sofar=2.415e-06 decade_margin=2.415e-06
+CK x=3162.28 N=2484 pi=444 supE=13.3304 (at 2359.89) supE/log2x=0.2052 maxgap=297.9381 (at 2493.37) minmargin_sofar=6.364e-07 decade_margin=6.364e-07
+CK x=10000 N=7856 pi=1154 supE=13.3304 (at 2359.89) supE/log2x=0.1571 maxgap=446.9071 (at 3888.84) minmargin_sofar=1.403e-07 decade_margin=1.403e-07
+CK x=31622.8 N=24846 pi=3368 supE=21.5730 (at 20144.2) supE/log2x=0.2009 maxgap=723.2001 (at 20376) minmargin_sofar=6.026e-08 decade_margin=6.026e-08
+CK x=100000 N=78540 pi=9832 supE=26.6312 (at 80605.2) supE/log2x=0.2009 maxgap=957.4761 (at 32446.3) minmargin_sofar=1.945e-09 decade_margin=1.945e-09
+CK x=316228 N=248369 pi=26348 supE=39.5303 (at 286729) supE/log2x=0.2465 maxgap=957.4761 (at 32446.3) minmargin_sofar=1.157e-10 decade_margin=1.157e-10
+CK x=1e+06 N=785400 pi=78134 supE=39.5303 (at 286729) supE/log2x=0.2071 maxgap=1574.9973 (at 986124) minmargin_sofar=9.016e-12 decade_margin=9.016e-12
+CK x=3.16228e+06 N=2483649 pi=232560 supE=47.8635 (at 2.49853e+06) supE/log2x=0.2137 maxgap=1628.4734 (at 1.52784e+06) minmargin_sofar=1.826e-12 decade_margin=1.826e-12
+PATH 4397639.8804594614 3.5720075773645173e-10 n: 1 2110385
+PATH 5603354.4391819537 1.9861263926610646e-10 n: 19 19 30 189
+PATH 9733374.282838434 -8.0560465406308121e-10 n: 1 1 5 5 55 895
+CK x=1e+07 N=7853983 pi=650561 supE=47.8635 (at 2.49853e+06) supE/log2x=0.1842 maxgap=2425.5213 (at 5.43463e+06) minmargin_sofar=6.411e-14 decade_margin=6.411e-14
+FINAL X=1e+07 N(X)=7853983 pi(X)=650561 E(X)=1.151424 supE=47.863540 at 2498526.2  inf E(p-)=-0.500000000000  inf E(c-) over composites=-0.499998072 at 4397639.9
+FINAL maxgap=2425.521333 closing at 5434632.4; walk nodes=21377316; max #factors=32; first primes: 1.6366197724 4.1830988618 6.7295779513 10.5492965855 15.6422547645 16.9154943092
+AUDIT min relative decision margin=6.4111e-14 at 5603354.4; decisions below 1e-24: 0
+AUDIT by kind: composite below live threshold min=5.5822e-13 at 4397639.9; composite just after a placed prime min=6.4111e-14 at 5603354.4
+        0.76 real         0.75 user         0.01 sys
+            89309184  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                9977  page reclaims
+                   1  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                 265  involuntary context switches
+          9501775903  instructions retired
+          2968429400  cycles elapsed
+            88949288  peak memory footprint

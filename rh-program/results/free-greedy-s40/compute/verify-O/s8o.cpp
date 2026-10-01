@@ -47,7 +47,7 @@ static std::vector<Prefix> PRE;
 static uint64_t cnt = 1, npr = 0;  // g-integers placed so far (1 included), g-primes so far
 static double supE = 0.0, supEx = 1.0;
 static double thS = 0.0, thC = 0.0; // theta_P, Neumaier-compensated
-static long long flags = 0, ncmp = 0, flagsB = 0;
+static long long flags = 0, ncmp = 0, flagsB = 0, nties = 0;
 static double minratio = 1e300, minabs = 1e300, minrel = 1e300;
 static FILE* dumpf = nullptr; static double dumpX = 0;
 static std::vector<double> dumpbuf;
@@ -76,6 +76,32 @@ static void snapmom(double x, uint64_t N) {
             GR[c * J + j] + KR[c * J + j], GI[c * J + j] + KI[c * J + j]);
   fflush(momf);
 }
+// time-weighted statistics of E per checkpoint window (x_{c-1}, x_c]: segment endpoints binned in cells of 1/16
+static bool STATS = false; static const int HC = 8192; static const double HMIN = -1.0, HWID = 1.0 / 16;
+static std::vector<double> hS, hSE, hE, hEE; static double wInt = 0, wLen = 0, wMax = -1e9, prevX = 1.0, prevE = 0.0;
+static FILE* statf = nullptr;
+static inline int cell(double e) { int c = (int)floor((e - HMIN) / HWID); return c < 0 ? 0 : (c >= HC ? HC - 1 : c); }
+static inline void segment(double x0, double e0, double x1) {   // E falls linearly from e0 at x0 to e0 - rho (x1 - x0)
+  double len = x1 - x0; if (len <= 0) return; double e1 = e0 - RHO * len;
+  wInt += 0.5 * (e0 + e1) * len; wLen += len; if (e0 > wMax) wMax = e0;
+  int a = cell(e0), b = cell(e1); hS[a] += 1; hSE[a] += e0; hE[b] += 1; hEE[b] += e1;
+}
+static void closewin(double x) {                                 // report the window ending at x, then reset
+  if (!statf) return;
+  // time with E > y (y a cell boundary): (1/rho) [sum_{starts>y} (e0 - y) - sum_{ends>y} (e1 - y)]
+  std::vector<double> G(HC + 1, 0.0); double cs = 0, ss = 0, ce = 0, se = 0;
+  for (int c = HC - 1; c >= 0; --c) { cs += hS[c]; ss += hSE[c]; ce += hE[c]; se += hEE[c];
+    double y = HMIN + c * HWID; G[c] = ((ss - cs * y) - (se - ce * y)) / RHO / wLen; }
+  auto q = [&](double p) { for (int c = 0; c < HC; ++c) if (G[c] <= 1 - p) return HMIN + c * HWID; return 999.0; };
+  double sx = 0, sy = 0, sxx = 0, sxy = 0; int n = 0;            // log P(E > y) = a - lam y on 1e-1 > P > 1e-4
+  for (int c = 0; c < HC; ++c) if (G[c] < 1e-1 && G[c] > 1e-4) { double y = HMIN + c * HWID, l = log(G[c]); sx += y; sy += l; sxx += y * y; sxy += y * l; n++; }
+  double lam = n > 2 ? -(n * sxy - sx * sy) / (n * sxx - sx * sx) : 0;
+  fprintf(statf, "%.6e len=%.6e meanE=%.4f q50=%.3f q90=%.3f q99=%.3f q999=%.3f maxE=%.3f lam=%.4f lam*log(xc)=%.3f\n",
+          x, wLen, wInt / wLen, q(0.5), q(0.9), q(0.99), q(0.999), wMax, lam, lam * log(x / sqrt(sqrt(10.0))));
+  fflush(statf);
+  std::fill(hS.begin(), hS.end(), 0); std::fill(hSE.begin(), hSE.end(), 0); std::fill(hE.begin(), hE.end(), 0); std::fill(hEE.begin(), hEE.end(), 0);
+  wInt = wLen = 0; wMax = -1e9;
+}
 static inline void addtheta(double v) {
   double t = thS + v;
   if (fabs(thS) >= fabs(v)) thC += (thS - t) + v; else thC += (v - t) + thS;
@@ -85,6 +111,7 @@ static void flushdump() { if (dumpf && !dumpbuf.empty()) { fwrite(dumpbuf.data()
 
 static inline void emit(u128 v, bool isprime) {
   while (cp < CPF.size() && v >= CPF[cp]) {
+    if (STATS) { segment(prevX, prevE, CPX[cp]); prevE -= RHO * (CPX[cp] - prevX); prevX = CPX[cp]; closewin(CPX[cp]); }
     snapmom(CPX[cp], cnt); rows.push_back({CPX[cp], cnt, npr, supE, supEx, thS + thC}); cp++;
   }
   uint64_t j = cnt;                                   // 0-based index of this g-integer
@@ -92,6 +119,7 @@ static inline void emit(u128 v, bool isprime) {
   double E = RHO * ((double)diff * ULP);              // E(n_j) = j - rho (n_j - 1)
   double vd = toD(v);
   if (E > supE) { supE = E; supEx = vd; }
+  if (STATS) { segment(prevX, prevE, vd); prevX = vd; prevE = E; }
   cnt++;
   if (dumpf && vd <= dumpX) { dumpbuf.push_back(vd); if (dumpbuf.size() >= (1u << 20)) flushdump(); }
   if (NC) { addmom(log(vd)); if ((cnt & 0xFFFFF) == 0) flushmom(); }
@@ -128,6 +156,7 @@ int main(int argc, char** argv) {
     std::sort(CPX.begin(), CPX.end()); CPF.clear(); for (double x : CPX) CPF.push_back((u128)x * ONE);
   }
   if (const char* e = getenv("S8O_J")) J = atoi(e);
+  if (const char* e = getenv("S8O_STATS")) { STATS = true; statf = fopen(e, "w"); hS.assign(HC, 0); hSE = hS; hE = hS; hEE = hS; }
   if (const char* e = getenv("S8O_CENTERS")) {        // "sigma:t:lambda,sigma:t:lambda"
     std::string str(e); size_t pos = 0;
     while (pos < str.size()) { size_t q = str.find(',', pos); if (q == std::string::npos) q = str.size();
@@ -167,6 +196,7 @@ int main(int argc, char** argv) {
     }
     for (auto& Q : newp) PRE.push_back(Q);
     std::sort(buf.begin(), buf.end());
+    for (size_t q = 1; q < buf.size(); ++q) { u128 d = buf[q] - buf[q - 1]; if ((double)d <= 2.0 * maxErr) nties++; }
     if (maxErr > maxErrAll) maxErrAll = maxErr;
     size_t i = 0;
     while (true) {
@@ -220,6 +250,7 @@ int main(int argc, char** argv) {
   }
   printf("# certification: comparisons=%lld flags=%lld boundary_flags=%lld min(|diff|/errbound)=%.3e min|diff|=%.3e abs, %.3e rel; max composite err=%.3e ulps (=%.3e abs)\n",
          ncmp, flags, flagsB, minratio, minabs, minrel, maxErrAll, maxErrAll * ULP);
+  printf("# composite pairs within 2x error bound (exact ties for rational t, near-ties otherwise): %lld\n", nties);
   printf("# final: N(X)=%llu pi_P(X)=%llu supE=%.10f at %.8e prefixes_left=%zu storedprimes=%zu\n",
          (unsigned long long)cnt, (unsigned long long)npr, supE, supEx, PRE.size(), PK.size());
   return 0;

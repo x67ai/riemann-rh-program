@@ -1,0 +1,29 @@
+# 15:00 IST 2026-10-01  s8dd r08 X=1e5 args: 0 0
+s8dd: t = 1.25 + 0, rho = 0.80000000000000004, X = 100000, ratio cap 100
+CK x=1000 N=803 pi=149 supE=8.7734 (at 946.283) supE/log2x=0.1839 maxgap=97.5000 (at 650.375) minmargin_sofar=3.452e-05 decade_margin=3.452e-05
+CK x=3162.28 N=2531 pi=457 supE=9.0264 (at 1460.97) supE/log2x=0.1390 maxgap=307.5000 (at 2394.12) minmargin_sofar=4.453e-08 decade_margin=4.453e-08
+CK x=10000 N=8002 pi=1214 supE=15.8125 (at 5334.98) supE/log2x=0.1864 maxgap=525.0000 (at 5569.12) minmargin_sofar=4.453e-08 decade_margin=7.607e-07
+CK x=31622.8 N=25302 pi=3233 supE=26.1875 (at 29863.3) supE/log2x=0.2439 maxgap=1020.0000 (at 19275.4) minmargin_sofar=2.661e-08 decade_margin=2.661e-08
+CK x=100000 N=80006 pi=9705 supE=26.1875 (at 29863.3) supE/log2x=0.1976 maxgap=1020.0000 (at 19275.4) minmargin_sofar=8.272e-09 decade_margin=8.272e-09
+FINAL X=100000 N(X)=80006 pi(X)=9705 E(X)=5.800000 supE=26.187500 at 29863.266  inf E(p-)=-0.500000000000  inf E(c-) over composites=-0.499715805 at 42946.625
+FINAL maxgap=1020.000000 closing at 19275.375; walk nodes=217438; max #factors=23; first primes: 1.6250000000 4.1250000000 6.6250000000 10.3750000000 15.3750000000 16.6250000000
+AUDIT min relative decision margin=8.2717e-09 at 42946.625; decisions below 1e-24: 0
+AUDIT by kind: composite below live threshold min=8.2717e-09 at 42946.625; composite just after a placed prime min=1.3466e-08 at 79321.626
+        0.00 real         0.00 user         0.00 sys
+             2965504  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                 355  page reclaims
+                   1  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                   5  involuntary context switches
+            89268909  instructions retired
+            27273692  cycles elapsed
+             2523544  peak memory footprint

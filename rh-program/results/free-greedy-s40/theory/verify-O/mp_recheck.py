@@ -12,7 +12,7 @@ for R, X in [("pi16", "1e7"), ("pi4", "1e7"), ("pi32", "1e8")]:
     for l in open(os.path.join(here, f"path_{R}_{X}.txt")):
         p = l.split(); paths[(p[1], p[2])] = [int(v) for v in p[4:]]
     worst_err, ok, n = 0, 0, 0
-    for l in open(os.path.join(here, f"s8dd_{R}_{X}.close.txt")):
+    for l in open(os.path.join(here, f"s8dd_{R}_{X}.audit.close.txt")):
         p = l.split(); kind = p[1]; hi = p[2].split("=")[1]; lo = p[3]; N = int(p[4].split("=")[1])
         ns = paths[(hi, lo)]
         c = mp.fprod([1 + (k - mp.mpf(1)/2) * t for k in ns])

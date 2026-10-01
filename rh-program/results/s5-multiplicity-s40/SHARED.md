@@ -61,3 +61,19 @@ and (10⁹, 2·10⁹], and a[0..10⁹], by SHA-256); C1 numbers, half-decade max
 Own full-lattice uint64 counter (`verify-O/lattice_O.c`, 238,878,720 cells, no top-prime trick, 58 s): f_G(n_K) =
 3,403,961,916,617,140 exactly; 2,525 g-prime divisors (same set as certK); C3 20,390 / 2,932,627 / 13,461,378,553; self-tests
 276 / 26. K inequality TRUE in exact integers; ratio 1.134232; least constant 2.132357. read-O §2 written.
+
+## 15:04 IST 2026-10-01 — read-O block 3: re-derivations, prior art, FIX-FIRST written
+§1 re-derivations: §2.1, §2.3 consequence, §2.5 induction, §3, §5.1, T1, T2, T3 (+ converse; DMV quote checked at the page,
+setting covers multiplicities), Lemma A, T4, T4′ all ✓; minor gaps only (ℙ ∪ {2p}: 4 = 2·2; "sub-multisets"; Chebyshev
+inputs follow from the quoted PNT). §2.4 table now exact (six integers counted, every printed digit agrees). Attempted
+counterexample: free, N ∼ ρx, R(x) ≍ x/log²x — shows T3's power-saving hypothesis is needed. Prior art: Olofsson 2010
+pp. 10–11 (T1's core, ON DISK), Lagarias 1999 (Delone ⇒ finite surgery; Zbl 0927.11047) — both missed by NOTE §6; §5.1 is in
+u-offsurgery-s39 read-O (A1). FIX-FIRST: F1 rider headline overclaims; F2 prior art/labels; F3 U-implication drops α = Re ρ₁.
+
+## 15:09 IST 2026-10-01 — read-O block 4: read complete — AGREES-WITH-CORRECTIONS
+`read-O.md` complete (header, VERDICT, §1–§8). 3 FIX-FIRST items (5 pairs): F1 zoo-rider headline claims an unproved general
+barrier; F2 prior art on disk missed (Olofsson 2010 pp. 10–11 = T1's core; Lagarias 1999, Zbl 0927.11047, ℕ-supported +
+Delone ⇒ finite surgery; §5.1 already in u-offsurgery-s39 read-O A1); F3 U-implication drops α = Re ρ₁ (§0 l. 19, rider).
+12 minor items (13 pairs). All 18 OLD quotes verified verbatim against NOTE ced8b674…. Additions: third method for K;
+§2.4 table exact; T3 needs power saving (free, N ∼ ρx, R ≍ x/log²x); infinite thin surgeries have unbounded gaps.
+No processes left running. Scratch: /private/tmp/rh-s41-read-s5mult/ (769 MB; regeneration in read-O §2.7).

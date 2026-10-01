@@ -115,3 +115,13 @@ sup|ψ_P − x| = 5.571·10⁶ / 5.005·10⁶, sup|M_g| = 9087 / 7803; cap-2 dec
 H-check θ = 0.40 per decade k = 3…8: 1.053 .857 .934 .599 .445 .349 (S7) and .928 .515 .343 .209 .150 .104 (cap) — as NOTE §3.3, §4.2.
 Own slope convention (`verify-O/fito.py`): b_sup .314 .302 .281 .277 .262 / .215 .206 .203 .203 .190; a_sup .795 .802 .803 .811 .808 /
 .795 .804 .804 .807 .827 — within 0.002 of the NOTE's fits. Running: 4·10⁹ (S7), then own direct-sum F_X (zeros, boxes).
+
+## 15:01 IST 2026-10-01 — read-O: 4·10⁹ and the three zeros reproduce by DIRECT sums [computed, independent]
+S7(3/5) at 4·10⁹ (`verify-O/logs/gen7o_r3-5_cap0_X4e9.log`): sup E = 1304.4, inf E = −105.6, max a_n = 825, max m_p = 106, sup|ψ_P − x| =
+1.747·10⁷, sup|M_g| = 19,814, sup|M_P| = 4.367·10⁶, refused fraction in [10⁹, 4·10⁹) = .861; b_sup .307 .295 .276 .271 .258, a_sup .796 .802
+.804 .810 .808, γ .795 .807 .807 .813 .816, a − 2b = +.18 +.21 +.25 +.27 +.29 — the NOTE's §2.1/§3.4 numbers to ±0.001. H-ratio θ = 0.40 on
+[10⁹, 4·10⁹): 0.246 (still falling). Zeros by direct sums (`verify-O/fxo.c`, `zo.py`; Newton from 2-decimal starts; |F| ≤ 10⁻¹⁴):
+ρ₁ = 0.8209860944 + 11.0877394565i (10⁷), 0.8210036915 + 11.0877501484i (10⁸), **0.8209965365 + 11.0877411076i** (10⁹, |F′| = 3.4120);
+ρ₂ = **0.8052962768 + 20.2490761854i** (10⁹, |F′| = 4.4060); capped z₁ = **0.8243657829 + 11.0306645665i** (10⁹, |F′| = 3.6172),
+z₂ = 0.7665283791 + 20.2045625529i — every printed digit of the NOTE's §3.2/§4.2 values. Proofs: Lemmas 1.1, 1.2, 4.1, Theorems K₇,
+K₇^{≤2} re-derived at the line, no FALSE step; read-O §1 written. Running: the three boxes at 10⁹ by direct sums (K = 40 per side).

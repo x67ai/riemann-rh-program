@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/c7dD5dgxV+MAEXdX9qsOcBCZCMM</id>
+  <title>arXiv Query: search_query=all:Beurling AND (all:numerical OR all:computation OR all:computed OR all:computational) AND all:zeros&amp;id_list=&amp;start=0&amp;max_results=50</title>
+  <updated>2026-10-01T09:32:48Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:Beurling+AND+((all:numerical+OR+(all:computation+OR+(all:computed+OR+all:computational)))+AND+all:zeros)&amp;start=0&amp;max_results=50&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>50</opensearch:itemsPerPage>
+  <opensearch:totalResults>5</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/1601.05761v3</id>
+    <title>Super-resolution by means of Beurling minimal extrapolation</title>
+    <updated>2016-08-14T01:54:09Z</updated>
+    <link href="https://arxiv.org/abs/1601.05761v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1601.05761v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $M(\mathbb{T}^d)$ be the space of complex bounded Radon measures defined on the $d$-dimensional torus group $(\mathbb{R}/\mathbb{Z})^d=\mathbb{T}^d$, equipped with the total variation norm $\|\cdot\|$; and let $\hatμ$ denote the Fourier transform of $μ\in M(\mathbb{T}^d)$. We address the super-resolution problem: For given spectral (Fourier transform) data defined on a finite set $Λ\subset\mathbb{Z}^d$, determine if there is a unique $μ\in M(\mathbb{T}^d)$ of minimal norm for which $\hatμ$ equals this data on $Λ$. Without additional assumptions on $μ$ and $Λ$, our main theorem shows that the solutions to the super-resolution problem, which we call minimal extrapolations, depend crucially on the set $Γ\subsetΛ$, defined in terms of $μ$ and $Λ$. For example, when $Γ=0$, the minimal extrapolations are singular measures supported in the zero set of an analytic function, and when $Γ\geq 2$, the minimal extrapolations are singular measures supported in the intersection of $Γ\choose 2$ hyperplanes. By theory and example, we show that the case $Γ=1$ is different from other cases and is deeply connected with the existence of positive minimal extrapolations. This theorem has implications to the possibility and impossibility of uniquely recovering $μ$ from $Λ$. We illustrate how to apply our theory to both directions, by computing pertinent analytical examples. These examples are of interest in both super-resolution and deterministic compressed sensing. Our concept of an admissibility range fundamentally connects Beurling's theory of minimal extrapolation with Candes and Fernandez-Granda's work on super-resolution. This connection is exploited to address situations where current algorithms fail to compute a numerical solution to the super-resolution problem.</summary>
+    <category term="math.FA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-01-21T19:35:42Z</published>
+    <arxiv:comment>22 pages</arxiv:comment>
+    <arxiv:primary_category term="math.FA"/>
+    <author>
+      <name>John J. Benedetto</name>
+    </author>
+    <author>
+      <name>Weilin Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1309.7130v1</id>
+    <title>The Beurling--Malliavin Multiplier Theorem and its analogs for the de Branges spaces</title>
+    <updated>2013-09-27T06:44:32Z</updated>
+    <link href="https://arxiv.org/abs/1309.7130v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1309.7130v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $ω$ be a non-negative function on $\mathbb{R}$. We are looking for a non-zero $f$ from a given space of entire functions $X$ satisfying $$(a) \quad|f|\leq ω\text{\quad or\quad(b)}\quad |f|\asympω.$$ The classical Beurling--Malliavin Multiplier Theorem corresponds to $(a)$ and the classical Paley--Wiener space as $X$. We survey recent results for the case when $X$ is a de Branges space $\he$. Numerous answers mainly depend on the behaviour of the phase function of the generating function $E$.</summary>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2013-09-27T06:44:32Z</published>
+    <arxiv:comment>Survey, 25 pages</arxiv:comment>
+    <arxiv:primary_category term="math.CV"/>
+    <author>
+      <name>Yurii Belov</name>
+    </author>
+    <author>
+      <name>Victor Havin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.22180v1</id>
+    <title>A Nonuniform-Sampling Theory for Static Multi-Threshold Sampling</title>
+    <updated>2026-08-27T06:49:29Z</updated>
+    <link href="https://arxiv.org/abs/2609.22180v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.22180v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Multi-Threshold (MT) sampling fixes voltage levels and records when a waveform crosses them. The resulting signal-generated event stream is governed not by a prescribed clock but by the nonuniform geometry of the realized crossing set. Within classical nonuniform sampling, we develop a retained-event MT theory for static, uniformly spaced thresholds. For a realized retained MT time set, Beurling's weak-limit theorem gives the exact necessary-and-sufficient condition for stable sampling of $PW_Ω$. For a fixed signal class, the same principle gives the a priori criterion: uniform stable MT sampling is equivalent to Bernstein uniqueness for every set in the class weak-limit hull. This criterion reduces to computable forms under structured priors. Periodic templates give finite fiber/rank tests, periodic-gap streams give a Shannon-type complete-interpolation boundary and a stable-sampling density rule, and finite-state gap priors reduce noncritical certification to a maximum-cycle-mean condition. Kadec-type local certificates, retained-density bounds, and finite-matrix tests provide practical sufficient conditions for finite active records, while conditional perturbation bounds quantify how jitter, front-end noise, and threshold error consume a clean sampling margin under event correspondence. The theory also identifies the unavoidable boundary of this model: unrestricted finite-energy retained MT records have zero full-line lower Beurling density and therefore cannot provide a universal prior-free sampling theorem for $PW_Ω$. Within retained-event point sampling, the MT recovery question is resolved precisely: exact recovery is governed by event-set geometry, computable guarantees require structural priors or finite-dimensional/tail assumptions, and the unrestricted static finite-energy problem is impossible.</summary>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.IT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.ins-det" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.med-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-27T06:49:29Z</published>
+    <arxiv:primary_category term="eess.SP"/>
+    <author>
+      <name>Ao Qiu</name>
+    </author>
+    <author>
+      <name>Qingguo Xie</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1911.03577v1</id>
+    <title>Degrees of freedom for off-the-grid sparse estimation</title>
+    <updated>2019-11-08T23:29:52Z</updated>
+    <link href="https://arxiv.org/abs/1911.03577v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1911.03577v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A central question in modern machine learning and imaging sciences is to quantify the number of effective parameters of vastly over-parameterized models. The degrees of freedom is a mathematically convenient way to define this number of parameters. Its computation and properties are well understood when dealing with discretized linear models, possibly regularized using sparsity. In this paper, we argue that this way of thinking is plagued when dealing with models having very large parameter spaces. In this case it makes more sense to consider "off-the-grid" approaches, using a continuous parameter space. This type of approach is the one favoured when training multi-layer perceptrons, and is also becoming popular to solve super-resolution problems in imaging. Training these off-the-grid models with a sparsity inducing prior can be achieved by solving a convex optimization problem over the space of measures, which is often called the Beurling Lasso (Blasso), and is the continuous counterpart of the celebrated Lasso parameter selection method. In previous works, the degrees of freedom for the Lasso was shown to coincide with the size of the smallest solution support. Our main contribution is a proof of a continuous counterpart to this result for the Blasso. Our findings suggest that discretized methods actually vastly over-estimate the number of intrinsic continuous degrees of freedom. Our second contribution is a detailed study of the case of sampling Fourier coefficients in 1D, which corresponds to a super-resolution problem. We show that our formula for the degrees of freedom is valid outside of a set of measure zero of observations, which in turn justifies its use to compute an unbiased estimator of the prediction risk using the Stein Unbiased Risk Estimator (SURE).</summary>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.ST" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-11-08T23:29:52Z</published>
+    <arxiv:primary_category term="stat.ML"/>
+    <author>
+      <name>Clarice Poon</name>
+    </author>
+    <author>
+      <name>Gabriel Peyré</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2503.20054v1</id>
+    <title>Weighted Korenblum-Roberts Theory</title>
+    <updated>2025-03-25T20:22:25Z</updated>
+    <link href="https://arxiv.org/abs/2503.20054v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2503.20054v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The classical Korenblum-Roberts Theorem characterizes the cyclic singular inner functions in the Bergman spaces of the unit disk $\mathbb{D}$ as those for which the corresponding singular measure vanishes on Beurling-Carleson sets of Lebesgue measure zero. We solve the weighted variant of the problem in which the Bergman space is replaced by a $\mathcal{P}^t(μ)$ space, the closure of analytic polynomials in a Lebesgue space $\mathcal{L}^t(μ)$ corresponding to a measure of the form $dA_α+ w\, dm$, with $dA_α$ being the standard weighted area measure on $\mathbb{D}$, $dm$ the Lebesgue measure on the unit circle $\mathbb{T}$, and $w$ a general weight on $\mathbb{T}$. We characterize when $\mathcal{P}^t(μ)$ of this form is a space of analytic functions on $\mathbb{D}$ by computing the Thomson decomposition of the measure $μ$. The structure of the decomposition is expressed in terms of what we call the family of "associated Beurling-Carleson sets". We characterize the cyclic singular inner functions in the analytic $\mathcal{P}^t(μ)$ spaces as those for which the corresponding singular measure vanishes on the family of associated Beurling-Carleson sets. Unlike the classical setting, Beurling-Carleson sets of both zero and positive Lebesgue measure appear in our description. As an application of our results, we complete the characterization of the symbols $b:\mathbb{D} \to \mathbb{D}$ which generate a de Branges-Rovnyak space with a dense subset of functions smooth on $\mathbb{T}$. The characterization is given explicitly in terms of the modulus of $b$ on $\mathbb{T}$ and the singular measure corresponding to the singular inner factor of $b$. Our proofs involve Khrushchev's techniques of simultaneous polynomial approximations and linear programming ideas of Korenblum, combined with recently established constrained $\mathcal{L}^1$-optimization tools.</summary>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.FA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-03-25T20:22:25Z</published>
+    <arxiv:comment>Comments more than welcome</arxiv:comment>
+    <arxiv:primary_category term="math.CV"/>
+    <author>
+      <name>Bartosz Malman</name>
+    </author>
+  </entry>
+</feed>

@@ -16,10 +16,10 @@ case "$1" in
   *) echo "unknown rho name $1"; exit 1 ;;
 esac
 NAME="$1"; X="$2"; shift 2
-LOG="$HERE/s8dd_${NAME}_${X}.log"
+LOG="$HERE/s8dd_${NAME}_${X}${TAG}.log"
 WD="$(mktemp -d /private/tmp/claude-501/s8dd-run.XXXXXX)"
 cd "$WD" || exit 1
 { echo "# $(date '+%H:%M IST %Y-%m-%d')  s8dd $NAME X=$X args: $*"; /usr/bin/time -l "$BIN" "$TH" "$TL" "$X" 100 "$@" 2>&1; } > "$LOG" 2>&1
-grep -c NEARTIE s8dd_ties.tmp > /dev/null 2>&1; cp s8dd_ties.tmp "$HERE/s8dd_${NAME}_${X}.close.txt" 2>/dev/null
+grep -c NEARTIE s8dd_ties.tmp > /dev/null 2>&1; cp s8dd_ties.tmp "$HERE/s8dd_${NAME}_${X}${TAG}.close.txt" 2>/dev/null
 cd / && rm -rf "$WD"
 grep -E "^(FINAL|AUDIT|F |ROOT)" "$LOG"

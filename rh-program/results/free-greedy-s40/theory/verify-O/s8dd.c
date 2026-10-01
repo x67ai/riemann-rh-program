@@ -153,5 +153,17 @@ int main(int argc, char **argv){
     if (fa*fb < 0){ for (int it=0; it<42; it++){ double m=0.5*(a+b), fm=F1(m); if ((fm>0)==(fa>0)){a=m;fa=fm;} else {b=m;fb=fm;} }
       printf("ROOT real zero of F_X in [%.12f, %.12f]\n", a, b); }
     else printf("ROOT no sign change on [%g,%g]: F=%.6g, %.6g\n", slo, shi, fa, fb); }
+  /* optional: Legendre decomposition of NOTE 3.4 on I = (u, 2u]:  S(I) = pi(I) - rho|I| M(sqrt(2u)) - dE(I) */
+  { const char *sv = getenv("S8DD_SIEVE"); if (sv){ char buf[256]; strncpy(buf, sv, 255); buf[255]=0;
+      for (char *tok = strtok(buf, ","); tok; tok = strtok(NULL, ",")){
+        double u = strtod(tok, 0), b = 2*u, z = sqrt(b); if (b > Xmax) continue;
+        double logM = 0; long piI = 0; for (long i=0;i<nP;i++){ if (P[i].hi <= z) logM += log1p(-1.0/P[i].hi); if (P[i].hi > u && P[i].hi <= b) piI++; }
+        long Nu = 0, Nb = 0; { long a=0,c=nLG; while(a<c){ long m=(a+c)/2; if (LG[m] <= log(u)) a=m+1; else c=m; } Nu=a; }
+        { long a=0,c=nLG; while(a<c){ long m=(a+c)/2; if (LG[m] <= log(b)) a=m+1; else c=m; } Nb=a; }
+        double Eu = Nu - 1 - rho_d*(u-1), Eb = Nb - 1 - rho_d*(b-1), M = exp(logM);
+        double S = piI - rho_d*u*M - (Eb - Eu);
+        printf("SIEVE u=%.4g pi(u,2u]=%ld rho*u*M(sqrt 2u)=%.2f dE=%.3f S=%.2f  S/(u/log u)=%.5f  sqrt(u)log(u)=%.1f  rho*M*log z=%.5f (e^-gamma=0.56146)  pi(I)/(u/log u)=%.5f\n",
+               u, piI, rho_d*u*M, Eb-Eu, S, S/(u/log(u)), sqrt(u)*log(u), rho_d*M*log(z), piI/(u/log(u)));
+      } } }
   fclose(tf); return 0;
 }
