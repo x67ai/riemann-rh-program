@@ -151,3 +151,29 @@ NEW: `On [0, 2s₁) every lattice point is a g-prime (p₁² itself can be a bus
 **E4 (Lemma 4.3(b)–(c), l. 252–255) — name clash with β_ρ(v) of Theorem 4.4.** Replace every `β_ρ` in Lemma 4.3 by `b_ρ`
 (occurrences: `ε_ρ|I| + β_ρ`, `β_ρ := (4K + 6)ρ log(1/ρ)`, `2|I| + β_ρ`, `[0, β_ρ]`, `σ_ρ([w − β_ρ, w])/β_ρ`, `S + nβ_ρ` twice, `nβ_ρ ≤`).
 
+**E5 (Lemma 4.3(d), l. 256–257) — the hypothesis is only on [0, S].**
+OLD: `σ_ρ → Lebesgue measure vaguely on [0, ∞)`  NEW: `σ_ρ → Lebesgue measure weakly on [0, S] (by (b), on every subinterval; nothing is assumed beyond S)`
+OLD: `products of the restrictions to [0, S + 1]² converge weakly`  NEW: `σ_ρ^{*n} on [0, S] depends only on σ_ρ restricted to [0, S], and products of these restrictions converge weakly on [0, S]²`
+
+**E6 (Lemma 4.2(iii), l. 242) — citation.**
+OLD: `Session-40 NOTE l. 52, 1.0(ii)]`  NEW: `Session-40 NOTE l. 49–50, 1.0(ii)]`
+
+**E7 (Theorem 4.4 proof, l. 268) — empty sup.**
+OLD: `β_ρ(v) the same with C, Λ₀;`  NEW: `β_ρ(v) the same with C, Λ₀ (sup ∅ := 0, i.e. both vanish while e^{v/ρ} < p₁²);`
+
+**E8 (Step 5, l. 288–289) — Gronwall closing; the displayed argument misses the case v₁ = S.** Shorter, and without monotonicity:
+OLD: `If A ≢ 0 on [0, S], let v₁ := inf{v : A(v) > 0}; for↵v₁ < v < v₁ + 1/(4(K_S + L_S)): A(v) ≤ 2(K_S + L_S)(v − v₁)A(v) ≤ ½A(v), so A(v) = 0 — a contradiction.`
+NEW: `Iterating from A ≤ 2: A(v) ≤ 2(2(K_S + L_S)v)^n/n! for every n, so A ≡ 0 on [0, S].`
+
+**E9 (commentary, §0 l. 44–45 and §4.8 l. 327–330) — what the proof needs.** The proof never uses a positive margin. It
+uses only f₀ ≥ 0 (Step 1: Λ₀ ≤ ρ(x − y); Lemma 4.6: g ∈ [0, 1] and positive mixture weights), f₀ ≤ 1, f₀
+nonincreasing, abs(f₀′) ≤ ½, and exp*(f₀ds) = δ₀ + ds. Also, the Gronwall factor is exp(2(K_S + L_S)S) with K_S = 4e^{2S+2}. That
+is super-exponential in S, not e^{O(S)}.
+OLD (§0): `Theorem 4.4's argument needs the margin f₀(S) > 0 and pays e^{O(S)}; at↵fixed ρ the margin is f₀(τ) ≈ 1/τ and the factor e^{Kτ}, so it gives nothing (§4.8).`
+NEW (§0): `Theorem 4.4's argument uses no positive margin (only f₀ ≥ 0: the template never clips) and closes by Gronwall with factor exp(2(K_S + L_S)S), super-exponential in S, against error terms that vanish only as ρ → 0; at fixed ρ those terms are fixed positive numbers, so it gives nothing (§4.8).`
+OLD (§4.8): `the constants K_S, L_S grow like e^{S}, and the error o(ρx) is θ = 1 in the language of Lemma B. Why it says nothing at fixed ρ, precisely: the proof↵needs (a) the queue margin, here f₀(S) > 0 fixed, and (b) a Gronwall factor e^{O(S)}; at fixed ρ and τ → ∞ the margin is↵f₀(τ) ≈ 1/τ → 0 while the factor grows like e^{Kτ}, so the same inequalities give no bound.`
+NEW (§4.8): `the constants are K_S = 4e^{2S+2}, L_S = 4e^{S+2}, and the error o(ρx) is θ = 1 in the language of Lemma B. Why it says nothing at fixed ρ, precisely: the proof uses no positive margin — only f₀ ≥ 0 (the template never clips, so Λ₀ ≤ ρ(x − y) in Step 1), which holds at every τ — but it closes by Gronwall, α_ρ(S) ≤ ε_ρ·exp(2(K_S + L_S)S), where ε_ρ collects terms that vanish only as ρ → 0 (the granularity 1/(ρp₁²) ≤ 4ρ, the late start s₁ = ρ log p₁, the Q and repeated-element terms). At fixed ρ, ε_ρ is a fixed positive number and the factor is super-exponential in τ, so the same inequalities give no bound.`
+Optional, same point: in §4.8, l. 330, `f₀ > 0, so the clip never binds` → `f₀ ≥ 0, so the clip never binds`. In §0, the
+"For other units" sentence, "a rule whose limit dynamics keeps f > 0 inherits Theorem 4.4's proof", should name
+what is actually inherited: a template that never clips, plus the analogs of Lemma 4.2(iii) and Lemma 1.3.
+
