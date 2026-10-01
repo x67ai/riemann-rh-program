@@ -1,0 +1,16 @@
+# Orchestrator's working notes for the stream `lemmaB-s41` (Fable 5.1; started 16:59 IST 2026-10-01)
+
+Each item is labeled. Units may use them; anything used must be re-derived in the unit's NOTE.
+
+**O1 — Theorem 1.6 needs only MEAN-SQUARE control of the integer error [proved here; single-check].**
+Let E(u) = N(u) − ρ(u − 1) − 1 ≥ −c (c < 1) and suppose ∫_X^{2X} E(u)² du ≪ X^{1+2θ₂} for all X ≥ 1, some θ₂ < 1. Then for σ > θ₂, by Cauchy–Schwarz on dyadic blocks, ∫_X^{2X}|E|u^{−σ−1}du ≤ X^{−σ−1}·X^{1/2}·(∫_X^{2X}E²)^{1/2} ≪ X^{θ₂−σ}, so σ∫_1^∞ E u^{−σ−1}du converges and ζ_P = ζ_c + sÊ continues to Re s > θ₂ (pole at 1 apart). The proof of Theorem 1.6 then runs unchanged: ζ_P(σ) ≥ 1 − c − ρ/(1 − σ) on (θ₂, 1), a real zero in [1 − ρ/(1 − c), 1) when that point exceeds θ₂. So for S8(ρ), ρ < ¼: a real zero > 1 − 2ρ follows from a mean-square exponent θ₂ < 1 − 2ρ, and a mean-square form of Conjecture U (α ≤ max{½, 2β₂}) is refuted by θ₂ < ½ − ρ. A mean-square bound is an "almost all short intervals contain a g-prime" statement — a different kind of target from a bound for EVERY interval.
+
+**O2 — hypothesis (A) can be weakened to an averaged positivity [proved here; single-check].** The proof uses (A) only through σ₁∫_1^∞ R(u)u^{−σ₁−1}du > ρσ₁/(1 − σ₁) at ONE point σ₁ > θ: a Mellin average of R = N − ρu, not a pointwise bound. A system may undershoot on a thin set and still be forced to have a real zero in (σ₁, 1).
+
+**O3 — multiples of a small g-prime are exactly as regular as N one scale down [identity].** For a g-prime q and a window I, #{n ∈ I : q | n} = N(I/q) = ρ|I|/q + ΔE(I/q) (free monoid). So composite clusters cannot come from one small factor: the composites with a g-prime factor ≤ z are controlled, by inclusion–exclusion, with errors ΔE at the scales x/d. What is NOT controlled this way is the set of z-rough composites (all factors > z).
+
+**O4 — the parity barrier, as it appears here [observation, not a theorem].** Given bounds for E at smaller scales, an upper-bound sieve (a Brun–Titchmarsh inequality for S8) bounds the z-rough g-integers of a window from above. But on a g-prime gap the rough g-integers are all composite, and a sieve does not separate rough composites from g-primes. A proof of (B) for every interval needs information on products of two large g-primes in short windows (a bilinear statement), which no unit has yet.
+
+**O5 — the trivial bound in the sparse regime [sketch; for U4].** Every 2-fold composite is a product of two lattice points, whatever the g-primes are; lattice points of the hyperbola strip x_k·x_l ∈ (x, x + h] number ρ²h(log(ρ²x) + O(1)) + O((ρ²x)^{1/3}) [recalled: Voronoi's exponent for the shifted divisor problem — to be checked at a source]. This is below ρh exactly when ρ·log(ρ²x) ≲ 1: the sparse regime. Beyond it the thinning of the g-primes must be used.
+
+**O6 — linear stability of the loop [heuristic].** Around the template, dδN = dw + ρ(∫_1^x dw(u)/u)dx for a perturbation dw of the prime measure; keeping δN ≈ 0 forces dw ∝ u^{−ρ}: perturbations relax like u^{−ρ} (the template zero 1 − ρ), with a monotone kernel — no delayed-feedback oscillation in the linearization. The open problem is the fluctuation, not the stability of the mean.
