@@ -1,0 +1,11 @@
+zeros in [-0.5,1.5]x[0.5,14.0] by argument principle: (-7.0622501e-32 + 6.2775556e-32j)
+zeros in [-0.5,1.5]x[0.5,14.3] by argument principle: (1.0 + 0.0j)
+rho_1 = (0.5 + 14.1347251417346937904572519836j)  zeta'(rho_1) = (0.783296511867 + 0.124699829748j)
+k=2: |zeta(rho_1/k)| = 1.1263387
+k=3: |zeta(rho_1/k)| = 0.66456376
+k=4: |zeta(rho_1/k)| = 0.51000106
+k=5: |zeta(rho_1/k)| = 0.44808699
+P=100000: C(rho_1/2) = (0.03570586424 - 0.3605703373j)  (max nextprime(p^2)-p^2 = 156)
+P=1000000: C(rho_1/2) = (0.03570587336 - 0.3605703459j)  (max nextprime(p^2)-p^2 = 232)
+python3 o_zeta_checks.py  16.83s user 0.03s system 99% cpu 16.857 total
+zeros in [-0.5,1.5]x[0.02,0.6]: (6.1710883e-27 - 3.9854945e-27j)

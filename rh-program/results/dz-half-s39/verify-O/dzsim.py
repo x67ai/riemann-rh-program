@@ -82,7 +82,7 @@ def gen(template, seed, X=1e7, Y=1e9, chunk=4_000_000):
     a = 53.0
     while a < Y:                                             # Poisson with intensity f, thinning
         env = (1 + (C_ENV if template == 'C' else 0)) * float(fR(np.array([a]))[0])
-        b = min(Y, a + chunk / env)
+        b = min(Y, a * 1.05, a + chunk / env)
         k = rng.poisson(env * (b - a)); v = a + (b - a) * rng.random(k); ncand += k
         fv = fC(v) if template == 'C' else fR(v)
         viol += int(np.sum((fv > env) | (fv < 0)))

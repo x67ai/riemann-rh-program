@@ -30,3 +30,11 @@ Dated blocks, appended as the work lands. Writer: Opus 5.5 (agent). U.S. English
 - Theorem K′ (NOTE §4): Lemma H (|N(u) − 0.8⌊u⌋| ≪ u^{0.35}) ⇒ U false. T: design (i) tracking ⇒ β ≥ ½ (Hilberdink Remark C);
   periodic design (ii) ⇒ abelian field or off-line Dirichlet zero. G: Lemma H; smallest undecided class S5(ρ), ρ ∈ (0.5, 1.3).
 - Stopped per the brief (stop condition met; report before proving). Not run: S3, S4, 30-digit certification, proof of Lemma H (Untried UT-U1…U5).
+
+## 11:21 IST 2026-10-01 — read-O block 1 (Opus reader, Session 40): own generator reproduces the 10⁹ run; C1 confirmed
+
+- `verify-O/gen.c` (my own code from NOTE l. 54–56; exact integers for ρ = P/Q; push sieve; uint16 counts with overflow check). Control ρ = 1 to 10⁶: π(x) sites, no composites, N(n) = n.
+- ρ = 4/5, X = 10⁹ (19 s, 2.06 GB; `verify-O/logs/gen_r08_1e9.log`): N(10⁹) = 800,000,008 (C(10⁹) = 8); 50,829,666 g-primes, all multiplicity 1; 46,758,777 composite; 4,070,889 of π(10⁹) = 50,847,534 primes accepted (92.0% refused); sup E = 274.8 at n = 902,538,000 = 2⁴·3²·5³·7·13·19·29, a_n = 276, E(n − 1) = −0.4; sup|ψ − x| = 7.35·10⁵; min E(n) = −0.4 at integers.
+- C1's record list reproduces exactly (a_n = 124 @ 90,253,800; 155; 170; 178; 215; 209; 244; 276). Max a_n per decade 10⁴…10⁹: 8, 14, 27, 59, 124, 276 (local log₁₀ ratios 0.24, 0.29, 0.34, 0.32, 0.35).
+- First composite g-primes: ρ = 4/5: 20, 30, 38, 57, 58, 82, 87, 110, 133, 150, 158, 178; ρ = 3/4: 15, 26, 35, 39, 51, 55, 74, 75, 87, 91, 95, 111. The NOTE's §0 list "15, 26, 35" (l. 15) belongs to ρ = 3/4, not 0.8.
+- Observed and proved (single-check): at ρ = 4/5, m_n ≥ 1 forces A(n) = 0 and m_n = 1 (since E(n) ≥ −½ at every integer). Next: second generator by a different algorithm; carriers (C2); exact factorization counts (C3); the zero.

@@ -1,0 +1,7 @@
+zeta zeros below 1e4: 10142 (first 14.134725, last 9998.850397)
+zeta: min over T in [0, 1e4) step 0.05 of W(T) = 0.006926 at T = 0.00 ; W(0) = 0.006926 ; second-smallest local region:
+   interior min (5 < T < 9990) = 0.007220 at T = 5.65 ; W at T = 9999.95 (truncation edge) = 0.3889
+   W(0) at 30 digits = 0.006925902025
+F_{2.9,2}: factor zeros Re s = 0.823876680166, 0.176123319834 ; t = (2j+1) pi/log 2, pi/log 2 = 4.5323601418272
+   grid min over T in [0.5, 30) step 0.01: -872.4505 at T = 13.80
+   refined min (mpmath, zeta zeros truncated at 600 for the refinement): W = -872.7931129 at T = 13.801755

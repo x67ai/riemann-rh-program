@@ -83,3 +83,61 @@ on σ ≥ τ₀ + η (Lemma Z.a) ⟹ P_R = −Σ_m μ(m)L(ms)/m analytic on U (m
 (G′) (cO l. 159) already records "for α_R < ½ the critical-line clause is automatic", i.e. no poles; 2.3 is that remark made a
 proposition — the NOTE should cite it (minor m7).
 
+**(g) §3.1 Theorem T2, ll. 152–170 — proof ✓ for k ≥ 3 and for injective choices; FALSE side-claim for k = 2 (F1) — target (c).**
+Re-derived: |r_p^{−s} − p^{−ks}| ≤ |s|p^{kθ′}p^{−k(σ+1)}, summable iff σ > σ_C = 1/k − 1 + θ′ < 1/(2k) ⟺ θ′ < 1 − 1/(2k) ✓; C(s)
+analytic zero-free on σ > max(σ_C, 0) ✓; D_R = C·Π_{p<p₀}(1 − p^{−ks})^{−1}·ζ(ks)^{−1} ✓; at s₀ = ρ₁/k, 1/ζ(ks) has a pole of order
+ord_{ρ₁}ζ ≥ 1, ζ(s₀) ≠ 0 since 0 < Re s₀ ≤ ¼ and 0 < Im s₀ < γ₁; if β₂ < Re s₀ then ζ_P is analytic at s₀ and D_R = ζ_P/ζ would be
+analytic there ✓. No RH, no unproved gap bound beyond Ingham (existence of a prime in [y, y + y^{5/8+ε}]) ✓. *Simplicity of ρ₁ is
+not needed* (any zero works; minor m8). *Inputs checked:* argument principle (`verify-O/o_zeta_checks.py` → `logs/o_zeta_checks.log`,
+own mpmath code): 0 zeros of ζ in [−½, 3/2] × [0.02, 0.6] and in [−½, 3/2] × [0.5, 14.0], exactly 1 up to t = 14.3; ρ₁ =
+½ + 14.134725141734693790i, ζ′(ρ₁) = 0.783296511867 + 0.124699829748i; |ζ(ρ₁/k)| = 1.1263387, 0.66456376, 0.51000106, 0.44808699
+(k = 2…5) — NOTE l. 161 digit for digit; C(ρ₁/2) for r_p = nextprime(p²): 0.035705864 − 0.360570337i (p ≤ 10⁵), 0.035705873 −
+0.360570346i (p ≤ 10⁶) — NOTE's 0.0357 − 0.3606i ✓, tail ≲ 10⁻⁸ ✓. Ingham θ = 5/8 (Quart. J. Math. 8 (1937) 255–266) and Huxley
+7/12 (Invent. Math. 15 (1972)) as asymptotics π(x + x^θ) − π(x) ~ x^θ/log x: quoted from a secondary source at the line
+(`verify-O/sources/wiki-prime-gap.raw.txt` ll. 270–287; the originals not opened — [quoted, secondary]).
+*The false side-claim.* "the intervals are disjoint for p ≥ p₀" (l. 153) holds iff (p′)^k − p^k > p^{kθ′} for consecutive primes,
+i.e. (with p′ − p ≥ 2) iff θ′ < 1 − 1/k ⟺ k ≥ 3 at θ′ = 5/8 + ε. For k = 2, (p′)² − p² ≤ 2p′(p′ − p) < p^{5/4} whenever p′ − p
+< p^{1/4}/3 — for most consecutive pairs (average gap log p) — so the intervals overlap, the "r_p" may coincide, and an adversarial
+choice (one prime for all p in [y, y + y^{1/4}]) makes R_2 thinner (α_R ≈ 3/8) and breaks D_R = C/ζ(2s). Fix: require p ↦ r_p
+injective — always possible greedily (the interval holds ≫ p^{kθ′}/log p primes by Ingham's asymptotic while ≪ p^{kθ′−k+1} earlier
+intervals meet it); the proof then runs verbatim. *Consequence for sq = {nextprime(p²)}* (the NOTE's computed family, said to carry
+"T2: β₂ ≥ ¼ uncond.", ll. 258, 276, 289, 357): injectivity needs a prime in [p², p′²) — open (a collision needs a gap ≥ 4p + 4 ≈ 4√x
+after x = p²). Collisions are harmless if their counting exponent is < ¼ (the extra factor Π(1 − r^{−s})^{−1} is then analytic
+and zero-free at Re s = ¼): this follows from RH (Selberg: Σ_{p_n≤x, d_n≥H}d_n ≪ x log²x/H gives ≪ log²x collisions)
+[recalled, unverified], or from a large-gap moment bound with exponent < 3/4 (Peck 25/36, Matomäki 2/3 for Σ_{d_n ≥ √p_n}d_n)
+[recalled, unverified]; Heath-Brown's x^{3/4+ε} is NOT enough. Computed: max(nextprime(p²) − p²) = 232 for p ≤ 10⁶, so no collision
+on the computed range. Until one of these inputs is quoted at the page, sq is covered by T2 under RH, not unconditionally (F1).
+
+**(h) §3.2 Theorem T3, ll. 172–178 ✓ (k ≥ 3).** Distinctness: (n + 1)^k − n^k ≥ kn^{k−1} > n^{kθ′} ⟺ θ′ < 1 − 1/k, true for k ≥ 3
+(5/8 < 2/3) ✓; P_R = ζ(ks) − Σ_{n<n₀}n^{−ks} + H, H analytic on σ > θ′ − 1 + 1/k < 1/k ✓; simple pole of residue 1/k at s = α_R,
+reached along the real axis from the right ⟹ β₂ ≥ α_R (Cor. 2.2(ii)) and β₂ ≤ α_R ✓. k = 2 correctly conditioned on distinctness
+(Legendre); as for sq, sparse collisions (exponent < ½ here) would also do. Bessel law: [heuristic] as labeled ✓.
+
+**(i) §3.3 Theorem T4 (planted modulation, natural boundary), ll. 180–193 ✓ with two minor repairs.** Re-derived: ∫u^{−s}dF_c =
+cP(s + 1 − α) − Σ_{p≤p₀}(cp^{α−1} − 1)p^{−s} ✓; G = Σ_j (a_j/2)(u^{s_j} + u^{s̄_j}) gives ∫_1^∞u^{−s}dG = Σ_j (a_j/2)(s_j/(s − s_j) +
+s̄_j/(s − s̄_j)) on σ > α/2, absolutely (Σ a_j|s_j| ≤ εΣ2^{−j}) ✓; at s = s_j + δ the j-th term is a_js_j/(2δ), the others are bounded by
+Σ_i a_i|s_i|q_iq_j (|γ_i − γ_j| ≥ 1/(q_iq_j); q_i ≤ height ≪ √i, so Σ 2^{−i}√i < ∞) and the conjugate terms by Σ a_i|s_i|/γ_j ✓;
+cP(s + 1 − α) has at worst a logarithmic singularity there (Re w ∈ (½, 1): m ≥ 2 terms analytic, log ζ singular only at zeros) ✓;
+density of {s_j} on σ = α/2 ⟹ natural boundary ⟹ β₂ ≥ α/2 (Cor. 2.2(i)) ✓. Unconditional ✓ (no RH; one zero-free input is not
+needed). Repairs: (1) "|π_R − T| ≤ 2 for large x (… G varies by o(1) between consecutive primes)" (l. 183) needs gaps
+o(x^{1−α/2}); with the proved gap x^{0.525} it holds for α < 0.95; for α ∈ [0.95, 1) one only gets |π_R − T| ≪ 1 + x^{α/2−0.475} —
+still O(x^θ) with θ < α/2, so H is analytic on σ > α/2 − 0.475 and the proof stands (minor m9). (2) The "More generally" clause
+(ll. 184–186): a LOGARITHMIC singularity of Ĝ with κ ∉ ℤ at s₀ = ρ − 1 + α (ρ an off-line zero, Re ρ ≥ 1 − α/2) can combine with
+cP(s + 1 − α)'s germ (coefficient −c·ord_ρ ζ) into an allowed one; say "a singularity of Ĝ at which P(s + 1 − α) is analytic, or
+one that is not logarithmic" (minor m10).
+
+**(j) §3.4 Theorem T5 (spread necklace), ll. 195–206 — proof ✓, FALSE distinctness justification (F2).** Re-derived:
+Euler–Maclaurin Σ_{j<c}(1 + j/c)^{−s} = cΦ(s) + ½(1 − 2^{−s}) + O(|s|(|s|+1)/c) (remainder analytic in s) ✓; 𝒩(s) = Σ_N c_N4^{−Ns}
+= −Σ_m (μ(m)/m)log(1 − 2·4^{−ms}) ✓; m = 1 gives −log(s − ½) + analytic (d/ds(1 − 2·4^{−s}) = log 4 at ½) and m ≥ 2 is analytic at ½
+(1 − 2^{1−m} ≠ 0) ✓; Σ_N 4^{−Ns} analytic on σ > 0 ✓; so P_R = −Φ(s)log(s − ½) + analytic near ½ with Φ(½) = 2(√2 − 1) =
+0.82843 ∉ ℤ, and −(Φ(s) − Φ(½))log(s − ½) is not analytic: forbidden germ at Re s₀ = α_R reached along the real axis ⟹ β₂ = α_R ✓.
+Unconditional apart from the definition. *The false line:* "distinct for large N: 4^N/c_N ≈ N2^N exceeds the Ingham gap
+4^{(5/8+ε)N}" (l. 198). It is the other way round: N2^N = N·4^{N/2} < 4^{(5/8)N} for N ≥ 20 (at N = 20: 2.1·10⁷ vs 3.4·10⁷), and
+N·4^{N/2} is below EVERY proved gap bound 4^{θN} (θ ≥ 0.525); even RH's gap √x log x ≈ 1.39·N2^N is of the same size. So
+nextprime(4^N + j⌊4^N/c_N⌋) is not known to be injective in j. Fix (unconditional, Ingham only): define r_{N,j} := the least prime
+≥ 4^N + j⌊4^N/c_N⌋ not already chosen. Displacement bound: if r_{N,j} − t_j > L ≥ x^{5/8+ε} (x = 4^N), every prime of [t_{i₀}, t_j + L]
+would be taken by the ≤ (t_j − t_{i₀})/D + 1 earlier targets (D = ⌊4^N/c_N⌋ ≈ N2^N), while Ingham's asymptotic gives ≥
+(t_j + L − t_{i₀})/(2 log x) primes there — impossible since D ≫ log x. So |r_{N,j} − t_j| ≤ 4^{(5/8+ε)N} and l. 199's estimate holds
+verbatim. (The unit's code aborts on duplicates — `lg.c` l. 44 — so the computed set is the nextprime set and duplicate-free for
+N ≤ 16; nothing in §4 changes.)
+
