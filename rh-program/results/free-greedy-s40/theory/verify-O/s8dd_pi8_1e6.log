@@ -1,0 +1,33 @@
+# 14:57 IST 2026-10-01  s8dd pi8 X=1e6 args: 0.6 0.7 0.89
+s8dd: t = 2.5464790894703255 + -1.57e-16, rho = 0.39269908169872414, X = 1e+06, ratio cap 100
+CK x=1000 N=394 pi=144 supE=3.6751 (at 223.371) supE/log2x=0.0770 maxgap=25.4648 (at 674.544) minmargin_sofar=3.016e-05 decade_margin=3.016e-05
+CK x=3162.28 N=1242 pi=399 supE=4.3886 (at 2900.45) supE/log2x=0.0676 maxgap=53.4761 (at 2996.93) minmargin_sofar=1.654e-06 decade_margin=1.654e-06
+CK x=10000 N=3931 pi=1139 supE=5.5938 (at 9398.54) supE/log2x=0.0659 maxgap=71.3014 (at 8746.88) minmargin_sofar=9.612e-08 decade_margin=9.612e-08
+CK x=31622.8 N=12422 pi=3271 supE=8.6615 (at 18224.5) supE/log2x=0.0807 maxgap=104.4056 (at 13995.2) minmargin_sofar=2.118e-08 decade_margin=2.118e-08
+CK x=100000 N=39272 pi=9318 supE=11.5100 (at 80771.5) supE/log2x=0.0868 maxgap=208.8113 (at 64991) minmargin_sofar=2.283e-09 decade_margin=2.283e-09
+CK x=316228 N=124183 pi=26622 supE=13.1604 (at 262245) supE/log2x=0.0821 maxgap=275.0197 (at 147377) minmargin_sofar=5.736e-10 decade_margin=5.736e-10
+CK x=1e+06 N=392700 pi=77335 supE=15.3493 (at 862635) supE/log2x=0.0804 maxgap=305.5775 (at 990180) minmargin_sofar=5.912e-11 decade_margin=5.912e-11
+FINAL X=1e+06 N(X)=392700 pi(X)=77335 E(X)=0.311000 supE=15.349349 at 862635.18  inf E(p-)=-0.500000000000  inf E(c-) over composites=-0.499976644 at 907618.35
+FINAL maxgap=305.577491 closing at 990180.3; walk nodes=671923; max #factors=16; first primes: 2.2732395447 4.8197186342 9.9126768131 17.5521140816 20.0985931710 32.8309886184
+AUDIT min relative decision margin=5.9124e-11 at 830564.44; decisions below 1e-24: 0
+AUDIT by kind: composite below live threshold min=6.5531e-11 at 907618.35; composite just after a placed prime min=5.9124e-11 at 830564.44
+F sigma=0.890000 F1=-2.497482147169 F2=-2.497482147169 diff=-8.88e-16  halfXs=2.285e-06
+ROOT real zero of F_X in [0.656529431269, 0.656529431269]
+        0.07 real         0.06 user         0.00 sys
+            11091968  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                 851  page reclaims
+                   1  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                  11  involuntary context switches
+          1543523977  instructions retired
+           276304112  cycles elapsed
+            10650032  peak memory footprint

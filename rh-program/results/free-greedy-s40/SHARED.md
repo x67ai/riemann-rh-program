@@ -106,3 +106,13 @@ Dated blocks, appended as the work lands, by the orchestrator and by the two uni
 - **E** [computed]: S8(π/4) to 10¹¹ — sup E = 123.62, ≈ 0.2·log²x; E = O(log x) in distribution (mean 0.24·log x, exponential tail with rate ≈ 4.2/log x); power fits rejected (b = 0.145, falling with X). π/16, π/32 to 10¹¹: sup E ≈ 0.05·log²x and 0.03·log²x. β = 0 numerically.
 - **Zeros** [computed]: π/4 — ρ₁ = 0.8962124913 + 14.5499355887i (stable to 4·10⁻¹⁰ under X/4 → X = 10¹¹; same zero by direct sum at 10⁶), the only zero with σ > 0.85 up to t = 5000; Rouché: a zero of ζ_P if |E(u)| ≤ 39,928·log²u for u > 10¹¹ (observed 0.307). π/16, π/32 — real zeros 0.7947553732, 0.8950765177. α = real part of the rightmost zero by the explicit formula (residual ≤ 0.2 %).
 - **Verdict**: "β(S8) < ¼ and a zero with real part > ½" holds as numerical evidence for S8(π/4) and for every variant tried; the unproved inputs are the tail bound on E beyond 10¹¹ and the law of E itself.
+
+## 14:52 IST 2026-10-01 — Opus reader (Session 41 dual read of `theory/`): started
+
+- Read at the line of `theory/NOTE.md` (sha256 caeb71db…, 440 lines) begun; deliverable `theory/read-O.md`, independent re-run in `theory/verify-O/` (own C generator, double-double, block sweep). `read-F.md` not opened.
+
+## 2026-10-01 14:55 IST — Opus reader (Session 41 dual read of `compute/`): batch 1 — independent generator reproduces the NOTE
+
+- Own generator `compute/verify-O/s8o.cpp` (from CHARTER §1 only; 128-bit fixed point, 92 fractional bits, rigorous per-position error bounds, every composite-vs-lattice decision certified; largest-prime-factor prefixes, sorted windows — no heap, no √X split). S8(π/4) to 10⁹ in 53 s: N, π_P, sup E, ψ_P − x equal the unit's `pi4_1e9.log` rows at 10³, 10⁶, 10⁷, 10⁸, 10⁹ in every printed digit (N(10⁹) = 785,398,166; π_P(10⁹) = 50,857,391; sup E = 95.8616048208 at 4.8499·10⁷). 0 flags in 7.85·10⁸ decisions; smallest composite-to-lattice margin 3.8·10⁻¹⁷ relative (same as the unit's), error bound 1.7·10⁻¹⁸ absolute.
+- Zeros by direct compensated sum (`verify-O/zt.c`): ρ₁ at X = 10⁶ = 0.896204948081 + 14.549948455069i (NOTE's 12 digits); seven zeros at X = 10⁸ equal the unit's block-moment list to 12 digits.
+- Running: π/4 to 10¹⁰ with moments at ρ₁ and at 0.515 (box winding, Rouché arithmetic, real zero).

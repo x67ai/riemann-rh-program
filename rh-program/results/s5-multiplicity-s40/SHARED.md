@@ -54,3 +54,10 @@ Reader: Opus 5.5 under `results/novel-wave-s41/READ-BRIEF-O.md`. NOTE hash ced8b
 upstream S5 definition and Theorem K′. Plan: own exact generator of S5(0.8) to 2·10⁹ (multiplicative sieve, a different method
 from the NOTE's Ω-recursion), own full-lattice uint64 count of f_G(n_K) (no top-prime trick), re-derivation of §2.1, §2.5,
 §4 T1–T4′, §5.1, prior art at the page. Deliverable `read-O.md`; re-run `verify-O/`. read-F / verify-F not opened.
+
+## 14:53 IST 2026-10-01 — read-O block 2: decisive numbers reproduced by independent methods
+Own sieve generator (`verify-O/s5gen_O.c`, 31 s, 3.1 GB): S5(0.8) on [1, 2·10⁹] byte-identical to the dump (g-prime lists ≤ 10⁹
+and (10⁹, 2·10⁹], and a[0..10⁹], by SHA-256); C1 numbers, half-decade maxima, E-record counts, §3 numbers all reproduce.
+Own full-lattice uint64 counter (`verify-O/lattice_O.c`, 238,878,720 cells, no top-prime trick, 58 s): f_G(n_K) =
+3,403,961,916,617,140 exactly; 2,525 g-prime divisors (same set as certK); C3 20,390 / 2,932,627 / 13,461,378,553; self-tests
+276 / 26. K inequality TRUE in exact integers; ratio 1.134232; least constant 2.132357. read-O §2 written.

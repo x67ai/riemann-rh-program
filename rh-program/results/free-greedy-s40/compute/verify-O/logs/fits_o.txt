@@ -1,0 +1,15 @@
+[1e3, 1e9]: log2 par=(np.float64(0.2006),) rms=0.177 resid_end=+0.107 | logk par=(np.float64(0.0794), np.float64(2.3614)) rms=0.119 resid_end=-0.062 | pow par=(np.float64(2.6405), np.float64(0.1846)) rms=0.161 resid_end=-0.234 | 
+[1e3, 1e10]: log2 par=(np.float64(0.2022),) rms=0.167 resid_end=+0.054 | logk par=(np.float64(0.0914), np.float64(2.3014)) rms=0.119 resid_end=-0.097 | pow par=(np.float64(3.2419), np.float64(0.1668)) rms=0.201 resid_end=-0.287 | 
+[1e3, 1e11]: log2 par=(np.float64(0.2011),) rms=0.158 resid_end=-0.043 | logk par=(np.float64(0.1103), np.float64(2.2222)) rms=0.129 resid_end=-0.161 | pow par=(np.float64(3.989), np.float64(0.1499)) rms=0.244 resid_end=-0.363 | 
+per-decade slopes: [0.21  0.301 0.172 0.083 0.302 0.    0.072 0.038]
+supE/log^2x: [0.172 0.157 0.201 0.207 0.184 0.283 0.223 0.214 0.193]
+supE/x^0.25: [1.461 1.333 1.498 1.25  0.851 0.959 0.539 0.358 0.22 ]
+effective exponent 1e6->1e11: power 0.099; log-power 1.881
+effective exponent 1e8->1e11: power 0.037; log-power 0.799
+effective exponent 1e7->1e11: power 0.103; log-power 2.099
+b=0.02: C=32.369 rms=0.810 end_resid=+0.833
+b=0.05: C=19.958 rms=0.642 end_resid=+0.557
+b=0.1: C=8.915 rms=0.384 end_resid=+0.097
+b=0.145: C=4.316 rms=0.246 end_resid=-0.318
+b=0.2: C=1.779 rms=0.385 end_resid=-0.824
+b=0.25: C=0.795 rms=0.643 end_resid=-1.285

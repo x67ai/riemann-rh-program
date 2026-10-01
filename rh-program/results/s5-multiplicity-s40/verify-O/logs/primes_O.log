@@ -1,0 +1,45 @@
+pi(1e9)=50847534 pi(2e9)=98222287 diff=47374753
+decade 0: primes=4 accepted=3 refused=1 composite_gp=0
+decade 1: primes=21 accepted=14 refused=7 composite_gp=7
+decade 2: primes=143 accepted=63 refused=80 composite_gp=77
+decade 3: primes=1061 accepted=284 refused=777 composite_gp=782
+decade 4: primes=8363 accepted=1601 refused=6762 composite_gp=6807
+decade 5: primes=68906 accepted=9730 refused=59176 composite_gp=59397
+decade 6: primes=586081 accepted=65657 refused=520424 composite_gp=520957
+decade 7: primes=5096876 accepted=470176 refused=4626700 composite_gp=4626810
+decade 8: primes=45086079 accepted=3523361 refused=41562718 composite_gp=41543940
+decade 9: primes=47374753 accepted=3434854 refused=43939899 composite_gp=43918877
+refused primes <= 400: 5 19 29 41 59 61 79 89 109 139 149 163 179 181 199 223 227 229 239 241 263 269 281 307 331 337 347 349 353 359 379 389
+accepted primes <= 150: 2 3 7 11 13 17 23 31 37 43 47 53 67 71 73 83 97 101 103 107 113 127 131 137
+c_l(1e9) l=5: 8147069  (c_l*l/1e9 = 0.0407)
+c_l(1e9) l=19: 2244986  (c_l*l/1e9 = 0.0427)
+c_l(1e9) l=29: 1455298  (c_l*l/1e9 = 0.0422)
+c_l(1e9) l=41: 1047216  (c_l*l/1e9 = 0.0429)
+c_l(1e9) l=59: 762641  (c_l*l/1e9 = 0.0450)
+c_l(1e9) l=61: 724431  (c_l*l/1e9 = 0.0442)
+c_l(1e9) l=79: 515055  (c_l*l/1e9 = 0.0407)
+c_l(1e9) l=89: 477600  (c_l*l/1e9 = 0.0425)
+c_l(1e9) l=109: 379987  (c_l*l/1e9 = 0.0414)
+c_l(1e9) l=139: 286616  (c_l*l/1e9 = 0.0398)
+c_l(1e9) l=149: 265851  (c_l*l/1e9 = 0.0396)
+c_l(1e9) l=163: 253348  (c_l*l/1e9 = 0.0413)
+c_l(1e9) l=179: 227098  (c_l*l/1e9 = 0.0407)
+c_l(1e9) l=181: 230508  (c_l*l/1e9 = 0.0417)
+c_l(1e9) l=199: 205785  (c_l*l/1e9 = 0.0410)
+c_l(1e9) l=223: 187414  (c_l*l/1e9 = 0.0418)
+c_l(1e9) l=227: 202680  (c_l*l/1e9 = 0.0460)
+c_l(1e9) l=229: 184816  (c_l*l/1e9 = 0.0423)
+c_l(1e9) l=239: 176648  (c_l*l/1e9 = 0.0422)
+c_l(1e9) l=241: 183130  (c_l*l/1e9 = 0.0441)
+c_l(1e9) l=263: 150886  (c_l*l/1e9 = 0.0397)
+c_l(1e9) l=269: 158385  (c_l*l/1e9 = 0.0426)
+c_l(1e9) l=281: 158627  (c_l*l/1e9 = 0.0446)
+c_l(1e9) l=307: 141511  (c_l*l/1e9 = 0.0434)
+c_l(1e9) l=331: 140677  (c_l*l/1e9 = 0.0466)
+c_l(1e9) l=337: 133702  (c_l*l/1e9 = 0.0451)
+c_l(1e9) l=347: 122224  (c_l*l/1e9 = 0.0424)
+c_l(1e9) l=349: 111715  (c_l*l/1e9 = 0.0390)
+c_l(1e9) l=353: 116095  (c_l*l/1e9 = 0.0410)
+c_l(1e9) l=359: 115361  (c_l*l/1e9 = 0.0414)
+range of c_l*l/1e9 over first 30 refused l: 0.0390 .. 0.0466 ; 0.9/ln(1e9) = 0.0434
+        9.25 real         9.00 user         0.23 sys

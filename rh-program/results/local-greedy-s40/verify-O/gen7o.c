@@ -73,7 +73,7 @@ static uint64_t ppstep(uint64_t n, uint64_t p, int si, int e, int64_t *g, int64_
   return A + (uint64_t)m;
 }
 static uint32_t *rem; static uint64_t *av; static int64_t *gv, *muv; static uint8_t *om, *ex; static uint16_t *pid; static uint16_t *dbuf;
-static uint64_t chk[16]; static int nchk = 0;
+static uint64_t chk[16]; static int nchk = 0, cki = 0;
 static void segment(uint64_t L, uint64_t R, FILE *dump){
   size_t S = R - L;
   for (size_t i = 0; i < S; i++) { rem[i] = (uint32_t)(L+i); av[i] = 1; gv[i] = 1; muv[i] = 1; om[i] = 0; }
@@ -97,9 +97,44 @@ static void segment(uint64_t L, uint64_t R, FILE *dump){
     double aMg = fabs((double)Mg), aMP = fabs((double)MP); if (aMg > b20_mg[b20cur]) b20_mg[b20cur] = aMg; if (aMP > b20_mp[b20cur]) b20_mp[b20cur] = aMP;
     int64_t dC = den*N - num*(int64_t)n; double aC = fabs((double)dC/(double)den);
     if (aC > fineC[fcur]) { fineC[fcur] = aC; fineC_n[fcur] = n; }
-    for (int c = 0; c < nchk; c++) if (n == chk[c]) printf("CHK n=%llu N=%lld denE=%lld denC=%lld psi-n=%.3f Mg=%lld MP=%lld\n",
-      (unsigned long long)n, (long long)N, (long long)dE, (long long)dC, (psi+psic) - (double)n, (long long)Mg, (long long)MP);
+    if (cki < nchk && n == chk[cki]) { cki++; printf("CHK n=%llu N=%lld denE=%lld denC=%lld psi-n=%.3f Mg=%lld MP=%lld\n",
+      (unsigned long long)n, (long long)N, (long long)dE, (long long)dC, (psi+psic) - (double)n, (long long)Mg, (long long)MP); }
     if (dump) { if (a > 65535) { fprintf(stderr, "a>65535\n"); exit(4); } dbuf[i] = (uint16_t)a; }
   }
   if (dump) fwrite(dbuf, 2, S, dump);
+}
+int main(int argc, char **argv){
+  if (argc < 6) { fprintf(stderr, "usage: gen7o num den cap X dump|-\n"); return 1; }
+  num = atoll(argv[1]); den = atoll(argv[2]); cap = atoi(argv[3]); X = strtoull(argv[4], 0, 10);
+  FILE *dump = strcmp(argv[5], "-") ? fopen(argv[5], "wb") : NULL;
+  if (dump) { uint16_t z[2] = {0, 1}; fwrite(z, 2, 2, dump); }
+  for (uint64_t c = 10; c <= X; c *= 10) chk[nchk++] = c;
+  if (X >= 4000000000ULL) chk[nchk++] = 4000000000ULL; if (chk[nchk-1] != X) chk[nchk++] = X;
+  for (int b = 0; b < 400; b++) { b20_supE[b] = -1e300; b20_infE[b] = 1e300; }
+  mtab = calloc(X/4 + 2, 1); small_primes();
+  size_t SEG = (size_t)1 << 22;
+  rem = malloc(4*SEG); av = malloc(8*SEG); gv = malloc(8*SEG); muv = malloc(8*SEG); om = malloc(SEG); ex = malloc(SEG);
+  pid = malloc(2*SEG); dbuf = malloc(2*SEG);
+  if (!mtab || !rem || !av || !gv || !muv || !om || !ex || !pid || !dbuf) { fprintf(stderr, "alloc\n"); return 1; }
+  printf("# gen7o rho=%lld/%lld cap=%d X=%llu SQ=%llu nsp=%d\n", (long long)num, (long long)den, cap, (unsigned long long)X, (unsigned long long)SQ, nsp);
+  uint64_t L = 2;
+  while (L <= X) { uint64_t R = L + SEG; if (R > 2*L) R = 2*L; if (R > X + 1) R = X + 1; segment(L, R, dump); L = R; }
+  if (dump) fclose(dump);
+  int64_t dC = den*N - num*(int64_t)X;
+  printf("SUM X=%llu N=%lld C(X)=%lld/%lld supE=%lld/%lld infE_int=%lld/%lld infE_real=%lld/%lld maxa=%llu@%llu maxm=%llu@%llu psi-X=%.3f Mg=%lld MP=%lld\n",
+    (unsigned long long)X, (long long)N, (long long)dC, (long long)den, (long long)denE_max, (long long)den, (long long)denE_min, (long long)den,
+    (long long)(denE_min - num), (long long)den, (unsigned long long)maxa, (unsigned long long)maxa_n, (unsigned long long)maxm,
+    (unsigned long long)maxm_n, (psi+psic) - (double)X, (long long)Mg, (long long)MP);
+  for (int b = 0; b <= b20cur; b++) if (b20_supE[b] > -1e299)
+    printf("B %d lo=%llu supE=%.1f infE=%.1f absE=%.1f psi=%.1f Mg=%.0f MP=%.0f maxa=%llu\n", b, (unsigned long long)ceilpow(b/20.0),
+      b20_supE[b], b20_infE[b], b20_absE[b], b20_psi[b], b20_mg[b], b20_mp[b], (unsigned long long)b20_maxa[b]);
+  for (int d = 0; d < 12; d++) if (dcnt[d][5])
+    printf("D %d m0=%llu m1=%llu m2=%llu m3=%llu m4+=%llu primes=%llu summ=%llu mean=%.4f maxm=%llu hpp=%llu\n", d,
+      (unsigned long long)dcnt[d][0], (unsigned long long)dcnt[d][1], (unsigned long long)dcnt[d][2], (unsigned long long)dcnt[d][3],
+      (unsigned long long)dcnt[d][4], (unsigned long long)dcnt[d][5], (unsigned long long)dsum[d], (double)dsum[d]/dcnt[d][5],
+      (unsigned long long)dmaxm[d], (unsigned long long)dhpp[d]);
+  double th[4] = {0.30, 0.32, 0.35, 0.40};
+  for (int k = 3; k < 10; k++) { printf("H k=%d", k); for (int t = 0; t < 4; t++) { double mx = 0; for (int f = 1000*k; f < 1000*(k+1) && f <= fcur; f++)
+      if (fineC_n[f]) { double r = fineC[f]/pow((double)fineC_n[f], th[t]); if (r > mx) mx = r; } printf(" th%.2f=%.4f", th[t], mx); } printf("\n"); }
+  return 0;
 }

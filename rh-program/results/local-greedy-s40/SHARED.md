@@ -104,3 +104,14 @@ independent re-run under `verify-O/` (own code from the NOTE's definitions; big 
 Plan: (1) own segmented multiplicative generator + own additive-DP cross-check, exact rational E via 5E ∈ ℤ, ρ = 3/5, cap 0 and 2, to 10⁹;
 (2) own direct-sum F_X (no Taylor moments) at 10⁸ and 10⁹: Newton on the three zeros, the two K-boxes with a Lipschitz bound;
 (3) Lemmas 1.1, 1.2, 4.1 and Theorems K₇, K₇^{≤2} at the line; (4) Tao, Klurman, Révész–Pintz at the page; (5) standing order 14 pairs.
+
+## 14:53 IST 2026-10-01 — read-O: route 1 and the a_n reproduce exactly to 10⁹ [computed, independent]
+Own generators, written from NOTE §1 only: `verify-O/gen7o.c` (segmented multiplicative sieve, exact __int128 rule, exact 5E ∈ ℤ)
+and `verify-O/dp7o.c` (additive DP over multiples, no multiplicativity). gen7o = dp7o byte for byte to 10⁸ (cap 0 and cap 2);
+ρ = 1 control: 664,579 primes ≤ 10⁷, E ≡ 0, M_P = Mertens (M(10⁶) = 212, M(10⁷) = 1037), ψ(10⁷) − 10⁷ = −1460.6. **The a_n of S7(3/5)
+and S7^{≤2}(3/5) agree with the unit's dumps term by term for all n ≤ 10⁹ (0 mismatches each).** At 10⁹: N = 599,999,998 / 599,999,980,
+C(10⁹) = −2 / −20, sup E = 948.8 / 218.4, inf E = −93.2 / −197.8 (real-x inf = min E(n) − ρ), max a_n = 550 / 72, max m_p = 79 / 2,
+sup|ψ_P − x| = 5.571·10⁶ / 5.005·10⁶, sup|M_g| = 9087 / 7803; cap-2 decisions 24,626,463 / 1,710,292 / 24,510,779 — all as in the NOTE.
+H-check θ = 0.40 per decade k = 3…8: 1.053 .857 .934 .599 .445 .349 (S7) and .928 .515 .343 .209 .150 .104 (cap) — as NOTE §3.3, §4.2.
+Own slope convention (`verify-O/fito.py`): b_sup .314 .302 .281 .277 .262 / .215 .206 .203 .203 .190; a_sup .795 .802 .803 .811 .808 /
+.795 .804 .804 .807 .827 — within 0.002 of the NOTE's fits. Running: 4·10⁹ (S7), then own direct-sum F_X (zeros, boxes).
