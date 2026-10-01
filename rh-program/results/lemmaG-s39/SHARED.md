@@ -38,3 +38,19 @@
 - nsq = {nextprime(n²)}: T3's Bessel law J₁(√(2 ln x)) fits with R² = 0.995 at the residue-fixed frequency (best among w ∈ [0.7,1.3]).
 - Cluster lemma checked: R_tight clusters span h_N ≈ c_N log 4^N; max|E| near cluster ≈ 1.9 c_N (N ≤ 16).
 - No K-candidate; every sub-diagonal window is a proved mechanism.
+## 2026-10-01 08:05 — prior art, close (lemmaG-s39)
+- Prior art at the line (NOTE §5): Hilberdink 2005 Rem. B(ii) (relative form = §2.3), DMV 2006, Broucke–Vindas 2024 Thm 1.2 (nearest to
+  the Weyl family), Avdeeva 2015 (stationary law; applies to sq only), Fabry/Pólya (void for {log p}), Breuer–Simon 2011 (Szegő, random,
+  ergodic — all power series), Estermann–Dahlquist (constant local factor). arXiv q4–q6: 0 hits (not a novelty claim, zoo V.5).
+- Correction made in §1.3(c): Theorem Z's hypothesis is VOID at rung 1 (Pringsheim + t-periodicity replicate the forced real zero at
+  α_R at every height); the ℚ-input is ℚ-independence of log p (commensurability is what manufactures the necklace's off-axis zeros).
+- CLOSE: G with T-parts (NOTE §6). (RH, α_R < ½) every counterexample lies in 𝒞_self; the diagonal method is silent there by
+  definition, and the F_q[T] analogue of 𝒞_self contains the necklace (O false). Smallest unknown class: 𝒞_self over ℚ (no member known).
+  Natural-boundary route for hash/pseudo-random R BLOCKED; missing input named: bilinear equidistribution of {pθ} at scale p^{α−1}.
+- T2 second route: |ζ(ρ₁/k)| = 1.126, 0.665, 0.510, 0.448 (k = 2..5); C(ρ₁/2) = 0.036 − 0.361i (`verify/logs/t2_values.log`).
+## 2026-10-01 08:30 — UNIT CLOSED (lemmaG-s39)
+- NOTE.md final:    48965 bytes,      401 lines, SHA-256 37622108812a9942…; instrument verify/lg.c 5b90a5581fdc845e…, lg_core.h 97f26f6099f4e69c….
+- Close: G with T-parts and a rung-1 counterexample (NOTE §6). Stop lines: no printed theorem decides Lemma G here; no K-candidate;
+  natural-boundary route for hash/pseudo-random R blocked, missing input named (bilinear equidistribution of {pθ} at scale p^{α−1}).
+- Untried entries UT-L1…UT-L5 in NOTE §6 (rung-1 → ℚ spread threshold; Weyl pair correlation; 𝒞_self membership test; trigger
+  recalibration; T3 Bessel law across a period). Waste: two killed rung1_ff.py launches (label (ii), ~15 min).

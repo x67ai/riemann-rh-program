@@ -74,7 +74,7 @@ generating functions to degree 60: D_R(u) = 1 − 2u exactly (coefficients d₂ 
 precision of the ρ product. Controls on the same rung: the *regular* deletion r_N = round(2^N/N) has |E(n)|·n^{3/2}/2^{n/2} oscillating
 between −0.37 and +0.26 for n = 20…60 — |E(n)| ≍ a^{n/2}n^{−3/2}, the rung-1 face of fr Theorem C (c = 1): round(a^N/N) − M(a, N) ≈
 a^{N/2}/N for even N makes D_R ≈ (1 − au)(1 − au²)^{1/2}, a square-root branch point at |u| = a^{−1/2}; the *random* deletion (each
-irreducible of degree N independently with probability a^N/(N·M(q, N)), seed 20261001) has E(n)/2^{n/2} = −0.14 … 0.46 for n = 6…22 —
+irreducible of degree N independently with probability a^N/(N·M(q, N)), seed 20261001) has E(n)/2^{n/2} between −0.16 and 0.46 for n = 6…22 —
 the rung-1 face of fr Theorem B. **Rung 1b: regular and random deletions sit at α_R/2; the necklace deletion is exactly regular.**
 
 **1.3 What rung 1b says about Lemma G and about any proof of O** [proved here; novelty: single-check].
@@ -85,16 +85,21 @@ squarefree m — on σ = α_R/2 at every height πk/log q (m = 2). So P_R contin
 {σ > τ₀, |t| > T₀}, τ₀ < α_R/2, single-valuedly: the hypothesis of Theorem Z fails and its conclusion fails too.
 (b) *The anatomy of cO Prop. 1.6 is realized, in a world satisfying RH.* D_R = ζ_P/ζ_amb = 1 − au has infinitely many zeros, at
 s = α_R + 2πik/log q (real part α_R > α_R/2 − ε for every ε), and no poles; the branch points of P_R are the images ρ′/m of these zeros
-with the rational coefficients the local structure theorem (§2.1 below) requires (−1 at the zeros, ½ at their halves).
+with the rational coefficients the local structure theorem (§2.1 below) requires (in its notation P_R = −κ log(s − s₀) + analytic:
+κ = 1 at the zeros, κ = −½ at their halves).
 (c) *Which inputs of Theorem Z's proof hold for the necklace deletion.* The Euler product over R; |D_R(s)| ≤ 1 + a for σ ≥ 0 and
 |ζ_P| ≤ C|t| trivially (steps Z1, Z3 — polynomial bounds); nonnegative integer multiplicities; Σ|P|^{−1} < ∞; α_R > 0; MV spacing of
 the frequencies N log q; RH for the ambient. What fails is ZERO-FREENESS of D_R, i.e. analyticity of L = log D_R (step Z2), hence
-Borel–Carathéodory (Z4). Theorem Z itself transfers to rung 1 verbatim (zero-free D_R with the continuation ⟹ β₂ ≥ α_R/2), and the
-regular and random rung-1 deletions of §1.2 obey O.
+Borel–Carathéodory (Z4). More is true: Theorem Z's HYPOTHESIS is void at rung 1 for every deletion with α_R > 0. −log D_R(u) has
+nonnegative coefficients, so (Pringsheim) it is singular at u = q^{−α_R}, the real point s = α_R; and D_R is periodic in t with period
+2π/log q, which replicates that singularity at every height — so P_R never continues to {σ > τ₀, |t| > T₀}. The regular and random
+rung-1 deletions of §1.2 obey O for the other reasons (a branch point, resp. a natural boundary, at |u| = a^{−1/2}).
 (d) *The ℚ-input any proof must use.* Over ℚ the Dirichlet coefficients of D_R are μ(m)·1_{⟨R⟩}(m): one coefficient ±1 per
-squarefree R-number, at pairwise distinct frequencies log m (unique factorization in ℤ; the norm is injective on ⟨R⟩). At rung 1 the
-degree-n coefficient of D_R is the aggregate Σ_{f∈⟨R⟩, deg f = n}μ(f) over all squarefree R-products of norm qⁿ, and the necklace
-choice makes every aggregate with n ≥ 2 vanish. *Statement (G₁).* Conjecture O (and Lemma G) is not a consequence of the properties
+squarefree R-number, at pairwise distinct frequencies log m (unique factorization in ℤ; the norm is injective on ⟨R⟩; equivalently the
+log p, p ∈ R, are linearly independent over ℚ). At rung 1 all log-norms are commensurable (log|P| = deg P·log q), which does two things
+at once: the degree-n coefficient of D_R is the aggregate Σ_{f∈⟨R⟩, deg f = n}μ(f), which the necklace choice makes vanish for n ≥ 2;
+and D_R is t-periodic, so its forced real zero at s = α_R (order 1 here) recurs at every height 2πk/log q — exactly the zeros that
+break Theorem Z. Over ℚ nothing forces off-axis zeros: a counterexample would have to produce them without commensurability. *Statement (G₁).* Conjecture O (and Lemma G) is not a consequence of the properties
 listed in (c) — they hold at rung 1, where O fails; a proof must use the injectivity of the norm on ⟨R⟩, equivalently that the
 coefficient sequence of D_R is ±1 on a set of counting exponent α_R with no cancellation between distinct R-numbers.
 *Nearest published object.* The cyclotomic (necklace) identity 1 − au = Π_N(1 − u^N)^{M(a,N)} is classical (Metropolis–Rota;
@@ -152,7 +157,9 @@ branch points there: P_R neither continues past α_R/2 off the axis nor has a na
 σ_C < 1/(2k) because θ′ < 1 − 1/(2k). So C(s) := Π_{p≥p₀}(1 − r_p^{−s})/(1 − p^{−ks}) converges absolutely on σ > σ_C (analytic,
 zero-free), and D_R(s) = C(s)·Π_{p<p₀}(1 − p^{−ks})^{−1}·ζ(ks)^{−1}. At s₀ := ρ₁/k: Re s₀ = 1/(2k) > σ_C, 0 < Im s₀ = γ₁/k < γ₁, so
 ζ(s₀) ≠ 0, while 1/ζ(ks) has a simple pole at s₀ and the other factors are finite and ≠ 0: D_R has a pole at s₀. If β₂ < Re s₀,
-Theorem 2.1(a) would force ζ(s₀) = 0. Hence β₂ ≥ 1/(2k). π_R(x) = π(x^{1/k}) + O(1) gives α_R = 1/k. ∎
+Theorem 2.1(a) would force ζ(s₀) = 0. Hence β₂ ≥ 1/(2k). π_R(x) = π(x^{1/k}) + O(1) gives α_R = 1/k. ∎ [Second route, computed:
+`verify/t2_values.py` → `logs/t2_values.log`: |ζ(ρ₁/k)| = 1.126, 0.665, 0.510, 0.448 for k = 2…5; ζ′(ρ₁) = 0.783 + 0.125i ≠ 0; for
+r_p = nextprime(p²), C(ρ₁/2) = 0.0357 − 0.3606i over p ≤ 10⁵ (the tail moves log C by ≲ 3·10⁻⁷).]
 *Why the class matters.* π_R(x) − li(x^{1/k}) = Ω_±(x^{1/(2k)}(log x)^{−1}log log log x) (Littlewood) [recalled]: R_k is irregular at
 scale x^{α_R/2}, outside Cor. Z.1 and outside cO Lemma G's decomposition clause (any M with π_R = M + O(x^θ), θ < α_R/2, carries the
 branch points of P(ks) at ρ/k). Under RH ζ_P/ζ = D_R has infinitely many POLES of real part α_R/2: the anatomy of cO Prop. 1.6
@@ -173,12 +180,12 @@ essential singularity exp(−(1/k)/(s − 1/k)) of D_R]: E(x) ≈ A·x^{1/k}(log
 **3.3 Theorem T4 (modulated deletions; a deterministic natural boundary at α_R/2; unconditional)** [proved here; novelty: single-check].
 Let 0 < α < 1, c > 0, F_c(x) = Σ_{p≤x}min(1, cp^{α−1}), and T = F_c + G with G(x) = x^{α/2}Σ_j a_j cos(γ_j log x), where (γ_j) is an
 enumeration of the positive rationals by height and a_j = ε·2^{−j}/(1 + γ_j) (ε small). The greedy set R ("delete p iff #R∩[2, p) < T(p)")
-has |π_R − T| ≤ 1 for large x (T increases by ≤ 1 between consecutive primes there). Then α_R = α and **P_R has a natural boundary on
+has |π_R − T| ≤ 2 for large x (T's jumps at primes are ≤ 1 and G varies by o(1) between consecutive primes). Then α_R = α and **P_R has a natural boundary on
 σ = α/2; so β₂(R) ≥ α/2.** More generally, for any R with π_R = F_c + G + O(x^θ), θ < α/2: if Ĝ(s) := ∫u^{−s}dG(u) has at some s₀,
 Re s₀ ≥ α/2, a singularity forbidden by Corollary 2.2, then β₂ ≥ Re s₀; if Ĝ continues with finite order past α/2 off the axis, then
 β₂ ≥ α/2 under RH (the proof of Cor. Z.1 verbatim).
 *Proof.* P_R(s) = cP(s + 1 − α) + (entire) + Σ_j (a_j/2)(s_j/(s − s_j) + s̄_j/(s − s̄_j)) + H(s), s_j := α/2 + iγ_j, H analytic on σ > 0
-(partial summation, |π_R − T| ≤ 1); the j-series converges on σ > α/2 (Σa_j|s_j| < ∞), and near each s_j the term cP(s + 1 − α)
+(partial summation, |π_R − T| ≤ 2); the j-series converges on σ > α/2 (Σa_j|s_j| < ∞), and near each s_j the term cP(s + 1 − α)
 (argument w = 1 − α/2 + iγ_j, Re w ∈ (½, 1)) is analytic or has at most a logarithmic singularity (at a zero of ζ), which cannot cancel a
 pole. At s = s_j + δ, δ ↓ 0, the j-th term is a_js_j/(2δ) → ∞ while the
 others are bounded by Σ_{i≠j}a_i|s_i|/|γ_i − γ_j| ≤ Σ_i a_i|s_i|q_iq_j < ∞ (q = denominators; |γ_i − γ_j| ≥ 1/(q_iq_j)). So every s_j is a
