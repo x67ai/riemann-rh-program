@@ -1,0 +1,62 @@
+# regression runs 17:01 IST 2026-10-01: s8gen vs free-greedy-s40 logs
+s8gen: t=5.0929581789406511-3.15e-16 rho=0.19634954084936207 tau=0.5 delta=0 (delta/t=0) X=1e+07 Kmax=1963495
+CK x=10 N=3 pi=2 E=0.232854 supE=0.500000 (at 1) supE/log2x=0.0943 maxgap=1 cells (5.0930; at cell 2) maxbusy=0 emax=0 minmargin=2.268e-01 nflag=0
+CK x=17.7828 N=4 pi=2 E=-0.295294 supE=0.726760 (at 12.57751397) supE/log2x=0.0877 maxgap=1 cells (5.0930; at cell 2) maxbusy=1 emax=0 minmargin=2.268e-01 nflag=0
+CK x=31.6228 N=8 pi=5 E=0.987232 supE=0.726760 (at 12.57751397) supE/log2x=0.0609 maxgap=2 cells (10.1859; at cell 4) maxbusy=1 emax=0 minmargin=4.084e-02 nflag=0
+CK x=56.2341 N=12 pi=8 E=0.154803 supE=1.438003 (at 44.60589016) supE/log2x=0.0886 maxgap=2 cells (10.1859; at cell 4) maxbusy=1 emax=0 minmargin=4.084e-02 nflag=0
+CK x=100 N=20 pi=13 E=-0.438605 supE=1.438003 (at 44.60589016) supE/log2x=0.0678 maxgap=3 cells (15.2789; at cell 16) maxbusy=2 emax=0 minmargin=4.084e-02 nflag=0
+CK x=177.828 N=36 pi=23 E=0.279915 supE=2.261970 (at 162.6404617) supE/log2x=0.0843 maxgap=4 cells (20.3718; at cell 35) maxbusy=3 emax=1 minmargin=2.957e-02 nflag=0
+CK x=316.228 N=63 pi=41 E=0.105173 supE=2.261970 (at 162.6404617) supE/log2x=0.0683 maxgap=4 cells (20.3718; at cell 35) maxbusy=3 emax=1 minmargin=2.957e-02 nflag=0
+CK x=562.341 N=114 pi=68 E=2.780889 supE=2.507034 (at 558.6430961) supE/log2x=0.0625 maxgap=4 cells (20.3718; at cell 35) maxbusy=3 emax=2 minmargin=4.236e-03 nflag=0
+CK x=1000 N=198 pi=118 E=0.846809 supE=3.038130 (at 561.031205) supE/log2x=0.0637 maxgap=7 cells (35.6507; at cell 116) maxbusy=6 emax=2 minmargin=4.236e-03 nflag=0
+CK x=1778.28 N=350 pi=199 E=0.032004 supE=3.038130 (at 561.031205) supE/log2x=0.0543 maxgap=7 cells (35.6507; at cell 116) maxbusy=6 emax=2 minmargin=1.361e-03 nflag=0
+CK x=3162.28 N=622 pi=340 E=0.284583 supE=3.337984 (at 2764.754951) supE/log2x=0.0514 maxgap=8 cells (40.7437; at cell 393) maxbusy=7 emax=2 minmargin=1.361e-03 nflag=0
+CK x=5623.41 N=1105 pi=578 E=0.041740 supE=3.337984 (at 2764.754951) supE/log2x=0.0448 maxgap=13 cells (66.2085; at cell 699) maxbusy=12 emax=2 minmargin=8.580e-04 nflag=0
+CK x=10000 N=1964 pi=990 E=-0.299059 supE=3.535094 (at 7204.810612) supE/log2x=0.0417 maxgap=13 cells (66.2085; at cell 699) maxbusy=12 emax=3 minmargin=8.580e-04 nflag=0
+CK x=17782.8 N=3492 pi=1689 E=-0.447107 supE=4.363169 (at 13240.84166) supE/log2x=0.0456 maxgap=16 cells (81.4873; at cell 3093) maxbusy=15 emax=3 minmargin=1.798e-04 nflag=0
+CK x=31622.8 N=6211 pi=2888 E=1.078683 supE=4.399547 (at 27495.84633) supE/log2x=0.0410 maxgap=16 cells (81.4873; at cell 3093) maxbusy=15 emax=3 minmargin=1.798e-04 nflag=0
+CK x=56234.1 N=11043 pi=4931 E=0.650249 supE=5.075883 (at 46962.7809) supE/log2x=0.0424 maxgap=17 cells (86.5803; at cell 10382) maxbusy=16 emax=4 minmargin=2.094e-05 nflag=0
+CK x=100000 N=19637 pi=8415 E=1.242265 supE=6.880053 (at 98820.27843) supE/log2x=0.0519 maxgap=35 cells (178.2535; at cell 19412) maxbusy=34 emax=6 minmargin=2.094e-05 nflag=0
+CK x=177828 N=34919 pi=14412 E=1.761783 supE=7.219723 (at 171622.3857) supE/log2x=0.0494 maxgap=35 cells (178.2535; at cell 19412) maxbusy=34 emax=6 minmargin=2.094e-05 nflag=0
+CK x=316228 N=62092 pi=24680 E=0.019688 supE=7.480272 (at 255089.5503) supE/log2x=0.0466 maxgap=35 cells (178.2535; at cell 19412) maxbusy=34 emax=6 minmargin=1.963e-05 nflag=0
+CK x=562341 N=110417 pi=42340 E=0.735348 supE=7.721334 (at 467749.8843) supE/log2x=0.0440 maxgap=35 cells (178.2535; at cell 19412) maxbusy=34 emax=7 minmargin=1.963e-05 nflag=0
+CK x=1e+06 N=196350 pi=72603 E=-0.344500 supE=9.636203 (at 704679.8253) supE/log2x=0.0505 maxgap=49 cells (249.5550; at cell 166760) maxbusy=48 emax=9 minmargin=9.355e-08 nflag=0
+CK x=1.77828e+06 N=349165 pi=124636 E=-0.149313 supE=9.636203 (at 704679.8253) supE/log2x=0.0465 maxgap=49 cells (249.5550; at cell 166760) maxbusy=48 emax=9 minmargin=9.355e-08 nflag=0
+CK x=3.16228e+06 N=620915 pi=214016 E=2.429737 supE=10.768944 (at 2881195.571) supE/log2x=0.0481 maxgap=49 cells (249.5550; at cell 166760) maxbusy=48 emax=10 minmargin=9.355e-08 nflag=0
+CK x=5.62341e+06 N=1104155 pi=368162 E=-0.413668 supE=10.768944 (at 2881195.571) supE/log2x=0.0446 maxgap=65 cells (331.0423; at cell 736831) maxbusy=64 emax=10 minmargin=9.355e-08 nflag=0
+FINAL Kmax=1963495 x_K=9999996.373 N(x_K)=1963496 pi=633514 composites=1329981 supE=12.838454 at 9701099.12 supE/log2X=0.04942 maxgap=66 cells (336.1352) at cell 1168776 maxbusy=65 at cell 1168775 emax=12 e_K=0
+AUDIT minmargin=9.3548e-08 at 1050889.63 flagged(<1e-15)=0 count-overflow=0 max-factors=12
+first primes: 3.5464790895 8.6394372684 18.8253536263 23.9183118052 29.0112699842 39.1971863421
+
+s8gen: t=10.185916357881302-6.3e-16 rho=0.098174770424681035 tau=0.5 delta=0 (delta/t=0) X=1e+08 Kmax=9817477
+CK x=10 N=2 pi=1 E=0.116427 supE=0.500000 (at 1) supE/log2x=0.0943 maxgap=0 cells (0.0000; at cell 0) maxbusy=0 emax=0 minmargin=1.000e+00 nflag=0
+CK x=17.7828 N=3 pi=2 E=0.352353 supE=0.500000 (at 1) supE/log2x=0.0604 maxgap=1 cells (10.1859; at cell 2) maxbusy=0 emax=0 minmargin=1.000e+00 nflag=0
+CK x=31.6228 N=4 pi=3 E=-0.006384 supE=0.500000 (at 1) supE/log2x=0.0419 maxgap=1 cells (10.1859; at cell 2) maxbusy=0 emax=0 minmargin=1.000e+00 nflag=0
+CK x=56.2341 N=6 pi=4 E=-0.422598 supE=1.453521 (at 37.12413939) supE/log2x=0.0895 maxgap=1 cells (10.1859; at cell 2) maxbusy=1 emax=0 minmargin=4.648e-02 nflag=0
+CK x=100 N=12 pi=9 E=1.280698 supE=1.453521 (at 37.12413939) supE/log2x=0.0685 maxgap=2 cells (20.3718; at cell 6) maxbusy=1 emax=0 minmargin=4.648e-02 nflag=0
+CK x=177.828 N=18 pi=14 E=-0.360043 supE=1.453521 (at 37.12413939) supE/log2x=0.0542 maxgap=2 cells (20.3718; at cell 6) maxbusy=1 emax=0 minmargin=4.648e-02 nflag=0
+CK x=316.228 N=32 pi=25 E=0.052586 supE=1.891451 (at 226.1958285) supE/log2x=0.0571 maxgap=3 cells (30.5577; at cell 25) maxbusy=2 emax=1 minmargin=2.394e-02 nflag=0
+CK x=562.341 N=56 pi=44 E=-0.109556 supE=1.891451 (at 226.1958285) supE/log2x=0.0472 maxgap=3 cells (30.5577; at cell 25) maxbusy=2 emax=1 minmargin=2.394e-02 nflag=0
+CK x=1000 N=99 pi=75 E=-0.076596 supE=1.891451 (at 226.1958285) supE/log2x=0.0396 maxgap=4 cells (40.7437; at cell 62) maxbusy=3 emax=1 minmargin=2.394e-02 nflag=0
+CK x=1778.28 N=176 pi=134 E=0.516002 supE=1.891451 (at 226.1958285) supE/log2x=0.0338 maxgap=4 cells (40.7437; at cell 62) maxbusy=3 emax=1 minmargin=1.399e-03 nflag=0
+CK x=3162.28 N=311 pi=232 E=-0.357709 supE=2.921110 (at 2089.916419) supE/log2x=0.0450 maxgap=5 cells (50.9296; at cell 210) maxbusy=4 emax=2 minmargin=1.399e-03 nflag=0
+CK x=5623.41 N=554 pi=401 E=1.020870 supE=2.921110 (at 2089.916419) supE/log2x=0.0392 maxgap=5 cells (50.9296; at cell 210) maxbusy=4 emax=2 minmargin=1.399e-03 nflag=0
+CK x=10000 N=983 pi=700 E=0.350471 supE=3.019665 (at 6570.715746) supE/log2x=0.0356 maxgap=6 cells (61.1155; at cell 759) maxbusy=5 emax=2 minmargin=1.092e-03 nflag=0
+CK x=17782.8 N=1749 pi=1214 E=2.276446 supE=3.422433 (at 12545.74609) supE/log2x=0.0357 maxgap=7 cells (71.3014; at cell 1055) maxbusy=6 emax=2 minmargin=1.092e-03 nflag=0
+CK x=31622.8 N=3105 pi=2106 E=-0.460658 supE=4.830797 (at 23002.52263) supE/log2x=0.0450 maxgap=7 cells (71.3014; at cell 1055) maxbusy=6 emax=4 minmargin=1.092e-03 nflag=0
+CK x=56234.1 N=5522 pi=3659 E=0.325125 supE=4.830797 (at 23002.52263) supE/log2x=0.0404 maxgap=9 cells (91.6732; at cell 5423) maxbusy=8 emax=4 minmargin=1.744e-05 nflag=0
+CK x=100000 N=9818 pi=6350 E=-0.378868 supE=4.830797 (at 23002.52263) supE/log2x=0.0364 maxgap=13 cells (132.4169; at cell 7510) maxbusy=12 emax=4 minmargin=1.744e-05 nflag=0
+CK x=177828 N=17459 pi=11027 E=-0.119108 supE=5.486179 (at 138035.5863) supE/log2x=0.0375 maxgap=13 cells (132.4169; at cell 7510) maxbusy=12 emax=4 minmargin=1.744e-05 nflag=0
+CK x=316228 N=31047 pi=19139 E=0.509844 supE=5.486179 (at 138035.5863) supE/log2x=0.0342 maxgap=13 cells (132.4169; at cell 7510) maxbusy=12 emax=4 minmargin=2.807e-06 nflag=0
+CK x=562341 N=55209 pi=33235 E=0.367674 supE=5.773484 (at 483151.8779) supE/log2x=0.0329 maxgap=15 cells (152.7887; at cell 47445) maxbusy=14 emax=5 minmargin=2.807e-06 nflag=0
+CK x=1e+06 N=98177 pi=57724 E=1.327750 supE=6.393137 (at 877096.0672) supE/log2x=0.0335 maxgap=17 cells (173.1606; at cell 85942) maxbusy=16 emax=5 minmargin=2.807e-06 nflag=0
+CK x=1.77828e+06 N=174586 pi=100283 E=2.925343 supE=6.393137 (at 877096.0672) supE/log2x=0.0309 maxgap=17 cells (173.1606; at cell 85942) maxbusy=16 emax=5 minmargin=2.807e-06 nflag=0
+CK x=3.16228e+06 N=310457 pi=174263 E=0.214869 supE=6.393137 (at 877096.0672) supE/log2x=0.0285 maxgap=21 cells (213.9042; at cell 251282) maxbusy=20 emax=5 minmargin=2.807e-06 nflag=0
+CK x=5.62341e+06 N=552078 pi=302873 E=-0.206834 supE=8.927858 (at 3589213.082) supE/log2x=0.0370 maxgap=25 cells (254.6479; at cell 534964) maxbusy=24 emax=8 minmargin=2.807e-06 nflag=0
+CK x=1e+07 N=981749 pi=526606 E=0.393928 supE=8.927858 (at 3589213.082) supE/log2x=0.0344 maxgap=25 cells (254.6479; at cell 534964) maxbusy=24 emax=8 minmargin=2.807e-06 nflag=0
+CK x=1.77828e+07 N=1745824 pi=915727 E=1.369860 supE=8.927858 (at 3589213.082) supE/log2x=0.0320 maxgap=28 cells (285.2057; at cell 1422975) maxbusy=27 emax=8 minmargin=4.191e-07 nflag=0
+CK x=3.16228e+07 N=3104560 pi=1592734 E=0.265113 supE=9.076054 (at 19991225.99) supE/log2x=0.0304 maxgap=32 cells (325.9493; at cell 2669792) maxbusy=31 emax=8 minmargin=4.191e-07 nflag=0
+CK x=5.62341e+07 N=5520776 pi=2771263 E=2.048087 supE=9.076054 (at 19991225.99) supE/log2x=0.0285 maxgap=37 cells (376.8789; at cell 4985037) maxbusy=36 emax=8 minmargin=4.191e-07 nflag=0
+FINAL Kmax=9817477 x_K=99999995.47 N(x_K)=9817480 pi=4822578 composites=4994901 supE=9.857826 at 99631883 supE/log2X=0.02905 maxgap=39 cells (397.2507) at cell 7911298 maxbusy=38 at cell 7911297 emax=9 e_K=2
+AUDIT minmargin=4.4910e-08 at 71112777.43 flagged(<1e-15)=0 count-overflow=0 max-factors=10
+first primes: 6.0929581789 16.2788745368 26.4647908947 36.6507072526 57.0225399683 67.2084563262
