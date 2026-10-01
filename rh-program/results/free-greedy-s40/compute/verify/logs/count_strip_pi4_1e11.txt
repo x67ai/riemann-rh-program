@@ -1,0 +1,26 @@
+# count_strip /private/tmp/rh-s40-free-greedy/win_pi4_1e11.mom.1.000000e+11: X = 1.000e+11; 0.76 < sigma < 1.05, 0.01 < t < 1000.0: winding = 1.0000  (refined steps: right 0, left 8)
+Traceback (most recent call last):
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/free-greedy-s40/compute/verify/count_strip.py", line 9, in <module>
+    D = load(sys.argv[1]); sl, sr, tmax = float(sys.argv[2]), float(sys.argv[3]), float(sys.argv[4])
+ValueError: could not convert string to float: '0.85 1.05 5000'
+Traceback (most recent call last):
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/free-greedy-s40/compute/verify/count_strip.py", line 9, in <module>
+    D = load(sys.argv[1]); sl, sr, tmax = float(sys.argv[2]), float(sys.argv[3]), float(sys.argv[4])
+ValueError: could not convert string to float: '0.76 1.05 5000'
+Traceback (most recent call last):
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/free-greedy-s40/compute/verify/count_strip.py", line 9, in <module>
+    D = load(sys.argv[1]); sl, sr, tmax = float(sys.argv[2]), float(sys.argv[3]), float(sys.argv[4])
+ValueError: could not convert string to float: '0.7 1.05 1000'
+Traceback (most recent call last):
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/free-greedy-s40/compute/verify/count_strip.py", line 9, in <module>
+    D = load(sys.argv[1]); sl, sr, tmax = float(sys.argv[2]), float(sys.argv[3]), float(sys.argv[4])
+ValueError: could not convert string to float: '0.6 1.05 1000'
+Traceback (most recent call last):
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/free-greedy-s40/compute/verify/count_strip.py", line 9, in <module>
+    D = load(sys.argv[1]); sl, sr, tmax = float(sys.argv[2]), float(sys.argv[3]), float(sys.argv[4])
+ValueError: could not convert string to float: '0.6 1.05 200'
+# count_strip /private/tmp/rh-s40-free-greedy/win_pi4_1e11.mom.1.000000e+11: X = 1.000e+11; 0.85 < sigma < 1.05, 0.01 < t < 5000.0: winding = 1.0000  (refined steps: right 0, left 3)
+# count_strip /private/tmp/rh-s40-free-greedy/win_pi4_1e11.mom.1.000000e+11: X = 1.000e+11; 0.76 < sigma < 1.05, 0.01 < t < 5000.0: winding = 2.0000  (refined steps: right 0, left 21)
+# count_strip /private/tmp/rh-s40-free-greedy/win_pi4_1e11.mom.1.000000e+11: X = 1.000e+11; 0.7 < sigma < 1.05, 0.01 < t < 1000.0: winding = 6.0000  (refined steps: right 0, left 40)
+# count_strip /private/tmp/rh-s40-free-greedy/win_pi4_1e11.mom.1.000000e+11: X = 1.000e+11; 0.6 < sigma < 1.05, 0.01 < t < 1000.0: winding = 51.0000  (refined steps: right 0, left 394)
+# count_strip /private/tmp/rh-s40-free-greedy/win_pi4_1e11.mom.1.000000e+11: X = 1.000e+11; 0.6 < sigma < 1.05, 0.01 < t < 200.0: winding = 15.0000  (refined steps: right 0, left 63)

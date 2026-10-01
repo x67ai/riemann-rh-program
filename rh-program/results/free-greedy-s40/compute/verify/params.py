@@ -4,6 +4,8 @@ from mpmath import mp, mpf, pi, e, sqrt
 mp.dps = 50
 R = {
     "pi4": pi / 4,                      # transcendental 1/rho
+    "pi16": pi / 16,                    # rho < 1/4: the theory unit's real-zero regime (Thm 1.6)
+    "pi32": pi / 32,
     "eoverpi": e / pi,
     "rsqrt2": 1 / sqrt(2),              # 1/rho = sqrt 2, algebraic of degree 2
     "r0995": mpf("0.95") * pi / 3,
