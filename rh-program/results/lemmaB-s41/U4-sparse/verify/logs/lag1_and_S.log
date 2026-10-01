@@ -1,0 +1,16 @@
+# lag-one correlation of c_k: measured vs RPM prediction -rho^2 psi1(1/2+rho)/Var(c) (one-element components, period > 2 steps)
+  rho=0.01227 tau=0.297 lam=0.1096  lag1 measured -0.0077  RPM -0.0066
+  rho=0.01636 tau=0.396 lam=0.1467  lag1 measured -0.0094  RPM -0.0086
+  rho=0.02454 tau=0.593 lam=0.2170  lag1 measured -0.0121  RPM -0.0128
+  rho=0.03272 tau=0.603 lam=0.2157  lag1 measured -0.0225  RPM -0.0225
+  rho=0.04909 tau=1.159 lam=0.3843  lag1 measured -0.0182  RPM -0.0269
+  rho=0.09817 tau=1.978 lam=0.5514  lag1 measured -0.0292  RPM -0.0658
+# S_rho(z) (exact, qs) vs Lambda(tau) = I1(2 sqrt tau)/sqrt tau - 1
+  pi/32 z=1e+08 tau=1.808  S=1.0924  Lambda=1.2218  diff=-0.1294  rho*log(1/rho)=0.2279
+  pi/32 z=1e+12 tau=2.713  S=1.9476  Lambda=2.1288  diff=-0.1812  rho*log(1/rho)=0.2279
+  pi/64 z=1e+08 tau=0.904  S=0.4404  Lambda=0.5256  diff=-0.0852  rho*log(1/rho)=0.1480
+  pi/64 z=1e+12 tau=1.356  S=0.7468  Lambda=0.8500  diff=-0.1033  rho*log(1/rho)=0.1480
+  pi/128 z=1e+08 tau=0.452  S=0.1901  Lambda=0.2437  diff=-0.0536  rho*log(1/rho)=0.0910
+  pi/128 z=1e+12 tau=0.678  S=0.3202  Lambda=0.3797  diff=-0.0594  rho*log(1/rho)=0.0910
+  pi/256 z=1e+08 tau=0.226  S=0.0843  Lambda=0.1174  diff=-0.0331  rho*log(1/rho)=0.0540
+  pi/256 z=1e+12 tau=0.339  S=0.1444  Lambda=0.1794  diff=-0.0350  rho*log(1/rho)=0.0540

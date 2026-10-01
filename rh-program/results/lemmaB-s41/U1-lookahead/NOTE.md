@@ -6,9 +6,35 @@ Notation as in `../../free-greedy-s40/theory/NOTE.md`: t = 1/ρ, T(x) = ρ(x −
 Π_P(u) = Σ_{p^k ≤ u} 1/k (Riemann prime counting of the system), log ζ_P(s) = ∫u^{−s}dΠ_P for Re s > 1. Template: dΠ_c = (1 − u^{−ρ})du/log u,
 ζ_c(s) = (s − 1 + ρ)/(s − 1) (s40 Lemma 1.5). "Threshold τ": a g-prime is placed when T − N reaches τ, so E ≥ −τ and r₀ = 1 − ρ − τ.
 
-## §0. Close (filled last)
+## §0. Close (filled 17:58 IST 2026-10-01)
 
-(pending)
+**No rule with a proved (B) was found. What was proved instead: one design theorem that moves the target to its weakest form, and two
+class theorems saying where a proof of (B) cannot come from.**
+**(1) Design — Theorem 4.1 (power bump)** [proved here; instances certified by interval arithmetic]. For every discrete system with
+E = N − ρ(u − 1) − 1 ≥ −τ and E = O(u^θ): ζ_P(σ) ≥ Λ_{ρ,τ}(σ) on (θ, 1), an explicit function built from the powers of the first
+prime (which must lie below 1 + τ/ρ). Its root σ_L(ρ, τ) ≥ 1 − cτ for small τ (Prop. 4.3), and it is sharp: the measured real zeros of
+the greedy τ-systems agree with it to 4–5 digits for τ ≤ 1/50 (3–4 digits at τ = 1/20). **Hence the greedy rule with threshold τ = 1/100 has (A) by construction
+(r₀ = 1 − ρ − 1/100), and Conjecture U is false as soon as it has N − ρu = O(u^θ) for ANY θ < 0.4945 — for each of ρ = π/32, π/16, π/8,
+π/4, 0.95π/3** (Cor. 4.2; s40 needed ρ < ¼ and θ < 0.395). As τ → 0 the requirement tends to "any θ < ½", the boundary of
+Hilberdink's wall. Dichotomy (Cor. 4.4): either U fails or these explicit systems have β ≥ 0.4945, while their measured sup E on
+[10^{7.5}, 10⁸] is about 14.
+**(2) Class theorem — prescription cannot work** (Thm 2.1, Cor. 2.2–2.3) [proved here from Hilberdink 2005 Cor. 2(b), quoted]. If a
+system's prime counting function stays within u^{α′}, α′ < ½, of any reference whose zeta is meromorphic with finitely many zeros right
+of some γ₀ < ½ — in particular every rule that rounds the template's prime density, with or without feedback, as long as it tracks it —
+then N − ρu ≠ O(u^θ) for every θ < ½. So **"make the mean controllable by construction" by fixing the primes in advance is impossible**;
+the primes of any (B)-system are wild at scale u^{½−ε}. In the data such rules fail exactly as predicted: linear growth of E when the
+realized density constant ρe^{η̂(1)} — a global functional, Prop. 3.2 — overshoots ρ, power growth (x^{0.09–0.16}) when it undershoots.
+**(3) Class theorem — scale induction over early-placement rules cannot work** (Prop. 3.3) [proved here]. Aligned bunching of primes at
+the scales y₀/p_j keeps every bound |E| ≤ ½Kx^θ below y₀ within Kx^θ, and every prime count in windows ≫ v^θ, and adds ≥ ¼Ky₀^θ Σ_{j≤J}p_j^{−θ} composites
+at y₀. And look-ahead over the composites already determined gains nothing: greedy is pointwise optimal inside each block (Prop. 3.1).
+So **a proof of (B) must use the fine positions of the specific rule's primes at all smaller scales**; for greedy the missing estimate
+(§6.3, exact form of Lemma M) is that the idle sets of the queue at different scales never line up under dilation by g-integers beyond
+O(|W|/log y).
+**(4) Data** [computed, §5]. Lemma M holds empirically with margin ≥ 0.77 (π/16) and ≥ 0.72 (π/32) at |W| = log³x up to 10⁸. No tested
+rule beats greedy by more than a constant factor (look-ahead anti-clustering −13…−28 %); the excursion law 0.03–0.05·log²x is unchanged
+by τ, look-ahead and early placement.
+**Side result.** The block-generator search used here and in s40 (`s8w_block.py`) can lose composites lying exactly on block edges
+(p₁ᵏ); harmless for τ = ½ at π/4, π/16, wrong for small τ; fixed and validated against a 50-digit brute force (§5).
 
 ## §1. The design space, and what "the mean" is
 
@@ -171,7 +197,7 @@ for τ = 1/50, 1/100) against the bound's root σ_L: π/16: τ = ½: 0.79476 vs 
 0.98953 (at τ = ½ the bound has no root, the measured zero is 0.51451). For small τ the real zero of the whole system is the power bump
 of its first prime, to 4–5 digits. (Mechanism: the bump E ≈ (ρ/τ)log(1/τ) on [1, ≈ 1/(ρa)] gives Ê(σ) ≈ ρ/τ, and 1 + σÊ − ρ/(1 − σ) = 0
 gives 1 − σ* ≈ τ.) The low prime density of these systems in the computed range (π(W)·log x/|W| ≈ 0.30 at 10⁸ for τ = 1/50) is the
-same fact seen from ψ: ψ_P(x) ≈ x − x^{σ*}/σ*.
+same fact seen from ψ: ψ_P(x) ≈ x − x^{σ*}/σ*. *Attempt to break it* [computed, `verify/break_thm41.log`]: five non-greedy rules with E ≥ −½ at π/16 (open loop λ = 0.9, 0.8, Poisson 0.9, early W = 5, look-ahead) have real zeros 0.844, 0.825, 0.830, 0.845, 0.795 — all above σ_L(π/16, ½) = 0.763, as the theorem requires of every rule.
 **What it changes.** s40 needed ρ < ¼ and θ ≤ ½ − ρ (θ < 0.395 with a computed certificate) for one explicit system. Now: **one
 never-undershooting discrete system of ANY density, with undershoot depth 1/100 and integer error O(u^{0.494}), refutes U**; and the
 greedy rule with threshold 1/100 costs nothing at large scales (top half-decade sup E = 13.99 at 10⁸ against 16.36 for τ = ½,

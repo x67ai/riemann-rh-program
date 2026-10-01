@@ -160,6 +160,8 @@ convergence in j: S_j ≤ σ^j/j! + 5ρ²η_{j−2}, summable. Uniformity: S_ρ 
 Λ is continuous (Pólya's argument). The Bessel form is the series of I₁. ∎
 *Finite ρ* [computed, `logs/tauc.log`]: S_ρ = 1 at τ = 1.637 (π/16), 1.681 (π/24), 1.695 (π/32); the offset from τ_c comes from
 Σ_{a≤A} 1/(a+δ) = log A − ψ(½ + ρ) + o(1) and is O(ρ log(1/ρ)), so the approach to τ_c is slow and not monotone in ρ.
+Direct check [computed, `logs/lag1_and_S.log`]: S_ρ(z) − Λ(ρ log z) = −0.035, −0.059, −0.103, −0.181 at z = 10¹² for π/256, π/128,
+π/64, π/32, i.e. ≈ −0.65·ρ log(1/ρ).
 
 **3.2 The exact failing steps.**
 (F1) *Beyond τ_c(ρ): the domination of Theorem 2.1 is the step that fails.* There the comparison queue has arrival rate Λ(τ) > 1 per
@@ -307,7 +309,7 @@ in a window of m steps is then Poisson-binomial with probabilities w_a = m/x_a, 
 **Proposition 5.1 (the model)** [proved here; Le Cam's inequality recalled, unverified, used only in (iii)]. In RPM, for one-element
 cofactors and m < p₁: (i) Var/mean of the window count = 1 − mρ²ψ′(½ + ρ)/λ₂; (ii) P(c = 2)/Poisson_{λ₂}(2) = 1 − ρ²ψ′(½ + ρ)/λ₂² + O(ρ⁴),
 and P(c = j)/Poisson(j) = exp(−binom(j, 2)ρ²ψ′/λ₂² + O(jρ²)) for fixed j; (iii) total-variation distance to Poisson(mλ₂) ≤ m²ρ²ψ′(½ + ρ).
-*Proof.* (i) Var = Σw_a(1 − w_a). (ii) P(c = j) = e_j(w)Π_a(1 − w_a) with e_j the elementary symmetric function; e₂ = (σ² − p₂)/2,
+*Proof.* (i) Var = Σw_a(1 − w_a); the same exclusion gives Cov(c_k, c_{k+1}) = −Σ_a x_a^{−2} when every period exceeds 2 steps. (ii) P(c = j) = e_j(w)Π_a(1 − w_a) with e_j the elementary symmetric function; e₂ = (σ² − p₂)/2,
 and e_j = (σ^j/j!)(1 − binom(j,2)p₂/σ² + …) for small p₂/σ². (iii) Le Cam. ∎
 As ρ → 0 at fixed τ all three corrections vanish (∝ ρ²), and for m = o(1/ρ) the window law tends to Poisson; in RPM the
 superposition of many sparse independent components tends to a Poisson process (law of rare events).
@@ -322,6 +324,9 @@ model's formulas hold to three digits, with no free parameter:
 | π/128, 0.59 | D(1), D(4), D(16) | 0.987, 0.953, 0.834 | 0.987, 0.949, 0.798 |
 | π/96, 0.60 | D(1), D(4) | 0.976, 0.914 | 0.978, 0.912 |
 | π/64, 1.16 | D(1), D(4), D(16) | 0.981, 0.930, 0.801 | 0.974, 0.894, 0.577 |
+| π/256, 0.30 | lag-one correlation of c_k | −0.0077 | −0.0066 |
+| π/128, 0.59 | lag-one correlation | −0.0121 | −0.0128 |
+| π/96, 0.60 | lag-one correlation | −0.0225 | −0.0225 |
 
 The model fails once m approaches p₁ or τ is large (three-fold products, and the thinning by primality, give extra points per
 component); there the measured window counts are LESS sub-Poisson than RPM's one-element prediction. **At fixed τ every deviation

@@ -1,0 +1,21 @@
+# run_gen.sh D=32 d=6 K=98175 start 17:59:02 IST 2026-10-01 host arm64
+pi: Machin rational enclosure of width < 2^-1300, contains arb's pi; all 26 constants and 15 checkpoint enclosures certified by both methods; NCAP 16129; t = [10.185916357881301489 +/- 2.09e-19]; written /private/tmp/rh-s41-U6-second/params_pi32_1e6.txt
+s8gen D=32 R=14 KFIN=98175 NCAP=16129 seg=2^27 ftest=0 t~10.185916357881302
+CHECK V=1000 cell=99 N(V)=99 pi(V)=75 | lattice x_98: N=99 pi=75 e=0
+CHECK V=3162 cell=311 N(V)=311 pi(V)=232 | lattice x_310: N=311 pi=232 e=0
+CHECK V=10000 cell=983 N(V)=983 pi(V)=700 | lattice x_982: N=983 pi=700 e=0
+CHECK V=31622 cell=3105 N(V)=3105 pi(V)=2106 | lattice x_3104: N=3105 pi=2106 e=0
+CHECK V=100000 cell=9818 N(V)=9818 pi(V)=6350 | lattice x_9817: N=9818 pi=6350 e=0
+CHECK V=316227 cell=31046 N(V)=31047 pi(V)=19139 | lattice x_31045: N=31046 pi=19139 e=0
+FINAL K=98175 N(x_K)=98177 pi(x_K)=57724 e_K=1 E(x_K)=e_K+1/2
+composites=40452 storedprimes=10221 maxfactors=7 fallbacks_cell=0 fallbacks_checkpoint=0
+max e over lattice points=5 at m=47434 (sup of E on the lattice = 5.5); mean e=0.114113
+closest fast-path decision: margin > 1.743740e-05 in W (= 1.776159e-04 in u), cell 16845, factors x(n): 4 460
+individual=65536 cpu=0.0s wall=0s
+        0.01 real         0.00 user         0.00 sys
+            47824896  maximum resident set size
+            47415752  peak memory footprint
+9776ebdf6cc7c1cbe5ae0a62d4151a022273c6c0c67083d81d02e77d7bc2d58b  m_pi32_1e6.blk
+38f0dc9c81ceb9eec7adab188ea7777030b88c79312b6ac591dce0a3fe328611  m_pi32_1e6.ind
+93751f085269af3bd097ba18816892c585ecc2c1dd68eedc394c16797d159a2d  params_pi32_1e6.txt
+# end 17:59:02 IST 2026-10-01

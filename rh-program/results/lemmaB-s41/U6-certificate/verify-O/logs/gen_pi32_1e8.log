@@ -1,0 +1,25 @@
+# run_gen.sh D=32 d=8 K=9817477 start 17:59:02 IST 2026-10-01 host arm64
+pi: Machin rational enclosure of width < 2^-1300, contains arb's pi; all 26 constants and 15 checkpoint enclosures certified by both methods; NCAP 1611298; t = [10.185916357881301489 +/- 2.09e-19]; written /private/tmp/rh-s41-U6-second/params_pi32_1e8.txt
+s8gen D=32 R=14 KFIN=9817477 NCAP=1611298 seg=2^27 ftest=0 t~10.185916357881302
+CHECK V=1000 cell=99 N(V)=99 pi(V)=75 | lattice x_98: N=99 pi=75 e=0
+CHECK V=3162 cell=311 N(V)=311 pi(V)=232 | lattice x_310: N=311 pi=232 e=0
+CHECK V=10000 cell=983 N(V)=983 pi(V)=700 | lattice x_982: N=983 pi=700 e=0
+CHECK V=31622 cell=3105 N(V)=3105 pi(V)=2106 | lattice x_3104: N=3105 pi=2106 e=0
+CHECK V=100000 cell=9818 N(V)=9818 pi(V)=6350 | lattice x_9817: N=9818 pi=6350 e=0
+CHECK V=316227 cell=31046 N(V)=31047 pi(V)=19139 | lattice x_31045: N=31046 pi=19139 e=0
+CHECK V=1000000 cell=98176 N(V)=98177 pi(V)=57724 | lattice x_98175: N=98177 pi=57724 e=1
+CHECK V=3162277 cell=310457 N(V)=310457 pi(V)=174263 | lattice x_310456: N=310457 pi=174263 e=0
+CHECK V=10000000 cell=981749 N(V)=981749 pi(V)=526606 | lattice x_981748: N=981749 pi=526606 e=0
+CHECK V=31622776 cell=3104560 N(V)=3104560 pi(V)=1592734 | lattice x_3104559: N=3104560 pi=1592734 e=0
+FINAL K=9817477 N(x_K)=9817480 pi(x_K)=4822578 e_K=2 E(x_K)=e_K+1/2
+composites=4994901 storedprimes=847772 maxfactors=10 fallbacks_cell=0 fallbacks_checkpoint=0
+max e over lattice points=9 at m=9781338 (sup of E on the lattice = 9.5); mean e=0.216874
+closest fast-path decision: margin > 4.490973e-08 in W (= 4.574468e-07 in u), cell 6981481, factors x(n): 3 263803
+individual=65536 cpu=0.1s wall=0s
+        0.14 real         0.13 user         0.00 sys
+            59490304  maximum resident set size
+            59081160  peak memory footprint
+f4ceeac38d17dfb04ca55a49daa7bf2638c6ab3e09a26893a6e7b9a213d42ed7  m_pi32_1e8.blk
+38f0dc9c81ceb9eec7adab188ea7777030b88c79312b6ac591dce0a3fe328611  m_pi32_1e8.ind
+32350a0675c7567407216176ee13d6585bc2f53e4e659e0ffab8322cf221f7c9  params_pi32_1e8.txt
+# end 17:59:03 IST 2026-10-01

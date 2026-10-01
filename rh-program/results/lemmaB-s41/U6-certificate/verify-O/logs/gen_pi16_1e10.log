@@ -1,2 +1,29 @@
 # run_gen.sh D=16 d=10 K=1963495408 start 17:57:23 IST 2026-10-01 host arm64
 pi: Machin rational enclosure of width < 2^-1300, contains arb's pi; all 44 constants and 15 checkpoint enclosures certified by both methods; NCAP 553646423; t = [5.0929581789406507446 +/- 4.29e-21]; written /private/tmp/rh-s41-U6-second/params_pi16_1e10.txt
+s8gen D=16 R=23 KFIN=1963495408 NCAP=553646423 seg=2^27 ftest=0 t~5.0929581789406511
+CHECK V=1000 cell=197 N(V)=198 pi(V)=118 | lattice x_196: N=197 pi=118 e=0
+CHECK V=3162 cell=622 N(V)=622 pi(V)=340 | lattice x_621: N=622 pi=340 e=0
+CHECK V=10000 cell=1964 N(V)=1964 pi(V)=990 | lattice x_1963: N=1964 pi=990 e=0
+CHECK V=31622 cell=6210 N(V)=6211 pi(V)=2888 | lattice x_6209: N=6210 pi=2888 e=0
+CHECK V=100000 cell=19636 N(V)=19637 pi(V)=8415 | lattice x_19635: N=19636 pi=8415 e=0
+CHECK V=316227 cell=62092 N(V)=62092 pi(V)=24680 | lattice x_62091: N=62092 pi=24680 e=0
+CHECK V=1000000 cell=196350 N(V)=196350 pi(V)=72603 | lattice x_196349: N=196350 pi=72603 e=0
+CHECK V=3162277 cell=620912 N(V)=620914 pi(V)=214016 | lattice x_620911: N=620913 pi=214016 e=1
+CHECK V=10000000 cell=1963496 N(V)=1963496 pi(V)=633514 | lattice x_1963495: N=1963496 pi=633514 e=0
+CHECK V=31622776 cell=6209118 N(V)=6209119 pi(V)=1879642 | lattice x_6209117: N=6209119 pi=1879642 e=1
+CHECK V=100000000 cell=19634955 N(V)=19634955 pi(V)=5593120 | lattice x_19634954: N=19634955 pi=5593120 e=0
+CHECK V=316227766 cell=62091177 N(V)=62091178 pi(V)=16689630 | lattice x_62091176: N=62091177 pi=16689630 e=0
+CHECK V=1000000000 cell=196349542 N(V)=196349548 pi(V)=49924829 | lattice x_196349541: N=196349547 pi=49924829 e=5
+CHECK V=3162277660 cell=620911767 N(V)=620911771 pi(V)=149701129 | lattice x_620911766: N=620911769 pi=149701129 e=2
+FINAL K=1963495408 N(x_K)=1963495409 pi(x_K)=449911828 e_K=0 E(x_K)=e_K+1/2
+composites=1513583580 storedprimes=134178606 maxfactors=18 fallbacks_cell=0 fallbacks_checkpoint=0
+max e over lattice points=25 at m=1266139765 (sup of E on the lattice = 25.5); mean e=1.014052
+closest fast-path decision: margin > 3.020459e-11 in W (= 1.538307e-10 in u), cell 1057291198, factors x(n): 1 2 13 533658
+individual=65536 cpu=72.8s wall=73s
+       72.89 real        72.53 user         0.24 sys
+           852885504  maximum resident set size
+           852837360  peak memory footprint
+ae402998fd0a12b000a2b0cb2b2649596893d6a3727948fac91a27f2bdcfc574  m_pi16_1e10.blk
+8cc5fdc935bbfe49043056b8f01dae3fba1952a5a96644c411204ee502a64bb0  m_pi16_1e10.ind
+f4770209e1e9ca82b2b4822d65302b20fd4f5260f175c46175a285fef707b5b4  params_pi16_1e10.txt
+# end 17:58:36 IST 2026-10-01

@@ -1,6 +1,6 @@
 #!/bin/bash
-# U1-lookahead: all rule comparisons with the FIXED generators (boundary bug fixed 18:2x IST; logs batch1-4 before that are superseded).
-# Usage: bash run_batches.sh OUTDIR   (binaries are built into $TMPDIR-like scratch given by $BIN)
+# U1-lookahead: all rule comparisons with the FIXED generators (boundary bug fixed this session, see SHARED.md; logs batch1-4 before the fix are in superseded/).
+# Usage: bash run_batches.sh > batches_v2.log   (binaries go to $BIN, default /private/tmp/rh-s41-lemmaB-U1-lookahead)
 set -u
 V="$(cd "$(dirname "$0")" && pwd)"; BIN="${BIN:-/private/tmp/rh-s41-lemmaB-U1-lookahead}"; mkdir -p "$BIN"
 clang++ -O2 -std=c++17 -o "$BIN/rules" "$V/rules.cpp" && clang++ -O2 -std=c++17 -o "$BIN/rules2" "$V/rules2.cpp" || exit 1
