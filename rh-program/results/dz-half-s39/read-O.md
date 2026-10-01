@@ -168,3 +168,16 @@ VERDICT LINE: (written last; see the end of §4)
     fluctuation (σ_cont ≈ 1.4 s_x for κ ≈ 2.4); both give exponent ½, and Theorem 1 does not depend on which dominates.
     Caveat: the R and C runs with equal seed share their primes below 53 (identical f there), so the two rows are
     correlated through ρ.
+
+(c) §3.3, one scale on realized systems — `verify-O/onescale_O.py`, `logs/onescale_O_v2.log` (a first pass, `onescale_O.log`,
+    reused one resampling stream per x across runs, which correlated the variance ratios; v2 uses independent streams and
+    is the one reported). Four of my runs (R2, R4 with 1.5 ∈ P; C1, C3 without), x = 2¹⁴, 2¹⁷, 2²⁰, 2²³:
+    - Lemma 2.1(a) identity N(x) − N^c(x) = #B + [1.5 ∈ P]·#{q ∈ B : 1.5q ≤ x}, both sides by separate enumerations:
+      residual 0 in 16/16 cases (798 … 268 807 block primes) ✓ (NOTE: 8/8).
+    - Block resampled with the EXACT coupling E′ = N^c + Σn₀(x/q′) − ρ^c x e^{S′} (2000/2000/1000/300 replicates):
+      Var(E′)/σ²_cont ∈ [0.915, 1.046], every one within 1.91 sampling sd of 1 ✓ (NOTE: 0.967–1.070); skew |·| ≤ 0.14,
+      excess kurtosis |·| ≤ 0.32, KS p 0.34–0.99 ✓; σ²_cont/((x/log x)I(κ; n₀)) = 1.023–1.063, the O(1/log x) ✓ (NOTE: 1.03–1.05).
+    - Realized E(x) against its conditional law: 15 of 16 have |z| ≤ 1.58; C1 at 2¹⁴ has z = +3.05 (p ≈ 0.04 for one such
+      value among 16; C1 is ordinary at 2¹⁷–2²³). Recorded, not used.
+    Verdict on §3–§4: every number the close leans on reproduces by an independent route; the one discrepancy (m5) is a
+    quadrature artifact in a 10⁻⁶-size gap.

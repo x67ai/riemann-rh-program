@@ -118,3 +118,14 @@ Dated blocks, appended after each batch. Newest at the bottom.
   does not cover Remark 17.12 as the book carries it out (the theorem survives: deterministic w_n go into N^c, ρ^c);
   m3 §0's "E[R²|G]^{1/2} ≪ κ/log x" is not what Lemma 2.3 proves; m4 W(σ) defined for all σ at once (one clause).
 - Next: own re-run in verify-O/ (exact grid variance; simulation at 10⁷), prior art.
+
+## 11:28 IST 2026-10-01 — read-O (Opus reader), batch 2: independent re-run done (verify-O/)
+
+- Grid variance (closed-form cell integrals, no quadrature): 54/54 grid sums = NOTE to 10 digits; N₀ = 0 continuum 27/27 to
+  10 digits; N₀ = 1 continuum off by 10⁻⁶–10⁻⁵ in the NOTE (fixed-grid rule across the jump at v = 2x/3) → the NOTE's smallest
+  gap "7.6·10⁻⁷" is really −1.53·10⁻⁶ (m5). All other quoted gaps reproduce.
+- Own simulation at X = 10⁷ (exact Bernoulli on the true grid to unit 52, Poisson above; ρ with primes streamed to 10⁹), 5 seeds
+  per template: sup [10³, X] 0.496 ± 0.022 (P_R), 0.485 ± 0.026 (P_B); msL 0.533, 0.530 — within 1 se of the NOTE's 10⁸ values.
+  Controls: rational primes exact at 47 600 edges; residue identity to 16 digits; zero envelope violations.
+- One scale on own realized systems: identity residual 0 (16/16); Var(E′)/σ²_cont 0.915–1.046 (all < 2 sd from 1); KS p ≥ 0.34.
+- Observation: E < 0 on ≥ 89 % of the top two octaves in 9/10 runs (branch-point sign, random amplitude). Next: prior art.

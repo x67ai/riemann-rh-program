@@ -1,0 +1,119 @@
+gp entries 50829666, last 999999835, not-increasing-or-m!=1: 0, g-primes with a_q=0: 0
+records of a_n (n, a_n, log a/log n) for n >= 10^5, and records of E >= 30 that are single spikes:
+  window 0 [10^0.0,10^0.5): max a_n=1 at 2; sup E=2/5 at 3; inf E=1/5 at 2; sup|C|=3/5 at 3
+  window 1 [10^0.5,10^1.0): max a_n=1 at 4; sup E=3/5 at 4; inf E=-1/5 at 5; sup|C|=4/5 at 4
+  window 2 [10^1.0,10^1.5): max a_n=1 at 11; sup E=3/5 at 14; inf E=-2/5 at 19; sup|C|=4/5 at 14
+  window 3 [10^1.5,10^2.0): max a_n=2 at 60; sup E=4/5 at 40; inf E=-2/5 at 59; sup|C|=5/5 at 40
+  window 4 [10^2.0,10^2.5): max a_n=2 at 114; sup E=11/5 at 222; inf E=-2/5 at 109; sup|C|=12/5 at 222
+  window 5 [10^2.5,10^3.0): max a_n=3 at 600; sup E=19/5 at 800; inf E=-2/5 at 319; sup|C|=20/5 at 800
+  window 6 [10^3.0,10^3.5): max a_n=5 at 2280; sup E=28/5 at 2264; inf E=-2/5 at 1009; sup|C|=29/5 at 2264
+  window 7 [10^3.5,10^4.0): max a_n=8 at 7980; sup E=34/5 at 7980; inf E=-2/5 at 3209; sup|C|=35/5 at 7980
+  window 8 [10^4.0,10^4.5): max a_n=9 at 15960; sup E=70/5 at 26001; inf E=-2/5 at 10069; sup|C|=71/5 at 26001
+  window 9 [10^4.5,10^5.0): max a_n=14 at 68400; sup E=89/5 at 79800; inf E=-2/5 at 31699; sup|C|=90/5 at 79800
+  a-record n=136800 a_n=15 exponent=0.2290
+  a-record n=159600 a_n=18 exponent=0.2413
+  a-record n=239400 a_n=21 exponent=0.2458
+  window 10 [10^5.0,10^5.5): max a_n=21 at 239400; sup E=115/5 at 159601; inf E=-2/5 at 100039; sup|C|=116/5 at 159601
+  a-record n=462840 a_n=22 exponent=0.2369
+  a-record n=478800 a_n=26 exponent=0.2491
+  E-record n=547200 E=159/5 a_n=15 E(n-1)=88/5 jump=5a_n-4=71 ok=1
+  E-record n=892620 E=164/5 a_n=13 E(n-1)=103/5 jump=5a_n-4=61 ok=1
+  E-record n=892626 E=165/5 a_n=2 E(n-1)=159/5 jump=5a_n-4=6 ok=1
+  a-record n=957600 a_n=27 exponent=0.2393
+  window 11 [10^5.5,10^6.0): max a_n=27 at 957600; sup E=165/5 at 892626; inf E=-2/5 at 316349; sup|C|=166/5 at 892626
+  a-record n=1197000 a_n=29 exponent=0.2406
+  a-record n=1368000 a_n=30 exponent=0.2407
+  a-record n=1596000 a_n=33 exponent=0.2448
+  E-record n=1615412 E=171/5 a_n=2 E(n-1)=165/5 jump=5a_n-4=6 ok=1
+  E-record n=1615418 E=172/5 a_n=3 E(n-1)=161/5 jump=5a_n-4=11 ok=1
+  E-record n=1615420 E=179/5 a_n=3 E(n-1)=168/5 jump=5a_n-4=11 ok=1
+  E-record n=1615441 E=180/5 a_n=1 E(n-1)=179/5 jump=5a_n-4=1 ok=1
+  E-record n=1615442 E=181/5 a_n=1 E(n-1)=180/5 jump=5a_n-4=1 ok=1
+  E-record n=1615482 E=186/5 a_n=4 E(n-1)=170/5 jump=5a_n-4=16 ok=1
+  E-record n=1615488 E=192/5 a_n=4 E(n-1)=176/5 jump=5a_n-4=16 ok=1
+  E-record n=1615494 E=203/5 a_n=4 E(n-1)=187/5 jump=5a_n-4=16 ok=1
+  E-record n=1615605 E=204/5 a_n=2 E(n-1)=198/5 jump=5a_n-4=6 ok=1
+  E-record n=1615606 E=205/5 a_n=1 E(n-1)=204/5 jump=5a_n-4=1 ok=1
+  E-record n=1615608 E=217/5 a_n=4 E(n-1)=201/5 jump=5a_n-4=16 ok=1
+  E-record n=1615646 E=220/5 a_n=4 E(n-1)=204/5 jump=5a_n-4=16 ok=1
+  E-record n=1615647 E=221/5 a_n=1 E(n-1)=220/5 jump=5a_n-4=1 ok=1
+  E-record n=1615648 E=227/5 a_n=2 E(n-1)=221/5 jump=5a_n-4=6 ok=1
+  E-record n=1615656 E=230/5 a_n=4 E(n-1)=214/5 jump=5a_n-4=16 ok=1
+  E-record n=1615952 E=231/5 a_n=3 E(n-1)=220/5 jump=5a_n-4=11 ok=1
+  a-record n=1983600 a_n=34 exponent=0.2432
+  E-record n=1992420 E=244/5 a_n=4 E(n-1)=228/5 jump=5a_n-4=16 ok=1
+  E-record n=1992426 E=245/5 a_n=2 E(n-1)=239/5 jump=5a_n-4=6 ok=1
+  a-record n=2394000 a_n=42 exponent=0.2545
+  window 12 [10^6.0,10^6.5): max a_n=42 at 2394000; sup E=245/5 at 1992426; inf E=-2/5 at 1000014; sup|C|=246/5 at 1992426
+  a-record n=4628400 a_n=44 exponent=0.2466
+  a-record n=4788000 a_n=54 exponent=0.2593
+  E-record n=4788000 E=264/5 a_n=54 E(n-1)=-2/5 jump=5a_n-4=266 ok=1
+  a-record n=6942600 a_n=55 exponent=0.2544
+  E-record n=6942600 E=269/5 a_n=55 E(n-1)=-2/5 jump=5a_n-4=271 ok=1
+  a-record n=7182000 a_n=57 exponent=0.2561
+  E-record n=7182000 E=279/5 a_n=57 E(n-1)=-2/5 jump=5a_n-4=281 ok=1
+  E-record n=8004000 E=284/5 a_n=24 E(n-1)=168/5 jump=5a_n-4=116 ok=1
+  a-record n=9576000 a_n=59 exponent=0.2537
+  E-record n=9576000 E=289/5 a_n=59 E(n-1)=-2/5 jump=5a_n-4=291 ok=1
+  window 13 [10^6.5,10^7.0): max a_n=59 at 9576000; sup E=289/5 at 9576000; inf E=-2/5 at 3162284; sup|C|=290/5 at 9576000
+  E-record n=13167000 E=299/5 a_n=56 E(n-1)=23/5 jump=5a_n-4=276 ok=1
+  E-record n=13376008 E=302/5 a_n=3 E(n-1)=291/5 jump=5a_n-4=11 ok=1
+  E-record n=13376010 E=304/5 a_n=2 E(n-1)=298/5 jump=5a_n-4=6 ok=1
+  E-record n=13376020 E=309/5 a_n=2 E(n-1)=303/5 jump=5a_n-4=6 ok=1
+  E-record n=13376076 E=325/5 a_n=15 E(n-1)=254/5 jump=5a_n-4=71 ok=1
+  E-record n=13376077 E=326/5 a_n=1 E(n-1)=325/5 jump=5a_n-4=1 ok=1
+  a-record n=13885200 a_n=75 exponent=0.2625
+  E-record n=13885200 E=369/5 a_n=75 E(n-1)=-2/5 jump=5a_n-4=371 ok=1
+  E-record n=13885201 E=370/5 a_n=1 E(n-1)=369/5 jump=5a_n-4=1 ok=1
+  E-record n=17556000 E=379/5 a_n=66 E(n-1)=53/5 jump=5a_n-4=326 ok=1
+  E-record n=17556002 E=381/5 a_n=2 E(n-1)=375/5 jump=5a_n-4=6 ok=1
+  E-record n=23940000 E=404/5 a_n=74 E(n-1)=38/5 jump=5a_n-4=366 ok=1
+  E-record n=23940002 E=406/5 a_n=2 E(n-1)=400/5 jump=5a_n-4=6 ok=1
+  a-record n=26334000 a_n=82 exponent=0.2579
+  E-record n=26334004 E=408/5 a_n=2 E(n-1)=402/5 jump=5a_n-4=6 ok=1
+  E-record n=29754000 E=419/5 a_n=68 E(n-1)=83/5 jump=5a_n-4=336 ok=1
+  a-record n=31122000 a_n=83 exponent=0.2561
+  E-record n=31122000 E=459/5 a_n=83 E(n-1)=48/5 jump=5a_n-4=411 ok=1
+  window 14 [10^7.0,10^7.5): max a_n=83 at 31122000; sup E=459/5 at 31122000; inf E=-2/5 at 10000079; sup|C|=460/5 at 31122000
+  a-record n=35910000 a_n=86 exponent=0.2560
+  a-record n=41655600 a_n=93 exponent=0.2583
+  E-record n=41655600 E=484/5 a_n=93 E(n-1)=23/5 jump=5a_n-4=461 ok=1
+  a-record n=47880000 a_n=94 exponent=0.2569
+  E-record n=47880000 E=539/5 a_n=94 E(n-1)=73/5 jump=5a_n-4=466 ok=1
+  a-record n=52668000 a_n=100 exponent=0.2590
+  a-record n=60169200 a_n=101 exponent=0.2576
+  E-record n=60169200 E=554/5 a_n=101 E(n-1)=53/5 jump=5a_n-4=501 ok=1
+  E-record n=60169201 E=555/5 a_n=1 E(n-1)=554/5 jump=5a_n-4=1 ok=1
+  E-record n=60169202 E=561/5 a_n=2 E(n-1)=555/5 jump=5a_n-4=6 ok=1
+  a-record n=69426000 a_n=114 exponent=0.2623
+  E-record n=69426000 E=564/5 a_n=114 E(n-1)=-2/5 jump=5a_n-4=566 ok=1
+  E-record n=69426001 E=565/5 a_n=1 E(n-1)=564/5 jump=5a_n-4=1 ok=1
+  E-record n=71820000 E=589/5 a_n=111 E(n-1)=38/5 jump=5a_n-4=551 ok=1
+  E-record n=71820008 E=592/5 a_n=3 E(n-1)=581/5 jump=5a_n-4=11 ok=1
+  a-record n=90253800 a_n=124 exponent=0.2631
+  E-record n=90253800 E=629/5 a_n=124 E(n-1)=13/5 jump=5a_n-4=616 ok=1
+  E-record n=90253803 E=632/5 a_n=2 E(n-1)=626/5 jump=5a_n-4=6 ok=1
+  E-record n=90253804 E=638/5 a_n=2 E(n-1)=632/5 jump=5a_n-4=6 ok=1
+  window 15 [10^7.5,10^8.0): max a_n=124 at 90253800; sup E=638/5 at 90253804; inf E=-2/5 at 31622799; sup|C|=639/5 at 90253804
+  a-record n=136458000 a_n=127 exponent=0.2586
+  a-record n=138852000 a_n=155 exponent=0.2690
+  E-record n=138852000 E=809/5 a_n=155 E(n-1)=38/5 jump=5a_n-4=771 ok=1
+  a-record n=208278000 a_n=170 exponent=0.2681
+  E-record n=208278000 E=884/5 a_n=170 E(n-1)=38/5 jump=5a_n-4=846 ok=1
+  a-record n=277704000 a_n=178 exponent=0.2665
+  E-record n=277704000 E=939/5 a_n=178 E(n-1)=53/5 jump=5a_n-4=886 ok=1
+  E-record n=277704001 E=940/5 a_n=1 E(n-1)=939/5 jump=5a_n-4=1 ok=1
+  window 16 [10^8.0,10^8.5): max a_n=178 at 277704000; sup E=940/5 at 277704001; inf E=-2/5 at 100000104; sup|C|=941/5 at 277704001
+  a-record n=395010000 a_n=180 exponent=0.2623
+  a-record n=416556000 a_n=215 exponent=0.2706
+  E-record n=416556000 E=1124/5 a_n=215 E(n-1)=53/5 jump=5a_n-4=1071 ok=1
+  E-record n=591318000 E=1229/5 a_n=209 E(n-1)=188/5 jump=5a_n-4=1041 ok=1
+  E-record n=591318002 E=1231/5 a_n=2 E(n-1)=1225/5 jump=5a_n-4=6 ok=1
+  E-record n=591318004 E=1233/5 a_n=2 E(n-1)=1227/5 jump=5a_n-4=6 ok=1
+  a-record n=763686000 a_n=244 exponent=0.2688
+  E-record n=763686000 E=1289/5 a_n=244 E(n-1)=73/5 jump=5a_n-4=1216 ok=1
+  a-record n=902538000 a_n=276 exponent=0.2726
+  E-record n=902538000 E=1374/5 a_n=276 E(n-1)=-2/5 jump=5a_n-4=1376 ok=1
+  window 17 [10^8.5,10^9.0): max a_n=276 at 902538000; sup E=1374/5 at 902538000; inf E=-2/5 at 316227769; sup|C|=1375/5 at 902538000
+  window 18 [10^9.0, X]: max a_n=9 at 1000000000; sup E=39/5 at 1000000000; inf E=39/5 at 1000000000; sup|C|=40/5 at 1000000000
+N(X)=800000008  C(X)=40/5  max a_n=276  sup E=1374/5  inf E=-2/5  #(a_n=0, 2<=n<=X)=539856374

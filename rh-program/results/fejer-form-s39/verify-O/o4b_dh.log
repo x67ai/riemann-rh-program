@@ -1,0 +1,13 @@
+kappa = 0.284079043840412
+FE check Lam(s) vs Lam(1-s) at (0.3 + 70.0j): rel. diff 2.89e-20
+FE check Lam(s) vs Lam(1-s) at (0.8 + 90.5j): rel. diff 4.6e-20
+max |Im Lam(1/2+it)|/|Lam| on the grid: 6.16e-18
+on-line zeros in (50,120) by sign change: 43 ; first 50.24008645, last 119.1387592
+argument principle, full rectangle [-2,3]x[50,120]: N = 47.0
+   right half-strip box [0.52,3]x[80,90]: 1.0 zero(s)
+   right half-strip box [0.52,3]x[110,120]: 1.0 zero(s)
+off-line zeros found (right of the line): ['(0.808517182457 + 85.6993484854j)', '(0.65083008061 + 114.163342731j)']
+|f| at the zeros and at the mirrors 1 - beta + i gamma: ['3.82e-21', '6.73e-21'] / ['1.11e-19', '1.95e-20']
+count: on 43 + off 2 + mirrors 2 = 47 vs argument principle 47.0
+DH W(T): grid min over [60,110) step 0.01 = -681.6591 at T = 85.49 ; off-line share -681.8654 ; on-line share 0.2063
+   refined (step 1e-5): min W = -682.3798 at T = 85.49290

@@ -80,3 +80,14 @@ o2_toeplitz_exact.log (integer congruent matrix H_M = [s_|a-b| q^min(a,b)], exac
 M = 8 EXACTLY; first failing M for RH-false: {1:2}, {2:113, 3:86}, {1:4}, {1:12, 2:471, 3:192}, {1:10}, {1:184, 2:2359, 3:392} —
 identical to r1_lp.log. V: P_M = 5, 16, 45, 121, 320, 841, 2205, 5776 (exact), lambda_min = -0.2360679775 … -67 as in the NOTE.
 I(V) = -0.1180339887, I(E0) = +0.105572809; V2 lambda_min(T_1, T_2) = 3.552786, -0.2931712.
+
+## Block O-2 — 11:26 IST 2026-10-01 — genuine curves and Z3 reproduced (verify-O/o3, o4a, o4b)
+o3_genuine.log (own numpy point counts over F_q, F_{q^2}): g = 1 traces 9/11/13 at q = 5/7/11; g = 2: 60000 squarefree models at q = 5
+-> 115 (a1, a2), 32928 at q = 7 -> 192; all RH-true and in the census; the 12 RH-true non-curves at q = 5 are exactly the NOTE's list.
+(One slip of mine, fixed before the run that counts: the first run used the F_{q^2} square table for F_q values.)
+o4a: zeta W(T) min 0.006926 at T = 0 (W(0) = 0.006925902025 at 30 digits; interior min 0.007220 at T = 5.65). F_{2.9,2}: grid min
+-872.4505 at T = 13.80 (digit for digit); the continuous minimum is lower, -872.7931 at T = 13.80176 (W turns ~ 15 per 0.01 there).
+o4b (own DH code; argument principle on the FULL rectangle [-2,3]x[50,120]; off-line zeros located by box counts, no recalled seeds):
+N = 47 = 43 on + 2 off + 2 mirrors; off-line 0.808517182457 + 85.6993484854i, 0.65083008061 + 114.163342731i; FE residual 5e-20.
+W grid min -681.6591 at T = 85.49 (off-line share -681.8654, on-line 0.2063) — reproduces the NOTE; continuous min -682.3798 at
+T = 85.49290. Conclusion of §6 Z3 unaffected (grid minima stated as minima: a minor wording item).

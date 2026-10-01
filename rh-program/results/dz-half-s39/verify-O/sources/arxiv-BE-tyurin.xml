@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/s6DzcNULeKJE3DJtUXrdYsvmtsQ</id>
+  <title>arXiv Query: search_query=au:Tyurin AND abs:Lyapunov&amp;id_list=&amp;start=0&amp;max_results=20</title>
+  <updated>2026-10-01T05:57:17Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=au:Tyurin+AND+abs:Lyapunov&amp;start=0&amp;max_results=20&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>20</opensearch:itemsPerPage>
+  <opensearch:totalResults>3</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/0912.0726v1</id>
+    <title>New estimates of the convergence rate in the Lyapunov theorem</title>
+    <updated>2009-12-03T20:25:50Z</updated>
+    <link href="https://arxiv.org/abs/0912.0726v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/0912.0726v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We investigate the convergence rate in the Lyapunov theorem when the third absolute moments exist. By means of convex analysis we obtain the sharp estimate for the distance in the mean metric between a probability distribution and its zero bias transformation. This bound allows to derive new estimates of the convergence rate in terms of Kolmogorov's metric as well as the metrics $ζ_r$ (r=1,2,3) introduced by Zolotarev. The estimate for $ζ_3$ is optimal. Moreover, we show that the constant in the classical Berry-Esseen theorem can be taken as 0.4785. In addition, the non-i.i.d. analogue of this theorem with the constant 0.5606 is provided.</summary>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2009-12-03T20:25:50Z</published>
+    <arxiv:comment>19 pages, 1 figure</arxiv:comment>
+    <arxiv:primary_category term="math.PR"/>
+    <author>
+      <name>Ilya Tyurin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2508.06884v2</id>
+    <title>Near-Optimal Convergence of Accelerated Gradient Methods under Generalized and $(L_0, L_1)$-Smoothness</title>
+    <updated>2026-05-21T04:59:24Z</updated>
+    <link href="https://arxiv.org/abs/2508.06884v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2508.06884v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study first-order methods for convex optimization problems with functions $f$ satisfying the recently proposed $\ell$-smoothness condition $||\nabla^{2}f(x)|| \le \ell\left(||\nabla f(x)||\right),$ which generalizes the $L$-smoothness and $(L_{0},L_{1})$-smoothness. While accelerated gradient descent AGD is known to reach the optimal complexity $O(\sqrt{L} R / \sqrt{\varepsilon})$ under $L$-smoothness, where $\varepsilon$ is an error tolerance and $R$ is the distance between a starting and an optimal point, existing extensions to $\ell$-smoothness either incur extra dependence on the initial gradient, suffer exponential factors in $L_{1} R$, or require costly auxiliary sub-routines, leaving open whether an AGD-type $O(\sqrt{\ell(0)} R / \sqrt{\varepsilon})$ rate is possible for small-$\varepsilon$, even in the $(L_{0},L_{1})$-smoothness case.
+  We resolve this open question. Leveraging a new Lyapunov function and designing new algorithms, we achieve $O(\sqrt{\ell(0)} R / \sqrt{\varepsilon})$ oracle complexity for small-$\varepsilon$ and virtually any $\ell$. For instance, for $(L_{0},L_{1})$-smoothness, our bound $O(\sqrt{L_0} R / \sqrt{\varepsilon})$ is provably optimal in the small-$\varepsilon$ regime and removes all non-constant multiplicative factors present in prior accelerated algorithms.</summary>
+    <category term="math.OC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-08-09T08:28:06Z</published>
+    <arxiv:primary_category term="math.OC"/>
+    <author>
+      <name>Alexander Tyurin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.19876v1</id>
+    <title>Global Convergence of Gradient Descent for Score Matching in Gaussian Mixtures via Reverse Fisher Divergence</title>
+    <updated>2026-06-18T07:34:33Z</updated>
+    <link href="https://arxiv.org/abs/2606.19876v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.19876v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The score matching problem is a central training objective in modern generative modeling, diffusion models, fitting unnormalized statistical models, and inverse problems. A standard approach is to minimize the forward Fisher divergence, where the expectation is taken with respect to the teacher distribution. However, recent results show that even in simple Gaussian mixture model settings, this objective can lead to undesirable and initialization-dependent convergence behavior. In this paper, we study an alternative objective: the reverse Fisher divergence, where the expectation is taken with respect to the student distribution. We analyze gradient descent (GD) for fitting Gaussian mixture models and show that this change in the objective leads to significantly better optimization properties. First, when the teacher distribution is a single Gaussian and the student is a Gaussian mixture model with fixed weights and identity covariances, we prove the global convergence of GD from arbitrary initializations. Second, we extend the analysis to the case where the teacher is also a Gaussian mixture model and prove global convergence guarantees under a global random initialization scheme and a $\widetildeΩ(1)$-separation assumption on the target means. In particular, with high probability, each student component converges near its closest teacher component, and we provide conditions under which the student distribution converges in total variation distance. Our proofs rely on a new Lyapunov-based analysis of the gradient descent dynamics, showing that the reverse Fisher divergence has a much more favorable optimization landscape than the forward Fisher divergence.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.OC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-18T07:34:33Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Alexander Tyurin</name>
+    </author>
+  </entry>
+</feed>

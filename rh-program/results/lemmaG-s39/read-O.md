@@ -142,7 +142,7 @@ verbatim. (The unit's code aborts on duplicates — `lg.c` l. 44 — so the comp
 N ≤ 16; nothing in §4 changes.)
 
 **(k) §3.4 tight necklace (ll. 207–212) ✓; §3.5 Theorem F and Corollary F.1 (RH), ll. 214–233 ✓ (two minor points) — but F.1's
-conclusion holds UNCONDITIONALLY (F3, ADD A1).** Tight necklace: D_R = (1 − 2·4^{−s})·C on σ > ½ (all products absolute), C absolutely
+conclusion holds UNCONDITIONALLY (F4, ADD A1).** Tight necklace: D_R = (1 − 2·4^{−s})·C on σ > ½ (all products absolute), C absolutely
 convergent on σ > 1/12 + ε (c_N·4^{(7/12+ε)N}·4^{−N(σ+1)} summable), zero-free for σ > 0 ✓; Ingham's 5/8 suffices here too (needs
 θ < ¾) ✓; zeros ½ + 2πik/log 4 simple, no poles; κ = 1 on σ = ½, −½ on σ = ¼ ✓. Theorem F: (Z1),(Z3) — for α_R < ½ the bound
 |D_R| ≪ |t|^{O(1)} on σ ≥ τ + δ/2 is cO Prop. 1.3(ii) (product on σ > α_R, functional equation + RH left of it), no band argument

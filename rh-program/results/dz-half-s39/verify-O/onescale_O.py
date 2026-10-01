@@ -27,7 +27,7 @@ def run(tag, m, R, seed=7):
     kap = rhoc * math.exp(mu)
     s2 = sum(quad(lambda v: f(v) * (n0(x / v) - kap * x * a(v))**2, u, w, limit=lim)[0] for u, w in zip(pts[:-1], pts[1:]))
     I = (1 - (2 * math.log(1.5) + 4 * math.log(4 / 3)) * kap + kap**2) if h15 else (0.5 - 2 * kap * math.log(2) + kap**2)
-    rng = np.random.Generator(np.random.Philox(seed + m))
+    rng = np.random.Generator(np.random.Philox(seed + 100 * m + 7919 * sum(map(ord, tag))))
     env = (1 + (C_ENV if tpl == "C" else 0)) * (1 - 2 / x) / math.log(x / 2)
     Ep = np.empty(R)
     for r in range(R):
