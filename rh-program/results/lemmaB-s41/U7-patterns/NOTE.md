@@ -95,3 +95,42 @@ geometrically with rate κ = (1.50–1.66)·κ_P (π/16) and (1.31–1.43)·κ_P
 (C3.1) with any c > 0 gives sup e = O(ρ log² x) (take h = 2 log(#cells)/(c π′_c)); it is the statement U3 (first bound) or U1 (a rule with
 a proved tail) would aim at. The single-cell Fano factor is 0.94–0.98: the sub-Poisson effect is not visible in one cell; it is built up
 over windows (3.2).
+
+## §4. Anatomy of the twenty largest excursions (task 1)
+
+**4.1 Two exact identities** [proved here]. (I1) *Divisible arrivals are the system at a smaller scale.* For a g-integer d and lattice
+indices j < k with x_j ≥ d: #{composites n ∈ (x_j, x_k] : d | n} = (k − j)/d + E(x_k/d) − E(x_j/d). *Proof.* In the free monoid n ↦ n/d is a
+bijection from the multiples of d in (x_j, x_k] onto G ∩ (x_j/d, x_k/d]; none of these multiples is a g-prime (a g-prime divisible by d is
+d ≤ x_j); and N(y) = ρ(y − 1) + 1 + E(y) for y ≥ 1 with ρ(x_k − x_j) = k − j. ∎ In particular the arrivals with smallest factor p₁ in a window
+W are (k − j)/p₁ + ΔE(W/p₁), and E(x_k/d) = #{composites ≤ x_k divisible by d} − ρ(x_k/d − 1) is read off exactly from the per-cell
+divisibility counts (checked: `verify/check_I1.py`, log `verify/logs/check_I1.log`).
+(I2) *Exact bookkeeping of a burst.* For an excursion e_{a−1} = 0 < e_a, …, e_{k*} with build-up W = cells a..k* (ℓ = k* − a + 1 cells),
+h := e_{k*} = Σ_W (c_i − 1) = Σ_classes (C_cls(W) − ℓ·w_cls) − ℓ·M(√x), where the classes are the smallest-factor ranges, w_q =
+(1/q)Π_{p<q}(1 − 1/p) summed over the class, and M(z) = Π_{p≤z}(1 − 1/p) (telescoping: Σ_{q≤z} w_q = 1 − M(z); every composite ≤ x has its
+smallest factor ≤ √x). By (I1) the p₁-class excess is exactly ΔE(W/p₁). The last term −ℓM(√x) is Legendre's prime share (the 2e^{−γ}
+term of read-O F1).
+
+**4.2 The data** [computed: `verify/anatomy.py` on the watch dumps of the second 10¹⁰ runs (`verify/run_multi.sh`; every composite of the
+cells [a − 40, b] of each excursion, with its factor indices, plus 60 control windows); output `verify/logs/b16_1e10.anat.txt`,
+`b32_1e10.anat.txt`]. Columns: height h, start x, build-up ℓ (cells), class excesses C − ℓw for smallest factor p₁ | p₂ | p₃ | p₄–p₁₀ |
+p₁₁–p₁₀₀ | p₁₀₁–p₁₀₀₀ | > p₁₀₀₀, then −ℓM(√x) (the row sums to h), then ΔE(W/p_q) for q = 1, …, 5 (E's rise at the five smaller scales over
+the dilated window) and the largest e at the lower scale inside W/p₁.
+
+| # | h | x | ℓ | p₁ | p₂ | p₃ | p₄–₁₀ | p₁₁–₁₀₀ | p₁₀₁–₁₀₀₀ | >p₁₀₀₀ | −ℓM | ΔE(W/p_q), q = 1..5 | max e on W/p₁ |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| π/16 #0 | 25 | 6.45·10⁹ | 55 | +4.5 | +5.4 | +1.1 | +2.6 | +11.0 | +7.5 | +6.4 | −13.5 | +4.5 +4.6 +0.1 +0.7 +2.1 | 5 |
+| #1 | 25 | 6.57·10⁹ | 68 | +2.8 | +3.4 | +1.7 | +7.3 | +12.3 | +7.4 | +6.8 | −16.7 | +2.8 +1.1 +1.4 +1.2 +2.7 | 2 |
+| #2 | 25 | 7.96·10⁹ | 34 | +5.4 | +2.2 | +1.9 | +8.7 | +5.7 | +7.2 | +2.3 | −8.3 | +5.4 +3.1 +6.2 +0.6 +3.8 | 6 |
+| #3 | 24 | 9.92·10⁹ | 70 | +7.3 | +0.2 | +0.6 | +5.2 | +11.0 | +6.2 | +10.4 | −16.9 | +7.3 +0.9 +0.3 +4.1 +1.6 | 7 |
+| #4 | 24 | 6.74·10⁹ | 83 | +6.6 | +5.1 | +2.2 | +1.9 | +12.4 | +6.1 | +10.0 | −20.3 | +6.6 +7.4 +2.6 +1.5 +3.1 | 7 |
+| #5 | 24 | 4.98·10⁹ | 63 | +9.2 | +3.8 | +0.9 | +5.8 | +2.9 | +10.8 | +6.2 | −15.6 | +9.2 +4.7 −0.3 +0.4 +1.8 | 8 |
+| #6 | 24 | 6.32·10⁹ | 41 | +6.4 | +4.6 | +2.6 | +5.0 | +5.8 | +2.6 | +7.1 | −10.1 | +6.4 +7.2 +3.8 +3.3 +1.6 | 6 |
+| #7 | 24 | 8.95·10⁹ | 45 | +7.3 | −0.7 | +2.5 | +2.6 | +9.2 | +9.3 | +4.7 | −10.9 | +7.3 −0.2 +2.6 +1.1 +2.5 | 8 |
+| #8 | 24 | 8.91·10⁹ | 32 | +7.0 | +3.3 | +3.9 | +2.9 | +6.9 | +4.3 | +3.4 | −7.8 | +7.0 +4.3 +6.3 +0.7 +0.9 | 6 |
+| #9 | 23 | 6.66·10⁹ | 37 | +6.6 | +2.9 | +0.8 | +4.4 | +6.3 | +4.9 | +6.2 | −9.1 | +6.6 +2.7 +0.0 −0.6 −0.3 | 6 |
+| mean of 20 (π/16) | 23.1 | | 54.9 | +5.68 | +2.64 | +1.80 | +5.49 | +8.08 | +6.56 | +6.27 | −13.43 | +5.68 +2.95 +1.94 +1.51 +1.71 | 5.5 |
+| Poisson z of the mean | | | | +1.5 | +1.3 | +1.4 | +2.4 | +3.1 | +3.1 | +4.0 | | share with ΔE > 0: 1.00 .85 .90 .95 .90 | |
+| mean of 20 (π/32) | 12.8 | | 15.4 | +3.03 | +0.76 | +0.59 | +2.01 | +4.56 | +5.12 | +3.42 | −6.64 | +3.03 +1.21 +0.82 +0.98 +0.53 | 2.4 |
+| Poisson z of the mean | | | | +2.0 | +1.0 | +0.9 | +1.9 | +3.5 | +4.5 | +4.4 | | share with ΔE > 0: 1.00 .85 .90 .75 .60 | |
+
+(Rows #10–#19 for π/16 and all twenty for π/32 are in the logs; z = excess/√(ℓw), the excess measured in Poisson standard deviations.)

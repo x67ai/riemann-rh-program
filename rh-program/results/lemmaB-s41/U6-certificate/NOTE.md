@@ -135,7 +135,69 @@ F(0.81) = −0.0785447458226 — the s8dd values at X = 10⁷ (read-O §2; `free
 
 ## §4. Cross-checks against the Session-40 generators
 
+The s40 generators were not imported, compiled or opened; their on-disk logs were read as data: s8o (`free-greedy-s40/compute/
+verify-O/logs/o_pi{16,32}_1e10.log`, `realzero_o_pi{16,32}.txt`) and s8dd (`free-greedy-s40/theory/verify-O/s8dd_pi16_1e7.log`,
+`s8dd_pi32_1e8.log`). Runs [computed]: `logs/s8cert_pi16_1e10.log` (99 s, 0.62 GB, 1,513,583,581 cell decisions, 4,726 exact),
+`logs/s8cert_pi32_1e10.log` (43 s, 572,359,633 decisions, 785 exact); machine: Apple arm64, one core.
+**Counts** [computed: `logs/crosscheck_pi16.log`, `logs/crosscheck_pi32.log`]. At the 14 checkpoints V = ⌊10^{h/2}⌋, 10³ ≤ V ≤ 10^9.5,
+N(V) and π_P(V) agree EXACTLY with s8o for both systems (e.g. π/16: N(10⁹) = 196,349,548, π_P(10⁹) = 49,924,829; π/32:
+N(10⁹) = 98,174,771, π_P(10⁹) = 44,345,886; N(10^9.5) = 620,911,771 and 310,455,884). At the end, π_P(x_K) = 449,911,828 and
+409,388,073 = s8o's π_P(10¹⁰) (no g-prime in (x_K, 10¹⁰]); N(x_K) is 1 and 2 below s8o's N(10¹⁰), consistent with s8o's E(10¹⁰):
+E(x_K) − ρ(10¹⁰ − x_K) + (count in between) = ½ − 0.7972 + 1 = 0.7028 (s8o 0.702729) and ½ − 0.6486 + 2 = 1.8514 (s8o 1.851364). The
+stored g-primes ≤ X/p₁ number 134,178,740 and 71,517,727, equal to s8o's "storedprimes". sup E agrees to 10⁻¹⁰…10⁻⁷ (mine is a
+double-precision statistic, not certified; e.g. 18.5365159736 vs 18.5365160221 at 10⁹ for π/16).
+**F_X and its zero** [computed: `logs/sigma_table_pi16.log`, `logs/sigma_table_pi32.log`]. The certified σ₁ (= the zero of F_{x_K}
+to 10⁻¹²) against the s8o zero of F_{10^d} (10 digits) and the s8dd root (12 digits):
+
+| X ≈ | σ₁(π/16), this unit | s8o / s8dd | σ₁(π/32), this unit | s8o / s8dd |
+|---|---|---|---|---|
+| 10⁶ | 0.794752301959 | 0.7947523020 | 0.895076334603 | 0.8950763346 |
+| 10⁷ | 0.794754781368 | 0.7947547814 / **0.794754781368** | 0.895076489528 | 0.8950764895 |
+| 10⁸ | 0.794755262461 | 0.7947552625 | 0.895076513462 | 0.8950765135 / **0.895076513462** |
+| 10⁹ | 0.794755353284 | 0.7947553533 | 0.895076517060 | 0.8950765171 |
+| 10¹⁰ | 0.794755370097 | 0.7947553701 | 0.895076517592 | 0.8950765176 |
+
+(The shift X = 10^d → x_K changes F_X by σ∫E u^{−σ−1} over an interval of length < t, below 10⁻¹² from 10⁶ on.)
+**Close calls** [computed: `logs/recheck_close_pi16.log`, `logs/recheck_close_pi32.log`]. Every exact-path decision with relative
+margin < 10⁻¹⁶ is printed with its factorization (305 for π/16, 57 for π/32) and re-decided by `recheck_close.py` in mpmath at
+80 digits (its own π; no GMP, no Machin): 0 disagreements. Closest cell decisions to 10¹⁰:
+π/16 — c = x(533658)·x(13)·x(2)·x(1) = 5,384,739,852.8295799…, 1.538·10⁻¹⁰ below x_k, k = 1,057,291,198 (relative 2.86·10⁻²⁰);
+π/32 — c = x(33405216)·x(1) = 2,073,206,595.9280907…, 1.6935·10⁻⁹ below x_k (relative 8.168·10⁻¹⁹), the same composite and margin
+as s8o's audit line ("min|diff| = 1.693e-09 abs, 8.168e-19 rel"). For π/16, s8o's line gives 1.322·10⁻⁸ abs; the composite above is
+150 times closer, so s8o's audit statistic covers a subset of the comparisons (plausibly the decisive ones only). This is not a
+disagreement about the system: all checkpoint counts agree and my decision for that composite is confirmed at 80 digits; a cell
+decision that does not change any g-prime placement would not be visible in the counts, so the counts alone do not prove that the
+two generators agree on every cell.
+
 ## §5. The certificates (lower end σ₁)
+
+`certify.py` bisects on 12-decimal rationals for the largest σ₁ with F_X(σ₁) > 0 PROVED (lower end of the arb ball positive), and
+reports whether F_X(σ₁ + 10⁻¹²) < 0 is proved too (then the zero of F_X is located to 10⁻¹²). Logs [computed]:
+`logs/certify_pi16_1e10.log`, `logs/certify_pi32_1e10.log`; data `data/pi16_K1963495408.mom`, `data/pi32_K981747704.mom` (with
+`params.txt`, these files and `feval.py`/`certify.py` reproduce every number below in 5 s).
+
+**Theorem 5.1 (S8(π/16))** [computed: the inequality; proved here: the implications, Theorem 1.3 and Corollary 1.4]. Let P = S8(π/16),
+K = 1,963,495,408, X = x_K = 1 + (K − ½)·16/π = 9,999,999,995.93953… . Then N_P(X) = 1,963,495,409, π_P(X) = 449,911,828, E(X) = ½,
+and **F_X(0.794755370097) = (2.0 ± 0.6)·10⁻¹² > 0** (and F_X(0.794755370098) < 0). Hence:
+(i) if N_P(u) − (π/16)u = O(u^θ) for some θ < 0.794755370097 (any constant), or the mean-square bound (B₂) holds with such an exponent,
+then ζ_P has a real zero in (0.794755370097, 1) and α(P) > 0.794755370097;
+(ii) if N_P(u) − (π/16)u = O(u^θ) with **θ ≤ 0.3973776850**, then α(P) > max{½, 2β(P)} and Conjecture U is false.
+
+**Theorem 5.2 (S8(π/32))** [same labels]. Let P = S8(π/32), K = 981,747,704, X = x_K = 1 + (K − ½)·32/π = 9,999,999,993.39305… . Then
+N_P(X) = 981,747,705, π_P(X) = 409,388,073, E(X) = ½, and **F_X(0.895076517592) = (1.4 ± 0.1)·10⁻¹² > 0** (and F_X(0.895076517593) < 0).
+Hence (i) as above with 0.895076517592, and (ii) U is false as soon as N_P(u) − (π/32)u = O(u^θ) with **θ ≤ 0.4475382587**.
+
+**How far this moves the target.** Exponent of Lemma B needed to refute U: Theorem 1.6 alone ½ − ρ = 0.3037 (π/16), 0.4018 (π/32);
+s40 certificates 0.395, 0.445 (from F_{10⁷}(0.79) and F_{10⁶}(0.89)); now **0.39737768 and 0.44753825**. The gain is in the third
+decimal; the content of this section is that these values are proved (exact ordering, interval arithmetic) and sit at the zero of
+F_X itself (Remark 1.5).
+
+**σ₁ against the true zero.** σ₁(X) at x_K ≈ 10⁶…10¹⁰ (§4 table) increases by 2.48·10⁻⁶, 4.81·10⁻⁷, 9.08·10⁻⁸, 1.68·10⁻⁸ per decade
+(π/16; ratios 5.15, 5.30, 5.40) and by 1.55·10⁻⁷, 2.39·10⁻⁸, 3.60·10⁻⁹, 5.32·10⁻¹⁰ (π/32; ratios 6.47, 6.65, 6.76), as the tail
+σ∫_X^∞E u^{−σ−1} ≈ (mean E)·X^{−σ} predicts (X^{−σ} falls by 10^{0.79} = 6.2 and 10^{0.90} = 7.9 per decade, the mean of E grows like
+log X). Geometric extrapolation [heuristic, not proved]: σ* ≈ 0.7947553738 (π/16) and 0.8950765177 (π/32), i.e. the certified σ₁ is
+about 4·10⁻⁹ and 1·10⁻¹⁰ below the zero it bounds. Proved instead, under a stated hypothesis: §6 (the zero lies within 1.4·10⁻⁷,
+resp. 7.4·10⁻⁹, of σ₁ if E(u) ≤ 0.1·log²u beyond X).
 
 ## §6. The upper bracket (σ₂) under stated tail hypotheses
 

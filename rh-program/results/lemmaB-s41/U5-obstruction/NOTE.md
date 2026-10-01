@@ -105,7 +105,42 @@ zero derived from it. Verification for each item is in the section named.
 
 ## §4. Hilberdink 2005 and Neamah–Hilberdink at the page
 
-(pending)
+**4.1 What is proved there** [quoted: `novel-wave-s37/beurling-frontier/sources/w-18a-…JNT112.txt`; JNT 112 (2005)].
+Theorem 1 (l. 195, p. 335): for an [α, β]-system, max{α, β} ≥ ½. Cor. 2(b) (l. 211–214, p. 336): if N_P(x) = ρx + O(x^β), β < ½, then for
+every γ ∈ (β, ½), ψ_P(x) − x = Ω(x^γ) and ζ_P has infinitely many zeros in γ < Re s < 1. Remark C (l. 496–501, p. 340): for β < α, if
+ζ_P has finitely many zeros in Re s > η with η ∈ (β, α), then η ≥ ½. The mechanism (l. 268–494, pp. 336–340): (3.2)–(3.3), the
+Fejér-averaged mean square of the partial sums ζ_N(σ + it) = Σ_{n≤N} n^{−σ−it} is ≥ (k₁/2)R²N^{1−2σ} for N ≤ (k₁/2k₂)R — its only inputs
+are integer weights (Σ* with multiplicities squared ≥ Σ n^{−2σ} ≥ k₁N^{1−2σ}, l. 301–307), N ~ ρx, and the positivity of the Fejér sum
+Σ_r sin((2r − 1)log(n/m)) for 0 < log(n/m) < log 2 (l. 334–341); (3.4), |ζ_N(σ + it)| = O(|t|^ε) for N^{1−σ} ≤ |t| < N⁵, from ZERO ORDER of
+ζ_P on Re s = σ, supplied by Hilberdink–Lapidus Thm 2.3 or by Remark B(ii) (finitely many zeros). The contradiction is (3.3) vs (3.4).
+Where Theorem 2.3 uses positivity [quoted: `…/p3-22c1-hilberdink-lapidus-2006-…arxiv.txt` l. 748–812]: Borel–Carathéodory on log ζ in
+Re s > Θ, then Hadamard three circles with the bound M₁ = max_{C₁}|φ| ≤ φ(1 + η) = O(1) on Re s > 1 (l. 788), i.e. |Σ Λ(n)n^{−s}| ≤ Σ Λ(n)n^{−σ}.
+
+**4.2 What the mechanism gives on class (A)** [proved here]. With (A) and (B) for θ < ½: α ≥ σ* > ½ (Thm 1.6), so Theorem 1 is satisfied
+and says nothing; Cor. 2(b)/Remark C say ζ_P has infinitely many zeros in η < Re s < 1 for every η ∈ (θ, ½). That is a statement about
+zeros. The step that would bear on E is (3.4) — an upper bound for the partial sums — and it is available only where ζ_P has zero order,
+i.e. (Remark B(ii)) to the right of all but finitely many zeros; the real zero σ* and the infinitely many zeros of Cor. 2(b) are exactly
+what removes it. So in class (A) the method has no inequality left that involves the size of E.
+
+**4.3 The method on the lattice control** [proved here]. (3.2)–(3.3) hold for L_ρ verbatim (integer weights, N_L ~ ρx). The three-circles
+step needs |φ| bounded on some right half-plane; for L this holds on Re s ≥ σ₁ + η, σ₁ > 1 the abscissa where Σ_kℓ_k^{−σ₁} = 1 (log L
+absolutely convergent beyond it), and the proof runs with 1 replaced by σ₁ (κ → (σ₁ − σ)/(σ₁ − Θ) < 1: zero order again). Hence every
+conclusion of 4.1–4.2 holds for L_ρ (with E_L bounded): Cor. 2(b) predicts infinitely many zeros of L in η < Re s < 1 for each
+η ∈ (0, ½); exploratory counts are in §3.4. So no strengthening of this method to "β ≥ f(σ*)" with f > 0 is possible: L_ρ is an
+object to which the method applies, with σ*_L > ½ and β_L = 0.
+
+**4.4 Neamah–Hilberdink** [quoted: `results/local-greedy-s40/sources/neamah-hilberdink-1901.06866v2.txt` l. 104–105 (Thm 1), l. 226–244
+(proof)]. With γ the exponent of M_P(x) = Σ_{n≤x}μ_P(n): of α, β, γ the two largest are equal and ≥ ½. The proof applies a Tauberian
+converse (their Thm A) to 1/ζ_P, with zero order of 1/ζ_P on H_Θ from Hilberdink–Lapidus Thm 2.3 (their Thm B). On class (A):
+β ≤ θ < ½ < σ* ≤ α, so γ = α ≥ σ*: M_P(x) = Ω(x^{σ*−ε}) — a statement about M_P, not E. On L_ρ: 1/L has integer coefficients μ_L (on the
+semigroup of §1.2), and the same steps (with σ₁ for 1, as in 4.3) give γ_L = α_L ≥ σ*_L with β_L = 0. Nothing in it touches E.
+
+**4.5 Where the "L² abscissa ½" sits.** For a Dirichlet series with integer weights on a set of positive density, Σ a_n²n^{−2σ} = ∞ for
+σ ≤ ½, so no such series has bounded mean square on a line Re s ≤ ½ (Carlson's theorem, quoted at Hilberdink l. 237–262, is the
+well-spaced form; (3.2)–(3.3) is the form without spacing). This is a fact about the JUMPS of N (unit atoms at density ρ), and both S8
+and L_ρ have the same jumps at the same density. §3 measures that the mean square of Ê at height T is fixed by the jumps (S8 and L agree
+to within a few per cent from T ≈ 8 on) while the AMPLITUDE of E — the thing (B) is about — lives at |t| ≲ 1. Integer weights force
+irregularity at additive scale 1, which is harmless; (B) is about multiplicative scale 1.
 
 ## §5. Where discreteness must enter: the clip, and the exact form of the obstruction for S8
 

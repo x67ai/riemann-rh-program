@@ -189,3 +189,13 @@ Writes only: `directions/*.md` (insertions + Last-touched lines), this folder (`
   UT-LG2 → §F.2 item 2).
 - Running now: mechanical checks of Deliverable 1 (quotes, table bars), then Deliverable 2 (ZOO-LINES-STAGED.md). Resume here: run the
   checks; then write ZOO-LINES-STAGED.md block by block.
+
+## 2026-10-01 17:23 IST block 21 — Deliverable 1 checked: quotations, line citations, table bars
+
+- Quotation check (scratchpad qcheck.py: every "…" ≥ 12 chars, normalized for emphasis/backticks/escaped bars, ellipsis-split,
+  searched in the 33 unit files + pre-reader NOTEs + charters + zoo + KICKSTART + s37 digest + STATUS): 137 strings; 20 genuine
+  mismatches fixed (case, a dropped hash, wrapped hyphen, paraphrase in quotes → exact source text or no quotes). The remaining
+  flags are the digest's own contract clauses (§F.2), the candidate LOG line (§H), and regex spans between two quotes.
+- Line citations re-checked by phrase grep for lg, qtw, fej, dzh, s5m: 18 corrected (e.g. fej close lines 17–27, lg close 21–39).
+- §D table: 18 lines (header, separator, 16 rows), each 5 unescaped bars.
+- Running now: Deliverable 2, ZOO-LINES-STAGED.md. Resume here: write its header, zoo state, insertion map; then blocks (i)–(iv).

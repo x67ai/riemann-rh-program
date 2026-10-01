@@ -116,13 +116,13 @@ Three most useful findings.
 Most useful failure. The natural-boundary route for hash-defined / pseudo-random R is blocked by a named missing input: every
 natural-boundary theorem read at the page needs gaps, shift structure, independence or one local factor per prime; for the Weyl family the
 input is a bilinear equidistribution estimate for {pθ} at scale p^{α−1} (NOTE:357–363). And the brief's dichotomy "P_R continues past
-α_R/2, or has a natural boundary there" is not one: T2's R_k and the tight necklace have neither, and O holds for both (NOTE:352–355).
+α_R/2 off the axis, or has a natural boundary at α_R/2" is not one: T2's R_k and the tight necklace have neither, and O holds for both (NOTE:352–355).
 Borrow. (a) The sq family {nextprime(p²)} as a second calibration of the stop trigger beside conjO's κ: sub-diagonal slope 0.422 on
 [10⁶, 10¹⁰] on a set where O is a theorem (under RH, F1), with E the sum over ζ's zeros at ρ/2 (200-zero explicit formula, correlation
 0.998 for x ≥ 10⁸; rO:22–23 reproduces 0.882/0.980/0.998). (b) The rung-1 necklace as a control for any argument that consumes only
 Theorem Z's inputs. (c) A2 as a cheap first filter on any proposed counterexample to O.
 Statuses. R1, Thm 2.1, Cor. 2.2, Prop. 2.3, T3, T4: THEOREM (dual-read). T2: THEOREM (dual-read, repaired) — for sq only under RH or a
-recalled large-gap bound, "not 'uncond.' as the NOTE says four times" (F1, rO:17–19; A4). T5: THEOREM (dual-read, repaired by a greedy
+recalled large-gap bound — not unconditional "as the NOTE says four times" (F1, rO:17–19; A4). T5: THEOREM (dual-read, repaired by a greedy
 choice, F2). Theorem F: CONDITIONAL THEOREM (RH), dual-read (read-F "structure only", rF:5; read-O re-derived); Cor. F.1 superseded by
 A1. 𝒞_self: definitional — "a tautology, not an obstruction theorem" (NOTE:342–343). Computation to 10¹⁰: NUMERICAL (2 producers, digit
 for digit), no K-candidate (NOTE:356–357).
@@ -144,7 +144,7 @@ U's boundary α = 2β (β = ½ at α = 1), so it is consistent with U and cannot
 artifact (F1, rO:235–242).
 Borrow. (a) The one-block decomposition plus conditional anti-concentration, for any random discretization whose dependence is confined to
 one dyadic block (the device that s5m/fgT need for their random controls). (b) The deterministic grid P_det: β ≥ ½ from the
-(2s − 1)^{−1/2} branch point of the prime squares, constant −0.5998 predicted and −0.5995 measured (NOTE:35–37, 43–44) — a known-answer
+(2s − 1)^{−1/2} branch point of the prime squares, constant −0.5998 predicted and −0.5995 measured (NOTE:35–37, 45–47) — a known-answer
 control for integer-error estimators. (c) F2's reading of Remark 17.12 (the book's normalization may add an infinite O(log x)-sparse
 sequence; Theorem 1 covers it, rO:244–252).
 Statuses. Theorem 1, Cor. 2, Prop. 2.4, Cor. 2.6: THEOREM (dual-read). Lemma 2.5: dual-read, "not new" (rO §6). A1, A1′: single-check
@@ -157,7 +157,7 @@ Verdicts: read-F AGREES, no FIX-FIRST (rF:5); read-O AGREES-WITH-CORRECTIONS, F1
 Three most useful findings.
 1. **Theorem G1** (NOTE:128; close NOTE:53): a finite generalized Dirac comb with ANY weights is rigid — μ_q is never one at q > 1; with
    Cor. G1′ (purely atomic, finitely many mass values) (NOTE:153). THEOREM (dual-read; rF:8, Step 3 the new step; rO §6 "NEW as a
-   statement … re-derived ✓ → dual-checked"). read-O's control A6 (rO:337–341): a positive, self-dual, gapped comb with an irrational
+   statement … Re-derived here ✓ → dual-checked"). read-O's control A6 (rO:337–341): a positive, self-dual, gapped comb with an irrational
    frequency, μ_c = Σ(2 + 2cos2πθn)δ_n + δ_{θ+Z} + δ_{−θ+Z}, θ = √2 − 1 — G1's Step 3 is not vacuous (single-check).
 2. **Theorem L‴ with Proposition S** (NOTE:203, 269, 280; close NOTE:55–57): if F/ζ converges absolutely on some Re s > σ₀ < ½, the
    rational primes in the group of its atoms have abscissa σ_S ≥ ½ — the whole Poisson-pair cone 𝒦_r with thin atoms, continuous parts
@@ -170,7 +170,7 @@ Three most useful findings.
 Most useful failure. The 𝒯 probe (q = 4, window [1, 64]): the max-min of Π_F rises −0.680, −0.401, ≥ −0.294, ≥ −0.219, ≥ −0.185 as atom
 pairs are added, while a third to a half of the atoms stay negative and the M = 4 optimum falls to −1.129 on [1, 256] (rO A5,
 :327–336); every finite design is excluded anyway, by L′ and by Hilberdink 2012 Prop. 3.4 without the FE (A4, rO:321–326) — "evidence
-of nothing about 𝒯" (NOTE:73). Also F6: §5.2's mechanism (b) was a heuristic labeled (P); smooth self-dual weights vanishing on Z_j exist
+of nothing about 𝒯" (NOTE:69–70). Also F6: §5.2's mechanism (b) was a heuristic labeled (P); smooth self-dual weights vanishing on Z_j exist
 (KNS Lemma 6), so §0.4(3)'s exclusion is downgraded to the families of the §7.1 table (rF §5 F6).
 Borrow. (a) Hilberdink 2012 Prop. 3.4 as a free certificate: any ζ·D with finite rational atoms, m ≥ 0 and a non-integer atom is not a
 weighted Beurling system — no FE needed (A4); only limit-periodic N − D(1)x escapes (the C2 Untried draft (b), already applied).
@@ -188,16 +188,16 @@ Three most useful findings.
 1. **Theorem K** (NOTE:258–276): no form of the Fejér defect built here is a positivity generator outside Weil's cone — "its POSITIONS form
    is positive for free and blind, its ZEROS form is RH-sensitive and is Weil's functional, and the explicit formula maps one to the
    other" (NOTE:273–275). THEOREM (dual-read; rO:14–16 "none is false as stated"); "packaging … no new mathematics" (rO §6).
-2. **Theorem F** (NOTE:146; close NOTE:24–27): M1a's Fejér defect on q^Z is D_k = h(q^{g−1+k} − 1) (AHL Lemma 3.4); D_1 vanishes exactly
+2. **Theorem F** (NOTE:146; close NOTE:21–23): M1a's Fejér defect on q^Z is D_k = h(q^{g−1+k} − 1) (AHL Lemma 3.4); D_1 vanishes exactly
    at genus 0 and is > 0 on every datum of genus ≥ 1, V included (D_1(V) = 4): "V sits at h = 1, the extreme point of free positivity,
-   strictly below the RH floor (√5 − 1)² = 1.528" (NOTE:27). Dual-read (in the D_1-only form, F1; rF §5). In print (AHL).
-3. **Theorem W** (NOTE:90; close NOTE:18–22): every affine functional in (g, N_1, …, N_M) vanishing at genus 0 is the Weil functional
+   strictly below the RH floor (√5 − 1)² = 1.528" (NOTE:23). Dual-read (in the D_1-only form, F1; rF §5). In print (AHL).
+3. **Theorem W** (NOTE:90; close NOTE:17–20): every affine functional in (g, N_1, …, N_M) vanishing at genus 0 is the Weil functional
    Σ_j f(θ_j); separators from the Weil region are exactly the Toeplitz cone (= Hallouin–Perret's Gram cone on X × X); separators from the
    genuine integer data alone form the larger class (B), Weil + integrality (F2). Dual-read; "in print as a statement on a printed core"
    (rO §6: HP 1409.2357, HPM).
 Most useful failure. The literal transport is V-blind (K(iii)), and the Z-forms split the same way: Z1 (M1a's (C_Q)) and Z2 are passed by
-F_{2.9,2}, DH and Epstein x² + 5y² (RH-blind); Z3 is violated by F_{2.9,2} (−872.45) and DH (−681.66) and is Weil's criterion (NOTE:30–34).
-UT-4 is CLOSED (NOTE:39); stop line 2 fired (the best inequality is a printed Weil/Weil–Serre bound).
+F_{2.9,2}, DH and Epstein x² + 5y² (RH-blind); Z3 is violated by F_{2.9,2} (−872.45) and DH (−681.66) and is Weil's criterion (NOTE:24–27).
+UT-4 is CLOSED (NOTE:36); stop line 2 fired (the best inequality is a printed Weil/Weil–Serre bound).
 Borrow. (a) Before funding any "positive form" proposal, evaluate it on V: a form whose positivity is dN ≥ 0 is V-blind by Theorem F
 (D_1(V) = 4 > 0). (b) read-O A1 (rO:292–305, single-check): over F₅, 17g/4 + N_1 − 6 separates V (−3/4), is not a Weil test, and at
 g = 1 has an RH-free proof through a Weierstrass model — an OBJECT V lacks (proof-mine's class C) — but it is the integrality boundary,
@@ -210,7 +210,7 @@ after F1, F2e, m9 (rO:27–28) — already entered at the Session-40 zoo stream 
 rider); not restaged here.
 
 ### A.8 fgT — S8, the free greedy system: identities, mechanism, proof problem. Close T + G (Lemma B_ρ)
-Verdicts: read-F (partial Session 40, Theorem 1.6 only; completed Session 41 "BEFORE the Opus read-O was opened") AGREES-WITH-CORRECTIONS
+Verdicts: read-F (partial Session 40, Theorem 1.6 only; completed Session 41 "BEFORE the Opus `read-O.md` … was opened") AGREES-WITH-CORRECTIONS
 (rF:3–9, 16–35); read-O AGREES-WITH-CORRECTIONS, F1–F3 + 13 minor, 27 pairs (rO:11–27). All 27 pairs applied (rF:35).
 Three most useful findings.
 1. **Theorem 1.6 — one-sided integer regularity forces a real zero** (NOTE:103; §0 NOTE:11–14): if N(u) − ρu ≥ r₀ > 0 for all u ≥ 1 and
@@ -234,11 +234,11 @@ Borrow. (a) Theorem 1.6 as a Siegel-zero test for any positive-coefficient zeta 
 378): no real zero in (θ, 1) and O(u^θ) give inf(N − ρu) ≤ ρθ/(1 − θ). (b) The bias A3: any probabilistic model of S(I) must be centered
 on (1 − 2e^{−γ})u/log u. (c) read-F's price of B_ρ (rF:31–32, single-check): by Prop. 2.1, B_ρ has the strength of a g-prime gap bound
 x^θ, θ < ½ − ρ; a zero-density estimate N(σ, T) ≪ T^{A(1−σ)} gives gaps x^{1−1/A+ε}, so no zero-density bootstrap reaches B_ρ for S8 as it
-stands — "this is why the stream lemmaB-s41 carries two design units".
+stands — "This is why the stream `lemmaB-s41` carries two design units".
 Statuses. Lemmas 1.0–1.5, Theorem 1.6, Remark 1.6′, Cor. 1.7, Prop. 2.1, the Legendre form, the Dichotomy, Theorems 4.1–4.2: THEOREM
 (dual-read). Certificates: NUMERICAL (2 producers; read-O double-double with a 60-digit recheck of every close decision, rO:17–19); the
 stated ordering margins were 9–21× too large (F2) and survive. "sup E ≈ (0.20–0.37)·ρ·log²x" (F3, corrected from 0.37–0.53). Lemma B_ρ:
-NOT proved (G). Label lag: NOTE:11 and :103 still read "[novelty: single-check — not found in print]" (§E).
+NOT proved (G). Label lag: NOTE:11 still reads "novelty: single-check — not found in print, §5" and NOTE:103 "[novelty: single-check]" (§E).
 
 ### A.9 fgC — S8 at scale: the integer error and the zeros, to 10¹¹. Close: a numerical record (nothing proved, as the NOTE says)
 Verdicts: read-F AGREES-WITH-CORRECTIONS (rF:3); read-O AGREES-WITH-CORRECTIONS, F1–F2 (5 pairs) + 7 minor (rO:11). 12/12 pairs applied
@@ -263,8 +263,8 @@ log²x). Waste: the first zero scan ran its box edge through the real zero 0.514
 Borrow. (a) read-O's rigorous generator `compute/verify-O/s8o.cpp` (128-bit fixed point, per-decision ordering proof; A1) as the
 reference for every later S8 run. (b) A3 (:193): a rigorous bound on |F_X′| certifies the winding without a sampled derivative (min|F|
 ≥ 0.1076 on the box). (c) A4 (:195): the √2-lattice is not free (L₄L₂₀L₂₃ = L₆²L₅₁) — free-monoid claims need transcendence of 1/ρ.
-Consistency note [consolidator's check]: fgC's "θ ≤ 0.304 (π/16), 0.402 (π/32)" (NOTE:30) is Cor. 1.7's floor ½ − ρ; fgT's "θ < 0.395,
-0.445" uses the finite certificates (fgT NOTE:16). Both correct; they answer different hypotheses.
+Consistency note [consolidator's check]: fgC's "θ ≤ 0.304 (π/16) or 0.402 (π/32)" (NOTE:30) is Cor. 1.7's floor ½ − ρ; fgT's "θ < 0.395 (π/16) and θ < 0.445 (π/32)"
+uses the finite certificates (fgT NOTE:16). Both correct; they answer different hypotheses.
 Statuses. Every number: NUMERICAL (producers as above). The zero of ζ_P: conditional on the tail hypothesis only. Untried (NOTE:43–47):
 interval Rouché, X = 10¹², the θ → 0 and ρ → 1 limits, zeros with σ < ½.
 
@@ -282,15 +282,15 @@ Three most useful findings.
    added composites are both O(x e^{−c√log x}) (T3, via Landau's PNT quoted from DMV 2006 pp. 2–3). THEOREM (dual-read; rF:6–8; rO:16–17).
    Prior art (F2): T1's core is Olofsson 2010 pp. 10–11 (checked at the line by the orchestrator, rF:13); Lagarias 1999 is the nearest
    printed relative of T2–T3 ("[quoted from the review]" — neither reader opened it).
-3. **The certified climb** (NOTE:21–22; Instruments row 3): the exponent of the exact lower bound f_G(n) is 0.2726 (10⁹), 0.3294 (10^20.3),
+3. **The certified climb** (NOTE:18–19; Instruments row 3): the exponent of the exact lower bound f_G(n) is 0.2726 (10⁹), 0.3294 (10^20.3),
    0.3493 (10^29.9), 0.3617 (10^40.0), 0.3648 (10^42.6), marginal 0.37–0.46 from 10¹⁵ on, no decline — exact at all six points (rO A2,
    :299–300). NUMERICAL (2 producers). Model crossing of n^{0.383} at 10⁶⁴–10⁸⁸ [model].
-Most useful failure. What T does NOT give (read-O F1, rO:201–207): T4′ (rank excess ⇒ max a_n ≥ x^{κ/log log x}) allows β = 0, so "integer-
-level feedback cannot keep β small" for every dense non-surgery system on ℕ is unproved (the open case 4(b), NOTE:197–198; UT-M5); the
-proposed rider headline was narrowed accordingly. And F3 (rO:218–224): "S5(0.8) obeys α ≤ 2β if the exponent passes 0.383" needs
+Most useful failure. What T does NOT give (read-O F1, rO:201–207): T4′ (rank excess ⇒ max a_n ≥ x^{κ/log log x}) allows β = 0, so the claim
+"integer-level feedback cannot keep β small" for every dense non-surgery system on ℕ is unproved (the open case 4(b), NOTE:197–198; UT-M5); the
+proposed rider headline was narrowed accordingly. And F3 (rO:218–224): "β > 0.383 ⇒ α ≤ 2β" (rF:14) needs
 α = Re ρ₁, which the record has only as α ≥ Re ρ₁ under H_θ — now refuted.
 Borrow. (a) The exact multiplicity lower bound f_G with a FIXED finite G — but note its ceiling: "no fixed finite G can refute" Lemma H in
-its ≪ form, f_G(n) ≤ (1 + log₂ n)^{|G|} (NOTE:17–18). (b) A3–A4 (rO:302–309): T3's power-saving hypothesis cannot be dropped (R(x) ≍
+its ≪ form, f_G(n) ≤ (1 + log₂ n)^{|G|} (NOTE:16–17). (b) A3–A4 (rO:302–309): T3's power-saving hypothesis cannot be dropped (R(x) ≍
 x/log²x example), and infinite thin surgeries have unbounded gaps (never in Lagarias's Delone class). (c) §5.1's exact rule (n is a
 g-prime iff A(n) = 0 and E(n − 1) ≤ 0.3) — already in the record (uoff read-O A1; F2(iii)).
 Statuses. T1 (core in print), T2, T3 and its converse, Lemma A, T4, T4′: THEOREM (dual-read). K: dual-read computation (above). Exact
@@ -302,21 +302,21 @@ Verdicts: read-F AGREES-WITH-CORRECTIONS (rF:3); read-O AGREES-WITH-CORRECTIONS,
 applied; "Unit CLOSED DUAL-READ: K-candidate (numerical; two producers) + T (Lemmas 1.1, 1.2, 4.1; K₇ and K₇^{≤2} conditional on H and on
 floating-point boxes) + G (Lemmas H₇, H₇^{≤2})" (rF:21). m12–m13 deleted two sentences about the Riemann hypothesis (rF:15).
 Three most useful findings.
-1. **S7^{≤2}(3/5), the capped prime-local system** (NOTE:29–33, 230, 254): every m ≤ 2, so a_n ≪ n^ε is PROVED (Lemma 4.1, the Ramanujan
+1. **S7^{≤2}(3/5), the capped prime-local system** (NOTE:21–24, 229–230, 254): every m ≤ 2, so a_n ≪ n^ε is PROVED (Lemma 4.1, the Ramanujan
    condition; rF:8), and at X = 10⁹ β ≈ 0.19–0.22, α ≈ 0.79–0.83, a boxed zero z₁ = 0.8243658 + 11.0306646i of F_X, γ = 0.78–0.82:
    α − 2β = +0.36…+0.44, with |C(u)| ≤ 0.93·u^{0.40} on all of [10³, 10⁹]. Lemma 4.1: THEOREM (dual-read); the numbers: NUMERICAL (2
    producers — read-O's sieve and additive-DP generators agree byte for byte with the unit's dumps to 10⁹, rO:16–22).
-2. **Theorems K₇^{≤2} and K₇** (NOTE:208, 254; close NOTE:35–39): if |N_P(u) − 0.6⌊u⌋| ≤ u^{0.40} for all u > 10⁹ then Conjecture U is
+2. **Theorems K₇^{≤2} and K₇** (NOTE:208, 254; close NOTE:26–31): if |N_P(u) − 0.6⌊u⌋| ≤ u^{0.40} for all u > 10⁹ then Conjecture U is
    false (for S7^{≤2}(3/5) and for S7(3/5)). CONDITIONAL THEOREM (on H₇^{≤2} / H₇ and on the floating-point box values), dual-read (rF:9;
    rO:22–25 "the conditional refutations of U are correct as stated"); the Taylor truncation is rigorously ≤ 3.4·10⁻²⁹ (A4), only the
    double-precision summation and sampling remain floating-point. Rouché thresholds θ < 0.4005 (B₁), 0.4022 (B^{≤2}) (A6, rO:353–354).
 3. **Lemma 1.2 — the downward side is bounded by prime-power gaps** (NOTE:64): multiplicities ≤ ρ·(prime-power gap) + 1 + ρ, so S5's
-   factorization-counting explosion cannot occur in S7 (NOTE:40–42). THEOREM (dual-read; rF:7). But read-O A2 (rO:341–344): the cap
+   factorization-counting explosion cannot occur in S7 (NOTE:36–39). THEOREM (dual-read; rF:7). But read-O A2 (rO:341–344): the cap
    breaks it — S7^{≤2}(0.6) reaches inf E = −197.8 below the gap bound −169.7, so H₇^{≤2}'s lower half needs a different mechanism.
 Most useful failure. F1 (rO:218–228): the close turned a scan of the approximant F_X at X = 10⁷ into "no other zero [of ζ_P] in σ ≥ 0.70
 below height 100" — not available even conditionally (at 0.70 + 94.63i the H_{0.40} tail 0.629 exceeds |F_X| = 0.138). F2 (rO:229–
-240): Révész–Pintz's zero-density theorem needs Axiom A, which for S7^{≤2} is the open H. And the brief's expectation "multiplicities
-small" was corrected: bounded by gaps, not small (m_p up to 79–219; NOTE:40–42).
+240): Révész–Pintz's zero-density theorem needs Axiom A, which for S7^{≤2} is the open H. And the brief's expectation of small
+multiplicities was corrected: bounded by gaps, not small (m_p up to 79–219; NOTE:36–38).
 Borrow. (a) The cap m ≤ 2 as the cheap way to prove Ramanujan for a feedback system (Lemma 4.1; A3 extends it to μ_P). (b) A1
 (rO:336–340): ζ_P converges absolutely on σ > 1 and N(x) ≪ x^{1+ε} unconditionally for every S7(ρ). (c) Direct-sum boxes with a sampled
 Lipschitz lower bound (A5) as the standard second route for any boxed zero.
@@ -332,7 +332,7 @@ B1 (rigidity at every conductor, discrete class). Every DISCRETE Beurling system
    the virtual curve must leave discreteness (weighted or mixed, clustering, infinitely many masses: (R1)–(R4), smallest 𝒯) or leave the
    exact equation. Evidence: qcond Theorem D (NOTE:351–358; rF:18; rO:13–15), U_q, L′, E2 (NOTE:440–446); qtw G1, G1′, L‴, the 𝒯
    reduction (NOTE:51–69, 128, 153, 203). Status: THEOREM (dual-read). It pays s37 digest B5's "only unpaid price" in the negative and
-   moves B6's Q-side twin out of the discrete class (qtw NOTE:76–78). On 𝒯 a solution must have all zeros of D_a on Re s = ½ when σ_S = ½
+   moves B6's Q-side twin out of the discrete class (qtw NOTE:74–78). On 𝒯 a solution must have all zeros of D_a on Re s = ½ when σ_S = ½
    (qtw rO A2, single-check) — [consolidator's reading] the last open corner carries a line condition on its multiplier's zeros.
 B2 (Conjecture O: a proof must use norm-injectivity, and every route stops at α_R/4 without the unresolved pairs). O is a theorem under
    RH for every regular deletion and every c, and unconditionally on four deterministic irregular classes; it is FALSE at the
@@ -355,7 +355,7 @@ B4 (one-sided regularity forces a real zero; U on never-undershooting systems is
    103, 113, 208); the sieve form's Mertens bias (1 − 2e^{−γ})u/log u (fgT rO F1, A3; rF:26); the price — B_ρ has the strength of a
    g-prime gap bound x^θ, θ < ½ − ρ, beyond any zero-density bootstrap (fgT rF:31–32, single-check). Data: sup E ≈ 0.05·log²x (π/16),
    0.03·log²x (π/32) to 10¹¹ (fgC NOTE:30; 2 producers to 10¹⁰). Status: Theorem 1.6, Cor. 1.7 THEOREM (dual-read); B_ρ NOT proved;
-   "not even E = o(x) is proved" (lemmaB CHARTER §1).
+   "Not even E = o(x) is proved" (lemmaB CHARTER §1).
 B5 (random discretization sits exactly on U's line; only feedback or additive structure can cross it). Almost every realization of
    Diamond–Zhang's construction is a [1, ½]-system — on α = 2β, consistent with U — and the one-scale mechanism (Lemma 2.1) shows the
    ½ is the variance of the selection itself; every candidate on the record that crosses the line numerically (S5, S7, S7^{≤2}, S8) is a
@@ -365,7 +365,7 @@ B5 (random discretization sits exactly on U's line; only feedback or additive st
 B6 (positive forms in the positions of generalized integers are blind to the virtual curve). The positions form of the Fejér defect is
    positive because dN ≥ 0 and is therefore V-blind (D_1(V) = 4), its zeros form is Weil's functional, and the explicit formula maps one
    to the other; a separator of V needs an object V lacks (a Weierstrass model: class C) or integrality (class (B)). Evidence: fej Theorem
-   K (NOTE:258–276), Theorem F (NOTE:24–27), Theorem W (NOTE:18–22); fej rO A1 (:292–305). Status: THEOREM (dual-read), no new
+   K (NOTE:258–276), Theorem F (NOTE:21–23), Theorem W (NOTE:17–20); fej rO A1 (:292–305). Status: THEOREM (dual-read), no new
    mathematics; A1 single-check. With s37 B4 and zoo I.9, this closes UT-4 and the first rung of "Extremal characterization of ξ".
 B7 (where positivity enters; linear or growth-only inputs never decide). In every unit of the wave the decisive step consumed a POSITIVITY
    that linear constraints cannot see: Π ≥ 0 on the q-part's monoid (the Landau obstruction; qcond NOTE:447–450, qtw L‴), the one-sided
@@ -374,7 +374,7 @@ B7 (where positivity enters; linear or growth-only inputs never decide). In ever
    fail (conjO Remark 1.3′). Status: [consolidator's reading; single-check]; each ingredient dual-read in its source.
 B8 (feedback numerics are not exponents until the mechanism of E is bounded beyond the range). All three greedy units, and conjO's
    structured sets, had an exponent inference downgraded at the dual read: S5's 0.30 was a transient (uoff NOTE:13; s5m 0.3648 at
-   10^{42.6}); S8's "β = 0 numerically" became "β < ¼ on [10³, 10¹¹]" (fgC F2); S7's "no other zero of ζ_P" was a scan of F_X (lg F1);
+   10^{42.6}); S8's "β = 0 numerically" became "β < ¼ on [10³, 10¹¹]" (fgC F2); S7's "no other zero in σ ≥ 0.70 below height 100" was a scan of F_X (lg F1);
    greedy deletions' pure-power deficits are log-powers (conjO F4, κ ≈ 2.3–3); sq's sub-diagonal slope is ζ's zeros at ρ/2 (lemG). Status:
    dual-read (each item). Rule for briefs: a feedback system's integer exponent is reported with its mechanism (multiplicity, queue,
    clustering) and a lower-bound instrument beyond the computed range, or not at all.
@@ -396,14 +396,14 @@ C1 The virtual curve V over F₅ (zoo I.9). Used: qcond rung 1 — the linear Q-
    supplied by the degree-0 term (R_0 = ¾), not by a one-sided bound.
 C2 F_{2.9,2}, DH, Epstein x² + 5y² (zoo I.1, I.9). Used by fej's Z side only: Z1 (M1a's (C_Q)) is passed by F_{2.9,2} (2.95 = 2.95),
    F_{5,5} and Epstein (1.139355 vs 1.139353); Z2 by F_{2.9,2}, DH, Epstein; Z3 is violated by F_{2.9,2} (−872.45) and DH (−681.66;
-   complete zero list, argument principle 47.0000) (fej NOTE:30–34; reproduced by rO with a full-rectangle argument principle).
+   complete zero list, argument principle 47.0000) (fej NOTE:24–27; reproduced by rO with a full-rectangle argument principle).
    FLAG: Epstein zeta's real zeros are the PRINTED CORE of Theorem 1.6 (Bateman–Grosswald 1964 p. 367, fgT rO:215–224); fgT's read-O
    tested ℚ(√−3), ℚ(√−163) and ℚ(√5) against Theorem 1.6 — each violates hypothesis (A), consistent with no real zero (rO:15–17; the
    ℚ(√5) case rests on a recalled fact, rO §8). No Session-40 unit ran F_{2.9,2} or DH: they have no integer-count side to test.
 C3 The necklace deletion (zoo I.11). lemG Theorem R1 (NOTE:24–26) — the rung-1 control for any proof of O or Lemma G. FLAG: its exact
    ℚ-transplant, the tight ℚ-necklace, OBEYS O unconditionally (lemG rO A1), so R1 controls proofs, not counterexamples over ℚ.
 C4 The template dN = δ₁ + ρdx (Diamond 1970 p. 24). fgT Lemma 1.5: ζ_c = (s − 1 + ρ)/(s − 1), zero exactly 1 − ρ, the equality case of
-   Theorem 1.6 (rF:9; rO §3(c)); lemmaB CHARTER §1 (U5): "the continuous template has E ≡ 0 and the zero 1 − ρ, so discreteness must
+   Theorem 1.6 (rF:9; rO §3(c)); lemmaB CHARTER §3 (U5): "The continuous template has E ≡ 0 and the zero 1 − ρ, so discreteness must
    enter". FLAG: Conjecture U is false for continuous systems (s37 digest B2, m7), so the template is the control every proof of U must
    break; S8's real zero is the template zero displaced by ρζ_P(1 − ρ) (first-order law good to 4·10⁻⁴ for ρ ≤ π/16; fgT NOTE:33–34).
 C5 The rational primes through each generator (ρ = 1). S5 returns ℙ (uoff rF:8); S7 returns the 664,579 primes ≤ 10⁷ (lg NOTE:13, 85);
@@ -470,13 +470,13 @@ E.2 conjO (read-F: none, m1–m3; read-O F1–F4)
 - F4 "provably log-powers" is a fit (κ ≈ 2.3–3); what is proved is β₂ ≥ α/2 on those sets. Applied.
 E.3 uoff (read-F F1–F2; read-O F1–F14, 24 pairs; both reads agree — rF §7)
 - rF F1 = rO F1, F2, F3, F4, F9, F11, F14: "β ≈ 0.30" is the slope of the running sup on [10³, 10⁹], not an exponent; the stop condition
-  "met" becomes "reported but not established"; K′'s bullet and the consequences for DMV/BDR/read-F P2 are qualified. Applied (NOTE:13–28).
+  "met" becomes "REPORTED BUT NOT ESTABLISHED"; K′'s bullet and the consequences for DMV/BDR/read-F P2 are qualified. Applied (NOTE:13–28).
 - rF F2 = rO F8: the integer exponent is set by multiplicity spikes, not by the one-sided overshoot of the rule. Applied.
 - rO F5–F7: "clean power laws, not transients"; "the brief's stop condition … is met"; "H_0.32 holds with room" — each qualified by
   the multiplicity data beyond 10⁹. Applied.
 - rO F10 (logic): Lemma H for one system refutes U; its failure for all leaves U open — not "U holds or fails exactly as Lemma H". Applied.
 - rO F12–F13: the Instruments row's first cell and value cell (the β-leg "undetermined"). Applied (B2 row, digest-APPLIED §1).
-- R3 NOTE:22 and :170 still read "at exponent 0.35 unrefuted and unsupported" / "(necessarily θ > 0.3227)"; since s5m's n_K, H_θ is
+- R3 NOTE:22 and :170 still read "at exponent 0.35 unrefuted and unsupported" / "necessarily θ > 0.3227"; since s5m's n_K, H_θ is
   false for every θ ≤ 0.35 with any c < 1.88, in particular for K′'s stated c = 1 (s5m NOTE:15, 101; rF §7). OPEN (record lag; the
   zoo's I.2 rider, BARRIER-ZOO.md:92, already states it).
 E.4 lemG (read-F: none — "F1 and F2 are real and were MISSED here", rF §4; read-O F1–F5, 14 pairs)
@@ -499,15 +499,15 @@ E.6 qtw (read-F: none, m1; read-O F1–F6, 30 pairs + one table row)
   narrowed to the §7.1 families — a DOWNGRADE. Applied.
 E.7 fej (read-F: none; read-O F1–F2, 14 pairs)
 - F1 Only D_1 vanishes exactly at genus 0 (D_k(P¹) = q^{k−1} − 1 > 0 for k ≥ 2); "D_k > 0 on every zeta datum" needs "of genus ≥ 1". Applied.
-- F2 "The separating inequalities are exactly the Toeplitz cone" holds for separation from the Weil region only; class (B) (Weil +
+- F2 "the separating inequalities are exactly the Toeplitz cone" holds for separation from the Weil region only; class (B) (Weil +
   integrality, e.g. 17g/4 + N_1 − 6 over F₅) also separates V; Oesterlé/HP19 descriptions corrected. Applied.
 E.8 fgT (read-F completed AGREES-WITH-CORRECTIONS; read-O F1–F3, 13 pairs of 27)
 - F1 Two-sided square-root cancellation in the Legendre remainder S(I) is FALSE for S8 (Mertens bias 2e^{−γ}); only one-sided forms
   survive — binding on lemmaB-s41 (CHARTER §0 item 3). Applied.
 - F2 The floating-point audit omitted one of two decision classes; stated ordering margins 9–21× too large; certificates stand. Applied.
 - F3 "sup E ≈ (0.37–0.53)·ρ·log²x" is (0.20–0.37)·ρ·log²x. Applied.
-- R4 NOTE:11 and :103 label Theorem 1.6 "[novelty: single-check — not found in print]"; both reads: "new as a statement on a printed core
-  (Bateman–Grosswald 1964 p. 367; Phragmén)" (rO:221–224; rF:35). OPEN (label).
+- R4 NOTE:11 labels Theorem 1.6 "novelty: single-check — not found in print, §5" (and NOTE:103 "[novelty: single-check]"); both reads:
+  "new as a statement on a printed core: Bateman–Grosswald 1964 p. 367; Phragmén" (rF:35; rO:221–224). OPEN (label).
 E.9 fgC (read-O F1–F2, 5 pairs)
 - F1 "Certified" ordering rested on an asserted double-double error the code never bounds; now PROVED to 10¹⁰ by read-O's generator. Applied.
 - F2 "β = 0 numerically; no power law fits" overstated nine running-max points; β < ¼ on [10³, 10¹¹] is what the data carry. Applied.
@@ -523,8 +523,8 @@ E.11 lg (read-O F1–F2, 2 of 18 pairs)
 E.12 Errors of the orchestrator's briefs and charters that the units caught
 - conjO: the brief's reflected identity lacked the coprimality factor (1 − p^{2σ−2}), and its gap lemma ("mean value for a function
   known only as analytic of finite order in a strip") is false (η(2s)) (NOTE:21–23; rF:5).
-- lemG: the brief's dichotomy "P_R continues past α_R/2, or has a natural boundary there" is not one (NOTE:352–355).
-- lg: the brief's expectation that prime-local multiplicities are small — they are bounded by gaps, not small (NOTE:40–42).
+- lemG: the brief's dichotomy "P_R continues past α_R/2 off the axis, or has a natural boundary at α_R/2" is not one (NOTE:352–355).
+- lg: the brief's expectation that prime-local multiplicities are small — they are bounded by gaps, not small (NOTE:36–38).
 - free-greedy: the charter's prototype drifts its g-primes by float error (fgC NOTE:9; fgT waste line, NOTE:416–417), and the
   orchestrator's question on Diamond 1970 is settled — "quite simple examples" are continuous (fgT NOTE:37–39).
 - uoff: the brief's stop trigger ("α > max{½, 2β} + 0.05 numerically over two decades") accepted a pre-asymptotic fit (rO F1, F6) —
@@ -554,8 +554,8 @@ Consequence under 10(d): the budget belongs to the follow-ups of (a) — which i
 lemmaB's charter (S7^{≤2} undershoots, inf E = −197.8, so it fails (A); lg rF:18). Other lanes stay paused.
 
 F.2 Ranking of candidate next units (contract clause; price; stop line). Reads = the standing dual read after each writer.
-1. **`lemmaB-s41` — Lemma B for S8 and never-undershooting variants** (RUNNING, seven units U1–U7; CHARTER §3). Contract (charter §1):
-   "(B) proved for a system with (A)", or "proof class X cannot yield (B) because Z", with the control that defeats X. Do not duplicate.
+1. **`lemmaB-s41` — Lemma B for S8 and never-undershooting variants** (RUNNING, seven units U1–U7; CHARTER §3). Contract (CHARTER §1, §4):
+   a proof of (B) for a system with (A), or a theorem "proof class X cannot yield Y because Z" (Y = (B)), with the control that defeats X. Do not duplicate.
    Inputs this digest hands it: B4's price (no zero-density bootstrap reaches B_ρ, fgT rF:31–32); F1 is binding (no two-sided sieve
    form); for U5-obstruction, V as a discrete rung-1 control with constant integer error and a real zero (§C C1).
 2. **S7^{≤2}(3/5): Lemma H₇^{≤2} and an interval certificate of B^{≤2}** (lg UT-L0, UT-L2). Contract: "prove |N_P(u) − 0.6⌊u⌋| ≤ u^{0.40}
@@ -569,7 +569,7 @@ F.2 Ranking of candidate next units (contract clause; price; stop line). Reads =
    σ = 1 − 1/log t, α = 1. A selection that meets (17.46) AND tracks N to O(x^θ), θ < ½, refutes U — a weaker integer bound than B_ρ.
    Contract: "first rung, at the page: does (17.46) alone give DZ 17.14(iii)–(iv) for every subsequence? Then a deterministic rule on the
    grid with (17.46) and β < ½ (K), or a theorem that (17.46) forces β ≥ ½ (T, settling U-1)". The named obstacle: the deterministic grid
-   P_det has β ≥ ½ from the prime-square branch point (2s − 1)^{−1/2} (dzh NOTE:42–44), so the rule must cancel it — as ℕ does by counting
+   P_det has β ≥ ½ from the prime-square branch point (2s − 1)^{−1/2} (dzh NOTE:45–47), so the rule must cancel it — as ℕ does by counting
    prime powers. Price: 1 writer + reads. Stop line: (17.46) does not carry (iv) deterministically (then the route is the random one only).
 4. **Theorem 1.6 and Cor. 1.7 in Lean** (KICKSTART 10(d)'s third trigger). Contract: "a Comparator-style pair (10(j)) for Theorem 1.6 in
    discrete form (N a nondecreasing step function, N(u) − ρu ≥ r₀ > 0 and = O(u^θ) ⇒ a real zero of σ ↦ ρσ/(σ − 1) + σ∫R u^{−σ−1}du in
