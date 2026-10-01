@@ -129,3 +129,10 @@ Writes only: `directions/*.md` (insertions + Last-touched lines), this folder (`
 - Disagreements noted: conjO α = 0.75 mean square (read-F accepted at report level; read-O re-ran, undecided); qcond Meyer subtraction
   (read-F ρ_q·Leb, read-O (ρ_q − 1)·Leb — both valid).
 - Running now: lemG, dzh, qtw, fej. Resume here: append §A.4 onward.
+
+## 2026-10-01 17:04 IST block 13 — §A.4–A.7 written (lemG, dzh, qtw, fej): the seven Session-38/39 units are done
+
+- Each from §0/close + read-F + read-O verdict/FIX-FIRST/novelty/additions; NOTE bodies opened only at the cited lines.
+- Read-F/read-O differences recorded: lemG F1–F2 missed by read-F (its §4 says so; read-O re-derives); fej wording F1–F2 (read-F
+  accepted, verified by hand at reconciliation); qtw F1 credit (Lemma M first in qcond's read). No contradiction on a theorem's validity.
+- Running now: the four Session-40 units (fgT, fgC, s5m, lg) + the free-greedy charter. Resume here: append §A.8 onward.

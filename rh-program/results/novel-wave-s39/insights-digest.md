@@ -151,3 +151,59 @@ Statuses. Theorem 1, Cor. 2, Prop. 2.4, Cor. 2.6: THEOREM (dual-read). Lemma 2.5
 (A1′ uses a recalled Landau/Widder theorem). Finite rung (X = 10⁸, five seeds; read-O at 10⁷): NUMERICAL (2 producers) — sup-slopes 0.492 ±
 0.012 (P_R), 0.479 ± 0.020 (P_B) (NOTE:31–33); read-O 0.496 ± 0.022 / 0.485 ± 0.026 (rO:24–26). Remark 5.1 (Broucke Thm 1.6 systems exact
 [1, ½]): conditional on an unchecked template property (U-3).
+
+### A.6 qtw — Q_cond's last corner: weighted, clustering systems with Riemann's exact FE at q > 1. Close G stated as a theorem; no construction
+Verdicts: read-F AGREES, no FIX-FIRST (rF:5); read-O AGREES-WITH-CORRECTIONS, F1–F6 + 10 minor (rO:13–26); reconciled (rF §5).
+Three most useful findings.
+1. **Theorem G1** (NOTE:128; close NOTE:53): a finite generalized Dirac comb with ANY weights is rigid — μ_q is never one at q > 1; with
+   Cor. G1′ (purely atomic, finitely many mass values) (NOTE:153). THEOREM (dual-read; rF:8, Step 3 the new step; rO §6 "NEW as a
+   statement … re-derived ✓ → dual-checked"). read-O's control A6 (rO:337–341): a positive, self-dual, gapped comb with an irrational
+   frequency, μ_c = Σ(2 + 2cos2πθn)δ_n + δ_{θ+Z} + δ_{−θ+Z}, θ = √2 − 1 — G1's Step 3 is not vacuous (single-check).
+2. **Theorem L‴ with Proposition S** (NOTE:203, 269, 280; close NOTE:55–57): if F/ζ converges absolutely on some Re s > σ₀ < ½, the
+   rational primes in the group of its atoms have abscissa σ_S ≥ ½ — the whole Poisson-pair cone 𝒦_r with thin atoms, continuous parts
+   included. THEOREM (dual-read; rF:10; rO §6 "NEW in its infinite-atom / real-frequency / continuous-part statement"; the finite-S
+   mechanism is printed, Hilberdink 2012 Thm 4.3, F2).
+3. **The class 𝒯 and its one-condition reduction** (NOTE:67–69): m ≥ 0 atomic on [1, q], m({1}) = 1, J-symmetric, atom group with
+   σ_S ≥ ½ — the exact FE, self-duality, dN ≥ 0 and the gap hold automatically, and Q_cond on 𝒯 ⟺ Π_ζ + log*(m) ≥ 0. Dual-read (rF:11;
+   rO §6). read-O A2 (rO:306–314, single-check): a member of 𝒯 with Π ≥ 0 has D zero-free on Re s ≥ 1 and Re s ≤ 0 (Mertens
+   3-4-1), with every zero of D_a ON Re s = ½ when σ_S = ½ exactly — a necessary condition any construction must meet.
+Most useful failure. The 𝒯 probe (q = 4, window [1, 64]): the max-min of Π_F rises −0.680, −0.401, ≥ −0.294, ≥ −0.219, ≥ −0.185 as atom
+pairs are added, while a third to a half of the atoms stay negative and the M = 4 optimum falls to −1.129 on [1, 256] (rO A5,
+:327–336); every finite design is excluded anyway, by L′ and by Hilberdink 2012 Prop. 3.4 without the FE (A4, rO:321–326) — "evidence
+of nothing about 𝒯" (NOTE:73). Also F6: §5.2's mechanism (b) was a heuristic labeled (P); smooth self-dual weights vanishing on Z_j exist
+(KNS Lemma 6), so §0.4(3)'s exclusion is downgraded to the families of the §7.1 table (rF §5 F6).
+Borrow. (a) Hilberdink 2012 Prop. 3.4 as a free certificate: any ζ·D with finite rational atoms, m ≥ 0 and a non-integer atom is not a
+weighted Beurling system — no FE needed (A4); only limit-periodic N − D(1)x escapes (the C2 Untried draft (b), already applied).
+(b) The Mertens 3-4-1 inequality to push zeros of a Beurling multiplier off Re s = 1 (A2). (c) G1's Poisson step for modulated combs
+against finitely many Q-lines.
+Statuses. G1, G1′, Lemma A, Prop. S, L‴ (both forms), the 𝒯 reduction: THEOREM (dual-read). Lemma M, Cor. M1 and Theorem D
+unconditional: NOT NEW — first proved in qcond's dual read (F1, credit; rF §5 F1 confirms from the Session-39 LOG); Cor. M1 corrected by
+"μ̂ purely atomic" (F4: μ = δ₀ has μ̂ = Lebesgue). (W1) weighted rung 1 = [−5, 6]: exact for d ≤ 60 (two producers), all d by read-O A1
+(single-check). (W3): in print (Hilberdink 2012 Thm 4.4). Probe values: NUMERICAL (2 producers to M = 3; read-O alone M = 4–6, F3).
+
+### A.7 fej — the Fejér defect as a positive form transported to the zeros (UT-4). Close K: "found nothing new, correctly"
+Verdicts: read-F AGREES, no FIX-FIRST (rF:5); read-O AGREES-WITH-CORRECTIONS, F1–F2 on the close's wording + 9 minor (rO:14–28); the
+label "found nothing new, correctly" UPHELD (rO §6). read-F had accepted the wording; it verified F1–F2 by hand before applying (rF §5).
+Three most useful findings.
+1. **Theorem K** (NOTE:258–276): no form of the Fejér defect built here is a positivity generator outside Weil's cone — "its POSITIONS form
+   is positive for free and blind, its ZEROS form is RH-sensitive and is Weil's functional, and the explicit formula maps one to the
+   other" (NOTE:273–275). THEOREM (dual-read; rO:14–16 "none is false as stated"); "packaging … no new mathematics" (rO §6).
+2. **Theorem F** (NOTE:146; close NOTE:24–27): M1a's Fejér defect on q^Z is D_k = h(q^{g−1+k} − 1) (AHL Lemma 3.4); D_1 vanishes exactly
+   at genus 0 and is > 0 on every datum of genus ≥ 1, V included (D_1(V) = 4): "V sits at h = 1, the extreme point of free positivity,
+   strictly below the RH floor (√5 − 1)² = 1.528" (NOTE:27). Dual-read (in the D_1-only form, F1; rF §5). In print (AHL).
+3. **Theorem W** (NOTE:90; close NOTE:18–22): every affine functional in (g, N_1, …, N_M) vanishing at genus 0 is the Weil functional
+   Σ_j f(θ_j); separators from the Weil region are exactly the Toeplitz cone (= Hallouin–Perret's Gram cone on X × X); separators from the
+   genuine integer data alone form the larger class (B), Weil + integrality (F2). Dual-read; "in print as a statement on a printed core"
+   (rO §6: HP 1409.2357, HPM).
+Most useful failure. The literal transport is V-blind (K(iii)), and the Z-forms split the same way: Z1 (M1a's (C_Q)) and Z2 are passed by
+F_{2.9,2}, DH and Epstein x² + 5y² (RH-blind); Z3 is violated by F_{2.9,2} (−872.45) and DH (−681.66) and is Weil's criterion (NOTE:30–34).
+UT-4 is CLOSED (NOTE:39); stop line 2 fired (the best inequality is a printed Weil/Weil–Serre bound).
+Borrow. (a) Before funding any "positive form" proposal, evaluate it on V: a form whose positivity is dN ≥ 0 is V-blind by Theorem F
+(D_1(V) = 4 > 0). (b) read-O A1 (rO:292–305, single-check): over F₅, 17g/4 + N_1 − 6 separates V (−3/4), is not a Weil test, and at
+g = 1 has an RH-free proof through a Weierstrass model — an OBJECT V lacks (proof-mine's class C) — but it is the integrality boundary,
+does not extend in q and has no Z-analog. (c) A5: exact certificates through HPM's integer Gram matrix H_M (all 3825 exits, 766 PSD
+statements, no rounding).
+Statuses. W, F, K and the Clifford claims: THEOREM (dual-read), no new mathematics. Census (4591 data, the 111, 115 + 192 genuine L-
+polynomials), I(V) = −0.1180339887, I(E₀) = +0.1055728090, Z3 values: NUMERICAL (2 producers, rO:16–19). A1, A2 (class-(B) window for
+non-square q ≤ 13), A3 (λ_min(T_M(V)) in Lucas/Fibonacci closed form): single-check. The two zoo riders of §11 (on IV.1 and I.9): accurate
+after F1, F2e, m9 (rO:27–28) — routed to the zoo stream by the Session-40 applier's report, not restaged here.
