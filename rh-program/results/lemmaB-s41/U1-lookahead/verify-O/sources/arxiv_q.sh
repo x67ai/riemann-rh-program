@@ -2,7 +2,7 @@
 # one arXiv API query with retry on 429 / rate limit; saves raw XML and prints id + title lines. Usage: arxiv_q.sh NAME 'QUERY'
 N="$1"; Q="$2"
 for i in $(seq 1 20); do
-  curl -s -G "http://export.arxiv.org/api/query" --data-urlencode "search_query=$Q" --data-urlencode "max_results=50" -o "aq-$N.xml" -w "%{http_code}" > "aq-$N.code"
+  curl -s -L -m 60 -G "https://export.arxiv.org/api/query" --data-urlencode "search_query=$Q" --data-urlencode "max_results=50" -o "aq-$N.xml" -w "%{http_code}" > "aq-$N.code"
   c=$(cat "aq-$N.code"); if [ "$c" = "200" ] && ! grep -q "Rate exceeded" "aq-$N.xml"; then break; fi; sleep 60
 done
 echo "Q[$N] = $Q  (HTTP $(cat aq-$N.code)); results: $(grep -c '<entry>' aq-$N.xml)"

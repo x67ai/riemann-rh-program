@@ -146,3 +146,94 @@ start B: all draws below B are placed at B); (ii) U1's §0 "harmless for τ = ½
 **2.6 U1's own early-placement code path** (`early_rules_check.log`): U1 `rules.cpp` (fixed) "early" (pos = max(B, x* − W)) against my
 brute force with U ≡ 1, X = 10⁵: W = 5: N 19,636, π 7,658, sup E 5.582 (both); W = 100: N 19,636, π 5,825, sup E 1,210.84 (both). The §5 rows
 at 10⁷ were not re-run (my exact generator is Python; 10⁷ is out of reach in the time box) — they rest on code now validated at 10⁵.
+
+## §3. Prior art at the page
+
+**Citations the NOTE relies on, opened.** (1) Hilberdink, JNT 112 (2005): g-prime systems are sequences 1 < p₁ ≤ p₂ ≤ … (`novel-wave-s37/
+beurling-frontier/sources/w-18a-…txt` l. 31–34); [α, β]-systems (l. 117–124); Theorem 1 (l. 195); Cor. 2(b) (p. 336, l. 211–214) exactly as
+the NOTE's Q1; its proof (l. 669–673) uses Theorem 1, Remark B(ii) (l. 233–235) and Remark C (l. 496–501), as the NOTE says ✓. §4 "Final
+discussion" (l. 677–700): p_n = R^{−1}(n), Π_P within 1 of R, hence α = 0 and β ≥ ½ by Theorem 1 ✓ (NOTE Remark (1)). (2) Broucke–
+Debruyne–Révész (`z-02-…txt` l. 172–177): the quoted sentence is verbatim ✓. (3) s40 Lemma 1.5 / Thm 1.6 (theory NOTE l. 94–112): the
+Mellin identity and the zero ⇒ α step used in 4.1(3)–(4) ✓. (4) Wiener–Ikehara (l. 119): not on disk (grep "Ikehara" over `fetched*/`,
+`sources-extracted/`, `results/*/sources/`: only arXiv listings); it stays [recalled], and §1.9 removes it from the (B)-failure.
+**Theorem 4.1 (power bump) — searched, not found.** On disk: no source contains "first generalized/generalised prime", "smallest
+generalized prime" or "first g-prime"; the s40 search for the one-sided-bound ⇒ real-zero lemma (theory `sources/prior-art-log.txt`
+entry [19]: Diamond–Zhang, Hilberdink 2005/2012, Hilberdink–Lapidus, DMV, BDV, BDR, Broucke–Vindas, Révész, Broucke, Lagarias, Malliavin,
+Diamond 1970, Ruzsa) found only the template's zero (Diamond 1970 p. 24; Malliavin 1961 p. 296). arXiv API (`verify-O/sources/aq-q*.xml`):
+q1 all:Beurling AND ("first prime" OR "smallest prime" OR "least prime") → 0; q2 all:"generalized primes" AND ("real zero" OR "real zeros"
+OR "Siegel zero") → 0; q3 all:Beurling AND zeta AND ("lower bound" OR "one-sided") AND integers → 0; q4 all:Beurling AND "generalized
+integers" AND zero → 0; q5 abs:Beurling AND abs:zeta AND abs:zero → 15, of which the Beurling ones are zero-density / oscillation /
+zero-distribution papers (Révész 2012.09045, 2110.11463, 2202.01837, 2207.00665, 2209.01689; Broucke–Debruyne 2211.08716; Broucke 2409.10051,
+2407.12746; 2507.13780), none with a lower bound for ζ_P on the real axis from the first g-prime. One web search (Beurling zeta real zero
+first generalized prime lower bound): nothing beyond these and Hilberdink–Lapidus / Olofsson. **Verdict: not in print as far as these
+searches reach; its analytic core is the s40 Theorem 1.6 core** (positivity of the Mellin transform on the real axis plus IVT, labeled
+there "new as a statement on a printed core: Bateman–Grosswald 1964 p. 367; Phragmén"); the new ingredient (p₁ ≤ 1 + τ/ρ and the forced
+powers of p₁) is elementary.
+**Theorem 2.1 — new as a statement on a printed core** (Hilberdink 2005 Cor. 2(b) + Remark C). Its zero-free-reference case is printed
+in substance: Hilberdink §4 (rounding to R(x), reference ζ_ref = s/(s − 1) via Theorem 1) and BDR's remark (z-02 l. 172–177). What is new
+is the reference WITH finitely many zeros (the template), which needs Cor. 2(b) rather than Theorem 1 — as the NOTE's Remark (1) says.
+**Props. 3.1–3.3, 6.3** — elementary statements about this program's rules; no prior art searched beyond the s40 logs (not expected).
+
+## §4. FIX-FIRST (four items, seven pairs; OLD quoted at NOTE hash 54c5e5dd…807b with its line number)
+
+**F1 — Cor. 4.4 and the §0 dichotomy: "β" must be the exponent relative to the same ρ** (§1.4; counterexample Q′ = ℕ ∪ {1 + τ/ρ},
+`verify-O/cor44_counterexample.log`).
+OLD (l. 206): has β ≥ 0.4945 for each of ρ = π/32, π/16, π/8, π/4, 0.95π/3 — in particular the greedy rule with threshold 1/100, whose measured sup E on
+NEW (l. 206): has N − ρu ≠ O(u^θ) for every θ < 0.4945, with the same ρ (this is not the system's own β: ℕ plus one g-prime 1 + τ/ρ has E ≥ −1/100 at ρ = π/4 and β = 0 for its own density), for each of ρ = π/32, π/16, π/8, π/4, 0.95π/3 — in particular the greedy rule with threshold 1/100, whose measured sup E on
+OLD (l. 19): Hilberdink's wall. Dichotomy (Cor. 4.4): either U fails or these explicit systems have β ≥ 0.4945, while their measured sup E on
+NEW (l. 19): Hilberdink's wall. Dichotomy (Cor. 4.4): either U fails or these explicit systems have N − ρu ≠ O(u^θ) for every θ < 0.4945 (same ρ), while their measured sup E on
+
+**F2 — the class theorem's headline drops its hypothesis** (§1.7; ℕ's primes are fixed in advance and ℕ has θ = 0).
+OLD (l. 24): then N − ρu ≠ O(u^θ) for every θ < ½. So **"make the mean controllable by construction" by fixing the primes in advance is impossible**;
+NEW (l. 24): then N − ρu ≠ O(u^θ) for every θ < ½. So **"make the mean controllable by construction" by fixing the primes in advance within u^{α′}, α′ < ½, of a reference whose zeta is meromorphic and finitely zeroed right of some γ₀ < ½ is impossible** (prescriptions near a reference with infinitely many zeros right of ½ − ε, such as ℕ's own primes, are not covered: ℕ has θ = 0);
+OLD (l. 58): ## §2. Rules that fix the primes in advance cannot reach (B) below ½ — the relative Hilberdink wall
+NEW (l. 58): ## §2. Rules that fix the primes in advance near a finitely-zeroed reference cannot reach (B) below ½ — the relative Hilberdink wall
+
+**F3 — the generator bug reaches the s40 randomized runs** (§2.5: the s40 §3.1 numbers for w = 10 seed 2 and w = 50 change; arbiter:
+my own S8^w brute force).
+OLD (l. 37): (p₁ᵏ); harmless for τ = ½ at π/4, π/16, wrong for small τ; fixed and validated against a 50-digit brute force (§5).
+NEW (l. 37): (p₁ᵏ, and the p₁-multiples of every prime that a clipped early-placement rule puts exactly on a block start); harmless for greedy (w = 0) at τ = ½, π/4, π/16, wrong for small τ, and wrong for the randomized runs of s40 theory NOTE §3.1 at w = 10 (seed 2) and w = 50 (sup E at 10⁷, w = 50: 58.2 → 49.7 and 171.2 → 336.2; read-O §2.5); fixed and validated against a 50-digit brute force (§5).
+OLD (l. 220): when B/q rounds up; the s40 `s8w_block.py` has the same search) was found by that check and fixed; runs before the fix are in
+NEW (l. 220): when B/q rounds up; the s40 `s8w_block.py` has the same search, and there it changes the §3.1 numbers for w ≥ 10 — read-O §2.5) was found by that check and fixed; runs before the fix are in
+
+**F4 — the §4 title states an exponent that is not proved** (`verify-O/lambda_1mtau.log`: Λ(1 − τ) < 0, i.e. σ_L < 1 − τ, for π/16 at
+τ = 1/100 and 1/1000 and for π/8, π/4, 0.95π/3 at every τ tested; e.g. π/4, τ = 1/10: σ_L/2 = 0.4346, not ½ − τ/2 = 0.45; for π/32 at
+τ = 1/100, σ_L > 1 − τ). What is proved is θ < σ_L(ρ, τ)/2 with σ_L ≥ 1 − cτ (Prop. 4.3); the same phrase "θ < (1 − τ)/2" was broadcast
+in SHARED.md (17:46 block).
+OLD (l. 150): ## §4. A design result: the threshold moves the real zero to 1 − τ, so U needs only θ < ½ − τ/2, for every density
+NEW (l. 150): ## §4. A design result: the threshold moves the real zero to σ_L(ρ, τ) ≥ 1 − cτ (every c > 1, τ small), so U needs only θ < σ_L(ρ, τ)/2 (→ ½ as τ → 0), for every density
+
+## §5. Minor pairs (ten)
+
+**m1 — table header: seven entries are rounded up under "≥"** (§1.2).
+OLD (l. 172): | ρ | τ | σ₁ | certified Λ(σ₁) ≥ | U refuted by (B) with θ < | s40 route (Cor 1.7) needed |
+NEW (l. 172): | ρ | τ | σ₁ | Λ(σ₁) (center of a certified ball of radius < 10⁻⁷, rounded to nearest; all > 0) | U refuted by (B) with θ < | s40 route (Cor 1.7) needed |
+**m2 — "about 9,000 at u = 10⁸" reads an Ω-statement as a size at a given point** (§1.4).
+OLD (l. 208): reach u^{0.4945} — about 9,000 at u = 10⁸ — eventually.
+NEW (l. 208): exceed C·u^θ, for every θ < 0.4945 and every C, at arbitrarily large u (this fixes no size at any particular u such as 10⁸).
+**m3 — the ℕ bump is two triangles** (§1.5).
+OLD (l. 212): and the bump is a single unit triangle on [1, 3)).
+NEW (l. 212): and the bump (k − (u − 1) + 1)⁺ is 2 − u on [1, 2) and 3 − u on [2, 3): two unit right triangles).
+**m4 — Cor. 2.2(a) needs Π_F to exist** (§1.7).
+OLD (l. 75): **Corollary 2.2 (deterministic prescription is dead)** [proved here]. (a) Let F be any function and suppose a rule produces g-primes with
+NEW (l. 75): **Corollary 2.2 (deterministic prescription is dead)** [proved here]. (a) Let F be a function of locally bounded variation with F(v) = O(log v) as v → 1⁺ (so that Π_F below converges; F_c qualifies) and suppose a rule produces g-primes with
+**m5 — Prop. 3.1 counts must be closed at B** (§1.8).
+OLD (l. 107): E(x) = f(x) + π(B, x] with f(x) := E(B−) + C(B, x] − ρ(x − B) common to all placements. Suppose the claim fails and let x₀ be the least
+NEW (l. 107): E(x) = f(x) + π[B, x] with f(x) := E(B−) + C[B, x] − ρ(x − B) common to all placements (closed at B: for B = p₁ᵏ a composite sits at B). Suppose the claim fails and let x₀ be the least
+**m6 — Prop. 3.2(c): the (B)-failure does not need the recalled Tauberian theorem** (§1.9).
+OLD (l. 119): η̂(1) = −D(1) + ∫_1^∞D(u)u^{−2}du; by the Wiener–Ikehara theorem [recalled, unverified; standard] N_{P₀}(x) ~ ρ₀x.
+NEW (l. 119): η̂(1) = −D(1) + ∫_1^∞D(u)u^{−2}du; hence limsup N_{P₀}(x)/x ≥ ρ₀ [proved here: N_{P₀} ≤ (ρ + δ)x + C would give ζ_{P₀}(σ) ≤ (ρ + δ)σ/(σ − 1) + C, so ρ₀ ≤ ρ + δ], which already makes (B) fail in (c); the asymptotic N_{P₀}(x) ~ ρ₀x is Wiener–Ikehara [recalled, unverified] and is used only for the "for all large x" form of (c).
+**m7 — the constant c_G** (§1.11).
+OLD (l. 266): queue's idle steps. Its mean is fixed by global constants (Σ_{m≤y}1/m = ρ log y + c_G + o(1), c_G = 1 − ρ + ∫_1^∞E(u)u^{−2}du), and the
+NEW (l. 266): queue's idle steps. Its mean is fixed by global constants (Σ_{m≤y}1/m = ρ log y + c_G + o(1), c_G = 1 + ∫_1^∞E(u)u^{−2}du; for ℕ this is γ), and the
+**m8 — Prop. 3.3 needs unique factorization** (§1.10; δ₀ separates only distinct values).
+OLD (l. 129): over R(w))** [proved here]. Let P be a discrete system satisfying (A) with |E_P(x)| ≤ ½K x^θ for x ≤ y₀ (some K > 0, θ ∈ (0, 1)). Fix
+NEW (l. 129): over R(w))** [proved here]. Let P be a discrete system with unique factorization (distinct multisets of g-primes have distinct products; e.g. S8 with t transcendental) satisfying (A) with |E_P(x)| ≤ ½K x^θ for x ≤ y₀ (some K > 0, θ ∈ (0, 1)). Fix
+**m9 — Prop. 3.3(ii): one moved factor needs y₀ > p_J², and the inequality is not strict** (§1.10).
+OLD (l. 138): counts g-integers n = q·m with q a moved prime of bunch j and x ∈ [m·a_j, m·q); then m < x/a_j < p_j, so m lies in the finite set of the
+NEW (l. 138): counts g-integers n = q·m with q a moved prime of bunch j and x ∈ [m·a_j, m·q) (for y₀ > p_J² no g-integer below y₀ has two moved factors); then m ≤ x/a_j < p_j, so m lies in the finite set of the
+**m10 — Prop. 3.3(iii): a prime already at a_j gains nothing** (§1.10).
+OLD (l. 142): [y₀, y₀ + p_jH_j], all sit at y₀ in P′, while no g-integer of P below y₀ moves above it. ∎
+NEW (l. 142): [y₀, y₀ + p_jH_j] (in (y₀, y₀ + p_jH_j] if the windows are taken open at a_j, as they may be), all sit at y₀ in P′, while no g-integer of P below y₀ moves above it. ∎
+
+Total: 17 pairs — 7 FIX-FIRST (F1–F4) and 10 minor (m1–m10).
