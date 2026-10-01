@@ -7,7 +7,35 @@ Notation as there: [α, β]-system: ψ_P(x) = x + O(x^{α+ε}), N_P(x) = ρx + O
 
 ## §0. Close (filled last)
 
-(pending)
+**STOP LINE (c) MET — reported before proving (SHARED.md, block of 11:49 IST).** S7(ρ) — the integer-greedy rule allowed to act
+only at prime powers, so every g-prime is a prime power and a_n is multiplicative (Lemma 1.1) — crosses Conjecture U's line
+numerically, and the crossing is zero-driven. At ρ = 0.6, X = 4·10⁹ (exact counts; generator re-derived independently, 0 mismatches
+to 10⁷; ρ = 1 returns the primes): **β ≈ 0.26–0.31** (running sup of |E| on windows [10^k, 4·10⁹), k = 3…7, falling as the window
+starts later) and **α ≈ 0.80–0.82 by three routes** — running sup of |ψ_P − x| (0.796–0.810), the zeros of ζ_P (ρ₁ = 0.8209965 +
+11.0877411i and ρ₂ = 0.8052963 + 20.2490762i, stable to 2·10⁻⁵ from X = 10⁷ to 10⁹, each with winding number 1 on a box at X = 10⁹;
+no other zero in σ ≥ 0.70 below height 100), and the Beurling Möbius sums (γ = 0.795–0.817, which Neamah–Hilberdink Thm 1 forces
+to equal α when β < ½). **α − max{½, 2β} = +0.18…+0.29 on every window**, over six and a half decades; ρ = 0.75, 0.8, 0.9, 1.1 are
+also above the line at 10⁹ from 10⁴–10⁵ on (+0.05…+0.31); ρ = 1.25 sits below it; ρ = 1.5 runs away (§2). The prime-side
+fluctuation is coherent, not a random walk (sup|T|/V = 12.6 at 10⁹, growing like x^{0.3}, §3.5).
+**Close: K-candidate + K-conditional theorem + G.**
+- **K₇ (Theorem, §4)** [proved here, modulo the floating-point evaluation of F_X on ∂B₁]: if |N_P(u) − 0.6⌊u⌋| ≤ u^{0.40} for all
+  u > 10⁹, then ζ_P has a zero in B₁ = [0.8010, 0.8410] × [11.0677, 11.1077] and **Conjecture U is false**. On the computed range the
+  hypothesis holds with constant 0.35 in [10⁸, 10⁹] (§3.3); S5's analog (uo §4) needed θ ≤ 0.35 against data ≈ 0.30, S7's needs
+  θ ≤ 0.40 against data ≈ 0.26–0.28.
+- **G (the exact missing lemma): Lemma H₇** (§4), a growth bound for one explicit Lindley-type recursion that acts only at prime
+  powers: E(x) is, within ½, the excess of g-integers since the last prime power at which the rule added a copy. Smallest undecided
+  class: S7(ρ), ρ ∈ [0.6, 1.1].
+- **Multiplicities — the brief's expectation corrected** [proved + computed]: they are bounded by ρ·(prime-power gap) + 1 + ρ
+  (Lemma 1.2), so S5's factorization-counting explosion cannot occur, but they are not small: 84–94 % of primes are refused in
+  [10⁸, 10⁹), the rest receive m_p up to 79–219, mean m_p = 1.000; the refused fraction rises with x. E's records come from clusters of
+  moderate a_n (10–150), not from one multiplicity (sup E/max a_n = 1.7; S5: 1.0).
+- **T-side facts** [quoted + proved]: Klurman Thm 1.6 and Tao Cor. 1.2 concern ±1 functions and do not reach S7's g (values up to 78);
+  the hyperbola bound gives only β ≤ κ/(1 + κ − μ) = 2/3 here (§5(iii)); E is a ~30× cancellation between two terms of size M_g
+  (§2.4). No theorem of this unit says the prime-local class cannot cross U; the periodic sub-class cannot without an off-line
+  Dirichlet zero (uo §3.3), and Hilberdink 2012 confines periodic-error members to finite deletions.
+Consequence for the record: a second non-surgery discrete system in the corner β < α/2, now with multiplicative coefficients — the
+numerical counterexample to DMV's p. 4 speculation and the support for BDR's populating conjecture no longer rest on S5's
+multiplicities. U implies RH, not conversely: nothing here touches RH.
 
 ## §1. The object, the generator, the controls
 
