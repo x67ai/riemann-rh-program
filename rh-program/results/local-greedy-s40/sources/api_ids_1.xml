@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/mpIoC1q0Y72gLbLA/czvCcUTGnw</id>
+  <title>arXiv Query: search_query=&amp;id_list=1603.08453,1509.05363,2407.12746&amp;start=0&amp;max_results=10</title>
+  <updated>2026-10-01T06:25:35Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=10&amp;id_list=1603.08453,1509.05363,2407.12746" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>3</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/1603.08453v1</id>
+    <title>Correlations of multiplicative functions and applications</title>
+    <updated>2016-03-28T17:39:13Z</updated>
+    <link href="https://arxiv.org/abs/1603.08453v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1603.08453v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We give an asymptotic formula for correlations \[ \sum_{n\le x}f_1(P_1(n))f_2(P_2(n))\cdot \dots \cdot f_m(P_m(n))\] where $f\dots,f_m$ are bounded "pretentious" multiplicative functions, under certain natural hypotheses. We then deduce several desirable consequences:\ First, we characterize all multiplicative functions $f:\mathbb{N}\to\{-1,+1\}$ with bounded partial sums. This answers a question of Erdős from $1957$ in the form conjectured by Tao. Second, we show that if the average of the first divided difference of multiplicative function is zero, then either $f(n)=n^s$ for $\operatorname{Re}(s)&lt;1$ or $|f(n)|$ is small on average. This settles an old conjecture of Kátai. Third, we apply our theorem to count the number of representations of $n=a+b$ where $a,b$ belong to some multiplicative subsets of $\mathbb{N}.$ This gives a new "circle method-free" proof of the result of Brüdern.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-03-28T17:39:13Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Compositio Math. 153 (2017) 1622-1657</arxiv:journal_ref>
+    <author>
+      <name>Oleksiy Klurman</name>
+    </author>
+    <arxiv:doi>10.1112/S0010437X17007163</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1112/S0010437X17007163" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2407.12746v1</id>
+    <title>New zero-density estimates for the Beurling $ζ$ function</title>
+    <updated>2024-07-17T17:08:37Z</updated>
+    <link href="https://arxiv.org/abs/2407.12746v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2407.12746v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In two previous papers the second author proved some Carlson type density theorems for zeroes in the critical strip for Beurling zeta functions satisfying Axiom A of Knopfmacher. In the first of these invoking two additonal conditions were needed, while in the second an explicit, fully general result was obtained. Subsequently, Frederik Broucke and Gregory Debruyne obtained, via a different method, a general Carlson type density theorem with an even better exponent, and recently Frederik Broucke improved this further, getting $N(σ,T) \le T^{a(1-σ)}$ with any $a&gt;\dfrac{4}{1-θ}$. Broucke employed a new mean value estimate of the Beurling zeta function, while he did not use the method of Halász and Montgomery.
+  Here we elaborate a new approach of the first author, using the classical zero detecting sums coupled with a kernel function technique and Halász' method, but otherwise arguing in an elementary way avoiding e.g. mean value estimates for Dirichlet polynomials. We will make essential use of the additional assumptions that the Beurling system of integers consists of natural numbers, and that the system satisfies the Ramanujan condition, too. This way we give a new variant of the Carlson type density estimate with similar strength as Turán's 1954 result for the Riemann $ζ$ function, coming close even to the Density Hypothesis for $σ$ close to 1.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-07-17T17:08:37Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Szilárd Gy. Révész</name>
+    </author>
+    <author>
+      <name>János Pintz</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1509.05363v6</id>
+    <title>The Erdos discrepancy problem</title>
+    <updated>2017-01-13T20:51:56Z</updated>
+    <link href="https://arxiv.org/abs/1509.05363v6" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1509.05363v6" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We show that for any sequence $f: {\bf N} \to \{-1,+1\}$ taking values in $\{-1,+1\}$, the discrepancy $$ \sup_{n,d \in {\bf N}} \left|\sum_{j=1}^n f(jd)\right| $$ of $f$ is infinite. This answers a question of Erdős. In fact the argument also applies to sequences $f$ taking values in the unit sphere of a real or complex Hilbert space.
+  The argument uses three ingredients. The first is a Fourier-analytic reduction, obtained as part of the Polymath5 project on this problem, which reduces the problem to the case when $f$ is replaced by a (stochastic) completely multiplicative function ${\bf g}$. The second is a logarithmically averaged version of the Elliott conjecture, established recently by the author, which effectively reduces to the case when ${\bf g}$ usually pretends to be a modulated Dirichlet character. The final ingredient is (an extension of) a further argument obtained by the Polymath5 project which shows unbounded discrepancy in this case.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-09-17T18:32:53Z</published>
+    <arxiv:comment>29 pages, no figures. Formatted using the Discrete Analysis style file</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <arxiv:journal_ref>Discrete Analysis 2016:1, 26 pp</arxiv:journal_ref>
+    <author>
+      <name>Terence Tao</name>
+    </author>
+  </entry>
+</feed>

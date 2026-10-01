@@ -91,3 +91,163 @@ cannot do that — f_G(n) ≤ (1 + log₂ n)^{|G|} — so refuting "≪ x^{0.35}
 *Anatomy.* The primes of n_K are 2, 3, 7, 11, 13, 17, 23, 37 (accepted) and **5, 19, 29, 41, 59, 61, 79, 89, 109, 149 — ten of the
 eleven refused primes ≤ 149** (139 is the one left out). The search, told nothing about refusal, chose the refused primes: the
 multiplicity is carried by refused primes, each entering through its carriers (§5).
+
+**2.4 The search that found n_K [computed].** `search2.c` over the first 60 primes (≤ 281), rate-greedy plus swaps, from the record
+holder 902,538,000 (`logs/search2_rate_K60.log`, 3.7 min; stopped by hand at the first float crossing). Float log₁₀ f; "excess" =
+log₁₀ f − log₁₀(3.76 n^{0.35}); "rate" = marginal exponent Δlog f/Δlog n of the step:
+
+| log₁₀ n | log₁₀ f | log f/log n | excess | rate | τ(n) |
+|---|---|---|---|---|---|
+| 8.96 | 2.441 | 0.2726 | −1.269 | — | 960 |
+| 15.17 | 4.612 | 0.3040 | −1.274 | 0.382 | 17,920 |
+| 20.30 | 6.686 | 0.3294 | −0.994 | 0.407 | 161,280 |
+| 25.43 | 8.704 | 0.3422 | −0.773 | 0.398 | 1,128,960 |
+| 29.93 | 10.454 | 0.3493 | −0.597 | 0.386 | 4,423,680 |
+| 35.62 | 12.696 | 0.3564 | −0.348 | 0.393 | 35,389,440 |
+| 39.97 | 14.456 | 0.3617 | −0.107 | 0.402 | 127,401,984 |
+| 42.58 | 15.532 | 0.3648 | +0.055 | 0.418 | 238,878,720 |
+
+The marginal exponent stays in 0.38–0.46 over 33 decades and does not decline; the cumulative exponent climbs toward it. With
+candidates ≤ 47 only (the orchestrator's set) the same rule reaches 0.3327 at 10³⁰·⁴⁵; allowing primes to 281 adds the refused
+primes 59, 61, 79, 89, 109, 149, each entering at rate ≈ 0.39–0.42 — refused primes are the cheapest source of multiplicity.
+Cost is set by τ(n) (memory 4 bytes per cell in float, 16 in exact arithmetic on n₀ = n/(top primes)).
+
+**2.5 Independent certification of the dump [computed].** The K-close rests on the orchestrator's g-prime list. `verify/omega_check.c`
+re-derives it by a different identity: for every 2 ≤ n ≤ 10⁹ it checks (I) Ω(n)a(n) = Σ_{q^k | n} m_q Ω(q) a(n/q^k) (§2.1, h = Ω,
+q = n included; Ω by its own segmented sieve) and (II) the rule m_n = max(0, ⌊0.8(n − 1) + 1 − N(n − 1) − (a(n) − m_n) + ½⌋) in exact
+integers. *Induction [proved here]:* if a(k), m_k are correct for k < n, then (I) at n says Ω(n)(a(n) − m_n) = Σ_{q<n, q^k|n} m_q Ω(q)
+a(n/q^k) = Ω(n)A(n) (the identity for the system truncated below n, whose count at n/q^k < n is a(n/q^k)), so a(n) − m_n = A(n), and
+(II) is then the defining rule. **Result: 0 failures of (I) and 0 of (II) over all n ≤ 10⁹** (`logs/omega_check.log`; 3.5 min,
+peak 707 MB). So the dump is S5(0.8) on [1, 10⁹], and every one of the 2,525 g-primes in `certK/K1_gdiv.txt` is a g-prime of S5(0.8).
+
+## §3. The exact system beyond 10⁹ (task 3) [computed, one code path]
+
+For 10⁹ < n ≤ 2·10⁹ every g-prime q < n dividing n is ≤ 10⁹ and every n/q^k is ≤ 10⁹, so the Ω-recursion of §2.1 gives A(n) =
+acc(n)/Ω(n) from the certified dump alone, and the rule gives m_n; `omega_check.c` runs this as its generator mode (division
+exact at all 10⁹ new n — an internal check — and no memory beyond the segment). Results (`logs/omega_check.log`):
+N(2·10⁹) = 1,600,000,009, C(2·10⁹) = 9; 47,353,731 g-primes in (10⁹, 2·10⁹] (π(2·10⁹) − π(10⁹) = 47,374,753 by `verify/pi.c`, `logs/pi.log`),
+list in `/private/tmp/rh-s40-s5mult/gp_ext_1e9_2e9.u32`; **max a_n on (10⁹, 2·10⁹] = 344 at 1,805,076,000 = 2·902,538,000 =
+2⁵·3²·5³·7·13·19·29** (log a/log n = 0.2740), **sup E = 348.0 at 1,805,076,001**; local exponent of max a_n against [10⁸·⁵, 10⁹):
+log(344/276)/log 2 = 0.318. The record holder doubled, as the anatomy predicts (one more factor 2 multiplies the carrier choices).
+Dress rehearsal: §2.5 checks the 10⁹ dump entry by entry (stronger than a sub-range hash).
+*Not done, priced:* the next half-decade [2·10⁹, 10⁹·⁵] needs a(j) stored to 1.58·10⁹ and the g-primes to 1.58·10⁹ (≈ 2 GB beyond the
+dump), and [10⁹·⁵, 10¹⁰] needs a(j) to 5·10⁹ — over the 4 GB cap. It buys one exact half-decade, while the certified bound already
+reaches 10⁴²·⁶ (§2.3); skipped after the stop line fired.
+
+## §4. Structure theorems (task 4)
+
+Setting: P an ℕ-supported discrete system — integers q ≥ 2 with multiplicities m_q ≥ 0, finitely many ≤ x; a_n = #multisets
+(copies distinguished) with product n; π_P(x) = Σ_{q≤x} m_q. Write A(x) = #{rational primes p ≤ x with m_p ≥ 1} ("accepted"),
+R(x) = π(x) − A(x) ("refused"), K(x) = Σ_{q ≤ x composite} m_q, A(y, x] = A(x) − A(y), etc. P is *free* if a_n ≤ 1 for all n.
+
+**Theorem T1 (bounded multiplicity is freeness) [proved here].** The following are equivalent: (i) sup_n a_n < ∞; (ii) a_n ≤ 1
+for all n; (iii) every m_q ≤ 1 and the g-primes are multiplicatively independent in ℚ^×. Quantitatively: if two distinct multisets
+have product n₀, then a_{n₀^k} ≥ k + 1 for every k, so max_{n≤x} a_n ≥ ⌊log x/log n₀⌋ + 1; and if λ₁, …, λ_r ∈ ℤ^{(G)} are linearly
+independent relations (Π q^{λ_i(q)} = 1, λ_i = λ_i⁺ − λ_i⁻, height n_i = Π q^{λ_i⁺(q)}), then a_m ≥ Π_i (k_i + 1) at m = Π n_i^{k_i}.
+*Proof.* (iii)⇒(ii): two distinct multisets with one product differ by a nonzero integer relation. (ii)⇒(i): trivial. (i)⇒(iii):
+m_q ≥ 2 gives a_{q^k} ≥ k + 1 (how many of the k factors are the first copy); a relation gives unbounded a by the quantitative part.
+Quantitative part: the multisets M_j = j·M ⊎ (k − j)·M′ (j = 0, …, k) all have product n₀^k, and they are distinct: at an element
+x with mult_M(x) ≠ mult_{M′}(x), mult_{M_j}(x) = j·mult_M(x) + (k − j)·mult_{M′}(x) is strictly monotone in j. For r relations take
+Σ_i [j_i λ_i⁺ + (k_i − j_i) λ_i⁻], 0 ≤ j_i ≤ k_i; two choices differ by Σ_i (j_i − j′_i) λ_i ≠ 0. ∎
+So "a_n ≤ M for all n" collapses to the free case; any relation already forces logarithmic growth along powers.
+
+**Theorem T2 (free systems on ℕ: the rank count) [proved here].** Let P be free. Then for every x ≥ 2:
+ (a) K(x) ≤ R(x/2);  (b) π_P(x) ≤ π(x) − [R(x) − R(x/2)] ≤ π(x);  equivalently R(x) − R(x/2) ≤ π(x) − π_P(x).
+*Proof.* By T1 the g-primes are independent with m_q ≤ 1. Let V = {g-primes ≤ x} minus the rational primes in (x/2, x]. Every q ∈ V
+is a prime ≤ x/2 or a composite q = pk ≤ x with k ≥ 2, so all its prime factors are ≤ x/2: V lies in the free abelian group
+⟨primes ≤ x/2⟩ of rank π(x/2), and V is independent, so |V| = A(x/2) + K(x) ≤ π(x/2), i.e. K(x) ≤ R(x/2). Then
+π_P(x) = A(x) + K(x) ≤ A(x) + R(x/2) = π(x) − R(x) + R(x/2). ∎
+(The orchestrator's sketch had the right count; its two "facts" about prime factors are true for every integer, and the content is
+the independence. The sharp form is (a): each composite g-prime ≤ x uses up one refused prime ≤ x/2.)
+
+**Corollary T3 (free + Landau ⇒ thin surgery of ℙ) [proved here, from a quoted PNT].** *Quoted* (Diamond–Montgomery–Vorhauer,
+Math. Ann. 334 (2006), pp. 2–3, `novel-wave-s37/beurling-frontier/sources/p1-02-…txt` l. 99–115): "Landau's reasoning in fact
+provides a proof that if N_B(x) = κx + O(x^θ) with κ > 0 and 0 ≤ θ < 1, then … π_B(x) = li(x) + O(x exp(−c√((1 − θ) log x)))" (the
+radical is lost in the text extraction; (2) at l. 38 is the classical π(x) = li(x) + O(x exp(−c√log x))). Let P be free with
+N_P(x) = ρx + O(x^θ), θ < 1. Then R(x) = O(x exp(−c′√log x)) and K(x) = O(x exp(−c′√log x)) for some c′ = c′(θ) > 0: P is ℙ with
+a set of refused primes and a set of added composites, both of counting function O(x e^{−c′√log x}) — a thin surgery.
+*Proof.* By T2(b) and the two PNTs, D(y) := R(y) − R(y/2) ≤ |π(y) − li(y)| + |li(y) − π_P(y)| ≤ C y e^{−c√((1−θ) log y)}. Summing
+dyadically, R(x) = Σ_{j≥0} D(x/2^j): the terms with x/2^j ≥ √x total ≤ 2Cx e^{−c√((1−θ)(log x)/2)}; the remaining terms
+telescope to R(x/2^{j₀}) ≤ π(√x) ≤ √x.
+K(x) ≤ R(x/2) by T2(a). ∎
+*Converse (how thin is enough) [proved here].* For any set R of primes with Σ_{p∈R} p^{−θ} < ∞, the system (ℙ ∖ R) ∪ {2p : p ∈ R} is
+free (each 2p brings its own new prime) and attains T2(a) with equality, K(x) = R(x/2); its zeta function is ζ(s)H(s), H(s) =
+Π_{p∈R}(1 − p^{−s})/(1 − (2p)^{−s}) = Σ h(n)n^{−s} with Σ|h(n)|n^{−θ} ≤ Π_{p∈R}(1 + p^{−θ})(1 − (2p)^{−θ})^{−1} < ∞, hence
+N_P(x) = Σ_{d≤x} h(d)⌊x/d⌋ = H(1)x + O(x^θ). So the necessary O(x e^{−c√log x}) and the sufficient Σ_R p^{−θ} < ∞ bracket the truth;
+whether a free system with N = ρx + O(x^θ) can refuse ≍ x^{θ″} primes with θ < θ″ < 1 is left open (it needs H with cancellation
+between deletions and carriers, not available from absolute convergence).
+
+**4(b) — what survives under a_n ≤ M and under Ramanujan [proved here, examples].** a_n ≤ M ⇒ free (T1) ⇒, with N = ρx + O(x^θ),
+a thin surgery of ℙ (T3): complete. Under a_n ≪ n^ε the system need not be free, and composites need not be few unless density
+is imposed: (R1) ℙ ∪ {6}: a_n = min(v₂(n), v₃(n)) + 1 ≤ log₂ n + 1 and N(x) = Σ_{j≥0}⌊x/6^j⌋ = (6/5)x + O(log x) — a finite,
+non-free surgery with an excellent integer count. (R2) ℙ ∪ {2p : p prime}: for n = 2^a m (m odd) the factorizations are the choices
+0 ≤ j_p ≤ v_p(m) (copies of 2p) with Σ j_p ≤ a, so a_n ≤ τ(m) ≪ n^ε; but N(x)/x is unbounded (if N(x) ≤ Cx then ζ_P(σ) =
+σ∫N x^{−σ−1}dx ≤ Cσ/(σ − 1), while ζ_P(σ) ≥ ζ(σ)Π_p(1 + (2p)^{−σ}) and Σ_p 1/(2p) diverges). So Ramanujan permits dense composites;
+the density ρx is what must exclude them. **Open (stated precisely):** is there an ℕ-supported system with N(x) = ρx + O(x^θ), θ < 1,
+a_n ≪ n^ε, and a positive proportion of refused primes? By T4 below such a system has max_{n≤x} a_n ≥ x^{κ/log log x} — compatible
+with Ramanujan, so T4 does not decide it; S5(0.8) is no candidate (a_{n_K} ≥ 4.26·n_K^{0.35}, §2.3).
+
+**4(c) — a large relation lattice forces multiplicity [proved here].**
+*Lemma A.* Let V be a finite multiset of integers ≥ 2, Q the set of primes dividing its members, f_V(n) the number of
+sub-multisets with product n, Z_V(σ) = Π_{q∈V}(1 − q^{−σ})^{−1}, Z_Q(σ) = Π_{p∈Q}(1 − p^{−σ})^{−1}. If 0 < δ < σ and
+x^δ ≥ 2Z_V(σ − δ)/Z_V(σ), then max_{n≤x} f_V(n) ≥ Z_V(σ)/(2Z_Q(σ)).
+*Proof.* Σ_{n>x} f_V(n)n^{−σ} ≤ x^{−δ}Σ_n f_V(n) n^{−σ+δ} = x^{−δ}Z_V(σ − δ) ≤ Z_V(σ)/2, so Σ_{n≤x} f_V(n)n^{−σ} ≥ Z_V(σ)/2; and since
+f_V lives on Q-smooth n, Σ_{n≤x} f_V(n)n^{−σ} ≤ max_{n≤x} f_V(n) · Z_Q(σ). ∎
+*Theorem T4.* Let V be a finite multiset of integers in [2, y], Q its prime support, D = |V| − |Q|, θ(Q) = Σ_{p∈Q} log p, and
+0 < c ≤ 1. If log x ≥ (2 log 2/c)(|V| + 1) log y + Σ_{q∈V} log q, then
+  max_{n≤x} f_V(n) ≥ ½ exp( D log(1/c) − Σ_{p∈Q} log(log y/log p) − c θ(Q)/log y ).
+*Proof.* With φ_σ(t) = −log(1 − t^{−σ}) and u = σ log t > 0: 1 − e^{−u} ≤ u and 1 − e^{−u} ≥ u e^{−u} (as e^u − 1 ≥ u) give
+log(1/u) ≤ φ_σ(t) ≤ log(1/u) + u. Take σ = c/log y, δ = σ/2. Then log Z_V(σ) ≥ Σ_V log(log y/(c log q)) ≥ |V| log(1/c), and
+log Z_Q(σ) ≤ Σ_Q [log(log y/(c log p)) + c log p/log y] = |Q| log(1/c) + Σ_Q log(log y/log p) + cθ(Q)/log y; subtract.
+For the tail condition, log Z_V(σ/2) − log Z_V(σ) ≤ Σ_V [log(2/(σ log q)) + (σ/2)log q − log(1/(σ log q))] = |V| log 2 +
+(σ/2)Σ_V log q, so x^{σ/2} ≥ 2Z_V(σ/2)/Z_V(σ) holds once (c/(2 log y)) log x ≥ (|V| + 1) log 2 + (c/(2 log y))Σ_V log q. Lemma A. ∎
+*Corollary T4′.* Let P be ℕ-supported with π_P(y) = (1 + o(1)) y/log y (true under N = ρx + O(x^θ), θ < 1, by the quoted Landau
+PNT) and with a positive proportion of refused primes in dyadic ranges: Σ_{y/2<p≤y} m_p ≤ (1 − δ)(π(y) − π(y/2)) for large y. Then
+max_{n≤x} a_n ≥ exp(κ log x/log log x) for large x, with κ = κ(δ) > 0; hence sup_{u≤x}|N(u) − ρ⌊u⌋| ≥ ½exp(κ log x/log log x) − 1.
+*Proof.* Take V = {g-primes ≤ y} minus the primes in (y/2, y] (multiplicity counted); Q ⊆ {p ≤ y/2} as in T2. By the classical PNT
+(DMV l. 38), D ≥ π_P(y) − Σ_{y/2<p≤y} m_p − π(y/2) ≥ (δ/2 − o(1)) y/log y. Next Σ_{p≤y/2} log(log y/log p) ≪ y/log² y: primes ≤ √y give
+O(√y log log y), and for p > √y, log(log y/log p) ≤ 2 log(y/p)/log y with Σ_{p≤y} log(y/p) = ∫₁^y π(t)dt/t ≪ y/log y (Chebyshev
+π(t) ≪ t/log t [recalled, unverified — classical, elementary]). And θ(Q) ≤ θ(y/2) ≤ y log 2 (Chebyshev, same label). So
+log max ≥ (y/log y)(½δ log(1/c) − c log 2 − o(1)) at log x = (2 log 2/c + 1)(1 + o(1)) y; fix c = c(δ) small and solve for y. The
+error statement follows from a_n − ρ = C(n) − C(n − 1). ∎
+So the rank excess forces divisor-function-size multiplicity, not a power: T4′ alone says nothing about β. The power-size
+multiplicity of S5(0.8) at the computed scales (§2) is a property of its carriers, not of rank alone (§5).
+
+## §5. Carriers and the model (tasks 5 and 2(ii))
+
+**5.1 Two exact facts about the rule [proved here].** (a) E(n) ≥ −0.4 for all n ≥ 1: E takes values in ⅕ℤ; if m_n ≥ 1 then
+a_n = A(n) + ⌊1.3 − E(n − 1) − A(n)⌋ > 0.3 − E(n − 1), and if m_n = 0 then 1.3 − E(n − 1) − A(n) < 1, i.e. A(n) > 0.3 − E(n − 1);
+either way E(n) = E(n − 1) + a_n − 0.8 > −0.5, so E(n) ≥ −0.4 (E(1) = 0). (Using 0.8(n − 1) + 1 − N(n − 1) = 1.3 − E(n − 1) − 0.5,
+so m_n = max(0, ⌊1.3 − E(n − 1) − A(n)⌋).) (b) Hence m_n ≥ 1 forces A(n) ≤ 0.3 − E(n − 1) ≤ 0.7, i.e. A(n) = 0, and then
+m_n = ⌊1.3 − E(n − 1)⌋ ≤ 1: **every multiplicity is 0 or 1, and n is a g-prime iff n is not representable by smaller g-primes and
+E(n − 1) ≤ 0.3.** (Matches the dump: all m_q = 1; inf E = −0.4.)
+
+**5.2 Data [computed]** (`verify/carriers.c`, `logs/carriers.log`, 12 s). Per decade [10^d, 10^{d+1}):
+
+| d | non-representable n (A = 0), share | accepted share of those | × ln(10^{d+½}) | accepted primes | refused primes | composite g-primes |
+|---|---|---|---|---|---|---|
+| 4 | 0.477 | 0.196 | 2.03 | 1,601 | 6,762 | 6,807 |
+| 6 | 0.541 | 0.121 | 1.80 | 65,657 | 520,424 | 520,957 |
+| 8 | 0.594 | 0.0844 | 1.65 | 3,523,361 | 41,562,718 | 41,543,940 |
+
+Composite g-primes replace refused primes one for one in every decade (decade 8: difference 18,778 out of 4.2·10⁷) — the PNT
+balance π_P ≈ π, held by the rule. Refused share of primes: 81% (d = 4) → 92% (d = 8). Carriers: for each of the first 30 refused
+primes ℓ (5, 19, 29, 41, 59, 61, 79, 89, 109, 139, 149, 163, …, 359), the number of composite g-primes ≤ 10⁹ divisible by ℓ is
+**c_ℓ(10⁹) = (0.039 … 0.047)·10⁹/ℓ** — e.g. 8,147,069 for ℓ = 5, 2,244,986 for 19, 379,987 for 109, 265,851 for 149 — i.e. ≈ 0.043 =
+0.9/ln 10⁹ of the multiples of ℓ, the same for every ℓ; among the non-representable multiples of ℓ in decade 8 the accepted share is
+1.6–1.8/ln n, as for all integers (ℓ = 5: 1.25/ln n). **So the heuristic holds: a multiple n of a refused prime is a carrier with
+probability ≈ c/ln n, c ≈ 1.6–1.8, given that it is not already a g-integer (about half are not).** Which refused primes carry the
+most carriers: the smallest, in proportion to 1/ℓ (5 alone has 8.1·10⁶); per unit of log ℓ they are all alike, which is why the
+search of §2 takes the refused primes in increasing order (59, 61, 79, 89, 109, 149) at nearly equal rates 0.39–0.42.
+
+**5.3 The model.** A factorization of n must cover each refused ℓ | n by carriers ℓs (s | n/ℓ; or multi-ℓ carriers), so adding a
+new refused prime multiplies the count by g_ℓ(n) = Σ_{s | n, ℓs ∈ G} f(n/s)/f(n) ≈ (c/ln(ℓs̄))·Σ_{s|n} s^{−μ}, μ the current exponent.
+For highly composite n, Σ_{s|n} s^{−μ} = Π_{p^e ∥ n}(1 + p^{−μ} + … + p^{−eμ}) grows without bound as n gains small primes, so the
+marginal rate ln g_ℓ/ln ℓ can stay above μ and μ climbs — the observed 0.27 → 0.365 with marginal 0.38–0.46 (§2.4), not the
+decreasing divisor-function shape n^{c/log log n} (which is only the rank lower bound T4′). With all g-primes available
+(sizes unbounded, carrier density c/ln) the same count for squarefree n with w prime factors is ≈ Σ_{partitions} Π_blocks c/ln(block)
+≈ Bell(w)·Π(c/ln), exponent → 1 (set-partition regime) [heuristic]. With G ≤ 10⁹ fixed the certified exponent must eventually
+fall (f_G(n) ≤ (1 + log₂ n)^{|G|}). **Crossings [model]:** f_G ≥ 3.76 n^{0.35}: certified at 10^{42.6} (§2.3). f_G ≥ n^{0.383} (= half
+the zero's real part): if the marginal rate r persists, at log₁₀ n ≈ (42.577 r − 15.532)/(r − 0.383) = 64 (r = 0.42), 71 (0.41),
+88 (0.40); the true a_n crosses earlier. If limsup log a_n/log n > 0.383, then β ≥ that > Re ρ₁/2 and S5(0.8) satisfies α ≤ 2β —
+it would not be a counterexample to U at all.

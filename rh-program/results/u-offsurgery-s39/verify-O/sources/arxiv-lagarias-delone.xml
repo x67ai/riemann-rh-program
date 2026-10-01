@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/olehE9sJ2GZC9ou0V4ipjiRb/Xo</id>
+  <title>arXiv Query: search_query=au:Lagarias AND all:Delone&amp;id_list=&amp;start=0&amp;max_results=40</title>
+  <updated>2026-10-01T06:26:27Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=au:Lagarias+AND+all:Delone&amp;start=0&amp;max_results=40&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>40</opensearch:itemsPerPage>
+  <opensearch:totalResults>3</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/math/0110222v2</id>
+    <title>Substitution Delone Sets</title>
+    <updated>2002-08-31T19:04:15Z</updated>
+    <link href="https://arxiv.org/abs/math/0110222v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0110222v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  This paper addresses the problem of describing aperiodic discrete structures that have a self-similar or self-affine structure. Substitution Delone set families are families of Delone sets (X_1, ..., X_n) in R^d that satisfy an inflation functional equation under the action of an expanding integer matrix in R^d. This paper studies such functional equation in which each X_i is a discrete multiset (a set whose elements are counted with a finite multiplicity). It gives necessary conditions on the coefficients of the functional equation for discrete solutions to exist. It treats the case where the equation has Delone set solutions. Finally, it gives a large set of examples showing limits to the results obtained.</summary>
+    <category term="math.MG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2001-10-19T18:44:50Z</published>
+    <arxiv:comment>34 pages, latex file; some results in Sect 5 rearranged and theorems reformulated</arxiv:comment>
+    <arxiv:primary_category term="math.MG"/>
+    <arxiv:journal_ref>Discrete &amp; Computational Geometry 29, No. 2 (2003), 175--209.</arxiv:journal_ref>
+    <author>
+      <name>Jeffrey C. Lagarias</name>
+    </author>
+    <author>
+      <name>Yang Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/9909033v3</id>
+    <title>Repetitive Delone Sets and Quasicrystals</title>
+    <updated>2003-03-26T04:29:18Z</updated>
+    <link href="https://arxiv.org/abs/math/9909033v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/9909033v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  This paper considers the problem of characterizing the simplest discrete point sets that are aperiodic, using invariants based on topological dynamics. A Delone set whose patch-counting function N(T), for radius T, is finite for all T is called repetitive if there is a function M(T) such that every ball of radius M(T)+T contains a copy of each kind of patch of radius T that occurs in the set. This is equivalent to the minimality of an associated topological dynamical system with R^n-action. There is a lower bound for M(T) in terms of N(T), namely N(T) = O(M(T)^n), but no general upper bound.
+  The complexity of a repetitive Delone set can be measured by the growth rate of its repetitivity function M(T). For example, M(T) is bounded if and only if the set is a crystal. A set is called is linearly repetitive if M(T) = O(T) and densely repetitive if M(T) = O(N(T))^{1/n}). We show that linearly repetitive sets and densely repetitive sets have strict uniform patch frequencies, i.e. the associated topological dynamical system is strictly ergodic. It follows that such sets are diffractive. In the reverse direction, we construct a repetitive Delone set in R^n which has
+  M(T) = O(T(log T)^{2/n}(log log log T)^{4/n}), but does not have uniform patch frequencies. Aperiodic linearly repetitive sets have many claims to be the simplest class of aperiodic sets, and we propose considering them as a notion of "perfectly ordered quasicrystal".</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.DG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>1999-09-06T22:02:39Z</published>
+    <arxiv:comment>To appear in "Ergodic Theory and Dynamical Systems" vol.23 (2003). 37 pages. Uses packages latexsym, ifthen, cite and files amssym.def, amssym.tex</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <arxiv:journal_ref>Ergod. Th. Dyn. Sys. 23 (2003), 831--867. Copyright: Cambridge University Press</arxiv:journal_ref>
+    <author>
+      <name>Jeffery C. Lagarias</name>
+    </author>
+    <author>
+      <name>Peter A. B. Pleasants</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/0105088v1</id>
+    <title>Local Complexity of Delone Sets and Crystallinity</title>
+    <updated>2001-05-11T04:01:43Z</updated>
+    <link href="https://arxiv.org/abs/math/0105088v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0105088v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  This paper characterizes when a Delone set X is an ideal crystal in terms of restrictions on the number of its local patches of a given size or on the hetereogeneity of their distribution. Let N(T) count the number of translation-inequivalent patches of radius T in X and let M(T) be the minimum radius such that every closed ball of radius M(T) contains the center of a patch of every one of these kinds. We show that for each of these functions there is a `gap in the spectrum' of possible growth rates between being bounded and having linear growth, and that having linear growth is equivalent to X being an ideal crystal. Explicitly, for N(T), if R is the covering radius of X then either N(T) is bounded or N(T) &gt;= T/2R for all T&gt;0. The constant 1/2R in this bound is best possible in all dimensions. For M(T), either M(T) is bounded or M(T) &gt;= T/3 for all T&gt;0. Examples show that the constant 1/3 in this bound cannot be replaced by any number exceeding 1/2. We also show that every aperiodic Delone set X has M(T) &gt;= c(n)T for all T&gt;0, for a certain constant c(n) which depends on the dimension n of X and is greater than 1/3 when n &gt; 1.</summary>
+    <category term="math.MG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2001-05-11T04:01:43Z</published>
+    <arxiv:comment>26 pages. Uses latexsym and amsfonts packages</arxiv:comment>
+    <arxiv:primary_category term="math.MG"/>
+    <arxiv:journal_ref>Canad. Math. Bull. Vol 48 (4), 2002 pp. 634-652</arxiv:journal_ref>
+    <author>
+      <name>J. C. Lagarias</name>
+    </author>
+    <author>
+      <name>P. A. B. Pleasants</name>
+    </author>
+  </entry>
+</feed>

@@ -100,3 +100,11 @@ Append-only, dated blocks. Writer: Opus 5.5 (unit agent). Outputs only under `re
   (power sums τ_n ≤ 1 ∀n force |μ_r| < 1) — the latter contains W3's conclusion outright; KS lines 43–49, 56–58, 792–796 and BSS §8
   (line 1236) quoted correctly.
 - Running: M = 5 DE + polish (one heavy process); arXiv queries q7–q9 (rate-limited, background).
+
+## 11:51 IST 2026-10-01 — OPUS READER, batch 3 (pairs)
+- read-O §3 prior-art table, §4 FIX-FIRST F1–F6, §5 minor m1–m10 written (16 pairs). FIX-FIRST: F1 credit (Lemma M/M1/Theorem D
+  unconditional = QC read-O §2); F2 Hilberdink 2012 Thm 4.3/4.4 missed (W3 in print; L‴ finite-S core in print); F3 M = 4 probe value
+  (≥ −0.293651, not −0.31; M = 5 ≥ −0.218541); F4 Cor. M1 false as written (μ = δ₀, μ̂ = Lebesgue) — add "μ̂ purely atomic"; F5 zeta-zero
+  repairs are outside Prop. S/L‴(general) hypothesis (i); F6 §5.2 mechanism (b) is a heuristic labeled (P) — "k cannot be smooth" and
+  §0.4(3) "every finite-dimensional family … excluded" are unproved (smooth even self-dual k vanishing on Z_j exist by KNS Lemma 6).
+- M = 6 DE + polish running (one heavy process).

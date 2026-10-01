@@ -1,0 +1,40 @@
+decade [10^d,10^(d+1)): non-representable n (A=0), g-primes, acceptance = g/non-rep, acceptance*ln(10^(d+0.5)); accepted primes, refused primes, composite g-primes
+  d=1  nonrep=40 (0.4444 of n)  g=21  acc=0.52500  acc*ln=1.813  accepted primes=14 refused primes=7 composite g-primes=7
+  d=2  nonrep=378 (0.4200 of n)  g=140  acc=0.37037  acc*ln=2.132  accepted primes=63 refused primes=80 composite g-primes=77
+  d=3  nonrep=3990 (0.4433 of n)  g=1066  acc=0.26717  acc*ln=2.153  accepted primes=284 refused primes=777 composite g-primes=782
+  d=4  nonrep=42884 (0.4765 of n)  g=8408  acc=0.19606  acc*ln=2.032  accepted primes=1601 refused primes=6762 composite g-primes=6807
+  d=5  nonrep=458687 (0.5097 of n)  g=69127  acc=0.15071  acc*ln=1.909  accepted primes=9730 refused primes=59176 composite g-primes=59397
+  d=6  nonrep=4866561 (0.5407 of n)  g=586614  acc=0.12054  acc*ln=1.804  accepted primes=65657 refused primes=520424 composite g-primes=520957
+  d=7  nonrep=51189989 (0.5688 of n)  g=5096986  acc=0.09957  acc*ln=1.720  accepted primes=470176 refused primes=4626700 composite g-primes=4626810
+  d=8  nonrep=534123507 (0.5935 of n)  g=45067301  acc=0.08438  acc*ln=1.651  accepted primes=3523361 refused primes=41562718 composite g-primes=41543940
+refused prime l: carriers per decade d=3..8 (composite g-primes q in [10^d,10^(d+1)) with l | q), cumulative to 10^9; acceptance of non-representable multiples of l in decade 8 (x ln 10^8.5)
+  l=   5:      141     1261    10560    90715   802633  7241739  cum=  8147069  l*cum/1e9=0.041  acc8=0.06393 (x ln=1.251)  nonrep8/mult8=0.6293
+  l=  19:       61      388     3113    26180   225402  1989831  cum=  2244986  l*cum/1e9=0.043  acc8=0.09231 (x ln=1.807)  nonrep8/mult8=0.4550
+  l=  29:       30      254     2013    16988   144816  1291190  cum=  1455298  l*cum/1e9=0.042  acc8=0.08976 (x ln=1.757)  nonrep8/mult8=0.4635
+  l=  41:       31      196     1492    12169   105126   928197  cum=  1047216  l*cum/1e9=0.043  acc8=0.08800 (x ln=1.722)  nonrep8/mult8=0.4805
+  l=  59:       21      141     1108     8911    76919   675536  cum=   762641  l*cum/1e9=0.045  acc8=0.08606 (x ln=1.684)  nonrep8/mult8=0.5146
+  l=  61:       23      129     1013     8516    73088   641657  cum=   724431  l*cum/1e9=0.044  acc8=0.08719 (x ln=1.706)  nonrep8/mult8=0.4988
+  l=  79:       12       87      651     5698    50984   457619  cum=   515055  l*cum/1e9=0.041  acc8=0.08641 (x ln=1.691)  nonrep8/mult8=0.4648
+  l=  89:       11       83      648     5524    47544   423788  cum=   477600  l*cum/1e9=0.043  acc8=0.08470 (x ln=1.658)  nonrep8/mult8=0.4948
+  l= 109:       10       60      553     4338    37553   337471  cum=   379987  l*cum/1e9=0.041  acc8=0.08422 (x ln=1.648)  nonrep8/mult8=0.4853
+  l= 139:        9       50      396     3161    28091   254906  cum=   286616  l*cum/1e9=0.040  acc8=0.08584 (x ln=1.680)  nonrep8/mult8=0.4586
+  l= 149:       12       52      348     2936    26092   236409  cum=   265851  l*cum/1e9=0.040  acc8=0.08463 (x ln=1.656)  nonrep8/mult8=0.4625
+  l= 163:        7       41      339     3000    25204   224756  cum=   253348  l*cum/1e9=0.041  acc8=0.08261 (x ln=1.617)  nonrep8/mult8=0.4928
+  l= 179:        4       37      329     2518    22353   201855  cum=   227098  l*cum/1e9=0.041  acc8=0.08369 (x ln=1.638)  nonrep8/mult8=0.4797
+  l= 181:        9       38      314     2618    22801   204727  cum=   230508  l*cum/1e9=0.042  acc8=0.08402 (x ln=1.644)  nonrep8/mult8=0.4900
+  l= 199:        6       32      261     2407    20457   182620  cum=   205785  l*cum/1e9=0.041  acc8=0.08326 (x ln=1.630)  nonrep8/mult8=0.4850
+  l= 223:        5       30      268     2160    18920   166030  cum=   187414  l*cum/1e9=0.042  acc8=0.08171 (x ln=1.599)  nonrep8/mult8=0.5034
+  l= 227:       10       46      305     2489    20549   179281  cum=   202680  l*cum/1e9=0.046  acc8=0.08365 (x ln=1.637)  nonrep8/mult8=0.5405
+  l= 229:        7       31      250     2136    18515   163876  cum=   184816  l*cum/1e9=0.042  acc8=0.08227 (x ln=1.610)  nonrep8/mult8=0.5068
+  l= 239:        7       34      228     2005    17605   156767  cum=   176648  l*cum/1e9=0.042  acc8=0.08250 (x ln=1.615)  nonrep8/mult8=0.5046
+  l= 241:        5       41      268     2204    18554   162057  cum=   183130  l*cum/1e9=0.044  acc8=0.08352 (x ln=1.635)  nonrep8/mult8=0.5196
+  l= 263:        6       23      203     1718    14920   134015  cum=   150886  l*cum/1e9=0.040  acc8=0.08093 (x ln=1.584)  nonrep8/mult8=0.4839
+  l= 269:        5       26      217     1864    15809   140463  cum=   158385  l*cum/1e9=0.043  acc8=0.08265 (x ln=1.618)  nonrep8/mult8=0.5080
+  l= 281:        5       33      247     1916    16093   140332  cum=   158627  l*cum/1e9=0.045  acc8=0.08337 (x ln=1.632)  nonrep8/mult8=0.5256
+  l= 307:        5       25      205     1644    14314   125317  cum=   141511  l*cum/1e9=0.043  acc8=0.08172 (x ln=1.599)  nonrep8/mult8=0.5231
+  l= 331:        5       30      219     1654    14367   124402  cum=   140677  l*cum/1e9=0.047  acc8=0.08328 (x ln=1.630)  nonrep8/mult8=0.5494
+  l= 337:        2       27      212     1571    13536   118354  cum=   133702  l*cum/1e9=0.045  acc8=0.08269 (x ln=1.618)  nonrep8/mult8=0.5359
+  l= 347:        4       19      171     1398    12119   108513  cum=   122224  l*cum/1e9=0.042  acc8=0.08221 (x ln=1.609)  nonrep8/mult8=0.5089
+  l= 349:        6       21      154     1245    11101    99187  cum=   111715  l*cum/1e9=0.039  acc8=0.08196 (x ln=1.604)  nonrep8/mult8=0.4693
+  l= 353:        2       21      161     1329    11500   103081  cum=   116095  l*cum/1e9=0.041  acc8=0.08038 (x ln=1.573)  nonrep8/mult8=0.5030
+  l= 359:        5       23      163     1379    11429   102361  cum=   115361  l*cum/1e9=0.041  acc8=0.08166 (x ln=1.598)  nonrep8/mult8=0.5000

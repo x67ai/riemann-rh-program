@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/T+sqODNGIDOOSrTwYnjes+Zl9so</id>
+  <title>arXiv Query: search_query=ti:Beurling AND abs:multiplicities AND abs:integers&amp;id_list=&amp;start=0&amp;max_results=40</title>
+  <updated>2026-10-01T06:27:19Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=ti:Beurling+AND+(abs:multiplicities+AND+abs:integers)&amp;start=0&amp;max_results=40&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>40</opensearch:itemsPerPage>
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2311.11127v1</id>
+    <title>Beurling integers with lacunarity</title>
+    <updated>2023-11-18T17:24:05Z</updated>
+    <link href="https://arxiv.org/abs/2311.11127v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2311.11127v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present examples of multiplicative semigroups of positive reals (Beurling's generalized integers) with gaps bounded from below.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-11-18T17:24:05Z</published>
+    <arxiv:comment>10 pages. To be published in Mathematica Pannonica</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Imre Z. Ruzsa</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2301.11782v3</id>
+    <title>A note on Bohr's theorem for Beurling integer systems</title>
+    <updated>2023-03-09T08:53:13Z</updated>
+    <link href="https://arxiv.org/abs/2301.11782v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2301.11782v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Given a sequence of frequencies $\{λ_n\}_{n\geq1}$, a corresponding generalized Dirichlet series is of the form $f(s)=\sum_{n\geq 1}a_ne^{-λ_ns}$. We are interested in multiplicatively generated systems, where each number $e^{λ_n}$ arises as a finite product of some given numbers $\{q_n\}_{n\geq 1}$, $1 &lt; q_n \to \infty$, referred to as Beurling primes. In the classical case, where $λ_n = \log n$, Bohr's theorem holds: if $f$ converges somewhere and has an analytic extension which is bounded in a half-plane $\{\Re s&gt; θ\}$, then it actually converges uniformly in every half-plane $\{\Re s&gt; θ+\varepsilon\}$, $\varepsilon&gt;0$. We prove, under very mild conditions, that given a sequence of Beurling primes, a small perturbation yields another sequence of primes such that the corresponding Beurling integers satisfy Bohr's condition, and therefore the theorem. Applying our technique in conjunction with a probabilistic method, we find a system of Beurling primes for which both Bohr's theorem and the Riemann hypothesis are valid. This provides a counterexample to a conjecture of H. Helson concerning outer functions in Hardy spaces of generalized Dirichlet series.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.FA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-01-27T15:39:24Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Math. Ann. (2023)</arxiv:journal_ref>
+    <author>
+      <name>Frederik Broucke</name>
+    </author>
+    <author>
+      <name>Athanasios Kouroupis</name>
+    </author>
+    <author>
+      <name>Karl-Mikael Perfekt</name>
+    </author>
+    <arxiv:doi>10.1007/s00208-023-02756-x</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s00208-023-02756-x" title="doi"/>
+  </entry>
+</feed>

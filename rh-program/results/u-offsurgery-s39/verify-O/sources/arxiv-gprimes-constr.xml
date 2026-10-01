@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/grkTPpeFDseAtmlmf1EL8+mu8xk</id>
+  <title>arXiv Query: search_query=all:"generalized primes" AND all:construction AND all:integers&amp;id_list=&amp;start=0&amp;max_results=40</title>
+  <updated>2026-10-01T06:22:27Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22generalized+primes%22+AND+(all:construction+AND+all:integers)&amp;start=0&amp;max_results=40&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>40</opensearch:itemsPerPage>
+  <opensearch:totalResults>5</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2410.12488v2</id>
+    <title>Unifying error-correcting code/Narain CFT correspondences via lattices over integers of cyclotomic fields</title>
+    <updated>2025-01-07T02:24:25Z</updated>
+    <link href="https://arxiv.org/abs/2410.12488v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2410.12488v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We identify Narain conformal field theories (CFTs) that correspond to code lattices for quantum error-correcting codes (QECC) over integers of cyclotomic fields $Q(ζ_p)$ $(ζ_p=e^{\frac{2πi}p})$ for general prime $p\geq 3$. This code-lattice construction is a generalization of more familiar ones such as Construction A${}_C$ for ternary codes and (after the generalization stated below) Construction A for binary codes, containing them as special cases. This code-lattice construction is redescribed in terms of root and weight lattices of Lie algebras, which allows to construct lattices for codes over rings $Z_q$ with non-prime $q$. Corresponding Narain CFTs are found for codes embedded into quotient rings of root and weight lattices of $ADE$ series, except $E_8$ and $D_k$ with $k$ even. In a sense, this provides a unified description of the relationship between various QECCs over $F_p$ (or $Z_q$) and Narain CFTs. A further extension on constructing the $E_8$ lattice from codes over the Mordell-Weil groups of extremal rational elliptic surfaces is also briefly discussed.</summary>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-10-16T12:08:04Z</published>
+    <arxiv:comment>16 pages. Version 2: References are made to some literature. A discussion of codes over the Mordell-Weil groups of extremal rational elliptic surfaces is included</arxiv:comment>
+    <arxiv:primary_category term="hep-th"/>
+    <author>
+      <name>Shun'ya Mizoguchi</name>
+    </author>
+    <author>
+      <name>Takumi Oikawa</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2309.01567v2</id>
+    <title>Some examples of well-behaved Beurling number systems</title>
+    <updated>2024-06-26T13:09:01Z</updated>
+    <link href="https://arxiv.org/abs/2309.01567v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2309.01567v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We investigate the existence of well-behaved Beurling number systems, which are systems of Beurling generalized primes and integers which admit a power saving in the error term of both their prime and integer-counting function. Concretely, we search for so-called $[α,β]$-systems, where $α$ and $β$ are connected to the optimal power saving in the prime and integer-counting functions. It is known that every $[α,β]$-system satisfies $\max\{α,β\}\ge1/2$. In this paper we show there are $[α,β]$-systems for each $α\in [0,1)$ and $β\in [1/2, 1)$. Assuming the Riemann hypothesis, we also construct certain families of $[α,β]$-systems with $β&lt;1/2$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-09-04T12:43:16Z</published>
+    <arxiv:comment>24 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Trans. Amer. Math. Soc. 378 (2025), 477-501</arxiv:journal_ref>
+    <author>
+      <name>Frederik Broucke</name>
+    </author>
+    <author>
+      <name>Gregory Debruyne</name>
+    </author>
+    <author>
+      <name>Szilárd Révész</name>
+    </author>
+    <arxiv:doi>10.1090/tran/9274</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1090/tran/9274" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.07581v2</id>
+    <title>A Deterministic Cryptographic Prime Generation Chain over Monogenic Cubic Number Fields and their Generalizations</title>
+    <updated>2026-06-13T07:30:51Z</updated>
+    <link href="https://arxiv.org/abs/2605.07581v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.07581v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Generating primes is a fundamental problem in modern cryptography. Deterministic primality tests work well for special integers such as Mersenne or Proth primes, but these forms are quite restrictive. In this paper, we give a direct method to construct new primes from known ones. Starting with a seed prime $q \equiv 1 \pmod{3}$, we construct an integer $N \equiv 1 \pmod{3}$ satisfying $(2N + 1)^2 \equiv -3 \pmod{q}$. We then prove that $N$ is prime using the structure of monogenic pure cubic fields $K = \mathbb{Q}(\sqrt[3]{d})$. The resulting test requires only a single modular exponentiation and runs in $\tilde{\mathcal{O}}(\log^2 N)$ time. Finally, we show how this construction extends to pure number fields of arbitrary prime degree.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-08T10:51:34Z</published>
+    <arxiv:comment>Feedback is welcome</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Anuj Jakhar</name>
+    </author>
+    <author>
+      <name>Ravi Kalwaniya</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2102.08478v2</id>
+    <title>A new generalized prime random approximation procedure and some of its applications</title>
+    <updated>2024-06-17T10:04:30Z</updated>
+    <link href="https://arxiv.org/abs/2102.08478v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2102.08478v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present a new random approximation method that yields the existence of a discrete Beurling prime system $\mathcal{P}=\{p_{1}, p_{2}, \dotso\}$ which is very close in a certain precise sense to a given non-decreasing, right-continuous, nonnegative, and unbounded function $F$. This discretization procedure improves an earlier discrete random approximation method due to H. Diamond, H. Montgomery, and U. Vorhauer [Math. Ann. 334 (2006), 1-36], and refined by W.-B. Zhang [Math. Ann. 337 (2007), 671-704].
+  We obtain several applications. Our new method is applied to a question posed by M. Balazard concerning Dirichlet series with a unique zero in their half plane of convergence, to construct examples of very well-behaved generalized number systems that solve a recent open question raised by T. Hilberdink and A. Neamah in [Int. J. Number Theory 16 05 (2020), 1005-1011], and to improve the main result from [Adv. Math. 370 (2020), Article 107240], where a Beurling prime system with regular primes but extremely irregular integers was constructed.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-02-16T22:32:21Z</published>
+    <arxiv:comment>15 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Math Z. 307(2024), Article 62</arxiv:journal_ref>
+    <author>
+      <name>Frederik Broucke</name>
+    </author>
+    <author>
+      <name>Jasson Vindas</name>
+    </author>
+    <arxiv:doi>10.1007/s00209-024-03526-4</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s00209-024-03526-4" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2310.06971v3</id>
+    <title>Hypergeometric $L$-functions in average polynomial time, II</title>
+    <updated>2024-05-30T03:11:59Z</updated>
+    <link href="https://arxiv.org/abs/2310.06971v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2310.06971v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For a fixed positive integer $e$, we describe an algorithm for computing, for all primes $p \leq X$, the mod-$p^e$ reduction of the trace of Frobenius at $p$ of a fixed hypergeometric motive over $\mathbb{Q}$ in time quasilinear in $X$. This extends our previous work for the mod-$p$ reduction, again combining the Beukers--Cohen--Mellit trace formula with average polynomial time techniques of Harvey and Harvey--Sutherland; the key new ingredient is an expanded version of Harvey's "generic prime" construction, making it possible to incorporate certain $p$-adic transcendental functions into the computation. One of these is the $p$-adic Gamma function, whose average polynomial time computation is an intermediate step which may be of independent interest. We also provide an implementation in Sage and discuss the remaining computational issues around computing hypergeometric $L$-series.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-10-10T19:49:31Z</published>
+    <arxiv:comment>20 pages (refereed version); to appear in ANTS-XVI</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Edgar Costa</name>
+    </author>
+    <author>
+      <name>Kiran S. Kedlaya</name>
+    </author>
+    <author>
+      <name>David Roe</name>
+    </author>
+  </entry>
+</feed>

@@ -20,3 +20,15 @@ n_K = 2⁸·3⁵·5⁹·7³·11²·13·17·19³·23·29²·37·41²·59·61·79�
 membership and completeness verified against the dump) agree. Hence H_θ of Theorem K′ fails for all θ ≤ 0.35, all c < 1.88.
 Not refuted: Lemma H with unspecified constant (fixed G gives only polylog growth). Search: `search2.c` (v_p-identity scoring),
 log `logs/search2_rate_K60.log`. Next: independent re-verification of the dump itself (Ω-identity + rule check, §2.5), then T.
+
+## 11:53 IST 2026-10-01 — block 4: dump certified independently; exact system to 2·10⁹
+`omega_check.c`: Ω-identity (I) and rule (II) checked at every n ≤ 10⁹ — 0 failures each; induction ⇒ the dump is S5(0.8) on
+[1, 10⁹] (NOTE §2.5), so the K certificate's 2,525 g-primes are genuine. Generator mode to 2·10⁹: N = 1,600,000,009, C = 9,
+47,353,731 new g-primes, max a_n = 344 at 1,805,076,000 (= 2·902,538,000), sup E = 348.0 (NOTE §3). Next: T theorems (§4).
+
+## 11:56 IST 2026-10-01 — block 5: §4 structure theorems written
+T1 bounded a_n ⇔ free (with the quantitative relation bound); T2 free systems: K(x) ≤ R(x/2), π_P ≤ π, R(x) − R(x/2) ≤ π − π_P;
+T3 free + Landau PNT (quoted, DMV pp. 2–3 l. 99–115) ⇒ refused primes and composites both O(x e^{−c√log x}), converse with
+Σ_R p^{−θ} < ∞ via (ℙ∖R) ∪ {2p}; 4(b) Ramanujan examples ℙ ∪ {6}, ℙ ∪ {2p}, open question stated; T4 (Rankin-type lemma):
+rank excess D among g-primes ≤ y ⇒ max f ≥ ½exp(D log(1/c) − …) at log x ≍ y; T4′: positive-proportion refusal + PNT ⇒
+max a_n ≥ x^{κ/log log x} (divisor-function size, not a power). Next: §5 carriers/model, then §0 close.
