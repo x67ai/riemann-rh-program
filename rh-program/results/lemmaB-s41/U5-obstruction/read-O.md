@@ -244,13 +244,13 @@ NEW: lines, the L² abscissa ½ of integer-coefficient series, Hilberdink 2005's
 **F6** (close (i), continued; same sentence). l. 18:
 OLD: control L_ρ(s) = 1 + ρ^s ζ(s, ½ + ρ) (atoms at 1 and at S8's prime lattice 1 + (k − ½)/ρ) satisfies all those premises with
 NEW: control L_ρ(s) = 1 + ρ^s ζ(s, ½ + ρ) (atoms at 1 and at S8's prime lattice 1 + (k − ½)/ρ) satisfies all those premises (Hilberdink's contradiction scheme (3.4)/Remark C/Cor. 2 and Neamah–Hilberdink's Thm 1 are NOT in the list: they need an [α, β]-system with α < 1, zero order via Hilberdink–Lapidus Thm 2.3, which L fails; they are excluded on class (A) by §4.2 and §4.4 instead) with
-**F7** (Cor. 2.2). l. 132 and l. 134:
+**F7** (Cor. 2.2). l. 132:
 OLD: hypotheses it states, hence for L_ρ; so none of them can prove the obstruction, or even E unbounded, on class (A):
 NEW: hypotheses it states; items (1), (2′), (4), (5) hold for L_ρ, so none of them can prove the obstruction, or even E unbounded, on class (A); items (2″), (3) need an [α, β]-system (α < 1: JNT 112 l. 117–124; Hilberdink–Lapidus Thm 2.3 uses ζ ≠ 0 right of α, arXiv text l. 756) and fail for L_ρ (zeros in 1 < Re s < σ₁), so for them the reason is §4.2 / §4.4 (on class (A) their zero-order input is unavailable left of ½, and their conclusion constrains α and γ, not β):
 **F8** (Cor. 2.2, items (2)–(3)). l. 134:
 OLD: (3.2)–(3.3) and its contradiction scheme (JNT 112, pp. 337–340), and his Remark C (§4); (3) Neamah–Hilberdink's Theorem 1 (§4);
 NEW: (3.2)–(3.3) [= (2′), valid for L]; (2″) its contradiction scheme (JNT 112, pp. 337–340) and his Remark C (§4), and (3) Neamah–Hilberdink's Theorem 1 (§4) [not valid for L; see the lead sentence];
-**F9** (§4.3). l. 213–217:
+**F9** (§4.3). l. 214–217:
 OLD: absolutely convergent beyond it), and the proof runs with 1 replaced by σ₁ (κ → (σ₁ − σ)/(σ₁ − Θ) < 1: zero order again). Hence every
 conclusion of 4.1–4.2 holds for L_ρ (with E_L bounded): Cor. 2(b) predicts infinitely many zeros of L in η < Re s < 1 for each
 η ∈ (0, ½); exploratory counts are in §3.4. So no strengthening of this method to "β ≥ f(σ*)" with f > 0 is possible: L_ρ is an
@@ -272,3 +272,63 @@ NEW: **1.2 The lattice control L_ρ** [novelty: new as a statement on a printed 
 
 **Total: 13 FIX-FIRST pairs (F1–F13).** F1–F4: one finding (L has infinitely many zeros right of 1; α_L = σ₁ > 1); F5–F12: one
 finding (the Hilberdink contradiction scheme and Neamah–Hilberdink Thm 1 need α < 1 and do not apply to L); F13: missed prior art.
+
+## §5. Minor pairs
+
+**m1** (Thm 2.1(a)). l. 109:
+OLD: an even number of atoms (Π_L(λ) = c(e) of Prop. 1.1(v) has the sign (−1)^{k+1}; −1 at every 2-fold product).
+NEW: an even number of atoms (Π_L(λ) = c(e) of Prop. 1.1(v) has the sign (−1)^{k+1}; Π_L = −1 at every ℓ_aℓ_b, a ≠ b, and −½ at ℓ_a²; the Euler exponent m is −1 at both).
+**m2** (Prop. 1.1(v)). l. 59:
+OLD: the proof of Thm 1.6; again no positivity). (v) **Signed integer Euler product.** Let t be transcendental. Then formally
+NEW: the proof of Thm 1.6, run from Re s > σ₁, where the log-series of L converges absolutely; again no positivity). (v) **Signed integer Euler product.** Let t be transcendental. Then, as formal series (absolutely convergent only on Re s > σ₁, §3.4),
+**m3** (Remark 2.3). l. 143:
+OLD: 0.79899 exactly as in Theorem 1.6 (Z → −∞ as σ → 1⁻), although V undershoots and so fails (A). So a real zero > ½, integer weights and a
+NEW: 0.79899 exactly as in Theorem 1.6 (Z → −∞ as σ → 1⁻), although V's degree-level error −¼ is negative (the degree-level analog of failing (A); V has no archimedean density). So a real zero > ½, integer weights and a
+**m4** (Prop. 3.2, proof). l. 159:
+OLD: at e_i = ρℓ_i/2). Hölder: Σℓ_i³ ≥ (Σℓ_i)³/n² = U³/n². So ∫_U^{2U}E² ≥ ρ²U³/(12n²) = (U/12)(1 + o(1)). Equality forces all ℓ_i equal to
+NEW: at e_i = ρℓ_i/2). The n atoms cut [U, 2U] into n + 1 pieces (two boundary pieces included), Σℓ_i = U, and Hölder gives Σℓ_i³ ≥ U³/(n + 1)². So ∫_U^{2U}E² ≥ ρ²U³/(12(n + 1)²) = (U/12)(1 + o(1)). Equality forces all ℓ_i equal to
+**m5** (Prop. 3.2, consequence). l. 160–161:
+OLD: 1/ρ and e_i = ½, which is E_L. ∎ Consequence (summing dyadic blocks): ∫_1^∞E²u^{−2σ−1}du ≥ (1 + o(1))/(48σ log 2) as σ → 0⁺, i.e. "E is
+not o(1) in mean square" — and nothing more, since L_ρ meets the bound with E_L bounded. *Test* [computed: `meansq_split.log` (4)]: block
+NEW: 1/ρ and e_i = ½, which is E_L. ∎ Consequence (summing blocks [U, (1 + η)U], η → 0): ∫_1^∞E²u^{−2σ−1}du ≥ (1 + o(1))/(24σ) as σ → 0⁺ (dyadic blocks give the weaker 1/(48σ log 2)), i.e. "E is not o(1) in mean square" — and nothing more, since E_L attains 1/(24σ) asymptotically with E_L bounded (read-O `meansq_O.log`: σ·∫ = 0.04154 at σ = 0.005). *Test* [computed: `meansq_split.log` (4)]: block
+**m6** (§3.3). l. 166:
+OLD: the exact 2π∫_1^X E²u^{−1.6} = 1.0543 and 0.6875 (σ = 0.45: 0.4821/0.4835, 0.3946/0.3955); the shortfall is the tail |t| > 2048.
+NEW: 2π∫_1^X E²u^{−1.6} = 1.0543 and 0.6875 by 3-point Gauss–Legendre per gap (σ = 0.45: 0.4821/0.4835, 0.3946/0.3955); for L the exact closed form is 0.689343 (σ = 0.3) and 0.397362 (σ = 0.45) (read-O `meansq_O.log`), the S8 values carry a similar first-gap error; the shortfall is the tail |t| > 2048.
+**m7** (§3.4). l. 185:
+OLD: `zeros_L_S8.log`]. Newton from minima of |f| on five vertical lines, kept if |f| < 10⁻⁸ (not an exhaustive count): L_{π/16} has ≥ 12 zeros
+NEW: `zeros_L_S8.log`]. Newton from minima of |f| on five vertical lines, kept if |f| < 10⁻⁸ (not an exhaustive count; the argument principle gives exactly 12, all with Re s < ¾, read-O `zeros_O_A.log`): L_{π/16} has ≥ 12 zeros
+**m8** (§5.1). l. 250:
+OLD: **For S8 the converse holds** [quoted: s40 NOTE Cor. 1.4′, l. 92–94]: E(x) = sup_{y≤x}(C[y, x] − ρ(x − y)) + r(x), r ∈ (−½, ½]. So
+NEW: **For S8 the converse holds** [quoted: s40 NOTE Lemma 1.4 and Cor. 1.4′, l. 76–92 of the current s40 text; no ties, t transcendental]: E(x) = sup_{y≤x}(C[y, x] − ρ(x − y)) + r(x), r ∈ (−½, ½]. So
+**m9** (§6.2, Mertens hypothesis). l. 307–308:
+OLD: and Mertens' Σ_{β≤x}Λ(β)/β = log x − A/ρ + o(1), A := ρ + ∫_1^∞R(u)u^{−2}du (the constant term of ζ_P at 1; the o(1) needs a PNT with
+error o(x/log x) [recalled: Landau-type PNT under (B)]), ψ(I) ≥ 0 reads
+NEW: and Mertens' Σ_{β≤x}Λ(β)/β = log x − A/ρ + o(1), A := ρ + ∫_1^∞R(u)u^{−2}du (the constant term of ζ_P at 1; the o(1) needs ψ(u) − u = o(u) and ∫_1^∞(ψ(u) − u)u^{−2}du convergent, which the PNT with error O(x e^{−c√log x}) under (B) gives [quoted: Hilberdink 2005, JNT 112, l. 126–131, from Diamond]; an error o(x/log x) alone does not), ψ(I) ≥ 0 reads
+**m10** (§6.2). l. 310:
+OLD: (★) holds automatically for every Beurling system.
+NEW: (★) holds automatically for every Beurling system with (B) (the Mertens form needs the PNT above; the exact identity needs nothing).
+**m11** (§7, recalled list). l. 345–346:
+OLD: of m_λ holds for every ρ); Bohr's theorem on values of Dirichlet series with independent frequencies (only to explain why zeros of L
+right of 1 should exist); a PNT with error o(x/log x) under (B) (only for the Mertens form of (★); the exact identity in §6.2 needs none).
+NEW: of m_λ holds for every ρ). Zeros of L right of 1: proved (read-O §1.8; method of Davenport–Heilbronn as written in Chatterjee–Gun, arXiv:1407.8319, §3). PNT under (B): quoted, Hilberdink 2005 l. 126–131 (only for the Mertens form of (★); the exact identity in §6.2 needs none).
+**m12** (notation). l. 126 and l. 189: the NOTE's σ₁ (abscissa of log L) collides with the stream's σ₁ (certificate point ζ_P(σ₁) > 0:
+ORCH-NOTES O1, O10; s40 Cor. 1.7(iii)).
+OLD: σ₁ (where Σ_kℓ_k^{−σ₁} = 1) is 1.181340 (π/16) and 1.091222 (π/32): log L converges absolutely only beyond it. A scan of
+NEW: σ_a (where Σ_kℓ_k^{−σ_a} = 1; renamed from σ₁ throughout to avoid the certificate point σ₁ of O1/O10) is 1.181340 (π/16) and 1.091222 (π/32): log L converges absolutely only beyond it. A scan of
+
+**Total: 12 minor pairs (m1–m12).**
+
+## §6. Novelty per result
+
+| result (NOTE) | NOTE's label | read-O verdict |
+|---|---|---|
+| Lattice control L_ρ, Prop. 1.1 (i)–(iv), §1.3 | single-check | new as a statement on a printed core: Hilberdink JTNB 23 (2011) Thm 1, Cor. 2, remark (a) (class of N with N − cx periodic, no positivity) and Hilberdink 2012 Thm A; the real zero in (1 − 2ρ, 1) via s40 Thm 1.6 is new as applied (F13) |
+| Prop. 1.1(v), signed integer Euler exponents | proved here | new as a statement on a printed core (the integer "Witt" factorization of a series with integer coefficients and constant term 1 is classical; the closed form c(e), m_λ is a direct computation) |
+| Thm 2.1 / Cor. 2.2 (method classes) | proved here; single-check | new, after F5–F12 (items (2″), (3) re-assigned to §4.2/§4.4) |
+| Remark 2.3 (virtual curve V) | re-derived | the object is the orchestrator's (s39 digest); its use as a third control is new; b_d ≥ 0 for all d added here |
+| Prop. 3.2 (block mean square ≥ 1/12) | proved here | elementary; not found on disk; label "proved here" fine, novelty not claimed |
+| Prop. 5.1 (clip bound) + S8 equivalence | proved here + quoted | elementary given s40 Cor. 1.4′; fine |
+| §5.3 inclusion–exclusion | proved here | standard sieve identity on a free monoid; fine |
+| Cor. 6.1 | proved here from Hilberdink 2012 Thm A | immediate corollary of a printed theorem (correctly labeled) |
+| (★) and its failure for L | reading + proved here | new as stated; failure at even products confirmed |
+| §1.8 of this read (zeros of L right of 1) | — | new as a statement on a printed core: Davenport–Heilbronn method, Chatterjee–Gun arXiv:1407.8319 §3 |
