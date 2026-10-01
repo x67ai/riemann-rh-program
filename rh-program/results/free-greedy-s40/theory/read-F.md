@@ -10,3 +10,26 @@ Remark (the orchestrator's): the statement does not need the system to be discre
 
 ## Not read here
 Lemmas 1.0–1.5, the reflection and gap identities (Prop. 2.1: E ≤ ρ·(largest g-prime gap) − ½), the Legendre form, where routes (a)–(c) break, Theorems 4.1–4.2, the prior-art log (Diamond 1970 p. 24; Malliavin 1961 §6; BDR pp. 16–17; Lagarias 1999).
+
+---
+
+# read-F (COMPLETED) — Session 41, the orchestrator's read at the line (Fable 5.1, 17:20 IST 2026-10-01)
+
+NOTE read whole at caeb71db64b81ea3… (440 lines) BEFORE the Opus `read-O.md` (9c8a5eec48f4d531…) was opened. **Verdict: AGREES-WITH-CORRECTIONS — close T + G stands.**
+
+## What I re-derived
+- Lemmas 1.0–1.2, 1.4, Cor. 1.4′, Lemma 1.5 (both forms of F_X), Theorem 1.6 (Session 40, above), Cor. 1.7: (ii) with the strict endpoint reads α > 1 − 2ρ ≥ max{½, 2θ} ≥ max{½, 2β} for ρ ≤ ¼, θ ≤ ½ − ρ. ✓
+- Prop. 2.1 ✓ (k ≥ 1). The Lindley form, which the NOTE does not state: with x_k = 1 + (k − ½)/ρ, c_k = #composites in (x_{k−1}, x_k], e_k = N(x_k) − (k + 1): e_k = max(e_{k−1} + c_k − 1, 0), and a g-prime sits at x_k iff e_{k−1} = 0 and c_k = 0. (Proof: N(x) ≥ ⌈ρx + ½ − ρ⌉ forces N(x_k) ≥ k + 1 just after x_k; N(x_{k−1}) = k + e_{k−1}; the rule adds one g-integer at x_k exactly when e_{k−1} + c_k = 0.) S8 is a single-server queue, one service per lattice step, fed by composites; the g-primes are its idle steps. [proved here]
+- §3.4 Legendre's identity and the floor M ≥ M_lat ✓ as identities.
+
+## The reader's FIX-FIRST items — each re-derived before applying
+- **F1 UPHELD.** Under the two-sided hypothesis, §3.4(i) gives E = o(x), so N ~ ρx; Diamond–Zhang Theorem 5.10 (checked at the page: `dz-half-s39/sources/t-50…txt` l. 2828–2835, "if and only if N has logarithmic density A") gives M(z) log z → e^{−γ}/ρ; the identity on (u, 2u] then gives π(u, 2u] ~ 2e^{−γ}u/log u; but N ~ ρx and π(x) ~ c·x/log x force c = 1 (compare log ζ_P(σ) = Σp^{−σ} + O(1) ~ c·log 1/(σ − 1) with ζ_P(σ) ~ ρ/(σ − 1)). 2e^{−γ} = 1.1229 ≠ 1. So the Legendre remainder carries the bias (1 − 2e^{−γ})u/log u and only one-sided forms can hold. I had not seen this in my own read.
+- **F2 UPHELD** (two decision classes: a composite just below a live threshold, and one just above a threshold where a prime was placed; the unit audited the first only). Record-level; the certificates stand on the reader's double-double run.
+- **F3 UPHELD** by arithmetic from the NOTE's own table: sup E/(ρ log²10⁶) = 0.375, 0.341, 0.257, 0.205, 0.213, 0.264.
+- Minor m1–m13: read; all applied.
+
+## The orchestrator's own finding (not in either read): the price of Lemma B_ρ
+By Prop. 2.1, B_ρ for S8 has the strength of a g-prime gap bound x^θ, θ < ½ − ρ. A zero-density estimate N(σ, T) ≪ T^{A(1−σ)} yields gaps x^{1−1/A+ε}; even A = 2 gives ½. So no bootstrap through zero-density theorems (the Session-41 queue's route (iii)) reaches B_ρ for S8 as it stands; the route would need the design freedom of Theorem 1.6 to raise the admissible exponent (threshold τ → 0: θ < (1 − ρ − τ)/(2(1 − τ))), and even then stays below ½. This is why the stream `lemmaB-s41` carries two design units.
+
+## Pairs
+All 27 of the reader's pairs applied by `scripts/apply-read-pairs.py` (27/27 matched once); pre-reader copy `NOTE.pre-reader.md`. Unit CLOSED DUAL-READ: T (Lemmas 1.0–1.5, Theorem 1.6 — new as a statement on a printed core: Bateman–Grosswald 1964 p. 367; Phragmén — Cor. 1.7, Prop. 2.1, the Dichotomy, Theorems 4.1–4.2) + G (Lemma B_ρ; the one-sided Lemma S).
