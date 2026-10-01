@@ -12,6 +12,7 @@ DPS = int(sys.argv[4]) if len(sys.argv) > 4 else 80
 mp.mp.dps = DPS
 rho = eval(sys.argv[1], {"pi": mp.pi, "mpf": mp.mpf}); X = mp.mpf(sys.argv[2]); tau = mp.mpf(eval(sys.argv[3]))
 t = 1/rho
+DUP1 = len(sys.argv) > 6 and sys.argv[6] == 'dup1'   # test system: the first g-prime placed twice (repeated g-prime)
 P = []                      # placed primes (values)
 past = [(mp.mpf(1), -1)]    # processed g-integers (value, lp)
 heap = []                   # (value, lp)
@@ -47,6 +48,11 @@ while True:
     infEm = min(infEm, E_after(y, n)); n += 1
     supE = max(supE, E_after(y, n))
     past.append((y, i))
+    if DUP1 and i == 0:                      # second copy of p1: products with every past element (incl. the first copy)
+        i2 = 1; P.append(y)
+        for (m, lpm) in past[1:]:
+            if y*m <= X: heapq.heappush(heap, (y*m, i2))
+        n += 1; supE = max(supE, E_after(y, n)); past.append((y, i2))
 print(f"OWN-BF rho={mp.nstr(rho,12)} X={sys.argv[2]} tau={sys.argv[3]} dps={DPS}: N={n} pi={len(P)} comp={ncomp} "
       f"supE={mp.nstr(supE,10)} infE(x-)={mp.nstr(infEm,10)} maxgap={mp.nstr(maxgap,8)} p1={mp.nstr(P[0],12)} "
       f"sum_primes={mp.nstr(mp.fsum(P),20)} min_rel_margin={mp.nstr(margin,3)}")

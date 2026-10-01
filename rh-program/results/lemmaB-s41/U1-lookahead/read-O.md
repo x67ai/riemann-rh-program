@@ -7,7 +7,20 @@ NOTE read whole at SHA-256 54c5e5dd8e128289ced033f777dcfe6e561f2082ee38d7d340751
 written from the NOTE's definitions; nothing imported or copied from `verify/`). Conventions: ✓ = re-derived at the line;
 GAP = stated with the fix; FALSE = counterexample or failing line given.
 
-VERDICT LINE: (pending — filled last)
+VERDICT LINE: AGREES-WITH-CORRECTIONS on the close. Every theorem was re-derived at the line — Theorem 4.1 (power bump), Prop. 4.3,
+Cor. 4.2, Theorem 2.1 (Hilberdink 2005 Cor. 2(b) opened at w-18a l. 211–214, proof l. 669–673) with Cor. 2.2–2.3, Props. 3.1–3.3, the
+§6.3 identity — and none of the proved mathematics is false: every discrete system with E ≥ −τ has p₁ ≤ 1 + τ/ρ, its powers force
+ζ_P ≥ Λ_{ρ,τ} on (θ, 1), (B) enters only through the continuation, and the template shows discreteness is necessary. The decisive
+numbers reproduce by an independent route: own arb balls + quadrature give all 11 certified Λ(σ₁) digit for digit and σ_L to 8 digits,
+so "U fails if greedy with τ = 1/100 has N − ρu = O(u^θ) for any θ < 0.4945, at each of the five densities" stands (σ_L/2 ≥ 0.494748);
+the fixed generator equals my own certified brute force exactly at τ = 1/100, π/16 (X ≤ 2·10⁵); the σ* ≈ σ_L sharpness and Prop. 3.3's
+bunching (E_{P′}(y₀) − E_P(y₀) = Σn_j exactly) reproduce. Four FIX-FIRST items: (F1) Cor. 4.4 as worded is false — "β" must be the exponent
+relative to the same ρ (ℕ ∪ {1 + τ/ρ} has E ≥ −1/100 and own β = 0); (F2) the headline "fixing the primes in advance is impossible" drops
+Theorem 2.1's hypothesis (ℕ refutes the headline, not the theorem); (F3) the block-edge bug DOES change the randomized numbers of s40
+theory §3.1 (w = 10 seed 2, w = 50; e.g. sup E(10⁷) 171.2 → 336.2), contrary to "harmless for τ = ½"; (F4) the §4 title's "θ < ½ − τ/2,
+for every density" is not proved (σ_L < 1 − τ at τ = 1/100 for four of the five densities; what is proved is θ < σ_L/2). 17 pairs in all
+(7 FIX-FIRST, 10 minor). Added: a mean-square form (greedy τ = 1/100 refutes U if its mean-square exponent is < 0.2417), and an Abelian
+replacement for the recalled Wiener–Ikehara step.
 
 ## §1. Re-derivations at the line
 
@@ -237,3 +250,44 @@ OLD (l. 142): [y₀, y₀ + p_jH_j], all sit at y₀ in P′, while no g-integer
 NEW (l. 142): [y₀, y₀ + p_jH_j] (in (y₀, y₀ + p_jH_j] if the windows are taken open at a_j, as they may be), all sit at y₀ in P′, while no g-integer of P below y₀ moves above it. ∎
 
 Total: 17 pairs — 7 FIX-FIRST (F1–F4) and 10 minor (m1–m10).
+
+## §6. Novelty per result
+- **Theorem 4.1, Prop. 4.3** — new as a statement on a printed core: not found in print (§3); the analytic core is the real-axis Mellin
+  positivity + IVT of s40 Theorem 1.6 (whose label cites Bateman–Grosswald 1964 p. 367 and Phragmén); the added ingredient (p₁ ≤ 1 + τ/ρ
+  and its forced powers) is elementary. Cor. 4.2 / 4.4 (corrected) — new, consequences for the program's own Conjecture U.
+- **Theorem 2.1** — new as a statement on a printed core (Hilberdink 2005 Cor. 2(b), Remark C); the zero-free-reference case is in print in
+  substance (Hilberdink 2005 §4; Broucke–Debruyne–Révész, z-02 l. 172–177). Cor. 2.2(b) (branch point at ½ of the uncorrected
+  prescription) — elementary, not searched.
+- **Props. 3.1–3.3, §6.3** — program-internal, elementary (§6.3's identity is log = Λ ∗ 1); no novelty claim needed.
+
+## §7. Additions (single-check)
+**A1 (Cor. 4.4, corrected and sharp as a statement about ρ).** Under U, every discrete system with E ≥ −1/100 has N − ρu ≠ O(u^θ) for all
+θ < 0.4945 (each of the five ρ); the own-density exponent can be 0 (Q′ = ℕ ∪ {1 + τ/ρ}, §1.4, checked exactly to 10⁴).
+**A2 (mean-square version of Cor. 4.2).** Theorem 4.1 uses (B) only to continue ζ_P to (θ, 1); the mean-square hypothesis of ORCH O1
+(∫_X^{2X}E² ≪ X^{1+2θ₂}) gives absolute convergence of ∫E u^{−σ−1} for σ > θ₂ by Cauchy–Schwarz on dyadic blocks, so ζ_P ≥ Λ_{ρ,τ} on
+(θ₂, 1) and α > σ₁ whenever Λ(σ₁) > 0, σ₁ > θ₂. With Lemma L (ORCH O10, β ≤ (1 + 2θ₂)/3), U fails as soon as θ₂ < (3σ₁ − 2)/4. For greedy with
+τ = 1/100 (σ₁ = 0.989; 0.990 for π/32): **θ₂ < 0.2417** (π/16, π/8, π/4, 0.95π/3), **θ₂ < 0.2425** (π/32), against 0.0961 (π/16) for
+τ = ½ with U6's certificate; the limit τ → 0 is θ₂ < ¼. The measured mean-square exponent of S8 is 0 (O7: rms E ≈ 0.09 log x at τ = ½).
+**A3 (Prop. 3.2(c) without a Tauberian theorem)** — §1.9: limsup(N_P − ρx)/x ≥ ρ₀ − ρ from the Abelian side alone.
+**A4 (what the threshold buys, exactly).** The proved requirement is θ < σ_L(ρ, τ)/2, and σ_L can sit well below 1 − τ: Λ(1 − τ) < 0 for
+π/8, π/4, 0.95π/3 at τ ∈ {½, 1/10, 1/100} and for π/16 at τ ≤ 1/100 (`lambda_1mtau.log`); 1 − σ_L = 1.0075τ at (π/16, 1/100) and
+1.007τ at (π/4, 1/1000), but 1.31τ at (π/4, 1/10) (1 − σ_L = 0.1308): for moderate τ and large ρ the loss against ½ − τ/2 is substantial.
+**A5 (caution for §6.4(b)).** A UNIFORM extension of Theorem 4.1 by p₂ is not "replace p₂ by its greedy value": on [p₁, p₂) only powers
+of p₁ exist, so E ≥ −τ forces p₂ ≤ u₂(p₁) := inf{u : ⌊log u/log p₁⌋ − ρ(u − 1) + τ < 0}, and u₂ grows as p₁ decreases; a bound valid for
+every system must minimize the forced count over p₁ ∈ (1, p*] with p₂ ≤ u₂(p₁), which is not monotone in p₁. Rule-specific extensions
+(greedy's explicit p₂, p₃) are statements about one rule, for which F_X itself (Cor. 1.7(iii)) is the sharper certificate.
+**A6 (for the s40 theory NOTE, not a pair here).** §3.1 states the rule as "uniformly in [max(x*_k − w, 1 + t/2), x*_k]"; the script runs
+max(B, x*_k − wU) with B the block start p₁ᵏ (an atom at B, repeated g-primes). The corrected numbers are in §2.5.
+
+## §8. What I could not check, and why
+- **§5's large-X rows** (10⁷–10⁸: look-ahead, open-loop/Beatty, Poisson, the Lemma M margins LM, the excursion anatomy) were not re-run:
+  my exact generators are Python (10⁵–2·10⁵ in minutes; 10⁷ would take hours). What was checked instead: the unit's fixed `rules2.cpp`
+  (greedy, τ = 1/100) and `rules.cpp` ("early", W = 5, 100) equal my brute force exactly at 2·10³–2·10⁵ / 10⁵ (§2.2, §2.6); the §5 numbers
+  rest on that validated code. Prop. 3.2's predicted slope ρ₀ − ρ = ρ(e^{η̂(1)} − 1) for the Beatty λ = 1 rule was not computed against
+  the measured 0.034·x.
+- **Hilberdink 2005 Cor. 2(b)** is used at the statement level; its printed proof (l. 669–673) is terse at "finitely many zeros ⟹ an
+  [α′, β′]-system" (a standard power-saving PNT from a zero-free strip plus finite order). Recorded; it is a published theorem.
+- **Wiener–Ikehara**: no source on disk; m6/A3 remove it from the (B)-failure.
+- **Prior art**: five arXiv API queries and one web search (§3); no journal pages were needed (nothing was found to read at the page).
+- A repeated first g-prime (greedy τ = 1/100, π/16, p₁ placed twice; `bf_greedy.py … dup1`, `dup1_test.log`, X = 2·10⁵): σ* = 0.99952 ≥
+  σ_L = 0.98992, no violation — tested, recorded here for completeness of target (a).
