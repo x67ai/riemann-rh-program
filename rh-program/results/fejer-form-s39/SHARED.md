@@ -110,3 +110,19 @@ Firecrawl; verify-O/sources/hp19-abstract.md): "inverse functions in some sense"
 "assume g >= 2"); Bombieri p. 236 (5) as image. o5_classB.log: I = 17g/4 + N_1 - 6 over F_5 is > 0 on every genuine curve of genus
 >= 1 (min 1/4, 5/2), I(V) = -3/4, f(0) = -0.222: a non-Weil (class B) separator meeting the contract clause; boundary = Weil–Serre.
 F1 (6 pairs) and F2 (5 pairs) written in read-O §4. The close K stands (class B = Weil + integrality = printed Weil–Serre).
+
+## Block O-5 — 11:44 IST 2026-10-01 — read-O CLOSE: AGREES-WITH-CORRECTIONS (close K upheld). Deliverables (SHA-256 prefixes)
+VERDICT: AGREES-WITH-CORRECTIONS on K / "found nothing new, correctly". FIX-FIRST 2 items (F1: 7 OLD/NEW pairs — D_k "equality
+exactly at genus 0" true for D_1 only, D_k(P^1) = q^{k-1} - 1; F2: 7 pairs — "separating ones = Toeplitz cone" only from the Weil
+region; class (B), e.g. 17g/4 + N_1 - 6 over F_5, separates V, is > 0 on all genuine curves of genus >= 1, is not a Weil test; its
+boundary is the printed Weil–Serre bound; Oesterlé/HP19 wording). Minor 9 items (15 pairs). (Block O-4's "6 + 5 pairs" is superseded.)
+Additions (single-check): A1 RH-free proof that #E(F_5) >= 2 (so a non-Weil separator of V at V's own (q, g) needs no RH);
+A2 class-(B) window floor(2 sqrt q) < c_0 < 2 sqrt q; A3 lambda_min(T_M(V)) = (M+1) - (phi^{M+1} - phi^{-(M+1)}); A4 why only D_1;
+A5 exact certificates via HPM's integer Gram matrix.
+6d598b766dff3780 read-O.md (334 lines) ; NOTE.md unchanged at 3ad9a31e775ccece (not edited)
+81afca7b18a1cf0d o1_census.py / 6e4d1f1dea1e6d86 .log ; 40fdae8c16583d0b o2_toeplitz_exact.py / f4c6e97b1d64b782 .log
+93e7e1cf862cbfe5 o3_genuine.py / 1a4f704002ae7adc .log ; 5df81bea1b45f172 o4a_z3_zeta_F.py / c64fc9b745f1d155 .log
+d8fa665b2d8e8f34 o4b_dh.py / 587090fc0a307ecf .log ; 07627b14feb79bce o5_classB.py / d9012c01a92376b2 .log
+98543770b05b11f4 o6_A1_F5.py / 5154f21b1814b93b .log ; verify-O/sources: hp19-abstract.md 6c462fdcd7fcf4bb, crossref_hp19_min.txt,
+arxiv_q_hp19.xml, arxiv_q_fejer_ff.xml. o1_data.json (0.99 MB) and o3_genuine.json regenerate from o1/o3 in 15 s / 2 s.
+read-F.md and verify-F/ not opened; no git; one process at a time (longest 1 min 46 s).

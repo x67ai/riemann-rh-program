@@ -9,7 +9,23 @@ my comparisons use (`verify/data/sq2_1e9.csv`, `verify/logs/*.log`) — never it
 Conventions: ✓ = re-derived at the line; GAP = stated with the fix; FALSE = counterexample or failing step given. NOTE line
 numbers below are at the hash above.
 
-VERDICT LINE: (written at the close; see end of file for the running state)
+VERDICT LINE: **AGREES-WITH-CORRECTIONS** on the close "G, with T-parts and a rung-1 counterexample". Re-derived at the line:
+Thm R1 (and brute-forced over ALL monic polynomials in F_3, F_5, F_7 under three deletion rules — N_P(n) = q^n − aq^{n−1} in all
+15 cases; every form of O, sup, mean-square and cumulative, fails at rung 1), Thm 2.1 (the Möbius inversion and its tail ✓),
+Cor. 2.2 (✓ once continuation paths are restricted to {σ ≥ Re s₀} — F3; no application affected), Prop. 2.3 (✓; cO's (G′) remark
+made a proposition), T3, T4, Theorem F, Cor. F.1, Lemma 3.6 (✓), and "(RH, α_R < ½) every counterexample lies in 𝒞_self" (✓, true
+by definition once 2.3 and F hold). T2 and T5 are proved, but each rests on a FALSE distinctness line: F1 — "the intervals are
+disjoint" fails for k = 2, so the computed family sq = {nextprime(p²)} is covered by T2 only under RH or with a recalled
+large-gap bound, not "uncond." as the NOTE says four times; F2 — T5's spacing N·2^N lies below every proved gap bound — repaired
+by a greedy choice, unconditional with Ingham. No other step silently uses RH or an unproved gap bound; the first-zero inputs were
+checked by the argument principle (simplicity not needed). The independent re-run (own sieve with exact integer sums) reproduces
+every number the close rests on digit for digit: sq to 10⁹ and 10¹⁰ (0.437/0.435/0.463; 0.431/0.422/0.431, sup 0.231, κ 1.41,
+M/M_diag 1.06 … 0.324), the 200-zero explicit formula (corr 0.882/0.980/0.998), the tight necklace (0.801/0.792/0.789, M/M_diag
+371), |ζ(ρ₁/k)|, C(ρ₁/2) and h_N/(c_N ln 4^N). One correction UPGRADES the close (F4): the tight ℚ-necklace — Theorem F's only
+example — obeys O UNCONDITIONALLY (β = α_R, β₂ ≥ α_R/2) by the NOTE's own cluster lemma with Selberg's upper-bound sieve in place of
+Legendre (§7 A1, single-check; general form A2: counterexamples to O must be anti-clustered). Prior art on disk was missed (F5:
+Hilberdink 2012 Thm A — over ℚ, periodic N − cx forces a finite deletion — the nearest published object to R1). 31 pairs (14
+FIX-FIRST in F1–F5, 17 minor).
 
 ## §1. Re-derivations at the line
 

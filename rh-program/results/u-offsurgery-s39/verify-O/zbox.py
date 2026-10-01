@@ -17,8 +17,13 @@ def dS(M, s):
     h = s - s0; r = mp.mpc(0)
     for k in range(len(M)-1, 0, -1): r = r*h + k*M[k]
     return r
-def F(X, s):  return S(data[X]['M'], s) + mp.mpf('0.8')*mp.zeta(s, X+1)
-def dF(X, s): return dS(data[X]['M'], s) + mp.mpf('0.8')*mp.zeta(s, X+1, 1)
+def tail(X, s):   # sum_{n>X} n^-s by Euler-Maclaurin (next term ~ |s|^3 X^(-sigma-3)/720, < 1e-22 for X >= 1e7)
+    X = mp.mpf(X); return X**(1-s)/(s-1) - X**(-s)/2 + s*X**(-s-1)/12
+def dtail(X, s):
+    X = mp.mpf(X); L = mp.log(X)
+    return -L*X**(1-s)/(s-1) - X**(1-s)/(s-1)**2 + L*X**(-s)/2 + X**(-s-1)/12 - s*L*X**(-s-1)/12
+def F(X, s):  return S(data[X]['M'], s) + mp.mpf('0.8')*tail(X, s)
+def dF(X, s): return dS(data[X]['M'], s) + mp.mpf('0.8')*dtail(X, s)
 for X in sorted(data):
     M = data[X]['M']
     val = max(abs(S(M, s) - d) for s, d in data[X]['D'])
@@ -26,7 +31,7 @@ for X in sorted(data):
     for it in range(40):
         dz = F(X, z)/dF(X, z); z -= dz
         if abs(dz) < mp.mpf(10)**-25: break
-    tail_ok = abs(mp.mpf(0.8)*mp.zeta(z, X+1))
+    tail_ok = abs(mp.mpf(0.8)*tail(X, z))
     print(f"X={X:>11d}  Taylor-vs-direct max err {mp.nstr(val,3)}  zero {mp.nstr(z.real,12)} + {mp.nstr(z.imag,12)}i  |F'|={mp.nstr(abs(dF(X,z)),6)}  |0.8 zeta(s,X+1)| at zero {mp.nstr(tail_ok,4)}  newton steps {it}")
 # winding number and min |F| on the boundary of the box, at the largest X and at 1e8
 s1, s2, t1, t2 = box

@@ -1,0 +1,17 @@
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/free-greedy-s40/compute/verify/zeta_bm.py:30: RuntimeWarning: divide by zero encountered in matmul
+  P = M @ np.array(co)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/free-greedy-s40/compute/verify/zeta_bm.py:30: RuntimeWarning: overflow encountered in matmul
+  P = M @ np.array(co)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/free-greedy-s40/compute/verify/zeta_bm.py:30: RuntimeWarning: invalid value encountered in matmul
+  P = M @ np.array(co)
+# validate /private/tmp/rh-s40-free-greedy/val_pi4_1e6.mom.1.000000e+06: X = 1.000000e+06, N = 785400 (dumped g-integers <= X: 785400), E(X) = 1.622001
+#  s                      F_X block-moment                         F_X direct sum                          |diff|
+  2.0                    +1.775661575532279e+00+0.000000000000000e+00i  +1.775661575532280e+00+0.000000000000000e+00i  1.33e-15
+  (0.6+10j)              +8.971019953427974e-01+3.733884955073847e-01i  +8.971019953428059e-01+3.733884955073776e-01i  1.10e-14
+  (0.75+50j)             +1.436069210196752e+00+7.637937779347228e-01i  +1.436069210196743e+00+7.637937779347326e-01i  1.37e-14
+  (0.9+150j)             +6.735283289021482e-01+1.745157196869584e-01i  +6.735283289021307e-01+1.745157196869655e-01i  1.89e-14
+  (0.55+199j)            +3.642556030519964e-01-3.828143084065814e-01i  +3.642556030518588e-01-3.828143084068159e-01i  2.72e-13
+  (0.51+3.3j)            +8.237526807876918e-01-3.447312683950869e-01i  +8.237526807877487e-01-3.447312683950372e-01i  7.55e-14
+  (1+100j)               +6.740231343873169e-01+8.602927423689481e-01i  +6.740231343873183e-01+8.602927423689437e-01i  4.67e-15
+#  FFT grid vs block-moment direct, sigma = 0.6: t=0.0300 |diff|=5.68e-14  t=66.6623 |diff|=7.62e-14  t=199.9568 |diff|=2.93e-13
+#  FFT grid vs block-moment direct, sigma = 0.9: t=0.0300 |diff|=3.55e-15  t=66.6623 |diff|=1.79e-14  t=199.9568 |diff|=1.28e-14

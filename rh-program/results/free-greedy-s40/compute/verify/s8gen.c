@@ -69,6 +69,7 @@ static pent *PH; static int64_t capPH;
 static double *HC, *HS, *MOM; static int64_t capMOM;
 static double ring[RING];
 static uint8_t *SB;
+static FILE *DUMPF = 0;                             /* optional: every g-integer (dd) to $S8_DUMP, for validation */
 
 static void *xrealloc(void *p, size_t n) { void *q = realloc(p, n); if (!q) { fprintf(stderr, "out of memory (%zu)\n", n); exit(2); } return q; }
 #define GROW(arr, cap, need, type) do { if ((need) > (cap)) { int64_t nc = (cap) ? (cap) : 1024; while (nc < (need)) nc *= 2; \
@@ -357,6 +358,7 @@ static void bookkeeping(dd x, int comp) {
     flush_powers(x);
     double d = fabs((G.psi - x.hi) + (G.psic - x.lo)); if (d > G.supPsi) G.supPsi = d;
     mom_add(x);
+    if (DUMPF) fwrite(&x, sizeof(dd), 1, DUMPF);
     if ((int64_t)floor(Ea) > G.lastRecLevel) { G.lastRecLevel = (int64_t)floor(Ea);
         printf("R %.9e %.6f %lld %lld %.6e\n", ddv(x), Ea, (long long)G.N, (long long)(G.nP + G.nL), ddv(G.lastPrime)); }
     if (x.hi >= G.protoNext) {
@@ -401,6 +403,7 @@ int main(int argc, char **argv) {
         printf("# S cols: x N pi C supE E(x) meanE_win minEbefore_win maxPrimeGap_win gapStart gapPeakE maxClu_win minGapAbs minGapRel ties misorders minDecisionMargin_rel ambig_double skorokhodViol supPsi psi-x nS nM nLDbytes heap time\n");
     }
     G.wall0 = wall();
+    if (getenv("S8_DUMP")) { DUMPF = fopen(getenv("S8_DUMP"), "wb"); dd u = { 1.0, 0.0 }; if (DUMPF && !resume) fwrite(&u, sizeof(dd), 1, DUMPF); }
     if (G.sieve) {                                   /* rational primes, byte sieve */
         SB = calloc((size_t)X + 2, 1);
         for (int64_t p = 2; p * p <= (int64_t)X; p++) if (!SB[p]) for (int64_t q = p * p; q <= (int64_t)X; q += p) SB[q] = 1;

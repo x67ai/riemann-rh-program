@@ -86,3 +86,17 @@ Append-only, dated blocks. Writer: Opus 5.5 (unit agent). Outputs only under `re
 - verify-O/o1 (exact sympy root isolation): W1 for d ≤ 60, W2, W3 (exact certificate), W4 all reproduce; o2: a positive self-dual comb
   with an irrational frequency (self-dual to 60 digits) — it violates G1 Step 1 (not Beurling), so G1 Step 3 is genuinely needed.
 - Next: §5 (Pisot, KNS at the page), §7 probe of 𝒯 at q = 4 by my own optimizer, prior art.
+
+## 11:45 IST 2026-10-01 — OPUS READER, batch 2 (route ii; the 𝒯 probe; prior art)
+- verify-O/o3 (own lattice sums, 50 digits): Pisot model-set self-duality 2.7e−51 / 0 / 1.1e−50; Z_0, Z_1 first points; unit-orbit
+  Π(φ²) = −24.0, −7.0e4, −1.7e13 — all AGREE. P2 gap (minor): KNS gives f, f̂ vanishing on Z_j, not an even SELF-DUAL k; fixed via
+  KNS Lemma 6 free interpolation at extra nodes (single-check).
+- 𝒯 probe at q = 4, own code (exact atom positions; log*(m) by a sparse triangular solve of D′ = D·L′; DE + analytic-gradient SLSQP):
+  M = 2: −0.680076, M = 3: −0.400711 — digit for digit; M = 4: −0.293651 (BETTER than the NOTE's −0.310622; exact-rational re-check by
+  power series: −0.293650523). At each optimum about HALF the atoms in [1, 64] are negative and the total negative mass grows
+  (4.51 → 27.30 → 62.82); beyond 64 the M = 4 optimum falls to −0.58 (x = 120), −1.13 (x = 225). The rising max-min is dilution,
+  not approach to feasibility (min/mean|Π| ratio 2.3 → 2.6 → 5.5).
+- Prior art on disk the NOTE misses: Hilberdink 2012 (Acta Arith. 152) Thm 4.3 (multivariable Landau, finitely many primes) and Thm 4.4
+  (power sums τ_n ≤ 1 ∀n force |μ_r| < 1) — the latter contains W3's conclusion outright; KS lines 43–49, 56–58, 792–796 and BSS §8
+  (line 1236) quoted correctly.
+- Running: M = 5 DE + polish (one heavy process); arXiv queries q7–q9 (rate-limited, background).

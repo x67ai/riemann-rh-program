@@ -4,12 +4,27 @@ Reader: Opus 5.5 (second model of the dual-model check; standing orders 5, 7, 11
 NOTE read whole at SHA-256 3ad9a31e775ccece1ff4a7959eeda3266110d3f7fed82332ed19f11d3dacd292 (39 419 bytes, 330 lines). Also read:
 BRIEF.md (unit), READ-BRIEF-O.md (this read), SHARED.md (Blocks 0–5), the unit's `verify/` scripts and logs (read for
 definitions and numbers only; nothing imported or copied), `sources/` (text layers checked against the PDFs page by page),
-BARRIER-ZOO.md IV.1 and I.9. Independent re-run: `verify-O/` (own code from the NOTE's definitions; exact integers and
+BARRIER-ZOO.md at SHA-256 e42d544d… (I.9 lines 140–147, IV.1 lines 415–425; the NOTE was written at fa0d7293…),
+directions/C2-rigidity-conservation.md at 04496dce… (lines 99, 160–176), the M1a NOTE (lines 213–226, 317–319), the proof-mine
+NOTE (lines 129, 266–279), Bombieri 1973 p. 236 (as an image), HP19's abstract (fetched, `verify-O/sources/`). Independent re-run: `verify-O/` (own code from the NOTE's definitions; exact integers and
 rationals where the NOTE used floats). Not opened: read-F.md, verify-F/ (independence). No git.
 Conventions: ✓ = re-derived at the line; GAP = stated with the fix; FALSE = counterexample or failing line given.
 Line numbers below are NOTE.md lines at the hash above.
 
-VERDICT LINE: (filled at the close of the read)
+VERDICT LINE: AGREES-WITH-CORRECTIONS on the close K ("found nothing new, correctly"). Every theorem was re-derived at the line
+— W(i)–(iii), F(a)–(e), K(i)–(iv), the §7 Clifford claims, the Bombieri reading against p. 236 — and none is false as stated in
+§3–§4; the census (4591 data, the 111), the genuine curves (115, 192), the Toeplitz exits (all 3825 by M ≤ 3, same distribution),
+V's eight eigenvalues, I(V) = −0.1180339887, I(E₀) = +0.1055728090 and the Z3 values (+0.0069; −872.45; −681.66 with N = 47)
+reproduce by independent routes (an exact integer congruence for the Toeplitz test; a full-rectangle argument principle and
+seed-free location of DH's off-line zeros). Two FIX-FIRST items, both in the close's wording: (F1) "equality exactly at genus 0"
+holds for D_1 only (D_k(P¹) = q^{k−1} − 1 > 0 for k ≥ 2), and D_1(P¹) = 0 contradicts "D_k > 0 on every zeta datum"; (F2) "the
+separating ones are [exactly] the Toeplitz cone" holds only for separation from the Weil region — the class-(B) functional
+17g/4 + N_1 − 6 over F_5 vanishes at genus 0, is > 0 on every genuine curve of genus ≥ 1, is −3/4 on V and is not a Weil test (at
+V's own (q, g) it even has an RH-free proof, A1); its boundary is the printed Weil–Serre bound, so the close survives with the
+reason "Weil or Weil–Serre (integrality), both printed" — and "the optimum is Oesterlé's program, whose dual is HP19's SDP"
+mis-describes the printed objects (Oesterlé's upper-bound program does not see V; HPM: "closely related to the dual"; HP19:
+"inverse functions in some sense"). Nine minor items (m1–m9). Both zoo riders are accurate after F1, F2e and m9, and neither
+duplicates text already in BARRIER-ZOO.md. Novelty: nothing new, as the NOTE says.
 
 ## §1. Re-derivations at the line
 
@@ -70,9 +85,10 @@ VERDICT LINE: (filled at the close of the read)
     (iii) ✓ for D_1 (F1 for D_k). (iv) ✓ (numbers reproduced; Z3's are grid minima — m4).
 (j) The meta-claim of §0 lines 28–30 ("a separator must come from an object — and every such object's output, read on the datum,
     is a member of this Weil family") is FALSE as worded if "this Weil family" is the Toeplitz cone: class-(B) separators are
-    outputs of objects and are not in the cone. Counterexample (exact): I(Z) := 4g + N_1 − 6 over F_5. It is affine in (g, N_1),
-    vanishes at P¹ (N_1 = 6), is ≥ 0 on EVERY genuine curve over F_5 (g = 1: N_1 ≥ ⌈6 − 2√5⌉ = 2; g ≥ 2: 4g − 6 > 0), and
-    I(V) = −1. In Theorem W(i)'s form c_0 = 4, c_1 = −√5, f(θ) = 4 − 2√5 cos θ, f(0) = −0.472 < 0: not a Weil test. A printed
+    outputs of objects and are not in the cone. Counterexample (exact, o5): I(Z) := 17g/4 + N_1 − 6 over F_5. It is affine in
+    (g, N_1), vanishes at P¹ (N_1 = 6), is > 0 on EVERY genuine curve over F_5 of genus ≥ 1 (g = 1: N_1 ≥ ⌈6 − 2√5⌉ = 2, I ≥ 1/4;
+    g ≥ 2: 17g/4 − 6 > 0), and I(V) = −3/4. In Theorem W(i)'s form c_0 = 17/4, c_1 = −√5, f(θ) = 17/4 − 2√5 cos θ,
+    f(0) = −0.222 < 0: not a Weil test. (c_0 = 4 is the Weil–Serre lower bound itself, with equality at E₀; §7 A1–A2.) A printed
     nonlinear relative: AHL Cor. 2.10 (p. 8; announced p. 1), "|A(F_q)| ≥ (q + 1 − m)^g", m = ⌊2q^{1/2}⌋ — at q = 5, h ≥ 2^g,
     which V (h = 1) violates. Both are "Weil + integrality" (§3's class (B), Serre's refinement), so the CLOSE stands; the wording must name
     class (B) (F2). The final sentence of K (lines 271–273) also claims the Z conclusion "on Z" in general, while three Z-forms
@@ -82,7 +98,7 @@ VERDICT LINE: (filled at the close of the read)
 
 | NOTE claim (line) | route in verify-O | result |
 |---|---|---|
-| census, §2 table (69–76): 11/326/15/880/23/3336; 9+2, 127+88+111, 11+4, 205+295+380, 13+10, 401+1247+1688 | o1_census: exact integers, box |a1| ≤ 12q, |a2| ≤ 40q² (3× the rigorous box |a1| ≤ 4q, |a2| ≤ 6q², which follows from |α| ≤ q, itself forced by N_n ≥ 0 for all n via Pringsheim on log Z); admissible to 8, 40 and 60; kinds by exact integer tests | every count reproduced exactly; lists to 8, 40, 60 coincide; max |a1|, |a2| = 8, 31 (q = 5), 12, 57 (q = 7), 18, 124 (q = 11) |
+| census, §2 table (69–76): 11/326/15/880/23/3336; 9+2, 127+88+111, 11+4, 205+295+380, 13+10, 401+1247+1688 | o1_census: exact integers, box |a1| ≤ 12q, |a2| ≤ 40q² (well beyond the rigorous box |a1| ≤ 4q, |a2| ≤ 6q², which follows from |α| ≤ q, itself forced by N_n ≥ 0 for all n via Pringsheim on log Z); admissible to 8, 40 and 60; kinds by exact integer tests | every count reproduced exactly; lists to 8, 40, 60 coincide; max |a1|, |a2| = 8, 31 (q = 5), 12, 57 (q = 7), 18, 124 (q = 11) |
 | V's N_1..N_8, the 111, V₂ (78–79) | o1 | reproduced; V₂ = (−1, 11) NONREAL-X |
 | genuine curves (66–72, 80–82): 9/11/13 traces; 115 and 192 genus-2 L-polynomials; 12 RH-true non-curves at q = 5 | o3_genuine: numpy point counts over F_q and F_{q²}; every f at q = 5; degree-6 normal forms at q = 7 | 115, 192 (60000 and 32928 squarefree models); the 12 = the NOTE's list exactly; 13 at q = 7; all genuine L RH-true and in the census |
 | every RH-true datum PSD to M = 8; every RH-false datum exits by M ≤ 3; first-exit distribution (112–114; r1_lp.log Mstar) | o2_toeplitz_exact: T_M ≅ H_M = [s_{|a−b|}q^{min(a,b)}] (integer), exact Fraction elimination with largest-diagonal pivoting — no rounding | RH-true: PSD exactly (no −6e−15 issue); exits {1:2}, {2:113, 3:86}, {1:4}, {1:12, 2:471, 3:192}, {1:10}, {1:184, 2:2359, 3:392} = r1_lp.log |
@@ -116,7 +132,7 @@ class-(B) phenomenon is re-derived by hand in §1(j)).
 | Bombieri 1973, Sém. Bourbaki 430, p. 236 (5) (191) | "THEOREM 1.– Assume q = p^α, where α is even. Then if q > (g + 1)^4 we have (5) ν1 < q + (2g + 1)q^{1/2} + 1." (PDF page 4, read as an image) | exact; hypotheses hold at Q = 25, g = 1 |
 | M1a NOTE line 216 (C_q); lines 317–319 (42, 219) | (C_q) as quoted in §1(g); 317–319: "the defect 2Σ_k sinc²(n_k) is a positive form — but in the POSITIONS OF THE GENERALIZED INTEGERS, not in the zeros. Transporting it to the zero side is not done here and is not claimed." | exact |
 | proof-mine Theorem P (28, 189) | lines 266–279: (iii) "no input of any class is a function of the zeta datum alone" | faithful paraphrase |
-| C2 directions "line 99", "Untried line 168" (35, 275, 300) | at the recorded hash 04496dce…: line 99 is the Instruments header ✓; line 168 is blank, the "Extremal characterization of ξ" entry is line 176 | m8 |
+| C2 directions "line 99", "Untried line 168" (275; 34, 300) | at the recorded hash 04496dce…: line 99 is the Instruments header ✓; line 168 is blank, the "Extremal characterization of ξ" entry is line 176 | m8 |
 
 ## §4. FIX-FIRST pairs (OLD quoted exactly at NOTE hash 3ad9a31e…, line number first)
 
@@ -165,7 +181,7 @@ integrality), and its M = 1 boundary member is PRINTED: the Weil–Serre lower b
 (c_0 = ⌊2√q⌋ = 4 at q = 5: V gives 1 < 2, E₀ gives equality); nonlinear relative: AHL Cor. 2.10 (p. 8), "|A(Fq)| ≥ (q + 1 − m)^g",
 m = ⌊2q^{1/2}⌋ (V: h = 1 < 2). So brief stop line 2 ("a known Oesterlé/Serre bound") fires for class (B) too. Separately: Oesterlé's
 program (Howe–Lauter p. 2) is the UPPER-bound optimization under Weil + b_d ≥ 0 — the sign class the NOTE itself shows is V-blind
-(line 122) — while V's separator is a lower bound; and the printed relation is "closely related to the dual" (HPM p. 4) /
+(line 122; in one line: p_n(V) = φ^n + φ^{−n} > 0, so every test with all c_n ≥ 0 has I_c(V) > 0) — while V's separator is a lower bound; and the printed relation is "closely related to the dual" (HPM p. 4) /
 "inverse functions in some sense" (HP19 abstract), not "its dual is". The close K stands: class (B) is Weil + integrality. Seven pairs (F2e has three fragments):
 
 F2a, lines 16–17
@@ -270,3 +286,49 @@ to Epstein — it is F_{2.9,2}'s value, as the NOTE says (Epstein's Z3 was not r
 | I.9 rider (§11) | single-check | accurate after F1f and m9; a named instance of I.9's existing KILLS ("a mechanism the virtual curve passes cannot be the generator", line 143), not a duplicate; "D_k" collides with DD3's squeeze D_k in the same entry (m9) |
 
 Verdict on the label "Found nothing new, correctly": UPHELD. Nothing in the NOTE is new mathematics, and the NOTE claims none.
+
+## §7. Additions (single-check unless stated)
+
+A1 (the target "find a count functional the theorems say cannot exist" — found, against the close's WORDING, not its theorems).
+    PROPOSITION. Over F_5, I(Z) := 17g/4 + N_1 − 6 vanishes at P¹, is > 0 on every genuine curve of genus ≥ 1, is −3/4 on V,
+    and is not a Weil test (f = 17/4 − 2√5 cos θ, f(0) < 0). Its validity needs NO Weil positivity: for g ≥ 2, 17g/4 − 6 > 0;
+    for g = 1, write E: y² = f(x) = x³ + ax + b (char 5); #E(F_5) = 1 forces f(x) ∈ {2, 3} (non-squares) for all x ∈ F_5; since
+    Σ_{x∈F_5} x³ = Σ x = 0 in F_5, Σ f(x) = 0, while k values 2 and 5 − k values 3 sum to 15 − k, so k ∈ {0, 5} and f is constant
+    on F_5 — impossible for a monic cubic (f − c would have 5 roots). Hence #E(F_5) ≥ 2. Checked: `verify-O/o6_A1_F5.log` (no cubic
+    is a non-square at every point; Σ f ≡ 0 for all (a, b)), `o5_classB.log` (exact values). READING: at V's own (q, g) there is
+    a separator of V meeting the brief's contract clause that is neither a Weil test nor RH-dependent; its input is an OBJECT V
+    lacks (a Weierstrass model — proof-mine's class C), in line with Theorem P(iii) and the NOTE's §0 WHY, but its output is not a
+    member of the Weil family. It is the integrality boundary (the printed Weil–Serre bound at g = 1, q = 5), it does not extend
+    in q (the power-sum step is special to q = 5), it catches no genus-2 datum (0 of 199), and it has no Z-analog (it lives on the
+    integrality of traces) — so it cannot reach the brief's T (whose Z-part needs a transported form), and the close K stands.
+A2. The class-(B) window: for every non-square q ≤ 13, I = c_0 g + N_1 − q − 1 with ⌊2√q⌋ < c_0 < 2√q is > 0 on every genuine curve
+    of genus ≥ 1 (genus 1 by Weil–Serre; genus ≥ 2 since 2c_0 > q + 1), vanishes at P¹, catches every genus-1 RH-false datum with
+    t > 2√q, and is not a Weil test. Exact at q = 5, 7, 11 with c_0 = 17/4, 21/4, 25/4 (o5): genuine minima 1/4 (g = 1), 5/2, 5/2,
+    1/2 (g = 2); RH-false caught 1/2, 2/4, 5/10 at g = 1 and 0 at g = 2.
+A3. Closed form for V: |u||v| = φ^M·|u|² = (φ^{M+1} − φ^{−(M+1)})/(φ − φ^{−1}) = φ^{M+1} − φ^{−(M+1)}, so
+    λ_min(T_M(V)) = (M + 1) − L_{M+1} for M even and (M + 1) − √5·F_{M+1} for M odd (Lucas L, Fibonacci F): 2 − √5, 3 − 4, 4 − 3√5,
+    5 − 11, 6 − 8√5, 7 − 29, 8 − 21√5, 9 − 76 — the NOTE's eight values (o2), now in closed form.
+A4. Why only D_1 (feeds F1): in the adelic dictionary, vol O(D) = q^{deg D + 1 − g}, the analog of M1a's φ̂(0) = 1, equals 1 for the
+    gap box deg D = −k only at (g, k) = (0, 1). D_1 is the exact transcription of M1a's gap-width Fejér test; D_k (k ≥ 2) are
+    narrower boxes, with positive defect already at genus 0 — the analog of a narrower Fejér kernel at ζ.
+A5. Exact certificates: T_M(Z) is congruent to HPM's integer Gram matrix (3), H_M = [s_{|a−b|} q^{min(a,b)}]; exact elimination
+    certifies all 3825 exits (first exit M ≤ 3) and all 766 RH-true PSD-to-8 statements without rounding (o2) — upgrading the
+    NOTE's "worst eigenvalue −6·10⁻¹⁵" to an exact statement.
+
+## §8. What I could not check, and why
+
+- HP19's body (Trans. AMS 372 (2019) 5409–5451): the Crossref-listed PDF link returned the AMS abstract page (via Firecrawl; a
+  direct curl got the HTML shell). Only the abstract is read at the page; the duality theorem itself is not.
+- Serre's 2020 book (explicit formulae, Oesterlé's procedure, the Drinfeld–Vlăduţ proof): not on disk; the NOTE's
+  `[recalled, unverified]` on the Fejér kernel in DV's proof stays recalled. Maisner–Nart 2002 and Howe–Nart–Ritzenthaler 2009
+  (NOTE line 83–84, recalled, no load) not opened.
+- The class (A+), class (B) and Fejér-kernel catch counts of lines 116–124 (155/199, 526/675, 2314/2935; 150/199 …; 149/199 …):
+  not re-run (scipy LP; not load-bearing — the class-(B) phenomenon is re-derived by hand, §1(j), A1–A2).
+- Z1's direct sums to 2·10⁶ and Z2's monotonicity scans on [½, 2] for ζ, F_{2.9,2}, DH, Epstein: not re-run numerically (Z1 is an
+  identity, re-derived; Z2's verdict "passed by every control" was not independently recomputed). Pólya's Φ > 0 not opened.
+- Z3 on Epstein x² + 5y²: run neither by the NOTE (§9, Untried) nor by me.
+- Genuine genus-2 curves over F_11: enumerated neither by the NOTE nor by me (class (B) at (11, 2) is therefore unrun, m1).
+- A textbook page for the Carathéodory–Toeplitz / Fejér–Riesz steps of W(ii): not opened (re-derived instead, §1(b)).
+Compute: one process at a time, longest run 1 min 46 s (o4b); no file over 1 MB written (o1_data.json 0.99 MB, regenerable by
+`python3 o1_census.py` in 15 s). Network: one arXiv API query for Hallouin–Perret, one for "Fejér + function field + zeta"
+(0 hits), one Crossref query, one Firecrawl scrape.

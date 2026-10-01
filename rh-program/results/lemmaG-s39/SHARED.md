@@ -92,3 +92,10 @@
 - read-O §4–§5: 31 OLD/NEW pairs — 14 FIX-FIRST in 5 items: F1 T2 k = 2 disjointness false / sq not "uncond." (6 pairs);
   F2 T5 distinctness false, greedy fix (1); F3 Cor 2.2 path quantifier (2); F4 tight necklace obeys O unconditionally — close
   upgraded (3); F5 missed Hilberdink 2012 Thm A as R1's nearest object (2). 17 minor (m1–m16).
+## 2026-10-01 11:43 IST — read-O CLOSED (lemmaG-s39)
+- VERDICT: AGREES-WITH-CORRECTIONS. read-O.md (398 lines) complete: §1 re-derivations, §2 re-run, §3 prior art, §4–§5 31 pairs
+  (14 FIX-FIRST in F1–F5, 17 minor), §6 novelty, §7 additions A1–A4 (single-check), §8 limits. NOTE.md untouched (hash 37622108…).
+- Upgrade for the orchestrator: A1 — R_tight obeys O unconditionally (β = α_R; β₂ ≥ α_R/2) via Lemma 3.6 + Selberg's sieve;
+  A2 — general cluster criterion: any counterexample to O is anti-clustered (#R∩(y,y+h] ≪ y^{α/2+δ} + h y^{α−1+δ} + h^{2α/(1+α)+δ}).
+- verify-O/: o_rung1_*.py, o_zeta_checks.py, o_cluster_*.py, o_sq_gen.py, o_neck_gen.py, o_sieve_bins.c, o_sq_analysis.py + logs;
+  scratch in /private/tmp/rh-s40-lemmaG/ (≤ 0.2 MB; regeneration commands in read-O §2).

@@ -78,7 +78,28 @@ zero in (1 − 2ρ, 1), and α > 1 − 2ρ. (ii) If ρ ≤ ¼ and θ ≤ ½ − 
 (iii) Finite certificate, any ρ: if F_X(σ₁) > ½X^{−σ₁} and θ < σ₁, then ζ_P(σ₁) > 0 (the tail exceeds −½X^{−σ₁} by Lemma 1.1, with no
 upper bound on E used), so the real zero lies in (σ₁, 1). Only the existence of the continuation needs (B), and only qualitatively.
 
-(§1 continues below.)
+**1.8 Verification on data** [computed]. `verify/s8_check.py` (generator = the prototype's core, same event order and tie rule):
+ρ = π/4 at X = 10⁶ and ρ = 0.8 at X = 10⁶ — zero violations of Lemma 1.1 (E > −½ after every event, E(x−) ≥ −½), Lemma 1.2 (gaps ≥ t;
+every prime on the lattice), Lemma 1.4 (π = ⌊M + ½⌋ with M including left limits; E − (M − V) ∈ (−½, ½]); ties = 0 in both (for ρ = 0.8,
+rational, none occurred below 10⁶); the two forms of F_X agree to ≤ 1.1·10⁻¹¹ (logs `s8_check_pi4_1e6.log`, `s8_check_r08_1e6.log`).
+At 10⁷ (`s8_check_pi4_1e7.log`) the reflection check trips 353,814 times at tolerance 10⁻⁶ only because the prototype updates the deficit
+incrementally (max |E − (π − V)| = 2.1·10⁻⁵ by 10⁷); `verify/s8_realzero.py` and `verify/s8_mech.py` place primes by the exact lattice
+formula of Lemma 1.2 and reproduce the prototype's counts (N(10⁶) = 785,400, π = 78,134 for ρ = π/4).
+Real zero of F_X (bisection; `verify/mech_sweep_*_1e6.log`, `mech_pi16_1e7.log`, `rz_*.log`), X = 10⁶ unless stated:
+
+| ρ | 1 − 2ρ (Thm 1.6 floor) | 1 − ρ (template zero) | σ* (real zero of F_X) | sup E to X | sup E / log²X |
+|---|---|---|---|---|---|
+| π/64 = 0.0491 | 0.9018 | 0.9509 | 0.947634 | 3.51 | 0.018 |
+| π/32 = 0.0982 | 0.8037 | 0.9018 | 0.895076 | 6.39 | 0.034 |
+| π/16 = 0.1963 | 0.6073 | 0.8037 | 0.794752 (10⁶), 0.794755 (10⁷) | 9.64 (10⁶), 12.84 (10⁷) | 0.050, 0.049 |
+| π/8 = 0.3927 | 0.2146 | 0.6073 | 0.656529 | 15.35 | 0.080 |
+| π/6 = 0.5236 | < 0 | 0.4764 | 0.521753 | 21.33 | 0.112 |
+| π/4 = 0.7854 | < 0 | 0.2146 | 0.514036 (10⁶); F_X(½) = 0.06707 at 10⁷ | 39.53 | 0.207 |
+| 0.95π/3 = 0.9948 | < 0 | 0.0052 | 0.402156 | 82.38 | 0.432 |
+
+Every F_X respects the floor ½ − ρ/(1 − σ) of Theorem 1.6 (`rz_pi16_1e6.log`, columns 2 and 4). For ρ ≤ ¼ the zero is the template's
+zero 1 − ρ moved left by 0.003–0.009; for ρ ∈ (¼, π/4] it sits in (½, 0.66) though Theorem 1.6 alone gives nothing there; at ρ ≈ 1 it
+falls below ½ (ℕ itself, ρ = 1 and E = −{x} ∈ (−1, 0], has ζ < 0 on (0, 1) and no real zero).
 
 ## §2. The mechanism (task 2)
 

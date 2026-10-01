@@ -1,1 +1,8 @@
 list: 2525 g-prime divisors, all verified in the dump, complete (500886 divisors <= 1e9 scanned)  t=2s
+mod 2147483647: checker 620142969  claimed 620142969  AGREE  t=67s
+mod 2147483629: checker 648674643  claimed 648674643  AGREE  t=136s
+mod 2147483587: checker 715248549  claimed 715248549  AGREE  t=192s
+n = 3779321386617192025903153574378164500000000
+log10 n = 42.577414  claimed f = 3403961916617140  residues agree: True
+K inequality f > 3.76 n^0.35 + 3 in exact integers: True   (log10 f - log10(3.76 n^0.35) = +0.054702)
+python3 checkK.py /private/tmp/rh-s40-shared/s5/gpF_r08_1e9.u32      183.91s user 3.36s system 97% cpu 3:11.65 total

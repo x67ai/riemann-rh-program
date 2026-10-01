@@ -102,3 +102,34 @@ VERDICT LINE: (provisional — filled at the end of the read)
 (q) THEOREM G (§0.4) as a whole ✓ as a summary of (1)–(3), with three record corrections: (1)'s "Theorem D, now UNCONDITIONAL" is
     the parent's dual-read result (F1); (1)'s coverage parenthesis "the zeta-zero repairs … split directly" is right, but §6's
     coverage line contradicts it (m6); the 𝒯 probe numbers in (THE SMALLEST OPEN SUB-CLASS) change at M = 4 (F3).
+
+## §2. Independent re-run (`verify-O/`; own code from the NOTE's definitions; the unit's scripts were not opened, only its logs)
+
+(a) Rung 1, exact (`o1_rung1_exact.{py,log}`; sympy exact rationals, isolating intervals + exact sign tests — a different route
+    from the unit's arb balls). d·b_d(t) ∈ Z[t] built from N_e = 1 + 5^e − s_e (s_e = ts_{e−1} − 5s_{e−2}); for every d ≤ 60 no
+    negative value and no odd-order root strictly inside (−5, 6); P₁(6) = P₂(−5) = 0, all P_d(6) = 0; P₂ = −(t − 6)(t + 5) ⟹ W1 on
+    d ≤ 60 AGREES exactly. W3: s₁, s₂, s₄ ≤ 1 ⟺ t ∈ [−√11, −√(10 − √51)] = [−3.316625, −1.690731]; s₃ − 1 has no root in
+    [−3.32, −1.69] and s₃(−2) − 1 = 21 ⟹ EMPTY — AGREES; the roots −3.8392, −0.0667, 3.9059 and ±1.6907, ±4.1402 match the NOTE to 4
+    digits. W2, W4 AGREE.
+(b) G1 control (`o2_irrational_comb.{py,log}`, mpmath 60 digits): μ_c = Σ(2 + 2cos2πθn)δ_n + δ_{θ+Z} + δ_{−θ+Z}, θ = √2 − 1: theta
+    pairings equal at y = 0.37, 1, 2.2, 5.1 (|diff| ≤ 1.2e−60); masses ≥ 0; gap for q ≥ 5.83. Positive self-dual finite comb with an
+    irrational frequency — excluded from Beurling by G1 Step 1 (support meets each Q-line once), as G1 requires.
+(c) Route (ii) (`o3_pisot.{py,log}`, mpmath 50 digits, own lattice sum |a|, |b| ≤ 45): theta pairing of μ_k (Gaussian k) equal to
+    2.7e−51 (y = 0.37), 0 (y = 1), 1.1e−50 (y = 2.2) — AGREES with the NOTE's 2.7e−51; Z_0 first points 1.0820, 1.7508, 2.8328;
+    Z_1: 1.7508, 2.8328, 4.5836 — AGREE; unit orbit Π(φ²) = 0.481 (j = 0), −24.013 (j = 1), −7.01e4 (j = 2), −1.709e13 (j = 3) —
+    AGREE (criterion e^{πφ^{2j−2}/√5} = 1.71, 4.08, 39.6, 1.5e4 against 2).
+(d) THE 𝒯 PROBE at q = 4 (`tprobe_core.py`, `o4a_selftest`, `o4b_optimize`, `o4c_gradopt`, `o4d_polish_M4`, `o4e_driver` + logs).
+    Method (independent of the unit's): atom positions exact (Fractions); log*(m) on the monoid G ≤ 64 from D′ = D·L′, i.e. the
+    unit-lower-triangular sparse system u(x) + Σ_a m_a u(x/a) = m_x log x, u = log*(m)·log x; Π_F = u/log x + Π_ζ; global search by
+    differential evolution (3 seeds, popsize 25) then SLSQP on the epigraph with ANALYTIC gradients (checked against central
+    differences: 3.0e−10). Self-tests: Π(2) = 1 + t, Π(16/3) = −4wt/3, Π(3/2) = w, Π(8/3) = 4w/3 exact; control D = 1 + 2·4^{−s}:
+    Π(4^k) = 2.5, −1.75, 2.8333, −3.875 = 1/(2k) + (−1)^{k+1}2^k/k exactly.
+    Design as in the NOTE (lower atoms n/d ∈ (1, 2), d ≤ M; J-partners; m₂ = t; m₄ = 2):
+      M = 2 (3/2): max-min = −0.680076 at (t, w) = (2.04143, 0.24985), binding 16/3 — AGREES digit for digit (DE global).
+      M = 3 (4/3, 3/2, 5/3): −0.400711 at t = 0.74486, w = (0.48669, 0.48669, 0.68611) — AGREES digit for digit with the unit's
+        local value; DE from 3 seeds finds nothing better.
+      M = 4 (+5/4, 7/4): −0.293651 at t = 0.318472, w = (0.386373, 0.386373, 0.355084, 0.301804, 0.665016) — BETTER than the NOTE's
+        −0.310622 (its "local search" value). Seven constraints are active (x = 16/3, 20/7, 64/21, 64/7, 128/21, 320/7, 4608/175)
+        = number of unknowns (6 weights + τ). Exact re-evaluation with rational weights by a SECOND algorithm (convolution-power
+        series in Fractions): min Π_F = −0.293650523 at 64/7 ✓. So the NOTE's M = 4 entry (lines 69, 331, 334, 384) is not the best
+        attainable; the trend reading (−0.68 → −0.40 → −0.29) is unchanged in direction (F3).
