@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/lemmaB-s41/U5-obstruction/verify-O/lattice_control_O.py", line 38, in <module>
+    sstar = findroot(lambda s: L(s, rho), (lo + mpf(10)**-9, hi), solver='illinois')
+  File "/Users/jaytyagi/Library/Python/3.9/lib/python/site-packages/mpmath/calculus/optimization.py", line 985, in findroot
+    raise ValueError('Could not find root within given tolerance. '
+ValueError: Could not find root within given tolerance. (0.00464219270145558661697038171036646521 > 1.92592994438723585305597794258492732e-34)
+Try another starting point or tweak arguments.
+python3 lattice_control_O.py  0.09s user 0.01s system 97% cpu 0.102 total
