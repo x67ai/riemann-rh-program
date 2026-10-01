@@ -296,3 +296,31 @@ g-prime iff A(n) = 0 and E(n − 1) ≤ 0.3) — already in the record (uoff rea
 Statuses. T1 (core in print), T2, T3 and its converse, Lemma A, T4, T4′: THEOREM (dual-read). K: dual-read computation (above). Exact
 system to 2·10⁹ (max a_n = 344, sup E = 348.0): NUMERICAL (2 producers, byte-identical g-prime lists). Lemma H in the ≪ form: open.
 UT-M4 (task 6, zeros of F_X at 10⁹): not run (stop line).
+
+### A.11 lg — S7, integer-level feedback acting only at prime powers (the prime-local class on ℕ). Close K-candidate + K-conditional theorems + G
+Verdicts: read-F AGREES-WITH-CORRECTIONS (rF:3); read-O AGREES-WITH-CORRECTIONS, F1–F2 record-level + 14 minor, 18 pairs (rO:14–30). 18/18
+applied; "Unit CLOSED DUAL-READ: K-candidate (numerical; two producers) + T (Lemmas 1.1, 1.2, 4.1; K₇ and K₇^{≤2} conditional on H and on
+floating-point boxes) + G (Lemmas H₇, H₇^{≤2})" (rF:25). m12–m13 deleted two sentences about the Riemann hypothesis (rF:20).
+Three most useful findings.
+1. **S7^{≤2}(3/5), the capped prime-local system** (NOTE:29–33, 230, 254): every m ≤ 2, so a_n ≪ n^ε is PROVED (Lemma 4.1, the Ramanujan
+   condition; rF:9), and at X = 10⁹ β ≈ 0.19–0.22, α ≈ 0.79–0.83, a boxed zero z₁ = 0.8243658 + 11.0306646i of F_X, γ = 0.78–0.82:
+   α − 2β = +0.36…+0.44, with |C(u)| ≤ 0.93·u^{0.40} on all of [10³, 10⁹]. Lemma 4.1: THEOREM (dual-read); the numbers: NUMERICAL (2
+   producers — read-O's sieve and additive-DP generators agree byte for byte with the unit's dumps to 10⁹, rO:16–22).
+2. **Theorems K₇^{≤2} and K₇** (NOTE:208, 254; close NOTE:35–39): if |N_P(u) − 0.6⌊u⌋| ≤ u^{0.40} for all u > 10⁹ then Conjecture U is
+   false (for S7^{≤2}(3/5) and for S7(3/5)). CONDITIONAL THEOREM (on H₇^{≤2} / H₇ and on the floating-point box values), dual-read (rF:10;
+   rO:22–25 "the conditional refutations of U are correct as stated"); the Taylor truncation is rigorously ≤ 3.4·10⁻²⁹ (A4), only the
+   double-precision summation and sampling remain floating-point. Rouché thresholds θ < 0.4005 (B₁), 0.4022 (B^{≤2}) (A6, rO:355–356).
+3. **Lemma 1.2 — the downward side is bounded by prime-power gaps** (NOTE:64): multiplicities ≤ ρ·(prime-power gap) + 1 + ρ, so S5's
+   factorization-counting explosion cannot occur in S7 (NOTE:40–42). THEOREM (dual-read; rF:8). But read-O A2 (rO:343–347): the cap
+   breaks it — S7^{≤2}(0.6) reaches inf E = −197.8 below the gap bound −169.7, so H₇^{≤2}'s lower half needs a different mechanism.
+Most useful failure. F1 (rO:217–225): the close turned a scan of the approximant F_X at X = 10⁷ into "no other zero [of ζ_P] in σ ≥ 0.70
+below height 100" — not available even conditionally (at 0.70 + 94.63i the H_{0.40} tail 0.629 exceeds |F_X| = 0.138). F2 (rO:227–
+240): Révész–Pintz's zero-density theorem needs Axiom A, which for S7^{≤2} is the open H. And the brief's expectation "multiplicities
+small" was corrected: bounded by gaps, not small (m_p up to 79–219; NOTE:40–42).
+Borrow. (a) The cap m ≤ 2 as the cheap way to prove Ramanujan for a feedback system (Lemma 4.1; A3 extends it to μ_P). (b) A1
+(rO:337–341): ζ_P converges absolutely on σ > 1 and N(x) ≪ x^{1+ε} unconditionally for every S7(ρ). (c) Direct-sum boxes with a sampled
+Lipschitz lower bound (A5) as the standard second route for any boxed zero.
+Statuses. Lemmas 1.1, 1.2, 4.1: THEOREM (dual-read); K₇, K₇^{≤2}: CONDITIONAL THEOREM (dual-read), "new as statements on a printed core"
+(rO §6). Constructions S7, S7^{≤2}: new (dual-checked search). Numerical crossing: NUMERICAL (2 producers), "new (numerical)". Lemmas H₇,
+H₇^{≤2}: open (G). S7 is an ℕ-supported counterpart of S8; read-F's ranking: "S8 has no downward half to prove (E > −½ by
+construction), which is why S8 is the better target" (rF:22–23).
