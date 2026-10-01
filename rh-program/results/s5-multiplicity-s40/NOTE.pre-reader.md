@@ -15,8 +15,8 @@ primes) (§2.3); the g-prime list itself is re-certified at every n ≤ 10⁹ by
 Since E(n) − E(n − 1) = a_n − 0.8, **hypothesis H_θ of Theorem K′ is false for every θ ≤ 0.35 and every constant c < 1.88; Theorem K′
 is vacuous as stated** [proved here]. Not refuted: Lemma H with an unspecified constant — no fixed finite G can refute it
 (f_G(n) ≤ (1 + log₂ n)^{|G|}). The orchestrator's C1–C3 are reproduced exactly (§1); C4 is confirmed and sharpened: the certified
-exponent of max a_n climbs 0.273 (10⁹) → 0.3648 (10⁴²·⁶) with marginal exponents 0.37–0.46 from 10¹⁵ on (0.31–0.37 below) and no decline (§2.4) [computed]; if
-limsup log a_n/log n > 0.383 = Re ρ₁/2, then β ≥ that, and S5(0.8) is no counterexample to U provided α = Re ρ₁ ≈ 0.766 — not established: the record gives α ≥ Re ρ₁ only under H_θ, now refuted, and a zero further right would raise the threshold (§5.3) [model].
+exponent of max a_n climbs 0.273 (10⁹) → 0.3648 (10⁴²·⁶) with marginal exponents 0.37–0.46 and no decline (§2.4) [computed]; if
+limsup log a_n/log n > 0.383 = Re ρ₁/2, then β ≥ that and S5(0.8) obeys α ≤ 2β — no counterexample to U at all (§5.3) [model].
 **T [proved here].** T1: sup a_n < ∞ ⇔ a_n ≤ 1 ⇔ independent g-primes with m_q ≤ 1; any relation forces a_{n₀^k} ≥ k + 1. T2: in a
 free ℕ-supported system K(x) ≤ R(x/2) and π_P(x) ≤ π(x) − [R(x) − R(x/2)]. T3: free + N = ρx + O(x^θ), θ < 1 ⇒ refused primes and
 added composites are both O(x e^{−c√log x}) (via Landau's PNT, [quoted] DMV 2006 pp. 2–3); converse construction for any R with
@@ -35,7 +35,8 @@ m_q = 1, last g-prime 999,999,835, a_q ≥ 1 at every g-prime (`verify/dump_reco
 **C1 — reproduced [computed].** Exact int64 scan of `aF_r08_1e9.u16` (E in units of 1/5): N(10⁹) = 800,000,008, C(10⁹) = 8;
 sup_{n≤10⁹} E = 1374/5 = 274.8 at n = 902,538,000 = 2⁴·3²·5³·7·13·19·29 with a_n = 276 and E(n − 1) = −2/5; inf E = −2/5 (attained
 in every half-decade from 10¹ on; the a-priori floor −1 − ρ = −1.8 is never approached, and §5.1 proves E ≥ −0.4 always). Of the 37 E-records with n ≥ 10⁷, 19 are single spikes
-E(n) − E(n − 1) = a_n − 0.8 at integers with a_n ≥ 50 and E(n − 1) ≤ 37.6; the other 18 add ≤ 2.2 each (one adds 14.2): 13 of them within 8 integers after a spike, the five at 13,376,008–13,376,077 within 77 integers after a_n = 14 at 13,376,000 (identity E(n) − E(n − 1) = a_n − 0.8 checked at every record: `ok=1` throughout the log).
+E(n) − E(n − 1) = a_n − 0.8 at integers with a_n ≥ 50 and E(n − 1) ≤ 37.6; the other 18 add ≤ 2.2 each (one adds 14.2) within 76
+integers after a spike (identity E(n) − E(n − 1) = a_n − 0.8 checked at every record: `ok=1` throughout the log).
 Records of a_n with log a/log n: 27 at 957,600 (0.239); 124 at 90,253,800 (0.263); 155 at 1.389·10⁸ (0.269); 215 at 4.166·10⁸
 (0.271); 244 at 7.637·10⁸ (0.269); 276 at 9.025·10⁸ (0.273). Per half-decade max a_n, windows [10⁴·⁵, 10⁵) … [10⁸·⁵, 10⁹): 14, 21, 27, 42, 59, 83, 124,
 178, 276 (local exponents per half-decade 0.35, 0.22, 0.38, 0.30, 0.30, 0.35, 0.31, 0.38; full table in the log). New fact: **539,856,374 of the integers 2 ≤ n ≤ 10⁹ (54%) have a_n = 0** — mean
@@ -137,7 +138,7 @@ a(n/q^k) = Ω(n)A(n) (the identity for the system truncated below n, whose count
 (II) is then the defining rule. **Result: 0 failures of (I) and 0 of (II) over all n ≤ 10⁹** (`logs/omega_check.log`; 3.5 min,
 peak 707 MB). So the dump is S5(0.8) on [1, 10⁹], and every one of the 2,525 g-primes in `certK/K1_gdiv.txt` is a g-prime of S5(0.8).
 
-## §3. The exact system beyond 10⁹ (task 3) [computed, two code paths: Ω-recursion here, multiplicative sieve in read-O §2.1; byte-identical]
+## §3. The exact system beyond 10⁹ (task 3) [computed, one code path]
 
 For 10⁹ < n ≤ 2·10⁹ every g-prime q < n dividing n is ≤ 10⁹ and every n/q^k is ≤ 10⁹, so the Ω-recursion of §2.1 gives A(n) =
 acc(n)/Ω(n) from the certified dump alone, and the rule gives m_n; `omega_check.c` runs this as its generator mode (division
@@ -197,16 +198,16 @@ between deletions and carriers, not available from absolute convergence).
 **4(b) — what survives under a_n ≤ M and under Ramanujan [proved here, examples].** a_n ≤ M ⇒ free (T1) ⇒, with N = ρx + O(x^θ),
 a thin surgery of ℙ (T3): complete. Under a_n ≪ n^ε the system need not be free, and composites need not be few unless density
 is imposed: (R1) ℙ ∪ {6}: a_n = min(v₂(n), v₃(n)) + 1 ≤ log₂ n + 1 and N(x) = Σ_{j≥0}⌊x/6^j⌋ = (6/5)x + O(log x) — a finite,
-non-free surgery with an excellent integer count. (R2) ℙ ∪ {2p : p odd prime}: for n = 2^a m (m odd) the factorizations are the choices
+non-free surgery with an excellent integer count. (R2) ℙ ∪ {2p : p prime}: for n = 2^a m (m odd) the factorizations are the choices
 0 ≤ j_p ≤ v_p(m) (copies of 2p) with Σ j_p ≤ a, so a_n ≤ τ(m) ≪ n^ε; but N(x)/x is unbounded (if N(x) ≤ Cx then ζ_P(σ) =
 σ∫N x^{−σ−1}dx ≤ Cσ/(σ − 1), while ζ_P(σ) ≥ ζ(σ)Π_p(1 + (2p)^{−σ}) and Σ_p 1/(2p) diverges). So Ramanujan permits dense composites;
 the density ρx is what must exclude them. **Open (stated precisely):** is there an ℕ-supported system with N(x) = ρx + O(x^θ), θ < 1,
 a_n ≪ n^ε, and a positive proportion of refused primes? By T4 below such a system has max_{n≤x} a_n ≥ x^{κ/log log x} — compatible
-with Ramanujan, so T4 does not decide it; S5(0.8) is not a plausible candidate on the evidence (a_{n_K} ≥ 4.26·n_K^{0.35}, §2.3), though no finite computation refutes a_n ≪ n^ε and its density ρ = 0.8 is unproved.
+with Ramanujan, so T4 does not decide it; S5(0.8) is no candidate (a_{n_K} ≥ 4.26·n_K^{0.35}, §2.3).
 
 **4(c) — a large relation lattice forces multiplicity [proved here].**
 *Lemma A.* Let V be a finite multiset of integers ≥ 2, Q the set of primes dividing its members, f_V(n) the number of
-multisets of elements of V (repetition allowed, copies distinguished) with product n, Z_V(σ) = Π_{q∈V}(1 − q^{−σ})^{−1}, Z_Q(σ) = Π_{p∈Q}(1 − p^{−σ})^{−1}. If 0 < δ < σ and
+sub-multisets with product n, Z_V(σ) = Π_{q∈V}(1 − q^{−σ})^{−1}, Z_Q(σ) = Π_{p∈Q}(1 − p^{−σ})^{−1}. If 0 < δ < σ and
 x^δ ≥ 2Z_V(σ − δ)/Z_V(σ), then max_{n≤x} f_V(n) ≥ Z_V(σ)/(2Z_Q(σ)).
 *Proof.* Σ_{n>x} f_V(n)n^{−σ} ≤ x^{−δ}Σ_n f_V(n) n^{−σ+δ} = x^{−δ}Z_V(σ − δ) ≤ Z_V(σ)/2, so Σ_{n≤x} f_V(n)n^{−σ} ≥ Z_V(σ)/2; and since
 f_V lives on Q-smooth n, Σ_{n≤x} f_V(n)n^{−σ} ≤ max_{n≤x} f_V(n) · Z_Q(σ). ∎
@@ -223,7 +224,8 @@ PNT) and with a positive proportion of refused primes in dyadic ranges: Σ_{y/2<
 max_{n≤x} a_n ≥ exp(κ log x/log log x) for large x, with κ = κ(δ) > 0; hence sup_{u≤x}|N(u) − ρ⌊u⌋| ≥ ½(exp(κ log x/log log x) − ρ).
 *Proof.* Take V = {g-primes ≤ y} minus the primes in (y/2, y] (multiplicity counted); Q ⊆ {p ≤ y/2} as in T2. By the classical PNT
 (DMV l. 38), D ≥ π_P(y) − Σ_{y/2<p≤y} m_p − π(y/2) ≥ (δ/2 − o(1)) y/log y. Next Σ_{p≤y/2} log(log y/log p) ≪ y/log² y: primes ≤ √y give
-O(√y log log y), and for p > √y, log(log y/log p) ≤ 2 log(y/p)/log y with Σ_{p≤y} log(y/p) = ∫₁^y π(t)dt/t ≪ y/log y (π(t) ≪ t/log t, from the quoted classical PNT, DMV (2), l. 38). And θ(Q) ≤ θ(y/2) = (½ + o(1))y ≤ y log 2 for large y (same source). So
+O(√y log log y), and for p > √y, log(log y/log p) ≤ 2 log(y/p)/log y with Σ_{p≤y} log(y/p) = ∫₁^y π(t)dt/t ≪ y/log y (Chebyshev
+π(t) ≪ t/log t [recalled, unverified — classical, elementary]). And θ(Q) ≤ θ(y/2) ≤ y log 2 (Chebyshev, same label). So
 log max ≥ (y/log y)(½δ log(1/c) − c log 2 − o(1)) at log x = (2 log 2/c + 1)(1 + o(1)) y; fix c = c(δ) small and solve for y. The
 error statement follows from a_n − ρ = C(n) − C(n − 1). ∎
 So the rank excess forces divisor-function-size multiplicity, not a power: T4′ alone says nothing about β. The power-size
@@ -275,10 +277,10 @@ height, UT-M4, would raise the threshold).
   334 (2006) pp. 2–3, l. 99–115 of the on-disk text) and the classical PNT (same paper, (2), l. 38); Chebyshev's bounds are
   [recalled, unverified] and enter only T4′'s constants. Everything else (T1, T2, T4, Lemma A, §2.1, §5.1) is proved on the page.
 - T1's "a relation forces a_{n^k} ≥ k + 1" and T2's rank count are elementary and may be folklore (Hilberdink 2012, on disk as
-  `novel-wave-s37/beurling-frontier/sources/p3-22c2-hilberdink-2012-generalised-prime-systems-periodic-counting.txt`, studies systems with N(x) − cx periodic and finds ℙ minus finitely many primes — the same "ℕ-supported
-  systems are rigid" theme, in a different regime). In print and on disk: T1's quantitative core — Olofsson, preprint of 8 July 2010 (= J. Number Theory 131 (2011) 45–58, DOI 10.1016/j.jnt.2010.06.014), pp. 10–11 (`novel-wave-s37/beurling-fe/sources/olofsson-2010-properties-beurling-primes.txt` l. 658–662): "if two different Beurling integers have the same value α, then there are at least n + 1 different Beurling integers having the value αⁿ, hence the remainder term is of at least logarithmic growth"; and the nearest printed relative of T2–T3, Lagarias, Forum Math. 11 (1999) 295–312 (Zbl 0927.11047): an ℕ-supported system with the Delone property (bounded gaps) is ℙ minus finitely many primes plus finitely many composites (also reported by Olofsson l. 649–658 and Ruzsa, arXiv 2311.11127, p. 1). T3 is the analogue with N = ρx + O(x^θ) in place of bounded gaps and a thin, possibly infinite, surgery in place of a finite one (the converse construction has unbounded gaps). Lemma A is Rankin's trick run in reverse
+  `fr/sources/p3-22c2`, studies systems with N(x) − cx periodic and finds ℙ minus finitely many primes — the same "ℕ-supported
+  systems are rigid" theme, in a different regime); not found stated in the on-disk corpus. Lemma A is Rankin's trick run in reverse
   (a lower bound for a maximum from an Euler-product ratio); T4/T4′ as stated: not found on disk.
-- **Novelty: single-check** for T2(a)/(b), T3 and its converse construction (new as statements beside Lagarias 1999), T4/T4′, and the K certificate (a computation, reproduced by an independent method in read-O §2). T1: core in print (Olofsson 2010, pp. 10–11). §5.1: already in the record (u-offsurgery-s39 `read-O.md` 1.2(b)–(c) and A1).
+- **Novelty: single-check** for T2(a)/(b), T3's converse construction, T4/T4′, §5.1, and the K certificate (a computation).
 - **Distance from upstream (10(n)):** the K-close is pure computation on the program's own construction; the theorems use one
   printed source (DMV 2006 for Landau's and the classical PNT). No external work is needed or waited for.
 
@@ -305,13 +307,13 @@ height, UT-M4, would raise the threshold).
 | Quantity | Current best value | Result file | Dated |
 |---|---|---|---|
 | Certified multiplicity of S5(0.8) beyond the computed range (lower bound a_n ≥ f_G(n), G = g-primes ≤ 10⁹, exact integers) | a_n ≥ 3,403,961,916,617,140 = 4.2647·n^{0.35} = n^{0.36479} at n_K = 2⁸·3⁵·5⁹·7³·11²·13·17·19³·23·29²·37·41²·59·61·79·89·109·149 (log₁₀ = 42.577); kills H_θ of Theorem K′ for θ ≤ 0.35, c < 1.88. Two code paths (fcert 128-bit; checkK mod 3 primes); dump re-certified by the Ω-identity, 0 failures to 10⁹. One producer | `s5-multiplicity-s40/NOTE.md` §2.3, §2.5; `…/verify/logs/fcert_K1.log`, `checkK_K1.log`, `omega_check.log`; list `verify/certK/K1_gdiv.txt` | 2026-10-01 |
-| Exact S5(0.8) beyond 10⁹ | to 2·10⁹: N = 1,600,000,009, C(2·10⁹) = 9, max a_n = 344 at 1,805,076,000, sup E = 348.0; two code paths (Ω-recursion generator; read-O's multiplicative sieve, byte-identical g-prime list SHA c3aee0f9…9c35) | `s5-multiplicity-s40/NOTE.md` §3; `…/verify/logs/omega_check.log` | 2026-10-01 |
-| Growth of max a_n (S5(0.8)): exponent of the exact lower bound f_G(n) (exact at all six points: NOTE §2.3 and read-O §2.4) vs log₁₀ n | 0.2726 (9.0), 0.3294 (20.3), 0.3493 (29.9), 0.3617 (40.0), 0.3648 (42.6); marginal 0.37–0.46, no decline; model crossing of n^{0.383}: 10⁶⁴–10⁸⁸ | `s5-multiplicity-s40/NOTE.md` §2.4, §5.3; `…/verify/logs/search2_rate_K60.log` | 2026-10-01 |
+| Exact S5(0.8) beyond 10⁹ | to 2·10⁹: N = 1,600,000,009, C(2·10⁹) = 9, max a_n = 344 at 1,805,076,000, sup E = 348.0; one code path (Ω-recursion generator) | `s5-multiplicity-s40/NOTE.md` §3; `…/verify/logs/omega_check.log` | 2026-10-01 |
+| Growth of max a_n (S5(0.8)): exponent of the certified lower bound vs log₁₀ n | 0.2726 (9.0), 0.3294 (20.3), 0.3493 (29.9), 0.3617 (40.0), 0.3648 (42.6); marginal 0.37–0.46, no decline; model crossing of n^{0.383}: 10⁶⁴–10⁸⁸ | `s5-multiplicity-s40/NOTE.md` §2.4, §5.3; `…/verify/logs/search2_rate_K60.log` | 2026-10-01 |
 
 ## §9. Proposed zoo rider (BLOCK format of `results/fejer-form-s39/NOTE.md` §11; NOT inserted — for the next zoo stream)
 
 <!-- BLOCK:i2 -->
-- **[RIDER 2026-10-01, Session 40 (`results/s5-multiplicity-s40/NOTE.md` §0, §2.3, §2.5, §4, §5) — dense non-surgery systems on ℕ: the multiplicity obstruction — bounded multiplicity forces a thin surgery (T1–T3), and on the program's candidate S5(0.8) integer-level feedback did not keep the multiplicity below n^{0.35}; that every dense non-surgery system on ℕ has β bounded below is not proved (§4(b), UT-M5).]** For an ℕ-supported discrete system, C(n) − C(n − 1) = a_n − ρ, so the integer error is at least half the largest multiplicity: β ≥ limsup log a_n/log n. Multiplicity and the surgery class are tied: bounded a_n ⇔ free g-primes (T1), free + N = ρx + O(x^θ) ⇒ refused primes and added composites both O(x e^{−c√log x}) (T2–T3, via Landau's PNT as quoted in DMV 2006 pp. 2–3), while a positive proportion of refused primes forces max_{n≤x} a_n ≥ x^{κ/log log x} (T4′, a Rankin-type lemma on the rank excess). On the program's candidate S5(0.8) (u-offsurgery-s39) the multiplicity grows like a power over every computed scale: a_n ≥ 4.26·n^{0.35} = n^{0.3648} at an explicit n ≈ 3.8·10⁴² (exact count 3,403,961,916,617,140 from 2,525 certified g-prime divisors, two code paths), which makes the hypothesis of Theorem K′ false for every constant its Rouché step tolerates; the certified exponent climbs 0.27 → 0.365 from 10⁹ to 10⁴²·⁶ with marginal 0.37–0.46, and if it passes Re ρ₁/2 = 0.383 the system obeys α ≤ 2β provided α = Re ρ₁ (no zero further right; uncertified once H_θ fails). KILLS: briefs that refute U (or give a constructive answer to DMV's question "does θ < ½ imply RH for discrete systems?", which I.2's rider (1) answers non-constructively) by an integer-greedy / feedback construction on ℕ while assuming a growth bound for N_P − ρx below the multiplicity exponent; RETURNS them to the multiplicity question (UT-M1/M2). EXECUTABLE TEST: run `verify/search2.c` (v_p-identity scoring) on the candidate's g-primes and count the best integer it finds exactly (`verify/fcert.c`, or a full-lattice exact count as in read-O §2.2), and compare that exponent with Re ρ₁/2 before any tail theorem is assumed. `[novelty: single-check]`
+- **[RIDER 2026-10-01, Session 40 (`results/s5-multiplicity-s40/NOTE.md` §0, §2.3, §2.5, §4, §5) — dense non-surgery systems on ℕ: integer-level feedback cannot keep β small — the multiplicity obstruction.]** For an ℕ-supported discrete system, C(n) − C(n − 1) = a_n − ρ, so the integer error is at least half the largest multiplicity: β ≥ limsup log a_n/log n. Multiplicity and the surgery class are tied: bounded a_n ⇔ free g-primes (T1), free + N = ρx + O(x^θ) ⇒ refused primes and added composites both O(x e^{−c√log x}) (T2–T3, via Landau's PNT as quoted in DMV 2006 pp. 2–3), while a positive proportion of refused primes forces max_{n≤x} a_n ≥ x^{κ/log log x} (T4′, a Rankin-type lemma on the rank excess). On the program's candidate S5(0.8) (u-offsurgery-s39) the multiplicity grows like a power over every computed scale: a_n ≥ 4.26·n^{0.35} = n^{0.3648} at an explicit n ≈ 3.8·10⁴² (exact count 3,403,961,916,617,140 from 2,525 certified g-prime divisors, two code paths), which makes the hypothesis of Theorem K′ false for every constant its Rouché step tolerates; the certified exponent climbs 0.27 → 0.365 from 10⁹ to 10⁴²·⁶ with marginal 0.37–0.46, and if it passes Re ρ₁/2 = 0.383 the system obeys α ≤ 2β. KILLS: briefs that refute U (or DMV's "θ < ½ ⇒ RH for discrete systems") by an integer-greedy / feedback construction on ℕ while assuming a growth bound for N_P − ρx below the multiplicity exponent; RETURNS them to the multiplicity question (UT-M1/M2). EXECUTABLE TEST: run `verify/search2.c` (v_p-identity scoring) on the candidate's g-primes and compare the certified exponent of max a_n with Re ρ₁/2 before any tail theorem is assumed. `[novelty: single-check]`
 <!-- END:i2 -->
 
 ## §10. The waste line (KICKSTART 10(o), with 10(m)'s labels)
@@ -326,4 +328,4 @@ past 2·10⁹ (§3: ≈ 2 GB of stored a(n) beyond the dump; UT-M3), the 0.383 c
 Candidate LOG line: "s5-multiplicity-s40: K. a_n ≥ 3,403,961,916,617,140 > 3.76 n^0.35 + 3 at n = 2⁸3⁵5⁹7³11²·13·17·19³·23·29²·37·41²
 ·59·61·79·89·109·149 (10⁴²·⁶; two code paths; dump re-certified by the Ω-identity, 0 failures to 10⁹) — Theorem K′'s hypothesis is
 false for every tolerated constant; T1–T4′ (bounded ⇔ free; free ⇒ thin surgery; dense refusal ⇒ x^{κ/log log x}); exponent of
-max a_n 0.365 and rising — S5(0.8) likely obeys U if α = Re ρ₁. Spent for nothing: one superseded greedy and one lossy split counter (~11 min)."
+max a_n 0.365 and rising — S5(0.8) likely obeys U. Spent for nothing: one superseded greedy and one lossy split counter (~11 min)."
