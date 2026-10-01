@@ -194,3 +194,19 @@ windows), pairs (F_A(16), κ/κ_P): π/16 — δ = t/4 (0.528, 2.03), τ = ¼ (0
 (0.694, 1.41), base (0.732, 1.33), τ = ¾ (0.792, 1.27), product 0.88–1.01. Within each density the six rules are in the SAME order by
 F_A(16) and by κ/κ_P. Use: a proof of
 (C3.1) needs only second-moment (and tail) control of the arrivals over windows of O(1)–O(log x) cells — a local statement.
+
+**3.3 Correlations across lags and scales** [computed: LAG lines of `verify/logs/b*_1e10.stats` (band [10^9.5, 10¹⁰), lags 1–65536);
+`verify/inherit.c` (IBAND lines, `verify/logs/b*_1e10.inh`); `verify/lyap.py` (log `verify/logs/lyap.log`)].
+*Lags.* The arrivals c_k are nearly uncorrelated from cell to cell: |r_c(ℓ)| ≤ 0.030 (π/16) and ≤ 0.042 (π/32) at every lag 1–65536,
+negative at short lags (−0.029 at ℓ = 1, 2); the window-variance reduction of 3.2 is the sum of many small negative correlations
+(Σ_ℓ r_c(ℓ) ≈ (0.34/0.97 − 1)/2 ≈ −0.32 for π/16). The p₁-part c^{(1)} has Bragg-type long-range order: for π/32 (p₁ = 6.0930 cells)
+r_{c1} = −0.077 at lags 1–5 and +0.165, +0.134, +0.156, +0.149, +0.130, +0.161, +0.153, +0.139 at lags 6, 12, 128, 256, 512, 16384,
+32768, 65536 — exactly the lags within 0.1 of a multiple of p₁ (65536/p₁ = 10756.0) [proved mechanism: the n-th g-integer is
+ν_n = 1 + (n − 1 − E(ν_n))t, a lattice with bounded displacement −tE, and the p₁-arrivals are its dilation]. The g-prime indicator is
+positively correlated at short range (r = 0.253, 0.141, 0.103 at lags 1–3, < 0.01 beyond 12; π/16): g-primes come in runs, the idle
+stretches of the queue.
+*Scales.* corr(e_k, E(x_k/p_q)) for q = 1, 2, 3, 4 on [10^9.5, 10¹⁰): 0.240, 0.088, 0.032, 0.022 (π/16), 0.168, 0.064, 0.038, 0.027
+(π/32), slowly decreasing with x; the least-squares fit of e on (1, E(x/p₁), …, E(x/p₄)) has R² = 0.062 (π/16) and 0.032 (π/32) on
+2·10⁷ cells at 3.16·10⁹ — the queue state at x is NOT a function of the states at x/q. Per excursion, corr(height, ΔE(W/p₁)) = 0.49
+(π/16) and 0.27 (π/32) at 10¹⁰, rising slowly with x (0.41 → 0.49 over 10⁷–10¹⁰ for π/16): the cross-scale link is in the increments
+over the burst window (4.1 (I1)), not in the levels.

@@ -1,0 +1,44 @@
+# inherit v16_d8_1e9 p1..p4 = 2.909859317 13.09577567 18.18873385 23.28169203  M1=0.656341 M2=0.606222 M4=0.548286
+XDEC heights [1,2) n=12534303 mean_h=1.000 mean_lbuild=1.00 mean excess: spf=p1 0.569 p2 0.094 p3 0.061 p4 0.044 rough(>p4) 0.232
+XDEC heights [2,3) n=4672652 mean_h=2.000 mean_lbuild=1.72 mean excess: spf=p1 0.939 p2 0.185 p3 0.125 p4 0.093 rough(>p4) 0.658
+XDEC heights [3,4) n=1956252 mean_h=3.000 mean_lbuild=3.13 mean excess: spf=p1 1.316 p2 0.278 p3 0.193 p4 0.146 rough(>p4) 1.067
+XDEC heights [4,6) n=1221471 mean_h=4.303 mean_lbuild=5.62 mean excess: spf=p1 1.771 p2 0.393 p3 0.279 p4 0.216 rough(>p4) 1.645
+XDEC heights [6,9) n=252167 mean_h=6.480 mean_lbuild=10.38 mean excess: spf=p1 2.449 p2 0.573 p3 0.414 p4 0.324 rough(>p4) 2.719
+XDEC heights [9,13) n=18151 mean_h=9.557 mean_lbuild=17.29 mean excess: spf=p1 3.265 p2 0.814 p3 0.581 p4 0.451 rough(>p4) 4.445
+XDEC heights [13,18) n=429 mean_h=13.580 mean_lbuild=24.77 mean excess: spf=p1 4.258 p2 1.017 p3 0.783 p4 0.645 rough(>p4) 6.878
+XDEC heights [18,1000) n=5 mean_h=18.600 mean_lbuild=36.20 mean excess: spf=p1 5.160 p2 0.986 p3 1.593 p4 0.909 rough(>p4) 9.952
+CHECK max(e - E1 - tau - r1) = -1.986e-04 at cell 146175627 (theorem: <= 0)
+IBAND 1 cells=13 max_e=0 max_r1=0.000 max_r2=0.000 max_r4=0.000 mean_e=0.0000 mean_r1=0.0000 mean_r2=0.0000 mean_r4=0.0000 frac(e>0 with E1+tau>=e)=0.0000 corr(e,E1)=nan corr(e,E2)=nan corr(e,E3)=nan corr(e,E4)=nan
+IBAND 2 cells=43 max_e=1 max_r1=0.344 max_r2=0.000 max_r4=0.000 mean_e=0.0465 mean_r1=0.0240 mean_r2=0.0000 mean_r4=0.0000 frac(e>0 with E1+tau>=e)=0.5000 corr(e,E1)=0.1772 corr(e,E2)=0.3596 corr(e,E3)=0.0402 corr(e,E4)=0.1095
+IBAND 3 cells=134 max_e=2 max_r1=0.344 max_r2=0.394 max_r4=0.000 mean_e=0.1194 mean_r1=0.0308 mean_r2=0.0206 mean_r4=0.0000 frac(e>0 with E1+tau>=e)=0.7143 corr(e,E1)=0.4941 corr(e,E2)=0.1986 corr(e,E3)=0.0285 corr(e,E4)=0.3182
+IBAND 4 cells=425 max_e=2 max_r1=1.687 max_r2=1.394 max_r4=0.452 mean_e=0.1318 mean_r1=0.0797 mean_r2=0.0513 mean_r4=0.0159 frac(e>0 with E1+tau>=e)=0.6078 corr(e,E1)=0.3261 corr(e,E2)=0.2005 corr(e,E3)=0.1224 corr(e,E4)=0.0939
+IBAND 5 cells=1342 max_e=4 max_r1=2.344 max_r2=1.788 max_r4=1.452 mean_e=0.1945 mean_r1=0.1153 mean_r2=0.0801 mean_r4=0.0437 frac(e>0 with E1+tau>=e)=0.5652 corr(e,E1)=0.3966 corr(e,E2)=0.1851 corr(e,E3)=0.0728 corr(e,E4)=0.1060
+IBAND 6 cells=4246 max_e=5 max_r1=3.344 max_r2=2.788 max_r4=2.452 mean_e=0.2504 mean_r1=0.1558 mean_r2=0.1146 mean_r4=0.0743 frac(e>0 with E1+tau>=e)=0.5537 corr(e,E1)=0.4473 corr(e,E2)=0.1935 corr(e,E3)=0.0692 corr(e,E4)=0.0817
+IBAND 7 cells=13426 max_e=8 max_r1=5.062 max_r2=3.788 max_r4=3.807 mean_e=0.2814 mean_r1=0.2165 mean_r2=0.1705 mean_r4=0.1209 frac(e>0 with E1+tau>=e)=0.5487 corr(e,E1)=0.3407 corr(e,E2)=0.1605 corr(e,E3)=0.0985 corr(e,E4)=0.0744
+IBAND 8 cells=42456 max_e=8 max_r1=6.718 max_r2=5.394 max_r4=4.807 mean_e=0.3462 mean_r1=0.2735 mean_r2=0.2258 mean_r4=0.1662 frac(e>0 with E1+tau>=e)=0.5180 corr(e,E1)=0.3215 corr(e,E2)=0.1095 corr(e,E3)=0.0680 corr(e,E4)=0.0498
+IBAND 9 cells=134258 max_e=8 max_r1=9.375 max_r2=7.575 max_r4=6.903 mean_e=0.4036 mean_r1=0.3132 mean_r2=0.2713 mean_r4=0.2126 frac(e>0 with E1+tau>=e)=0.5136 corr(e,E1)=0.2934 corr(e,E2)=0.0829 corr(e,E3)=0.0529 corr(e,E4)=0.0303
+IBAND 10 cells=424563 max_e=11 max_r1=9.811 max_r2=8.575 max_r4=8.969 mean_e=0.4644 mean_r1=0.3584 mean_r2=0.3133 mean_r4=0.2543 frac(e>0 with E1+tau>=e)=0.5090 corr(e,E1)=0.2781 corr(e,E2)=0.0865 corr(e,E3)=0.0565 corr(e,E4)=0.0382
+IBAND 11 cells=1342583 max_e=13 max_r1=10.093 max_r2=10.057 max_r4=9.421 mean_e=0.5262 mean_r1=0.4051 mean_r2=0.3601 mean_r4=0.2969 frac(e>0 with E1+tau>=e)=0.5073 corr(e,E1)=0.2758 corr(e,E2)=0.0749 corr(e,E3)=0.0455 corr(e,E4)=0.0311
+IBAND 12 cells=4245622 max_e=14 max_r1=12.842 max_r2=10.451 max_r4=9.776 mean_e=0.5887 mean_r1=0.4507 mean_r2=0.4014 mean_r4=0.3353 frac(e>0 with E1+tau>=e)=0.5100 corr(e,E1)=0.2800 corr(e,E2)=0.0606 corr(e,E3)=0.0399 corr(e,E4)=0.0300
+IBAND 13 cells=13425837 max_e=15 max_r1=14.028 max_r2=13.782 max_r4=11.389 mean_e=0.6564 mean_r1=0.5032 mean_r2=0.4492 mean_r4=0.3782 frac(e>0 with E1+tau>=e)=0.5077 corr(e,E1)=0.2787 corr(e,E2)=0.0539 corr(e,E3)=0.0353 corr(e,E4)=0.0280
+IBAND 14 cells=42456222 max_e=18 max_r1=15.873 max_r2=13.901 max_r4=12.938 mean_e=0.7260 mean_r1=0.5575 mean_r2=0.4999 mean_r4=0.4241 frac(e>0 with E1+tau>=e)=0.5070 corr(e,E1)=0.2772 corr(e,E2)=0.0541 corr(e,E3)=0.0353 corr(e,E4)=0.0259
+IBAND 15 cells=134258365 max_e=20 max_r1=17.059 max_r2=15.964 max_r4=14.745 mean_e=0.7996 mean_r1=0.6133 mean_r2=0.5516 mean_r4=0.4710 frac(e>0 with E1+tau>=e)=0.5058 corr(e,E1)=0.2780 corr(e,E2)=0.0535 corr(e,E3)=0.0359 corr(e,E4)=0.0256
+CHAIN j=1 x in [p1^j, p1^(j+1)) = [2.91, 8.467) maxE_lattice=0.5 at cell 1
+CHAIN j=2 x in [p1^j, p1^(j+1)) = [8.467, 24.64) maxE_lattice=0.5 at cell 2
+CHAIN j=3 x in [p1^j, p1^(j+1)) = [24.64, 71.69) maxE_lattice=0.5 at cell 6
+CHAIN j=4 x in [p1^j, p1^(j+1)) = [71.69, 208.6) maxE_lattice=1.5 at cell 34
+CHAIN j=5 x in [p1^j, p1^(j+1)) = [208.6, 607.1) maxE_lattice=2.5 at cell 113
+CHAIN j=6 x in [p1^j, p1^(j+1)) = [607.1, 1766) maxE_lattice=2.5 at cell 175
+CHAIN j=7 x in [p1^j, p1^(j+1)) = [1766, 5140) maxE_lattice=2.5 at cell 375
+CHAIN j=8 x in [p1^j, p1^(j+1)) = [5140, 1.496e+04) maxE_lattice=4.5 at cell 1030
+CHAIN j=9 x in [p1^j, p1^(j+1)) = [1.496e+04, 4.352e+04) maxE_lattice=6.5 at cell 6274
+CHAIN j=10 x in [p1^j, p1^(j+1)) = [4.352e+04, 1.266e+05) maxE_lattice=8.5 at cell 13476
+CHAIN j=11 x in [p1^j, p1^(j+1)) = [1.266e+05, 3.685e+05) maxE_lattice=6.5 at cell 32687
+CHAIN j=12 x in [p1^j, p1^(j+1)) = [3.685e+05, 1.072e+06) maxE_lattice=8.5 at cell 107805
+CHAIN j=13 x in [p1^j, p1^(j+1)) = [1.072e+06, 3.12e+06) maxE_lattice=11.5 at cell 258733
+CHAIN j=14 x in [p1^j, p1^(j+1)) = [3.12e+06, 9.08e+06) maxE_lattice=13.5 at cell 987827
+CHAIN j=15 x in [p1^j, p1^(j+1)) = [9.08e+06, 2.642e+07) maxE_lattice=14.5 at cell 2795284
+CHAIN j=16 x in [p1^j, p1^(j+1)) = [2.642e+07, 7.688e+07) maxE_lattice=15.5 at cell 12119174
+CHAIN j=17 x in [p1^j, p1^(j+1)) = [7.688e+07, 2.237e+08) maxE_lattice=16.5 at cell 29868387
+CHAIN j=18 x in [p1^j, p1^(j+1)) = [2.237e+08, 6.51e+08) maxE_lattice=20.5 at cell 110918144
+CHAIN j=19 x in [p1^j, p1^(j+1)) = [6.51e+08, 1.894e+09) maxE_lattice=19.5 at cell 180998458

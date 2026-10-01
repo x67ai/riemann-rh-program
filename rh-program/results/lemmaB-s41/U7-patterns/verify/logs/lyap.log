@@ -1,0 +1,22 @@
+# lyap b16_1e10 slice x0=3.162e+09 cells 620911766..640911765 p1..p4 = 3.5465 8.6394 18.8254 23.9183
+R2(e ~ 1 + E1..E4) = 0.0624  coef = 0.6101 0.2313 0.0618 0.0125 0.0061
+corr(E_q, E_q') matrix: 0.123 0.071 0.058 0.068 0.057 0.046
+bound B1 = E1+tau+r1: max(e - B1) = -2.680e-06 (proved <= 0, up to the warm-up), mean slack on busy cells 1.445, frac(B1 - e < 1 | busy) 0.480, max e 19, max B1 20.01, max r1 18.97
+bound BU = sum_q(E_q+tau)+rU: max(e - BU) = -1.340e-01, mean slack on busy cells 6.613, frac(BU - e < 1 | busy) 0.001, max BU 40.83, max rU 19.87 (service 0.5074)
+a=0.0: max(e - a*E1 - tau - r1) = 12.372
+a=0.5: max(e - a*E1 - tau - r1) = 5.753
+a=1.0: max(e - a*E1 - tau - r1) = -0.000
+a=1.5: max(e - a*E1 - tau - r1) = 0.250
+a=2.0: max(e - a*E1 - tau - r1) = 0.500
+python3 "$V/lyap.py" b16_1e10 16 0.5 0 3.16227766e9 20000000  6.74s user 0.57s system 75% cpu 9.667 total
+# lyap b32_1e10 slice x0=3.162e+09 cells 310455883..330455882 p1..p4 = 6.0930 16.2789 26.4648 36.6507
+R2(e ~ 1 + E1..E4) = 0.0317  coef = 0.2229 0.1409 0.0435 0.0223 0.0140
+corr(E_q, E_q') matrix: 0.099 0.072 0.059 0.058 0.051 0.042
+bound B1 = E1+tau+r1: max(e - B1) = -2.235e-08 (proved <= 0, up to the warm-up), mean slack on busy cells 0.892, frac(B1 - e < 1 | busy) 0.690, max e 12, max B1 13.43, max r1 11.81
+bound BU = sum_q(E_q+tau)+rU: max(e - BU) = -4.422e-02, mean slack on busy cells 3.872, frac(BU - e < 1 | busy) 0.006, max BU 21.07, max rU 11.36 (service 0.7094)
+a=0.0: max(e - a*E1 - tau - r1) = 6.187
+a=0.5: max(e - a*E1 - tau - r1) = 3.016
+a=1.0: max(e - a*E1 - tau - r1) = -0.000
+a=1.5: max(e - a*E1 - tau - r1) = 0.250
+a=2.0: max(e - a*E1 - tau - r1) = 0.500
+python3 "$V/lyap.py" b32_1e10 32 0.5 0 3.16227766e9 20000000  6.59s user 0.43s system 88% cpu 7.946 total
