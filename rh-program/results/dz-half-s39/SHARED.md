@@ -106,3 +106,15 @@ Dated blocks, appended after each batch. Newest at the bottom.
   scripts regenerate them. Final pass: P_det claims corrected to "β ≥ ½ proved, ½ in the data".
 - Owed: the standing dual read (read-O slot) on §2; Instruments row and Untried U-1…U-5 are in NOTE §6 for the bookkeeping
   agent (this unit edited nothing outside its folder).
+
+## 11:12 IST 2026-10-01 — read-O (Opus reader), batch 1: §1 re-derivations written
+
+- NOTE hash b5ff31f1… (407 lines) confirmed. Book ch. 17 read at the lines (Lemma 17.2/17.5/17.7, (17.13), Thm 17.11/17.14,
+  (17.22), (17.30), (17.39), (17.44)–(17.47), §17.10); BDR fn. 4 and Cor. 3.3–Rem. 3.5 at the lines; Broucke Thm 1.6 at the line.
+- Theorem 1 re-derived ✓ (Lemmas 2.1–2.3, Berry–Esseen step, constants K, ε_x). The passage to "lim sup > 0 a.s." is the Fatou
+  bound P(lim inf A_n) ≤ lim inf P(A_n): valid, no cross-scale independence needed. Prop. 2.4 ✓ (Mellin step suffices;
+  |G − 1| ≤ 0.19·4^{−k} on [½, 1) ✓). Lemma 2.5, Cor. 2.6, Cor. 2, §3.2 closed forms, §4.3 (proved part), Remark 5.1 ✓.
+- Record items so far: m1 §17.10's normalization may add an INFINITE sequence {w_n} (book l. 13506–13513), so "finite changes"
+  does not cover Remark 17.12 as the book carries it out (the theorem survives: deterministic w_n go into N^c, ρ^c);
+  m3 §0's "E[R²|G]^{1/2} ≪ κ/log x" is not what Lemma 2.3 proves; m4 W(σ) defined for all σ at once (one clause).
+- Next: own re-run in verify-O/ (exact grid variance; simulation at 10⁷), prior art.

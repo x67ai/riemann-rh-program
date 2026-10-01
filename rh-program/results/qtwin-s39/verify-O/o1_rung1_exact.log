@@ -1,0 +1,12 @@
+d <= 60: integer polys d*b_d(t) built; degree of P_60 = 60; time 0.1s
+values at the ends: P_1(6) = 0, P_2(-5) = 0, P_2(6) = 0; all P_d(6) == 0: True
+d with a negative value or an odd-order root strictly inside (-5,6): NONE
+outside: P_1(t) = 6 - t < 0 for t > 6; P_2(t) = -t**2 + t + 30 < 0 for t < -5 (factor: (-1, [(Poly(t - 6, t, domain='QQ'), 1), (Poly(t + 5, t, domain='QQ'), 1)]) )
+W3: s_1 - 1 = t - 1  real roots: [1.0]
+W3: s_2 - 1 = t**2 - 11  real roots: [-3.3166247903554, 3.3166247903554]
+W3: s_4 - 1 = t**4 - 20*t**2 + 49  real roots: [-4.140220818814239, -1.6907310760310612, 1.6907310760310612, 4.140220818814239]
+interval allowed by s_1, s_2, s_4: [-sqrt(11), -sqrt(10 - sqrt(51))] = [-3.316625, -1.690731]
+s_3 - 1 = t**3 - 15*t - 1  real roots: [-3.8392095168440132, -0.0666864373322236, 3.905895954176237]
+roots of s_3 - 1 in [-3.32, -1.69]: 0 ; s_3(-2) - 1 = 21 > 0
+=> s_3 > 1 on the whole allowed interval: W3 EMPTY over R (exact).
+W4: coefficients of L(u) = 1 - t u + 5u^2 are >= 0 iff t <= 0; with W1: [-5, 0].  W2: RH-false iff |t| > 2 sqrt 5 = 4.47213595499958

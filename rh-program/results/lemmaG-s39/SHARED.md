@@ -54,3 +54,10 @@
   natural-boundary route for hash/pseudo-random R blocked, missing input named (bilinear equidistribution of {pθ} at scale p^{α−1}).
 - Untried entries UT-L1…UT-L5 in NOTE §6 (rung-1 → ℚ spread threshold; Weyl pair correlation; 𝒞_self membership test; trigger
   recalibration; T3 Bessel law across a period). Waste: two killed rung1_ff.py launches (label (ii), ~15 min).
+## 2026-10-01 11:15 IST — read-O (Opus reader) batch 1: rung 1 (lemmaG-s39)
+- NOTE read whole at SHA-256 37622108…9c72 (401 lines). read-O.md started; verify-O/ holds own code only.
+- Thm R1 re-derived ✓. Own brute force (all monic polys, trial division): F_3 (a=2, deg ≤ 8), F_5 (a=2,3,4, deg ≤ 5), F_7 (a=3,
+  deg ≤ 4), three deletion rules each (first/last/random choice of the M(a,N) irreducibles): N_P(n) = q^n − aq^{n−1} in all 15 cases.
+  Exact series route: D_R ≡ 1 − 2u mod u^61; regular-control ρ and D_R coefficients equal to the unit's digit for digit.
+- Every form of O (sup, mean-square, cumulative) fails at rung 1. Minor wording items only (ranges quoted from step-sampled n;
+  "|ζ_P| ≤ C|t| trivially" false at rung 1 but unused; injectivity on ⟨R⟩ ≠ ℚ-independence in general).

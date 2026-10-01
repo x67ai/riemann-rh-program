@@ -1,0 +1,32 @@
+q=5 g=1: data 11  kinds {'REAL-OFF': 2, 'RH': 9}  not-adm-to-40: 0  not-adm-to-60: 0  max|a_i| = [5, 0] (box 60, 0)
+   (R) exact on all: True ; D_k = h(q^{g-1+k}-1), k=1..3, on all: True ; D_1 > 0 on all RH-false: True
+   class-number window: RH-true outside: 0 ; RH-false caught: 2 of 2 (below 1, above 1)
+   Clifford N_1 > h: 0 [] ; NONREAL-X caught: 0
+   admissible t = -a: [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
+q=5 g=2: data 326  kinds {'REAL-OFF': 88, 'RH': 127, 'NONREAL-X': 111}  not-adm-to-40: 0  not-adm-to-60: 0  max|a_i| = [8, 31] (box 60, 1000)
+   (R) exact on all: True ; D_k = h(q^{g-1+k}-1), k=1..3, on all: True ; D_1 > 0 on all RH-false: True
+   class-number window: RH-true outside: 0 ; RH-false caught: 5 of 199 (below 5, above 0)
+   Clifford N_1 > h: 0 [] ; NONREAL-X caught: 0
+q=7 g=1: data 15  kinds {'REAL-OFF': 4, 'RH': 11}  not-adm-to-40: 0  not-adm-to-60: 0  max|a_i| = [7, 0] (box 84, 0)
+   (R) exact on all: True ; D_k = h(q^{g-1+k}-1), k=1..3, on all: True ; D_1 > 0 on all RH-false: True
+   class-number window: RH-true outside: 0 ; RH-false caught: 4 of 4 (below 2, above 2)
+   Clifford N_1 > h: 0 [] ; NONREAL-X caught: 0
+   admissible t = -a: [-7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
+q=7 g=2: data 880  kinds {'REAL-OFF': 295, 'RH': 205, 'NONREAL-X': 380}  not-adm-to-40: 0  not-adm-to-60: 0  max|a_i| = [12, 57] (box 84, 1960)
+   (R) exact on all: True ; D_k = h(q^{g-1+k}-1), k=1..3, on all: True ; D_1 > 0 on all RH-false: True
+   class-number window: RH-true outside: 0 ; RH-false caught: 47 of 675 (below 30, above 17)
+   Clifford N_1 > h: 1 [([-4, -15], 4, 3, 'REAL-OFF')] ; NONREAL-X caught: 0
+q=11 g=1: data 23  kinds {'REAL-OFF': 10, 'RH': 13}  not-adm-to-40: 0  not-adm-to-60: 0  max|a_i| = [11, 0] (box 132, 0)
+   (R) exact on all: True ; D_k = h(q^{g-1+k}-1), k=1..3, on all: True ; D_1 > 0 on all RH-false: True
+   class-number window: RH-true outside: 0 ; RH-false caught: 10 of 10 (below 5, above 5)
+   Clifford N_1 > h: 0 [] ; NONREAL-X caught: 0
+   admissible t = -a: [-11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+q=11 g=2: data 3336  kinds {'REAL-OFF': 1247, 'RH': 401, 'NONREAL-X': 1688}  not-adm-to-40: 0  not-adm-to-60: 0  max|a_i| = [18, 124] (box 132, 4840)
+   (R) exact on all: True ; D_k = h(q^{g-1+k}-1), k=1..3, on all: True ; D_1 > 0 on all RH-false: True
+   class-number window: RH-true outside: 0 ; RH-false caught: 416 of 2935 (below 195, above 221)
+   Clifford N_1 > h: 2 [([-8, -23], 4, 3, 'REAL-OFF'), ([-7, -34], 5, 4, 'REAL-OFF')] ; NONREAL-X caught: 0
+V (q=5, t=5): N_1..8 = [1, 11, 76, 451, 2501, 13376, 70001, 361251], h = 1, kind REAL-OFF
+V2 (a1,a2)=(-1,11) present: True NONREAL-X
+P1 over F_5: D_1, D_2, D_3 = [0, 4, 24]  (zero only for k = 1)
+P1 over F_7: D_1, D_2, D_3 = [0, 6, 48]  (zero only for k = 1)
+P1 over F_11: D_1, D_2, D_3 = [0, 10, 120]  (zero only for k = 1)

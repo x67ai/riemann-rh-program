@@ -75,3 +75,14 @@ Append-only, dated blocks. Writer: Opus 5.5 (unit agent). Outputs only under `re
 - No construction; no Group-I control claimed. Rows for the orchestrator in NOTE §10 (3 Instruments rows, UT-QT1…QT4, 10(o) line).
 - Record note: the block stamps after START were first written ahead of the machine clock (estimates); corrected in place at 06:04
   IST to the file times (`ls -l verify/`); order unchanged.
+
+## 11:14 IST 2026-10-01 — OPUS READER (Session 40 dual read), batch 1
+- Reader: Opus 5.5, brief `novel-wave-s39/READ-BRIEF-O.md`. NOTE read whole at SHA-256 cebe0a96… (407 lines). Not opened: read-F, verify-F.
+- Re-derived ✓: Lemma M (Meyer p. 25 checked as a page image: printed dμ_n = n^{−1}Ψ(n^{−1}x)dμ(x) = the NOTE's repair), G1 Steps 0–4,
+  G1′, Lemma A, L‴ (Landau step proved by QC Lemma L's own proof — no local finiteness used), Prop. S (Wiener's lemma re-proved),
+  L‴ general, route (iii) repair (FE and Mellin terms recomputed). M1 needs "μ̂ purely atomic" added (minor).
+- Credit point: Lemma M + unconditional Theorem D were already proved in qcond-s38/read-O §2 (05:20) and are in QC-now (579f22e3…).
+- Mis-attribution: zeta-zero repairs fail Prop. S hypothesis (i) (densities ≍ x^{−½}); covered by the direct splitting + §4 instead.
+- verify-O/o1 (exact sympy root isolation): W1 for d ≤ 60, W2, W3 (exact certificate), W4 all reproduce; o2: a positive self-dual comb
+  with an irrational frequency (self-dual to 60 digits) — it violates G1 Step 1 (not Beurling), so G1 Step 3 is genuinely needed.
+- Next: §5 (Pisot, KNS at the page), §7 probe of 𝒯 at q = 4 by my own optimizer, prior art.

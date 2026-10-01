@@ -64,3 +64,19 @@ Logs: every verify/*.py has its .log; data: verify/r1_zeta_data.json (all zeta d
 r1_transport_summary.json. Sources: sources/fetch_sources.log (5 items with SHA-256 prefixes + text layers).
 Stop lines: 1 not fired; 2 fired (Oesterle/Serre; HP19 dual); 3 fired on Z1, Z2 (F_{2.9,2}, DH, Epstein pass). No git commands;
 no file outside results/fejer-form-s39/ edited. Compute: one process at a time, longest run < 2 min.
+
+## Block O-0 — 11:08 IST 2026-10-01 — Opus reader (read-O) starts
+Reader: Opus 5.5, second model of the dual-model check (READ-BRIEF-O.md). NOTE read whole at SHA-256 3ad9a31e775ccece… (330 lines).
+Writes only read-O.md, verify-O/, and O-blocks here. Plan: (1) re-derive Theorems W, F, K and the §7 Clifford claim; (2) exact
+re-enumeration of the census q = 5, 7, 11, g <= 2 and genuine curves, exact-integer Toeplitz PSD test; (3) Z3 on zeta, F_{2.9,2}, DH;
+(4) prior art at the page (Howe–Lauter, HP 2014, HPM 2025, AHL 2012, Bombieri 1973); (5) zoo riders against IV.1 and I.9.
+
+## Block O-1 — 11:13 IST 2026-10-01 — census and exact Toeplitz test reproduced (verify-O/o1, o2)
+o1_census.log (exact ints, own code, box |a1| <= 12q, |a2| <= 40q^2, admissible to 8, 40 and 60): 11/326/15/880/23/3336 data;
+kinds 9+2, 127+88+111, 11+4, 205+295+380, 13+10, 401+1247+1688 — every NOTE §2 count reproduced; max |a1|, |a2| = 18, 124 at q = 11
+(far inside the box). (R) and D_k = h(q^{g-1+k}-1) (k = 1..3) exact on all 4591; window catches 5/199, 47/675, 416/2935; Clifford
+violators (-4,-15) at q=7, (-8,-23), (-7,-34) at q=11, none NONREAL-X. P^1: D_2 = q - 1 > 0 (equality at genus 0 holds for D_1 ONLY).
+o2_toeplitz_exact.log (integer congruent matrix H_M = [s_|a-b| q^min(a,b)], exact Fraction elimination): every RH-true datum PSD to
+M = 8 EXACTLY; first failing M for RH-false: {1:2}, {2:113, 3:86}, {1:4}, {1:12, 2:471, 3:192}, {1:10}, {1:184, 2:2359, 3:392} —
+identical to r1_lp.log. V: P_M = 5, 16, 45, 121, 320, 841, 2205, 5776 (exact), lambda_min = -0.2360679775 … -67 as in the NOTE.
+I(V) = -0.1180339887, I(E0) = +0.105572809; V2 lambda_min(T_1, T_2) = 3.552786, -0.2931712.

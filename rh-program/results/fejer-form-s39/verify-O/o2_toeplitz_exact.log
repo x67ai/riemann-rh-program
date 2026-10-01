@@ -1,0 +1,13 @@
+q=5 g=1: RH-true 9, of which not PSD for some M <= 8: 0 ; RH-false 2, first failing M: {1: 2}
+q=5 g=2: RH-true 127, of which not PSD for some M <= 8: 0 ; RH-false 199, first failing M: {2: 113, 3: 86}
+q=7 g=1: RH-true 11, of which not PSD for some M <= 8: 0 ; RH-false 4, first failing M: {1: 4}
+q=7 g=2: RH-true 205, of which not PSD for some M <= 8: 0 ; RH-false 675, first failing M: {1: 12, 2: 471, 3: 192}
+q=11 g=1: RH-true 13, of which not PSD for some M <= 8: 0 ; RH-false 10, first failing M: {1: 10}
+q=11 g=2: RH-true 401, of which not PSD for some M <= 8: 0 ; RH-false 2935, first failing M: {1: 184, 2: 2359, 3: 392}
+V: P_M = |u|^2|v|^2 (exact integers) and lambda_min(T_M(V)): [(1, 5, '-0.2360679775'), (2, 16, '-1.0'), (3, 45, '-2.7082039325'), (4, 121, '-6.0'), (5, 320, '-11.88854382'), (6, 841, '-22.0'), (7, 2205, '-38.9574275275'), (8, 5776, '-67.0')]
+   M=1 mpmath eigsy min = -0.2360679775
+   M=2 mpmath eigsy min = -1.0
+   M=8 mpmath eigsy min = -67.0
+V2: lambda_min(T_1..3) = ['3.552786', '-0.2931712', '-0.4162704'] ; I(Z) = g - (q+1-N_1)/(2 sqrt q) = 1.776393202
+E0: lambda_min(T_1..3) = ['0.2111456', '-2.046388e-31', '-1.972152e-31'] ; I(Z) = g - (q+1-N_1)/(2 sqrt q) = 0.105572809
+V: lambda_min(T_1..3) = ['-0.236068', '-1.0', '-2.708204'] ; I(Z) = g - (q+1-N_1)/(2 sqrt q) = -0.1180339887
