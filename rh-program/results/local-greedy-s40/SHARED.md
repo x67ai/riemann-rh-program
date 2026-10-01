@@ -96,3 +96,11 @@ Scan at X = 10⁷ on [0.70, 1.00] × [0.1, 100] (`logs/zeros/zcount_v2r06_1e7.lo
 - G: Lemmas H₇^{≤2} / H₇ (one Lindley-type recursion acting at prime powers). Multiplicities of uncapped S7 are bounded by prime gaps
   (Lemma 1.2) but not small (84–94 % of primes refused, m_p up to 219); the brief's "local multiplicities stay small" holds only for the cap.
 - Not done (stop rule): variants 1, 3, 4; most of task 5; Révész–Pintz full text. RH untouched (U ⇒ RH, not conversely).
+
+## 2026-10-01 14:46 IST — OPUS READER (Session 41 dual read, read-O) — start
+Reader: Opus 5.5 (second model; brief `results/novel-wave-s41/READ-BRIEF-O.md`). NOTE.md read whole at SHA-256
+bc5a4b6c7b87ec8a1b555a406acc22287582a594ebdd096c75535714628bf7f6 (352 lines); BRIEF.md and this file read. Deliverable `read-O.md`;
+independent re-run under `verify-O/` (own code from the NOTE's definitions; big scratch under `/private/tmp/rh-s41-read-localgreedy/`).
+Plan: (1) own segmented multiplicative generator + own additive-DP cross-check, exact rational E via 5E ∈ ℤ, ρ = 3/5, cap 0 and 2, to 10⁹;
+(2) own direct-sum F_X (no Taylor moments) at 10⁸ and 10⁹: Newton on the three zeros, the two K-boxes with a Lipschitz bound;
+(3) Lemmas 1.1, 1.2, 4.1 and Theorems K₇, K₇^{≤2} at the line; (4) Tao, Klurman, Révész–Pintz at the page; (5) standing order 14 pairs.

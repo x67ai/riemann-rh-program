@@ -48,3 +48,9 @@ NOTE re-read end to end; fixes: marginal-rate range 0.37–0.46 (measured), DP-c
 primes, T4′ error bound ½(e^{…} − ρ), U-threshold caveat (α = Re ρ₁ assumed rightmost), zoo-rider wording, waste times. Every count
 cited has a log in verify/logs (tool_crosschecks.log added for §2.2). No processes left running. Scratch kept in
 /private/tmp/rh-s40-s5mult/ (gbits.bin 125 MB, gp_ext_1e9_2e9.u32 379 MB, binaries).
+
+## 14:45 IST 2026-10-01 — read-O block 1: Opus read started (Session 41)
+Reader: Opus 5.5 under `results/novel-wave-s41/READ-BRIEF-O.md`. NOTE hash ced8b674…70ac (331 lines). Read BRIEF, NOTE whole,
+upstream S5 definition and Theorem K′. Plan: own exact generator of S5(0.8) to 2·10⁹ (multiplicative sieve, a different method
+from the NOTE's Ω-recursion), own full-lattice uint64 count of f_G(n_K) (no top-prime trick), re-derivation of §2.1, §2.5,
+§4 T1–T4′, §5.1, prior art at the page. Deliverable `read-O.md`; re-run `verify-O/`. read-F / verify-F not opened.
