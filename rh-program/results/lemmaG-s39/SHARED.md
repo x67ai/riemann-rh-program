@@ -61,3 +61,16 @@
   Exact series route: D_R ≡ 1 − 2u mod u^61; regular-control ρ and D_R coefficients equal to the unit's digit for digit.
 - Every form of O (sup, mean-square, cumulative) fails at rung 1. Minor wording items only (ranges quoted from step-sampled n;
   "|ζ_P| ≤ C|t| trivially" false at rung 1 but unused; injectivity on ⟨R⟩ ≠ ℚ-independence in general).
+## 2026-10-01 11:25 IST — read-O batch 2: §2–§3 re-derived (lemmaG-s39)
+- Thm 2.1 ✓ (Möbius inversion and its tail checked); Cor 2.2 ✓ except a quantifier GAP: "continued along SOME path" must be
+  restricted to paths in {σ ≥ Re s₀} (a path leaving {σ > β₂} can reach another sheet); no application affected. Prop 2.3 ✓ (for
+  α_R < ½ no Phragmén–Lindelöf band is needed: cO Prop 1.3(ii) gives the bound); it is cO (G′)'s remark made a proposition.
+- T2: proof ✓ but "intervals disjoint for p ≥ p₀" is FALSE for k = 2 (needs θ′ < 1 − 1/k ⟺ k ≥ 3); fix = injective (greedy)
+  choice. Consequence: sq = {nextprime(p²)} is covered by T2 under RH (Selberg) or with a large-gap bound of exponent < 3/4
+  (Peck/Matomäki, recalled) — not "uncond." as stated. Zeta inputs re-computed (argument principle: no zero below 14.0; |ζ(ρ₁/k)|,
+  ζ′(ρ₁), C(ρ₁/2) all digit for digit). Simplicity of ρ₁ not needed.
+- T3 ✓ (k ≥ 3). T4 ✓ (|π_R − T| ≤ 2 needs α < 0.95 with BHP; harmless). T5: proof ✓ but the distinctness line is FALSE
+  (N2^N < 4^{5N/8}); fix = greedy "least unused prime ≥ target", displacement ≤ 4^{(5/8+ε)N} by Ingham.
+- Theorem F, Cor F.1 ✓ (RH). NEW (single-check): Lemma 3.6 + Selberg's upper-bound sieve (error Q_R(ξ)², tail ξ^{−1/2}) gives
+  UNCONDITIONALLY |E| ≥ c_N/3 at a cluster end of R_tight: β(R_tight) = α_R = ½, β₂ ≥ ¼ — Cor F.1 without RH. Computed by
+  inclusion–exclusion (36 849 R-numbers ≤ 4.3e9): h_N/(c_N ln4^N) = NOTE's values digit for digit; jump −1.36c_N; sieve dev −0.36c_N.

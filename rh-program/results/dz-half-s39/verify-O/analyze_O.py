@@ -13,7 +13,10 @@ def stats(tag):
         sl = slice(j * B, (j + 1) * B)                  # edges 2^{j + 1/B} ... 2^{j+1}
         A.append(np.abs(E[sl]).max()); MS.append(np.mean(E[sl] ** 2))
     A = np.array(A); MS = np.array(MS); M = np.maximum.accumulate(A); xj = 2.0 ** (J + 1.0)
-    out = dict(tag=tag, rho=rho, has15=meta["has15"], E_X_over_s=float(E[-1] / math.sqrt(e[-1] / math.log(e[-1]))))
+    iX = int(np.nonzero(e <= X)[0][-1])               # last edge <= X (the top bin is partial: its edge exceeds X)
+    top = slice(21 * B, 23 * B)                         # octaves (2^21, 2^23]
+    out = dict(tag=tag, rho=rho, has15=meta["has15"], E_X_over_s=float(E[iX] / math.sqrt(e[iX] / math.log(e[iX]))),
+               frac_neg_top=float(np.mean(E[top] < 0)))
     for a in (3, 4, 5):
         m = xj / 2 >= 10 ** a
         lx = np.log(xj[m])
@@ -31,7 +34,7 @@ if __name__ == "__main__":
     keys = ["sup3", "sup4", "sup5", "supL3", "blk3", "ms3", "msL3", "msL4", "msL5"]
     for r in rows:
         print(r["tag"], "rho=%.4f" % r["rho"], "1.5" if r["has15"] else "  ", " ".join("%s=%.3f" % (k, r[k]) for k in keys),
-              "E(X)/s=%+.2f" % r["E_X_over_s"], "amp", r["amp_top_octaves"])
+              "E(X)/s=%+.2f" % r["E_X_over_s"], "neg%%=%.2f" % r["frac_neg_top"], "amp", r["amp_top_octaves"])
     for tpl in ("R", "C"):
         rr = [r for r in rows if r["tag"][0] == tpl]
         if not rr: continue

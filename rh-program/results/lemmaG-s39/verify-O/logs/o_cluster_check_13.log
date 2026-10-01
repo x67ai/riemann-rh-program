@@ -1,0 +1,6 @@
+R_tight N<= 13: |R| = 1377, #<R> cap [1,67120772] = 4727, rho = 0.61358259328548660763
+Traceback (most recent call last):
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/lemmaG-s39/verify-O/o_cluster_check.py", line 52, in <module>
+    print(f"N={N:2d} c={c:5d} h/(c ln4^N)={h / (c * N * mp.log(4)):.3f} E(4^N)={mp.nstr(e0, 6):>9} "
+TypeError: unsupported format string passed to mpf.__format__
+python3 o_cluster_check.py 13  0.09s user 0.01s system 97% cpu 0.102 total

@@ -141,3 +141,31 @@ would be taken by the ≤ (t_j − t_{i₀})/D + 1 earlier targets (D = ⌊4^N/c
 verbatim. (The unit's code aborts on duplicates — `lg.c` l. 44 — so the computed set is the nextprime set and duplicate-free for
 N ≤ 16; nothing in §4 changes.)
 
+**(k) §3.4 tight necklace (ll. 207–212) ✓; §3.5 Theorem F and Corollary F.1 (RH), ll. 214–233 ✓ (two minor points) — but F.1's
+conclusion holds UNCONDITIONALLY (F3, ADD A1).** Tight necklace: D_R = (1 − 2·4^{−s})·C on σ > ½ (all products absolute), C absolutely
+convergent on σ > 1/12 + ε (c_N·4^{(7/12+ε)N}·4^{−N(σ+1)} summable), zero-free for σ > 0 ✓; Ingham's 5/8 suffices here too (needs
+θ < ¾) ✓; zeros ½ + 2πik/log 4 simple, no poles; κ = 1 on σ = ½, −½ on σ = ¼ ✓. Theorem F: (Z1),(Z3) — for α_R < ½ the bound
+|D_R| ≪ |t|^{O(1)} on σ ≥ τ + δ/2 is cO Prop. 1.3(ii) (product on σ > α_R, functional equation + RH left of it), no band argument
+needed ✓; Borel–Carathéodory on log C with Re log C = log|D_R| − log|G| ≤ O(log|t₀|) on the (F2) circles ✓; Mellin–Barnes shift ✓;
+MV (G.27) with δ_λ ≥ e^{−K(λ+1)} and N = T^{1/(K+1)} keeps the off-diagonal below the diagonal, the e^{−e^λ/N} weights kill λ > log N
+✓; contradiction with (F3) at σ* ✓. Minor: the circles' centre must sit where log C is O(1); (F1) only gives absolute convergence
+on σ > σ₁, so take centres max(α_R + 2, σ₁ + 1) + it₀ (harmless: F.1 has σ₁ = ½) (m11). Corollary F.1 ✓: G = 1 − 2·4^{−s} bounded,
+→ 1, min-modulus by periodicity and avoidance of ≤ 2 zeros per circle-radius window; (F1) frequencies k log r and n log 4 distinct
+(r^k odd, 4^n even), |log(a/b)| ≥ 1/max(a, b) for integers a ≠ b ⟹ K = 1; (F3) from b = −1 at each log r (and the n log 4 part
+alone diverges for σ < ½) ✓.
+*But the tight necklace needs no RH.* The NOTE's own cluster Lemma 3.6 with Selberg's upper-bound sieve in place of Legendre gives,
+unconditionally, max(|E(4^N)|, |E(4^N + h_N)|) ≥ c_N/3 for large N — so β(R_tight) = α_R = ½ (sup form) and β₂(R_tight) ≥ ¼ = α_R/2
+(mean square) without RH; proof in §7 A1. Theorem F therefore has no application on record that is not already unconditional.
+*Computed* (`verify-O/o_cluster_check.py` → `logs/o_cluster_check_16.log`, N_P by inclusion–exclusion over the 36 849 squarefree
+R-numbers ≤ 4.3·10⁹ — a route different from the unit's sieve; ρ = 0.61358259342980… from the cyclotomic identity, = the unit's
+0.613583): h_N/(c_N ln 4^N) = 0.979, 1.049, 0.992, 1.001, 1.000 (N = 12…16) — NOTE l. 239 digit for digit; exact jump
+E(4^N + h_N) − E(4^N) = −1.36c_N (N = 9…16, stable); exact interval-sieve deviation S(I, P_{<N}) − ρ_{<N}h_N = −0.36c_N (negative:
+it helps) against the A1 bound h_N^{2/3} = 2016 < c_N = 4080 at N = 16; |E(4^N + h_N)| = 1.20c_N, and max|E| on [4^N − 3h, 4^N + 6h]
+= 1.81c_N (`logs/o_cluster_max.log`; still rising at +6h — the NOTE's "1.9c_N (7781)" is window-dependent, consistent).
+
+**(l) §3.6 Lemma 3.6, ll. 235–241 ✓.** #{R-free n ∈ I} ≤ #{n ∈ I : (n, P_z) = 1} − c (the c cluster primes are coprime to P_z
+and not R-free) ≤ ρ_zh + 2^{π_R(z)} − c ✓. The closing clause "as long as the clusters stay this tight (h_N ≪ c_N log 4^N),
+sup|E| ≥ x^{α_R}/(C log x) infinitely often" is TRUE but not shown: with Legendre it needs z with 2^{π_R(z)} = o(c_N) AND
+(ρ_z − ρ)h_N = o(c_N); z = N³ does not (π_R(N³) ≍ N^{3/2}/log N > N), z = CN² does: π_R(CN²) ≍ √C·N/log N < N − log₂(4N), and
+(ρ_z − ρ)h ≍ c_N/(√C log N) → the clause holds given tightness. A1 removes the tightness hypothesis (Ingham's span suffices).
+

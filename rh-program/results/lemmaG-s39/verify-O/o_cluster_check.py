@@ -49,7 +49,7 @@ for N in range(4, NM + 1):
     for p in small: rz *= (1 - mp.mpf(1) / p)
     dev = S - rz * h
     e0, e1 = E(lo), E(lo + h)
-    print(f"N={N:2d} c={c:5d} h/(c ln4^N)={h / (c * N * mp.log(4)):.3f} E(4^N)={mp.nstr(e0, 6):>9} "
+    print(f"N={N:2d} c={c:5d} h/(c ln4^N)={float(h / (c * N * mp.log(4))):.3f} E(4^N)={mp.nstr(e0, 6):>9} "
           f"E(4^N+h)={mp.nstr(e1, 6):>9} jump/c={mp.nstr((e1 - e0) / c, 4)} sieve dev={mp.nstr(dev, 5)} "
           f"h^(2/3)={h ** (2 / 3):.0f} (rho_z-rho)h={mp.nstr((rz - rho) * h, 4)}")
     sys.stdout.flush()
