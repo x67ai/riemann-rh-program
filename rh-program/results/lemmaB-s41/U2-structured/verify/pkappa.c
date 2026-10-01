@@ -34,6 +34,7 @@ int main(int argc, char **argv) {
     printf("# range            maxE/jump   argmax  omega  busy_frac  primes_at_composite_share  max c/jump  sumb_range\n");
     long lo = 2, hi = 3; double maxEj = 0, maxcj = 0; long argmax = 0; long busy = 0, cnt = 0;
     i128 sumb = 0, sumb_comp = 0; int overflow = 0;
+    double sq_sum[16] = {0}, sq_max[16] = {0}, sq_bsum[16] = {0}; long sq_cnt[16] = {0}, sq_neg[16] = {0};
     for (long n = 2; n <= Y; n++) {
         double jump = pow((double)n, kappa - 1.0);
         double Tn_d = ceil(rho * pow((double)(n + 1), kappa) + r0);
@@ -49,6 +50,15 @@ int main(int argc, char **argv) {
                 i128 v = (i128)A[m] + add;
                 if (v > (i128)INT64_MAX) { overflow = 1; v = INT64_MAX; }
                 A[m] = (int64_t)v;
+            }
+        }
+        if (n >= Y / 2) {
+            long t = n; int sqf = 1, w = 0; while (t > 1) { int p = spf[t]; t /= p; w++; if (t % p == 0) { sqf = 0; break; } }
+            if (sqf && w < 16) {
+                double inc = rho * (pow((double)(n + 1), kappa) - pow((double)n, kappa));   /* per-point target */
+                double r = (double)c / inc;
+                sq_sum[w] += r; if (r > sq_max[w]) sq_max[w] = r; sq_cnt[w]++; sq_bsum[w] += (double)b / inc;
+                if (need < 0) sq_neg[w]++;
             }
         }
         ND += c + b;
@@ -67,6 +77,8 @@ int main(int argc, char **argv) {
             lo = hi; hi *= 2; maxEj = 0; maxcj = 0; argmax = 0; busy = 0; cnt = 0; sumb = 0; sumb_comp = 0;
         }
     }
+    printf("# squarefree n in [Y/2,Y] by omega=k: count, mean c/target_inc, max c/target_inc, mean b/target_inc, frac with forced overshoot (c > deficit)\n");
+    for (int w = 1; w < 16; w++) if (sq_cnt[w]) printf("k=%2d  n=%9ld  mean_c=%.4f  max_c=%.3f  mean_b=%.4f  forced_frac=%.4f\n", w, sq_cnt[w], sq_sum[w]/sq_cnt[w], sq_max[w], sq_bsum[w]/sq_cnt[w], (double)sq_neg[w]/sq_cnt[w]);
     double Yk = pow((double)Y, kappa);
     printf("# N_D(Y)=%.6g  rho*Y^kappa=%.6g  ratio=%.6f  overflow=%d\n", (double)ND, rho * Yk, (double)ND / (rho * Yk), overflow);
     free(A); free(spf);

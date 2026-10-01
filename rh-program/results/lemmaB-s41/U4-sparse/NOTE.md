@@ -350,14 +350,16 @@ model's formulas hold to three digits, with no free parameter:
 The model fails once m approaches p₁ or τ is large (three-fold products, and the thinning by primality, give extra points per
 component); there the measured window counts are LESS sub-Poisson than RPM's one-element prediction. **At fixed τ every deviation
 from Poisson shrinks as ρ decreases** (τ = 0.6, ρ = 0.0245/0.0327/0.0491: D(4) = 0.953/0.914/0.814; mean queue / M/D/1 mean =
-0.915/0.844/0.676), and the feedback-free lattice monoid shows the same window structure (§6), so it is arithmetic, not feedback.
+0.915/0.844/0.676), and the feedback-free lattice monoid shows the same window structure (π/128: lattice monoid at τ = 0.48,
+D(1, 2, 4, 8, 16) = 0.984, 0.969, 0.941, 0.886, 0.775; S8 at τ = 0.51: 0.983, 0.967, 0.939, 0.889, 0.794; `logs/r128_m1_1e9.tsv`,
+`logs/r128_m0_1e9.tsv`), so it is arithmetic, not feedback. (In the table λ₂ is replaced by the measured arrival rate λ.)
 
 **Conjecture 5.2 (local Poisson limit)** [conjecture]. For fixed τ > 0, η ∈ (0, 1) and m ≥ 1, with k uniform among the steps with
 x_k ∈ (x(1 − η), x], x = e^{τ/ρ}: (c_{k+1}, …, c_{k+m}) → i.i.d. Poisson(λ₀(τ)) in law as ρ → 0. Evidence: §5.2 and the per-step law
 (P(c = 0)/e^{−λ} = 0.996–1.000, lag-one correlation −0.012 at π/128). What a proof needs: asymptotic independence of the component
 phases {x/m′ mod t}, jointly over all ≈ ρ√x cofactors. For any FIXED finite set of components this is Kronecker–Weyl (the
-frequencies ρ²/(a + δ) are rationally independent when t is transcendental: Σ n_a/(a + δ) = 0 is a polynomial identity in δ that
-fails at δ = −a); uniformly over all components it is again the shifted divisor problem in short intervals (§3.2 (F2)). GAP.
+per-step phase increments ρ/(a + δ), together with 1, are rationally independent when t is transcendental: Σ n_a ρ/(a + δ) = n₀ with
+ρ = δ + ½ is a polynomial identity in the transcendental δ, and at δ = −a it forces n_a(½ − a)Π_{b≠a}(b − a) = 0, so all n = 0); uniformly over all components it is again the shifted divisor problem in short intervals (§3.2 (F2)). GAP.
 **5.3 The queue of the limit process** [proved here]. Let c_k be i.i.d. Poisson(λ), 0 < λ < 1, e₀ = 0, e_k = max(e_{k−1} + c_k − 1, 0),
 and κ = κ(λ) the positive root of λ(e^κ − 1) = κ (g(κ) := λ(e^κ − 1) − κ is convex with g(0) = 0, g′(0) = λ − 1 < 0).
 **Proposition 5.3.** (i) P(e_k ≥ h) ≤ e^{−κh} for all k, h ≥ 0; stationary mean λ²/(2(1 − λ)). (ii) For every ε > 0,
