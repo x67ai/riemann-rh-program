@@ -5,7 +5,9 @@
    c_k = composites in (x_{k-1}, x_k], e_k = max(e_{k-1} + c_k - 1, 0), generator at x_k iff e_{k-1} + c_k = 0.
    Exact ordering: every composite within 1e-5 steps of a lattice point is re-decided in double-double
    (t = D/pi and every lattice factor in double-double, factorization read from the stored spf/cofactor chain).
-   Usage: s8sp D X mode out.tsv [edump_write|-] [edump_compare]   (e dumps: uint16 per lattice step, saturating) */
+   Usage: s8sp D X mode out.tsv [edump_write|-] [edump_compare|-] [idle_write|-] [gen_read]
+   (e dumps: uint16 per lattice step, saturating; idle/gen files: uint8 per lattice step). Mode 2: the generators are the lattice
+   points flagged in gen_read (used for the alternating brackets of Prop. 3.3: P^(j+1) = idle set of the queue of P^(j)). */
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -89,7 +91,11 @@ int main(int argc, char **argv){
   double D = atof(argv[1]), X = atof(argv[2]); int mode = atoi(argv[3]);
   FILE *fo = fopen(argv[4], "w"); if (!fo){ perror("out"); return 1; }
   FILE *fdw = (argc > 5 && strcmp(argv[5], "-")) ? fopen(argv[5], "wb") : NULL;
-  FILE *fdc = (argc > 6) ? fopen(argv[6], "rb") : NULL;
+  FILE *fdc = (argc > 6 && strcmp(argv[6], "-")) ? fopen(argv[6], "rb") : NULL;
+  FILE *fiw = (argc > 7 && strcmp(argv[7], "-")) ? fopen(argv[7], "wb") : NULL;
+  FILE *fgr = (argc > 8) ? fopen(argv[8], "rb") : NULL;
+  if (mode == 2 && !fgr){ fprintf(stderr, "mode 2 needs gen_read\n"); return 1; }
+  long long viol_dn = 0;
   dd pidd = { 3.141592653589793116, 1.224646799147353207e-16 }, Ddd = { D, 0.0 };
   tdd = dd_div(Ddd, pidd); t = tdd.hi; rho = 1.0 / t; p1 = 1.0 + t / 2.0;
   Xstore = (X + 2.0 * t) / p1 * (1.0 + 1e-9);
@@ -101,6 +107,7 @@ int main(int argc, char **argv){
   comp_t *cb = NULL; size_t cbcap = 0;
   int64_t *newp = malloc((size_t)(SEG + 2) * sizeof *newp);
   uint16_t *ebuf = malloc((size_t)(SEG + 2) * sizeof *ebuf), *lbuf = malloc((size_t)(SEG + 2) * sizeof *lbuf);
+  uint8_t *ibuf = malloc((size_t)(SEG + 2)), *gbuf = malloc((size_t)(SEG + 2));
   long long wacc[NWIN]; for (int j = 0; j < NWIN; j++) wacc[j] = 0;
   int b = 0; double bnext = pow(10.0, 0.25);
   for (int i = 0; i < NB; i++) bins[i].Emax = -1e300;
@@ -135,6 +142,8 @@ int main(int argc, char **argv){
     qsort(cb, nc, sizeof *cb, kcmp);
     /* sweep the lattice points of the segment */
     int64_t klo = kB + 1, khi = kB2 < kmax ? kB2 : kmax, np = 0; size_t p = 0;
+    if (fgr && khi >= klo){ size_t got = fread(gbuf, 1, (size_t)(khi - klo + 1), fgr);
+      if (got != (size_t)(khi - klo + 1)){ fprintf(stderr, "gen file short\n"); return 1; } }
     for (int64_t k = klo; k <= khi; k++){
       double xk = xlat(k), xk1 = xlat(k - 1);
       while (xk >= bnext){ b++; bnext = pow(10.0, (b + 1) / 4.0); }
@@ -156,15 +165,18 @@ int main(int argc, char **argv){
         if ((k & (((int64_t)1 << j) - 1)) == 0){ bp->nw[j]++; bp->w1[j] += (double)wacc[j];
           bp->w2[j] += (double)wacc[j] * (double)wacc[j]; wacc[j] = 0; } }
       ebuf[k - klo] = en > 65535 ? 65535 : (uint16_t)en;
-      if (mode == 1 || idle) newp[np++] = k;
+      ibuf[k - klo] = (uint8_t)idle;
+      if (mode == 1 || (mode == 0 && idle) || (mode == 2 && gbuf[k - klo])) newp[np++] = k;
       e = en; prevc = c;
     }
     int64_t nst = khi - klo + 1;
     if (nst > 0 && fdw) fwrite(ebuf, sizeof *ebuf, (size_t)nst, fdw);
+    if (nst > 0 && fiw) fwrite(ibuf, 1, (size_t)nst, fiw);
     if (nst > 0 && fdc){ size_t got = fread(lbuf, sizeof *lbuf, (size_t)nst, fdc);
       int bb2 = 0; double bn2 = pow(10.0, 0.25);
       for (int64_t i = 0; i < (int64_t)got; i++){ double xk = xlat(klo + i); while (xk >= bn2){ bb2++; bn2 = pow(10.0, (bb2 + 1) / 4.0); }
-        if (lbuf[i] < 65535){ bins[bb2].cmpd++; if (ebuf[i] > lbuf[i]) bins[bb2].viol++; } } }
+        if (lbuf[i] < 65535 && ebuf[i] < 65535){ bins[bb2].cmpd++; if (ebuf[i] > lbuf[i]) bins[bb2].viol++;
+          if (ebuf[i] < lbuf[i]) viol_dn++; } } }
     while (p < nc){ if (khi < kB2 && cb[p].k > khi){ p++; continue; }  /* final segment: steps beyond X */
       if (cb[p].k != kB2 + 1){ fprintf(stderr, "leftover composite k=%lld\n", (long long)cb[p].k); return 1; }
       if (ncarry >= 256){ fprintf(stderr, "carry overflow\n"); return 1; }
@@ -182,8 +194,8 @@ int main(int argc, char **argv){
     kB = kB2; nseg++;
     if (nseg % 20 == 0) fprintf(stderr, "seg %lld  x=%.3e  Gn=%zu  ngen=%zu  e=%lld\n", nseg, B2, Gn, ngen, (long long)e);
   }
-  fprintf(fo, "# s8sp D=%g X=%g mode=%d t=%.17g rho=%.17g p1=%.17g audits=%lld flips=%lld unresolved=%lld min_dd_margin=%.3e Gn=%zu\n",
-    D, X, mode, t, rho, p1, n_audit, n_flip, n_unres, min_dd_margin, Gn);
+  fprintf(fo, "# s8sp D=%g X=%g mode=%d t=%.17g rho=%.17g p1=%.17g audits=%lld flips=%lld unresolved=%lld min_dd_margin=%.3e Gn=%zu below_cmp=%lld\n",
+    D, X, mode, t, rho, p1, n_audit, n_flip, n_unres, min_dd_margin, Gn, viol_dn);
   fprintf(fo, "# cols: b x_lo x_hi nsteps nidle ncomp sc2 scc1 cmax se se2 emax kemax Emax om2 om3 om4 om5p viol cmpd | hc[%d] | he[%d] | (nw w1 w2)x%d\n", HC, HE, NWIN);
   for (int i = 0; i < NB; i++){ bin_t *bp = &bins[i]; if (!bp->nsteps) continue;
     fprintf(fo, "%d %.6e %.6e %lld %lld %lld %lld %lld %lld %lld %lld %lld %lld %.4f %lld %lld %lld %lld %lld %lld |",
@@ -193,7 +205,7 @@ int main(int argc, char **argv){
     for (int j = 0; j < HE; j++) fprintf(fo, " %lld", bp->he[j]); fprintf(fo, " |");
     for (int j = 0; j < NWIN; j++) fprintf(fo, " %lld %.0f %.0f", bp->nw[j], bp->w1[j], bp->w2[j]);
     fprintf(fo, " | %.12f\n", bp->sinvp); }
-  fclose(fo); if (fdw) fclose(fdw); if (fdc) fclose(fdc);
+  fclose(fo); if (fdw) fclose(fdw); if (fdc) fclose(fdc); if (fiw) fclose(fiw); if (fgr) fclose(fgr);
   fprintf(stderr, "done: audits=%lld flips=%lld unresolved=%lld min_dd_margin=%.3e Gn=%zu ngen=%zu\n",
     n_audit, n_flip, n_unres, min_dd_margin, Gn, ngen);
   return 0;
