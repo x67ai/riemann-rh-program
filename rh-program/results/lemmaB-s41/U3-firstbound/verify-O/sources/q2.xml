@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/8GktFL2Fhljj8EPBs/3/qzeQJsI</id>
+  <title>arXiv Query: search_query=abs:Beurling AND abs:Mertens&amp;id_list=&amp;start=0&amp;max_results=40</title>
+  <updated>2026-10-01T13:44:50Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:Beurling+AND+abs:Mertens&amp;start=0&amp;max_results=40&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>40</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2511.14736v1</id>
+    <title>Optimal bounds for sums of bounded arithmetic functions</title>
+    <updated>2025-11-18T18:29:56Z</updated>
+    <link href="https://arxiv.org/abs/2511.14736v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.14736v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $A(s) = \sum_n a_n n^{-s}$ be a Dirichlet series with meromorphic continuation. Say we are given information on the poles of $A(s)$ with $|\Im s| \leq T$ for some large constant $T$. What is the best way to use such finite spectral data to give explicit estimates on sums $\sum_{n\leq x} a_n$?
+  The problem of giving explicit bounds on the Mertens function $M(x) = \sum_{n\leq x} μ(n)$ illustrates how open this basic question was. Bounding $M(x)$ might seem equivalent to estimating $ψ(x) = \sum_{n\leq x} Λ(n)$ or the number of primes $\leq x$. However, we have long had fairly good explicit bounds on prime counts, while bounding $M(x)$ remained a notoriously stubborn problem.
+  We prove a sharp, general result on sums $\sum_{n\leq x} a_n n^{-σ}$ for $a_n$ bounded, giving an optimal way to use information on the poles of $A(s)$ with $|\Im s|\leq T$ and no data on the poles above. Our bounds on $M(x)$ are stronger than previous ones by many orders of magnitude. (Similar results for $ψ(x)$ are given in a companion paper.) Using rigorous residue computations by D. Platt, we obtain, for $x\geq 1$, $$|M(x)|\leq \frac{3}{π\cdot 10^{10}}\cdot x + 11.39 \sqrt{x}.$$ This is a corollary of our main result, essentially an explicit formula with the contribution of each pole clearly stated; we shall discuss how this finer structure can be useful.
+  Our proof mixes a Fourier-analytic approach in the style of Wiener--Ikehara with contour-shifting, using optimal approximants of Beurling--Selberg type (Carneiro--Littmann, 2013); for $σ=1$, the approximant in (Vaaler, 1985) reappears. While we proceed independently of existing explicit work on $M(x)$ and $ψ(x)$, our method has an important step in common with work on another problem by (Ramana--Ramaré, 2020).</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-18T18:29:56Z</published>
+    <arxiv:comment>44 pages, 4 figures</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Andrés Chirre</name>
+    </author>
+    <author>
+      <name>Harald Andrés Helfgott</name>
+    </author>
+  </entry>
+</feed>
