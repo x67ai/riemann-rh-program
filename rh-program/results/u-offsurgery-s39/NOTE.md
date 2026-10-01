@@ -19,7 +19,7 @@ route 1 (running sups, exact counts to 10⁹, generator re-derived independently
 ρ₁ = 0.76587 + 30.32606i of ζ_P, stable to 10⁻⁵ from X = 3·10⁷ to 10⁹, winding number 1 on a box at X = 10⁹) agree; three systems
 (ρ = 0.8, 0.95, 1.05) sit 0.10–0.19 above α = 2β over the six decades [10³, 10⁹], robust to the tie-break. Beyond 10⁹, exact multiplicity lower bounds (read-O §2C) leave ρ = 0.8's integer exponent undetermined (≥ 0.339 at 10^{37.9}, rising) but stay near 0.27 for ρ = 0.95 (to 10^{38.8}) and near 0.285 for ρ = 1.05 (to 10^{40.8}), inside those systems' ≤ 10⁹ estimates. Only ρ = 0.8 has a computed zero, and ρ = 1.05's sup E is accumulated, so bursts do not bound it.
 **Close: K-conditional + T + G.**
-- **K′ (Theorem, §4):** if |N_P(u) − 0.8⌊u⌋| ≤ u^{0.35} for all u > 10⁹ (true with constant 0.59 at exponent 0.32 on [10³, 10⁹], but false at exponent ≤ 0.3227 beyond: a_n ≥ 13,461,378,553 at n = 2⁷·3⁵·5⁹·7²·11·13·17·19³·23·29²·37·41²·47; at exponent 0.35 unrefuted and unsupported — exact lower bounds grow at local exponent 0.367 on [10^{30}, 10^{38}]),
+- **K′ (Theorem, §4):** if |N_P(u) − 0.8⌊u⌋| ≤ u^{0.35} for all u > 10⁹ (true with constant 0.59 at exponent 0.32 on [10³, 10⁹], but false at exponent ≤ 0.3227 beyond: a_n ≥ 13,461,378,553 at n = 2⁷·3⁵·5⁹·7²·11·13·17·19³·23·29²·37·41²·47; at exponent 0.35 unrefuted and unsupported [record lag, repaired Session 41 (wave-3 digest R3): since `s5-multiplicity-s40`'s n_K, H_θ is false for every θ ≤ 0.35 with any c < 1.88, in particular for K′'s stated c = 1 (`s5-multiplicity-s40/NOTE.md`:15, 101; read-F §7)] — exact lower bounds grow at local exponent 0.367 on [10^{30}, 10^{38}]),
   then Conjecture U is false. Not unconditional: the brief's K needs β by a proved bound (Lemma H) and a 30-digit zero (ρ₁ is known to
   ~5 digits; its digits are limited by the tail, not by arithmetic).
 - **T (proved):** design (i) in tracking form has β ≥ ½ (§3.2, a corollary of Hilberdink 2005 Remark C, in print); design (ii) in
@@ -167,7 +167,7 @@ So the periodic twisted class cannot cross U without an off-line Dirichlet zero;
 ## §4. What is proved: U reduces to one explicit growth bound
 
 **Theorem K′ (conditional refutation of U)** [proved here, modulo the floating-point evaluation of F_X on ∂B recorded in §2.2(a)].
-Let P = S5(0.8) (§2, δ = 0) and C(u) = N_P(u) − 0.8⌊u⌋. If (H_θ) |C(u)| ≤ u^θ for all u > 10⁹ holds for some θ ≤ 0.35 (necessarily θ > 0.3227: read-O §2C), then ζ_P has
+Let P = S5(0.8) (§2, δ = 0) and C(u) = N_P(u) − 0.8⌊u⌋. If (H_θ) |C(u)| ≤ u^θ for all u > 10⁹ holds for some θ ≤ 0.35 (necessarily θ > 0.3227: read-O §2C) [record lag, repaired Session 41 (wave-3 digest R3): since `s5-multiplicity-s40`'s n_K, H_θ is false for every θ ≤ 0.35 with any c < 1.88, in particular for K′'s stated c = 1 (`s5-multiplicity-s40/NOTE.md`:15, 101; read-F §7)], then ζ_P has
 exactly one zero ρ₁ in B = [0.7459, 0.7859] × [30.306, 30.346], P is an [α, β]-system with α ≥ 0.7459 and β ≤ θ, and **Conjecture U
 is false** (α ≥ 0.7459 > 0.70 ≥ 2β, and α > ½).
 *Proof.* (1) Under H_θ, Σ_n(a_n − 0.8)n^{−s} has partial sums C(y) = O(y^θ), so it converges in σ > θ and ζ_P = F_X + T_X there, F_X := 0.8ζ + Σ_{n≤X}(a_n − 0.8)n^{−s},

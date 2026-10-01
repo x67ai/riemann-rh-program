@@ -16,7 +16,7 @@ for l in open(f):
     elif l.startswith('EXC'):
         p = l.split(); b = int(p[1]); d = dict(re.findall(r'(\w+)=([-\d.e+na]+)', l)); exc[b] = d
     elif l.startswith('GAP'):
-        p = l.split(); gap[int(p[1])] = max(int(q.split(':')[0]) for q in p[2:])
+        p = l.split(); gap[int(p[1])] = max([int(q.split(':')[0]) for q in p[2:]] or [0])
 def poisson_kappa(lam):
     lo, hi = 1e-9, 50.0
     for _ in range(200):

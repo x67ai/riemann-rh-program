@@ -65,7 +65,7 @@ int main(int argc, char** argv) {
     vector<pair<double,int>> cv;
     for (int i = 0; i < (int)P.size(); i++) {
       double q = P[i]; if (q * p1 >= Bh) continue;
-      size_t lo = lower_bound(G.begin(), G.end(), B / q) - G.begin(), hi = lower_bound(G.begin(), G.end(), Bh / q) - G.begin();
+      size_t lo = lower_bound(G.begin(), G.end(), B / q * (1 - 1e-12)) - G.begin(), hi = lower_bound(G.begin(), G.end(), Bh / q * (1 + 1e-12)) - G.begin();   // widened: B/q may round past a g-integer on the boundary
       for (size_t k = lo; k < hi; k++) if (Lx[k] <= i) { double v = q * G[k]; if (v >= B && v < Bh) cv.push_back({v, i}); }
     }
     sort(cv.begin(), cv.end()); ncomp += cv.size();

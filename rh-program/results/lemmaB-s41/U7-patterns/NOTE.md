@@ -262,3 +262,81 @@ x/d < p₁ (where E(y) = −ρ(y − 1)), so it carries no information on the ex
 **Verdict for task 3.** No monotone or bounded-drift L dominating e was found beyond Theorem 5.1, and 5.1 is sharp in its weight.
 The one structural recursion the data support is Corollary 5.4: E at x is the E at x/p₁ plus a queue r^{(1)} fed only by arrivals
 coprime to p₁ — so the proof problem of Lemma B_ρ is the same problem for r^{(1)}, with the most rigid class removed.
+
+## §6. Thresholds ¼, ¾ and early placement (task 4)
+
+[computed: `verify/run_variants.sh` (s8gen to 10⁹; FLAG = 0 in all ten runs, smallest margins 1.2·10⁻⁹–3.1·10⁻⁸ cell, at most
+25 factors), `verify/run_analysis.sh` (stats, inherit), `verify/run_winvar.sh`; table by the script in `verify/logs/variants_table.md`].
+τ = threshold (lattice 1 + (k − 1 + τ)t); δ = early offset (the g-prime decided at x_k is placed at x_k − δ). r₀ := inf(N − ρu): 1 − ρ − τ
+for thresholds, ½ − ρ for early placement (E ≥ −½ is kept, s40 §3.1). "U needs θ <" is ½·r₀/(r₀ + ρ) (Remark 1.6′). Queue columns on the
+band [10^8.5, 10⁹); F_A(16) on [10^8.5, 10^8.6); "frac inherited" = share of busy cells with E(x/p₁) + τ ≥ e; last column = p₁ class share
+of the height of excursions with h ∈ [9, 13) (exact decomposition (I2)). Base rows: the 10¹⁰ runs read at 10⁹.
+
+| system | p₁ | r₀ | U needs θ < | sup E (10⁹) | /log²x | emax | max gap | mean e | κ/κ_P | F_A(16) | corr(e, E(x/p₁)) | frac inherited | p₁ share (h 9–12) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| π/16 base τ = ½ | 3.546 | 0.304 | 0.304 | 18.54 | 0.0432 | 18 | 155 | 0.883 | 1.59 | 0.746 | 0.246 | 0.45 | 33 % |
+| π/16 τ = ¼ | 2.273 | 0.554 | 0.369 | 18.93 | 0.0441 | 18 | 133 | 0.773 | 1.85 | 0.598 | 0.390 | 0.54 | 47 % |
+| π/16 τ = ¾ | 4.820 | 0.054 | — (r₀ ≤ ρ) | 20.98 | 0.0489 | 20 | 189 | 0.930 | 1.51 | 0.803 | 0.178 | 0.42 | 26 % |
+| π/16 δ = t/8 | 2.910 | 0.304 | 0.304 | 21.06 | 0.0490 | 20 | 162 | 0.800 | 1.70 | 0.664 | 0.278 | 0.51 | 34 % |
+| π/16 δ = t/4 | 2.273 | 0.304 | 0.304 | 17.72 | 0.0413 | 17 | 148 | 0.678 | 2.03 | 0.528 | 0.347 | 0.58 | 40 % |
+| π/16 δ = ½ | 3.046 | 0.304 | 0.304 | 19.40 | 0.0452 | 18 | 145 | 0.805 | 1.80 | 0.662 | 0.269 | 0.50 | 35 % |
+| π/32 base τ = ½ | 6.093 | 0.402 | 0.402 | 13.22 | 0.0308 | 12 | 53 | 0.295 | 1.33 | 0.732 | 0.173 | 0.36 | 22 % |
+| π/32 τ = ¼ | 3.546 | 0.652 | 0.435 | 11.93 | 0.0278 | 11 | 48 | 0.288 | 1.57 | 0.600 | 0.282 | 0.46 | 39 % |
+| π/32 τ = ¾ | 8.639 | 0.152 | 0.304 | 12.40 | 0.0289 | 12 | 54 | 0.292 | 1.27 | 0.792 | 0.127 | 0.31 | 17 % |
+| π/32 δ = t/8 | 4.820 | 0.402 | 0.402 | 11.21 | 0.0261 | 10 | 52 | 0.276 | 1.47 | 0.646 | 0.192 | 0.46 | 23 % |
+| π/32 δ = t/4 | 3.546 | 0.402 | 0.402 | 13.04 | 0.0304 | 12 | 49 | 0.255 | 1.60 | 0.547 | 0.240 | 0.57 | 24 % |
+| π/32 δ = ½ | 5.593 | 0.402 | 0.402 | 11.91 | 0.0277 | 11 | 53 | 0.287 | 1.41 | 0.694 | 0.175 | 0.39 | 22 % |
+
+**P6.1 (the law does not move)** [computed]. All twelve systems have sup E(10⁹)/log²x in [0.041, 0.049] (π/16) and [0.026, 0.031]
+(π/32); no threshold or offset tried changes the log² law, only its constant, by at most 15 %. Single sup values are extreme values
+(spread ≈ ±1.5); κ/κ_P and mean e are the stable comparisons.
+**P6.2 (rigidity orders everything)** [computed]. Within each density the six rules are in the same order by F_A(16) (rising) and by
+κ/κ_P (falling). The other columns follow up to swaps of adjacent rules: mean e (π/16: one swap, δ = t/8 0.800 vs δ = ½ 0.805;
+π/32: the means differ by < 0.04 and are not ordered), the inherited fraction (π/16: one swap; π/32: none) and corr(e, E(x/p₁)) (τ = ¼
+above δ = t/4 in both densities). The common driver is p₁: a smaller first g-prime gives the rigid class (arrivals divisible by
+p₁, the system itself at x/p₁ by (I1)) a larger share 1/p₁ of the arrivals.
+**P6.3 (best trade-offs for U)** [computed]. Early placement δ = t/4 gives the best tail (κ/κ_P 2.03 vs 1.59 base, mean e −23 %, π/16;
+1.60 vs 1.33, −14 %, π/32) at unchanged r₀ = ½ − ρ. Threshold τ = ¼ is nearly as regular (κ/κ_P 1.85, 1.57) AND raises r₀ to ¾ − ρ, so
+U's requirement relaxes from θ < 0.304 to θ < 0.369 (π/16) and from 0.402 to 0.435 (π/32): **for a refutation of U through Theorem 1.6,
+S8 with τ = ¼ is a strictly better target than τ = ½** — same law, smaller constant, weaker exponent needed. τ = ¾ is worst in every
+column and for π/16 loses r₀ > ρ.
+*For U1:* the measurable lever of a rule is the rigid share of the arrivals; rules that push the first g-prime toward 1 enlarge it.
+
+## §7. The two densities at equal s = ρ log x (for U4)
+
+[computed: bands of `verify/logs/b*_1e10.stats` paired so that both cover the same s-range; script output `verify/logs/matched_s.txt`]
+
+| s = ρ log x | cells π/16 | cells π/32 | idle fraction π/16, π/32 | mean e | Fano(1) | κ/κ_P |
+|---|---|---|---|---|---|---|
+| [1.36, 1.58] | 425 | 883573 | 0.5224, 0.5307 | 0.122, 0.166 | 0.857, 0.958 | nan, 1.37 |
+| [1.58, 1.81] | 1342 | 8835729 | 0.4844, 0.4862 | 0.145, 0.223 | 0.866, 0.964 | nan, 1.34 |
+| [1.81, 2.03] | 4246 | 88357293 | 0.4470, 0.4473 | 0.213, 0.287 | 0.898, 0.971 | nan, 1.33 |
+| [2.03, 2.26] | 13426 | 883572934 | 0.4117, 0.4131 | 0.284, 0.356 | 0.937, 0.975 | 1.50, 1.34 |
+
+**P7.1** [computed]. At equal s the two densities have the same idle fraction to 3·10⁻³ (0.4117 vs 0.4131 on s ∈ [2.03, 2.26]; the
+template density (1 − e^{−s})/s runs from 0.428 to 0.396 across this range), but the queue is NOT a function of s alone: halving ρ at fixed s raises the mean queue
+(0.284 → 0.356), raises the one-cell Fano factor toward 1 (0.937 → 0.975) and lowers the sub-Poisson factor of the tail (1.50 → 1.34).
+**Conjecture C7.1 (Poisson limit)**: as ρ → 0 with s fixed, the cell arrivals converge to a Poisson process of intensity
+λ(s) = 1 − (1 − e^{−s})/s and the queue to the discrete-time queue with Poisson(λ(s)) arrivals and one service per step, so κ/κ_P → 1.
+Mechanism (consistent with §3–§6): the rigid share of the arrivals is 1/p₁ = 2ρ/(2ρ + 1) → 0, and the excess κ/κ_P − 1 is roughly
+proportional to it (0.50/0.282 = 1.8 and 0.34/0.164 = 2.1 at s ≈ 2.15). Two densities only — a third (π/64) cannot reach s ≈ 2 below
+10¹⁹. For U4 this names the candidate limit object; its queue has the Cramér–Lundberg tail with rate κ_P(λ(s)) ~ 2(1 − e^{−s})/s as s → ∞,
+which gives sup e ≈ (ρ/2)·log²x in the original variables: the observed law, with the Poisson constant ρ/2 in place of the
+observed 0.25ρ (π/16) and 0.30ρ (π/32) at 10¹⁰ — the conjecture predicts that the ratio of the two constants drifts to 1 as ρ → 0.
+
+**6.4 Pushing p₁ toward 1** [computed: `verify/logs/run_variants2.sh`, logs `v16_t01_1e9.*`, `v16_d40_1e9.*`, `variants_table2.md`; FLAG = 0,
+smallest margins 4.2·10⁻⁹ and 1.4·10⁻⁹ cell, at most 50 factors (within the 64 of §1.2)]. Same columns as the table above:
+
+| system | p₁ | r₀ | U needs θ < | sup E (10⁹) | /log²x | emax | max gap | mean e | κ/κ_P | F_A(16) | corr(e, E(x/p₁)) | frac inherited | p₁ share (h 9–12) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| π/16 τ = 0.1 | 1.509 | 0.704 | 0.391 | 14.04 | 0.0327 | 13 | 100 | 0.636 | 3.07 | 0.323 | 0.611 | 0.74 | 68 % |
+| π/16 δ = 0.4t | 1.509 | 0.304 | 0.304 | 12.61 | 0.0294 | 12 | 114 | 0.434 | 3.40 | 0.248 | 0.489 | 0.73 | 55 % |
+
+**P6.4 (a much more rigid S8)** [computed]. With p₁ = 1 + t/10 = 1.509 the class divisible by p₁ carries 1/p₁ = 66 % of the arrivals:
+F_A(16) falls to 0.32 / 0.25, κ/κ_P doubles (3.07 / 3.40 on [10^8.5, 10⁹); 2.96–3.13 and 3.40–3.69 on every half-decade from 10⁷), the
+inherited term alone dominates e on 74 % of busy cells, and the p₁ class carries 55–68 % of the height of large excursions. The law is
+still log²: κ/π′ is stable (6.6 and 7.3 at the last band), sup E/log²x = 0.036, 0.036, 0.033 (τ = 0.1, x = 10⁷, 10⁸, 10⁹) and 0.030,
+0.027, 0.029 (δ = 0.4t). **For U:** S8 with τ = 0.1 keeps (A) with r₀ = 0.9 − ρ = 0.704 > ρ, needs only θ < 0.391 (π/16), and has a
+smaller sup E than the base system at every decade from 10⁵ to 10⁹ (5.95, 7.20, 9.22, 12.31, 14.04 against 6.88, 9.64, 12.84,
+16.36, 18.54; larger below 10⁵) — the best target found in this unit. (As τ → 0, r₀ → 1 − ρ and the
+needed exponent rises to (1 − ρ)/2, charter §2(d); the data say the regularity improves on the way.)

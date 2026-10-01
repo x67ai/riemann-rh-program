@@ -8,7 +8,7 @@ composites, E = N − T, D = −E, V(x) = ρ(x − 1) − C(x); counting functio
 ## §0. Close
 
 **Close: T + G** (no K against the construction; stop conditions (a), (b), (d) not met, (c) not met: neither route closes).
-**The finding that reorganizes the problem — Theorem 1.6** [proved here; novelty: single-check — not found in print, §5]: for ANY
+**The finding that reorganizes the problem — Theorem 1.6** [proved here; novelty: new as a statement on a printed core: Bateman–Grosswald 1964 p. 367; Phragmén (both reads: rF:35, rO:221–224; §5)]: for ANY
 discrete Beurling system with R(u) := N(u) − ρu ≥ r₀ > 0 for all u ≥ 1 and R = O(u^θ) (any constant), ζ_P(σ) ≥ r₀ − ρσ/(1 − σ) on (θ, 1),
 so if θ < r₀/(r₀ + ρ), ζ_P has a REAL zero σ* ∈ [r₀/(r₀ + ρ), 1) and α ≥ σ*. An integer count that never dips below its linear part forces a Siegel-type
 zero; ℕ escapes only because ⌊u⌋ − u ≤ 0. S8's greedy rule gives r₀ = ½ − ρ for free (E > −½, Lemma 1.1), hence (Cor. 1.7):
@@ -100,7 +100,7 @@ s∫_X^∞ E u^{−s−1}du with F_X(s) = Σ_{n≤X} n^{−s} + ρX^{1−s}/(s �
 Σ_{n≤X} n^{−s} = X^{−s}N(X) + s∫_1^X N u^{−s−1}du and s∫_X^∞ T u^{−s−1}du = ρsX^{1−s}/(s − 1) + (1 − ρ)X^{−s}). Checked: the two forms of
 F_X agree to 10⁻¹¹ at twelve σ (logs below).
 
-**Theorem 1.6 (one-sided integer regularity forces a real zero)** [proved here] [novelty: single-check]. Let P be any discrete Beurling
+**Theorem 1.6 (one-sided integer regularity forces a real zero)** [proved here] [novelty: new as a statement on a printed core: Bateman–Grosswald 1964 p. 367; Phragmén (both reads: rF:35, rO:221–224)]. Let P be any discrete Beurling
 system (g-primes 1 < p₁ ≤ p₂ ≤ …, N counted with multiplicity), ρ ∈ (0, 1), E(u) := N(u) − ρ(u − 1) − 1, and suppose
 (A) E(u) ≥ −c for all u ≥ 1, some c ∈ [0, 1); (B) E(u) = O(u^θ) for some θ < 1 (no constant needed).
 Then for θ < σ < 1 (θ ≥ 0 is automatic: E jumps by integers): ζ_P(σ) ≥ 1 − c − ρ/(1 − σ). If σ₀ := 1 − ρ/(1 − c) > θ, then ζ_P has a real zero σ* ∈ (σ₀, 1) (open at σ₀ because E, strictly decreasing between consecutive g-integers, equals −c only on a countable set; for continuous systems the closed endpoint can be attained, e.g. by the template), and ψ_P(x) − x ≠ O(x^a) for every a < σ*: P is an [α, β]-system with α ≥ σ* and β ≤ θ.

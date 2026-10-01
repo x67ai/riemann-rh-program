@@ -113,12 +113,14 @@ rate of products of j + 1 lattice points.
 λ_ρ((v₁, v₂]) = ρΣ_{A₁<a≤A₂} 1/(a + δ) with A_i = ρe^{v_i/ρ} + O(1), which is v₂ − v₁ + O(ρ log(1/ρ)) uniformly (digamma, as in §2); so
 λ_ρ → Lebesgue measure vaguely on [0, ∞), with λ_ρ([0, v]) ≤ v + 2ρ. In S_ρ, the j-element cofactors M′ are the points
 u ∈ [0, ∞)^j (u_i = ρ log of the elements) of R_j(τ) := {Σu_i + max u_i ≤ τ}, weighted by e^{−Σu_i/ρ} = 1/m′. Ordered j-tuples with
-distinct entries count each multiset j! times; multisets with a repeated element carry total weight ≤ (Σ_a x_a^{−2})·(τ + 2ρ)^{j−2} =
-O(ρ²)·(τ + 1)^{j−2} (Σ_a x_a^{−2} = ρ²ψ′(½ + ρ) ≤ 5ρ²). So S_j = (1/j!)λ_ρ^{⊗j}(R_j(τ)) + O(ρ²(τ+1)^j). R_j(τ) is compact with Lebesgue-null
+distinct entries count each multiset j! times; multisets with a repeated element carry total weight ≤ (Σ_a x_a^{−2})·h_{j−2}(w)
+(w_a = 1/x_a for x_a ≤ e^{τ/ρ}, h_n = complete homogeneous symmetric function, Σ_a x_a^{−2} = ρ²ψ′(½ + ρ) ≤ 5ρ²). Cauchy's bound on
+Σ_n h_n ζ^n = Π_a(1 − w_aζ)^{−1} ≤ exp(σζ/(1 − ζ/p₁)), σ := Σw ≤ τ + 2ρ, at ζ = n/(2σ) when n ≤ σp₁ and ζ = p₁/2 when n > σp₁, gives
+h_n ≤ η_n := (2eσ/n)^n resp. (4eρ)^n, summable uniformly for ρ ≤ 1/16. So S_j = (1/j!)λ_ρ^{⊗j}(R_j(τ)) + O(ρ²η_{j−2}). R_j(τ) is compact with Lebesgue-null
 boundary, so λ_ρ^{⊗j}(R_j(τ)) → vol R_j(τ). Volume: the simplex {v ∈ [0,∞)^{j+1} : Σv = τ}, projected to its first j coordinates, is
 {u : Σu ≤ τ}, of volume τ^j/j!; the part where v_{j+1} is the largest coordinate projects onto R_j(τ) and carries 1/(j+1) of it (the
 simplex is symmetric in its j + 1 coordinates; ties are null). So vol R_j(τ) = τ^j/(j+1)!, and S_j → τ^j/(j!(j+1)!). Dominated
-convergence in j: S_j ≤ (τ + 2ρ)^j·5/j! (the factor 5 covers the repeated-element terms). Uniformity: S_ρ is nondecreasing in z and
+convergence in j: S_j ≤ σ^j/j! + 5ρ²η_{j−2}, summable. Uniformity: S_ρ is nondecreasing in z and
 Λ is continuous (Pólya's argument). The Bessel form is the series of I₁. ∎
 *Finite ρ* [computed, `logs/tauc.log`]: S_ρ = 1 at τ = 1.637 (π/16), 1.681 (π/24), 1.695 (π/32); the offset from τ_c comes from
 Σ_{a≤A} 1/(a+δ) = log A − ψ(½ + ρ) + o(1) and is O(ρ log(1/ρ)), so the approach to τ_c is slow and not monotone in ρ.
