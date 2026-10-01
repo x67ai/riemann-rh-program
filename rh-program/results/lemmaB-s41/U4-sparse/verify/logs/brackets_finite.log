@@ -20,3 +20,14 @@
   x<= 1e+07 (tau 0.791): max e0 5  e1 4  eS 4  e2 4  e3 4
   x<= 1e+08 (tau 0.904): max e0 7  e1 5  eS 5  e2 5  e3 5
   x<= 1e+09 (tau 1.017): max e0 10  e1 7  eS 7  e2 7  e3 7
+## rho = pi/32, steps 98174770, p1 = 6.0930
+  inclusions (violations): P1⊆P 0  P⊆P2 0  P1⊆P3 0  P3⊆P2 0
+  queue brackets (violations): e1<=eS 0  eS<=e2 0  e2<=e0 (unsaturated) 0  e3<=eS 0
+  P^(1) first differs from P at x = 2.9130e+02  (Prop. 3.3: not below p1^3 = 2.2620e+02)
+  P^(2) first differs from P at x = 1.7784e+03  (Prop. 3.3: not below p1^4 = 1.3782e+03)
+  P^(3) first differs from P at x = 1.0854e+04  (Prop. 3.3: not below p1^5 = 8.3973e+03)
+  x<= 1e+05 (tau 1.130): max e0 6  e1 4  eS 4  e2 4  e3 4
+  x<= 1e+06 (tau 1.356): max e0 12  e1 5  eS 5  e2 6  e3 5
+  x<= 1e+07 (tau 1.582): max e0 26  e1 5  eS 8  e2 9  e3 8
+  x<= 1e+08 (tau 1.808): max e0 65535  e1 6  eS 9  e2 11  e3 9
+  x<= 1e+09 (tau 2.035): max e0 65535  e1 7  eS 12  e2 16  e3 12

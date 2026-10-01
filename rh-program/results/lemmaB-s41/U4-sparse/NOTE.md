@@ -17,7 +17,8 @@ and E(x) ≤ 2 + ρ√(x + t) on the pure two-fold range x < p₁³ (Thm 2.3, §
 lattice monoid + one count per component" cannot go further, for two named reasons: beyond τ_c(ρ) the comparison queue has load
 Λ(τ) > 1 because domination forgets which lattice points are busy (overcount Λ − λ₀ = τ²/4 − 5τ³/144 + …) — the pathwise alternating
 brackets of Prop. 3.3 are the systematic repair, and in the limit their even levels carry the range only to τ = 2.25, 2.98, 3.72, 4.46
-(levels 2, 4, 6, 8), ≈ 0.73 per pair of levels; inside the range it cannot
+(levels 2, 4, 6, 8), ≈ 0.73 per pair of levels, and at π/32 the level-2 queue stays ≤ 16 to 10⁹ while level 0 exceeds 65,535;
+inside the range it cannot
 beat Q because the only cluster bound it has is "+1 per component", and anything better is the shifted divisor problem for (ℤ + δ)² in
 hyperbolic shells of width mρ (§3.2, Prop. 3.2: a cluster bound K gives E ≤ K + 3/2). Q is 10²–10³ times the truth (π/128: Q(10¹⁰) =
 7,381, sup E = 7.09). (2) *Scaling limit.* For every S, uniformly on x ≤ e^{S/ρ} as ρ → 0: π(y, x] = Π₀(y, x] + o(ρx),
@@ -35,7 +36,8 @@ vol{Σu + max u ≤ τ} = τ^j/(j+1)!); Props. 3.2, 3.3 (pathwise alternating br
 **C — computed** (`verify/`, 12 production runs, ρ = π/16 … π/256 to 4·10⁹–10¹¹, exact ordering by double-double re-decision,
 validated against Session 40): zero violations of e_k ≤ e_k^lat in 7.9·10⁷ steps; the RPM fits of §5.2; maxima vs the Poisson model
 (13 vs 18, 9 vs 11.5, 7 vs 7.5, 5 vs 5 for π/32 … π/256); Mertens offsets Σ1/p − Ein(τ) falling like ρ log(1/ρ); τ_c(ρ) = 1.637,
-1.681, 1.695 for π/16, π/24, π/32.
+1.681, 1.695 for π/16, π/24, π/32; Prop. 3.3's brackets with zero violations in 1.7·10⁸ steps, and the level-2 queue ≤ 16 at π/32
+to 10⁹ (past τ_c(ρ)) while the lattice-monoid queue exceeds 65,535.
 **G — gaps, named:** (G1) the cluster bound K(X, m) for lattice-monoid components in short windows (needed for any sharp bound on
 τ < τ_c); (G2) Conjecture 5.2 needs joint equidistribution of the phases {x/m′ mod t} over all ≈ ρ√x cofactors (Kronecker–Weyl
 gives any fixed finite set when t is transcendental); (G3) Conjecture 5.4 needs G2 in large-deviation form on windows of O(1/ρ) steps.
@@ -191,6 +193,21 @@ exp*(f ds) − δ₀ − f ds; f^{2i} ≥ f₀ ≥ f^{2i+1}. The even-level load
 for i = 0, 1, 2, 3, 4: each further pair of levels gains ≈ 0.73 in τ. So any fixed number of levels covers only a bounded τ-range,
 and every level at finite ρ still pays a "+1 per component" count of its own; covering all τ needs unboundedly many levels, which
 is what the Gronwall argument of Theorem 4.4 does in the limit.
+*Prop. 3.3 at finite ρ* [computed: `verify/run_brackets.sh`, `check_brackets.py`, mode 2 of `s8sp.c` (generators read from the
+previous level's idle set), log `logs/brackets_finite.log`; ρ = π/128, π/64, π/32 to 10⁹]: zero violations of P⁽¹⁾ ⊆ P ⊆ P⁽²⁾,
+P⁽¹⁾ ⊆ P⁽³⁾ ⊆ P⁽²⁾ and e⁽¹⁾, e⁽³⁾ ≤ e ≤ e⁽²⁾ ≤ e⁽⁰⁾ in 2.5·10⁷, 4.9·10⁷, 9.8·10⁷ steps; P⁽ʲ⁾ first departs from P just above p₁^{j+2}
+(π/128: 1.0044·10⁴, 2.147·10⁵, 4.589·10⁶ against 9.76·10³, 2.09·10⁵, 4.46·10⁶). **Level 2 passes τ_c:** for π/32 (τ_c(ρ) = 1.695)
+
+| x ≤ (τ) | 10⁶ (1.36) | 10⁷ (1.58) | 10⁸ (1.81) | 10⁹ (2.03) |
+|---|---|---|---|---|
+| max e⁽⁰⁾ (lattice monoid) | 12 | 26 | > 65,535 | > 65,535 |
+| max e⁽²⁾ (upper bracket) | 6 | 9 | 11 | 16 |
+| max e (S8) | 5 | 8 | 9 | 12 |
+| max e⁽¹⁾, e⁽³⁾ (lower brackets) | 5, 5 | 5, 8 | 6, 9 | 7, 12 |
+
+so the feedback-free computable queue e⁽²⁾ bounds S8 pathwise well past τ_c(ρ), as the limit computation predicts (level-2 load < 1
+up to τ ≈ 2.25 + finite-ρ offset). An explicit analytic bound at level 2 would need window counts of P⁽²⁾ (Lemma 2.2 with P⁽²⁾ in
+place of the lattice), which is the same kind of problem one level up.
 (F2) *Inside the range, the step that makes the bound weak is the "+1 per component" of Lemma 2.2.* Precisely: the bound needs
 K(X, m) := max over windows W of m steps with right end ≤ X of #{M′ : the progression m′·P, P ≥ P⁺(M′), has a point in W}, and the
 only available bound is K ≤ Q(X). For one-element cofactors this is the count #{(a ≤ b) : (a + δ)(b + δ) ∈ [Y, Y + mρ]}, Y = ρ²y: lattice
@@ -436,7 +453,8 @@ arrival histogram, lag-one product, windows of 2^j steps (j ≤ 12), queue histo
 | `r192_m0_1e11` | π/192 | 0 | 10¹¹ | 1.636·10⁹ | 1.392·10⁹ | 6.12 | 5 | 4,792 / 32 / 0 | 36 s |
 | `r256_m0_1e11` | π/256 | 0 | 10¹¹ | 1.227·10⁹ | 1.090·10⁹ | 5.78 | 5 | 2,706 / 8 / 0 | 24 s |
 
-(The 10⁹ runs `r*_m0_1e9`, `r*_m1_1e9` carry the domination check of Theorem 2.1; `m_*_1e10` carry Σ1/p.) "Flips" are composites
+(The 10⁹ runs `r*_m0_1e9`, `r*_m1_1e9` carry the domination check of Theorem 2.1; `m_*_1e10` carry Σ1/p; `br*_L0…L3`,
+`br*_S8vs1`, `br*_S8vs2` with `logs/brackets_finite.log` carry the test of Prop. 3.3.) "Flips" are composites
 whose double-precision step was wrong and was corrected by the double-double re-decision; without the re-decision these runs
 would not be S8. For π/16 to 4·10⁹, sup E/log²x = 0.0456 (Session 40: 0.049 to 10^7.5).
 **Lattice monoid vs S8 (same ρ, same X)**: max e^lat = 7 vs max e = 6 (π/128, to 10¹⁰); 13 vs 9 (π/64, to 10¹⁰): on the sparse range

@@ -1,0 +1,9 @@
+D=32 K=981747704 sigma1=0.895076517592160 theta=0.447538258
+E <= 0.1 log^2 u             sigma2 = 0.895076525  sigma2 - sigma1 = [7.408e-9 +/- 1.61e-13]  [F+B](sigma2) = [-9.8896e-10 +/- 4.57e-15] ; proved > 0 one step below
+E <= log^2 u                 sigma2 = 0.895076591  sigma2 - sigma1 = [7.341e-8 +/- 2.17e-12]  [F+B](sigma2) = [-3.8793e-9 +/- 4.90e-14] ; proved > 0 one step below
+E <= 10 log^2 u              sigma2 = 0.895077248  sigma2 - sigma1 = [7.304e-7 +/- 7.85e-12]  [F+B](sigma2) = [-6.0245e-9 +/- 3.78e-14] ; proved > 0 one step below
+E <= 100 log^2 u             sigma2 = 0.895083814  sigma2 - sigma1 = [7.296e-6 +/- 4.08e-10]  [F+B](sigma2) = [-5.4786e-9 +/- 4.22e-14] ; proved > 0 one step below
+E <= u^th                    sigma2 = 0.895083982  sigma2 - sigma1 = [7.464e-6 +/- 4.08e-10]  [F+B](sigma2) = [-4.5966e-9 +/- 2.64e-14] ; proved > 0 one step below
+E <= 100 u^th                sigma2 = 0.895805019  sigma2 - sigma1 = [0.0007285 +/- 1.41e-9]  [F+B](sigma2) = [-6.3222e-9 +/- 2.64e-14] ; proved > 0 one step below
+int_Y^2Y E^2 <= Y^(1+2th)    sigma2 = 0.895089041  sigma2 - sigma1 = [1.252e-5 +/- 3.41e-9]  [F+B](sigma2) = [-8.5958e-9 +/- 3.95e-14] ; proved > 0 one step below
+python3 bracket_O.py 32 981747704 $S/m_pi32_1e10 0.895076517592160 0.44753825  84.84s user 0.17s system 99% cpu 1:25.03 total
