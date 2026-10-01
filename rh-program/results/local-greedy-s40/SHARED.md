@@ -47,3 +47,14 @@ Newton at X = 10⁹ (`verify/logs/zeros/newton_r06_X1e9.log`): **ρ₁ = 0.82099
 exactly ρ₁, ρ₂; [0.55, 0.70] counts 27 (phase steps up to 2.95 rad — indicative only). So the largest real part below height 100 is
 0.8210, and route 2 agrees with route 1 (a_sup = 0.79–0.81). Running now: H_θ check, winding-number boxes at 10⁹ (Taylor moments,
 validated at the corners by direct sums), the 4·10⁹ run (with Beurling Möbius sums M_P: Neamah–Hilberdink Thm 1 predicts γ = α).
+
+## 2026-10-01 12:15 IST — certificates, H-check, 4·10⁹, third route (Möbius sums) [computed]
+- Winding-number boxes at X = 10⁹ (Taylor moments, corners checked by direct sums to 1.8·10⁻¹²; `logs/zeros/cert_r06_z*_1e9.log`):
+  B₁ = [0.8010, 0.8410] × [11.0677, 11.1077]: winding 1, min|F_X| = 0.0654, tail bound under H_0.40 = 0.00683 (ratio 9.6);
+  B₂ = [0.7853, 0.8253] × [20.2291, 20.2691]: winding 1, min|F_X| = 0.0838, tail under H_0.40 = 0.0179 (ratio 4.7).
+- **Theorem K₇ (NOTE §4): if |N(u) − 0.6⌊u⌋| ≤ u^{0.40} for all u > 10⁹, Conjecture U is false** (α ≥ 0.8010 > 2·0.40).
+  H-check (`logs/zeros/hcheck_r06_1e9.log`): max|C(n)|/n^{0.40} per decade = 1.05, 0.86, 0.93, 0.60, 0.45, 0.35 (k = 3…8).
+- X = 4·10⁹ (`logs/sweep/s7_v0_r3-5_X4000000000.log`, 1.17 GB, ~4 min): sup E = 1304.4, inf E = −105.6, sup|ψ_P − x| = 1.75·10⁷;
+  b_sup over [10^k, 4·10⁹), k = 3…7: .307 .295 .276 .272 .259 (still falling); a_sup: .796 .802 .803 .810 .807.
+- Third route: Beurling Möbius sums M_P (μ_P = a^{∗−1}; control: M(10⁶) = 212 at ρ = 1, independent numpy sieve): sup|M_P| = 4.37·10⁶
+  by 4·10⁹; exponent γ = .795 .808 .807 .814 .817 — Neamah–Hilberdink Thm 1 (two largest of α, β, γ equal) predicts γ = α: it is.

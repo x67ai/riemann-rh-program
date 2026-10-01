@@ -145,7 +145,12 @@ static inline int64_t ld_read(int64_t *off) {
     uint32_t v; memcpy(&v, LD + *off + 1, 4); *off += 5; return v;
 }
 static void ld_append(int64_t dk) {
-    GROW(LD, capLD, G.nLD + 8, uint8_t);
+    if (G.nLD + 8 > capLD) {                       /* first call: preallocate ~1.08 pi(X/q0) bytes; then grow by 1/4 */
+        int64_t nc;
+        if (capLD == 0) { double y = G.X / prime_value(1).hi; nc = (int64_t)(1.08 * y / (log(y) - 1.6)) + (1 << 20); }
+        else nc = capLD + capLD / 4 + (1 << 20);
+        LD = (uint8_t *)xrealloc(LD, (size_t)nc); capLD = nc;
+    }
     if (dk < 0 || dk > 4000000000LL) { fprintf(stderr, "bad k-delta %lld\n", (long long)dk); exit(3); }
     if (dk < 255) LD[G.nLD++] = (uint8_t)dk;
     else { LD[G.nLD] = 255; uint32_t v = (uint32_t)dk; memcpy(LD + G.nLD + 1, &v, 4); G.nLD += 5; }

@@ -46,10 +46,13 @@
   0.527302500084  196.238747125013  1.75e-12   4.1093e+00  +1
   0.652430677628  198.611672961362  5.41e-14   3.4717e+00  +1
   0.592633908121  199.191175923730  1.54e-13   2.3449e+00  +1
-# argument principle on the whole rectangle: winding = nan  (zeros found inside: 44)
+# real zeros of F_X in (0.5, 1.05): 0.5145067116
+# box t in (190.00, 200.00]: winding 6, zeros after multi-start search 6
+  0.500302473127  193.715954862170  3.04e-13   5.5557e+00  multistart
+# argument principle on 0.5 < sigma < 1.05, 0.01 < t <= 200.0 (sum over boxes of height 10): winding = 45  (zeros found inside: 45)
 # largest real part: 0.8962116566 at t = 14.549936
 #   max sigma over zeros with t <=   25: 0.896212  (2 zeros)
 #   max sigma over zeros with t <=   50: 0.896212  (9 zeros)
 #   max sigma over zeros with t <=  100: 0.896212  (19 zeros)
 #   max sigma over zeros with t <=  150: 0.896212  (26 zeros)
-#   max sigma over zeros with t <=  200: 0.896212  (44 zeros)
+#   max sigma over zeros with t <=  200: 0.896212  (45 zeros)

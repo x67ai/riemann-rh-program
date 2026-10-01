@@ -5,9 +5,44 @@ Session 40, started 2026-10-01 11:25 IST. Writer: Opus 5.5 (agent). Labels as in
 load-bearing), **[novelty: single-check]**. Notation: S8(ρ) as in `../CHARTER.md` §1; t := 1/ρ; T(x) = ρ(x − 1) + 1; N, π = π_P, C =
 composites, E = N − T, D = −E, V(x) = ρ(x − 1) − C(x); counting functions are right-continuous (count ≤ x).
 
-## §0. Close (filled last)
+## §0. Close
 
-(pending)
+**Close: T + G** (no K against the construction; stop conditions (a), (b), (d) not met, (c) not met: neither route closes).
+**The finding that reorganizes the problem — Theorem 1.6** [proved here; novelty: single-check — not found in print, §5]: for ANY
+discrete Beurling system with R(u) := N(u) − ρu ≥ r₀ > 0 for all u ≥ 1 and R = O(u^θ) (any constant), ζ_P(σ) ≥ r₀ − ρσ/(1 − σ) on (θ, 1),
+so if θ < r₀/(r₀ + ρ), ζ_P has a REAL zero σ* ∈ [r₀/(r₀ + ρ), 1) and α ≥ σ*. An integer count that never dips below its linear part forces a Siegel-type
+zero; ℕ escapes only because ⌊u⌋ − u ≤ 0. S8's greedy rule gives r₀ = ½ − ρ for free (E > −½, Lemma 1.1), hence (Cor. 1.7):
+**for ρ < ¼, Conjecture U is false as soon as S8(ρ) has N(x) − ρx = O(x^θ) for some θ ≤ ½ − ρ** — no box, no Rouché margin, no explicit
+constant, no computation. With finite certificates (§4.1; F_{10⁷}(0.79) = +0.0222 for π/16, F_{10⁶}(0.89) = +0.0434 for π/32, ordering
+margins ≥ 1.0·10⁻¹¹ relative there, against ≤ 3·10⁻¹⁵ rounding) the needed exponent relaxes to θ < 0.395 (π/16) and θ < 0.445 (π/32). Dichotomy: either U fails, or
+these two explicit queue-like systems have β > 0.395 and β > 0.445 — while their measured sup E is 0.049·log²x (π/16, flat on 10⁶–10^7.5) and
+0.029·log²x (π/32, to 10⁸; local exponent 0.04 on the last decade).
+**T — proved, complete on the page:** Lemmas 1.0–1.5 (well-definedness; E > −½; primes on the lattice 1 + (k − ½)/ρ, gaps ≥ 1/ρ; free
+monoid for transcendental 1/ρ; the reflection identity π = ⌊sup V + ½⌋, E = drawdown + r, r ∈ (−½, ½], exact when no composite sits on the
+lattice — with ties the floor overcounts by one and the hitting-time form is the right one; the template ζ_c = (s − 1 + ρ)/(s − 1), prime
+density (1 − u^{−ρ})/log u, ζ_P = ζ_c + sÊ); Theorem 1.6, Remark 1.6′, Cor. 1.7; Prop. 2.1 (E = ½ + composites − ρ·elapsed on every
+prime gap, so E ≤ ρ·(largest gap) − ½: clipping is the only source of E beyond rounding); the Legendre form π(I) = ρ|I|M(√b) + ΔE(I) +
+S(I) with the unconditional margin M(z) ≥ M_lat(z) ≍ z^{−ρ} (§3.4); the Dichotomy (§3.0); Theorems 4.1–4.2 (real-zero brackets).
+**G — the exact missing estimate:** **Lemma B_ρ** — for one ρ < ¼, the integer error of S8(ρ) is O(x^θ) for some θ ≤ ½ − ρ (qualitative).
+Sufficient forms: Lemma G_ρ (g-prime gaps O(x^θ)); Lemma S (cancellation in the Möbius sum S(I) of E-increments at smaller scales —
+square-root cancellation with polylog loss gives θ = ρ/2 + ε with NO prime number theorem for the system). Routes (a) (randomized
+placement + Freedman) and (b) (potential function) both control fluctuations around a compensator and break at bounding the compensator
+(Lemma M), which is a short-interval PNT for the system — the same statement again; route (a)'s missing estimate in analytic form is a
+zero-free strip with growth bounds (Lemma Z). Randomization is numerically COUNTERPRODUCTIVE (§3.1: offsets of width 50 raise sup E at
+10⁷ from 12.8 to 58–171): S8's regularity is a deterministic, sub-Poissonian correlation effect.
+**Mechanism (task 2), tested:** E is exactly a queue content (Prop. 2.1); the Poisson-queue heuristic gets the law right (polylog E, tail
+rate ∝ 1/(ρ log x)) and the constant wrong by a factor 1.45–1.65, found by two producers (π/16 here, π/4 by the compute unit to 10⁹);
+sup E ≈ (0.37–0.53)·ρ·log²x across ρ. The real zero is the template zero 1 − ρ displaced by ρζ_P(1 − ρ) (first-order law accurate to
+4·10⁻⁴ for ρ ≤ π/16); for ρ ∈ (¼, π/4] it is a nonlinear zero in (½, 0.66) (π/4: 0.514); at ρ ≈ 1 it drops below ½. For π/16 it is the
+rightmost zero below height 60 (exploratory count; one complex zero at 0.5733 + 30.7797i). Nothing printed or measured forces sup Re = 1.
+**Prior art (§5; Opus side of the dual check):** stop conditions (a), (b) not met. Nearest printed object: Broucke–Debruyne–Révész
+Thm 1.3 (RH-conditional; real zero at α ∈ (½, ⅔) with β ≥ 2α/(α + 2) — it obeys U). S8's template is Diamond 1970 p. 24 (continuous;
+this settles the orchestrator's question: Diamond's "quite simple examples" are continuous, simplifying Malliavin 1961 §6, whose discrete
+variant has no integer bound). Lagarias 1999 does not apply (S8 is not in ℤ⁺ and not uniformly discrete). No feedback or integer-first
+construction and no one-sided ⇒ real-zero lemma in print; BDR p. 17 call the integer-first route natural but "extremely difficult" for
+the primes, and Theorem 1.6 is that difficulty resolved for never-undershooting systems.
+**For the compute unit:** include t = 0 in every zero search; sup E and the largest g-prime gap for π/16 and π/32 to 10⁹–10¹⁰ with the
+double-double generator are now the most informative numbers for U.
 
 ## §1. The exact identities (task 1)
 
@@ -49,6 +84,11 @@ Lemma 1.1; V(y−) = π(y−) − E(y−) ≤ k + ½ with equality only if E(y�
 M(x) < k + ½. And M(x) ≥ V(p_k) = k − E(p_k) = k − ½ (k ≥ 1; for k = 0, M ≥ V(1) = 0). So M(x) ∈ [k − ½, k + ½). ∎
 *Boundary convention.* With a tie at y ≤ x (possible for rational ρ), V(y−) = π(y−) + ½ and the floor overcounts by one; the correct
 statement is then the hitting-time form p_{k+1} = inf{y > p_k : V(y) ≥ k + ½} with V right-continuous (from 1.0).
+*When ties cannot occur* [proved here]. If t = 1/ρ = p/q in lowest terms with p ODD, lattice points are (2q + (2k − 1)p)/(2q), odd
+numerator over 2q; a product of j ≥ 2 g-primes has odd numerator over (2q)^j, a lattice point written over (2q)^j has numerator
+odd·(2q)^{j−1}, even. So no composite ever sits on the lattice and Lemma 1.4 holds exactly. This covers the charter's control ρ = 0.8
+(t = 5/4, primes (10k + 3)/8) — although there EQUAL composites (multiplicities) can occur, e.g. 3·143 = 13·33 in numerators. With p even
+(e.g. ρ = ½: primes at even integers, 2·4 = 8 on the lattice) ties do occur.
 **Corollary 1.4′ (E is a composite discrepancy).** E(x) = sup_{1≤y≤x}( #(composites in [y, x]) − ρ(x − y) ) + r(x), since V(y−) − V(x)
 = C(x) − C(y−) − ρ(x − y). Hence sup_{u≤x} E(u) equals, within ½, the largest excess of composites over ρ·length on a subinterval of
 [1, x]. Bounding E from above is exactly a one-sided discrepancy bound for the composites; E ≥ −½ is free.
@@ -90,8 +130,8 @@ Real zero of F_X (bisection; `verify/mech_sweep_*_1e6.log`, `mech_pi16_1e7.log`,
 | ρ | 1 − 2ρ (Thm 1.6 floor) | 1 − ρ (template zero) | σ* (real zero of F_X) | sup E to X | sup E / log²X |
 |---|---|---|---|---|---|
 | π/64 = 0.0491 | 0.9018 | 0.9509 | 0.947634 | 3.51 | 0.018 |
-| π/32 = 0.0982 | 0.8037 | 0.9018 | 0.895076 | 6.39 | 0.034 |
-| π/16 = 0.1963 | 0.6073 | 0.8037 | 0.794752 (10⁶), 0.794755 (10⁷) | 9.64 (10⁶), 12.84 (10⁷) | 0.050, 0.049 |
+| π/32 = 0.0982 | 0.8037 | 0.9018 | 0.895076 (10⁶), 0.895077 (10⁸) | 6.39 (10⁶), 9.86 (10⁸) | 0.034, 0.029 |
+| π/16 = 0.1963 | 0.6073 | 0.8037 | 0.794752 (10⁶), 0.794755 (10⁷, 5·10⁷) | 9.64 (10⁶), 12.84 (10⁷), 14.71 (10^7.5) | 0.050, 0.049, 0.049 |
 | π/8 = 0.3927 | 0.2146 | 0.6073 | 0.656529 | 15.35 | 0.080 |
 | π/6 = 0.5236 | < 0 | 0.4764 | 0.521753 | 21.33 | 0.112 |
 | π/4 = 0.7854 | < 0 | 0.2146 | 0.514036 (10⁶); F_X(½) = 0.06707 at 10⁷ | 39.53 | 0.207 |
@@ -121,8 +161,8 @@ C(p_k, x] − ρ(x − p_k) inside a gap, so E exceeds ½ exactly when composite
 would need, ρ − (composite rate), is negative and the rule can only refuse. In the brief's normalization: with a signed prime measure
 the loop could track T up to rounding; the actual measure is that signed one plus a clip measure κ ≥ 0, and to first order
 sÊ = ζ_c·κ̂, so the neutral modes (zeros of ζ_P) are where the clip's transform is resonant.
-*Remark 1.6′ (the cleanest form of Theorem 1.6)* [proved here]. If R(u) ≥ r₀ > 0 for all u and R = O(u^θ), then
-ζ_P(σ) ≥ r₀ − ρσ/(1 − σ) > 0 for θ < σ < r₀/(r₀ + ρ), and ζ_P has a real zero in [r₀/(r₀ + ρ), 1). An integer count that never dips
+*Remark 1.6′ (the cleanest form of Theorem 1.6)* [proved here]. If R(u) ≥ r₀ > 0 for all u and R = O(u^θ) with θ < r₀/(r₀ + ρ),
+then ζ_P(σ) ≥ r₀ − ρσ/(1 − σ) > 0 for θ < σ < r₀/(r₀ + ρ), and ζ_P has a real zero in [r₀/(r₀ + ρ), 1). An integer count that never dips
 below its linear part forces a real (Siegel-type) zero; ℕ escapes because ⌊u⌋ − u ≤ 0. U needs r₀/(r₀ + ρ) > ½, i.e. r₀ > ρ: for S8,
 ½ − ρ > ρ, i.e. ρ < ¼.
 *Where the zero sits.* ζ_c has a simple zero at s₀ = 1 − ρ with ζ_c′(s₀) = −1/ρ, so to first order σ* ≈ s₀ + ρζ_P(s₀). Test
@@ -171,7 +211,11 @@ F_{10⁷}(0.79) > 0 (σ* = 0.794755), so θ < 0.395 suffices; for ρ = π/32, F_
 **Dichotomy** [proved here, from Theorem 1.6]. For each ρ < ¼: either Conjecture U fails, or β(S8(ρ)) > ½ − ρ (if β ≥ 1 − 2ρ this is
 trivial; if β < 1 − 2ρ, Theorem 1.6 gives α > 1 − 2ρ ≥ ½ and U forces 2β ≥ α). Certified: β(S8(π/16)) > 0.395 (from F_{10⁷}(0.79) > 0),
 β(S8(π/32)) > 0.402 by Theorem 1.6 alone and > 0.445 from F_{10⁶}(0.89) = +0.0434 > 0; numerically σ*/2 = 0.397 and 0.448. The data (§1.8, §2.3) show sup E ≈ 0.049 log²x for π/16 over four decades (local exponent 0.12 on
-[10⁶, 10⁷]). U, if true, would force this explicit queue-like system to develop power-law excursions of exponent ≥ 0.397.
+[10⁶, 10⁷]). U, if true, would force this explicit queue-like system to develop power-law excursions of exponent > 0.395. For π/32 to 10⁸
+(`verify/mech_pi32_1e8.log`, 31 s, 3.2 GB) [computed]: sup E = 4.83, 6.39, 8.93, 9.86 at 10⁵…10⁸ (sup E/log²x = 0.036, 0.034, 0.034, 0.029;
+local exponent 0.04 on the last decade) against U's certified > 0.445; largest g-prime gap 397 = 1.17·log²x; σ* = 0.895077. Caveat: the
+double run's ordering margin falls to 6.5·10⁻¹⁵ (relative) at 7.1·10⁷, about twice the rounding bound, so it is certainly S8 only below
+that point — immaterial for these statistics, decisive for a certificate (use the compute unit's double-double generator).
 By Prop. 2.1, Lemma B_ρ follows from **Lemma G_ρ**: the g-primes of S8(ρ) have gaps O(x^θ) (data: G(x) ≈ 1.3 log²x for π/16).
 
 **3.1 Route (a): randomized placement + martingale concentration — breaks at the compensator.**
@@ -254,7 +298,7 @@ g-primes ≤ √b — no PNT enters — and it has an unconditional floor: the g
 M(z) ≥ M_lat(z) := Π_{lattice points ≤ z}(1 − 1/·) ≍ z^{−ρ}. Data (`verify/s8_mertens.py`, π/16, 10⁶) [computed]: M_lat(z)·z^ρ → 1.0127
 (constant from z = 10³ on); M(z)·log z = 2.54, 2.70, 2.78, 2.81 at 10³…10⁶ (a Mertens law with constant ≈ 2.8–2.9); Legendre's
 identity checked exactly on three intervals of length 200 near 2.5·10⁵ and 3.3·10⁵.
-**Lemma S (the missing estimate in sieve form).** For all u and all I ⊂ [u, 2u] with |I| ≥ L(u): S(I) ≥ −½ρ|I|M(√u) − O(u^θ).
+**Lemma S (the missing estimate in sieve form).** For all u and all intervals I ⊂ [u, 2u]: S(I) ≥ −½ρ|I|M(√u) − O(u^θ).
 By the gap identity, Lemma S for ALL I gives E ≤ O(u^θ) + ½ directly (E(x) − ½ = −ρ|I|M − S(I) on I = (p_k, x]).
 Two consequences of the floor M ≥ M_lat: (i) square-root cancellation with polylog loss, |S(I)| ≪ √|I|·log u + log²u, gives
 E ≤ max_h(−ρhM + √h·log u) + log²u ≍ log²u/(ρM(√u)) ≪ u^{ρ/2}·log²u, i.e. **θ = ρ/2 + ε with no prime number theorem for the system**;
@@ -297,7 +341,64 @@ Numbers: pending the compute unit's task 3(iii) box (see §0 for the state at cl
 
 ## §5. Prior art at the page (task 5)
 
-(pending)
+Reader: an Opus subagent of this unit (the Opus side of the dual-model check; the orchestrator checks separately). Full record with
+quotes at page/line: `sources/prior-art-log.txt` (24 entries, summary at its end); every source opened is saved as `sources/pa-*.txt`
+(arXiv queries one at a time ≥ 6 s apart; Firecrawl used for two pages; the key was not written anywhere). All items below [quoted]
+unless marked.
+**Stop conditions.** (a) No printed theorem forbids θ < ½ with a zero right of ½ for discrete systems: Hilberdink 2005 Thm 1 (JNT 112,
+p. 335) gives only max{α, β} ≥ ½, and Cor. 2(b) (p. 336) FORCES, for β < ½, infinitely many zeros in {η′ < Re s < 1} for every η′ ∈ (β, ½);
+Neamah–Hilberdink (via Broucke–Vindas, z-18 p. 9: α = γ = Θ ≥ ½ when β < ½, γ the Möbius-sum exponent), Hilberdink–Kaziulyte 2023 and
+Broucke–Hilberdink 2024 are Ω-lower bounds on prime irregularity — all consistent with S8, none an obstruction. (b) No printed
+construction gives the target. Unconditionally there is no discrete system with θ < ½ and a zero right of ½ at all. Conditionally on RH,
+Broucke–Debruyne–Révész (arXiv:2309.01567v2, Thm 1.3, p. 4; z-02 l. 183–184) give discrete [α, β]-systems with ½ < α < 2/3 and
+2α/(α + 2) ≤ β < ½, whose zeta has a REAL zero at s = α (zeta_{α,β} = ζ(s)ζ(s/β)/ζ_S(s), ζ_S with a pole at α; derived from l. 1186–1200)
+— the nearest printed object, and it obeys U (2β ≥ 4α/(α + 2) > α). At the boundary θ = ½, unconditional: Zhang 2007 / Diamond–Zhang
+Thm 17.14 (N-error x^{½}e^{c(log x)^{2/3}}, zeros on σ = 1 − 1/log t), Révész IMRN 2023 Thm 8, Broucke arXiv:2409.10051 Thm 6.3.
+Open-problem statements in print: DMV 2006 p. 4 ("it may still be the case that (3) with θ < ½ does imply RH for discrete Beurling
+generalized numbers"); Diamond–Zhang p. 196 ("optimality is not known for θ ≤ ½").
+**Q1 — feedback / greedy / integer-first constructions: not found** (Diamond–Zhang book grep; DMV; Zhang 2007 abstract; BDV 2020; BDR;
+Broucke–Vindas; Révész; Broucke 2024–25; Hilberdink 2005/2012; Malliavin 1961; Diamond 1970; Lagarias 1999; Olofsson 2010; Ruzsa 2023;
+745 on-disk arXiv abstracts and 11 fresh queries). Every printed construction is "continuous template + random discretization" or
+"perturb the rational primes". The nearest sentence is BDR p. 16–17 (z-02 l. 999–1003): "As the integers have to display the best
+behavior, it seems natural to define a Beurling system through the sequence of the integers rather than the primes. Yet, it appears
+that for sequences defined through this philosophy, it is often extremely difficult to show which behavior the primes must admit."
+S8 is exactly such a system, and Theorem 1.6 answers BDR's difficulty for the never-undershooting case: the primes MUST have α ≥ σ*,
+from the integers alone. (M. Watkins's web notes on "prime evolution", 1999/2004, speculate about feedback toward the classical primes;
+no rule, theorem or zero — `sources/pa-watkins-evolutionnotes*.`)
+**Q6 — Diamond's "quite simple examples" (orchestrator's question).** Printed in Diamond, Illinois J. Math. 14 (1970), p. 24
+(`sources/pa-diamond1970-p24-transcription.txt`): "For c ∈ (0, 1/2), we consider the 'zeta function' (s − 1 + c)/(s − 1) = ∫x^{−s}(δ +
+c dx) … whose continuation has a zero at s = 1 − c > 1/2", with prime measure τ_c(x) = ∫_1^x (1 − t^{−c})/log t dt — **S8's template,
+continuous**, simplifying Malliavin, Acta Math. 106 (1961) §6, pp. 295–297 (`sources/pa-malliavin1961-sec6-transcription.txt`), whose
+regular-N example is also continuous (one zero, anywhere in (0, 1)); Malliavin's discrete variant (g-primes at the jumps of ⌊π⌋) has
+a single zero in σ > 0 and NO stated integer bound, and by Hilberdink's Cor. 2(b) its integer exponent is ≥ ½ (one zero only). Lagarias
+1999 p. 4 reads Malliavin as giving discrete N = Ax + O(x^ε) — not supported at Malliavin's page.
+**Q4 — Lagarias, Forum Math. 11 (1999) 295–312** (author's preprint, `sources/pa-lagarias1999-delone.txt`): hypotheses = the Delone
+property r ≤ n_{i+1} − n_i ≤ R (l. 47–50) AND S ⊂ ℤ⁺; Thm 1.1 (l. 178–186): the generators are G = (P \ E) ∪ C with E a finite set of
+primes, C a finite set of composites; Thm 1.2 (l. 194–213): ζ_S = ζ × finite Euler product and n_S(x) = Ax + O(1). Real Delone semigroups
+are an open question there (l. 225–227); Ruzsa (arXiv:2311.11127, p. 1) conjectures there are none. S8 is outside every hypothesis: its
+g-integers are not in ℤ⁺ and are not uniformly discrete (up to 9 in a unit window at 10⁷). Whether S8's gaps are bounded above is not
+decided (they are ≤ (½ + E(x₀))/ρ after x₀).
+**Q5 — what is forced near Re s = 1.** Under N = ρx + O(x^θ), θ < 1, only Landau's region σ > 1 − c(1 − θ)/log|t| (DMV 2006 p. 3, (4);
+Diamond–Zhang p. 195, (17.1)); no strip. Density theorems that apply to real norms (Révész, JLMS 111 (2025) Thm 1: N(σ, T) ≤
+C·T^{12(1−σ)/(1−θ)}log⁵T for σ > (1 + θ)/2; Broucke–Debruyne 2023 Thm 1.2, exponent c(1 − α)/(1 − θ) with c → 4; Broucke 2409.10051
+Thm 1.2) bound how many zeros lie right of ½ — for S8 with θ ≈ 0 they would be sparse — but forbid none. Discrete examples with zeros
+approaching Re s = 1 all have N-error exponent ≥ ½ (DMV Thm 1: any θ ∈ (½, 1); Zhang 2007 / Diamond–Zhang Thm 17.14: x^{½}e^{c(log x)^{2/3}};
+Broucke 2507.13780 Thm 1.6: x^{½+ε}). This supports §2.4: nothing forces sup Re = 1 for S8.
+**Q7 — the one-sided lemma.** The template zero at 1 − ρ is in print (Diamond 1970 p. 24; implicit in Hilberdink 2012 Thm 2.1, z-p3-22c2).
+The general statement — Theorem 1.6 / Remark 1.6′, a one-sided bound N(u) − ρu ≥ r₀ forcing a real zero in [r₀/(r₀ + ρ), 1) for any
+discrete system with N − ρx = O(x^θ) — was NOT found in any source checked (log entry [19]; an arXiv query for Beurling + "real zero" /
+"Siegel zero" / "exceptional zero" returned one off-topic hit). The positivity-plus-intermediate-value mechanism is the familiar one
+behind real zeros of Dirichlet series with positive coefficients [recalled, unverified]; the Beurling-setting statement with a one-sided
+bound on N, and its use against U, are this unit's [novelty: single-check].
+**Also relevant.** Olofsson, "Properties of the Beurling generalized primes" (preprint 2010; on disk `novel-wave-s37/beurling-fe/
+sources/olofsson-2010-properties-beurling-primes.txt`): discrete Q ≠ P with |N(x) − ⌊x⌋| < c·ln x exist (Thm 1.3, l. 112–116; Q = P minus
+finitely many primes plus finitely many g-primes, so ζ_Q = ψ(s)ζ(s) and its zeros right of 0 are Riemann's); Conjecture 1.2 (l. 101–105):
+lim sup |N(x) − ⌊x⌋|/ln x > 0 for Q ≠ P; remark (l. 659–664): equal values force at least logarithmic growth of the error — the printed
+form of the charter's multiplicity diagnosis of S5, and the reason S8's free monoid of distinct reals is the right setting. Olofsson's
+systems cannot satisfy R ≥ r₀ > ρ (ζ_Q < 0 on (0, 1)), consistently with Remark 1.6′.
+**Novelty (single-check, Opus side).** S8 as a construction (the orchestrator's): no feedback/integer-first construction in print. Theorem
+1.6, the Dichotomy, Prop. 2.1, the early-placement rule S8^w and the sieve form of §3.4: not found. The template and its zero: classical
+(Diamond 1970; Malliavin 1961). The open question S8 targets is stated in print as open (DMV p. 4; Diamond–Zhang p. 196).
 
 ## §6. Instruments rows, Untried, waste line, distance from upstream
 
@@ -306,7 +407,7 @@ Numbers: pending the compute unit's task 3(iii) box (see §0 for the state at cl
 | Quantity | Current best value | Result file | Dated |
 |---|---|---|---|
 | Real zero of ζ_P for the free greedy system S8(ρ) (Theorem 1.6: forced in (1 − 2ρ, 1) by E > −½ plus any bound E = O(x^θ), θ < 1 − 2ρ) | σ* of F_X: π/64 0.947634, π/32 0.895076, π/16 0.794755 (X = 10⁷; 0.794752 at 10⁶), π/8 0.656529, π/6 0.521753, π/4 0.514036, 0.95π/3 0.402156 (X = 10⁶); certified brackets: π/16 ζ_P(0.79) > 0 given only qualitative (B) (F_{10⁷}(0.79) = +0.022231), zero in (0.79, 0.80) if E ≤ 33.7 log²u beyond 10⁷; π/4 ζ_P(½) > 0 (F = +0.067067), zero in (0.50, 0.55) if E ≤ 3.78 log²u. First-order law σ* ≈ (1 − ρ) + ρζ_P(1 − ρ) good to 4·10⁻⁴ for ρ ≤ π/16. One producer (theory; double precision, ordering margin ≥ 5.6·10⁻¹³ relative to 10⁷) | `free-greedy-s40/theory/NOTE.md` §1.6–1.8, §2.2, §4.1; `theory/verify/bracket_pi16_1e7.log`, `bracket_pi4_1e7.log`, `mech_sweep_*_1e6.log`, `lin_sweep_1e6.log` | 2026-10-01 |
-| Integer error of S8(ρ) in the U-relevant range ρ < ¼ (Lemma B_ρ: θ ≤ ½ − ρ refutes U) | π/16: sup E = 3.04, 3.54, 6.88, 9.64, 12.84 at 10³…10⁷, sup E/log²x = 0.064, 0.042, 0.052, 0.050, 0.049; largest g-prime gap 336.1 at 10⁷ (≈ 1.3 log²x); π/32: 6.39 at 10⁶; π/64: 3.51 at 10⁶. U predicts β(S8(π/16)) ≥ 0.397. One producer (theory, Python, double precision) | `theory/NOTE.md` §1.8, §3.0; `theory/verify/mech_pi16_1e7.log`, `mech_sweep_*_1e6.log` | 2026-10-01 |
+| Integer error of S8(ρ) in the U-relevant range ρ < ¼ (Lemma B_ρ: θ ≤ ½ − ρ refutes U) | π/16: sup E = 3.04, 3.54, 6.88, 9.64, 12.84, 14.71 at 10³…10⁷, 10^7.5, sup E/log²x = 0.064, 0.042, 0.052, 0.050, 0.049, 0.049; largest g-prime gap 336.1 at 10⁷, 432.9 at 10^7.5 (1.3–1.5 log²x; ordering margin 1.1·10⁻¹³ to 5·10⁷); π/32: 6.39 at 10⁶, 9.86 at 10⁸ (sup E/log²x 0.029; gap 397); π/64: 3.51 at 10⁶. U forces β(S8(π/16)) > 0.395, β(S8(π/32)) > 0.445 (certified). One producer (theory, Python, double precision) | `theory/NOTE.md` §1.8, §3.0; `theory/verify/mech_pi16_1e7.log`, `mech_pi16_5e7.log`, `mech_pi32_1e8.log`, `mech_sweep_*_1e6.log` | 2026-10-01 |
 | Law of E of S8 vs the Poisson-queue heuristic (tail e^{−κh}, κ ≈ 2/(ρ log x)) | measured tail rate = (1.45–1.65)·2/(ρ log x): π/16 on [10³, 10⁷] (theory), π/4 on [10⁶, 10⁹] (compute unit, λ·log x ≈ 3.7–3.9 vs 2.55); time-mean of E = 0.57·ρ log x/2 (π/16); composite arrivals sub-Poissonian, effective variance ≈ 0.6. Two producers | `theory/NOTE.md` §2.3; `theory/verify/mech_pi16_1e7.log`; `free-greedy-s40/SHARED.md` compute batch 1 | 2026-10-01 |
 | Mertens law of S8 (the sieve margin of §3.4) | π/16: M(z)·log z = 2.54, 2.70, 2.78, 2.81 at z = 10³…10⁶; proved floor M(z) ≥ M_lat(z) with M_lat(z)·z^ρ → 1.0127. One producer | `theory/NOTE.md` §3.4; `theory/verify/mertens_pi16_1e6.log` | 2026-10-01 |
 

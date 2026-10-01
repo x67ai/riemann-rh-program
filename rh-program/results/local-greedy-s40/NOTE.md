@@ -69,6 +69,9 @@ least-squares slopes of log(running sup) against log x over the bins of [10^k, X
 | 1.1 | 3839 | −174.4 | 3.68·10⁶ | 20270 | 825 | 142 | .416 .393 .337 .274 .240 | .796 .801 .791 .790 .787 | −.04 +.02 +.12 +.24 +.31 |
 | 1.25 | 23000 | −219 | 1.05·10⁷ | 45230 | 1827 | 219 | .466 .451 .425 .426 .454 | .830 .828 .826 .815 .843 | −.10 −.07 −.02 −.04 −.07 |
 
+**X = 4·10⁹, ρ = 0.6** (`logs/sweep/s7_v0_r3-5_X4000000000.log`, `fits_v0_r06_4e9.log`; 1.17 GB, 4 min): sup E = 1304.4,
+inf E = −105.6, sup|ψ_P − x| = 1.75·10⁷, sup|M_g| = 19,814, max a_n = 825, max m_p = 106; b_sup (k = 3…7) = .307 .295 .276 .272 .259,
+a_sup = .796 .802 .803 .810 .807, **a − 2b = +.18 +.21 +.25 +.27 +.29**; local slope of sup E from 10⁹ to 4·10⁹: 0.23.
 RMS exponents b_rms (k = 3…7) at ρ = 0.6: .265 .243 .228 .217 .204; the M_g exponent μ ≈ 0.50–0.52 at every density ≤ 1.1.
 Integer-error fits fall as the window starts later at every ρ ≤ 1.1 (no sign of a rising exponent on [10³, 10⁹]); α-fits are flat.
 
@@ -103,6 +106,72 @@ point mode with D_X and D_X′, Taylor-moment mode M_k = Σ(a_n − ρ)n^{−s�
 terms, as uo/verify/zscan.c — checked here against mpmath at 0.75 + 30i, 0.6 + 14.2i, 0.9 + 77.7i to all printed digits);
 `verify/scan7.sh` + `verify/zcount7.py` (argument principle on the 10 × 10 boxes of [0.55, 1.10] × [0.1, 100], lines σ = 0.55, …,
 1.10, t-step 0.025; horizontal segments at t = 0.1, 10, …, 100, σ-step 0.005); `verify/newton7.py` (Newton, all zeros per pass).
+
+**3.1 Strip counts at X = 10⁷** (`verify/logs/zeros/zcount_r06_1e7.log`; the a_n are the first 10⁷ of the 10⁹ dump). Winding numbers
+of F_X on the strips × [0.1, 100]: σ ∈ [1.00, 1.10], [0.95, 1.00], [0.90, 0.95], [0.85, 0.90]: 0 (largest phase step on the box
+contours 0.10, 0.15, 0.27, 0.76 rad); **[0.80, 0.85]: 2** (boxes × [10, 20] and × [20, 30]; step ≤ 1.59 rad, min|F| 0.024);
+[0.75, 0.80], [0.70, 0.75]: 0 (≤ 1.59, 0.71 rad); [0.65, 0.70]: 4, [0.60, 0.65]: 13, [0.55, 0.60]: 10 — these last three with
+phase steps up to 2.95 rad, so their counts are indicative only (aliasing possible; the zeros there are not refined here). So
+below height 100 and right of σ = 0.70 F_X has exactly two zeros, and the largest real part is that of the zero near 11.09.
+Hilberdink 2005 Cor. 2(b) (via uo §5) predicts infinitely many zeros in every strip η′ < σ < 1 with η′ ∈ (β, ½) when β < ½; the
+27 zeros counted in [0.55, 0.70] are consistent with that.
+
+**3.2 Newton and stability under X** (`logs/zeros/newton_r06_X1e7.log`, `…_X1e8.log`, `…_X1e9.log`; |F| ≤ 4·10⁻¹³ at the end):
+
+| X | ρ₁ | ρ₂ |
+|---|---|---|
+| 10⁷ | 0.8209861 + 11.0877395i | 0.8052896 + 20.2491013i |
+| 10⁸ | 0.8210037 + 11.0877501i | 0.8052939 + 20.2490886i |
+| 10⁹ | **0.8209965 + 11.0877411i** (\|F′\| = 3.412) | **0.8052963 + 20.2490762i** (\|F′\| = 4.406) |
+
+Stable to ~2·10⁻⁵ over a hundredfold range of X. Amplitude: 2x^{0.821}/|ρ₁| + 2x^{0.805}/|ρ₂| ≈ 6·10⁶ at x = 10⁹ against the observed
+sup|ψ_P − x| = 5.57·10⁶ (§2.1): the two zeros account for route 1's α ≈ 0.80.
+
+**3.3 Winding-number boxes at X = 10⁹** (`verify/cert7.py`; `logs/zeros/cert_r06_z1_1e9.log`, `…_z2_1e9.log`). F_X on ∂B evaluated
+from 25 Taylor moments at the centre (one pass over the 10⁹ coefficients; |M₂₄|h²⁴ ≤ 3·10⁻³⁹), validated at the four corners by
+direct sums (agreement ≤ 1.8·10⁻¹²); 400 boundary points.
+- B₁ = [0.8010, 0.8410] × [11.0677, 11.1077]: winding number 1.000000, min_{∂B₁}|F_X| = 0.0654, largest phase step 0.021 rad;
+  C(10⁹) = −2. Tail bound max over ∂B₁ under H_θ: 0.00069 (θ = 0.30), 0.00216 (0.35), **0.00683 (0.40; ratio 9.6)**, 0.0220 (0.45).
+- B₂ = [0.7853, 0.8253] × [20.2291, 20.2691]: winding number 1.000000, min|F_X| = 0.0838; tail 0.0018, 0.0056, 0.0179 (θ = 0.40;
+  ratio 4.7), 0.058.
+**H_θ on the computed range** (`verify/hcheck.c`, `logs/zeros/hcheck_r06_1e9.log`): max |C(n)|/n^θ per decade [10^k, 10^{k+1}),
+k = 3…8: θ = 0.40: 1.05, 0.86, 0.93, 0.60, 0.45, **0.35**; θ = 0.35: 1.53, 1.43, 1.74, 1.23, 1.05, 0.88; θ = 0.32: …, 1.54.
+The θ = 0.40 ratio falls by a factor ≈ 0.75 per decade, as |C| ≈ u^{0.28} would make it.
+
+**3.4 Third route: the Beurling Möbius sums** (`logs/sweep/s7_v0_r3-5_X4000000000.log`, lines `MP`; fit in
+`logs/sweep/fits_v0_r06_4e9.log`). μ_P = a^{∗−1} (local factor 1/F_p(u)), M_P(x) = Σ_{n≤x} μ_P(n); control: at ρ = 1 the generator
+returns M(10⁶) = 212, equal to an independent numpy sieve (`logs/controls/mertens_1e6.log`). At ρ = 0.6: sup|M_P| = 2.9·10⁴,
+1.8·10⁵, 1.4·10⁶, 4.4·10⁶ by 10⁷, 10⁸, 10⁹, 4·10⁹; exponent γ over [10^k, 4·10⁹), k = 3…7: 0.795, 0.808, 0.807, 0.814, 0.817.
+Neamah–Hilberdink Thm 1 (§5(v)) forces γ = α when β < ½: the measured γ equals route 1's α and route 2's Re ρ₁ to ±0.02.
+
+**3.5 The prime-side fluctuation is coherent, not a walk** (`verify/analyze_x.py`, `logs/sweep/analyze_x_r06_1e9.log`). With
+T(x) = Σ_{p≤x}(m_p − 1)log p (the prime part of ψ_P − ψ; T(10⁹) = 3.73·10⁶ against ψ_P(10⁹) − 10⁹ = 3.78·10⁶) and the walk scale
+V(x) = (Σ_{p≤x}(m_p − 1)²log²p)^{1/2} (the size T would have with independent signs), sup|T|/V = 1.4, 2.0, 3.2, 3.5, 5.3, 12.6 at
+x = 10⁴, 10⁵, 10⁶, 10⁷, 10⁸, 10⁹. The ratio grows like x^{0.3} ≈ x^{Re ρ₁ − ½}: the m_p − 1 are long-range correlated exactly as an
+explicit formula with a zero at 0.82 + 11.09i requires. So route 1's a_sup is not the artifact flagged in the 11:49 SHARED block.
+
+## §4. What is proved: U reduces, for S7(3/5), to one growth bound with room
+
+**Theorem K₇ (conditional refutation of U)** [proved here, modulo the floating-point evaluation of F_X on ∂B₁ recorded in §3.3].
+Let P = S7(3/5) and C(u) = N_P(u) − 0.6⌊u⌋. If (H_θ) |C(u)| ≤ u^θ for all u > 10⁹ holds for some θ ≤ 0.40, then ζ_P has exactly one
+zero in B₁ = [0.8010, 0.8410] × [11.0677, 11.1077], P is an [α, β]-system with α ≥ 0.8010 and β ≤ θ, and **Conjecture U is false**
+(α ≥ 0.8010 > 0.80 ≥ 2β, and α > ½).
+*Proof.* Word for word the proof of uo §4 Theorem K′, which uses only that P is ℕ-supported: (1) under H_θ, Σ(a_n − 0.6)n^{−s}
+converges in σ > θ and ζ_P = F_X + T_X with |T_X| ≤ |C(X)|X^{−σ} + |s|X^{θ−σ}/(σ − θ); (2) on ∂B₁, |T_X| ≤ 0.00683 < 0.0654 ≤ |F_X|,
+so by Rouché ζ_P has as many zeros in B₁ as F_X, namely the winding number 1; (3) N_P(x) − 0.6x = C(x) − 0.6{x} = O(x^θ); (4)
+ψ_P(x) − x = O(x^σ) with σ < Re ρ₁ would make −ζ_P′/ζ_P − s/(s − 1) = s∫(ψ_P − x)x^{−s−1}dx analytic at the zero, a contradiction. ∎
+The Rouché step alone survives to θ ≈ 0.47 (ratio 2.97 at θ = 0.45); the U-conclusion needs 2θ < 0.8010.
+
+**Lemma H₇ (the exact missing statement).** For S7(3/5): |N_P(u) − 0.6⌊u⌋| ≤ u^{0.40} for all u > 10⁹. In Lindley form: E(x)
+equals, within ½, the excess N(x) − N(q*) − 0.6(x − q*) since the last prime power q* ≤ x at which the rule added a copy (Lemma 1.2's
+proof), so H₇ says (a) that excess stays ≤ x^{0.40} — the upward side, the clusters of §2.3 — and (b) the deficit stays ≥ −x^{0.40}.
+Lemma 1.2 reduces (b) to prime-power gaps G(x) ≤ (x^{0.40} − 1.6)/0.6; the best gap bound I know of, x^{0.525} [recalled,
+unverified], does not reach that, so even the downward half is not unconditional by this route (the data: inf E = −93.2 at 10⁹,
+far above −0.6·G). Verified on [10⁴, 10⁹] with constant ≤ 0.93 and 0.35 in the top decade; S5's Lemma H needed θ ≤ 0.35 against
+data ≈ 0.30, S7's needs θ ≤ 0.40 against data ≈ 0.26–0.28: more room, same logical position.
+**"Tame multiplicities" — what holds and what does not.** Multiplicities are bounded by ρ·(prime-power gap) + 1 + ρ (Lemma 1.2), so
+a_n is multiplicative with local values that are polylogarithmic if Cramér's conjecture holds [recalled, unverified]; but they are
+NOT bounded (max m_p = 79 at 10⁹) and the refused fraction rises with x (§2.2), so a_n ≪ n^ε is not proved here (§8, UT-L4).
 
 ## §5. Theory for the class (task 5; shortened by the stop rule)
 
@@ -166,13 +235,32 @@ Thm 1): with ψ_P = x + O(x^{α+ε}), N_P = ρx + O(x^{β+ε}), M_P = O(x^{γ+ε
   by feedback on the integer count, not by a field or a deletion; its a_p are unbounded (Lemma 1.2: ≤ ρ·gap + 1 + ρ). Every proved
   statement here uses no printed input except the quoted theorems named at their lines.
 
-**3.1 Strip counts at X = 10⁷** (`verify/logs/zeros/zcount_r06_1e7.log`; the a_n are the first 10⁷ of the 10⁹ dump). Winding numbers
-of F_X on the strips × [0.1, 100]: σ ∈ [1.00, 1.10], [0.95, 1.00], [0.90, 0.95], [0.85, 0.90]: 0 (largest phase step on the box
-contours 0.10, 0.15, 0.27, 0.76 rad); **[0.80, 0.85]: 2** (boxes × [10, 20] and × [20, 30]; step ≤ 1.59 rad, min|F| 0.024);
-[0.75, 0.80], [0.70, 0.75]: 0 (≤ 1.59, 0.71 rad); [0.65, 0.70]: 4, [0.60, 0.65]: 13, [0.55, 0.60]: 10 — these last three with
-phase steps up to 2.95 rad, so their counts are indicative only (aliasing possible; the zeros there are not refined here). So
-below height 100 and right of σ = 0.70 F_X has exactly two zeros, and the largest real part is that of the zero near 11.09.
-Hilberdink 2005 Cor. 2(b) (via uo §5) predicts infinitely many zeros in every strip η′ < σ < 1 with η′ ∈ (β, ½) when β < ½; the
-27 zeros counted in [0.55, 0.70] are consistent with that.
+## §7. Instruments rows (shape of `directions/B2-refutation-program.md`; records, never ranks; not applied — for the digest)
 
-**3.2 Newton and stability under X** (`logs/zeros/newton_r06_X1e7.log`, `…_X1e8.log`, `…_X1e9.log`): see the table in §3.3.
+| Quantity | Current best value | Result file | Dated |
+|---|---|---|---|
+| (α, β) of the prime-local integer-greedy system S7(ρ) (g-primes are prime powers, a_n multiplicative; numerical, not proved) | ρ = 0.6, X = 4·10⁹: β ≈ 0.26–0.31 (running sup of \|E\|, windows 10³…10⁷ → 4·10⁹: .307 .295 .276 .272 .259, falling), α ≈ 0.80–0.81 (running sup of \|ψ_P − x\|), γ (Beurling Möbius sums) 0.80–0.82; α − 2β = +0.18…+0.29 on every window. X = 10⁹: ρ = 0.75 / 0.8 / 0.9 / 1.1 above the line from 10⁴ / 10⁴ / 10⁵ / 10⁵ (+0.05…+0.31); ρ = 1.25 below (−0.02…−0.10); ρ = 1.5 runs away. One producer; generator re-derived independently (additive DP, 0 mismatches to 10⁷) | `local-greedy-s40/NOTE.md` §2; `…/verify/logs/sweep/fits_v0_1e9.log`, `fits_v0_r06_4e9.log` | 2026-10-01 |
+| Off-line zeros of S7(0.6)'s ζ_P (route 2; the zeros behind Theorem K₇) | ρ₁ = 0.8209965 + 11.0877411i, ρ₂ = 0.8052963 + 20.2490762i (Newton at X = 10⁷, 10⁸, 10⁹; stable to 2·10⁻⁵); winding number 1 on B₁ = [0.8010, 0.8410] × [11.0677, 11.1077] (min\|F_X\| = 0.0654 vs tail ≤ 0.0068 under H_0.40) and on B₂ (0.0838 vs 0.018); no other zero in σ ≥ 0.70, t ≤ 100 at X = 10⁷. One producer | `local-greedy-s40/NOTE.md` §3; `…/verify/logs/zeros/cert_r06_z1_1e9.log`, `newton_r06_X1e9.log`, `zcount_r06_1e7.log` | 2026-10-01 |
+| Lemma H₇ on the computed range (the one hypothesis of Theorem K₇) | max\|N(u) − 0.6⌊u⌋\|/u^{0.40} per decade 10³…10⁹: 1.05, 0.86, 0.93, 0.60, 0.45, 0.35 (needed: ≤ 1 for all u > 10⁹) | `local-greedy-s40/verify/logs/zeros/hcheck_r06_1e9.log` | 2026-10-01 |
+
+## §8. Untried (format of the directions' lists)
+
+- **UT-L1 Prove Lemma H₇** for S7(3/5): |N(u) − 0.6⌊u⌋| ≤ u^{0.40} for u > 10⁹ (with Theorem K₇ it refutes U). Both halves open: the
+  upward half bounds the clusters of §2.3; the downward half, by Lemma 1.2's route, would need prime-power gaps ≤ (x^{0.40} − 1.6)/0.6,
+  beyond the known gap bound [recalled, unverified], so a proof has to use the composites that arrive inside gaps. Target: B2.
+- **UT-L2 Interval certification of B₁** (python-flint arb) at X = 10⁹, the floating-point step of K₇. Target: B2.
+- **UT-L3 The four variants** (brief task 4: act only at primes; cap m ≤ 2; look-ahead at 2p, 3p; the λ-rule m_p ∈ {0, 2} with p²
+  for refused p) — implemented in `s7gen` (variants 1–4), NOT run, because the stop rule fired. Target: B2.
+- **UT-L4 Transient test for β.** The refused fraction rises (ρ = 0.6: .844 in [10⁸, 10⁹), .861 in [10⁹, 4·10⁹)); multiplicities grow
+  (max m_p 79 → 106); b-fits still fall at 4·10⁹. Going to 10¹¹ needs the m-table compressed (now one byte per odd q ≤ X/2). Target: B2.
+- **UT-L5 Theory left open:** is E unbounded for every non-periodic prime-local member; a quantitative lower bound; the λ-rule under
+  Tao/Klurman; why the feedback produces a zero near 0.82 + 11.09i (a pseudo-character whose L-function has an off-line zero). Target: C2.
+- **UT-L6 Zeros in σ ∈ [0.55, 0.70]** (27 counted at X = 10⁷ with phase steps up to 2.95 rad): refine at 10⁸–10⁹. Target: B2.
+- **UT-L7 Prior art:** Révész–Pintz 2407.12746 full text; Borwein–Choi–Coons at the page. Target: standing order 1.
+
+## §9. Waste line (10(o))
+
+Spent for nothing: the first control-script run (uniform pair sampling almost never hit mn ≤ X; killed after six minutes, fixed by
+log-uniform sampling) and one scan launch whose log directory did not exist (relaunched at once) — "spent on the wrong thing", small;
+two shell loops lost to zsh's lack of word splitting (seconds, re-run under bash). Found: stop line (c), two certified boxes, a third
+route agreeing. Not done because of the stop rule: task 4 (variants), most of task 5, part of task 6.

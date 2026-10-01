@@ -9,12 +9,12 @@ Labels: [quoted] = read at the source on disk/web in this session; [recalled, un
 Stop condition (a) [printed theorem forbids theta < 1/2 with a zero off the line, discrete]: NOT MET so far. Hilberdink 2005
   Thm 1 / Cor. 2(b) / Remark C (entry [1]) forbid only max{alpha, beta} < 1/2 and FORCE zeros in {eta' < Re s < 1}.
 Stop condition (b) [printed construction already gives the target]: NOT MET so far.
-NEAR MISS, flagged 11:45 IST: Broucke-Debruyne-Revesz arXiv:2309.01567v2, Theorem 1.3 (p. 4, z-02 l. 183-184), ASSUMING RH, gives
+NEAR MISS, flagged ~11:34 IST (machine clock, reconstructed from file times): Broucke-Debruyne-Revesz arXiv:2309.01567v2, Theorem 1.3 (p. 4, z-02 l. 183-184), ASSUMING RH, gives
   discrete [alpha, beta]-systems with 1/2 < alpha < 2/3 and 2alpha/(alpha+2) <= beta < 1/2 (zeta has a real zero at s = alpha, from
   zeta_{alpha,beta} = zeta(s)zeta(s/beta)/zeta_S(s), l. 1186-1200, 1255-1256). This is "theta < 1/2 with a zero of real part > 1/2"
   in print, CONDITIONALLY, but with alpha < 2*theta (theta >= 2/5) -- it does not give a zero with real part > max{1/2, 2 theta},
   and it is not unconditional. See entry [4].
-CONFLICT IN PRINT, SETTLED AT THE PAGE, 12:05 IST: Lagarias 1999 (entry [14], preprint p. 4) reads Malliavin 1961 §6 as showing that
+CONFLICT IN PRINT, SETTLED AT THE PAGE, ~12:01 IST: Lagarias 1999 (entry [14], preprint p. 4) reads Malliavin 1961 §6 as showing that
   N(x) = Ax + O(x^eps) for all eps does not imply RH "even if we assume that N in Z+". Malliavin's page (entry [15], Acta Math. 106,
   pp. 296-297) has the regular-N bound (13) ONLY for a continuous system; his discrete system (g-primes = jumps of floor(pi)) has a
   single zeta zero in sigma > 0 and NO stated bound on its integer count. By Hilberdink 2005 Cor. 2(b) (p. 336) a discrete system with
@@ -328,7 +328,7 @@ CLOSEST UNCONDITIONAL DISCRETE SYSTEMS IN PRINT (none below 1/2): Broucke arXiv:
   S8 escapes on all counts: its g-integers are real (not in Z+), distinct g-integers come arbitrarily close (up to 9 in a unit
   window at 1e7, CHARTER §2), and since a gap after x_0 can last up to (1/2 + E(x_0))/rho with E unbounded, gaps are not bounded
   above either [derived here]. Real Delone semigroups beyond Z+ are an open question in print (l. 225-227).
-  CORRECTION to the last sentence of [14] (11:58 IST): what is derived is only the bound gap after x_0 <= (1/2 + E(x_0))/rho (the
+  CORRECTION to the last sentence of [14] (~11:57 IST): what is derived is only the bound gap after x_0 <= (1/2 + E(x_0))/rho (the
   next deficit time), so gaps are bounded above whenever E is bounded; whether S8's gaps are actually unbounded above is NOT checked
   here. S8 escapes Lagarias's theorems on the two certain counts: not in Z+, not uniformly discrete.
 
@@ -469,3 +469,72 @@ CLOSEST UNCONDITIONAL DISCRETE SYSTEMS IN PRINT (none below 1/2): Broucke arXiv:
   e^{-c sqrt(log x loglog x)}) for some c > 0.
   Relevance: Q3 -- for theta < 1/2 the printed constraint is a LOWER bound on psi - x of size ~ sqrt x; it does not forbid zeros
   right of 1/2 (it is implied by them). Q2 -- no example.
+
+[23] Watkins, "'prime evolution' notes" (speculative web notebook, first circulated 23 Nov 1999, third version 27 Aug 2004),
+  https://empslocal.ex.ac.uk/people/staff/mrwatkin/isoc/evolutionnotes.htm (and oldevolutionnotes.htm). [quoted] Opened by curl
+  -> here/pa-watkins-evolutionnotes.html, text here/pa-watkins-evolutionnotes-text.txt (line numbers below); old version
+  here/pa-watkins-oldevolutionnotes.html. NOT peer-reviewed.
+  §1.5 (l. 115-131): "Suppose we devise a dynamical system which involves an evolving sequence P(t) = {p_j(t)}, and where the
+  evolution (t here being a 'time' parameter) is in some sense 'caused' or 'driven' by the unevenness of the spacing in its (evolving)
+  multiplicative semigroup N(t) at each time t. ... Through a process of self-organisation or feedback, a sequence could conceivably
+  evolve towards 'primeness' and stop when it reaches this state (where each p_j(t) = p_j, the jth prime)."
+  §1.7 (l. 170-187): charged-particle scheme; "Each g-integer can be thought of as 'trying to influence' each of its g-prime factors
+  in such a way as to appropriately increase or decrease the density at its own location. The process would continue until uniform
+  density 1 were achieved throughout N(t)".
+  Relevance: Q1 -- the closest thing to "feedback from the integer count to the g-primes" found anywhere: a speculative continuous-time
+  dynamics whose intended fixed point is the CLASSICAL primes (density 1). No rule, no construction, no theorem, no zeros. S8 (one-pass
+  sweep in x, threshold 1/2 on the deficit, density rho < 1, a new free monoid) is not in it.
+
+[24] Watkins, with AI collaborators "Sol" and "Claude Fable 5", "Prime evolution revisited: arithmetic equilibrium, Beurling flows
+  and zeta thermodynamics", web working paper v0.5, August 2026,
+  https://empslocal.ex.ac.uk/people/staff/mrwatkin/isoc/evolutionnotes2026.htm. [quoted] Opened by curl -> here/
+  pa-watkins-evolutionnotes2026.html, text here/pa-watkins-evolutionnotes2026-text.txt. NOT peer-reviewed ("Status: collaborative
+  working paper; a proposed research programme", l. 141).
+  l. 202: "The 1999 question was roughly: can one perturb the generalized primes, observe the resulting unevenness of the generalized
+  integers, and feed that discrepancy back until the classical primes emerge as equilibrium?"  Abstract (l. 147): "[v0.2] This passage
+  is an information-preserving causal bijection: integers and primes are not independent reservoirs of data, so literal feedback
+  between them is a misleading picture."  §4 (l. 259-300): "finite discrepancy flow" = gradient descent du_j/dt = -dE/du_j on log
+  generator positions for E = (1/2) int_0^L |K_tau * (nu_u - nu_cl)|^2 w_L dx, nu_cl = sum delta_{log n} (target = classical integers);
+  "demoted to a probe ... It should not be presented as a candidate explanation of the primes."
+  Question 3.3 (l. 253-255): "Is the classical system the only Beurling system with N_P(x) = x + O(1)? ... We have neither found a
+  nonclassical example with bounded error nor verified a theorem excluding one." [Cf. Olofsson 2010 Conjecture 1.2 (entry [20]),
+  which conjectures exactly that |N(x) - [x]| >= c log x infinitely often for Q != P, and Hilberdink 2012 (entry [7]) for periodic
+  errors.]
+  Relevance: Q1 -- a gradient flow toward a fixed target nu_cl (density 1), not a causal greedy rule producing a new system; no
+  zeta-zero claims. Q2 -- none. Note for the orchestrator: the page names "Claude Fable 5" as a co-author of its v0.2/v0.4 passages.
+
+=== SUMMARY OF ANSWERS (written 12:14 IST, after entries [1]-[24]) ===
+Q1 (feedback/greedy/inverse construction of g-primes from a prescribed N): NOT FOUND in print. Checked: Diamond-Zhang book (grep
+  greedy|feedback|inverse problem|prescribed|self-regulat: nothing), DMV, Zhang 2007 (abstract), BDV 2020, BDR, Broucke-Vindas,
+  Revesz 2023, Broucke 2024/2025, Hilberdink 2005/2012, Malliavin 1961 (discretizes by rounding pi to floor(pi)), Diamond 1970,
+  Lagarias 1999, Olofsson 2010 (perturbs P), Ruzsa 2023; 745 on-disk arXiv abstracts + 11 fresh arXiv queries. Nearest: BDR p. 17
+  (z-02 l. 999-1003) name "define a Beurling system through the sequence of the integers" as natural but hard; Watkins web notebook
+  1999/2004 §1.5, §1.7 and its 2026 v0.5 reconstruction §4 (speculative feedback/gradient flow TOWARD the classical primes; no rule,
+  no theorem, no zeros; not peer-reviewed).
+Q2 (discrete, N = rho x + O(x^theta), theta < 1/2, AND a zero right of 1/2 or psi - x not O(x^{1/2+eps})): unconditional -- NONE
+  in print. Conditional on RH -- YES: BDR Thm 1.3 (z-02 l. 183-184), alpha in (1/2, 2/3), theta = beta in [2alpha/(alpha+2), 1/2)
+  (so theta >= 2/5), real zero at s = alpha; always alpha < 2 theta, so it does not refute U. Boundary theta = 1/2, unconditional:
+  Broucke 2409.10051 Thm 6.3 (x^{1/2} log x, zeros on Re s = 3/4), Revesz IMRN 2023 Thm 8 (x^{1/2+eps}, zeros prescribed), Zhang
+  2007 / Diamond-Zhang Thm 17.14 (x^{1/2} exp{c(log x)^{2/3}}). Malliavin 1961's discrete system has no N bound and, by Hilberdink
+  Cor. 2(b), integer exponent >= 1/2 (Lagarias 1999 p. 4 overstates it). Open-problem statements: DMV p. 4 (p1-02 l. 204-206);
+  Diamond-Zhang p. 196 (t-50 l. 11534) "optimality is not known for theta <= 1/2"; Hilberdink 2005 p. 335, 343.
+Q3 (printed prohibition): NONE. Hilberdink 2005 Thm 1 (p. 335; w-18a l. 195): Theta = max{alpha, beta} >= 1/2. Cor. 2(b) (p. 336;
+  l. 211-214): theta < 1/2 => psi - x = Omega(x^{eta'}) and infinitely many zeros in {eta' < Re s < 1} for every eta' in
+  (theta, 1/2). Remark C (p. 340; l. 496-501). Also Neamah-Hilberdink (alpha = gamma >= 1/2 when beta < 1/2), Hilberdink-Kaziulyte
+  2023 and Broucke-Hilberdink 2024 (Omega lower bounds ~ sqrt x for psi - x). All are lower bounds on prime irregularity; none
+  forbids zeros right of 1/2.
+Q4 (Lagarias 1999): hypotheses = Delone (r <= n_{i+1} - n_i <= R for all i) AND S in Z+; conclusion G = (P\E) u C, E finite set of
+  primes, C finite set of composites; zeta_S = zeta x finite Euler product; n_S(x) = Ax + O(1). Real Delone semigroups: open question
+  (preprint p. 6, l. 225-227), Ruzsa 2023 conjectures none. A system with arbitrarily close distinct g-integers is outside every
+  hypothesis -- S8 escapes (also not in Z+).
+Q5: forced: only Landau's region sigma > 1 - c(1-theta)/log|t| (DMV p. 3 (4); Broucke 2409.10051 p. 2; 2507.13780 (1.2)); no strip.
+  Density theorems (Revesz 2022 Thm 1, Revesz 2025 Thm 1, Broucke-Debruyne 2023 Thm 1.2, Pintz-Revesz 2025 Thm 1, Broucke 2024 Thm
+  1.2) bound N(alpha, T) for alpha > (1+theta)/2 or (2+theta)/3; they allow sparse zeros right of 1/2. Examples with zeros
+  approaching Re s = 1 and regular N: DMV Thm 1 (any theta in (1/2,1)); Zhang 2007 & Diamond-Zhang Thm 17.14 (x^{1/2} exp{c(log
+  x)^{2/3}}); Broucke 2507.13780 Thm 1.6 (x^{1/2+eps}, any reasonable contour). BDV 2020 is NOT such an example (RH holds; N-error
+  x exp(-c sqrt(log x loglog x)), beta = 1).
+Q6 (Diamond's "quite simple examples"): Diamond 1970 Illinois J. Math. 14 p. 24 (N = cx + O(1), zeta = (s-1+c)/(s-1), zero 1 - c
+  > 1/2, c in (0, 1/2)) "simplifying" Malliavin 1961 §6 (pp. 295-297). Both regular-N examples are CONTINUOUS; Malliavin's discrete
+  variant has no integer bound.
+Q7 (one-sided bound => real zero): template zero at 1 - rho IS in print (Diamond 1970 p. 24; implicit in Hilberdink 2012 Thm 2.1);
+  the general one-sided-bound lemma was NOT FOUND (entry [19]).

@@ -61,3 +61,11 @@ Dated blocks, appended as the work lands. Writer: Opus 5.5 (agent). U.S. English
 - ρ-dependence: smallest refused primes are 5 (ρ = 4/5), 13 (19/20), 23 (21/20). ρ = 19/20 ascent from its 10⁹ record (a = 122 @ 845,857,740) gives exponent ≈ 0.268, flat, to 10^35.2: the burst growth that undermines β ≈ 0.30 at ρ = 4/5 is not (yet) visible at ρ = 19/20, whose ≤10⁹ estimate b_sup ≈ 0.26–0.29 is consistent with it. ρ = 21/20 running.
 - Prior art: 22 arXiv queries (https, sequential): no printed integer-level feedback construction. Missed but relevant: Olofsson 2010 (on disk, beurling-fe/sources): Beurling's |N(x) − [x]| problem, Conj. 1.2, and l. 660–662 "equal values ⇒ remainder ≥ logarithmic", the printed prototype of C1; Lagarias 1999 Forum Math (Delone rigidity of ℕ-supported systems with distinct g-integers; via Olofsson l. 642–658, not opened).
 - read-O.md: header, §1, §2, §2C (C1–C3), §3 written.
+
+## 12:15 IST 2026-10-01 — read-O block 5 (final): read-O.md complete
+
+- VERDICT: DISAGREES with the close as stated. The theorems stand (K′ correct as a conditional; §3.2, §3.3 correct with one-line gaps); the numerical crossing does not (the β-leg fails beyond 10⁹ for ρ = 0.8). 14 FIX-FIRST pairs + 10 minor pairs, all OLD segments machine-checked as exact substrings at their stated lines (32 segments, 0 mismatches).
+- C1, C2, C3: confirmed exactly (own generator + second algorithm + exact counter). C4: agreed with qualifications — H_0.35 not refuted (best ratio f/(2n^0.35) = 0.198 at 10^37.86); H_θ false for θ ≤ 0.3227; S5(0.8) undetermined (crossing needs β < 0.383), not refuted.
+- ρ-dependence: ascents for ρ = 19/20 (exponent ≈ 0.27 to 10^38.8) and 21/20 (≈ 0.285 to 10^40.8) stay flat, inside their ≤10⁹ estimates; smallest refused primes 5 / 13 / 23. ρ = 0.95 is the better S5 candidate for the β-leg (needs its own zero).
+- Prior art: no printed integer-level feedback construction (22 arXiv queries + on-disk grep); NOTE should cite Olofsson 2010 (on disk) and Lagarias 1999 (via Olofsson).
+- Additions A1–A8 single-check (ρ < 1 structure: multiplicities 1, g-primes irreducible, admission iff A(n) = 0 ∧ E(n−1) ≤ 0.3; burst inequality; Rankin bound for fixed-y records).

@@ -14,7 +14,7 @@ rs = [float(a) for a in sys.argv[4:]] or [0.005, 0.01, 0.02, 0.04]
 X, lX = D["X"], D["logX"]
 def K(s): sg = s.real; return abs(s) * X ** (-sg) * (lX ** 2 / sg + 2 * lX / sg ** 2 + 2 / sg ** 3)
 print(f"# rouche {sys.argv[1]}  X = {X:.4e}  z0 = {z0}")
-print("#  r        n/side  winding   min|F_X| (sampled)  max|F'|   min|F|-gap     max K      B_max")
+print("#  r        n/side  winding   min|F_X| (sampled)  max|F'|   min|F|-gap     max K      B_max(log^2)  B_max for |E| <= B u^b, b = 0.25 / 0.40 / 0.50")
 for r in rs:
     n = 400
     corners = [z0 + complex(-r, -r), z0 + complex(r, -r), z0 + complex(r, r), z0 + complex(-r, r)]
@@ -31,4 +31,8 @@ for r in rs:
     Kv = np.array([K(s) for s in pts])
     bmax = ((np.abs(fv) - gap) / Kv).min()
     ok = "" if np.abs(dang).max() < math.pi / 4 else "  (phase step > pi/4: refine)"
-    print(f"  {r:.4f}  {n:6d}  {wind:+8.4f}   {mn:.6e}      {fd.max():.3e}  {mn - gap:.6e}  {Kv.max():.4e}  {bmax:.4e}{ok}")
+    bp = []
+    for b in (0.25, 0.40, 0.50):
+        Kb = np.array([abs(s) * X ** (b - s.real) / (s.real - b) for s in pts])
+        bp.append(((np.abs(fv) - gap) / Kb).min())
+    print(f"  {r:.4f}  {n:6d}  {wind:+8.4f}   {mn:.6e}      {fd.max():.3e}  {mn - gap:.6e}  {Kv.max():.4e}  {bmax:.4e}    {bp[0]:.3e} / {bp[1]:.3e} / {bp[2]:.3e}{ok}")
