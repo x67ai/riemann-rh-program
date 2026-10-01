@@ -143,3 +143,33 @@ Writes only: `directions/*.md` (insertions + Last-touched lines), this folder (`
 - Found for §E (consolidator): fgT NOTE:11 and :103 still label Theorem 1.6 "[novelty: single-check — not found in print]" although both
   reads say "new as a statement on a printed core" (rO:221–224; rF:35). fgC/fgT θ-thresholds consistent (Cor. 1.7 floor vs certificates).
 - Running now: s5m, lg. Resume here: append §A.10 onward.
+
+## 2026-10-01 17:09 IST block 15 — §A complete (A.10 s5m, A.11 lg); line citations of A.10–A.11 re-checked
+
+- §A covers all eleven units. Record-level items found by the consolidator for §E: s5m Instruments row 1 says "One producer" (now
+  three: unit, rF recount, read-O A1); lg Instruments rows say "One producer" (read-O reproduced every number: two).
+- Running now: §B (cross-unit propositions). Resume here: append §B to insights-digest.md; then §C, §D, §E, §F, §G, §H.
+
+## 2026-10-01 17:11 IST block 16 — §B written (B1–B9)
+
+- Inputs read for §B/§F/Deliverable 2: lemmaB-s41/CHARTER.md (whole; units U1–U7 named, folders not opened); BARRIER-ZOO.md lines
+  41–43 (Sessions 39/40 count paragraphs: 64 entries, I: 11), I.2 (82–93; the S5 rider at 92 says T1–T4 "[single-check; read owed]"),
+  I.9–I.11 (145–170), cross-reference rows 747–758; B2 Instruments (100–140) and Untried (141–171) formats.
+- Collision found for §G: lemG's Untried IDs UT-L1 … UT-L5 are in B2 (lines 167–171); lg's NOTE uses UT-L0 … UT-L7 — rename on insert.
+- Running now: §C controls. Resume here: append §C, then §D (four Session-40 units' Instruments rows).
+
+## 2026-10-01 17:15 IST block 17 — §C (C1–C6) and §D (14 rows: fgT 4, fgC 5, s5m 3, lg 4 minus merges) written
+
+- §D merges: fgT row 2 with fgC's π/16–π/32 row; fgC's real zeros folded into fgT row 1. Producer counts corrected to the reads (s5m
+  row 1 → three producers; lg rows → two). Every cited result file checked to exist (ls), including verify-O paths.
+- §C flag new (consolidator's exact check): V undershoots (A_n − 5ⁿ/4 = −¼, n ≥ 1) yet has the real zero 0.79899 by the same sign
+  change as Theorem 1.6's proof — a rung-1 control for lemmaB-s41 U5-obstruction.
+- Running now: §E errata. Resume here: append §E (every FIX-FIRST of the 11 dual reads, one line each, status; brief errors caught).
+
+## 2026-10-01 17:16 IST block 18 — §E written (E.1–E.12): 36 FIX-FIRST items, all applied; six residues R1–R6 OPEN
+
+- Correction to block 17: §D has 16 rows (fgT 4 after merges, fgC 5, s5m 3, lg 4), not 14.
+- No read pair contradicts the other on a theorem's validity; stop condition not met. Upgrades: qcond F1, lemG F4. Downgrade: qtw F6.
+- Residues (consolidator): R1 qcond D block ×5 + cut sentence; R2 qcond novelty label; R3 uoff NOTE:22/170 lag; R4 fgT 1.6 label;
+  R5 s5m row producers; R6 lg row producers.
+- Running now: §F (survivor filter + ranking). Resume here: append §F, then §G (Untried for the four Session-40 units), §H (waste line).

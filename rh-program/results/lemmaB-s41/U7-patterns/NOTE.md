@@ -18,7 +18,8 @@ are filled by a depth-first enumeration of nondecreasing index sequences (j₁ �
 far, then the queue is run over them (e_k = max(e_{k−1} + c_k − 1, 0); a g-prime at x_k iff e_{k−1} = 0 = c_k). Chunks of 2²⁵ cells bound
 memory. g-primes are stored as lattice indices n (value 1 + (n − 1 + τ)t − δ, recomputed in double-double when needed). Variants: threshold
 τ (lattice x_k = 1 + (k − 1 + τ)t) and early placement: the g-prime decided at x_k is placed at x_k − δ, 0 ≤ δ < τt (decision unchanged).
-Per cell the generator writes c_k, e_k, c_k^{(1)} (composites whose smallest g-prime factor is p₁) and c_k^{(Ω=2)} (two factors), all uint8,
+Per cell the generator writes c_k, e_k, c_k^{(1)} (composites whose smallest g-prime factor is p₁), c_k^{(Ω=2)} (two factors), the counts of
+composites divisible by p₂, p₃, p₄ (d2–d4) and with smallest factor p₂, p₃, p₄ (s1–s3), all uint8,
 and the list of prime cells; optional watch windows dump every composite of chosen cells with its factor indices.
 
 **1.2 Exactness of every cell decision** [proved here]. Unit roundoff ε = 2⁻⁵³. Error-free transformations: two_sum (Knuth), fast
@@ -64,3 +65,33 @@ tail rate is κ ≍ π′, so sup e ≍ log(#cells)/κ ≍ ρ log²x, while a bu
 rate ≍ π′²/2, so G ≍ log(#cells)/π′² ≍ ρ² log³x [heuristic]. **Consequence for the proof units:** Prop. 2.1 (E ≤ ρG − ½) loses a full
 factor log x against the data, so Lemma G_ρ is the weaker target only in name: the route through gaps must prove a log³-type bound, the
 direct route a log²-type bound; both give B_ρ with any θ > 0.
+
+## §3. Arrivals and queue: correlations, window variances, tails (task 2)
+
+**3.1 Per half-decade** [computed: `verify/stats.c` → `verify/logs/b16_1e10.stats`, `b32_1e10.stats`; table by `verify/sumstats.py`].
+π′ = idle (g-prime) fraction per cell, λ = 1 − π′ + (drift of e) = mean arrivals per cell; κ = least-squares decay rate of the empirical
+P(e_k ≥ h) (h ≥ 2, ≥ 30 cells); κ_P = root of λ(e^κ − 1) = κ, the rate a Poisson(λ)-arrival queue with one service per step would have;
+X₁ = ΔE(W/p₁) over the build-up W of an excursion (exact, §4.1). Selected bands (all bands in the logs):
+
+| ρ | x band | π′ | λ | Fano(1) | mean e | κ | κ_P | κ/κ_P | κ/π′ | #excursions | mean height | corr(h, X₁) | max gap (cells) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| π/16 | [10⁵, 10^5.5) | 0.3831 | 0.6169 | 0.936 | 0.347 | 1.352 | 0.899 | 1.50 | 3.53 | 4,202 | 1.39 | 0.375 | 30 |
+| π/16 | [10^6.5, 10⁷) | 0.3125 | 0.6875 | 0.955 | 0.563 | 1.119 | 0.708 | 1.58 | 3.58 | 140,676 | 1.58 | 0.411 | 66 |
+| π/16 | [10^7.5, 10⁸) | 0.2766 | 0.7234 | 0.963 | 0.718 | 0.980 | 0.616 | 1.59 | 3.54 | 1,403,250 | 1.68 | 0.438 | 106 |
+| π/16 | [10^8.5, 10⁹) | 0.2475 | 0.7525 | 0.968 | 0.883 | 0.868 | 0.544 | 1.59 | 3.51 | 13,743,345 | 1.79 | 0.463 | 155 |
+| π/16 | [10^9.5, 10¹⁰) | 0.2236 | 0.7764 | 0.972 | 1.053 | 0.760 | 0.487 | 1.56 | 3.40 | 133,248,949 | 1.89 | 0.485 | 240 |
+| π/32 | [10^6.5, 10⁷) | 0.5249 | 0.4751 | 0.960 | 0.173 | 1.802 | 1.341 | 1.34 | 3.43 | 47,289 | 1.26 | 0.220 | 25 |
+| π/32 | [10^7.5, 10⁸) | 0.4811 | 0.5189 | 0.965 | 0.230 | 1.611 | 1.195 | 1.35 | 3.35 | 533,583 | 1.32 | 0.236 | 39 |
+| π/32 | [10^8.5, 10⁹) | 0.4429 | 0.5571 | 0.972 | 0.295 | 1.431 | 1.075 | 1.33 | 3.23 | 5,803,363 | 1.39 | 0.254 | 53 |
+| π/32 | [10^9.5, 10¹⁰) | 0.4092 | 0.5908 | 0.976 | 0.365 | 1.310 | 0.974 | 1.34 | 3.20 | 61,398,284 | 1.45 | 0.271 | 73 |
+
+π′ agrees with the template prime density per cell (1 − x^{−ρ})/(ρ log x) to 3 digits (0.2241 vs 0.2236 at the last π/16 band).
+**Pattern 3.1 (geometric queue tail, sub-Poisson by a fixed factor)** [computed]. On every band with enough data, P(e ≥ h) decays
+geometrically with rate κ = (1.50–1.66)·κ_P (π/16) and (1.31–1.43)·κ_P (π/32), the factor stable over five decades; equivalently
+κ ≈ (3.2–3.6)·π′. With π′ ≍ 1/(ρ log x) this is the log² law of §2 (sup e ≈ log(#cells)/κ). Conjectured form for a proof unit:
+  **(C3.1)** for every half-decade band B = [x₀, x₁) and every h ≥ 1: #{k : x_k ∈ B, e_k ≥ h} ≤ #{k : x_k ∈ B}·exp(−c·h·π′_c(x₁)),
+  π′_c(x) := (1 − x^{−ρ})/(ρ log x) (the template idle fraction), with c = 2.5. Checked: π/16 and π/32, all bands 10⁴–10¹⁰ with ≥ 10³
+  cells, all h; the largest admissible c is 2.94 (π/16, [10^9.5, 10¹⁰), h = 3) and 3.05 (π/32, [10⁴, 10^4.5), h = 4).
+(C3.1) with any c > 0 gives sup e = O(ρ log² x) (take h = 2 log(#cells)/(c π′_c)); it is the statement U3 (first bound) or U1 (a rule with
+a proved tail) would aim at. The single-cell Fano factor is 0.94–0.98: the sub-Poisson effect is not visible in one cell; it is built up
+over windows (3.2).

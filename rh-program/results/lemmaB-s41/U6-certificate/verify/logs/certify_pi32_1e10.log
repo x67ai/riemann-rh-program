@@ -1,0 +1,11 @@
+# # s8cert pi32 K=981747704 N=981747705 pi=409388073 eK=0 supE=15.4341390068 supE_at=6570529473.852157 maxgap_cells=73 maxgap_at_k=472386671 maxe=14 omax=12 decisions=572359633 fallbacks=785 fallbacksV=0 minrel=8.1685e-19 at 2.073207e+09 prefixes=92493 storedprimes=71517727 secs=44.2
+# X = x_K = [9999999993.3930518626 +/- 2.17e-11], K = 981747704, N(X) = 981747705, pi(X) = 409388073, E(X) = 0.5
+SIGMA1 0.895076517592  F_X(sigma1) = [1.4e-12 +/- 6.43e-14]  (proved > 0)
+ZERO_OF_F_X in (0.895076517592, 0.895076517593): F_X(right end) = [-7.5e-12 +/- 4.48e-14]  proved < 0: True
+SIGMA2 hyp E(u) <= 0.1 log^2 u (u >= X): sigma2 = 0.895076525  F+tail = [-9.890e-10 +/- 5.65e-14]
+SIGMA2 hyp E(u) <= 1 log^2 u (u >= X): sigma2 = 0.895076591  F+tail = [-3.8793e-9 +/- 7.00e-14]
+SIGMA2 hyp E(u) <= 10 log^2 u (u >= X): sigma2 = 0.895077248  F+tail = [-6.0245e-9 +/- 5.88e-14]
+SIGMA2 hyp E(u) <= 100 log^2 u (u >= X): sigma2 = 0.895083814  F+tail = [-5.4786e-9 +/- 6.48e-14]
+SIGMA2 hyp E(u) <= 1 u^0.447538258 (u >= X): sigma2 = 0.895083982  F+tail = [-4.5966e-9 +/- 4.89e-14]
+SIGMA2 hyp E(u) <= 100 u^0.447538258 (u >= X): sigma2 = 0.895805019  F+tail = [-6.3222e-9 +/- 4.87e-14]
+python3 certify.py data/pi32_K981747704.mom 32 0.89 0.90  4.28s user 0.03s system 99% cpu 4.343 total

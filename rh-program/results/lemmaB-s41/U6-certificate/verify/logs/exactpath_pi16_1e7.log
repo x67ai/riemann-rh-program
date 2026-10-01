@@ -1,0 +1,11 @@
+# 17:15 IST 2026-10-01 exact-path validation: normal run vs S8C_INFLATE=1e12 (almost every decision in GMP), pi16 to 1e7
+normal:
+FINAL K=1963495 N=1963496 pi=633514 composites_emitted=1329981 prefixes=2956 storedprimes=192249 decisions=1329981 fallbacks=0 fallbacksV=0 minrel=3.3034e-13 at 8.167550e+06 omax=12 maxe=12 secs=0.1
+inflated:
+FINAL K=1963495 N=1963496 pi=633514 composites_emitted=1329981 prefixes=2956 storedprimes=192249 decisions=1329981 fallbacks=1329907 fallbacksV=21 minrel=3.3037e-13 at 8.167550e+06 omax=12 maxe=12 secs=0.7
+r_K196.mom moments identical
+r_K1963.mom moments identical
+r_K196349.mom moments identical
+r_K1963495.mom moments identical
+r_K19635.mom moments identical
+checkpoints identical
