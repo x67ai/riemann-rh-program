@@ -1,4 +1,4 @@
-# 14:59 IST 2026-10-01  s8dd pi4 X=1e7 args: 0.50 0.60 0.50 0.52 0.55
+# 15:23 IST 2026-10-01  s8dd pi4 X=1e7 args: 0.50 0.60 0.50 0.52 0.55
 s8dd: t = 1.2732395447351628 + -7.87e-17, rho = 0.78539816339744828, X = 1e+07, ratio cap 100
 CK x=1000 N=793 pi=156 supE=8.2174 (at 987.484) supE/log2x=0.1722 maxgap=118.4113 (at 714.651) minmargin_sofar=2.415e-06 decade_margin=2.415e-06
 CK x=3162.28 N=2484 pi=444 supE=13.3304 (at 2359.89) supE/log2x=0.2052 maxgap=297.9381 (at 2493.37) minmargin_sofar=6.364e-07 decade_margin=6.364e-07
@@ -17,12 +17,12 @@ F sigma=0.500000 F1=0.067066520612 F2=0.067066520612 diff=-8.62e-14  halfXs=1.58
 F sigma=0.520000 F1=-0.025933000162 F2=-0.025933000161 diff=-9.72e-13  halfXs=1.145e-04
 F sigma=0.550000 F1=-0.173679388824 F2=-0.173679388824 diff=-3.62e-13  halfXs=7.063e-05
 ROOT real zero of F_X in [0.514506711568, 0.514506711568]
-        1.80 real         1.78 user         0.01 sys
+        1.65 real         1.64 user         0.00 sys
            106086400  maximum resident set size
                    0  average shared memory size
                    0  average unshared data size
                    0  average unshared stack size
-               11001  page reclaims
+               11002  page reclaims
                    1  page faults
                    0  swaps
                    0  block input operations
@@ -31,7 +31,7 @@ ROOT real zero of F_X in [0.514506711568, 0.514506711568]
                    0  messages received
                    0  signals received
                    0  voluntary context switches
-                 963  involuntary context switches
-         38121875112  instructions retired
-          6994915981  cycles elapsed
+                  11  involuntary context switches
+         38119826573  instructions retired
+          6815960653  cycles elapsed
            105726504  peak memory footprint

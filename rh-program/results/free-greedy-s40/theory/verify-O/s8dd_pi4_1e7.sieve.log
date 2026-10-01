@@ -1,4 +1,4 @@
-# 15:02 IST 2026-10-01  s8dd pi4 X=1e7 args: 0 0
+# 15:23 IST 2026-10-01  s8dd pi4 X=1e7 args: 0 0
 s8dd: t = 1.2732395447351628 + -7.87e-17, rho = 0.78539816339744828, X = 1e+07, ratio cap 100
 CK x=1000 N=793 pi=156 supE=8.2174 (at 987.484) supE/log2x=0.1722 maxgap=118.4113 (at 714.651) minmargin_sofar=2.415e-06 decade_margin=2.415e-06
 CK x=3162.28 N=2484 pi=444 supE=13.3304 (at 2359.89) supE/log2x=0.2052 maxgap=297.9381 (at 2493.37) minmargin_sofar=6.364e-07 decade_margin=6.364e-07
@@ -17,13 +17,13 @@ SIEVE u=1e+04 pi(u,2u]=1114 rho*u*M(sqrt 2u)=1101.78 dE=12.018 S=0.20  S/(u/log 
 SIEVE u=1e+05 pi(u,2u]=7408 rho*u*M(sqrt 2u)=9144.33 dE=9.184 S=-1745.52  S/(u/log u)=-0.20096  sqrt(u)log(u)=3640.7  rho*M*log z=0.55808 (e^-gamma=0.56146)  pi(I)/(u/log u)=0.85288
 SIEVE u=1e+06 pi(u,2u]=73143 rho*u*M(sqrt 2u)=75776.32 dE=-1.163 S=-2632.15  S/(u/log u)=-0.03636  sqrt(u)log(u)=13815.5  rho*M*log z=0.54971 (e^-gamma=0.56146)  pi(I)/(u/log u)=1.01051
 SIEVE u=5e+06 pi(u,2u]=293508 rho*u*M(sqrt 2u)=345028.39 dE=0.183 S=-51520.58  S/(u/log u)=-0.15894  sqrt(u)log(u)=34491.2  rho*M*log z=0.55612 (e^-gamma=0.56146)  pi(I)/(u/log u)=0.90547
-        0.75 real         0.73 user         0.01 sys
+        0.69 real         0.68 user         0.00 sys
             98369536  maximum resident set size
                    0  average shared memory size
                    0  average unshared data size
                    0  average unshared stack size
-               10529  page reclaims
-                   2  page faults
+               10530  page reclaims
+                   1  page faults
                    0  swaps
                    0  block input operations
                    0  block output operations
@@ -31,7 +31,7 @@ SIEVE u=5e+06 pi(u,2u]=293508 rho*u*M(sqrt 2u)=345028.39 dE=0.183 S=-51520.58  S
                    0  messages received
                    0  signals received
                    0  voluntary context switches
-                 832  involuntary context switches
-          9366831711  instructions retired
-          2924562868  cycles elapsed
+                   8  involuntary context switches
+          9349727369  instructions retired
+          2898648714  cycles elapsed
             98009640  peak memory footprint

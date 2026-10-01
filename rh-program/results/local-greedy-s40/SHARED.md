@@ -143,3 +143,13 @@ every Table 2.1 entry reproduces (sup E 763.0, 1048.0, 969.8, 3839.1, 23003.25; 
 234, 270, 247, 825, 1827; max m_p 93, 104, 102, 142, 219; anatomy fractions all), except a rounding: sup|ψ_P − x| at 0.75 is 913,482
 (the unit's own log agrees) → 9.13·10⁵, not 9.14·10⁵ (minor m14); a − 2b within ±0.01. ρ = 1.5: N(10⁸)/10⁸ = 1.50993. §3.6 zeros at
 10⁸ (ρ = 0.75, 0.8, 1.1; nine zeros) to every printed digit. Pairs now: 2 FIX-FIRST, 14 minor (all OLD quotes checked verbatim).
+
+## 15:23 IST 2026-10-01 — read-O CLOSED: AGREES-WITH-CORRECTIONS (2 FIX-FIRST, 14 minor) — `read-O.md`
+Strip count reproduces: F_{10⁷} winds 2.000000 on [0.70, 1.10] × [0.1, 100] (direct sums, 8,152 points; max phase step 0.71 rad).
+On σ = 0.70 the H_{0.40} tail (X = 10⁹) exceeds |F_X| (0.70 + 94.63i: 0.138 vs 0.629), hence F1. Verdict: every number the close
+rests on reproduces by independent routes (a_n identical to 10⁹ for both systems; zeros, boxes, H-ratios, fits, Table 2.1); Lemmas
+1.1, 1.2, 4.1 and Theorems K₇, K₇^{≤2} re-derived, no FALSE step; Tao/Klurman do not reach g (NOTE right). FIX-FIRST: F1 §0 l. 15–16
+("no other zero in σ ≥ 0.70 below height 100" is about F_{10⁷}, not ζ_P); F2 §6 l. 295–297 (Révész–Pintz also assume Axiom A, i.e.
+the open H). Minor m1–m14 (m12 l. 46 and m13 l. 315 under standing order 14). Additions A1–A8 (A1: ζ_P converges absolutely on σ > 1
+unconditionally; A2: the cap's inf E = −197.8 is below Lemma 1.2's gap bound −169.7, so the cap has no gap control). Scratch dumps:
+`/private/tmp/rh-s41-read-localgreedy/g_c{0,2}_1e9.u16` (regenerate: `gen7o 3 5 {0,2} 1000000000 <file>`).

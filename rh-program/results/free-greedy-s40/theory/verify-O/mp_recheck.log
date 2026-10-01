@@ -1,3 +1,5 @@
+# dd_err compares the 60-digit product with the %.17g DECIMAL printout of the double-double value; it is limited (~1e-17)
+# by that printout, not by the arithmetic. The decision itself is recomputed from the factorization alone.
 pi16 1e7 after-prime      c=2817412.73219594994979 factors=2 lattice M=553198 rel.margin(60 dig)=5.07313e-13 decision_ok=True dd_err=4.7e-18
 SUMMARY pi16 1e7: 1/1 decisions confirmed at 60 digits; worst double-double relative error 4.7e-18
 pi4 1e7 below-threshold  c=4397639.880459461718371 factors=2 lattice M=3453898 rel.margin(60 dig)=5.58219e-13 decision_ok=True dd_err=8.83e-18

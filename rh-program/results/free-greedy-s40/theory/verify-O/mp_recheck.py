@@ -4,6 +4,7 @@
 # Decision "after-prime": the prime 1 + (N - 1 - 1/2) t was placed first, i.e. it is < composite.
 import mpmath as mp, sys, os
 mp.mp.dps = 60
+print("# dd_err compares the 60-digit product with the %.17g DECIMAL printout of the double-double value; it is limited (~1e-17)\n# by that printout, not by the arithmetic. The decision itself is recomputed from the factorization alone.")
 TV = {"pi16": 16/mp.pi, "pi4": 4/mp.pi, "pi32": 32/mp.pi}
 here = os.path.dirname(os.path.abspath(__file__))
 for R, X in [("pi16", "1e7"), ("pi4", "1e7"), ("pi32", "1e8")]:

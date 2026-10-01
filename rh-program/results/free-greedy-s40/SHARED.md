@@ -139,3 +139,20 @@ Dated blocks, appended as the work lands, by the orchestrator and by the two uni
 
 - My certified generator, π/16 and π/32 to 10¹⁰: N, π_P, sup E, ψ_P − x at 10³, 10⁶ … 10¹⁰ equal the unit's `win_pi16_1e11.log` / `win_pi32_1e11.log` rows digit for digit (π/16 at 10¹⁰: 1,963,495,410 / 449,911,828 / 26.1369942787; π/32: 981,747,707 / 409,388,073 / 15.4341391242); 0 flags.
 - Real zeros of F_X (moments in the same pass): π/16 0.7947553701, π/32 0.8950765176 at 10¹⁰ — the unit's 10¹⁰ values exactly; F_{10⁷}(0.79) = +0.022231, F_{10⁷}(0.80) = −0.025711 (π/16) and F_{10⁶}(0.89) = +0.043425 (π/32) — the theory unit's certificate brackets reproduced.
+
+## 15:20 IST 2026-10-01 — Opus reader: batch 3 (FIX-FIRST items, for the orchestrator before any unit is funded)
+
+- **F1 (load-bearing for funding):** NOTE §3.4(i)–(ii), §0 l. 27–28 and UT-F1/UT-F2 rest on two-sided square-root cancellation in the Legendre remainder S(I). That hypothesis is FALSE for S8 (any ρ, t transcendental): it would give E = o(x), hence logarithmic density ρ, hence M(z)·log z → e^{−γ}/ρ (Diamond–Zhang Thm 5.10), hence π(u, 2u] ~ 2e^{−γ}u/log u and ψ_P ~ 2e^{−γ}x, contradicting the residue 1 of −ζ′_P/ζ_P. Data (π/16): S(u, 2u]/(u/log u) = −0.018 … −0.062 at u = 10³ … 2.5·10⁷, drifting to 1 − 2e^{−γ} = −0.123; |S|/(√u log u) grows 0.012 → 1.06. Only one-sided forms (Lemma S as displayed) survive. UT-F1 "first rung … no PNT needed" should not be funded.
+- **F2:** the ordering-margin audit measures only composites below a live threshold; composites just above a placed prime come closer (5.07·10⁻¹³ π/16, 6.41·10⁻¹⁴ π/4 at 10⁷). Certificates survive (independent dd run + 60-digit recheck).
+- **F3:** "sup E ≈ (0.37–0.53)·ρ·log²x" is (0.20–0.37)·ρ·log²x from the NOTE's own table.
+- Theorem 1.6, Cor. 1.7 and the reduction "U false as soon as Lemma B_ρ holds (ρ ≤ ¼)" STAND (re-derived at the line).
+
+## 2026-10-01 15:22 IST — Opus reader (dual read of `compute/`): CLOSE — `compute/read-O.md`
+
+- **Verdict: AGREES-WITH-CORRECTIONS.** No number of the NOTE failed to reproduce: my independent certified generator gives the NOTE's N, π_P, sup E, ψ_P − x for π/4, π/16, π/32 at 10³…10¹⁰ and ρ = 4/5 at 10⁸ (4,019,495 ties) exactly; ρ₁ to 12 digits (10⁶, 10⁸ direct sums) and 10 digits (10⁹, 10¹⁰ moments); real zeros 0.5147357706 / 0.7947553701 / 0.8950765176 at 10¹⁰; box winding +1 and B_max 6531 (10¹⁰), ≥ 40,028 (10¹¹, second route); zero count 45 at 10⁶ box for box = the unit's 10⁷ list; windowed law of E (mean, quantiles, λ) at 10⁶–3·10⁸.
+- **F1** "certified" ordering = an estimate (no error bound propagated in `s8win.c`); now proved to 10¹⁰ by my run. **F2** "β = 0 numerically; no power law fits" overstates: the data give β < ¼ on [10³, 10¹¹] (sup E/x^{1/4} 1.25 → 0.22), a small power with offset is not excluded, and 10⁸–10¹¹ grew slower than log²x. 7 minor pairs (incl. the √2 lattice has exact coincidences L₄L₂₀L₂₃ = L₆²L₅₁ — none between g-primes of S8(1/√2)). 12 OLD/NEW pairs in all.
+- Additions (single-check): Rouché from the proved range alone — ζ_P has exactly one zero in the NOTE's box if |E(u)| ≤ 6531·log²u beyond 10¹⁰; with a rigorous (unsampled) derivative bound, min|F_{10¹⁰}| ≥ 0.1076 on the box and winding +1 certified up to floating-point summation (B_max ≥ 5003).
+
+## 15:23 IST 2026-10-01 — Opus reader: CLOSE of the read (`theory/read-O.md`)
+
+- VERDICT: AGREES-WITH-CORRECTIONS. Theorem 1.6, Remark 1.6′, Cor. 1.7, the Dichotomy and the reduction "U is false as soon as Lemma B_ρ holds for one ρ ≤ ¼" stand (re-derived at the line; Theorem 1.6 holds for every Beurling system; for discrete systems the zero is strictly right of σ₀). All certificate numbers reproduce (independent dd generator, 60-digit decision recheck). 3 FIX-FIRST (F1 square-root-cancellation route false — do not fund UT-F1's "first rung"; F2 one-sided float audit; F3 sup E/(ρ log²x) range) + 13 minor; 27 OLD/NEW pairs. Novelty of Thm 1.6: new as a statement on a printed core (Bateman–Grosswald 1964 p. 367; Phragmén/Révész 2023). Re-run: `sh theory/verify-O/run_all.sh` (≈ 15 s).

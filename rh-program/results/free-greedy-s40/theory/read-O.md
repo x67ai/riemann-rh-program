@@ -3,14 +3,28 @@
 **Reader:** Opus 5.5 (subagent; second model of the dual check; `read-F.md` and `verify-F/` NOT opened). **Started 14:40 IST 2026-10-01.**
 **NOTE read:** `theory/NOTE.md`, SHA-256 `caeb71db64b81ea38ef493de06b9d37d428af51f774c8e90f51e35e30c472e8b`, 440 lines (whole). Line numbers
 below refer to that hash. **Also read:** `theory/BRIEF.md`, `../CHARTER.md`, `../SHARED.md` (all blocks to 14:02), `novel-wave-s37/beurling-frontier/NOTE.md`
-§0 notation (l. 6–9), §1.7, §2.1 (l. 72–91), §7.2 (l. 448–466: the statement of Conjecture U), the unit's `sources/` transcriptions named in §3, and the unit's
-`verify/` scripts only as far as needed to identify what they compute (no code copied or imported).
+§0 notation (l. 6–9), §1.7, §2.1 (l. 72–91), §7.2 (l. 448–466: the statement of Conjecture U), the unit's `sources/` transcriptions named in §3, and the first lines of two unit logs (`verify/bracket_pi4_1e7.log`,
+`verify/s8_check_pi4_1e7.log`, via grep, to identify what the NOTE's audit measured); no unit script opened, no code copied or imported.
 **Independent re-run:** `theory/verify-O/` (own C generator `s8dd.c`, block-wise exact-lattice sweep with double-double values and a
 near-tie audit; own Python checks; logs `*.log`). Built from the charter's definition and the NOTE's Lemma 1.2 only.
 
 ## VERDICT LINE
 
-(pending — written last)
+**AGREES-WITH-CORRECTIONS.** The close T + G stands. Theorem 1.6 is a theorem: re-derived step by step, including the
+connectedness/continuation sentence (zeros of ζ_P ≢ 0 are isolated, so the half-plane minus them and 1 is connected); it uses
+discreteness nowhere (it holds for every Beurling system), and for discrete systems the zero is always STRICTLY right of σ₀ (A1).
+Explicit systems (the template, odd integers, integers prime to 6, ℚ(√5), ℚ(√−3), ℚ(√−163)) do not break it — each violates
+hypothesis (A), consistently with having no real zero. Cor. 1.7 and the Dichotomy follow, so **"Conjecture U is false as soon as
+Lemma B_ρ holds for one ρ ≤ ¼" is correct as stated**, and with the certificates θ < 0.395 (π/16) or θ < 0.445 (π/32) suffices; every
+certificate value (F_{10⁷}(0.79) = +0.022231318724, F_{10⁷}(0.80) = −0.025711158284, F_{10⁶}(0.89) = +0.043424821306,
+F_{10⁷}(½) = +0.067066520612 for π/4) and every table number I tested reproduces with an independent block-sweep, double-double
+generator whose close decisions were re-decided at 60 digits. Three FIX-FIRST items: **F1** — the listed sufficient form "square-root
+cancellation in S(I)" (§0, §3.4(i)–(ii), UT-F1's "first rung", UT-F2) is FALSE for S8: it would force ψ_P(x) ~ 2e^{−γ}x through the
+Beurling Mertens theorem (Diamond–Zhang Thm 5.10); the data show the bias; no unit should be funded on it — only one-sided forms
+survive; **F2** — the floating-point audit omits one of the two decision classes, so the stated ordering margins are 9–21× too
+large (the certificates survive); **F3** — "sup E ≈ (0.37–0.53)·ρ·log²x" is (0.20–0.37)·ρ·log²x. Theorem 1.6 is not in print as
+stated; its mechanism is (Bateman–Grosswald 1964 p. 367) and so is its last step (Phragmén; Révész 2023): **new as a statement on a
+printed core.** 3 FIX-FIRST items (13 pairs) and 13 minor items (14 pairs): 27 OLD/NEW pairs.
 
 ## §1 Re-derivations at the line (✓ = re-derived step by step; GAP; FALSE)
 
@@ -61,7 +75,8 @@ only (A), (B), the Mellin identity and the Euler-product form of −ζ′/ζ, so
 every odd u ≥ 3; Thm 1.6 needs c < ½) — and indeed ζ(s)(1 − 2^{−s}) < 0 on (0, 1), no real zero; integers prime to 6 (ρ = ⅓):
 E(5−) = −4/3 (needs c < ⅔); ideals of ℚ(√5) (ρ_K = 0.430409): inf E = −9.28; ℚ(√−3) (ρ_K = 0.604600): −13.63; ℚ(√−163)
 (ρ_K = 0.246069): −25.80, and growing — lattice-point errors are unbounded below. In every case hypothesis (A) fails, consistent
-with the absence of real zeros in (0, 1) [the absence for these three fields is recalled, unverified]. For number fields the theorem
+with the absence of real zeros in (0, 1) [for ℚ(√−3) and ℚ(√−163): quoted, Rosser via Bateman–Grosswald p. 367, ζ_K < 0 on (0, 1)
+for imaginary quadratic fields with 3 ≤ |d| ≤ 199; for ℚ(√5): recalled, unverified]. For number fields the theorem
 reads as a Siegel-zero criterion: an ideal count with N_K(u) − ρ_K u ≥ r₀ > 0 and θ_K < r₀/(r₀ + ρ_K) would force a real zero of
 ζ_K (hence of L(s, χ_d) for quadratic K) in [r₀/(r₀ + ρ_K), 1). No counterexample exists — the proof is complete — and the
 template shows the bound σ₀ is sharp for continuous systems.
@@ -132,7 +147,7 @@ confirmed** (1 for π/16 at 10⁷, 3 for π/4 at 10⁷, 19 for π/32 at 10⁸). 
 | §1.8 table, X = 10⁶, σ* for π/64 … 0.95π/3 (l. 132–138) | 0.947634, 0.895076, 0.794752, 0.656529, 0.521753, 0.514036, 0.402156 | 0.9476341712, 0.8950763346, 0.7947523020, 0.6565294313, 0.5217527368, 0.5140359978, 0.4021560255 |
 | same, sup E (l. 132–138) | 3.51, 6.39, 9.64, 15.35, 21.33, 39.53, 82.38 | 3.5062, 6.3931, 9.6362, 15.3493, 21.3263, 39.5303, 82.3797 |
 | ρ = 4/5 to 10⁶: ties; sup E (l. 123; charter) | 0; 41.2 | 0 (exact integers); 41.1953 |
-| Thm 4.1(ii)/4.2(ii) thresholds K = |F_X|/τ_X (l. 322–325) | 33.7; 121; 3.78; 0.344 | 33.7577; 121.393; 3.78306; **0.343888** (`tau_check.log`) |
+| Thm 4.1(ii)/4.2(ii) thresholds K_max = (−F_X)/τ_X (l. 322–325) | 33.7; 121; 3.78; 0.344 | 33.7577; 121.393; 3.78306; **0.343888** (`tau_check.log`) |
 
 Lemma 1.1 on data: inf E(c−) over all composites = −0.4999931 (π/16, 10⁷), −0.4999981 (π/4, 10⁷); E(p−) = −½ exactly at every prime.
 
@@ -149,7 +164,7 @@ the 60-digit recheck agrees on every one):
 
 The NOTE's own log `verify/bracket_pi4_1e7.log` prints "min rel. distance composite->live threshold = 5.580e-13 at x=4.39764e+06",
 which is exactly my first column: its audit never measured the second class. Consequence: the stated margins overstate the safety
-factor by 20× (π/16) and 9× (π/4); the CONCLUSION survives — the double-precision event order equals S8's to 10⁷ for both densities
+factor by 21× (π/16) and 9× (π/4); the CONCLUSION survives — the double-precision event order equals S8's to 10⁷ for both densities
 (the smallest true margin, 6.4·10⁻¹⁴, is a 4-factor product whose double rounding is ≲ 10⁻¹⁵), and my double-double run, whose
 decisions are re-checked at 60 digits, reproduces every certificate value to 12 digits. Also "a product of ≤ 25 doubles" (l. 330)
 is false for π/4: products below 10⁷ have up to **32** g-prime factors (my walk's maximum; p₁^32 = 7.0·10⁶), 12 for π/16, 14 for π/16
@@ -193,8 +208,8 @@ a time): Epstein zeta + real zeros (0 and 6 hits, none with a counting-function 
 hits, off-topic), "counting function" + real zero + zeta (0), Dirichlet series + nonnegative coefficients + real zero (0), generalized
 primes/integers + one-sided/bounded below (6, off-topic). Web search: nothing. **What IS in print:**
 (a) **Bateman–Grosswald, Acta Arith. 9 (1964) p. 367** (PDF from matwbn.icm.edu.pl, OCR saved at
-`verify-O/sources/bateman-grosswald-1964-aa9-ocr-pp364-367.txt`): "Z(½) > 0 if k > 7.0556 … Since Z(s) approaches −∞ when s
-approaches 1 from below, it follows from Theorem 3 that Z(s) vanishes in (½, 1) if k > 7.0556" — the same positivity + pole +
+`verify-O/sources/bateman-grosswald-1964-aa9-ocr-pp364-367.txt`): "Z(½) > 0 if k ≥ 7.0556 … Since Z(s) approaches −∞ when s
+approaches 1 from below, it follows from Theorem 3 that Z(s) vanishes in (½, 1) if k ≥ 7.0556" — the same positivity + pole +
 intermediate-value mechanism for a lattice (Epstein) zeta, with the positivity obtained from the Chowla–Selberg formula, not from a
 one-sided bound on the counting function. Same page: Rosser's theorem that ζ_K < 0 on (0, 1) for imaginary quadratic K with
 3 ≤ |d| ≤ 199 (which covers my ℚ(√−3), ℚ(√−163) tests in §1).
@@ -210,8 +225,9 @@ are printed. Label: **new as a statement on a printed core** (single-check, Opus
 ## §4 FIX-FIRST pairs (line numbers at NOTE hash caeb71db…)
 
 **F1 — the "square-root cancellation in S(I)" route is aimed at a FALSE statement.** *Claim [proved here, single-check].* For S8(ρ),
-any ρ ∈ (0, 1) with t transcendental, the hypothesis (H) |S(I)| ≤ K(√|I|·log u + log²u) for all large u and all I ⊂ [u, 2u] (even
-for the single intervals I = (u, 2u]) is false. *Proof.* Assume (H). (1) The NOTE's own derivation (§3.4(i); a gap longer than a
+any ρ ∈ (0, 1) with t transcendental, the hypothesis (H) |S(I)| ≤ K(√|I|·log u + log²u) for all large u and all I ⊂ [u, 2u] is false;
+and if (B) holds with any θ < 1, (H) fails already on the intervals I = (u, 2u] (steps (2)–(5) below, with (1) replaced by (B)).
+*Proof.* Assume (H). (1) The NOTE's own derivation (§3.4(i); a gap longer than a
 dyadic block is cut into dyadic pieces, each with π = 0) gives E(x) ≪ x^{ρ/2}log³x = o(x), so N(x) ~ ρx. (2) Hence N has logarithmic
 density ρ and, by Diamond–Zhang Thm 5.10 (book l. 2828–2835), M(z)·log z → e^{−γ}/ρ. (3) The identity on I = (u, 2u] (u ≥ √(2u)):
 π(I) = ρu·M(√(2u)) + ΔE(I) + S(I) = ρu·e^{−γ}(1 + o(1))/(ρ·½log 2u) + o(u/log u) = (2e^{−γ} + o(1))·u/log u. (4) Summing dyadic
@@ -304,3 +320,83 @@ OLD (l. 249–250): a short-interval PNT for the system at scale y, i.e. Lemma G
 NEW: a short-interval lower bound for the primes of the system at scale log³y — it implies Lemma G (gaps ≪ log³y), not conversely.
 OLD (l. 281–282): to **Lemma M**, equivalently (via the explicit formula) to **Lemma Z**
 NEW: to **Lemma M**, which is implied (via the explicit formula) by **Lemma Z**
+
+m7 — §3.3 drops its own condition.
+OLD (l. 287): on (0, 1), hence negative on (0, 1) when ζ_K is — so by Remark 1.6′ none of them can satisfy R ≥ r₀ > ρ.
+NEW: on (0, 1), hence negative on (0, 1) when ζ_K is — so by Remark 1.6′ none of those with ζ_K < 0 on (0, 1) can satisfy R ≥ r₀ > ρ (for a field with a Siegel zero the question is open: Theorem 1.6 is a Siegel-zero criterion there).
+
+m8 — Legendre's identity: state its two conventions.
+OLD (l. 292): the free monoid are exactly d·G) gives Legendre's identity for the system: for I = (a, b] with a ≥ √b,
+NEW: the free monoid are exactly d·G; so t transcendental, and with N := 0 below 1, i.e. ΔE(J) = −ρ|J| for J ⊂ (0, 1), for the terms d > b) gives Legendre's identity for the system: for I = (a, b] with a ≥ √b,
+
+m9 — Lemma S implies Lemma B; the converse is not shown.
+OLD (l. 310): Lemma S is a Möbius-cancellation statement for E at smaller scales; it is equivalent to Lemma B (by the identity above), so it is a
+NEW: Lemma S is a Möbius-cancellation statement for E at smaller scales; it implies Lemma B (by the identity above; the converse would need π(I) ≥ ½ρ|I|M(√u) − O(u^θ) on every I), so it is a
+
+m10 — the last threshold of Theorem 4.2(ii) is rounded up.
+OLD (l. 325): if E(u) ≤ 0.344·log²u: in (0.50, 0.52)
+NEW: if E(u) ≤ 0.3438·log²u: in (0.50, 0.52) (|F_{10⁷}(0.52)| = 0.025933, τ(0.52) = 0.075411)
+
+m11 — Rouché with F_X's pole.
+OLD (l. 337): by Rouché (ζ_P = F_X + T_X on Re s > θ, Lemma 1.5).
+NEW: by Rouché (ζ_P = F_X + T_X on Re s > θ, Lemma 1.5; B must avoid s = 1, where F_X and ζ_P share the pole — for a box containing 1 the winding number is zeros minus one).
+
+m12 — the printed core of Theorem 1.6, now checked at the page.
+OLD (l. 390–392): The positivity-plus-intermediate-value mechanism is the familiar one behind real zeros of Dirichlet series with positive coefficients [recalled, unverified]; the Beurling-setting statement with a one-sided bound on N, and its use against U, are this unit's [novelty: single-check].
+NEW: The positivity-plus-pole-plus-intermediate-value mechanism is in print for Epstein zeta functions (Bateman–Grosswald, Acta Arith. 9 (1964) p. 367: "Since Z(s) approaches −∞ when s approaches 1 from below, it follows from Theorem 3 that Z(s) vanishes in (½, 1) if k ≥ 7.0556"), and the step "a zero forces α ≥ its real part" is Phragmén's, stated for Beurling systems in Révész, IMRN 2023 (t-14b l. 230–231); the Beurling-setting statement with a one-sided bound on N, and its use against U, are this unit's [novelty: new as a statement on a printed core; single-check].
+
+m13 — Theorem 1.6: θ ≥ 0, and the strict endpoint is automatic for discrete systems (A1).
+OLD (l. 108–109): Then for θ < σ < 1: ζ_P(σ) ≥ 1 − c − ρ/(1 − σ). If σ₀ := 1 − ρ/(1 − c) > θ, then ζ_P has a real zero σ* ∈ [σ₀, 1) (in (σ₀, 1) if E > −c on a set of positive measure), and ψ_P(x) − x ≠ O(x^a) for every a < σ*:
+NEW: Then for θ < σ < 1 (θ ≥ 0 is automatic: E jumps by integers): ζ_P(σ) ≥ 1 − c − ρ/(1 − σ). If σ₀ := 1 − ρ/(1 − c) > θ, then ζ_P has a real zero σ* ∈ (σ₀, 1) (open at σ₀ because E, strictly decreasing between consecutive g-integers, equals −c only on a countable set; for continuous systems the closed endpoint can be attained, e.g. by the template), and ψ_P(x) − x ≠ O(x^a) for every a < σ*:
+
+**Count: 3 FIX-FIRST items (F1: 7 pairs; F2: 4 pairs; F3: 2 pairs) and 13 minor items (m1–m13, 14 pairs) — 27 OLD/NEW pairs in all.**
+
+## §6 Novelty per result (single-check, Opus side)
+
+| Result | Verdict | Page |
+|---|---|---|
+| S8 construction (orchestrator's; charter) | new — no feedback / integer-first construction found | BDR p. 16–17 (z-02 l. 999–1003) calls the route natural and hard; my arXiv/web queries add nothing |
+| Lemmas 1.0–1.2, 1.4 (recursion, E > −½, lattice, reflection) | new as stated; elementary (1.4 is a discrete Skorokhod reflection) | — |
+| Lemma 1.3 (free monoid for transcendental t) | new as stated on a printed core (UFD of ℚ[X]; Olofsson l. 659–664 for why equal values matter) | — |
+| Lemma 1.5 template ζ_c and its zero 1 − ρ | in print | Diamond 1970 p. 24; Hilberdink 2012 Thm 2.1 proof |
+| Theorem 1.6 / Remark 1.6′ | **new as a statement on a printed core** | mechanism: Bateman–Grosswald 1964 p. 367; last step: Phragmén, Révész IMRN 2023 (t-14b l. 230–231) |
+| Cor. 1.7, Dichotomy | new (consequences for the program's own Conjecture U) | U: s37 NOTE l. 454–455 |
+| Prop. 2.1 (gap identity) | new as stated; elementary | — |
+| §3.4 Legendre form, M ≥ M_lat | new as a statement on a printed core (Legendre's identity; Mertens product for Beurling systems = Diamond–Zhang Thm 5.10) | DZ book l. 2828–2835 |
+| §3.4(i)–(ii) "square-root cancellation gives θ = ρ/2 + ε" | arithmetic correct, hypothesis false (F1) | — |
+| S8^w early placement, E > −½ for every realization | new as stated; elementary | — |
+| Theorems 4.1–4.2 (certificates) | new computations; reproduced (§2) | — |
+
+## §7 Additions (single-check)
+
+**A1 (strict endpoint and scope of Theorem 1.6) [proved here].** For a discrete system E is strictly decreasing between consecutive
+g-integers, so {E = −c} is countable and ∫(E + c)u^{−σ₀−1}du > 0: the zero is always in (σ₀, 1); and the proof uses no positivity or
+discreteness of the prime measure, so Theorem 1.6 holds for every Beurling generalized system (dN = exp*(dΠ)) satisfying (A), (B).
+**A2 (contrapositive, a clean inequality) [proved here].** If ζ_P has no real zero in (θ, 1) and N(u) − ρu = O(u^θ), then
+inf_{u≥1}(N(u) − ρu) ≤ ρθ/(1 − θ). (If the infimum r₀ exceeded ρθ/(1 − θ) ≥ 0 then r₀/(r₀ + ρ) > θ and Remark 1.6′ gives a real zero.)
+For ℕ-type systems with θ = 0 this is inf(N − ρu) ≤ 0; for imaginary quadratic fields with 3 ≤ |d| ≤ 199, where ζ_K < 0 on (0, 1)
+(Rosser, as quoted by Bateman–Grosswald p. 367), it gives inf_u(N_K(u) − ρ_K u) ≤ ρ_Kθ_K/(1 − θ_K) for any admissible θ_K.
+**A3 (the sieve route's bias, quantified) [proved here + computed].** F1's argument shows more than falsity: whenever E(x) = o(x/log x)
+(e.g. under (B), which also gives ψ_P ~ x by Beurling's PNT [recalled, standard]), S(u, 2u] = (1 − 2e^{−γ} + o(1))·u/log u. So the Legendre remainder of S8 has a deterministic negative drift of 12.3 % of the
+prime count; any probabilistic model of S(I) must be centered there (and, under Lemma B_ρ, also on the real zero's drift ≍ u^{σ*}/log u).
+**A4 (what DMV's question needs) [proved here, from Cor. 1.7(i) and Thm 4.2(i)].** A discrete system with β < ½ < α follows from S8 as
+soon as S8(ρ) has θ < ½ for ONE ρ ≤ ¼ (zero > 1 − 2ρ ≥ ½), or for ρ = π/4 (certificate F_{10⁷}(½) = +0.067067 > ½·10^{−3.5}) —
+weaker than Lemma B_ρ's θ ≤ ½ − ρ. The question is already settled non-constructively (s37 NOTE §2, Prop. 2.1); S8 would give the first
+explicit non-surgery example.
+
+## §8 What I could not check, and why
+
+- **Not re-run (time, and not load-bearing for the close):** the exploratory complex zeros of F_X for π/16 (0.5732 + 30.78i; winding
+  numbers on [0.55, 0.99] × [0.5, 60], NOTE l. 192–195); the queue statistics of §2.3 (time-mean 0.907, tail rate 0.981 on
+  [10^6.5, 10⁷]); the randomized S8^w runs of §3.1 (sup E 11.30 … 171.2); the compute unit's π/4 numbers quoted in §2.3.
+- **Recalled in the NOTE and not opened by me:** Freedman, Ann. Probab. 3 (1975) Thm 1.6; the Spencer–Raghavan potential argument;
+  Lindemann's theorem (transcendence of 4/π, 16/π, 32/π). None is load-bearing: routes (a)/(b) break before using them, and 1.3 is
+  needed only for the free-monoid/Legendre statements, not for Theorem 1.6 or Cor. 1.7.
+- **Recalled by me:** Beurling's PNT under (B) (used only in A3, not in F1, whose proof avoids it by the Abelian step); the
+  absence of real zeros of ζ_K for ℚ(√5) (the two imaginary fields are covered by Rosser via Bateman–Grosswald p. 367).
+- **Prior art:** Bateman–Grosswald read by OCR of the scanned journal pages (text checked against the page images for the quoted
+  sentences); Lagarias, Olofsson, Hilberdink, BDR, Diamond, Malliavin, Diamond–Zhang read from the on-disk text/transcriptions at the
+  lines named. arXiv queries were run one at a time; the search for Theorem 1.6 cannot prove absence, only report it.
+- **Error bounds of double-double:** the relative error ≲ 10⁻²⁹ of my products is the standard estimate for this arithmetic
+  [recalled]; it is not used as a proof — every decision closer than 10⁻¹² was re-decided independently at 60 digits from the
+  factorization (23 of 23 agree), and the smallest margin met (6.4·10⁻¹⁵) is fourteen orders above the estimate.

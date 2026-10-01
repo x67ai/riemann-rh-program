@@ -1,4 +1,4 @@
-# 15:17 IST 2026-10-01  s8dd pi64 X=1e6 args: 0 0 0.950912703473
+# 15:23 IST 2026-10-01  s8dd pi64 X=1e6 args: 0 0 0.950912703473
 s8dd: t = 20.371832715762604 + -1.26e-15, rho = 0.049087385212340517, X = 1e+06, ratio cap 100
 CK x=1000 N=51 pi=45 supE=1.3493 (at 808.758) supE/log2x=0.0283 maxgap=40.7437 (at 153.789) minmargin_sofar=1.235e-03 decade_margin=1.235e-03
 CK x=3162.28 N=156 pi=136 supE=1.4901 (at 2924.56) supE/log2x=0.0229 maxgap=40.7437 (at 153.789) minmargin_sofar=6.513e-05 decade_margin=6.513e-05
@@ -13,12 +13,12 @@ AUDIT min relative decision margin=5.5419e-09 at 346271.22; decisions below 1e-2
 AUDIT by kind: composite below live threshold min=5.5419e-09 at 346271.22; composite just after a placed prime min=1.1094e-08 at 390865.17
 F sigma=0.950913 F1=-0.062569996562 F2=-0.062569996562 diff=0.00e+00  halfXs=9.851e-07
         0.00 real         0.00 user         0.00 sys
-             3211264  maximum resident set size
+             3194880  maximum resident set size
                    0  average shared memory size
                    0  average unshared data size
                    0  average unshared stack size
                  369  page reclaims
-                   2  page faults
+                   1  page faults
                    0  swaps
                    0  block input operations
                    0  block output operations
@@ -26,7 +26,7 @@ F sigma=0.950913 F1=-0.062569996562 F2=-0.062569996562 diff=0.00e+00  halfXs=9.8
                    0  messages received
                    0  signals received
                    0  voluntary context switches
-                   5  involuntary context switches
-            51766813  instructions retired
-            13001565  cycles elapsed
-             2769304  peak memory footprint
+                   7  involuntary context switches
+            51589770  instructions retired
+            13212935  cycles elapsed
+             2752920  peak memory footprint
