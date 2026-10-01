@@ -14,6 +14,15 @@ NEAR MISS, flagged 11:45 IST: Broucke-Debruyne-Revesz arXiv:2309.01567v2, Theore
   zeta_{alpha,beta} = zeta(s)zeta(s/beta)/zeta_S(s), l. 1186-1200, 1255-1256). This is "theta < 1/2 with a zero of real part > 1/2"
   in print, CONDITIONALLY, but with alpha < 2*theta (theta >= 2/5) -- it does not give a zero with real part > max{1/2, 2 theta},
   and it is not unconditional. See entry [4].
+CONFLICT IN PRINT, SETTLED AT THE PAGE, 12:05 IST: Lagarias 1999 (entry [14], preprint p. 4) reads Malliavin 1961 §6 as showing that
+  N(x) = Ax + O(x^eps) for all eps does not imply RH "even if we assume that N in Z+". Malliavin's page (entry [15], Acta Math. 106,
+  pp. 296-297) has the regular-N bound (13) ONLY for a continuous system; his discrete system (g-primes = jumps of floor(pi)) has a
+  single zeta zero in sigma > 0 and NO stated bound on its integer count. By Hilberdink 2005 Cor. 2(b) (p. 336) a discrete system with
+  N = rho x + O(x^theta), theta < 1/2, has infinitely many zeros in {eta' < Re s < 1}; so Malliavin's discrete system has integer
+  exponent >= 1/2. Not a stop condition; Lagarias's sentence is an overstatement for exponents < 1/2.
+CLOSEST UNCONDITIONAL DISCRETE SYSTEMS IN PRINT (none below 1/2): Broucke arXiv:2409.10051 Thm 6.3 at theta = 1/2 (N-error
+  x^{1/2} log x, zeros on Re s = 3/4; entry [10]); Revesz IMRN 2023 Thm 8 (theta = 1/2 + eps, zeros prescribed anywhere in (1/2,1);
+  entry [8]); Diamond-Zhang Thm 17.14 / Zhang 2007 (x^{1/2} exp{c(log x)^{2/3}}, zeros on sigma = 1 - 1/log t; entry [5]).
 
 === ENTRIES ===
 
@@ -322,3 +331,98 @@ NEAR MISS, flagged 11:45 IST: Broucke-Debruyne-Revesz arXiv:2309.01567v2, Theore
   CORRECTION to the last sentence of [14] (11:58 IST): what is derived is only the bound gap after x_0 <= (1/2 + E(x_0))/rho (the
   next deficit time), so gaps are bounded above whenever E is bounded; whether S8's gaps are actually unbounded above is NOT checked
   here. S8 escapes Lagarias's theorems on the two certain counts: not in Z+, not uniformly discrete.
+
+[15] Malliavin, "Sur le reste de la loi asymptotique de repartition des nombres premiers generalises de Beurling", Acta Math. 106
+  (1961) 281-298, doi:10.1007/BF02545789. [quoted] Opened: open-access PDF from Project Euclid (scan + OCR), pages 282, 295-298 read
+  as page images; OCR text here/pa-malliavin1961-acta106-ocr.txt (§6 starts at l. 684); transcription of §6 with exact French
+  quotes: here/pa-malliavin1961-sec6-transcription.txt.
+  CONTINUOUS example (p. 296, eq. (13)): "Il existe une mesure positive dPi telle que dn = e^{dPi} satisfasse (13) et que la fonction
+  zeta(s) = int x^{-s} dn(x) ait pour seul zero dans tout le plan s = beta, ou beta est un nombre arbitraire, 0 < beta < 1", with
+  "(13) |n(x) - ax - a'| < inf_{sigma<0}(x^sigma exp(A c^{-sigma})) = O(x^{-a'' log log x})".
+  DISCRETE example (p. 297): "Il existe une suite p_1 p_2 ... p_n de nombres reels > 1 telle que zeta_1(s) = Prod(1/(1 - p_i^{-s}))
+  soit une fonction holomorphe dans sigma > 0 a l'exception du point s = 1 qui est un pole simple pour zeta_1. zeta_1 admet dans
+  sigma > 0 un seul zero qui est le point s = beta ou beta est un nombre arbitraire, 0 < beta < 1. Si on le desirait on pouvait
+  choisir les p_i de telle sorte qu'il soient des entiers naturels: il suffit de remplacer chaque p_i par l'entier le plus proche."
+  The discretization is pi_1 = floor(pi) (p. 296: "Posons pi_1(x) = partie entiere de pi(x)"), with log zeta - log zeta_1 =
+  s int t^{-s-1}(pi(t) - pi_1(t))/(1 - t^{-s}) dt "holomorphe dans sigma > 0" (p. 297). NO estimate of the discrete integer count
+  n_1(x) is stated in §6 (read in full, pp. 295-297); the regularity (13) is for the continuous n(x).
+  ANALYSIS [derived here from printed statements; not in either paper]: Malliavin's discrete zeta_1 has exactly ONE zero in
+  sigma > 0. Hilberdink 2005 Cor. 2(b) (entry [1], p. 336): N_P(x) = rho x + O(x^theta) with theta < 1/2 forces INFINITELY many zeros
+  in {eta' < Re s < 1} for every eta' in (theta, 1/2). Hence Malliavin's discrete system satisfies N_1(x) - rho x = Omega(x^eta) for
+  every eta < 1/2 and every rho: it is NOT a printed example of theta < 1/2 with a zero off the line. (The exponent of n_1 is not
+  established in print at all; the factor exp(s*O(1)) relating zeta_1 to zeta can be exponentially large in |t|, so no Perron bound
+  follows -- the defect DMV p. 3 attribute to R. S. Hall's earlier attempt.)
+  So: Lagarias 1999 p. 4 (entry [14]) -- "His results actually show that ... n_N(x) = Ax + O(x^eps), any eps > 0, (1.10) is not
+  sufficient to imply the Riemann hypothesis for such N, even if we assume that N in Z+" -- is NOT supported at Malliavin's page for
+  the discrete system, and for any exponent < 1/2 it is contradicted by Hilberdink 2005 Cor. 2(b). DMV 2006 p. 4 (entry [2])
+  ("continuous ... measures"; DMV = "for the first time a proof that (3) does not imply RH for discrete Beurling primes") is
+  consistent with Malliavin's page: his only REGULAR-N example is continuous.
+  Relevance: Q6 -- printed source of the "quite simple examples": Malliavin 1961 §6 (continuous, N(x) - ax - a' = O(x^{-a'' loglog x}),
+  one real zero at any beta in (0,1)); Diamond 1970 p. 24 per DMV (not yet opened); Hilberdink 2012 N = cx + 1 - c (entry [7]). The
+  regular ones are all continuous; Malliavin's discrete version has no integer bound. Q2 -- not an example. Q1 -- discretization by
+  rounding pi to floor(pi) (prime-level), not feedback on N.
+
+[16] Diamond, "Asymptotic distribution of Beurling's generalized integers", Illinois J. Math. 14 (1970) 12-28,
+  doi:10.1215/ijm/1256053295. [quoted] Opened: open-access PDF (Project Euclid); p. 24 read as a page image; transcription
+  here/pa-diamond1970-p24-transcription.txt; OCR here/pa-diamond1970-ijm14-ocr.txt (l. 694-716).
+  p. 24: "An example of P. Malliavin [3] showed that the Riemannian hypothesis could not hold for g-numbers, even if N(x) - x = O(1).
+  We show how to simplify his example by use of the above representation. For c in (0, 1/2), we consider the 'zeta function'
+  (s - 1 + c)/(s - 1) = int x^{-s}(delta + c dx), Re s > 1, whose continuation has a zero at s = 1 - c > 1/2. Now int_1^x (delta +
+  c dt) = cx + O(1) and delta + c dx = e^{d tau_c}, where ... tau_c(x) = int_1^x (1 - t^{-c})/log t dt. tau_c(x) is an increasing
+  function ... Thus we have represented the 'integer counting measure' by an exponential of a positive measure, and the Riemannian
+  hypothesis is false, at least for such general types of 'number systems.'"
+  Relevance: Q6 -- THIS is the printed source of Diamond's "quite simple" example (Watkins page): N(x) = cx + O(1) exactly
+  (N = 1 + c(x-1)), zeta = (s-1+c)/(s-1), zero at 1 - c > 1/2. It is CONTINUOUS (dN = delta + c dx), as DMV 2006 p. 4 say ("Diamond
+  [5], p. 24"). Q7 -- the S8 continuous template (rho = c: N_c = 1 + rho(x-1), zeta_c = (s-1+rho)/(s-1), prime measure
+  tau(x) = int (1 - t^{-rho})/log t dt, zero at s = 1 - rho) is IN PRINT since 1970 (Diamond p. 24), with the zero stated; also
+  Hilberdink 2012 Thm 2.1 (entry [7]). S8 is a discretization of exactly this printed template; the discretization by integer-level
+  feedback is what is not found.
+
+[17] arXiv API queries run this session (https://export.arxiv.org/api/query, one at a time, >= 6 s apart; raw Atom XML saved as
+  here/pa-arxiv-q-*.txt). [quoted: titles/abstracts]
+  - all:Delone AND all:Beurling -> 1 entry, off-topic (2606.19800 Gabor frames).  - au:Lagarias AND all:Beurling -> 0.
+  - all:Beurling AND all:greedy -> 0.
+  - abs:"generalized primes" AND (abs:feedback OR abs:prescribed OR abs:"inverse problem" OR abs:greedy) -> 0.
+  - all:Beurling AND (all:prescribed OR all:feedback OR all:"inverse problem") AND (all:prime OR all:primes OR all:integers) -> 1:
+    2507.13780 (Broucke; "prescribed contour" of zeros; entry [11]).
+  - au:Revesz AND all:Beurling -> 7: 2407.12746, 2309.01567, 2209.01689, 2207.00665 (Pintz method / Ingham question: zero-free
+    region D(eta) <=> |Delta(x)| <= x exp(-(1-eps) omega_eta(x)), and converse), 2202.01837, 2110.11463 (Riemann-von Mangoldt
+    formula under Axiom A), 2012.09045. None constructs a system; none forces a zero-free strip.
+  - au:Zhang AND all:Beurling AND (all:primes OR all:prime) -> 0 (Zhang 2007 is not on arXiv; Crossref: doi:10.1007/s00208-006-0051-5,
+    Math. Ann. 337 (2006/7) 671-704).
+  - au:Hilberdink -> 11, relevant: 1901.06866 (Neamah-Hilberdink: "the two largest of alpha, beta, gamma must be equal and at least
+    1/2"); 2409.06301 (Broucke-Hilberdink, mean value theorem for general Dirichlet series with A(x) = rho x + O(x^beta):
+    (1/T) int_0^T |f(sigma+it)|^2 dt -> sum a_j^2 n_j^{-2 sigma} for sigma > (1+beta)/2 -- no gap hypothesis); 1812.11880
+    (Hilberdink-Saias, Dirichlet series with one zero in its half-plane of convergence). Hilberdink-Kaziulyte (Acta Arith. 208 (2023)
+    69-81, doi:10.4064/aa220516-20-3) is not on arXiv.
+  - Beurling AND (generalized primes/integers/number system(s)) sorted by date -> 22; the only 2025-2026 item is 2602.07690 (Tranoy-
+    Vindas, Wiener-Ikehara-type theorem, Chebyshev bounds). Also 2311.11127 (Ruzsa, entry [18]), 1505.04174 (Debruyne-Schlage-Puchta-
+    Vindas, examples for PNT conditions).
+  Relevance: Q1 -- no arXiv abstract describes a feedback/greedy/inverse construction of Beurling primes from a prescribed N.
+
+[18] Ruzsa, "Beurling-integers with lacunarity", arXiv:2311.11127v1 (18 Nov 2023). [quoted] Opened: arXiv PDF -> here/
+  pa-ruzsa2023-lacunarity-2311.11127.txt.
+  p. 1 (l. 22-28): "If G is a set of multiplicatively independent integers, B will be a subset of positive integers, hence
+  b_{i+1} - b_i >= 1. If furthermore G contains all but finitely many primes, then b_{i+1} - b_i will also be bounded from above.
+  Lagarias [3] proved that there is no other example consisting of integers, and asked whether there is another example made of
+  reals. I conjecture that such a set does not exist."
+  Theorem 1 (p. 1; l. 32-40): P a set of primes with sum_{p not in P} 1/p < infinity, alpha in R \ Z, alpha > 1, G = P u {alpha}:
+  "lim inf b_{i+1} - b_i = 0."  Theorem 6 (p. 3): "There exists a set G of irrational numbers such that G(x) > cx/log x and
+  b_{i+1} - b_i >= 1."
+  Relevance: Q4 -- the real-number Delone question of Lagarias is open in print (Ruzsa conjectures no real example beyond Z+); S8
+  is not even uniformly discrete, so neither Lagarias's theorem nor Ruzsa's conjecture constrains it. Q1 -- no.
+
+[19] Q7 search: real zeros of a Beurling zeta forced by a ONE-SIDED integer bound (N(x) >= rho x + (1-rho) - c, c < 1 - 2rho, with
+  N - rho x = O(x^theta) => real zero in (1 - 2rho, 1)).
+  The TEMPLATE fact is in print: Diamond 1970 p. 24 (entry [16]): "(s - 1 + c)/(s - 1) ... whose continuation has a zero at
+  s = 1 - c > 1/2" for c in (0, 1/2); Hilberdink 2012 Thm 2.1 proof (entry [7]) has N^(s) = 1 + c/(s-1), psi^(s) = 1/(s-1) -
+  1/(s+c-1). Malliavin 1961 p. 296 (entry [15]): a continuous zeta with a single zero at an arbitrary real beta in (0,1).
+  The GENERAL LEMMA (one-sided bound on E => zeta_P(sigma) > 1 - c - rho/(1 - sigma) on the real axis => a real zero by the
+  intermediate value theorem since zeta_P(sigma) -> -infinity as sigma -> 1-) was NOT FOUND in: Diamond-Zhang book (grep "real
+  zero|real axis|zeta(sigma) <|>" -> nothing relevant), Hilberdink 2005, Hilberdink 2012, Hilberdink-Lapidus 2006 (fr/sources/
+  p3-22c1, grep "real zero|real axis|zero at" -> nothing), DMV 2006, BDV 2020, BDR 2023/25, Broucke-Vindas, Revesz 2022/23/25,
+  Broucke 2024/25, Lagarias 1999, Malliavin 1961, Diamond 1970, Ruzsa 2023; arXiv query all:Beurling AND (all:"real zero" OR
+  all:"real zeros" OR all:"Siegel zero" OR all:"exceptional zero") -> 1 hit, off-topic (1101.1199, Nyman-Beurling discs;
+  here/pa-arxiv-q-beurling-real-zero.txt). [recalled, unverified: the same positivity-plus-IVT mechanism is the classical one behind
+  real (Siegel-type) zeros of Dedekind zeta functions -- Stark 1974-style arguments -- but no Beurling-setting statement with a
+  one-sided bound on N was found.]

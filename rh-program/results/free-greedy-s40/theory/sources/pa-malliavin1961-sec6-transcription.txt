@@ -1,0 +1,35 @@
+Malliavin, P., "Sur le reste de la loi asymptotique de repartition des nombres premiers generalises de Beurling",
+Acta Math. 106 (1961) 281-298, doi:10.1007/BF02545789 (open access, Project Euclid; PDF downloaded 2026-10-01 11:58 IST from
+https://projecteuclid.org/journals/acta-mathematica/volume-106/issue-3-4/Sur-le-reste-de-la-loi-asymptotique-de-r%c3%a9partition-des/10.1007/BF02545789.pdf ;
+scanned PDF with OCR, OCR text saved as here/pa-malliavin1961-acta106-ocr.txt). Transcribed from the PAGE IMAGES (pdftoppm, 100 dpi),
+French as printed, accents restored; math in ASCII.
+
+p. 282 (intro): "Nous montrerons d'autre part par un contre exemple que l'Hypothese de Riemann est inexacte dans le cadre de la
+theorie des nombres premiers generalises."
+
+p. 295, "6. Contre exemples. 6.1 Nous nous proposons de montrer que l'Hypothese de Riemann est inexacte pour les nombres premiers
+generalises dans le sens suivant: une distribution tres reguliere de n(x) n'entraine pas que Pi(x) = li(x) + O(x^alpha) quelque soit
+alpha < 1."  Construction: f_c(s) = int_c^inf x^{-s} dx/log x, zeta_c(s) = exp(f_c(s)); k(s) = zeta_c(s)/zeta_{c'}(bs) - 1 with
+b > 1, c' > c^{1/b}; h(x) = int k(s) x^{s-1} ds/(2 i pi).
+p. 296: "il en resulte que h(x) > 0. Posons n_1(x) = int_0^x h(x) dx ... en integrant sur sigma < 0 et en majorant l'integrale on
+obtient, a, a', a'' designant trois constantes a > 0, a'' > 0,
+   |n(x) - ax - a'| < inf_{sigma<0} (x^sigma exp(A c^{-sigma})) = O(x^{-a'' log log x}).   (13)
+On a montre ainsi le resultat suivant: Il existe une mesure positive dPi telle que dn = e^{dPi} satisfasse (13) et que la fonction
+zeta(s) = int x^{-s} dn(x) ait pour seul zero dans tout le plan s = beta, ou beta est un nombre arbitraire, 0 < beta < 1."
+   [This is the CONTINUOUS example: dn absolutely continuous plus delta_1.]
+p. 296 (discretization): "Ayant construit cette mesure dPi on lui associe une mesure pi de la maniere suivante: On pose
+d pi(x) = dPi(x) si c < x < c^2, d pi(x) = dPi(x) - (1/2) dPi(x^{1/2}) si c^2 < x < c^3, ..., d pi(x) = dPi(x) - (1/2) d pi(x^{1/2})
+- ... - (1/n) d pi(x^{1/n}) si c^n < x < c^{n+1}. ... On verifie que pour un choix convenable de c et c' on aura encore d pi > 0.
+Alors -log zeta(s) = int log(1 - t^{-s}) d pi(t). Posons pi_1(x) = partie entiere de pi(x), et soit zeta_1(s) la fonction definie par"
+p. 297: "-log zeta_1(s) = int log(1 - t^{-s}) d pi_1(t), alors log zeta(s) - log zeta_1(s) = s int t^{-s-1}/(1 - t^{-s}) [pi(t) - pi_1(t)]
+dt. Le second membre est une fonction holomorphe dans sigma > 0. Notons par p_1 ... p_n ... la suite de nombres reels definie par les
+points ou d pi_1 a un saut. On a ainsi montre: Il existe une suite p_1 p_2 ... p_n de nombres reels > 1 telle que
+zeta_1(s) = Prod (1/(1 - p_i^{-s})) soit une fonction holomorphe dans sigma > 0 a l'exception du point s = 1 qui est un pole simple
+pour zeta_1. zeta_1 admet dans sigma > 0 un seul zero qui est le point s = beta ou beta est un nombre arbitraire, 0 < beta < 1. Si on
+le desirait on pouvait choisir les p_i de telle sorte qu'il soient des entiers naturels: il suffit de remplacer chaque p_i par
+l'entier le plus proche."
+   [DISCRETE system: g-primes = jump points of floor(pi). NO estimate of the discrete integer count n_1(x) is stated anywhere in
+   §6; (13) concerns the continuous n(x) only.]
+p. 297 (end): further continuous constructions zeta(s) = zeta_{c_0}(s)[Prod_k zeta_{c_k}(b_k(s - i t_k))]^{-1} with
+"(s-1)zeta(s) holomorphe dans Re s > -gamma, log zeta(s) = int x^{-s} dPi(x) ou dPi > 0 et ou Pi(x) - li(x) = Omega(x exp(-(log x)^{1/2+eps}))".
+p. 298: Bibliographie (Beurling 1937; Malliavin 1959; Nyman 1949). "Recu le 24 mars 1961".

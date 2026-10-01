@@ -108,3 +108,23 @@ Append-only, dated blocks. Writer: Opus 5.5 (unit agent). Outputs only under `re
   repairs are outside Prop. S/L‴(general) hypothesis (i); F6 §5.2 mechanism (b) is a heuristic labeled (P) — "k cannot be smooth" and
   §0.4(3) "every finite-dimensional family … excluded" are unproved (smooth even self-dual k vanishing on Z_j exist by KNS Lemma 6).
 - M = 6 DE + polish running (one heavy process).
+
+## 11:59 IST 2026-10-01 — OPUS READER, batch 4 (novelty, additions, verdict)
+- Hilberdink 2012 read further at the page: §3 is for OUTER g-prime systems (Π increasing = the program's weighted Beurling systems;
+  Def. 1.2 line 317, Thm 1.1 + footnote 4 lines 359–363). Prop. 3.4 (632–660): N ∈ T, N − cx periodic ⟹ all jumps at integers. So
+  every finite positive multiplier ζ·Σm_b b^{−s} with a non-integer rational atom is non-Beurling WITHOUT the FE — all probe designs.
+  Thm C (1138–1150): squarefree period ⟹ exactly ζ·Π(1 + q(p)p^{−s}), |q(p)| ≤ 1. Folded into F2 and §7 A4 ("limit-periodic
+  Hilberdink" suggested as the route to the rational part of 𝒯).
+- read-O §6 novelty table, §7 A1–A6 (A1: W1 for all d, proof; A2: at σ_S = ½ all zeros of D_a on the line, Mertens 3-4-1 makes D
+  zero-free on Re s = 1; A3: P2 for even self-dual k via KNS Claim 7 + Lemma 6; A4: Hilberdink certificate; A5 probe table;
+  A6 G1 control), §8, and the VERDICT LINE: AGREES-WITH-CORRECTIONS (6 FIX-FIRST, 10 minor). No Q-side twin.
+- arXiv q7–q11 (https; an earlier http batch returned empty after a 301): Burnol 1106.4749, Nakamura 2008.02570, Alfes–Kiefer–
+  Mazáč 2405.15620 — none closes the weighted corner.
+
+## 12:06 IST 2026-10-01 — OPUS READER, batch 5 (probe completed; read finished)
+- 𝒯 probe at q = 4, window [1, 64], NOTE's design, reader's DE + analytic-gradient SLSQP: M = 2 −0.680076, M = 3 −0.400711 (both
+  digit for digit), M = 4 ≥ −0.293651, M = 5 ≥ −0.218541, M = 6 ≥ −0.184682 (|G| = 31091). At the optima 23/51, 204/408, 1277/2547,
+  3072/6196, 10986/31091 atoms of Π_F are negative; min/mean|Π_F| = 2.25, 2.60, 5.53, 10.10, 20.08 — dilution, not approach to Π ≥ 0;
+  past the window the M = 4 optimum falls to −1.13 (x = 225). No design reaches Π_F ≥ 0 even on [1, 64]; none could be in 𝒯 (finite;
+  L′ and Hilberdink Prop. 3.4). No Q-side twin.
+- read-O.md complete: VERDICT AGREES-WITH-CORRECTIONS; 6 FIX-FIRST + 10 minor pairs; additions A1–A6; §8 limits.

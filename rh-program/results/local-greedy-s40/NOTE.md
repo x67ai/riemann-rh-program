@@ -89,3 +89,90 @@ sup E/max a_n = 1.7 at ρ = 0.6, X = 10⁹.
 dominates: both are of the size of M_g and cancel to leave E. At ρ = 0.6 on [3.16·10⁸, 10⁹): sup|Tt| = 9055, sup|W| = 8973,
 RMS 3028 and 3027, against sup E = 948.8 and RMS(E) = 95.4. The RMS ratio Tt : E GROWS with x — 2.0, 3.6, 6.2, 13, 32 at the
 half-decades starting 10⁴, 10⁵, 10⁶, 10⁷, 3.16·10⁸ (ρ = 0.6; ρ = 0.8 alike): the two terms grow like M_g, E much more slowly. So the hyperbola-type bound through M_g (§5) is far from sharp here: E ≈ x^{0.3} while M_g ≈ x^{0.5}.
+
+## §3. Route 2: the zeros of ζ_P (ρ = 0.6) [computed]
+
+**3.0 The function and the truncation bound.** For an ℕ-supported system, ζ_P(s) − ρζ(s) = Σ_{n≥1}(a_n − ρ)n^{−s} has partial sums
+C(y) = N(y) − ρ⌊y⌋; if (H_θ) |C(u)| ≤ u^θ for all u > X, partial summation gives convergence in σ > θ and
+|ζ_P(s) − F_X(s)| ≤ |C(X)|X^{−σ} + |s|∫_X^∞ u^{θ−σ−1}du = |C(X)|X^{−σ} + |s|X^{θ−σ}/(σ − θ), F_X(s) := ρζ(s) + Σ_{n≤X}(a_n − ρ)n^{−s}
+(uo §2.1, §4 step (1); the argument uses nothing about S5). Since ζ_P = ζ·L_g (Lemma 1.1), the zeros of ζ_P in σ > ½ below height
+100 are the zeros of L_g there (ζ has none off the line below height 100 **[recalled, unverified]**; not load-bearing: the zeros
+found below are zeros of F_X, whatever their origin).
+**Instruments.** `verify/zline.c` (memory-mapped a_n; vertical lines by recurrence in t, horizontal segments by recurrence in σ,
+point mode with D_X and D_X′, Taylor-moment mode M_k = Σ(a_n − ρ)n^{−s₀}(−log n)^k/k!; ζ by Euler–Maclaurin, M = 60, ten Bernoulli
+terms, as uo/verify/zscan.c — checked here against mpmath at 0.75 + 30i, 0.6 + 14.2i, 0.9 + 77.7i to all printed digits);
+`verify/scan7.sh` + `verify/zcount7.py` (argument principle on the 10 × 10 boxes of [0.55, 1.10] × [0.1, 100], lines σ = 0.55, …,
+1.10, t-step 0.025; horizontal segments at t = 0.1, 10, …, 100, σ-step 0.005); `verify/newton7.py` (Newton, all zeros per pass).
+
+## §5. Theory for the class (task 5; shortened by the stop rule)
+
+**5(i) E through g.** E = Tt + W − (1 − ρ) exactly (§2.4) [proved here: N(n) = Σ_{d≤n} g(d)⌊n/d⌋, split ⌊n/d⌋ = n/d − {n/d}].
+On the data neither term dominates: both are of size M_g ≈ x^{0.5} and cancel to E ≈ x^{0.3}.
+
+**5(ii) What Tao and Klurman force.** [quoted] Tao, Discrete Analysis 2016:1 (`sources/tao-1509.05363v6.txt` l. 57–63), Cor. 1.2:
+every ±1 sequence has infinite discrepancy; for completely multiplicative ±1 functions Σ_{j≤n} f(jd) = f(d)Σ_{j≤n} f(j), so their
+partial sums are unbounded; Example 1.4 (l. 85–123, Borwein–Choi–Coons χ̃₃): the partial sums can grow as slowly as log n.
+Klurman, Compositio 153 (2017) 1622–1657 (`sources/klurman-1603.08453v1.txt` l. 337–361, arXiv p. 6–7), Thm 1.6: a multiplicative
+f: ℕ → {−1, 1} has bounded partial sums iff f is periodic with Σ_{n=1}^{m} f(n) = 0 (and then f(2^k) = −1, f(p^k) = f((p^k, m))).
+*Consequence for S7* [proved here, one line each]: S7's g takes values in {−1, 0, 1, 2, …} (g(p) = m_p − 1 reaches 78 at ρ = 0.6),
+so neither theorem applies to S7 itself. They apply to the λ-rule variant (g completely multiplicative ±1): there M_g is unbounded
+(Tao), but E = Σ_{m≤x}M_g(x/m) − ρx is not controlled by M_g in either direction (bounded M_g with unbounded E: g = χ₋₄, where E is
+the circle-problem error; unbounded M_g with bounded E: none known to me), so Tao's theorem does not by itself make E unbounded.
+The question "is E unbounded for every non-periodic member" is open here; it is listed in §8.
+
+**5(iii) The hyperbola bound** [proved here]. For any y ∈ [1, x]: N(x) = Σ_{d≤y} g(d)⌊x/d⌋ + Σ_{m≤x/y} M_g(x/m) − ⌊x/y⌋M_g(y), so
+E(x) + (1 − ρ) = −Σ_{d≤y} g(d){x/d} + Σ_{m≤x/y} M_g(x/m) − ⌊x/y⌋M_g(y) − xΣ_{d>y} g(d)/d (using ρ = Σ_d g(d)/d, which needs
+M_g = o(x)). With Σ_{d≤y}|g(d)| ≪ y^{κ+ε} and M_g(u) ≪ u^{μ+ε} (μ ≤ κ ≤ 1; the tail is ≪ y^{μ−1} by partial summation):
+E ≪ y^κ + x^μ(x/y)^{1−μ} + x y^{μ−1} ≪ y^κ + x y^{μ−1}, and y = x^{1/(1+κ−μ)} gives **β ≤ κ/(1 + κ − μ)**; for bounded g (κ = 1)
+this is β ≤ 1/(2 − μ) ≤ ½ + μ/2 (the brief's form; (1 + μ)(2 − μ) ≥ 2). Nothing below ½ comes out unless κ < 1: the sawtooth
+Σ_{d≤y} g(d){x/d} is bounded only by Σ|g|. On S7 the support of g has density close to 1 (≈ 98 % of primes are exceptional in
+[10⁸, 10⁹)) and |g| is unbounded, so κ = 1, μ ≈ 0.5 and the bound reads β ≤ 2/3, against the observed 0.26–0.32: the true E lives on
+the cancellation between Tt and W (§2.4), which no bound through |g| and M_g sees. For a feedback-chosen g I have no route below ½.
+
+**5(iv) If M_g ≪ x^ε.** Then L_g(s) = Σ g(n)n^{−s} converges in σ > 0, ζ_P = ζL_g there, the hyperbola bound gives β ≤ ½ + ε (κ = 1),
+and the zeros of ζ_P in σ > 0 are those of ζ and of L_g. Nothing confines the zeros of L_g: in that case U only asks α ≤ 2β, and
+2β may be as large as 1 by this bound. Where M_g is bounded and g is ±1, Klurman makes g periodic, L_g a finite combination of
+Dirichlet L-functions times finitely many Euler factors, and uo §3.3 applies (a U-crossing then needs an off-line Dirichlet zero).
+S7 is far from that regime: μ ≈ 0.50 on [10³, 10⁹].
+
+**5(v) Neamah–Hilberdink as a third route to α** [quoted] (IJNT 2019, `sources/neamah-hilberdink-1901.06866v2.txt` l. 104–105,
+Thm 1): with ψ_P = x + O(x^{α+ε}), N_P = ρx + O(x^{β+ε}), M_P = O(x^{γ+ε}) (M_P = partial sums of the Beurling Möbius function
+μ_P = a^{∗−1}), "the two largest of α, β, γ must be the same and at least ½". So if S7(0.6) has β ≈ 0.3 and α ≈ 0.82, then
+γ = α: the exponent of M_P is an independent check of route 2 (computed in §3.4).
+
+## §6. Prior art at the page, novelty, distance from upstream
+
+- Révész–Pintz arXiv:2407.12746 (abstract only, `uo/sources/abstracts-related.txt` l. 9–10; arXiv metadata `sources/api_ids_1.xml`):
+  Carlson-type zero-density estimates for Beurling ζ when the integers are natural numbers and the Ramanujan condition holds —
+  S7's class when a_n ≪ n^ε. Density estimates allow sparse zeros in (½, 1); no conflict with §3. Full text not opened **[gap]**.
+- Neamah–Hilberdink, IJNT 2019 (arXiv:1901.06866v2, `sources/neamah-hilberdink-1901.06866v2.txt` l. 104–105): Thm 1, the two
+  largest of α, β, γ are equal and ≥ ½ — used in §5(v) as a third route to α. S7(0.6) obeys it on the data (§3.4).
+- Hilberdink 2012 (`fr/sources/p3-22c2-…`, abstract l. 46–51): N(x) − cx periodic (finitely many jumps per bounded interval) ⇒ the
+  usual primes minus finitely many. S7's E is not periodic (it grows, §2), so the theorem does not reach it; read backwards, it
+  says the only periodic-error members of the prime-local class are finite deletions.
+- Hilberdink 2005 (`fr/sources/w-18a-…`, via uo §5): max{α, β} ≥ ½ and, for β < ½, infinitely many zeros in every strip
+  {η′ < σ < 1}, η′ ∈ (β, ½) — S7(0.6) has α ≈ 0.82 > ½ and the scan of §3 finds zeros at several heights (consistent).
+- Tao 2016 and Klurman 2017 (§5(ii), opened at the lines given); Borwein–Choi–Coons only through Tao's Example 1.4 (l. 85–123):
+  their paper itself not opened **[recalled, unverified]** beyond that example.
+- BDR 2309.01567 and DMV 2006 (via uo §5, fr/sources z-02, p1-02): BDR's populating conjecture (l. 84–86) and DMV's p. 4 question
+  (l. 203–207) — S7(0.6) is a second numerical non-surgery system in the corner β < α/2, now with multiplicative coefficients.
+- arXiv API queries from this unit (`sources/api_ids_1.xml`, `sources/api_hilberdink.xml`), one at a time: no construction of a
+  Beurling system by integer-level feedback, prime-local or otherwise, among the returned records (they were not a sweep — the
+  on-disk sweeps of fr/ and uo/, 228 abstracts, are the gate, as in uo §5).
+- **Novelty: single-check.** S7 as a construction (orchestrator's brief), the numerical crossing with multiplicative coefficients,
+  the two zeros, Lemma 1.2, the K₇ statement; §5(iii) is a routine hyperbola computation and may be classical.
+- **Distance from upstream (10(n)).** Nearest published objects: Dedekind zeta functions (prime-local, a_p ∈ {0, …, d}, β > 0,
+  zeros = GRH territory) and BDR's region-III systems (RH-conditional surgery). Exact difference: S7's local data (m_p) are chosen
+  by feedback on the integer count, not by a field or a deletion; its a_p are unbounded (Lemma 1.2: ≤ ρ·gap + 1 + ρ). Every proved
+  statement here uses no printed input except the quoted theorems named at their lines.
+
+**3.1 Strip counts at X = 10⁷** (`verify/logs/zeros/zcount_r06_1e7.log`; the a_n are the first 10⁷ of the 10⁹ dump). Winding numbers
+of F_X on the strips × [0.1, 100]: σ ∈ [1.00, 1.10], [0.95, 1.00], [0.90, 0.95], [0.85, 0.90]: 0 (largest phase step on the box
+contours 0.10, 0.15, 0.27, 0.76 rad); **[0.80, 0.85]: 2** (boxes × [10, 20] and × [20, 30]; step ≤ 1.59 rad, min|F| 0.024);
+[0.75, 0.80], [0.70, 0.75]: 0 (≤ 1.59, 0.71 rad); [0.65, 0.70]: 4, [0.60, 0.65]: 13, [0.55, 0.60]: 10 — these last three with
+phase steps up to 2.95 rad, so their counts are indicative only (aliasing possible; the zeros there are not refined here). So
+below height 100 and right of σ = 0.70 F_X has exactly two zeros, and the largest real part is that of the zero near 11.09.
+Hilberdink 2005 Cor. 2(b) (via uo §5) predicts infinitely many zeros in every strip η′ < σ < 1 with η′ ∈ (β, ½) when β < ½; the
+27 zeros counted in [0.55, 0.70] are consistent with that.
+
+**3.2 Newton and stability under X** (`logs/zeros/newton_r06_X1e7.log`, `…_X1e8.log`, `…_X1e9.log`): see the table in §3.3.

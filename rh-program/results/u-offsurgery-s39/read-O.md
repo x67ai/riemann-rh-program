@@ -64,3 +64,104 @@ All multiplicities are 1 (as proved in 1.2(c)); inf E over the reals is −1.2 (
 
 **What the agreement does and does not show.** The zero is a zero of the truncation F_X. That it is a zero of ζ_P needs |ζ_P − F_X| < 0.0394 on ∂B, i.e. a tail theorem. The X-stability is weak evidence for that: between X = 10⁸ and 10⁹ the zero moves by 6.8·10⁻⁶, i.e. F_X changes by about 1.4·10⁻⁵ near ρ₁, while the tail bound under H_0.35 is 0.021. But X-stability over [10⁷, 10⁹] cannot see contributions of scales beyond 10⁹. In particular it cannot see the multiplicity bursts of §C (a single n ≈ 10^{30.45} with a_n ≥ 1.35·10¹⁰ contributes |a_n n^{−s}| ≈ 1.35·10¹⁰·10^{−30.45·0.766} = 6·10⁻¹⁴ to the series, negligible alone; the issue is the aggregate C(u), not single terms).
 
+## §2C The orchestrator's claims C1–C4, tested with my own code
+
+**C1 — CONFIRMED, exactly.** sup_{n≤10⁹}E = 274.8 at n = 902,538,000 = 2⁴·3²·5³·7·13·19·29, a_n = 276, E(n − 1) = −0.4. My factorization counter (`fcount.c`) gives 276 independently from the g-prime list. The late E-records (`logs/gen_r08_1e9.log`, lines `R`) are all of this kind: a single integer with a_n = 124 (90,253,800), 155 (138,852,000), 170 (208,278,000), 178 (277,704,000), 215 (416,556,000), 209 (591,318,000), 244 (763,686,000), 276 (902,538,000) lifts E from a level between −0.4 and 37.6. The records in between are a_n ≤ 3 steps riding on the new level. The inequality is ✓ and sharper than stated: E(n − 1) ≥ −½ (1.2(b)) gives **sup_{u≤x}E ≥ max_{n≤x}a_n − 1.3**. So Lemma H forces max_{n≤x}a_n ≤ 2·c·x^{0.35} + 0.8 (and H_θ forces a_n ≤ 2n^θ + 0.8 for n > 10⁹ + 1). Not the mechanism at ρ = 21/20: there sup E = 475.05 while max a_n = 174, so E accumulates.
+
+**C2 — CONFIRMED.** a_n is, by definition, the number of multisets of g-primes (copies distinct) with product n. Refused primes at ρ = 4/5: 5, 19, 29, 41, 59, 61, 79, 89, … (92.0% of primes ≤ 10⁹). Carriers of 5: 20, 30, 110, 150, 200, 245, 355, 370, 380, 455; of 19: 38, 57, 133, 247, 323, 380, 437, … (`logs/carriers.log`). I add the proof that carriers are forced: for ρ < 1 every g-prime is irreducible (A(n) = 0, 1.2(c)), so a composite g-prime cannot be a product of accepted primes. The exponents log a_n/log n at the records: 27 @ 957,600 → 0.2393; 124 @ 90,253,800 → 0.2631; 276 @ 902,538,000 → 0.2726. Local exponent of max a_n on [10⁸, 10⁹]: log₁₀(276/124) = 0.3475. All ✓. Per decade, max a_n = 8, 14, 27, 59, 124, 276 (10⁴…10⁹).
+
+**C3 — CONFIRMED, exactly, and extended.** The lower-bound principle is ✓: the rule never removes a g-prime and the g-primes ≤ 10⁹ are fixed by the first 10⁹ steps, so f(n) := #factorizations of n into g-primes ≤ 10⁹ satisfies f(n) ≤ a_n for every n. They are known exactly from my generator, which agrees with my second algorithm to 10⁸, and all have multiplicity 1. With exact uint64 arithmetic (no overflow): **f(2⁵·3³·5⁴·7·11·13·19²·29·41) = 20,390** (log₁₀ n = 14.3655, exponent 0.29998); **f(2⁷·3⁵·5⁹·7²·11·13·17·19³·23·29²·37·41²·47) = 13,461,378,553** (log₁₀ n = 30.4482, exponent 0.33267; 652 dividing g-primes). The C3 value "2.93·10⁶ at log₁₀ n = 20.20" names no n, so I could not recount it. My own ascent passes 2,782,781 at log₁₀ n = 20.53 (exponent 0.3139). My ascent (`ascent.c`, start 902,538,000; each step multiplies by the prime of largest marginal exponent; exact DP; `logs/ascent_from_902538000.log`):
+
+| log₁₀ n | f(n) (exact, ≤ a_n) | log f/log n | marginal | f/(2n^{0.35}) |
+|---|---|---|---|---|
+| 8.96 | 276 (= a_n) | 0.2726 | — | 0.101 |
+| 14.30 | 18,893 | 0.2991 | 0.399 | 0.094 |
+| 20.53 | 2,782,781 | 0.3139 | 0.353 | 0.091 |
+| 25.99 | 345,503,668 | 0.3286 | 0.488 (×41) | 0.139 |
+| 30.32 | 12,016,483,826 | 0.3324 | 0.356 | 0.147 |
+| 35.49 | 899,728,583,923 | 0.3369 | 0.377 | 0.171 |
+| 37.86 | 7,047,237,674,851 | 0.3394 | 0.382 | 0.198 |
+
+The last row is n = 2⁸·3⁵·5¹²·7³·11²·13·17·19³·23·29²·31·37·41²·43·47. Marginal exponents along the ascent range from 0.30 to 0.49 (C3 says 0.32–0.41). The **local** exponent of the lower bound over [10^{30.3}, 10^{37.9}] is log₁₀(7.047·10¹²/1.2016·10¹⁰)/7.537 = **0.367**: above 0.35, below Re ρ₁/2 = 0.383. Tightness of the frozen bound: at n₃ the count using g-primes ≤ B grows by ×2.37, 1.31, 1.079, 1.020 per decade of B from 10⁵ to 10⁹. The contribution of larger g-primes decays roughly geometrically, so f(n₃) is plausibly within about 1% of a_{n₃}.
+
+## §3 Prior art at the page
+
+**3.1 Citations the NOTE relies on, opened at the named lines** (`novel-wave-s37/beurling-frontier/sources/`):
+- Hilberdink 2005 (w-18a, JNT 112): Thm 1 at l. 195 ✓; Cor. 2(b) at l. 207–209 ✓ ("If N_P(x) = ρx + O(x^β) … β < ½, then for every η ∈ (β, ½), ψ_P(x) − x = Ω(x^η) and ζ_P(s) has infinitely many zeros in the strip {η < σ < 1}"; Greek restored); Remark B(ii) at l. 228–232 ✓; Remark C at l. 494–500 ✓ (quoted faithfully at NOTE l. 144–145).
+- BDR 2309.01567v2 (z-02): l. 84–86 ✓ (populating conjecture); l. 169–181 ✓ (the approximation heuristic and "Instead of creating new systems from scratch, we will modify the classical system"). Thm 1.3 (l. 180–181): under RH, [α, β]-systems "for ½ < α < ⅔ and 2α/(α + 2) ≤ β < ½". NOTE l. 200 applies the bound at α = 0.77, outside the theorem's α-range (m3).
+- DMV 2006 (p1-02) l. 203–207 ✓ verbatim.
+- Hilberdink 2012 (p3-22c2): the abstract is at l. 42–50 of the extracted text, not l. 30–40 (m5). The content is as paraphrased ✓.
+- Révész–Pintz 2407.12746 (`sources/abstracts-related.txt`): they assume integer norms and "the Ramanujan condition". In Révész 2023 (t-14b l. 464–476) the corresponding Condition G is an *average* condition: (1/X)Σ_{ν≤X}G(ν)^{1+p} = O(X^ε) for some p > 1. "Exactly S5's class" (NOTE l. 204) needs Axiom A (essentially Lemma H) and that condition for S5, neither proved (m4).
+- Broucke–Vindas 2102.08478, the Diamond–Zhang Bernoulli selection: abstracts as described ✓ (neither uses integer-level feedback).
+
+**3.2 The prior-art question (integer-level feedback constructions).** On disk first: grep for greedy, prescribed-integer, inverse-problem and multiplicative-semigroup constructions across `fetched*/`, `sources-extracted/` and the s37/s38 sources found no integer-level feedback construction. Then arXiv (https API, one query at a time, ≥ 7 s apart; 22 queries; XML in `verify-O/sources/arxiv-*.xml`, log `verify-O/logs/arxiv_q*.log`): Beurling ∧ greedy (0 hits); Beurling ∧ integers ∧ prescribed (0); Beurling ∧ inverse ∧ primes (0); "generalized primes" ∧ construction ∧ integers (5, none relevant); "g-primes" ∧ integers (2); au:Vorhauer; au:Zhang ∧ ti:Beurling; au:Broucke ∧ au:Vindas (6: 2005.06116, 2109.08499, 2102.08478, 2004.11501, 2001.01635, 2109.08509); au:Maamori; au:Neamah (incl. 1901.06866 with Hilberdink); au:Hilberdink (11); au:Lagarias ∧ Delone; au:Olofsson; Beurling ∧ "integer valued"; Beurling ∧ multiplicities ∧ integers (2311.11127 Ruzsa, gaps bounded below; 2301.11782 Bohr's theorem); cat:math.NT ∧ abs:Beurling (40 most relevant, read by title, 6 abstracts read). **No printed construction of a Beurling system by feedback on the integer count was found.** S5's novelty label as a construction stands (single-check, within this search).
+
+**3.3 Relevant prior art the NOTE does not cite** (m10):
+- **Olofsson 2010**, "Properties of the Beurling generalized primes" (on disk: `novel-wave-s37/beurling-fe/sources/olofsson-2010-properties-beurling-primes.txt`). Beurling's problem (l. 98–118, 510–532): how small can |N(x) − [x]| be for a system ≠ ℙ? Theorem 1.3 gives |N(x) − [x]| < c ln x by a surgery (remove two primes, add q = p_ip_j/(p_i + p_j − 1)). Conjecture 1.2: lim sup|N(x) − [x]|/ln x > 0 for every system ≠ ℙ. And, at l. 660–662: "if two different Beurling integers have the same value α, then there are at least n + 1 different Beurling integers having the value α^n, hence the remainder term is of at least logarithmic growth." This is the printed prototype of C1's mechanism: in S5 equal values (a_n ≥ 2) appear at n = 60 already, and they compound.
+- **Lagarias 1999**, "Beurling generalized integers with the Delone property", Forum Math. 11(3) 295–312, as stated by Olofsson l. 642–658 (the paper itself not opened; not on arXiv under the queries above; **[quoted via Olofsson, unverified at the page]**). ℕ-supported systems whose g-integers are pairwise distinct with bounded gaps are ℙ with finitely many primes removed and finitely many integers added. S5(ρ) escapes this rigidity only through multiplicities a_n ≥ 2, and §2C shows those multiplicities are exactly what drives its integer error. This is a structural point the NOTE should record: the "virtual ℕ" question (UT-U3) sits between Lagarias's rigidity (all a_n ≤ 1) and Olofsson's compounding (any a_n ≥ 2 forces growth).
+
+**C4 — my judgment: AGREE with its conclusion, with three qualifications.**
+(a) "β ≈ 0.30 is not an asymptotic exponent": agree. No finite computation proves an asymptotic exponent, but the NOTE's own envelope fails. It calls the bins "clean power laws, not transients" with sup E/x^{0.30} ∈ [0.42, 0.61] (l. 94). By exact lower bounds, sup_{u≤x}E ≥ f(n) − 1.3 exceeds 0.61x^{0.30} by a factor 16.2 at x = 10^{30.45} and 50.8 at x = 10^{37.86}. Rigorously (finite statements): at x = 10^{37.86} the running-sup exponent is ≥ 0.3394, at x = 10^{30.45} it is ≥ 0.3327, and both are rising.
+(b) "β ≥ the growth exponent of max a_n": agree, rigorous. |C(n)| + |C(n − 1)| ≥ a_n − 0.8, so β ≥ limsup log a_n/log n.
+(c) "still rising at every scale reached": agree on the data, with a caveat. The lower bound uses a finite set of g-primes, and for a finite generating set the count is polylogarithmic in n eventually, so that particular rise must stop at some scale. It says nothing directly about the eventual growth of the true max a_n.
+(d) "Lemma H unsupported and probably false": "unsupported" is right. H_θ is **false for every θ ≤ 0.3227** (rigorous, at n₃). For θ = 0.35, Lemma H is **not refuted**. My ascent found no n with f(n) > 2n^{0.35} + 0.8: the ratio is 0.198 at 10^{37.9}. Extrapolating its current local rate (exponent 0.367) would reach 1 only near n ≈ 10^{78.6}, far beyond any exact computation and beyond where a frozen bound means much. "Probably false" is a reasonable reading of a local exponent above 0.35, not a demonstrated one.
+(e) "S5(0.8) is NOT established as a counterexample to U even numerically": agree. The β-leg rested on running sups ≤ 10⁹ whose top is set by single bursts, and the bursts demonstrably keep growing faster than the fitted law beyond 10⁹. But note the line actually needed: the crossing needs only β < Re ρ₁/2 ≈ 0.383. Every exact lower bound so far (0.3394 cumulative, 0.367 local) is below 0.383, so S5(0.8) is **undetermined**, not refuted, as a numerical candidate. DMV's speculation needs only β < ½ (and the zero).
+
+**Arguments against C4 (saturation), and why none closes.** (i) Rigorous, single-check: for each fixed y, records among y-smooth n grow subpolynomially. Rankin gives a_n ≤ n^σ Π_{q y-smooth g-prime}(1 − q^{−σ})^{−1}, and the number of y-smooth g-primes ≤ T is at most Ψ(T, y) ≪ (log T)^{π(y)}. So, with σ = (log x)^{−1/(π(y)+1)}, log max_{n≤x, n y-smooth}a_n ≪_y (log x)^{π(y)/(π(y)+1)}·log log x = o(log x). Any persistent power growth must come from records whose prime support grows with n, as it does along the ascent (largest prime 29 at 10⁹, 47 at 10^{38}). (ii) Self-regulation: smooth g-primes must be irreducible and admitted. The admitted fraction of irreducible 47-smooth integers falls from 0.17 (10⁴) to 0.078 (10⁹), and irreducibles themselves become rare among smooth numbers (950 of 7,176 in (10⁴, 10⁵]; 6,773 of 453,028 in (10⁸, 10⁹]). For a refused p and accepted-smooth M, the carrier cofactors {k : pk ∈ G, k | M} form a divisibility antichain. (iii) At fixed n the frozen bound is nearly tight (×1.020 for the last decade of B), so later g-primes add little at fixed n. None of (i)–(iii) bounds the exponent of the true max a_n below 0.35. The opposite heuristic also exists: factorization counts over a generating set of density ≍ 1/log among integers behave like restricted multiplicative partition counts, whose maximal order is x^{1−o(1)}. That would make β(S5(0.8)) = 1, but irreducibility and the 10% admission rate are not modeled by it [heuristic, single-check, not load-bearing].
+
+## §4 FIX-FIRST pairs
+
+Each OLD is quoted exactly from NOTE.md at hash 717c1b11…, line number given. They share one root (§2C): beyond 10⁹ the integer error of S5(0.8) is driven by multiplicity bursts that grow faster than the fitted x^{0.30}.
+
+**F1 (l. 13; the headline).**
+OLD: `**STOP CONDITION MET — reported before proving (brief: "α > max{½, 2β} + 0.05 numerically over two decades").** The integer-greedy`
+NEW: `**STOP CONDITION REPORTED BUT NOT ESTABLISHED — the β-estimate behind it (≈ 0.30 on [10³, 10⁹]) is pre-asymptotic: exact lower bounds a_n ≥ f(n) beyond 10⁹ give running-sup exponents 0.3327 at 10^{30.45} and 0.3394 at 10^{37.86}, still rising (read-O §2C); the crossing needs β < Re ρ₁/2 ≈ 0.383 and is undetermined.** The integer-greedy`
+
+**F2 (l. 15).**
+OLD: `primes are refused and composites like 15, 26, 35 become g-primes) are discrete Beurling systems with **β ≈ 0.30 and α ≈ 0.75–0.77**:`
+NEW: `primes are refused and composites like 20, 30, 38 become g-primes) are discrete Beurling systems with **α ≈ 0.75–0.77 and a running-sup integer exponent ≈ 0.30 on [10³, 10⁹] that does not persist beyond 10⁹ (≥ 0.339 at 10^{37.9}, read-O §2C)**:`
+
+**F3 (l. 20; the K′ bullet).**
+OLD: `- **K′ (Theorem, §4):** if |N_P(u) − 0.8⌊u⌋| ≤ u^{0.35} for all u > 10⁹ (true with constant 0.59 at exponent 0.32 on [10³, 10⁹]),`
+NEW: `- **K′ (Theorem, §4):** if |N_P(u) − 0.8⌊u⌋| ≤ u^{0.35} for all u > 10⁹ (true with constant 0.59 at exponent 0.32 on [10³, 10⁹], but false at exponent ≤ 0.3227 beyond: a_n ≥ 13,461,378,553 at n = 2⁷·3⁵·5⁹·7²·11·13·17·19³·23·29²·37·41²·47; at exponent 0.35 unrefuted and unsupported — exact lower bounds grow at local exponent 0.367 on [10^{30}, 10^{38}]),`
+
+**F4 (l. 27–28; consequences for the record).**
+OLD: `Consequence for the record: read-F P2 ("no non-surgery discrete [α, β]-system with α > ½ and β < ½ is known") is answered numerically` / `by an explicit construction; DMV's p. 4 speculation (θ < ½ ⇒ RH for discrete systems) gets an explicit numerical counterexample;`
+NEW: `Consequence for the record: read-F P2 ("no non-surgery discrete [α, β]-system with α > ½ and β < ½ is known") gets an explicit candidate whose β-leg is open (numerically β ∈ [0.34, ?) at accessible scales, not 0.30); DMV's p. 4 speculation (θ < ½ ⇒ RH for discrete systems) gets a candidate counterexample, conditional on β(S5(0.8)) < ½ and on the zero surviving the tail;`
+
+**F5 (l. 94).**
+OLD: `The per-bin data are clean power laws, not transients: at ρ = 0.8, sup_{bin}E/x^{0.30} stays in [0.42, 0.61] and sup|ψ − x|/x^{0.73} in`
+NEW: `The per-bin data are clean power laws on [10⁴, 10⁸] but the E-law is a transient: at ρ = 0.8, sup_{bin}E/x^{0.30} stays in [0.42, 0.61] there, yet exact lower bounds give sup_{u≤x}E/x^{0.30} ≥ 9.8 at x = 10^{30.45} and ≥ 30.9 at x = 10^{37.86} (read-O §2C); sup|ψ − x|/x^{0.73} in`
+
+**F6 (l. 99–100).**
+OLD: `**So α ≈ 0.74–0.76 and β ≈ 0.30 over six decades: α − max{½, 2β} ≈ 0.14 — the brief's stop condition` / `("α > max{½, 2β} + 0.05 numerically over two decades") is met.**`
+NEW: `**So α ≈ 0.74–0.76 and a running-sup integer exponent ≈ 0.30 on [10³, 10⁹]: α − max{½, 2·0.30} ≈ 0.14 on the computed range — the brief's stop condition would be met if 0.30 were asymptotic; it is not (read-O §2C: 0.339 at 10^{37.9}, rising), and with a running-sup exponent ≥ 0.339 the margin is ≤ 0.09 and shrinking.**`
+
+**F7 (l. 117–118).**
+OLD: `On the computed range H_0.32 holds with` / `` room: max_{10³≤u≤10⁹}(|E(u)| + 1)/u^{0.32} = 0.59, and 0.32–0.38 in the top decade (`logs/big/S5_r0.8_Hcheck.log`). ``
+NEW: `` On the computed range H_0.32 holds with room: max_{10³≤u≤10⁹}(|E(u)| + 1)/u^{0.32} = 0.59, and up to 0.40 in the top decade (0.404 at n = 138,852,000) (`logs/big/S5_r0.8_Hcheck.log`). Beyond it H_0.32 is false: a_n ≥ 13,461,378,553 > 2n^{0.32} + 0.8 at n = 2⁷·3⁵·5⁹·7²·11·13·17·19³·23·29²·37·41²·47 (read-O §2C), and so is H_θ for every θ ≤ 0.3227. ``
+
+**F8 (l. 127; the mechanism).**
+OLD: `[0.6, 1.1] (it is set by the one-sided overshoot of the greedy rule, E ≥ −1 − ρ always), while α wanders over 0.58–0.77 with ρ: the`
+NEW: `[0.6, 1.1] on [10⁴, 10⁸] (at ρ = 0.8 its top is set by single integers of high multiplicity, a_n = A(n), fixed by the earlier g-primes and beyond the rule's control: sup_{u≤x}E ≥ max_{n≤x}a_n − 1.3, read-O §2C; at ρ = 1.05 by accumulation), while α wanders over 0.58–0.77 with ρ: the`
+
+**F9 (l. 186–187; the evidence for Lemma H).**
+OLD: `Verified on [10³, 10⁹] with constant 0.59 at θ = 0.32 (§2.2(a)); the data give` / `θ ≈ 0.30 (b_sup over six decades).`
+NEW: `Verified on [10³, 10⁹] with constant 0.59 at θ = 0.32 (§2.2(a)), but false at θ ≤ 0.3227 beyond 10⁹ (read-O §2C). Lemma H forces max_{n≤x}a_n ≤ 2c·x^{0.35} + 0.8, while exact lower bounds for a_n grow at local exponent 0.367 on [10^{30}, 10^{38}]: Lemma H is unsupported, and the six-decade value θ ≈ 0.30 is a transient.`
+
+**F10 (l. 188–189; logic).**
+OLD: `U holds or fails exactly as Lemma H (with any θ < Re ρ₁/2, given a zero ρ₁ certified as in §2.2) holds or fails` / `for one of them.`
+NEW: `Lemma H (with any θ < Re ρ₁/2, given a zero ρ₁ certified as in §2.2) for one of them refutes U; its failure for all of them would leave U open, not prove it.`
+
+**F11 (l. 202).**
+OLD: `Beurling generalized numbers" — S5(0.8) is an explicit numerical counterexample (θ ≈ 0.30, zero at 0.766).`
+NEW: `Beurling generalized numbers" — S5(0.8) is a candidate counterexample (zero of F_X at 0.766), conditional on β(S5(0.8)) < ½ and on the zero surviving the tail; its integer exponent is not 0.30 beyond 10⁹ (read-O §2C).`
+
+**F12 (l. 221, Instruments row, first cell).**
+OLD: `(numerically the first non-surgery discrete system with α > ½, β < ½ on the record; numerical, not proved)`
+NEW: `(candidate non-surgery discrete system with α > ½ and β < ½: the α-leg is numerical, with a zero of F_X; the β-leg is undetermined — ≈ 0.30 on [10³, 10⁹] but ≥ 0.339 at 10^{37.9} for ρ = 0.8)`
+
+**F13 (l. 221, Instruments row, value cell).**
+OLD: `ρ = 0.8, X = 10⁹: β ≈ 0.30 (running sup of \|E\|, windows 10³…10⁶ → 10⁹: 0.305, 0.299, 0.297, 0.307)`
+NEW: `ρ = 0.8, X = 10⁹: running-sup exponent ≈ 0.30 on [10³, 10⁹] (windows 10³…10⁶ → 10⁹: 0.305, 0.299, 0.297, 0.307), not asymptotic: exact lower bounds a_n ≥ f(n) (g-primes ≤ 10⁹) give ≥ 0.3327 at 10^{30.45} and ≥ 0.3394 at 10^{37.86}, local exponent 0.367 (read-O §2C)`
+

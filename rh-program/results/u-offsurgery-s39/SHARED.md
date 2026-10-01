@@ -54,3 +54,10 @@ Dated blocks, appended as the work lands. Writer: Opus 5.5 (agent). U.S. English
 - Frozen-bound tightness: at n₃ the count with g-primes ≤ B grows ×2.37, 1.31, 1.079, 1.020 per decade of B (10⁵ → 10⁹): the ≤ 10⁹ bound is plausibly within ~1% of a_{n₃}.
 - 47-smooth census to 10⁹ (`verify-O/smooth_census.py`): smooth g-primes per decade 3, 15, 25, 66, 158, 239, 322, 438, 528 (still growing); admitted fraction of irreducible smooth integers 0.17 → 0.078.
 - arXiv queries (https; one at a time, 7 s apart): Beurling ∧ greedy, Beurling ∧ integers ∧ prescribed, Beurling ∧ inverse ∧ primes: 0 hits each. Remaining queries running.
+
+## 12:02 IST 2026-10-01 — read-O block 4: ascent to 10^37.9; prior art; ρ-dependence
+
+- ρ = 4/5 ascent (exact): exponent log f/log n = 0.3324 (10^30.32), 0.3369 (10^35.49), **0.3394 at 10^37.86** (f = 7,047,237,674,851 at 2⁸·3⁵·5¹²·7³·11²·13·17·19³·23·29²·31·37·41²·43·47); f/(2n^0.35) = 0.101, 0.094, 0.091, 0.139, 0.147, 0.171, 0.198 (10⁹ … 10^37.9); local exponent of the lower bound over [10^30.3, 10^37.9] = 0.367 (> 0.35, < 0.383 = Re ρ₁/2). No n with f(n) > 2n^0.35 + 0.8 found (H_0.35 not refuted within reach).
+- ρ-dependence: smallest refused primes are 5 (ρ = 4/5), 13 (19/20), 23 (21/20). ρ = 19/20 ascent from its 10⁹ record (a = 122 @ 845,857,740) gives exponent ≈ 0.268, flat, to 10^35.2: the burst growth that undermines β ≈ 0.30 at ρ = 4/5 is not (yet) visible at ρ = 19/20, whose ≤10⁹ estimate b_sup ≈ 0.26–0.29 is consistent with it. ρ = 21/20 running.
+- Prior art: 22 arXiv queries (https, sequential): no printed integer-level feedback construction. Missed but relevant: Olofsson 2010 (on disk, beurling-fe/sources): Beurling's |N(x) − [x]| problem, Conj. 1.2, and l. 660–662 "equal values ⇒ remainder ≥ logarithmic", the printed prototype of C1; Lagarias 1999 Forum Math (Delone rigidity of ℕ-supported systems with distinct g-integers; via Olofsson l. 642–658, not opened).
+- read-O.md: header, §1, §2, §2C (C1–C3), §3 written.

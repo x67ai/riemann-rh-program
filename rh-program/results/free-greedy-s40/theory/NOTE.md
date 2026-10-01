@@ -116,6 +116,11 @@ dΠ_c gives ζ_P = ζ_c·exp(ŵ), so to first order sÊ = ζ_c·ŵ: exact tracki
 discrete system can be. The zeros of ζ_P are the points where ŵ has a logarithmic singularity, i.e. where sÊ(s) = −ζ_c(s): the neutral
 modes of the loop. The clip (π′ ≥ 0, the rule can add g-integers but never remove one) is what makes E one-signed below: E > −½, i.e.
 R(u) ≥ ½ − ρ =: r₀ for all u (attained at every prime: R(p−) = ½ − ρ; `verify/lin_sweep_1e6.log`, column inf R).
+*Clipping is the only source of positive E beyond rounding* [proved here, from Prop. 2.1]: E = ½ at every prime, and E(x) − ½ =
+C(p_k, x] − ρ(x − p_k) inside a gap, so E exceeds ½ exactly when composites outpace the rate ρ — when the prime density the loop
+would need, ρ − (composite rate), is negative and the rule can only refuse. In the brief's normalization: with a signed prime measure
+the loop could track T up to rounding; the actual measure is that signed one plus a clip measure κ ≥ 0, and to first order
+sÊ = ζ_c·κ̂, so the neutral modes (zeros of ζ_P) are where the clip's transform is resonant.
 *Remark 1.6′ (the cleanest form of Theorem 1.6)* [proved here]. If R(u) ≥ r₀ > 0 for all u and R = O(u^θ), then
 ζ_P(σ) ≥ r₀ − ρσ/(1 − σ) > 0 for θ < σ < r₀/(r₀ + ρ), and ζ_P has a real zero in [r₀/(r₀ + ρ), 1). An integer count that never dips
 below its linear part forces a real (Siegel-type) zero; ℕ escapes because ⌊u⌋ − u ≤ 0. U needs r₀/(r₀ + ρ) > ½, i.e. r₀ > ρ: for S8,
@@ -158,9 +163,10 @@ sup Re = 1, and nothing gives a zero-free strip either; a density estimate of R�
 gives α ≥ σ* > max{½, 2θ} and U fails — no box, no Rouché margin, no explicit constant. For S8(ρ), r₀ = ½ − ρ, so everything rests on
 > **Lemma B_ρ.** For S8(ρ) with some ρ < ¼: N(x) − ρx = O(x^θ) for some θ ≤ ½ − ρ (data: O(log²x)).
 With the finite certificate of Cor. 1.7(iii) the exponent can be relaxed to θ < σ₁/2 where F_X(σ₁) > ½X^{−σ₁}: for ρ = π/16,
-F_{10⁷}(0.79) > 0 (σ* = 0.794755), so θ < 0.395 suffices; for ρ = π/32, θ < 0.447.
-**Dichotomy** [proved here, from Theorem 1.6]. For each ρ < ¼: either Conjecture U fails, or β(S8(ρ)) > ½ − ρ (indeed ≥ σ*/2: ≥ 0.397
-for π/16, ≥ 0.447 for π/32). The data (§1.8, §2.3) show sup E ≈ 0.049 log²x for π/16 over four decades (local exponent 0.12 on
+F_{10⁷}(0.79) > 0 (σ* = 0.794755), so θ < 0.395 suffices; for ρ = π/32, F_{10⁶}(0.89) > 0 (`verify/bracket_pi32_1e6.log`), so θ < 0.445.
+**Dichotomy** [proved here, from Theorem 1.6]. For each ρ < ¼: either Conjecture U fails, or β(S8(ρ)) > ½ − ρ (if β ≥ 1 − 2ρ this is
+trivial; if β < 1 − 2ρ, Theorem 1.6 gives α > 1 − 2ρ ≥ ½ and U forces 2β ≥ α). Certified: β(S8(π/16)) > 0.395 (from F_{10⁷}(0.79) > 0),
+β(S8(π/32)) > 0.402 by Theorem 1.6 alone and > 0.445 from F_{10⁶}(0.89) = +0.0434 > 0; numerically σ*/2 = 0.397 and 0.448. The data (§1.8, §2.3) show sup E ≈ 0.049 log²x for π/16 over four decades (local exponent 0.12 on
 [10⁶, 10⁷]). U, if true, would force this explicit queue-like system to develop power-law excursions of exponent ≥ 0.397.
 By Prop. 2.1, Lemma B_ρ follows from **Lemma G_ρ**: the g-primes of S8(ρ) have gaps O(x^θ) (data: G(x) ≈ 1.3 log²x for π/16).
 
@@ -171,6 +177,16 @@ with p₁, …, p_{k−1}, reaches ½) is known before any prime near it must be
 realization, E > −½ (no prime comes after its deficit time, so D < ½ throughout), so r₀ = ½ − ρ and Theorem 1.6 applies to EVERY
 realization that satisfies (B); E ≤ (excursion) + ρw. Hence **U is refuted as soon as S8^w satisfies (B) with positive probability**
 (probabilistic method; the realization need not be computed).
+*The rule tested* [computed: `verify/s8w_block.py` (block generator: composites in [B, p₁B) use only g-integers below B, so early primes
+cause no ordering problem; w = 0 reproduces S8 exactly — N, π, sup E, σ* identical to `s8_mech.py`), logs `s8w_pi16_1e6_sweep.log`,
+`s8w_pi16_1e7_w50.log`]. ρ = π/16, X = 10⁷ (10⁶ in brackets), two seeds: w = 2.5 (half a prime spacing): sup E = 11.30 [9.78, 8.51]
+vs 12.84 [9.64] deterministic; w = 10: [15.74, 11.51]; w = 50: 58.2 and 171.2 [34.0, 82.0], i.e. 0.22 and 0.66·log²X, the second seed
+growing by 2.1 per decade (local exponent 0.32). Every realization has inf E(x−) = −½ exactly (at p₁, placed at its deficit time) and E > −½
+after every event, as proved. The real zero moves right with w: σ* = 0.809/0.801 (w = 2.5), 0.848/0.824 (10), 0.867/0.878 (50); π(10⁷)
+falls from 633,514 to 556,046–626,208 (earlier primes give earlier composites). **Randomization makes the integer error WORSE**: the
+deterministic composite stream is sub-Poissonian (§2.3) and random offsets of width ≫ t destroy that order. So the regularity of S8 is a
+deterministic correlation effect, and route (a) must work with a rougher system than the one it is meant to explain; for U this is
+harmless only if S8^w still has θ ≤ ½ − ρ, and the w = 50 data do not show that cleanly.
 *Concentration step.* Order the primes; F_k = σ(p₁, …, p_k). For an interval I, C(I) = Σ_k Y_k with Y_k := #{n ∈ I composite : the largest INDEX among n's prime factors is k} (for w > t
 positions need not increase with the index), which is F_k-measurable. Doob: C(I) = Σ_k(Y_k − E[Y_k|F_{k−1}]) + A(I), A(I) := Σ_k E[Y_k|F_{k−1}] (the
 compensator: each prime's contribution averaged over its own window, the rest frozen). Freedman's inequality [recalled, unverified:
@@ -224,6 +240,30 @@ on (0, 1), hence negative on (0, 1) when ζ_K is — so by Remark 1.6′ none of
 first sub-square-root integer bound for a non-arithmetic discrete system; that is Diamond–Montgomery–Vorhauer's open question
 (p1-02 p. 4) in the discrete case, now in the sharp form "one-sided regularity + O(x^θ)".
 
+**3.4 The sieve form of the missing estimate** [proved here unless marked]. Freeness (no ties needed: multiples of a squarefree d in
+the free monoid are exactly d·G) gives Legendre's identity for the system: for I = (a, b] with a ≥ √b,
+π(I) = Σ_{d | P(√b)} μ(d)·#(G ∩ I/d), P(z) := product of the g-primes ≤ z (a g-integer in I with no g-prime factor ≤ √b is prime).
+Inserting #(G ∩ J) = ρ|J| + ΔE(J) and telescoping Σ_{q≤z}(1/q)Π_{p<q}(1 − 1/p) = 1 − M(z), M(z) := Π_{q≤z}(1 − 1/q):
+  π(I) = ρ|I|·M(√b) + ΔE(I) + S(I),  S(I) := Σ_{d | P(√b), d > 1} μ(d)·ΔE(I/d).
+So on a prime gap I (π(I) = 0): ΔE(I) = −ρ|I|M(√b) − S(I). The composites' "mean" deficit ρ|I|M(√b) is an exact function of the
+g-primes ≤ √b — no PNT enters — and it has an unconditional floor: the g-primes are a subset of the lattice 1 + (ℤ_{≥1} − ½)t, so
+M(z) ≥ M_lat(z) := Π_{lattice points ≤ z}(1 − 1/·) ≍ z^{−ρ}. Data (`verify/s8_mertens.py`, π/16, 10⁶) [computed]: M_lat(z)·z^ρ → 1.0127
+(constant from z = 10³ on); M(z)·log z = 2.54, 2.70, 2.78, 2.81 at 10³…10⁶ (a Mertens law with constant ≈ 2.8–2.9); Legendre's
+identity checked exactly on three intervals of length 200 near 2.5·10⁵ and 3.3·10⁵.
+**Lemma S (the missing estimate in sieve form).** For all u and all I ⊂ [u, 2u] with |I| ≥ L(u): S(I) ≥ −½ρ|I|M(√u) − O(u^θ).
+By the gap identity, Lemma S for ALL I gives E ≤ O(u^θ) + ½ directly (E(x) − ½ = −ρ|I|M − S(I) on I = (p_k, x]).
+Two consequences of the floor M ≥ M_lat: (i) square-root cancellation with polylog loss, |S(I)| ≪ √|I|·log u + log²u, gives
+E ≤ max_h(−ρhM + √h·log u) + log²u ≍ log²u/(ρM(√u)) ≪ u^{ρ/2}·log²u, i.e. **θ = ρ/2 + ε with no prime number theorem for the system**;
+U needs θ ≤ ½ − ρ, true for all ρ < ⅓, which covers the range ρ < ¼ of Theorem 1.6; (ii) with the system's Mertens law M(z) ≍ 1/log z
+(data above; not proved) the same cancellation gives E = O(log³u). The data's E ≍ log²u, ∝ ρ (§2.3), show that S cancels even better
+than independent increments would (independence gives Var S(I) ≈ ρ|I|·Σ_{d|P}1/d ≍ ρ|I| log u, while Var C(I) ≈ 0.6ρ|I| is measured
+through the tail rate): the increments ΔE(I/d) at different scales are strongly anti-correlated, as the identity forces.
+The trivial bound |S(I)| ≤ 2·sup|E|·#{d} is of size u, which is why Legendre's sieve, here as for ℕ, gives nothing by itself.
+Lemma S is a Möbius-cancellation statement for E at smaller scales; it is equivalent to Lemma B (by the identity above), so it is a
+reformulation, not progress — but it isolates the one place where randomness (route (a)) would have to act: the ΔE(I/d) for different
+d live at different scales, and a martingale ordered by scale u/d would give (i) once the predictable part (E's drift at scale u/d,
+which depends on the queue state there) is shown to be uncorrelated with μ(d) [the gap, stated precisely in §0].
+
 ## §4. The Rouché theorem for S8 (task 4) — superseded on the real axis by Theorem 1.6
 
 **4.1 Real zeros: the certificates** [proved here, modulo the floating-point evaluation below] [computed: `verify/s8_bracket.py`,
@@ -257,4 +297,39 @@ Numbers: pending the compute unit's task 3(iii) box (see §0 for the state at cl
 
 ## §6. Instruments rows, Untried, waste line, distance from upstream
 
-(pending)
+**Instruments rows** (shape of `directions/B2-refutation-program.md`; records, never ranks; not applied — for the digest)
+
+| Quantity | Current best value | Result file | Dated |
+|---|---|---|---|
+| Real zero of ζ_P for the free greedy system S8(ρ) (Theorem 1.6: forced in (1 − 2ρ, 1) by E > −½ plus any bound E = O(x^θ), θ < 1 − 2ρ) | σ* of F_X: π/64 0.947634, π/32 0.895076, π/16 0.794755 (X = 10⁷; 0.794752 at 10⁶), π/8 0.656529, π/6 0.521753, π/4 0.514036, 0.95π/3 0.402156 (X = 10⁶); certified brackets: π/16 ζ_P(0.79) > 0 given only qualitative (B) (F_{10⁷}(0.79) = +0.022231), zero in (0.79, 0.80) if E ≤ 33.7 log²u beyond 10⁷; π/4 ζ_P(½) > 0 (F = +0.067067), zero in (0.50, 0.55) if E ≤ 3.78 log²u. First-order law σ* ≈ (1 − ρ) + ρζ_P(1 − ρ) good to 4·10⁻⁴ for ρ ≤ π/16. One producer (theory; double precision, ordering margin ≥ 5.6·10⁻¹³ relative to 10⁷) | `free-greedy-s40/theory/NOTE.md` §1.6–1.8, §2.2, §4.1; `theory/verify/bracket_pi16_1e7.log`, `bracket_pi4_1e7.log`, `mech_sweep_*_1e6.log`, `lin_sweep_1e6.log` | 2026-10-01 |
+| Integer error of S8(ρ) in the U-relevant range ρ < ¼ (Lemma B_ρ: θ ≤ ½ − ρ refutes U) | π/16: sup E = 3.04, 3.54, 6.88, 9.64, 12.84 at 10³…10⁷, sup E/log²x = 0.064, 0.042, 0.052, 0.050, 0.049; largest g-prime gap 336.1 at 10⁷ (≈ 1.3 log²x); π/32: 6.39 at 10⁶; π/64: 3.51 at 10⁶. U predicts β(S8(π/16)) ≥ 0.397. One producer (theory, Python, double precision) | `theory/NOTE.md` §1.8, §3.0; `theory/verify/mech_pi16_1e7.log`, `mech_sweep_*_1e6.log` | 2026-10-01 |
+| Law of E of S8 vs the Poisson-queue heuristic (tail e^{−κh}, κ ≈ 2/(ρ log x)) | measured tail rate = (1.45–1.65)·2/(ρ log x): π/16 on [10³, 10⁷] (theory), π/4 on [10⁶, 10⁹] (compute unit, λ·log x ≈ 3.7–3.9 vs 2.55); time-mean of E = 0.57·ρ log x/2 (π/16); composite arrivals sub-Poissonian, effective variance ≈ 0.6. Two producers | `theory/NOTE.md` §2.3; `theory/verify/mech_pi16_1e7.log`; `free-greedy-s40/SHARED.md` compute batch 1 | 2026-10-01 |
+| Mertens law of S8 (the sieve margin of §3.4) | π/16: M(z)·log z = 2.54, 2.70, 2.78, 2.81 at z = 10³…10⁶; proved floor M(z) ≥ M_lat(z) with M_lat(z)·z^ρ → 1.0127. One producer | `theory/NOTE.md` §3.4; `theory/verify/mertens_pi16_1e6.log` | 2026-10-01 |
+
+**Untried** (format of the directions' lists)
+- **UT-F1 Prove Lemma B_ρ** for one ρ < ¼ (π/16 is the natural choice): E = O(x^θ) for some θ ≤ ½ − ρ, any constant. With Theorem 1.6
+  it refutes U with no computation. First rung: the sieve form, Lemma S (§3.4) — square-root cancellation with polylog loss already
+  suffices (θ = ρ/2 + ε, no PNT needed). Target: B2.
+- **UT-F2 Lemma S for the randomized rule S8^w** (early placement keeps E > −½ for every realization, §3.1): a martingale ordered by the
+  scale u/d of the increments ΔE(I/d); the gap is the decorrelation of μ(d) from the queue drift at scale u/d. Positive probability
+  suffices for U. Target: B2.
+- **UT-F3 Large-X evidence at small ρ.** sup E and the largest g-prime gap for π/16, π/32 to 10⁹–10¹⁰ with the double-double generator
+  (cheap: N = ρX); U predicts power-law excursions of exponent > 0.395 (π/16) and > 0.445 (π/32), both certified (§3.0). Target: B2 (compute).
+- **UT-F4 Rigorous bracket at scale.** π/16: F_X(0.79) > 0 and F_X(0.80) < 0 by interval arithmetic at X = 10⁹ (not needed for U when
+  ρ < ¼; it lifts the floor 1 − 2ρ = 0.607 to 0.79 and relaxes the needed θ to 0.395). Target: B2.
+- **UT-F5 Is Theorem 1.6 a Siegel-zero criterion elsewhere?** For any zeta with Euler product, positive coefficients and residue ρ:
+  "the coefficient count never falls below ρu + r₀, r₀ > ρ ⇒ real zero ≥ r₀/(r₀ + ρ)". For number fields the hypothesis fails by the
+  Ω₋ results for lattice-point errors, consistently with GRH; check whether the criterion is classical (§5). Target: C2.
+
+**Waste line (10(o)).** Spent without result: the 10⁷ reflection check on the prototype's incremental generator (20 s; it tripped on
+float drift, which is itself a finding passed to the compute unit); a sequence of crude unconditional bounds for E (smallest/largest
+prime factor counting, the Chebyshev identity, the "no primes ⇒ only smooth composites" argument) — none gives even E = o(x), recorded in
+§3.3; the first draft of §3.4 had the cancellation exponent wrong (θ = ρ + ε instead of ρ/2 + ε), corrected before close; two SHARED
+stamps were mistyped and corrected to the machine clock. Not done: a rigorous multi-scale proof of route (a) (judged a multi-week
+project, §3.1, §3.4); interval-arithmetic certification (not needed for ρ < ¼); runs past 10⁷ (the charter's CPU rule held: four or
+more heavy processes were running for most of the session).
+
+**Distance from upstream (10(n)).** Theorem 1.6, Remark 1.6′, Cor. 1.7, Prop. 2.1, the Legendre form of §3.4 and the Dichotomy use no
+printed input: the Mellin identity of Lemma 1.5 and the "zero ⇒ α ≥ Re" step are written out in full here. The one quoted input is
+Hilberdink 2005 Cor. 2(b) (§2.4, used only to describe what is forced, not in any proof). The construction S8 is the orchestrator's
+(charter); the randomized early-placement rule, the sieve form and the real-zero mechanism are this unit's.

@@ -34,6 +34,14 @@ def F(s, D, deriv=False):
     dval = -complex((e * (c * P + Q)).sum()) - rho * X * Xs * (lX / (s - 1) + 1 / (s - 1) ** 2) + EX * Xs * lX
     return val, dval
 
+def Gfun(s, D):
+    """G(s) = (s - 1) F_X(s), entire: (s - 1)(sum_n n^-s - E(X) X^-s) + rho X^{1-s} (no division at s = 1)."""
+    s = complex(s); M, c = D["M"], D["c"]
+    co = [(-s) ** j / factorial(j) for j in range(M.shape[1])]
+    S = complex((np.exp(-s * c) * (M @ np.array(co))).sum())
+    Xs = np.exp(-s * D["logX"])
+    return (s - 1) * (S - D["EX"] * Xs) + D["rho"] * D["X"] * Xs
+
 def F_grid(sigma, D, tmax=200.0, L=2 ** 21):
     """F_X(sigma + i t_m), t_m = m * 2 pi / (L w), 0 <= t_m <= tmax, via 7 FFTs."""
     M, c, w = D["M"], D["c"], D["w"]

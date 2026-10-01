@@ -32,3 +32,19 @@ T3 free + Landau PNT (quoted, DMV pp. 2–3 l. 99–115) ⇒ refused primes and 
 Σ_R p^{−θ} < ∞ via (ℙ∖R) ∪ {2p}; 4(b) Ramanujan examples ℙ ∪ {6}, ℙ ∪ {2p}, open question stated; T4 (Rankin-type lemma):
 rank excess D among g-primes ≤ y ⇒ max f ≥ ½exp(D log(1/c) − …) at log x ≍ y; T4′: positive-proportion refusal + PNT ⇒
 max a_n ≥ x^{κ/log log x} (divisor-function size, not a power). Next: §5 carriers/model, then §0 close.
+
+## 11:58 IST 2026-10-01 — block 6: §5 carriers and model
+Proved: E ≥ −0.4 always; hence m_n ∈ {0,1} and n is a g-prime iff A(n) = 0 and E(n − 1) ≤ 0.3. Data (`carriers.c`): composite
+g-primes match refused primes per decade to 0.05%; c_ℓ(10⁹) ≈ 0.043·10⁹/ℓ for each of the first 30 refused ℓ; carrier
+probability ≈ (1.6–1.8)/ln n among non-representable multiples. Model crossing of n^{0.383} for f_G (G ≤ 10⁹): 10⁶⁴–10⁸⁸ if the
+marginal rate 0.40–0.42 persists. Next: §0 close, zoo line, Instruments, Untried, waste.
+
+## 12:00 IST 2026-10-01 — block 7: NOTE complete (§0 close K + T, §6–§10)
+§0 close written (K + T, model statements labeled); §6 prior art (one printed input: Landau PNT via DMV 2006); §7 Untried UT-M1…M5;
+§8 three Instruments rows; §9 zoo rider BLOCK:i2 (not inserted); §10 waste line + candidate LOG line. Final checks next.
+
+## 12:03 IST 2026-10-01 — block 8: final review done; unit closed (K + T)
+NOTE re-read end to end; fixes: marginal-rate range 0.37–0.46 (measured), DP-check wording, converse construction needs R ⊆ odd
+primes, T4′ error bound ½(e^{…} − ρ), U-threshold caveat (α = Re ρ₁ assumed rightmost), zoo-rider wording, waste times. Every count
+cited has a log in verify/logs (tool_crosschecks.log added for §2.2). No processes left running. Scratch kept in
+/private/tmp/rh-s40-s5mult/ (gbits.bin 125 MB, gp_ext_1e9_2e9.u32 379 MB, binaries).

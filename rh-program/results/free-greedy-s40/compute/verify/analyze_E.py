@@ -19,7 +19,7 @@ hx, hm = H[:, 0], H[:, 1:]
 edges = -1.0 + np.arange(8193) / 16.0
 print(f"# analyze_E {tag} rho={rho:.12f}")
 print("# (1) windows (x_{j-1}, x_j]: time-weighted quantiles of E; tail fit log P(E>y) = a - lam*y on 1e-1 > P > 1e-4")
-print("#  x_j        meanE   q50    q90    q99    q99.9  maxE_win  lam_fit  lam_queue=2/(rho log xc)  ratio")
+print("#  x_j        meanE   q50    q90    q99    q99.9  maxE_win(*)  lam_fit  lam_queue=2/(rho log xc)  ratio")
 prev = np.zeros(8192); xprev = 1.0
 for k in range(len(hx)):
     m = hm[k] - prev; prev = hm[k].copy()
@@ -31,7 +31,10 @@ for k in range(len(hx)):
         c0 = cdf[j - 1] if j > 0 else 0.0
         return edges[j] + (a - c0) / max(cdf[j] - c0, 1e-300) / 16.0
     mean = float((m * (edges[:-1] + 1 / 32)).sum() / tot)
-    nz = np.nonzero(m > 1e-12 * tot)[0]; emax = edges[nz[-1] + 1] if len(nz) else float("nan")
+    nz = np.nonzero(m > 1.0)[0]; emax = edges[nz[-1] + 1] if len(nz) else float("nan")   # level held >= 1 time unit
+    if S.shape[1] >= 27:
+        r = np.nonzero(np.isclose(S[:, 0], hx[k], rtol=1e-9))[0]
+        if len(r): emax = S[r[0], 26]                                                    # exact window max (wMaxE)
     surv = 1.0 - cdf  # P(E > right edge of cell)
     sel = (surv < 1e-1) & (surv > 1e-4)
     lam = float("nan")
@@ -42,6 +45,7 @@ for k in range(len(hx)):
     lq = 2.0 / (rho * math.log(xc))
     print(f"{hx[k]:10.3e} {mean:7.3f} {q(.5):6.2f} {q(.9):6.2f} {q(.99):6.2f} {q(.999):6.2f} {emax:8.2f} {lam:8.4f} {lq:10.4f} {lam / lq:12.3f}")
     xprev = hx[k]
+print("# (*) maxE_win: exact window maximum of E when the log carries it (wMaxE column), else the highest level E held for >= 1 unit of time")
 print("# (2) sup E growth (running sup at 100 points per decade, x >= 1e3)")
 x, sE = F[:, 0], F[:, 5]
 sel = x >= 1e3; x, sE = x[sel], sE[sel]

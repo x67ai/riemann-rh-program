@@ -27,6 +27,7 @@ typedef __int128 i128;
 static int64_t NUM, DEN; static uint64_t X; static int VAR;
 static uint32_t *sp; static long nsp;           /* small primes <= sqrt(X) */
 static int32_t *spi;                             /* index of small prime p, or -1 */
+static int64_t (*inv)[KM]; static int movf = 0;
 static uint64_t (*poly)[KM]; static uint16_t (*mloc)[KM]; static int *kmax;
 static uint8_t *mq;                              /* m_q for odd primes q <= X/2, index q>>1 */
 static long hm[66]; static int64_t maxm = 0; static uint64_t maxmn = 0; static double summ[12];
@@ -67,11 +68,12 @@ int main(int argc, char **argv){
   uint8_t *cmp = calloc(sq + 2, 1); spi = malloc((sq + 2)*sizeof(int32_t)); sp = malloc((sq + 2)*sizeof(uint32_t)); nsp = 0;
   for(uint64_t i = 0; i <= sq + 1; i++) spi[i] = -1;
   for(uint64_t i = 2; i <= sq; i++) if(!cmp[i]){ spi[i] = (int32_t)nsp; sp[nsp++] = (uint32_t)i; for(uint64_t j = i*i; j <= sq; j += i) cmp[j] = 1; }
+  inv = calloc(nsp, sizeof *inv); for(long i = 0; i < nsp; i++) inv[i][0] = 1;
   poly = calloc(nsp, sizeof *poly); mloc = calloc(nsp, sizeof *mloc); kmax = malloc(nsp*sizeof(int));
   for(long i = 0; i < nsp; i++){ poly[i][0] = 1; uint64_t q = 1; int k = 0; while(q <= X/sp[i]){ q *= sp[i]; k++; } kmax[i] = k; }
   mq = calloc((X/2)/2 + 2, 1); if(!mq){ fprintf(stderr, "oom mq\n"); return 1; }
   const uint64_t SMAX = 1ull << 22;
-  uint32_t *rem = malloc(SMAX*4), *ppp = malloc(SMAX*4), *dv = malloc(SMAX*4); uint64_t *av = malloc(SMAX*8); int64_t *gv = malloc(SMAX*8);
+  uint32_t *rem = malloc(SMAX*4), *ppp = malloc(SMAX*4), *dv = malloc(SMAX*4); uint64_t *av = malloc(SMAX*8); int64_t *gv = malloc(SMAX*8), *mv = malloc(SMAX*8);
   uint8_t *ppe = malloc(SMAX), *nd = malloc(SMAX);
   uint16_t *abuf = malloc(SMAX*2); int16_t *gbuf = malloc(SMAX*2);
   FILE *fa = NULL, *fg = NULL, *fx = NULL; char fn[4096];
@@ -83,14 +85,14 @@ int main(int argc, char **argv){
   double *Tmax = malloc(nb*8), *Wmax = malloc(nb*8), *T2 = malloc(nb*8), *W2 = malloc(nb*8); long *cnt = calloc(nb, sizeof(long));
   for(int i = 0; i < nb; i++){ Emax[i] = -1e300; Emin[i] = 1e300; E2[i] = T2[i] = W2[i] = 0; Pmax[i] = Tmax[i] = Wmax[i] = 0; Gmx[i] = -1e300; Gmn[i] = 1e300; }
   long pm[12][7], pk[12][7]; memset(pm, 0, sizeof pm); memset(pk, 0, sizeof pk);
-  int64_t N = 1, Mg = 1; s1hi = 1.0; uint64_t maxa = 1, maxan = 1, nover = 0, ngp = 0, totm = 0; double maxrat = 1; int sat = 0;
+  int64_t N = 1, Mg = 1, MP = 1; double *MPmax = calloc(nb, sizeof(double)); s1hi = 1.0; uint64_t maxa = 1, maxan = 1, nover = 0, ngp = 0, totm = 0; double maxrat = 1; int sat = 0;
   int b = (int)(BPD*log10(2.0)); uint64_t bnext = (uint64_t)ceil(pow(10.0, (b + 1.0)/BPD)); int dec = 0; uint64_t dnext = 10;
   double supE = -1e300, infE = 1e300, supMg = 0;
   printf("# s7gen num=%lld den=%lld rho=%.12g X=%llu variant=%d label=%s\n", (long long)NUM, (long long)DEN, rho, (unsigned long long)X, VAR, lab);
   uint64_t L = 2;
   while(L <= X){
     uint64_t S = L < SMAX ? L : SMAX, R = L + S; if(R > X + 1) R = X + 1; uint64_t len = R - L;
-    for(uint64_t i = 0; i < len; i++){ rem[i] = (uint32_t)(L + i); av[i] = 1; gv[i] = 1; ppp[i] = 0; ppe[i] = 0; nd[i] = 0; dv[i] = 1; }
+    for(uint64_t i = 0; i < len; i++){ rem[i] = (uint32_t)(L + i); av[i] = 1; gv[i] = 1; mv[i] = 1; ppp[i] = 0; ppe[i] = 0; nd[i] = 0; dv[i] = 1; }
     uint64_t sr = isqrt64(R - 1);
     for(long ip = 0; ip < nsp && sp[ip] <= sr; ip++){
       uint32_t p = sp[ip]; uint64_t st = ((L + p - 1)/p)*p;
@@ -99,29 +101,31 @@ int main(int argc, char **argv){
         do { r /= p; e++; } while(r % p == 0);
         rem[i] = r;
         if(r == 1 && nd[i] == 0){ ppp[i] = p; ppe[i] = (uint8_t)e; }
-        else { nd[i]++; av[i] *= poly[ip][e]; gv[i] *= (int64_t)poly[ip][e] - (int64_t)poly[ip][e-1]; dv[i] *= (uint32_t)(e + 1); }
+        else { nd[i]++; av[i] *= poly[ip][e]; gv[i] *= (int64_t)poly[ip][e] - (int64_t)poly[ip][e-1]; dv[i] *= (uint32_t)(e + 1); if(__builtin_mul_overflow(mv[i], inv[ip][e], &mv[i])) movf = 1; }
       }
     }
     for(uint64_t i = 0; i < len; i++){
       if(ppp[i]) continue; uint32_t r = rem[i];
       if(r > 1){ if(nd[i] == 0){ ppp[i] = r; ppe[i] = 1; }
-                 else { uint64_t v = mq[r >> 1]; av[i] *= v; gv[i] *= (int64_t)v - 1; dv[i] *= 2; } }
+                 else { uint64_t v = mq[r >> 1]; av[i] *= v; gv[i] *= (int64_t)v - 1; dv[i] *= 2; mv[i] *= -(int64_t)v; } }
     }
     for(uint64_t i = 0; i < len; i++){
-      uint64_t n = L + i; int64_t a, g; double lam = 0; uint64_t dn;
+      uint64_t n = L + i; int64_t a, g, mu; double lam = 0; uint64_t dn;
       if(ppp[i]){
         uint64_t p = ppp[i]; int e = ppe[i]; int ip = (p <= sq) ? spi[p] : -1;
         int64_t A = (ip >= 0) ? (int64_t)poly[ip][e] : 0, cprev = (ip >= 0) ? (int64_t)poly[ip][e-1] : 1;
         int64_t m = decide(n, p, e, A, N, ip);
         if(ip >= 0){ mloc[ip][e] = (uint16_t)m; for(int64_t c = 0; c < m; c++) for(int j = e; j <= kmax[ip]; j++) poly[ip][j] += poly[ip][j-e];
+                     for(int j = 1; j <= kmax[ip]; j++){ i128 acc = 0; for(int k2 = 1; k2 <= j; k2++) acc += (i128)poly[ip][k2]*inv[ip][j-k2]; if(acc > INT64_MAX || acc < -INT64_MAX) movf = 1; inv[ip][j] = (int64_t)(-acc); }
                      int64_t s = 0; for(int k = 1; k <= e; k++) if(e % k == 0) s += (int64_t)k*mloc[ip][k]; lam = log((double)p)*(double)s; }
         else lam = log((double)p)*(double)m;
         if(e == 1 && (p & 1) && p <= X/2){ if(m > 255){ fprintf(stderr, "m > 255 at %llu\n", (unsigned long long)n); return 2; } mq[p >> 1] = (uint8_t)m; }
-        a = A + m; g = a - cprev; dn = (uint64_t)e + 1;
+        a = A + m; g = a - cprev; dn = (uint64_t)e + 1; mu = (ip >= 0) ? inv[ip][e] : -m;
         if(m > 0){ ngp++; totm += m; }
         if(e == 1){ pm[dec][m < 6 ? m : 6]++; hm[m < 65 ? m : 65]++; summ[dec] += (double)m; if(m > maxm){ maxm = m; maxmn = n; } } else pk[dec][m < 6 ? m : 6]++;
         if(fx && ((e == 1 && m != 1) || (e >= 2 && m != 0))){ uint32_t pr[2] = {(uint32_t)n, (uint32_t)m}; fwrite(pr, 4, 2, fx); }
-      } else { a = (int64_t)av[i]; g = gv[i]; dn = dv[i]; }
+      } else { a = (int64_t)av[i]; g = gv[i]; dn = dv[i]; mu = mv[i]; }
+      MP += mu;
       N += a; Mg += g; dd(&s1hi, &s1lo, (double)g/(double)n); if(lam != 0) dd(&pshi, &pslo, lam);
       if((uint64_t)a > maxa){ maxa = (uint64_t)a; maxan = n; }
       if((uint64_t)a > dn) nover++; if((double)a/(double)dn > maxrat) maxrat = (double)a/(double)dn;
@@ -133,7 +137,7 @@ int main(int argc, char **argv){
       if(E > supE){ if(E > 50 && E > 1.02*supE) printf("rec n=%llu E=%.2f a_n=%lld\n", (unsigned long long)n, E, (long long)a); supE = E; }
       if(E - rho < infE) infE = E - rho;
       double psi = pshi + pslo, d1 = fabs(psi - (double)n), d2 = fabs(psi - (double)(n + 1)); if(d2 > d1) d1 = d2; if(d1 > Pmax[b]) Pmax[b] = d1;
-      if((double)Mg > Gmx[b]) Gmx[b] = (double)Mg; if((double)Mg < Gmn[b]) Gmn[b] = (double)Mg; if(fabs((double)Mg) > supMg) supMg = fabs((double)Mg);
+      if((double)Mg > Gmx[b]) Gmx[b] = (double)Mg; if((double)Mg < Gmn[b]) Gmn[b] = (double)Mg; if(fabs((double)Mg) > supMg) supMg = fabs((double)Mg); if(fabs((double)MP) > MPmax[b]) MPmax[b] = fabs((double)MP);
       double Tt = (double)n*((s1hi - rho) + s1lo), W = E - Tt - rho + 1.0;
       if(fabs(Tt) > Tmax[b]) Tmax[b] = fabs(Tt); if(fabs(W) > Wmax[b]) Wmax[b] = fabs(W); T2[b] += Tt*Tt; W2[b] += W*W;
       if(n == dnext - 1 || n == X){
@@ -156,6 +160,8 @@ int main(int argc, char **argv){
   printf("# primes by decade: dec  m=0 m=1 m=2 m=3 m=4 m=5 m>=6 | higher powers p^k (k>=2): m=0 m=1 m=2 m=3 m=4 m=5 m>=6\n");
   for(int d = 0; d < 12; d++){ long s = 0; for(int j = 0; j < 7; j++) s += pm[d][j] + pk[d][j]; if(!s) continue;
     printf("D %d", d); for(int j = 0; j < 7; j++) printf(" %ld", pm[d][j]); printf(" |"); for(int j = 0; j < 7; j++) printf(" %ld", pk[d][j]); printf("\n"); }
+  printf("# mobius (mu_P = Dirichlet inverse of a): overflow=%d M_P(X)=%lld; bins: bin_lo sup|M_P|\n", movf, (long long)MP);
+  for(int i = 0; i < nb; i++) if(cnt[i]) printf("MP %.4e %.6g\n", pow(10.0, (double)i/BPD), MPmax[i]);
   printf("# bin_lo Emax Emin Erms sup|psi-x| Mgmax Mgmin sup|Tt| sup|W| Ttrms Wrms\n");
   for(int i = 0; i < nb; i++) if(cnt[i]) printf("%.4e %.6g %.6g %.6g %.6g %.6g %.6g %.6g %.6g %.6g %.6g\n", pow(10.0, (double)i/BPD), Emax[i], Emin[i], sqrt(E2[i]/cnt[i]),
       Pmax[i], Gmx[i], Gmn[i], Tmax[i], Wmax[i], sqrt(T2[i]/cnt[i]), sqrt(W2[i]/cnt[i]));

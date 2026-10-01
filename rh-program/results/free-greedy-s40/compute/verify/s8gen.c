@@ -39,7 +39,7 @@ typedef struct {          /* all scalar state (checkpointed as one block) */
     dd Vsup; int64_t skviol; double minEbefore;
     /* window statistics (reset at each half-decade sample) */
     double wInt, wLen, wMaxGap, wGapStart, wGapPeak, wMinGapAbs, wMinGapRel, wMinMargin, wMinEb;
-    int64_t wMaxClu, wTies, wMisord, wAmbig;
+    int64_t wMaxClu, wTies, wMisord, wAmbig; double wMaxE;
     dd lastPrime; double gapPeak;                   /* running peak of E since the last g-prime */
     int64_t ringH, ringT;
     int nsamp, iSamp, iProto, iFine, iSnap, nsnap; double sampX[NSAMP], snapX[32];
@@ -66,7 +66,7 @@ static int64_t capH;
 typedef struct { dd pw; int64_t i; double lq; } pent;
 static pent *PH; static int64_t capPH;
 /* E histogram (difference arrays, cumulative from x = 1), moments, ring buffer, sieve bits */
-static double *HC, *HS, *MOM; static int64_t capMOM;
+static double *HC, *MOM; static int64_t *HS; static int64_t capMOM;   /* HS: integer counts (exact prefix sums) */
 static double ring[RING];
 static uint8_t *SB;
 static FILE *DUMPF = 0;                             /* optional: every g-integer (dd) to $S8_DUMP, for validation */
@@ -220,7 +220,7 @@ static void hist_seg(double lo, double hi) {        /* E runs linearly over [lo,
     int64_t ja = (int64_t)fa, jb = (int64_t)fb;
     if (ja == jb) { HC[ja] += (fb - fa) * HW * r; return; }
     HC[ja] += ((double)(ja + 1) - fa) * HW * r;
-    HS[ja + 1] += HW * r; HS[jb] -= HW * r;
+    HS[ja + 1] += 1; HS[jb] -= 1;
     HC[jb] += (fb - (double)jb) * HW * r;
 }
 static inline double E_at(dd x, int64_t N) {        /* N - T(x), T(x) = rho (x - 1) + 1 */
@@ -248,7 +248,7 @@ static void flush_powers(dd x) {                    /* add log q for every prime
 }
 static void window_reset(void) {
     G.wInt = 0; G.wLen = 0; G.wMaxGap = 0; G.wGapStart = 0; G.wGapPeak = 0; G.wMinGapAbs = 1e300; G.wMinGapRel = 1e300;
-    G.wMinMargin = 1e300; G.wMinEb = 1e300; G.wMaxClu = 0; G.wTies = 0; G.wMisord = 0; G.wAmbig = 0;
+    G.wMinMargin = 1e300; G.wMinEb = 1e300; G.wMaxClu = 0; G.wTies = 0; G.wMisord = 0; G.wAmbig = 0; G.wMaxE = -1e300;
 }
 static double wall(void) { struct timespec ts; clock_gettime(CLOCK_MONOTONIC, &ts); return ts.tv_sec + 1e-9 * ts.tv_nsec; }
 static void split_at(double xs) {                   /* close the running E segment at xs */
@@ -261,15 +261,15 @@ static void emit_sample(double xs) {
     split_at(xs); dd xd = { xs, 0.0 }; flush_powers(xd);
     int64_t pi = G.nP + G.nL;
     double psimx = (G.psi - xs) + G.psic;
-    printf("S %.9e %lld %lld %lld %.6f %.6f %.6f %.6f %.6f %.6e %.6f %lld %.6e %.6e %lld %lld %.6e %lld %lld %.3f %.3f %lld %lld %lld %lld %.1f\n",
+    printf("S %.9e %lld %lld %lld %.6f %.6f %.6f %.6f %.6f %.6e %.6f %lld %.6e %.6e %lld %lld %.6e %lld %lld %.3f %.3f %lld %lld %lld %lld %.1f %.6f\n",
         xs, (long long)G.N, (long long)pi, (long long)G.C, G.supE, G.Eprev, G.wLen > 0 ? G.wInt / G.wLen : 0.0, G.wMinEb,
         G.wMaxGap, G.wGapStart, G.wGapPeak, (long long)G.wMaxClu, G.wMinGapAbs, G.wMinGapRel, (long long)G.wTies,
         (long long)G.wMisord, G.wMinMargin, (long long)G.wAmbig, (long long)G.skviol, G.supPsi, psimx,
-        (long long)G.nS, (long long)G.nM, (long long)G.nLD, (long long)G.hn, wall() - G.wall0 + G.cpu_used);
+        (long long)G.nS, (long long)G.nM, (long long)G.nLD, (long long)G.hn, wall() - G.wall0 + G.cpu_used, G.wMaxE);
     char fn[1024]; snprintf(fn, sizeof fn, "%s.hist", PREFIX);
     FILE *f = fopen(fn, "ab");
-    if (f) { double *mass = malloc(HCELLS * sizeof(double)), run = 0;
-        for (int j = 0; j < HCELLS; j++) { run += HS[j]; mass[j] = HC[j] + run; }
+    if (f) { double *mass = malloc(HCELLS * sizeof(double)), cw = HW / G.rho.hi; int64_t run = 0;
+        for (int j = 0; j < HCELLS; j++) { run += HS[j]; mass[j] = HC[j] + (double)run * cw; }
         fwrite(&xs, sizeof(double), 1, f); fwrite(mass, sizeof(double), HCELLS, f); fclose(f); free(mass); }
     fflush(stdout);
     window_reset();
@@ -337,6 +337,7 @@ static void bookkeeping(dd x, int comp) {
     if (fabs(gr) < 1e-28) G.wTies++;
     if (ddv(gap) < G.wMinGapAbs) G.wMinGapAbs = ddv(gap);
     if (gr < G.wMinGapRel) G.wMinGapRel = gr;
+    if (Ea > G.wMaxE) G.wMaxE = Ea;
     if (comp) { if (Ea > G.supE) G.supE = Ea; if (Ea > G.gapPeak) G.gapPeak = Ea; }
     else {
         double gl = ddv(ddsub(x, G.lastPrime));
@@ -379,7 +380,7 @@ int main(int argc, char **argv) {
     if (argc < 9) { fprintf(stderr, "usage: s8gen rule|sieve X THETA RHO_HI RHO_LO T_HI T_LO PREFIX [resume]\n"); return 1; }
     PREFIX = argv[8];
     int resume = argc > 9 && !strcmp(argv[9], "resume");
-    HC = calloc(HCELLS, sizeof(double)); HS = calloc(HCELLS, sizeof(double));
+    HC = calloc(HCELLS, sizeof(double)); HS = calloc(HCELLS, sizeof(int64_t));
     if (!resume) heap_alloc((int64_t)(4.0 * sqrt(strtod(argv[2], 0))) + 65536);
     double X = strtod(argv[2], 0);
     if (resume) ckpt_load();
@@ -401,7 +402,7 @@ int main(int argc, char **argv) {
         G.fineNext = 10.0; G.protoNext = 10.0; G.protoStep = pow(10.0, 0.5); G.iFine = 100;
         window_reset();
         printf("# s8gen mode=%s X=%.6e theta=%.6f rho=%.17g%+.6e t=%.17g%+.6e B=%.6f\n", argv[1], X, G.theta, G.rho.hi, G.rho.lo, G.t.hi, G.t.lo, G.B.hi);
-        printf("# S cols: x N pi C supE E(x) meanE_win minEbefore_win maxPrimeGap_win gapStart gapPeakE maxClu_win minGapAbs minGapRel ties misorders minDecisionMargin_rel ambig_double skorokhodViol supPsi psi-x nS nM nLDbytes heap time\n");
+        printf("# S cols: x N pi C supE E(x) meanE_win minEbefore_win maxPrimeGap_win gapStart gapPeakE maxClu_win minGapAbs minGapRel ties misorders minDecisionMargin_rel ambig_double skorokhodViol supPsi psi-x nS nM nLDbytes heap time wMaxE\n");
     }
     G.wall0 = wall();
     if (getenv("S8_DUMP")) { DUMPF = fopen(getenv("S8_DUMP"), "wb"); dd u = { 1.0, 0.0 }; if (DUMPF && !resume) fwrite(&u, sizeof(dd), 1, DUMPF); }

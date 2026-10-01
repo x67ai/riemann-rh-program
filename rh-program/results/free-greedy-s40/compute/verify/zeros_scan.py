@@ -7,9 +7,9 @@
 import sys, math, warnings, numpy as np
 warnings.filterwarnings("ignore")
 sys.path.insert(0, __file__.rsplit("/", 1)[0])
-from zeta_bm import load, F, F_grid
+from zeta_bm import load, F, F_grid, Gfun
 
-def G(s, D): return (s - 1) * F(s, D)
+def G(s, D): return Gfun(s, D)
 
 def newton(s, D, it=60):
     for _ in range(it):

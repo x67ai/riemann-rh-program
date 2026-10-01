@@ -31,3 +31,19 @@ So "α > max{½, 2β} + 0.05 numerically over two decades" holds on route 1 for 
 Caveat recorded now: route 1 for α is a running-sup slope; a random walk Σ(m_p − 1)log p with growing step variance would also give
 a_sup > ½. Route 2 (zeros of F_X, stable under X) decides whether the excess is zero-driven. Doing route 2 at ρ = 0.6 next, then
 4·10⁹; variants and the long theory are deferred by the stop rule.
+
+## 2026-10-01 11:59 IST — route 2 at ρ = 0.6: two zeros of F_X with real part > 0.8, stable under X [computed]
+`verify/zline.c` (F_X = ρζ + Σ_{n≤X}(a_n − ρ)n^{−s}, adapted from uo/verify/zscan.c), `verify/newton7.py`; logs
+`verify/logs/zeros/newton_r06_X1e7.log`, `…_X1e8.log`. Newton (mpmath ζ, ζ′; D_X, D_X′ in C) from minima of |F_X| on the σ = 0.80
+scan line: X = 10⁷: 0.8209861 + 11.0877395i (|F′| = 3.41), 0.8052896 + 20.2491013i (|F′| = 4.41); X = 10⁸: **0.8210037 + 11.0877501i,
+0.8052939 + 20.2490886i** (moves 2·10⁻⁵, 4·10⁻⁶). Amplitude check: 2x^{0.821}/11.1 + 2x^{0.805}/20.3 ≈ 6·10⁶ at 10⁹ against the observed
+sup|ψ_P − x| = 5.57·10⁶. So route 1's α ≈ 0.80 is zero-driven, and 2β ≈ 0.53–0.63. Full argument-principle scan at 10⁷ running;
+then Newton at 10⁹, a winding-number box with the K′-type tail bound, and 4·10⁹.
+
+## 2026-10-01 12:08 IST — zeros at X = 10⁹ and strip counts [computed]
+Newton at X = 10⁹ (`verify/logs/zeros/newton_r06_X1e9.log`): **ρ₁ = 0.8209965 + 11.0877411i (|F′| = 3.412), ρ₂ = 0.8052963 + 20.2490762i
+(|F′| = 4.406)**; moves 10⁸ → 10⁹: 1.2·10⁻⁵ and 1.3·10⁻⁵. Argument principle at X = 10⁷ on [0.55, 1.10] × [0.1, 100]
+(`logs/zeros/zcount_r06_1e7.log`): strips σ ≥ 0.85 and [0.70, 0.80] contain no zero (phase steps ≤ 1.6 rad); [0.80, 0.85] contains
+exactly ρ₁, ρ₂; [0.55, 0.70] counts 27 (phase steps up to 2.95 rad — indicative only). So the largest real part below height 100 is
+0.8210, and route 2 agrees with route 1 (a_sup = 0.79–0.81). Running now: H_θ check, winding-number boxes at 10⁹ (Taylor moments,
+validated at the corners by direct sums), the 4·10⁹ run (with Beurling Möbius sums M_P: Neamah–Hilberdink Thm 1 predicts γ = α).
