@@ -19,3 +19,22 @@ Opened: 18:08 IST 2026-10-01
 ## §0 Result (filled at the end)
 (pending)
 
+## §1. ATTEMPT 1 (T1) — the Chebyshev identity at a record of E(u)/u  (opened 18:17 IST 2026-10-01)
+
+Notation (S8(rho), threshold 1/2, 0 < rho < 1/2). g-primes p, Lambda(p^j) = log p, psi(x) = sum_{d<=x} Lambda(d),
+S(x) = sum_{d<=x} Lambda(d)/d, Psi~(x) = int_1^x psi(u) u^{-2} du (so S = psi/x + Psi~), E(u) = N(u) - rho(u-1) - 1.
+Mertens deficit Delta(x) := log x - 1 - S(x).  D(x) := log x - 1 - Psi~(x) = Delta(x) + psi(x)/x.
+
+Inputs re-derived here (not imported): (L1) E(u) > -1/2 for all u >= 1 [s40 Lemma 1.1]; (L2) E(p) = 1/2 exactly at every
+g-prime p [s40 Lemma 1.0(ii)]; (L3) E(u) = -rho(u-1) on [1, p1), p1 = 1 + 1/(2 rho).
+
+Plan of the argument (each step proved below or marked GAP):
+ Step A. Exact identity (*):  E(x) log x - int_1^x E(u) du/u = psi(x) + rho x Psi~(x) - rho x (log x - 1) - rho
+         + sum_{d<=x} Lambda(d) E(x/d).        [= U7 Thm 5.5 / O9, rearranged; re-derived in §1.1]
+ Step B. (*) at a g-prime y with (L1), (L2):  F(y) := psi(y)/(2y) + rho Psi~(y) - rho(log y - 1) <= (log y + rho)/y.
+ Step C. F decreases between prime powers; so F(x) <= eps(x) -> 0 for all x (eps explicit from the last g-prime <= x).
+ Step D. Integrate B/C as an ODE in t = log x:  D(x) >= 1/(2 rho) - o(1)   (a Mertens upper bound S <= log x - 1/(2rho) + o(1)).
+ Step E. At a record x of E(u)/u (value A > 0): (*) gives (A + rho) Delta(x) <= (1 - rho) psi(x)/x - rho/x;
+         with C and D:  A <= rho/(1 - 2 rho) + o(1).
+ Conclusion (target T1): limsup E(x)/x <= rho/(1-2rho); hence N(x) <= C x for all x, C finite; explicit C from a finite run.
+

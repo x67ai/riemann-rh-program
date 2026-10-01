@@ -1,0 +1,19 @@
+S8 rho=0.300000000000 X=1e+07 N=3000002 primes=656300 time=7.5s
+Step B: g-primes checked 656300, max[F(y) - (log y + rho)/y] = -0.273767  (must be <= 0)
+decade   max F      min D     min Delta   max E/x    [1/(2rho) = 1.6667, rho/(1-2rho) = 0.7500]
+1e0      0.18966   -0.01917   -0.38698  1.875e-01
+1e1     -0.06090    1.03093    0.53416  4.167e-02
+1e2     -0.26489    2.03880    1.36294  1.223e-02
+1e3     -0.37083    2.62067    1.79040  2.378e-03
+1e4     -0.41887    2.92504    2.00784  7.109e-04
+1e5     -0.44706    3.08039    2.12628  7.143e-05
+1e6     -0.45975    3.15942    2.18334  1.729e-05
+records of E(x)/x: 1; last ten:
+   x            A=E/x       E      psi/x     D       Delta   (A+rho)Delta-[(1-rho)psi/x-rho/x] (<=0)  comp
+    2.666667   0.187500  0.5000  0.36781 -0.01917 -0.38698   -3.336e-01   False
+max over all records of the record-inequality residual: -3.336e-01
+identity (*) at x=1000: lhs=0.826366 rhs=0.826366 diff=+1.62e-13
+identity (*) at x=10000: lhs=9.547825 rhs=9.547825 diff=-4.60e-11
+identity (*) at x=100000: lhs=-0.809533 rhs=-0.809533 diff=-1.94e-09
+identity (*) at x=1e+06: lhs=-2.820870 rhs=-2.820869 diff=-3.14e-07
+done 7.8s

@@ -23,11 +23,11 @@ Addendum (§5.4): π/64, θ ≤ 0.4738170951; π/128, θ ≤ 0.4871322811 (the d
 Mellin integral is positive and the certificate condition is F_{x_K}(σ₁) ≥ 0 — the −½X^{−σ₁} of s40 Cor. 1.7(iii) disappears, and the
 criterion holds under the mean-square hypothesis of ORCH O1 as well (Theorem 1.3). Unconditionally F_{x_{k+1}}(σ) > F_{x_k}(σ) for
 every σ > 0 (Prop. 1.6): a certificate persists for all larger lattice truncations with no hypothesis, and under (B) the certified
-σ₁(x_k) increase to σ*_first, the smallest real zero right of σ_a (Prop. 1.6(iii)).
+σ₁(x_k) increase to the real zero σ*.
 **Upper bracket (§6)**: if E(u) ≤ 0.1·log²u beyond X (twice the measured envelope), EVERY real zero of ζ_P right of σ₁ lies in
 (σ₁, 0.794755510) for π/16 and (σ₁, 0.895076525) for π/32, and there is one; under Lemma B at the U-exponent with constant 1 beyond
 X, in (σ₁, 0.794799754) and (σ₁, 0.895083982). (Proved concavity of F_X on [σ₁, 1), Lemma 6.3, turns the sign change into this.)
-**Ceiling (§7.2)** [proved here]: under (B), no real-zero certificate can pass σ*_max, the largest real zero of ζ_P in (θ′, 1), so this proof class cannot relax the exponent of
+**Ceiling (§7.2)** [proved here]: under (B), no real-zero certificate can pass σ*, so this proof class cannot relax the exponent of
 Lemma B beyond σ*/2 — because ζ_P < 0 on (σ*, 1); under the 0.1·log²u envelope the certificates above are within 1.4·10⁻⁷ and
 7.4·10⁻⁹ of that ceiling.
 **Cross-checks (§4)**: N and π_P equal s8o's at all 14 half-decade checkpoints of each system; σ₁ equals the s8o zeros of F_X at
@@ -74,7 +74,7 @@ exactly one statement to prove: **Lemma B with exponent θ < σ₁/2** (pointwis
 (b) *Mean square refutes U itself* (the orchestrator's Lemma L, `../SHARED.md` 17:25; re-derived here) [proved here]. For any Beurling
 system, E decreases at slope ρ between g-integers and jumps only upward, so E(u) ≥ E(x) − ρ(u − x) for u ≥ x and E(u) ≤ E(x) + ρ(x − u)
 for u ≤ x. If |E(x)| = H ≤ ρx, then |E| ≥ H/2 on an interval of length H/(2ρ) inside [x/2, 2x], so ∫_{x/2}^{2x}E² ≥ H³/(8ρ); under (B₂)
-this is ≪ x^{1+2θ₂}, so H ≪ x^{(1+2θ₂)/3} (if E(x) = H with ρx < H ≤ 2ρx the window [x, x + H/(2ρ)] still lies in [x, 2x]; if H > 2ρx then E ≥ H − ρ(u − x) ≥ H/2 on all of [x, 2x], which gives the stronger H ≪ x^{θ₂}; and E(x) = −H forces H < ρx, since N ≥ 1 gives E ≥ −ρ(x − 1)) and
+this is ≪ x^{1+2θ₂}, so H ≪ x^{(1+2θ₂)/3} (a larger H only strengthens the bound: |E| ≥ H/2 on all of [x, 2x] or [x/2, x]) and
 β ≤ (1 + 2θ₂)/3. Hence, with α > σ₁: **(B₂) with θ₂ < (3σ₁ − 2)/4 refutes U itself**
 (2β ≤ 2(1 + 2θ₂)/3 < σ₁ < α).
 
@@ -84,7 +84,7 @@ floor of mean zero, and a decreasing weight makes its contribution positive. The
 X = 10⁸ for π/16), so σ₁ can now be pushed to the zero of F_X itself, up to the interval radius.
 
 **Proposition 1.6 (monotone and complete)** [proved here]. Let P = S8(ρ), ρ ∈ (0, 1).
-(i) *Unconditionally*, for every σ > 0 with σ ≠ 1 and every k ≥ 1: F_{x_{k+1}}(σ) > F_{x_k}(σ) (at σ = 1 both have a pole; their difference is entire and equals ∫_{x_k}^{x_{k+1}}E u^{−2}du > 0 there).
+(i) *Unconditionally*, for every σ > 0 and k ≥ 1: F_{x_{k+1}}(σ) > F_{x_k}(σ).
 (ii) Under (B) or (B₂) with exponent θ′ < σ: F_{x_k}(σ) ↑ ζ_P(σ) as k → ∞. So ζ_P(σ) > 0 iff F_{x_k}(σ) > 0 for some k.
 (iii) Under (B) or (B₂) with θ′ < σ_a: if ζ_P > 0 on [σ_a, σ*) and ζ_P(σ*) = 0, then s_k := sup{σ ≥ σ_a : F_{x_k} > 0 on [σ_a, σ]} is
 nondecreasing in k and s_k → σ*. Every σ₁ < σ* is certified by some finite lattice point, and no certificate passes σ*.
@@ -95,8 +95,8 @@ which is ≥ the floor's integral over one period (Lemma 1.1) and that is > 0 (p
 the set {σ : F_{x_k}(σ) > 0} grows with k, so s_k is nondecreasing; F_{x_k}(σ*) < ζ_P(σ*) = 0 by (ii), so s_k < σ*. For σ < σ*,
 min_{[σ_a, σ]} ζ_P > 0, and F_{x_k} → ζ_P uniformly on [σ_a, σ] (the tail is bounded by σ∫_{x_k}^∞|E|u^{−σ_a−1}du there), so s_k ≥ σ
 for large k. ∎
-So the computed σ₁(X) of §4–§5 is (up to the interval radius) the sequence s_k, increasing toward σ*_first, the smallest real zero of ζ_P right of σ_a (the only one, if it is unique — not proved); Theorem 5.1/5.2 and
-the table in §4 are its values at x_K ≈ 10⁶ … 10¹⁰. Under (B), a real-zero certificate for S8(ρ) can never pass σ*_max, the largest real zero of ζ_P in (θ′, 1) (§7.2; it can pass σ*_first if ζ_P has three or more real zeros there, which is not excluded), so this route
+So the computed σ₁(X) of §4–§5 is (up to the interval radius) the sequence s_k, increasing toward the real zero; Theorem 5.1/5.2 and
+the table in §4 are its values at x_K ≈ 10⁶ … 10¹⁰. Under (B), a real-zero certificate for S8(ρ) can never pass σ*, so this route
 cannot relax the exponent needed in Lemma B beyond σ*/2 (§7).
 
 ## §2. The generator `s8cert.c`: exact ordering
@@ -196,7 +196,7 @@ E(x_K) − ρ(10¹⁰ − x_K) + (count in between) = ½ − 0.7972 + 1 = 0.7028
 stored g-primes ≤ X/p₁ number 134,178,740 and 71,517,727, equal to s8o's "storedprimes". sup E agrees to 10⁻¹⁰…10⁻⁷ (mine is a
 double-precision statistic, not certified; e.g. 18.5365159736 vs 18.5365160221 at 10⁹ for π/16).
 **F_X and its zero** [computed: `logs/sigma_table_pi16.log`, `logs/sigma_table_pi32.log`]. The certified σ₁ (= the zero of F_{x_K}
-to 10⁻¹², except π/16 at 10⁸, where the zero is 0.794755262462011… [read-O §2.3] and the entry is a valid lower bound 1.01·10⁻¹² below it — `sigma_table_pi16.log` marks that row "False") against the s8o zero of F_{10^d} (10 digits) and the s8dd root (12 digits):
+to 10⁻¹²) against the s8o zero of F_{10^d} (10 digits) and the s8dd root (12 digits):
 
 | X ≈ | σ₁(π/16), this unit | s8o / s8dd | σ₁(π/32), this unit | s8o / s8dd |
 |---|---|---|---|---|
@@ -242,7 +242,7 @@ decimal; the content of this section is that these values are proved (exact orde
 F_X itself (Remark 1.5).
 
 **σ₁ against the true zero.** σ₁(X) at x_K ≈ 10⁶…10¹⁰ (§4 table) increases by 2.48·10⁻⁶, 4.81·10⁻⁷, 9.08·10⁻⁸, 1.68·10⁻⁸ per decade
-(π/16; ratios 5.15, 5.30, 5.40) and by 1.55·10⁻⁷, 2.39·10⁻⁸, 3.60·10⁻⁹, 5.31·10⁻¹⁰ (π/32; ratios 6.47, 6.65, 6.77), as the tail
+(π/16; ratios 5.15, 5.30, 5.40) and by 1.55·10⁻⁷, 2.39·10⁻⁸, 3.60·10⁻⁹, 5.32·10⁻¹⁰ (π/32; ratios 6.47, 6.65, 6.76), as the tail
 σ∫_X^∞E u^{−σ−1} ≈ (mean E)·X^{−σ} predicts (X^{−σ} falls by 10^{0.79} = 6.2 and 10^{0.90} = 7.9 per decade, the mean of E grows like
 log X). Geometric extrapolation [heuristic, not proved]: σ* ≈ 0.7947553738 (π/16) and 0.8950765177 (π/32), i.e. the certified σ₁ is
 about 4·10⁻⁹ and 1·10⁻¹⁰ below the zero it bounds. Proved instead, under a stated hypothesis: §6 (the zero lies within 1.4·10⁻⁷,

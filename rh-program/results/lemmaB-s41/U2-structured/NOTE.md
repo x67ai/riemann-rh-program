@@ -52,8 +52,8 @@ condition fails: q = 5, m = 1, c ∈ {3, 5}; q = 7, c = 5; q = 11, m = 2, c = 5 
 (E1) the norm map is a homomorphism onto a discrete group q^ℤ, so "the count at a norm" is one integer A_n and the target is a
 sequence, not a function of position; (E2) triangularity — C_n depends on b_1, …, b_{n−1} only, b_n is free; (E3) the norm monoid
 q^ℕ ≅ (ℕ, +) has RANK ONE, and for rank one the flat target's logarithm is Σ (1 − (1 − τ)ⁿ)(qu)ⁿ/n (compositions of n), with
-every coefficient positive, so b_n ≈ a_n/n ≈ τ'qⁿ/n — an exponentially large slack per norm point that absorbs any target
-correction of size o(qⁿ/n) (Prop. 1.2; data: the only failures are at n ≤ 3). §2 shows that (E3) fails for every norm monoid of
+every coefficient positive, so b_n ≈ a_n/n ≈ τ'qⁿ/n — an exponentially large slack per norm point that absorbs bounded target
+corrections (Prop. 1.2; data: the only failures are at n ≤ 3), and plausibly any correction small against qⁿ/n (not proved here). §2 shows that (E3) fails for every norm monoid of
 rank ≥ 2 and that finite rank kills (B) on the real line, so the F_q mechanism has no exact real-scale substitute.
 
 ## §2. Exactness is a rank-one phenomenon
@@ -65,7 +65,9 @@ Theorem 1.1 with m = τq). It is exactly realizable iff there are b(d) ≥ 0 (d 
 b ≥ 0. Since F_h is a sum of b's with positive weights, ONE negative coefficient F_h already rules out realizability.
 (w only rescales x_i, so signs are those of the case w ≡ 1.)
 
-**Theorem 2.1 (flat bookkeeping needs rank one)** [proved here]. (i) r = 1: every coefficient of F is positive, F_n = (1 − (1 − τ)ⁿ)/n.
+**Theorem 2.1 (flat bookkeeping needs rank one)** [proved here; novelty: single-check — the ingredients are classical]. (i) r = 1:
+every coefficient of F is positive, F_n = (1 − (1 − τ)ⁿ)/n, so no obstruction of the kind in (ii) (existence, with integer
+multiplicities, is Theorem 1.1 when w(g) = q and τq are integers).
 (ii) r ≥ 2: for every τ ∈ (0, 1), F has infinitely many negative coefficients, already at monomials x_1^a x_2^b with a, b ≥ 1. So no
 Beurling system supported on a free norm monoid of rank ≥ 2 carries a fixed fraction τ ∈ (0, 1) of the weight at every point.
 *Proof.* (i) log(1 − τ + τ/(1 − x)) = log(1 − (1 − τ)x) − log(1 − x). (ii) Setting x_3 = x_4 = … = 0 keeps exactly the coefficients
@@ -101,19 +103,21 @@ points of (Λ ∩ [x, 2x]) ∪ {x, 2x} cut [x, 2x] into at most K + 1 pieces, on
 while ρu grows by ≥ ρx/(K + 1), so |N − ρu| ≥ ρx/(2K + 2) at one of its ends. ∎ (Rung 1 is r = 1: the log-periodic sawtooth of §1.)
 
 **Corollary 2.3 (the structural dichotomy)** [proved here, from 2.1–2.2]. A discrete system satisfying (B) with any θ < 1 has norm
-monoid of infinite rank. On a free norm monoid of infinite rank there are exactly two ways to keep per-point bookkeeping exact:
+monoid of infinite rank. On a free norm monoid of infinite rank, FLAT per-point bookkeeping (a(h) = τ·w(h) at every point) is exact
+only for τ = 1 (Theorem 2.1), i.e. a(h) = w(h), and the two natural readings of that are:
 (P) multiplicity one — each norm carries one g-integer (S8 with transcendental 1/ρ, s40 Lemma 1.3): the per-point count is the
 τ = 1 flat target (realizable: it is the monoid itself), and ALL of the regularity is positional — which cells the norms fall in;
 (M) τ = 1 with weights — a(h) = w(h) at every point (e.g. Π_p Z_{F_p[T]}(p^{−s}) = ζ(s − 1), each p carrying the rank-one necklace
 system of Theorem 1.1 with m = q = p): realizable, but then the density and the zeros are those of the weighted monoid, and on the real
 line the power dilation h ↦ h^κ (needed to turn weight w(n) = n^{κ−1} into a density) has jumps a(n) = n^{κ−1} = x^{1−1/κ} at x = n^κ,
-so β ≥ 1 − 1/κ; exact integrality of n^{κ−1} for all n forces κ ∈ ℤ, hence β ≥ ½ (κ = 2: ζ_P(s) = ζ(2s − 1), N_P(x) = Σ_{n≤√x} n,
+so β ≥ 1 − 1/κ; exact integrality of n^{κ−1} for all n forces κ ∈ ℤ (for k > κ − 1 the k-th difference of n ↦ n^{κ−1} is an
+integer tending to 0, hence eventually 0, so n^{κ−1} is eventually a polynomial), hence β ≥ ½ (κ = 2: ζ_P(s) = ζ(2s − 1), N_P(x) = Σ_{n≤√x} n,
 β = ½, zeros on Re s = ¾ by Hardy's theorem [recalled, unverified], (A) fails since R(n²−) = −n/2). Every flat target with
 τ ∈ (0, 1) is excluded by Theorem 2.1. So **the F_q mechanism (exact counts per norm point with slack) does not survive on the real
 line**: in rank ≥ 2 a fixed fraction τ < 1 per point needs negative primes, and τ = 1 either is multiplicity one (no slack: one
 integer per norm, regularity becomes the queue) or has jumps x^{1−1/κ} ≥ x^{½}.
-*Remark (where the realizable dilations sit relative to U).* ζ(κ(s − 1) + 1) has zeros on Re s = 1 − 1/(2κ) and β = 1 − 1/κ; U's
-inequality 1 − 1/(2κ) ≤ max{½, 2 − 2/κ} holds iff κ ≥ 3/2. The integer κ ≥ 2 that are exactly realizable obey U; the family would
+*Remark (where the realizable dilations sit relative to U).* ζ(κ(s − 1) + 1) has zeros on Re s = 1 − 1/(2κ) (α = 1 − (1 − Θ)/κ,
+Θ := sup Re of the zeros of ζ) and β = 1 − 1/κ; with Θ = ½, U's inequality 1 − 1/(2κ) ≤ max{½, 2 − 2/κ} holds for κ > 1 iff κ ≥ 3/2. The integer κ ≥ 2 that are exactly realizable obey U; the family would
 cross U's line only for non-integral κ ∈ (1, 3/2), where exact realization is impossible — rounding n^{κ−1} to integers puts the
 first-order term ±δ(p)·w(n/p) into the prime coefficient b(n) at squarefree n (from Σ_{π∋B}(−1)^{|π|−1}(|π| − 1)! = (−1)^{k−|B|}),
 i.e. negative primes of the size of a whole jump, and a greedy repair of those is S5's multiplicity problem again (s39 §2).
@@ -145,8 +149,10 @@ nearly flat below h overshoots AT h by ≥ (|κ_k(τ)| − Err_k)·w(h), whateve
 
 **3.3 The clipped-cumulant law, measured** [computed: `verify/pkappa.c`, `verify/clipped_cumulant_model.py`; logs
 `pkappa_k1.5_r*_r04_1e7.log`, `pkappa_k1.5_r0.05_r04_1e8.log`, `clipped_cumulant_model.log`, `cumulant_predictions.log`].
-The greedy cannot place negative primes, so it realizes b_j ≈ κ_j(τ)w for j < k₀ and b_j = 0 for j ≥ k₀; the composite load at a
-squarefree point with k generators is then, in units of the per-point target, C_k = (M_k − b_k)/τ with
+The greedy cannot place negative primes. MODEL: at squarefree points with j generators it places b_j = κ_j(τ)w for j < k₀ and
+b_j = 0 for j ≥ k₀ (measured mean b/target at j = 1, …, 5 for τ = 0.075: 0.88, 0.83, 0.72, 0.49, 0.14, against κ_j/τ = 1, 0.925,
+0.786, 0.540, 0.132); the composite load at a squarefree point with k generators is then, in units of the per-point target,
+C_k = (M_k − b_k)/τ with
 M_k = k![t^k] exp(Σ_{j<k₀} κ_j(τ)t^j/j!). For κ = 1.5, squarefree n ∈ [Y/2, Y], Y = 10⁷ (mean c(n)/target by ω(n) = k):
 
 | τ = ρκ | k₀ | measured C_k, k = 4, 5, 6, 7, 8 | model C_k, k = 4 … 8 | forced-overshoot fraction at k = k₀ − 1, k₀, k₀ + 1 |

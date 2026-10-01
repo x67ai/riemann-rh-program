@@ -1,11 +1,11 @@
 # read-O — second producer and line reader of `U6-certificate/NOTE.md`
 
-Started 17:46 IST 2026-10-01. Writer: Opus 5.5 (agent), independent second producer. Labels: **[proved here]**, **[computed]**
+Started 17:46 IST 2026-10-01, closed 18:17 IST 2026-10-01. Writer: Opus 5.5 (agent), independent second producer. Labels: **[proved here]**, **[computed]**
 (script + log in `verify-O/`), **[quoted]** (source opened at the line), **[recalled, unverified]** (never load-bearing).
 Independence: the NOTE was read; `verify/` (code, logs, data) and `read-F.md` were NOT opened until §2's numbers were final.
 NOTE line numbers below refer to `NOTE.md` as read at 17:36 IST 2026-10-01 (335 lines).
 
-**VERDICT LINE:** (pending — written last)
+**VERDICT LINE: CONFIRMED.** Both certificates are reproduced by an independent second producer (exact-integer cell decisions, own moment evaluator): identical counts wherever both computed them (N and π_P at all 14 half-decade checkpoints, N, π_P and E at x_K, for both densities), and F_X balls ~10⁴ times tighter — the zero of F_{x_K} lies in (0.794755370097380, 0.794755370097381) for S8(π/16) and in (0.895076517592160, 0.895076517592161) for S8(π/32); F_X(0.794755370097) = 1.8192·10⁻¹² > 0 and F_X(0.895076517592) = 1.44325·10⁻¹² > 0 are proved. NOTE §1, §6, §7 re-derived at the line: every statement ✓ or GAP-minor, none FALSE; all 14 σ₂ and the concavity bounds reproduced. 8 OLD/NEW pairs (§4), none moving a certificate or a threshold.
 
 ## §1. Re-derivations at the line (NOTE §1, §6, §7) [proved here unless marked]
 
@@ -139,7 +139,7 @@ g₀ = tλ, δ = Δ/λ, |δ| ≤ h := (L/2)/λ ≤ 2^−15 (λ ≥ 2^j): Σ_bloc
 c_k = C(−σ, k), |R| ≤ cnt·|c₄|h⁴(1 − h)^{−σ−4} (Lagrange). F_X = Σ + ρX^{1−σ}/(σ − 1) − E(X)X^{−σ}, X = 1 + (K − ½)·D/π, E(X) = N(X) − K − ½,
 arb at 256 bits, σ an exact rational. Total proved error at 10¹⁰: ≤ 6·10⁻¹⁷ (π/16), ≤ 7·10⁻¹⁸ (π/32). *Check:* at x_K ≈ 10⁷ (π/16) the
 moment evaluation F(0.79) = 0.02223131872339904 ± 4.2·10⁻¹⁸ contains the direct ball sum over all 1,963,496 g-integers,
-0.022231318723399041112 ± 2·10⁻²² (`fdirect.py`, s8gen dump).
+0.022231318723399041112 ± 2·10⁻²² (`fdirect.py` over the s8gen dump; `logs/fdirect_pi16_1e7.log`). Certified constants: `data/params_pi{16,32,64,128}_1e10.txt`.
 
 **2.2 Statements proved** [computed: the inequalities, `logs/gen_pi{16,32}_1e10.log`, `logs/certify_pi{16,32}_1e10.log`; proved here:
 the implications, by NOTE Theorem 1.3 and Corollary 1.4 as re-derived in §1].
@@ -194,7 +194,7 @@ up to 18 factors, 0 exact-path decisions (cell and checkpoint), 73 s, 0.85 GB; �
 1,057,291,198, margin > 3.0205·10⁻¹¹ in W (1.5383·10⁻¹⁰ in u); π/32 c = x(1)x(33405216), cell 203,536,582, > 1.6626·10⁻¹⁰ in W
 (1.6935·10⁻⁹ in u) — against fast-path enclosure widths ≤ 2^−50, which is why no decision needed the 320-bit path.
 max_m E(x_m) = 25.5 (m = 1,266,139,765) and 14.5 (m = 645,060,223): the lattice values only, a lower bound for sup E.
-Moment files (scratch, 35 MB each; sha256 in the logs): `m_pi16_1e10.blk` ae402998…c574, `m_pi32_1e10.blk` 32e42d7d…611d.
+Moment files (35 MB each, kept in the scratch directory `/private/tmp/rh-s41-U6-second/`, not in the repo; `run_gen.sh` regenerates them deterministically in about a minute, and the sha256 in each log identifies them): `m_pi16_1e10.blk` ae402998…c574, `m_pi32_1e10.blk` 32e42d7d…611d.
 
 ## §3. Comparison with the first producer (done after §2 was final; `verify/` logs read as data, its code read only to explain two counters)
 
@@ -266,4 +266,39 @@ NEW: to 10⁻¹², except π/16 at 10⁸, where the zero is 0.794755262462011…
 C8 (§5, l. 245 — last π/32 increment, from 15-digit zeros [read-O §2.3]):
 OLD: (π/16; ratios 5.15, 5.30, 5.40) and by 1.55·10⁻⁷, 2.39·10⁻⁸, 3.60·10⁻⁹, 5.32·10⁻¹⁰ (π/32; ratios 6.47, 6.65, 6.76), as the tail
 NEW: (π/16; ratios 5.15, 5.30, 5.40) and by 1.55·10⁻⁷, 2.39·10⁻⁸, 3.60·10⁻⁹, 5.31·10⁻¹⁰ (π/32; ratios 6.47, 6.65, 6.77), as the tail
+
+## §5. Additions
+
+**A1 (a floating-point-free cell test)** [proved here, §2.0]. For any S8(ρ): W(x_{n_1}⋯x_{n_j}) = (E_1 + 1)/2 + Σ_{r≥2}E_r t^{r−1}/2^r with
+E_r the elementary symmetric functions of the odd integers 2n_i − 1. So every ordering question of S8 against the lattice is the
+fractional part of an integer combination of the fixed constants t^{r−1}/2^r; with ⌊2^90 t^{r−1}/2^r⌋ certified once, a decision costs
+one 64×128-bit multiply and is exact unless the margin is below Σ_{r≥2}E_r·2⁻⁹⁰ ≤ 2⁻⁵⁰ (never, to 10¹⁰; the closest margins are
+3.0·10⁻¹¹ and 1.7·10⁻¹⁰). Any later unit can reuse `verify-O/s8gen.c` (73 s to 10¹⁰ for π/16, one core).
+**A2 (the zeros of F_{x_K} to 15 decimals)** [computed, §2.3]: π/16 0.794755370097380 < z < 0.794755370097381; π/32 0.895076517592160 <
+z < …161; π/64 0.947634190223575 < z < …576; π/128 0.974264562328964 < z < …965. Hence the exact U-thresholds from these certificates
+(Corollary 1.4 with equality allowed, §1.4): θ ≤ 0.397377685048690, 0.447538258796080, 0.473817095111787, 0.487132281164482; θ₂ ≤
+0.096066527573035, 0.171307388194120, 0.210725642667681, 0.230698421746723 (each the value at the lower bracket end).
+**A3 (non-strict exponents suffice)** [proved here, §1.4]: θ = σ₁/2 and θ₂ = (3σ₁ − 2)/4 themselves already refute U, because α ≥ σ* > σ₁.
+**A4 (two zeros, two roles)** [proved here, §1.6]: σ*_first = lim s_k is what the computation approaches; σ*_max is the ceiling of the
+certificate route. They coincide iff ζ_P has a single distinct real zero in (σ_a, 1) (a double zero followed by a sign change would separate them); under
+E ≤ 0.1·log²u beyond 10¹⁰ both lie in (σ₁, σ₂), an interval of length 1.4·10⁻⁷ (π/16) and 7.4·10⁻⁹ (π/32).
+**A5 (monotonicity on data)** [computed]: F_{x_K}(σ) increases with K at every decade for σ = 0.79, the NOTE's σ₁ (π/16) and 0.89,
+the NOTE's σ₁ (π/32) — Prop. 1.6(i) seen on 20 values (§1.6); F_{x_K}(σ₁^NOTE) < 0 at every X ≤ 10⁹ (e.g. −5.15·10⁻⁷ at 10⁸ for π/16),
+as the monotone sequence requires.
+**A6 (Lemma 6.3 at the small densities)** [computed: `logs/concavity_pi{64,128}_1e10.log`]: Q ≤ 4.31611 < 683.686 (π/64), 3.96687 <
+2879.89 (π/128) — the NOTE's 4.32 and 3.97 reproduced.
+
+## §6. What I could not check
+
+- s40's exploratory winding count (NOTE l. 334–335, "no zero right of σ* below height 60") — not re-run; it is quoted there as not
+  a certificate, and nothing proved depends on it.
+- The NOTE's floating-point lemmas (Lemma 2.1, Lemma 3.1–3.2) were not re-derived line by line: my decisions and my evaluation do not
+  use them, and every number they produce was reproduced by the independent route, so they are no longer load-bearing for any result.
+- sup E to 10¹⁰ (26.137, 15.434): my generator records only lattice values (max E(x_m) = 25.5, 14.5, consistent lower bounds); the
+  in-cell supremum needs the order of composites inside a cell, which I did not keep.
+- Trust base of my certificate: python-flint 0.6.0 / Arb ball arithmetic (rigorous by design [recalled, unverified]), the C compiler
+  and one Apple arm64 machine. Mitigations on disk: every integer constant certified twice (Arb and exact Machin rationals); the
+  generator agrees cell by cell with a 60-digit mpmath brute force at 2·10⁵ and count for count with two other generators (s8o, s8cert)
+  to 10^9.5; the moment evaluation agrees with a direct ball sum over all 1,963,496 g-integers at 10⁷.
+- Uniqueness or simplicity of the real zero in (σ₁, σ₂) — not proved by the NOTE nor here (A4).
 
