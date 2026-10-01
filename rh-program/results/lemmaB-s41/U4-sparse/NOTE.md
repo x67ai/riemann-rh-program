@@ -11,7 +11,41 @@ template load λ₀(τ) := 1 − f₀(τ).
 
 ## §0. Close (filled last)
 
-(pending)
+**Close, theorem-shaped.** (1) *Sparse range.* On every range where the feedback-free lattice monoid has load S_ρ ≤ 1 — i.e. up to
+τ_c(ρ), with τ_c(ρ) → τ_c = 1.54609037074481 (root of I₁(2√τ)/√τ = 2) — S8 obeys **E(x) ≤ 3/2 + Q(x + t) ≤ 3/2 + 4ρ²(x + t)·e^{2τ+4ρ} + τ/(ρ log p₁)**,
+and E(x) ≤ 2 + ρ√(x + t) on the pure two-fold range x < p₁³ (Thm 2.3, §2) [proved here]. The proof class "pathwise domination by the
+lattice monoid + one count per component" cannot go further, for two named reasons: beyond τ_c(ρ) the comparison queue has load
+Λ(τ) > 1 because domination forgets which lattice points are busy (overcount Λ − λ₀ = τ²/4 − 5τ³/144 + …); inside the range it cannot
+beat Q because the only cluster bound it has is "+1 per component", and anything better is the shifted divisor problem for (ℤ + δ)² in
+hyperbolic shells of width mρ (§3.2, Prop. 3.2: a cluster bound K gives E ≤ K + 3/2). Q is 10²–10³ times the truth (π/128: Q(10¹⁰) =
+7,381, sup E = 7.09). (2) *Scaling limit.* For every S, uniformly on x ≤ e^{S/ρ} as ρ → 0: π(y, x] = Π₀(y, x] + o(ρx),
+C(y, x] = Λ₀(y, x] + o(ρx), E(x) = o(ρx), and Σ_{p≤x} 1/p → Ein(τ) (Thm 4.4) [proved here, single-check]: the queue's arrival process
+has intensity λ₀(τ) = 1 − (1 − e^{−τ})/τ per step at EVERY τ, the same function for every ρ, with no restriction to τ < τ_c. The
+local structure is conjecturally Poisson(λ₀(τ)) (Conj. 5.2); its finite-ρ deviations are exactly those of the random-phase model of
+independent progressions m′·P (one point per period m′ ≥ p₁ steps), with no free parameter (π/256, τ = 0.3: window dispersion D(16) =
+0.897 measured, 0.896 predicted; P(c = 2)/Poisson = 0.938 vs 0.938), and they vanish like ρ² at fixed τ. For the Poisson limit queue,
+P(e ≥ h) ≤ e^{−κh} and ρ·max_{x≤e^{τ/ρ}} e → η(τ) = τ/κ(λ₀(τ)) ~ τ²/2 (Prop. 5.3) [proved here, for the model]; for S8 the maximum is
+proved o(ρe^{τ/ρ}) and explicitly bounded below τ_c, and conjectured to satisfy ρ·max E → η(τ) (Conj. 5.4).
+
+**T — proved here:** Lemmas 1.1–1.3 (bottom of the system; E ↔ Lindley queue; the template is exactly self-similar in τ);
+Thm 2.1 (e_k ≤ e_k^lat pathwise); Lemma 2.2, Thm 2.3 (explicit bound) and the elementary bound on Q; Prop. 3.1 (S_ρ → Λ(τ),
+vol{Σu + max u ≤ τ} = τ^j/(j+1)!); Prop. 3.2; Thm 4.1; Lemmas 4.2, 4.3, 4.6; **Thm 4.4**; Prop. 5.1 (model); Prop. 5.3 (model).
+**C — computed** (`verify/`, 12 production runs, ρ = π/16 … π/256 to 4·10⁹–10¹¹, exact ordering by double-double re-decision,
+validated against Session 40): zero violations of e_k ≤ e_k^lat in 7.9·10⁷ steps; the RPM fits of §5.2; maxima vs the Poisson model
+(13 vs 18, 9 vs 11.5, 7 vs 7.5, 5 vs 5 for π/32 … π/256); Mertens offsets Σ1/p − Ein(τ) falling like ρ log(1/ρ); τ_c(ρ) = 1.637,
+1.681, 1.695 for π/16, π/24, π/32.
+**G — gaps, named:** (G1) the cluster bound K(X, m) for lattice-monoid components in short windows (needed for any sharp bound on
+τ < τ_c); (G2) Conjecture 5.2 needs joint equidistribution of the phases {x/m′ mod t} over all ≈ ρ√x cofactors (Kronecker–Weyl
+gives any fixed finite set when t is transcendental); (G3) Conjecture 5.4 needs G2 in large-deviation form on windows of O(1/ρ) steps.
+**For Lemma B_ρ (fixed ρ, τ → ∞).** Nothing here proves it. Theorem 4.4's argument needs the margin f₀(S) > 0 and pays e^{O(S)}; at
+fixed ρ the margin is f₀(τ) ≈ 1/τ and the factor e^{Kτ}, so it gives nothing (§4.8). The data place Lemma B's corner opposite the
+scaling limit: at fixed ρ the regularity of the arrivals INCREASES with τ (queue tail rate / Poisson-queue κ = 1.05, 1.16, 1.31 at
+τ = 0.6, 1.0, 2.0, and Session 40's 1.45–1.65 at π/16, π/4), because the components with period below the excursion length become
+exact progressions. That corner is favorable to B and is where a proof would have to live; this unit's tools do not reach it.
+**For other units.** U1/U3: on τ < τ_c(ρ) the greedy feedback is irrelevant for upper bounds (Thm 2.1), and the scaling-limit
+dynamics is the Volterra equation f = (1 − c[f])⁺ with unique solution f₀ — a rule whose limit dynamics keeps f > 0 inherits
+Theorem 4.4's proof. U7: the sub-Poisson window structure is quantitatively the random-phase model (§5.1–5.2) plus exact
+periodicity of components with period below the window; Session 40's factor 1.5 is this finite-ρ effect.
 
 ## §1. Exact structure of the sparse regime
 
@@ -84,7 +118,7 @@ N_j(Y) ≤ ρY·H_{j−1}(Y) + N_{j−1}(Y/p₁), H_n(Y) := Σ_{|M|=n, m≤Y} 1/
 w_a = 1/x_a, x_a ≤ Y), N₀ = 1. Since Σ_n h_n(w) = Π_a(1 − w_a)^{−1} ≤ exp(σ_Y/(1 − 1/p₁)), σ_Y := Σ_{x_a≤Y} 1/x_a, this unrolls to
   N^lat(Y) := Σ_j N_j(Y) ≤ 2ρY·e^{2σ_Y} + log Y/log p₁,  hence  Q(z) ≤ N^lat(z/p₁) ≤ 4ρ²z·e^{2σ_z} + log z/log p₁,
 using p₁ ≥ 1/(2ρ). And σ_z = ρ(ψ(A + ½ + ρ) − ψ(½ + ρ)), A = #{a : x_a ≤ z}, so σ_z = τ_z + ρ(log ρ − ψ(½ + ρ)) + O(ρ/A), with
-−ψ(½) = 1.9635 [ψ = digamma]. **So on the sparse range E(x) ≤ 2 + 4ρ²x·e^{2τ+4ρ} + τ/(ρ log p₁): the integer error is at most
+−ψ(½) = 1.9635 [ψ = digamma]. **So on the sparse range E(x) ≤ 3/2 + 4ρ²(x + t)·e^{2τ+4ρ} + τ/(ρ log p₁): the integer error is at most
 O(ρ) times the number of steps, explicitly.** The exact Q is far smaller (table below): its j-element part is ≈ c_j ρ^j z^{j/(j+1)}
 (Q₁(z) = #{a : x_a² ≤ z} ≤ ρ√z + 1), so for small τ the bound is ≈ ρ√x. On the pure two-fold range [1, p₁³) of Lemma 1.1 only one-element cofactors occur
 (m′P⁺(M′) ≥ p₁³ when |M′| ≥ 2) and S < 1, so **E(x) ≤ 2 + ρ√(x + t) for x < p₁³** [proved here].
@@ -157,7 +191,7 @@ Template counts: Π₀(y, x] := ∫_{max(y,1)}^x ρf₀(ρ log u)du (primes), Λ
 the variable v = ρ log u: μ_ρ := Σ_p p^{−1}δ_{ρ log p}, μ̃_ρ := Σ_p Σ_{k≥1} k^{−1}p^{−k}δ_{kρ log p}, ν_ρ := Σ_{n∈G} n^{−1}δ_{ρ log n}.
 
 **Theorem 4.1 (below τ_c)** [proved here]. For 0 < S < τ_c there are ρ₁(S) > 0 and C(S) < ∞ such that for ρ < ρ₁(S):
-E(x) ≤ 2 + C(S)ρ²x + S/(ρ log p₁) for all 1 ≤ x ≤ e^{S/ρ}. So E(x)/(ρx) = O(ρ) + O(1/(ρ²x log(1/ρ))) there.
+E(x) ≤ 3/2 + C(S)ρ²(x + t) + S/(ρ log p₁) for all 1 ≤ x ≤ e^{S/ρ}. So E(x)/(ρx) = O(ρ) + O(1/(ρ²x log(1/ρ))) there.
 *Proof.* By Prop. 3.1, S_ρ(e^{S/ρ} + 2t) → Λ(S) < 1, so S_ρ ≤ 1 on the range for small ρ. Theorem 2.3 gives E(x) ≤ 3/2 + Q(x + t),
 and §2 gives Q(z) ≤ 4ρ²z·e^{2σ_z} + log z/log p₁ with σ_z ≤ S + 2ρ. ∎
 
@@ -320,7 +354,7 @@ dominate i.i.d. Poisson(λ₀(τ − δ)); let ε, δ → 0. ∎
 asymptote of the scaling-limit constant.
 
 **5.4 What is proved about S8's maximal queue, and what is measured.** Proved: (a) Theorem 4.4: max_{x≤e^{τ/ρ}} E(x) = o(ρe^{τ/ρ})
-for every τ; (b) Theorems 2.3, 4.1 on τ < τ_c(ρ): E(x) ≤ 3/2 + Q(x + t) ≤ 2 + 4ρ²x·e^{2τ+4ρ} + τ/(ρ log p₁), explicitly. Not proved:
+for every τ; (b) Theorems 2.3, 4.1 on τ < τ_c(ρ): E(x) ≤ 3/2 + Q(x + t) ≤ 3/2 + 4ρ²(x + t)·e^{2τ+4ρ} + τ/(ρ log p₁), explicitly. Not proved:
 any bound of order 1/ρ or polylog. **Conjecture 5.4** [conjecture]: ρ·max_{x≤e^{τ/ρ}} E(x) → η(τ). It would follow from
 Conjecture 5.2 in a large-deviation form on windows of O(1/ρ) steps; in RPM the cumulant generating function of such a window count
 differs from Poisson's by −(e^θ − 1)²Σ_a w_a²/2 = O(1) against a main term of order 1/ρ, so RPM is consistent with it.

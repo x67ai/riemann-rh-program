@@ -217,3 +217,35 @@ length ≍ log²x exist). The margin decreases slowly with X (π/16: 0.81 at 10�
 constant factor; the rules that fix the prime density in advance are far worse, as §2–§3 predict: linear growth when the realized
 density constant ρe^{η̂(1)} overshoots ρ, power growth when it undershoots. (3) The threshold changes the constants at small scales
 and the real zero (§4), not the large-scale excursion law.
+
+## §6. What is left, and what any proof has to use
+
+**6.1 The target, in its weakest form.** *Lemma B_τ:* for some ρ ∈ (0, 1) and some τ with a certified Λ_{ρ,τ}(σ₁) > 0, a discrete
+system with E ≥ −τ (e.g. greedy with threshold τ) has N − ρu = O(u^θ) for some θ < σ₁/2 — with τ = 1/100, any θ < 0.4945, for any of
+the five densities of §4. By s40 Prop. 2.1 (with threshold τ: E = 1 − τ just after a prime and −τ just before the next, so
+C(p_k, p_{k+1}) = ρg_k − 1 and E ≤ ρG(x) − τ), g-prime gaps O(x^θ) suffice. Not proved; not even E = o(x) (U3's question).
+**6.2 Constraints on any proof (from §2–§3).** A proof (i) cannot fix the primes in advance to sub-square-root accuracy (Thm 2.1:
+the primes of every (B)-system are wild at scale u^{½−ε}, Cor. 2.3); (ii) cannot gain from look-ahead over the composites already
+determined (Prop. 3.1); (iii) cannot tune constants at small scales by design, except through N itself (Prop. 3.2: the density
+constant ρe^{η̂(1)} is a global functional); (iv) cannot be a scale induction that uses only bounds on E, or prime counts in windows of
+length ≫ v^θ, at smaller scales, uniformly over early-placement rules (Prop. 3.3: aligned bunching keeps all such bounds and breaks the
+next scale). It must use the fine positions of the specific rule's primes — for greedy, the idle set of the queue — at all smaller
+scales.
+**6.3 The mean, written exactly** [proved here, from the multiplicative structure]. For a window W at scale y, with ϑ(W) := Σ_{p∈W}log p,
+Σ_{n∈W}log n = Σ_{m∈G}ψ(W/m) (each n = d·m with d a prime power, m ∈ G), hence
+  ϑ(W) = Σ_{n∈W} log n − Σ_{m∈G, m>1} ψ(W/m) − Σ_{p^k∈W, k≥2} log p.
+With N(W) = ρ|W| + ΔE(W), Lemma M (ϑ(W) ≥ c|W| for |W| ≥ log³y) is equivalent to the one-sided bound
+  Σ_{m∈G, m>1} ψ(W/m) ≤ (ρ log y − c)|W| + O((1 + |ΔE(W)|) log y + |W|²/y),
+an upper bound for the sum, over all dilated windows W/m at smaller scales, of the system's prime counts there — for greedy, of the
+queue's idle steps. Its mean is fixed by global constants (Σ_{m≤y}1/m = ρ log y + c_G + o(1), c_G = 1 − ρ + ∫_1^∞E(u)u^{−2}du), and the
+content of Lemma M is that **the idle sets of the queue at different scales never line up under dilation by g-integers beyond
+fluctuations of order |W|/log y**. Prop. 3.3 shows that line-ups are possible inside R(w); the data (§5: margin ≥ 0.72 at |W| = log³x to
+10⁸) say greedy does not produce them. This decorrelation statement is the missing estimate, stated for the rule itself.
+**6.4 Untried, and where it belongs.** (a) Measure the cross-scale correlation of the idle sets directly (the sum in 6.3 split by the
+size of m), and look for a monotone quantity controlling it — U7. (b) Push Theorem 4.1 with more forced g-integers (for greedy, p₂, p₃
+are explicit, and the powers and products of the first r primes are forced): it should move σ_L for τ = ½ from 0.763 toward the
+measured 0.795 and give closed-form certificates for every τ — a cheap extension. (c) For U6: locating the zero no longer needs a
+computed certificate (Thm 4.1 suffices); an ordering-certified run of greedy with τ = 1/100 to 10⁹–10¹⁰ is the informative computation,
+since U predicts (Cor. 4.4) that its integer error must eventually reach u^{0.4945}. (d) For U5: an obstruction to U's failure must now
+handle never-undershooting systems whose real zero is within τ of 1 (Prop. 4.3), and Remark 4.5 is the quantitative form of "no real
+zero ⟹ undershoot".
