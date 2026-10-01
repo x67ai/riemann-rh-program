@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """analyze.py — error statistics for one run: E(e) = N(e) - rho*e at the bin edges e = 2^j (1 + (i+1)/K), e <= X.
 Per dyadic block j (edges in (2^j, 2^{j+1}]): A_j = max|E|, M_j = running max of A, MS_j = mean E^2 (dyadic mean square),
-mean_j = mean E, pos_j = fraction of E > 0. Slopes (least squares, log10-log10) over windows [10^a, X], a = 3..6:
+mean_j = mean E, pos_j = fraction of E > 0; xm_j = mean edge of the block (partial top block too). Slopes (least squares, log10-log10) over windows [10^a, X], a = 3..6:
   sup  : log M_j vs log x_j        (x_j = top edge of block j)       -> beta
   supL : log(M_j sqrt(log x_j))                                     -> beta, with the predicted (log x)^{-1/2}
   ms   : log MS_j vs log xm_j / 2  (xm_j = 1.5 * 2^j)               -> beta (half the mean-square slope)
@@ -38,7 +38,7 @@ def run_stats(prefix, rho=None, X=None, K=1024, J=27):
         if m.sum() < K // 4:
             continue
         Eb = E[m]
-        blocks.append(dict(j=b, x=float(ee[m].max()), xm=1.5 * 2.0 ** b, n=int(m.sum()),
+        blocks.append(dict(j=b, x=float(ee[m].max()), xm=float(ee[m].mean()), n=int(m.sum()),
                            A=float(np.abs(Eb).max()), MS=float(np.mean(Eb ** 2)), mean=float(Eb.mean()),
                            pos=float(np.mean(Eb > 0))))
     A = np.array([b["A"] for b in blocks]); Mrun = np.maximum.accumulate(A)

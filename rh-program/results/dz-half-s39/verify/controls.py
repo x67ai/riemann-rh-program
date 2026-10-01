@@ -62,6 +62,18 @@ def main():
         S = float(rng.normal(-math.log1p(1.0 / T), math.sqrt(1.0 / (X * T * T))))
         rho = math.exp(float(np.sum(np.log1p(-1.0 / R))) + S)
         meta = dict(kind="t1", seed=seed, X=X, n_primes=int(P.size), n_deleted=int(R.size), S_tail=S, rho=rho)
+    elif kind == "ta":
+        # the frontier's T_alpha (fr NOTE §4): delete p with probability p^(alpha-1); rho tail over p > X sampled:
+        # sum_{p>X, p in R} log(1 - 1/p) ~ N(-E1((1-alpha) log X), E1((2-alpha) log X)) (PNT density 1/log v)
+        from scipy.special import exp1
+        alpha, seed, X, out = float(sys.argv[2]), int(sys.argv[3]), float(sys.argv[4]), sys.argv[5]
+        rng = np.random.default_rng([seed, int(round(alpha * 1000)), 20261001])
+        Q = sieve(X); w = Q ** (alpha - 1.0)
+        dele = rng.random(Q.size) < w
+        P = Q[~dele]; R = Q[dele]; T = math.log(X)
+        S = float(rng.normal(-exp1((1 - alpha) * T), math.sqrt(exp1((2 - alpha) * T))))
+        rho = math.exp(float(np.sum(np.log1p(-1.0 / R))) + S)
+        meta = dict(kind="ta", alpha=alpha, seed=seed, X=X, n_primes=int(P.size), n_deleted=int(R.size), S_tail=S, rho=rho)
     else:
         raise SystemExit("unknown kind")
     meta.update(K=1024, J=27)

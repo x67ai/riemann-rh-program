@@ -50,3 +50,28 @@ a^{N/2}/N for even N makes D_R ≈ (1 − au)(1 − au²)^{1/2}, a square-root b
 irreducible of degree N independently with probability a^N/(N·M(q, N)), seed 20261001) has E(n)/2^{n/2} = −0.14 … 0.46 for n = 6…22 —
 the rung-1 face of fr Theorem B. **Rung 1b: regular and random deletions sit at α_R/2; the necklace deletion is exactly regular.**
 
+**1.3 What rung 1b says about Lemma G and about any proof of O** [proved here; novelty: single-check].
+Write u = q^{−s}, so σ = Re s and |u| = q^{−σ}; α_R = log a/log q.
+(a) *Lemma G is false at rung 1.* For the necklace deletion β = −∞ < α_R/2, but P_R(u) := Σ_{P∈R}u^{deg P} = Σ_N M(a, N)u^N =
+−Σ_{m≥1}(μ(m)/m)log(1 − au^m) has logarithmic branch points at u^m = 1/a, i.e. at s = α_R/m + 2πik/(m log q), k ∈ ℤ, for every
+squarefree m — on σ = α_R/2 at every height πk/log q (m = 2). So P_R continues past α_R/2 off the real axis in no half-plane
+{σ > τ₀, |t| > T₀}, τ₀ < α_R/2, single-valuedly: the hypothesis of Theorem Z fails and its conclusion fails too.
+(b) *The anatomy of cO Prop. 1.6 is realized, in a world satisfying RH.* D_R = ζ_P/ζ_amb = 1 − au has infinitely many zeros, at
+s = α_R + 2πik/log q (real part α_R > α_R/2 − ε for every ε), and no poles; the branch points of P_R are the images ρ′/m of these zeros
+with the rational coefficients the local structure theorem (§2.1 below) requires (−1 at the zeros, ½ at their halves).
+(c) *Which inputs of Theorem Z's proof hold for the necklace deletion.* The Euler product over R; |D_R(s)| ≤ 1 + a for σ ≥ 0 and
+|ζ_P| ≤ C|t| trivially (steps Z1, Z3 — polynomial bounds); nonnegative integer multiplicities; Σ|P|^{−1} < ∞; α_R > 0; MV spacing of
+the frequencies N log q; RH for the ambient. What fails is ZERO-FREENESS of D_R, i.e. analyticity of L = log D_R (step Z2), hence
+Borel–Carathéodory (Z4). Theorem Z itself transfers to rung 1 verbatim (zero-free D_R with the continuation ⟹ β₂ ≥ α_R/2), and the
+regular and random rung-1 deletions of §1.2 obey O.
+(d) *The ℚ-input any proof must use.* Over ℚ the Dirichlet coefficients of D_R are μ(m)·1_{⟨R⟩}(m): one coefficient ±1 per
+squarefree R-number, at pairwise distinct frequencies log m (unique factorization in ℤ; the norm is injective on ⟨R⟩). At rung 1 the
+degree-n coefficient of D_R is the aggregate Σ_{f∈⟨R⟩, deg f = n}μ(f) over all squarefree R-products of norm qⁿ, and the necklace
+choice makes every aggregate with n ≥ 2 vanish. *Statement (G₁).* Conjecture O (and Lemma G) is not a consequence of the properties
+listed in (c) — they hold at rung 1, where O fails; a proof must use the injectivity of the norm on ⟨R⟩, equivalently that the
+coefficient sequence of D_R is ±1 on a set of counting exponent α_R with no cancellation between distinct R-numbers.
+*Nearest published object.* The cyclotomic (necklace) identity 1 − au = Π_N(1 − u^N)^{M(a,N)} is classical (Metropolis–Rota;
+Moreau 1872) [recalled, unverified]; the rung-1 dictionary "RH-true curve with perfectly regular divisor counts" is fr §5.4's virtual
+curve V (a whole system over 5^ℤ). Difference: here a DELETION from the exact system F_q[T] (Weil-RH ambient, a genuine function
+field), with α_R > 0 prescribed, is exactly regular — a statement about Conjecture O's own class, which V is not.
+

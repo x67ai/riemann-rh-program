@@ -40,16 +40,19 @@ static uint8_t *rfree;
 static void build_rfree(uint64_t X) { rfree = malloc((X >> 3) + 1); if (!rfree) { fprintf(stderr, "alloc rfree\n"); exit(1); }
     memset(rfree, 0xFF, (X >> 3) + 1);
     for (size_t i = 0; i < nR; i++) { uint64_t p = Rp[i]; if (p > X) continue; for (uint64_t m = p; m <= X; m += p) rfree[m >> 3] &= ~(1u << (m & 7)); } }
-static void emit_bins(const char *run, uint64_t X, double rho) {   /* verbatim statistics of thin2.c emit_bins */
+static void emit_bins(const char *run, uint64_t X, double rho) {   /* thin2.c emit_bins statistics unchanged; + optional LG_SUME side file */
     int K = (int)floor(BPD * log10((double)X)) + 1; uint64_t *lo = malloc(sizeof(uint64_t) * (K + 1));
     for (int k = 0; k <= K; k++) { double v = pow(10.0, (double)k / BPD); lo[k] = (uint64_t)ceil(v - 1e-9); }
-    uint64_t N = 0; int k = 0; double mx = -1e300, mn = 1e300, s2 = 0; uint64_t cnt = 0;
+    uint64_t N = 0; int k = 0; double mx = -1e300, mn = 1e300, s2 = 0, s1 = 0; uint64_t cnt = 0;
+    const char *sp = getenv("LG_SUME"); FILE *fs = sp ? fopen(sp, "w") : NULL;   /* optional side file: lo,hi,sum of E at midpoints */
     for (uint64_t n = 1; n <= X; n++) { if ((rfree[n >> 3] >> (n & 7)) & 1) N++;
         while (k < K && n >= lo[k + 1]) { if (cnt) printf("%s,%llu,%llu,%.6f,%.6f,%.6e,%llu,0\n", run, (unsigned long long)lo[k],
                 (unsigned long long)(lo[k + 1] - 1), mx, mn, s2, (unsigned long long)cnt);
-            k++; mx = -1e300; mn = 1e300; s2 = 0; cnt = 0; }
+            if (cnt && fs) fprintf(fs, "%llu,%llu,%.10e\n", (unsigned long long)lo[k], (unsigned long long)(lo[k + 1] - 1), s1);
+            k++; mx = -1e300; mn = 1e300; s2 = 0; s1 = 0; cnt = 0; }
         double ep = (double)N - rho * (double)n, em = ep - rho, ec = ep - 0.5 * rho;
-        if (ep > mx) mx = ep; if (em < mn) mn = em; s2 += ec * ec; cnt++; }
+        if (ep > mx) mx = ep; if (em < mn) mn = em; s2 += ec * ec; s1 += ec; cnt++; }
+    if (fs) fclose(fs);
     if (cnt) printf("%s,%llu,%llu,%.6f,%.6f,%.6e,%llu,0\n", run, (unsigned long long)lo[k], (unsigned long long)X, mx, mn, s2,
         (unsigned long long)cnt);
     free(lo); }

@@ -59,3 +59,18 @@ Dated blocks, appended after each batch. Newest at the bottom.
   point from the prime squares with ζ_T(½) = −1 < 0 (NOTE §4.3). The one-scale variance is a small part of MS at 10⁵
   (I(κ) ≈ 2.9 vs MS/(x/log x) ≈ 35–60 for R seed 1).
 - NOTE §3.1–3.2 written: σ² two ways with the error bound; I(κ; n₀) closed forms; min I > 0 on DZ's grid (0.0195, 0.0380).
+
+## 2026-10-01 — block 4: main batch harvested (05:21–05:27; `verify/logs/run_main.log`, `verify/logs/aggregate.txt`)
+
+- DZ R (P_R), 5 seeds, X = 10⁸: sup-slope 0.492 ± 0.012 on [10³, X], 0.514 ± 0.054 on [10⁶, X]; ms 0.474 → 0.455; L-versions
+  0.52–0.55. DZ C (P_B), 5 seeds: sup 0.479 ± 0.020 on [10³, X], falling to 0.381 ± 0.060 on [10⁶, X]; ms 0.477 → 0.360.
+  Per seed (C): E/(x/log x)^{1/2} at 10³…10⁸ is a large, seed-dependent, slowly varying NEGATIVE drift (e.g. −25 … −42 … −33
+  for s1; −51 … −66 … −28 for s3): the top-window slope deficit is the decline of this factor over 10⁶–10⁸, not a smaller
+  exponent (mechanism test: `verify/drift_check.py`, §4.4).
+- Controls: rational primes — N(e) = ⌊e⌋ at all 27 125 edges (exact); sup-slope 0.000. P_det (Γ, quantiles, no selection):
+  slopes 0.42–0.46 (msL 0.49–0.50), E/(x/log x)^{1/2} → −0.595…−0.597 (blocks 10⁶–2.5·10⁷) against the branch-point
+  prediction √(2/π)H(½) = −0.5998, H(½) = −0.7517 from the realized quantiles (`verify/predict_det.py`) — 0.5 % agreement.
+- T₁ (delete p w.p. 1/(1 + log p)): slopes 0.93–0.95, E ≈ +c·x/log x. Correct but not the intended calibration: the mean
+  system has a −ρ log(s − 1) singularity AT s = 1, so β(T₁) = 1. Replaced as the near-α = 1 surgery control by the frontier's
+  own T_α at α = 0.90, 0.95 (`verify/run_ta.sh`, running); T₁ kept and reported as a negative control.
+- Fixed: `analyze.py` normalized the partial top block by 1.5·2^26 (artifact at j = 26); now the mean edge of the block.

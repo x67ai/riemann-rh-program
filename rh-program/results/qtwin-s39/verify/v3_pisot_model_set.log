@@ -1,0 +1,17 @@
+Part A: acceptance test, k = exp(-pi t^2)
+   theta y=0.37: <mu,g> = 1.68178586433168118910396  <mu,g^> = 1.68178586433168118910396  diff = -2.67e-51
+   theta y=1.0: <mu,g> = 1.179757057124133727312444  <mu,g^> = 1.179757057124133727312444  diff = 0.0
+   theta y=2.2: <mu,g> = 1.038269800128048182841571  <mu,g^> = 1.038269800128048182841571  diff = 0.0
+   Fejer L=0.3: left = 1.00001953175056 right = 0.99917516711979 diff = 0.000844 (tail bound 0.00177)
+   Fejer L=0.7: left = 1.04269618112356 right = 1.04233442230422 diff = 0.000362 (tail bound 0.00076)
+   Fejer L=1.3: left = 1.46893698427766 right = 1.4687418149686 diff = 0.000195 (tail bound 0.000409)
+Part B: the gap (-r, r), r = q^{-1/2}, q = sqrt5*phi^{2j}: atoms of mu_k (Gaussian k) inside (0, r), largest first
+   j=0: q = 2.236068, r = 0.6687403; mass of the atom '1' (x = phi^-0) = 0.245376; largest masses in (0,r): 0.02527 at x=-1+1phi, 6.574e-5 at x=2+-1phi, 1.125e-11 at x=-3+2phi, 1.868e-17 at x=4+-2phi
+   j=1: q = 5.854102, r = 0.41330424; mass of the atom '1' (x = phi^-1) = 0.0252674; largest masses in (0,r): 6.574e-5 at x=2+-1phi, 1.125e-11 at x=-3+2phi, 2.163e-29 at x=5+-3phi, 1.599e-44 at x=-6+4phi
+   j=2: q = 15.326238, r = 0.25543607; mass of the atom '1' (x = phi^-2) = 6.57429e-5; largest masses in (0,r): 1.125e-11 at x=-3+2phi, 2.163e-29 at x=5+-3phi, 9.002e-76 at x=-8+5phi, 2.19e-115 at x=10+-6phi
+   j=3: q = 40.124612, r = 0.15786817; mass of the atom '1' (x = phi^-3) = 1.12457e-11; largest masses in (0,r): 2.163e-29 at x=5+-3phi, 9.002e-76 at x=-8+5phi, 3.372e-197 at x=13+-8phi, 6.567e-301 at x=-16+10phi
+Part C: the zero set Z_j (in the variable of k): an admissible k must vanish on {n^sigma phi^j / c : 0 < |n| < 1}
+   j=0: first positive zeros [1.08204, 1.75078, 2.83283, 3.50157, 3.91487, 4.58361, 5.66566, 6.3344]; min gap 0.41330, max gap (|z|<20) 1.08204; density 1.2710 per unit length (predicted 2/(c phi^j) = 1.3375)
+   j=1: first positive zeros [1.75078, 2.83283, 4.58361, 5.66566, 6.3344, 7.41644, 9.16723, 10.24927]; min gap 0.66874, max gap (|z|<20) 1.75078; density 0.7855 per unit length (predicted 2/(c phi^j) = 0.8266)
+   j=2: first positive zeros [2.83283, 4.58361, 7.41644, 9.16723, 10.24927, 12.00006, 14.83289, 16.58367]; min gap 1.08204, max gap (|z|<20) 2.83283; density 0.4855 per unit length (predicted 2/(c phi^j) = 0.5109)
+   j=3: first positive zeros [4.58361, 7.41644, 12.00006, 14.83289, 16.58367, 19.4165, 24.00012, 26.83295]; min gap 1.75078, max gap (|z|<20) 4.58361; density 0.3001 per unit length (predicted 2/(c phi^j) = 0.3157)

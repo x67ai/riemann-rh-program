@@ -1,33 +1,33 @@
 == DZ R (Thm 17.11, P_R)  (5 runs, X = 1e+08)
    rho: 2.3763, 0.5670, 0.3331, 0.4567, 0.6057
-   window [1e3, X]: sup=0.492±0.012  supL=0.534±0.012  ms=0.474±0.012  msL=0.517±0.012
-   window [1e4, X]: sup=0.509±0.027  supL=0.545±0.027  ms=0.494±0.035  msL=0.531±0.035
-   window [1e5, X]: sup=0.515±0.053  supL=0.549±0.053  ms=0.491±0.074  msL=0.525±0.074
-   window [1e6, X]: sup=0.514±0.054  supL=0.545±0.054  ms=0.455±0.084  msL=0.486±0.084
+   window [1e3, X]: sup=0.492±0.012  supL=0.534±0.012  ms=0.477±0.012  msL=0.519±0.012
+   window [1e4, X]: sup=0.509±0.027  supL=0.545±0.027  ms=0.498±0.035  msL=0.535±0.035
+   window [1e5, X]: sup=0.515±0.053  supL=0.549±0.053  ms=0.498±0.075  msL=0.532±0.075
+   window [1e6, X]: sup=0.514±0.054  supL=0.545±0.054  ms=0.466±0.086  msL=0.498±0.086
    j= 2 x~6.00e+00  MS/(x/log x)=   2.368  mean(E)/sqrt(x/log x)= -0.371 (seed sd 1.453)  frac(E>0)=0.59
-   j= 5 x~4.80e+01  MS/(x/log x)=   8.050  mean(E)/sqrt(x/log x)= -1.319 (seed sd 2.407)  frac(E>0)=0.37
-   j= 8 x~3.84e+02  MS/(x/log x)=  14.681  mean(E)/sqrt(x/log x)= -1.943 (seed sd 3.190)  frac(E>0)=0.19
-   j=11 x~3.07e+03  MS/(x/log x)=  11.836  mean(E)/sqrt(x/log x)= -1.657 (seed sd 2.928)  frac(E>0)=0.34
-   j=14 x~2.46e+04  MS/(x/log x)=   8.088  mean(E)/sqrt(x/log x)= -1.443 (seed sd 2.267)  frac(E>0)=0.23
+   j= 5 x~4.80e+01  MS/(x/log x)=   8.048  mean(E)/sqrt(x/log x)= -1.319 (seed sd 2.407)  frac(E>0)=0.37
+   j= 8 x~3.84e+02  MS/(x/log x)=  14.677  mean(E)/sqrt(x/log x)= -1.942 (seed sd 3.190)  frac(E>0)=0.19
+   j=11 x~3.07e+03  MS/(x/log x)=  11.833  mean(E)/sqrt(x/log x)= -1.657 (seed sd 2.928)  frac(E>0)=0.34
+   j=14 x~2.46e+04  MS/(x/log x)=   8.086  mean(E)/sqrt(x/log x)= -1.443 (seed sd 2.267)  frac(E>0)=0.23
    j=17 x~1.97e+05  MS/(x/log x)=   2.190  mean(E)/sqrt(x/log x)= -0.321 (seed sd 1.123)  frac(E>0)=0.43
-   j=20 x~1.57e+06  MS/(x/log x)=   6.059  mean(E)/sqrt(x/log x)= +0.738 (seed sd 2.139)  frac(E>0)=0.51
-   j=23 x~1.26e+07  MS/(x/log x)=  25.209  mean(E)/sqrt(x/log x)= +2.230 (seed sd 4.325)  frac(E>0)=0.63
-   j=26 x~1.01e+08  MS/(x/log x)=  43.476  mean(E)/sqrt(x/log x)= +2.643 (seed sd 5.935)  frac(E>0)=0.49
+   j=20 x~1.57e+06  MS/(x/log x)=   6.058  mean(E)/sqrt(x/log x)= +0.738 (seed sd 2.139)  frac(E>0)=0.51
+   j=23 x~1.26e+07  MS/(x/log x)=  25.201  mean(E)/sqrt(x/log x)= +2.230 (seed sd 4.324)  frac(E>0)=0.63
+   j=26 x~8.36e+07  MS/(x/log x)=  51.847  mean(E)/sqrt(x/log x)= +2.886 (seed sd 6.481)  frac(E>0)=0.49
 == DZ C (Thm 17.14, P_B)  (5 runs, X = 1e+08)
    rho: 4.6923, 3.3447, 4.8695, 2.5707, 0.3740
-   window [1e3, X]: sup=0.479±0.020  supL=0.520±0.020  ms=0.477±0.020  msL=0.519±0.020
-   window [1e4, X]: sup=0.457±0.028  supL=0.493±0.028  ms=0.452±0.030  msL=0.489±0.030
-   window [1e5, X]: sup=0.425±0.045  supL=0.459±0.045  ms=0.405±0.059  msL=0.438±0.059
-   window [1e6, X]: sup=0.381±0.060  supL=0.412±0.060  ms=0.360±0.088  msL=0.391±0.088
-   j= 2 x~6.00e+00  MS/(x/log x)=  34.885  mean(E)/sqrt(x/log x)= -4.552 (seed sd 3.668)  frac(E>0)=0.20
-   j= 5 x~4.80e+01  MS/(x/log x)= 136.811  mean(E)/sqrt(x/log x)= -7.906 (seed sd 8.491)  frac(E>0)=0.01
-   j= 8 x~3.84e+02  MS/(x/log x)= 407.170  mean(E)/sqrt(x/log x)=-11.719 (seed sd 16.235)  frac(E>0)=0.38
-   j=11 x~3.07e+03  MS/(x/log x)= 793.753  mean(E)/sqrt(x/log x)=-17.120 (seed sd 22.127)  frac(E>0)=0.36
-   j=14 x~2.46e+04  MS/(x/log x)=1029.013  mean(E)/sqrt(x/log x)=-21.343 (seed sd 23.652)  frac(E>0)=0.09
-   j=17 x~1.97e+05  MS/(x/log x)=1106.044  mean(E)/sqrt(x/log x)=-23.908 (seed sd 22.843)  frac(E>0)=0.08
-   j=20 x~1.57e+06  MS/(x/log x)=1111.117  mean(E)/sqrt(x/log x)=-25.661 (seed sd 21.055)  frac(E>0)=0.08
-   j=23 x~1.26e+07  MS/(x/log x)= 928.938  mean(E)/sqrt(x/log x)=-22.764 (seed sd 20.061)  frac(E>0)=0.19
-   j=26 x~1.01e+08  MS/(x/log x)= 441.820  mean(E)/sqrt(x/log x)=-15.050 (seed sd 14.560)  frac(E>0)=0.20
+   window [1e3, X]: sup=0.479±0.020  supL=0.520±0.020  ms=0.480±0.020  msL=0.522±0.020
+   window [1e4, X]: sup=0.457±0.028  supL=0.493±0.028  ms=0.456±0.031  msL=0.493±0.031
+   window [1e5, X]: sup=0.425±0.045  supL=0.459±0.045  ms=0.409±0.060  msL=0.443±0.060
+   window [1e6, X]: sup=0.381±0.060  supL=0.412±0.060  ms=0.366±0.091  msL=0.398±0.091
+   j= 2 x~6.00e+00  MS/(x/log x)=  34.880  mean(E)/sqrt(x/log x)= -4.552 (seed sd 3.667)  frac(E>0)=0.20
+   j= 5 x~4.80e+01  MS/(x/log x)= 136.778  mean(E)/sqrt(x/log x)= -7.905 (seed sd 8.490)  frac(E>0)=0.01
+   j= 8 x~3.84e+02  MS/(x/log x)= 407.060  mean(E)/sqrt(x/log x)=-11.717 (seed sd 16.233)  frac(E>0)=0.38
+   j=11 x~3.07e+03  MS/(x/log x)= 793.527  mean(E)/sqrt(x/log x)=-17.118 (seed sd 22.124)  frac(E>0)=0.36
+   j=14 x~2.46e+04  MS/(x/log x)=1028.712  mean(E)/sqrt(x/log x)=-21.340 (seed sd 23.648)  frac(E>0)=0.09
+   j=17 x~1.97e+05  MS/(x/log x)=1105.713  mean(E)/sqrt(x/log x)=-23.904 (seed sd 22.839)  frac(E>0)=0.08
+   j=20 x~1.57e+06  MS/(x/log x)=1110.781  mean(E)/sqrt(x/log x)=-25.657 (seed sd 21.051)  frac(E>0)=0.08
+   j=23 x~1.26e+07  MS/(x/log x)= 928.654  mean(E)/sqrt(x/log x)=-22.760 (seed sd 20.058)  frac(E>0)=0.19
+   j=26 x~8.36e+07  MS/(x/log x)= 526.883  mean(E)/sqrt(x/log x)=-16.436 (seed sd 15.900)  frac(E>0)=0.20
 == ctl: rational primes  (1 run, X = 1e+08)
    rho: 1.0000
    window [1e3, X]: sup=-0.000±nan  supL=0.041±nan  ms=nan±nan  msL=nan±nan
@@ -42,4 +42,64 @@
    j=17 x~1.97e+05  MS/(x/log x)=   0.000  mean(E)/sqrt(x/log x)= +0.000 (seed sd 0.000)  frac(E>0)=0.00
    j=20 x~1.57e+06  MS/(x/log x)=   0.000  mean(E)/sqrt(x/log x)= +0.000 (seed sd 0.000)  frac(E>0)=0.00
    j=23 x~1.26e+07  MS/(x/log x)=   0.000  mean(E)/sqrt(x/log x)= +0.000 (seed sd 0.000)  frac(E>0)=0.00
-   j=26 x~1.01e+08  MS/(x/log x)=   0.000  mean(E)/sqrt(x/log x)= +0.000 (seed sd 0.000)  frac(E>0)=0.00
+   j=26 x~8.36e+07  MS/(x/log x)=   0.000  mean(E)/sqrt(x/log x)= +0.000 (seed sd 0.000)  frac(E>0)=0.00
+== ctl: P_det (grid, no selection)  (1 run, X = 1e+08)
+   rho: 0.8121
+   window [1e3, X]: sup=0.422±nan  supL=0.464±nan  ms=0.458±nan  msL=0.500±nan
+   window [1e4, X]: sup=0.429±nan  supL=0.465±nan  ms=0.462±nan  msL=0.499±nan
+   window [1e5, X]: sup=0.435±nan  supL=0.468±nan  ms=0.466±nan  msL=0.500±nan
+   window [1e6, X]: sup=0.441±nan  supL=0.472±nan  ms=0.467±nan  msL=0.499±nan
+   j= 2 x~6.00e+00  MS/(x/log x)=   0.159  mean(E)/sqrt(x/log x)= -0.332 (seed sd 0.000)  frac(E>0)=0.07
+   j= 5 x~4.80e+01  MS/(x/log x)=   0.341  mean(E)/sqrt(x/log x)= -0.544 (seed sd 0.000)  frac(E>0)=0.01
+   j= 8 x~3.84e+02  MS/(x/log x)=   0.303  mean(E)/sqrt(x/log x)= -0.520 (seed sd 0.000)  frac(E>0)=0.00
+   j=11 x~3.07e+03  MS/(x/log x)=   0.380  mean(E)/sqrt(x/log x)= -0.589 (seed sd 0.000)  frac(E>0)=0.00
+   j=14 x~2.46e+04  MS/(x/log x)=   0.355  mean(E)/sqrt(x/log x)= -0.579 (seed sd 0.000)  frac(E>0)=0.00
+   j=17 x~1.97e+05  MS/(x/log x)=   0.369  mean(E)/sqrt(x/log x)= -0.596 (seed sd 0.000)  frac(E>0)=0.00
+   j=20 x~1.57e+06  MS/(x/log x)=   0.362  mean(E)/sqrt(x/log x)= -0.595 (seed sd 0.000)  frac(E>0)=0.00
+   j=23 x~1.26e+07  MS/(x/log x)=   0.365  mean(E)/sqrt(x/log x)= -0.599 (seed sd 0.000)  frac(E>0)=0.00
+   j=26 x~8.36e+07  MS/(x/log x)=   0.363  mean(E)/sqrt(x/log x)= -0.600 (seed sd 0.000)  frac(E>0)=0.00
+== ctl: T1 surgery (w_p = 1/(1+log p))  (5 runs, X = 1e+08)
+   rho: 0.2030, 0.2840, 0.4548, 0.2996, 0.2407
+   window [1e3, X]: sup=0.928±0.001  supL=0.969±0.001  ms=0.928±0.001  msL=0.970±0.001
+   window [1e4, X]: sup=0.937±0.001  supL=0.973±0.001  ms=0.936±0.001  msL=0.973±0.001
+   window [1e5, X]: sup=0.941±0.001  supL=0.975±0.001  ms=0.940±0.001  msL=0.974±0.001
+   window [1e6, X]: sup=0.945±0.000  supL=0.976±0.000  ms=0.943±0.000  msL=0.975±0.000
+   j= 2 x~6.00e+00  MS/(x/log x)=   0.260  mean(E)/sqrt(x/log x)= +0.367 (seed sd 0.318)  frac(E>0)=0.88
+   j= 5 x~4.80e+01  MS/(x/log x)=   0.943  mean(E)/sqrt(x/log x)= +0.874 (seed sd 0.354)  frac(E>0)=1.00
+   j= 8 x~3.84e+02  MS/(x/log x)=   3.933  mean(E)/sqrt(x/log x)= +1.861 (seed sd 0.604)  frac(E>0)=1.00
+   j=11 x~3.07e+03  MS/(x/log x)=  20.955  mean(E)/sqrt(x/log x)= +4.324 (seed sd 1.279)  frac(E>0)=1.00
+   j=14 x~2.46e+04  MS/(x/log x)= 150.885  mean(E)/sqrt(x/log x)=+11.573 (seed sd 3.505)  frac(E>0)=1.00
+   j=17 x~1.97e+05  MS/(x/log x)=1053.033  mean(E)/sqrt(x/log x)=+30.655 (seed sd 8.951)  frac(E>0)=1.00
+   j=20 x~1.57e+06  MS/(x/log x)=7573.079  mean(E)/sqrt(x/log x)=+82.071 (seed sd 24.419)  frac(E>0)=1.00
+   j=23 x~1.26e+07  MS/(x/log x)=54471.049  mean(E)/sqrt(x/log x)=+220.088 (seed sd 65.440)  frac(E>0)=1.00
+   j=26 x~8.36e+07  MS/(x/log x)=325619.219  mean(E)/sqrt(x/log x)=+543.815 (seed sd 161.685)  frac(E>0)=1.00
+== ctl: T_0.90 (frontier)  (5 runs, X = 1e+08)
+   rho: 0.1706, 0.0929, 0.0782, 0.1182, 0.0820
+   window [1e3, X]: sup=0.445±0.019  supL=0.486±0.019  ms=0.443±0.029  msL=0.485±0.029
+   window [1e4, X]: sup=0.440±0.011  supL=0.476±0.011  ms=0.442±0.016  msL=0.479±0.016
+   window [1e5, X]: sup=0.408±0.032  supL=0.441±0.032  ms=0.386±0.047  msL=0.420±0.047
+   window [1e6, X]: sup=0.437±0.046  supL=0.468±0.046  ms=0.443±0.073  msL=0.475±0.073
+   j= 2 x~6.00e+00  MS/(x/log x)=   0.489  mean(E)/sqrt(x/log x)= +0.628 (seed sd 0.272)  frac(E>0)=1.00
+   j= 5 x~4.80e+01  MS/(x/log x)=   0.326  mean(E)/sqrt(x/log x)= +0.286 (seed sd 0.477)  frac(E>0)=0.61
+   j= 8 x~3.84e+02  MS/(x/log x)=   0.197  mean(E)/sqrt(x/log x)= +0.123 (seed sd 0.380)  frac(E>0)=0.55
+   j=11 x~3.07e+03  MS/(x/log x)=   0.528  mean(E)/sqrt(x/log x)= +0.519 (seed sd 0.479)  frac(E>0)=0.87
+   j=14 x~2.46e+04  MS/(x/log x)=   0.077  mean(E)/sqrt(x/log x)= -0.081 (seed sd 0.218)  frac(E>0)=0.37
+   j=17 x~1.97e+05  MS/(x/log x)=   0.357  mean(E)/sqrt(x/log x)= -0.226 (seed sd 0.524)  frac(E>0)=0.39
+   j=20 x~1.57e+06  MS/(x/log x)=   0.132  mean(E)/sqrt(x/log x)= -0.256 (seed sd 0.192)  frac(E>0)=0.17
+   j=23 x~1.26e+07  MS/(x/log x)=   0.240  mean(E)/sqrt(x/log x)= +0.092 (seed sd 0.437)  frac(E>0)=0.59
+   j=26 x~8.36e+07  MS/(x/log x)=   0.085  mean(E)/sqrt(x/log x)= +0.249 (seed sd 0.100)  frac(E>0)=0.95
+== ctl: T_0.95 (frontier)  (5 runs, X = 1e+08)
+   rho: 0.0452, 0.0519, 0.0417, 0.0455, 0.0432
+   window [1e3, X]: sup=0.497±0.007  supL=0.538±0.007  ms=0.506±0.012  msL=0.548±0.012
+   window [1e4, X]: sup=0.482±0.015  supL=0.518±0.015  ms=0.486±0.018  msL=0.523±0.018
+   window [1e5, X]: sup=0.486±0.019  supL=0.520±0.019  ms=0.496±0.018  msL=0.530±0.018
+   window [1e6, X]: sup=0.497±0.036  supL=0.528±0.036  ms=0.509±0.048  msL=0.541±0.048
+   j= 2 x~6.00e+00  MS/(x/log x)=   0.192  mean(E)/sqrt(x/log x)= +0.425 (seed sd 0.045)  frac(E>0)=1.00
+   j= 5 x~4.80e+01  MS/(x/log x)=   0.053  mean(E)/sqrt(x/log x)= +0.031 (seed sd 0.204)  frac(E>0)=0.59
+   j= 8 x~3.84e+02  MS/(x/log x)=   0.065  mean(E)/sqrt(x/log x)= -0.083 (seed sd 0.202)  frac(E>0)=0.33
+   j=11 x~3.07e+03  MS/(x/log x)=   0.132  mean(E)/sqrt(x/log x)= -0.235 (seed sd 0.238)  frac(E>0)=0.18
+   j=14 x~2.46e+04  MS/(x/log x)=   0.308  mean(E)/sqrt(x/log x)= -0.103 (seed sd 0.522)  frac(E>0)=0.32
+   j=17 x~1.97e+05  MS/(x/log x)=   0.319  mean(E)/sqrt(x/log x)= +0.281 (seed sd 0.461)  frac(E>0)=0.70
+   j=20 x~1.57e+06  MS/(x/log x)=   0.334  mean(E)/sqrt(x/log x)= +0.238 (seed sd 0.501)  frac(E>0)=0.76
+   j=23 x~1.26e+07  MS/(x/log x)=   0.367  mean(E)/sqrt(x/log x)= +0.356 (seed sd 0.455)  frac(E>0)=0.71
+   j=26 x~8.36e+07  MS/(x/log x)=   0.602  mean(E)/sqrt(x/log x)= +0.269 (seed sd 0.710)  frac(E>0)=0.57

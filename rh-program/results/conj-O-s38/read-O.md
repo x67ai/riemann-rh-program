@@ -159,3 +159,105 @@ the "L² form = Theorem Z" reading is accurate (Z5 is a Parseval/Carlson convers
   Headers: ρ(10⁹ run) − ρ(10¹⁰ run) = 7.56·10⁻⁸ ✓ ("7.6·10⁻⁸"), D(10⁹) = −70.0, D(10¹⁰) = 3140.5 ✓ ("≈ 3·10³"). The identity
   E = e + ρx∫_x^∞(D(u) − D(x))u^{−2}du + O(1 + D²/x) re-derived: ρ/ρ̂ = exp(−∫_x^∞dD/u + O(1/x)), ∫_x^∞dD/u = ∫_x^∞(D(u) − D(x))u^{−2}du
   by parts ✓; D = Ku^{α/2} gives ρKx^{α/2}(α/2)/(1 − α/2) ✓; "deleting q changes E(y) by −E(y/q)" ✓ (fr Thm B step (2)).
+
+## §2. Independent re-run (`verify-O/`, no code shared with `verify/`)
+
+**2.1 Code.** `thin_O.py`: numpy segmented odd-only prime sieve to Y, per-prime uniforms from numpy PCG64 seeded by
+[seed, round(10⁶α)] drawn in increasing prime order, ρ = Π_{p∈R,p≤Y}(1 − 1/p)·exp(−E₁((1−α)ln Y)) (scipy `exp1`), exact R-free counts
+by blockwise marking, per-bin sup/min and Σ(N(n) − ρ(n+½))² on the 20/decade grid and on true dyadic bins [2^j, 2^{j+1}).
+Checks: segmented sieve = simple sieve to 4·10⁶; all 110 bins at X = 10⁶ = brute force from the same deleted set
+(`logs/test_thin_O.log`). Option `h<seed>` re-implements the writer's splitmix64 hash (spec from thin.c): **the reader's code
+reproduces the writer's seed 5 at X = 10¹⁰ bin for bin** — nR(Y) = 3178317, nR(X) = 1950786, logρ_Y = −2.041739409618, E(X) =
+−623.3651, all 190 bins equal to print precision (`logs/xhash_s5_1e10.log`, `logs/xhash_compare.log`). Speed: 17 s at 10⁹,
+≈ 2 min at 10¹⁰ (2.1 GB), one process at a time.
+
+**2.2 Euler identity and rung 1.** Prop. 1.1(b) by raw class grouping: §1.1 (`logs/euler_O.log`). Rung 1 (`rung1_O.py` →
+`logs/rung1_O.log`): the one-period mean square in INTEGER arithmetic (12Q³·mean = 12ΣA_n² − 12φΣA_n + 4Qφ², A_n = QN(n) − φn)
+equals ρ2^{|R|}/12 EXACTLY for R = {2, …, 13} and {3, …, 19} (the writer's long-double values carry 7·10⁻¹⁴, 7·10⁻¹²). Own windows
+[X, 2X): M/pred − 1 = −4.0·10⁻⁴, −9.0·10⁻⁷, −2.8·10⁻⁷ (X = 6·10⁵, 5·10⁶, 4·10⁷) and −4.4·10⁻², −3.3·10⁻³, −3.2·10⁻⁴ for {3, …, 19}
+(Q/X = 8.1, 0.97, 0.12) — the NOTE's sizes ✓. Pipeline calibrated ✓.
+
+**2.3 The twelve seeds, recomputed** (`seeds_O.py` → `logs/seeds_O.log`, `seeds_O_other.py` → `logs/seeds_O_other.log`).
+Every §3.3 number is reproduced from the CSVs by the reader's own parser and estimators (sup = fr fit.py convention; ms = six-bin
+windows aligned at 10⁴): α = 0.75, 12 seeds: sup [10⁴/10⁶/10⁷, 10¹⁰] 0.368 ± 0.007 / 0.378 ± 0.006 / 0.392 ± 0.016; ms 0.723 ± 0.018 /
+0.783 ± 0.030 / 0.787 ± 0.059; seeds 1–4 top sup 0.450 ± 0.009, seeds 5–12 0.363 ± 0.014; α = 0.6 and 0.9 (4 seeds) as printed.
+
+**2.4 New seeds (reader's RNG).** Seed 1001 at X = 10⁹: sup-slopes [10⁴/10⁶/10⁷, 10⁹] 0.353 / 0.326 / 0.328 against the fr 10⁹
+seeds 1–8 0.353 ± 0.013 / 0.355 ± 0.013 / 0.373 ± 0.027 ✓ consistent; ms 0.689 / 0.495 / 0.442 (fr 1–8: 0.677 ± 0.040 / 0.738 ± 0.055 /
+0.661 ± 0.125); on true dyadic bins the same realization gives 0.763 / 0.550 / 0.798 — two window conventions on ONE run differ by
+0.36 in the top window, a direct measure of how little a two-decade slope means. Seeds 1002–1009 at X = 10¹⁰ (Y = 2·10¹⁰):
+
+| sample (T_0.75, X = 10¹⁰) | sup [10⁴,X] | sup [10⁶,X] | sup [10⁷,X] | ms [10⁴,X] | ms [10⁶,X] | ms [10⁷,X] |
+|---|---|---|---|---|---|---|
+| writer seeds 1–4 (fr) | 0.357 ± 0.011 | 0.389 ± 0.013 | 0.450 ± 0.009 | 0.725 ± 0.017 | 0.852 ± 0.034 | 0.986 ± 0.091 |
+| writer seeds 5–12 | 0.374 ± 0.008 | 0.372 ± 0.007 | 0.363 ± 0.014 | 0.721 ± 0.027 | 0.749 ± 0.036 | 0.687 ± 0.046 |
+| reader seeds 1002–1009 | 0.374 ± 0.007 | 0.375 ± 0.010 | 0.399 ± 0.011 | 0.754 ± 0.022 | 0.794 ± 0.039 | **0.860 ± 0.039** |
+| pooled 20 | 0.371 ± 0.005 | 0.377 ± 0.005 | 0.395 ± 0.010 | 0.735 ± 0.014 | 0.787 ± 0.023 | 0.816 ± 0.039 |
+(Targets: sup α/2 = 0.375 vs Theorem A's 1/(3−α) = 0.444; ms α = 0.75 vs 2/(3−α) = 0.889. ± = seed standard error.)
+
+Reading. (i) Full windows sit at α/2 (sup) and α (ms) in every sample ✓. (ii) Top-window sup: pooled 0.395 ± 0.010 — 2.0σ above
+α/2, 4.9σ below 1/(3−α) in seed s.e. (≈ 1σ with fr read-O's ±0.03–0.05 systematic): the fr four-seed value 0.450 does not recur ✓.
+(iii) Top-window ms: the reader's fresh sample gives 0.860 ± 0.039 (2.8σ above α, 0.7σ below 2/(3−α)); the writer's fresh sample
+gave 0.687 ± 0.046; the two fresh samples differ by 2.9σ of their own errors — the seed s.e. understates the spread of this
+statistic. Pooled: 0.816 ± 0.039, 1.7σ above α and 1.9σ below 2/(3−α): **the top window does not decide α vs 2/(3−α) in mean square**.
+(iv) The fr seeds 1–4 are the top 4 of 12 (exact rank p = 1/495) and 4 of the top 5 of 20; this is a post-selection effect (the
+tension was raised because of these four realizations), not evidence of a systematic: the writer's code is exact (§2.1) and two
+independent fresh samples regress. So "four-seed fluctuation" stands for the sup; "resolves toward α (mean square)" does not (F3).
+
+## §3. Prior-art gate (read at the page; fr `sources/` unless noted; reader's renders in the session scratchpad)
+
+| source | location read | what it states | relation to the NOTE |
+|---|---|---|---|
+| Hilberdink, JNT 112 (2005) (`fetched/w-18a…pdf`) | pp. 335–337, page images | Thm 1 max{α,β} ≥ ½; Cor 2(a): ψ_P = x + O(x^α), α < ½ ⇒ N_P − ρx = Ω(x^η) and ζ_P not of finite order in {η < σ < 1}; Cor 2(b): N_P = ρx + O(x^β), β < ½ ⇒ ζ_P has infinitely many zeros in {η′ < σ < 1}; Rem B(ii): finitely many zeros of ζ_P ⇒ ζ_P, φ_P of zero order; Carlson [3, p. 7] needs (3.1) n′ > n + n^{−A}; the device is f = ζ_P − ρφ_P with φ_P = −ζ′_P/ζ_P, order 0 from Hilberdink–Lapidus Thm 2.3; the printed proof (p. 337) avoids (3.1) via partial sums | Theorem Z's contrapositive ↔ Cor 2(b) (+ the "infinite order" alternative ↔ Cor 2(a)) ✓; Lemma G ↔ Rem B(ii) ✓ (quote exact); "same device" ✓ up to one precision: Hilberdink works with the logarithmic DERIVATIVE, the NOTE with the logarithm and Borel–Carathéodory (m10). Theorem Z is not in this paper |
+| Broucke–Hilberdink, Acta Arith. 212 (2024) (t-19a) | txt ll. 60–100 (Thm 1.1), 197–215 | ψ = x + O(x^α), α < ½ ⇒ N − ρx = Ω(√x e^{−(log x)^β}), β > ⅔; B–C on circles centred 2 + it for log ζ ((2.1)) | (Z4)'s B–C step and Cor Z.1's growth step are this ✓; setting (well-behaved primes of a single system) differs |
+| Hilberdink, JNT 130 (2010) (w-18e) and Corrigendum, JNT 269 (2025) (r-11a) | abstracts, Thm 1 | claimed ∫₀^T|ζ_P(σ+it)|²dt = Ω(T^{2−2σ−ε}) on β < σ < ½ for N_P = ρx + O(x^β); **the corrigendum says the proof contains a flaw** | nearest printed mean-value Ω-result; the NOTE does not use it; Prop. 1.3(iv) and (Z5) get their lower bounds from MV (G.27) on smoothed polynomials, checked in §1.3–1.4 — they do not inherit that flaw |
+| Montgomery–Vaughan, MNT II author draft (`fetched-r2/u-13…pdf`) | p. 427 (pdf p. 438), page image; (G.25)–(G.26) p. 426 | Thm G.16: |Σ_{m≠n}x_my_n/(λ_m − λ_n)| ≤ (3π/2)(Σ|x_n|²/δ_n)^{½}(Σ|y_m|²/δ_m)^{½}, δ_n = min_{m≠n}|λ_m − λ_n| | quoted correctly (the NOTE's ȳ_n is immaterial: y arbitrary) ✓ |
+| BDR, arXiv 2309.01567v2 = Trans. AMS 378 (2025) (z-02) | ll. 1160–1232 (§5), 1203–1205 | for their Broucke–Vindas selection S (c = 1, θ = 0), under RH: log ζ_S(s) = ∫u^{−s}dF + O(√log|t|) = log ζ(s+1−α) + O_ε(√log|t|) on Re s ≥ α/2 + ε, ζ_S, 1/ζ_S ≪ |t|^ε there, M_S(x) ≪ x^{α/2+ε}; then N via Lemma 5.1 (upper bound 2α/(α+2)); RH ⇒ ζ, 1/ζ ≪ |t|^ε on σ ≥ ½ + ε [MV I Th. 13.18, 13.23] | **Cor. Z.1's hypothesis check is, for c = 1, BDR's own computation** — used there for upper bounds; the NOTE cites BDR only for the RH bounds (m11). No lower bound for β of the deleted system in BDR |
+| Avdeeva, arXiv 1512.00149 (unit `sources/`) | Thm 1, p. 3 (txt ll. 94–132) | B pairwise coprime, Σ1/b < ∞, 2 ∉ B, N_B(N) = AN^α + O(N^β), β < α < 1 ⇒ Var_B(N) ∼ CN^α (shift-averaged over x ≤ X → ∞), C ∝ Π_b(…)·Γ(2−α)ζ(2−α) | as the NOTE states ✓; stationary (averaged) square-root law; no single-interval Ω |
+| Diamond–Montgomery–Vorhauer, Math. Ann. 334 (2006) (p1-02) | full-text sweep (Carlson, prime zeta, natural boundary, delet*: 0 hits) + fr read-O's p. 4 quote | zeros near σ = 1, ψ-oscillation | no bearing on Z / G |
+| Diamond–Zhang, AMS Surv. 213 (t-50); Zhang, Math. Ann. 337 (2007) | book: full-text sweep (0 hits); Zhang: **not on disk** | constructions of well-behaved systems | no bearing found; Zhang UNVERIFIED (as in fr read-O) |
+| Broucke–Vindas 2102.08478 (z-18); Broucke–Kouroupis–Perfekt (t-17b); Broucke–Weishäupl (t-18b) | full-text sweeps | selection procedure; Bohr's theorem; LH for general sequences | no Ω-results for deletions |
+| arXiv: writer's 5 queries (`sources/arxiv-O-q*.xml`) + reader's 10 (`verify-O/arxiv/qO-*.xml`, `index.txt`) | titles + abstracts | nothing on Ω / mean-square lower bounds for integers free of a sparse prime set, nor relative Hilberdink theorems; tangential: 2606.24536 (natural boundaries of prime-type products) | — |
+
+**Novelty labels (each "not in any source read"):** Theorem Z — **NEW** (statement), technique standard (Hilberdink's order-0 +
+Carlson/diagonal, B–C as in BH 2024, MV (G.27)); now double-checked at the line. Cor. Z.1 — **NEW** as a lower bound for every regular
+deletion and every c; its analytic input for c = 1 is BDR §5 (cite). Prop. 1.3 — NEW but routine (quantitative Carlson). Rem. 1.3′ —
+elementary. Lemma G — a reformulation (F2), ↔ Hilberdink Rem B(ii); no novelty to claim. Prop. 1.6(i) (natural boundary ⇒ O,
+unconditional) — NEW as stated. Prop. 1.1(a) — classical Fourier/Franel type; (b) — no source found, formal. Theorem C in mean-square
+form — routine. The feedback identity (§3.5) — elementary.
+
+## §4. The recalled input (Stirling for |χ|) and the other tools
+
+- |χ(σ+it)| = (|t|/2π)^{½−σ}(1 + O(1/|t|)) — no copy of Titchmarsh or MV I is on disk (reader searched `fetched*/`; MV II and
+  Diamond–Zhang do not state it), so it stays **[recalled]**, now spot-checked by two independent routes (`stirling_O.py` →
+  `logs/stirling_O.log`): (i) χ = ζ(s)/ζ(1−s) from mpmath's ζ alone, (ii) the Γ closed form via `loggamma`; they agree to 18 digits
+  for σ ∈ {−0.4, 0.05, 0.2, 0.375, 0.6, 1.2}, t ∈ [10, 10⁴], and R = |χ|(t/2π)^{σ−½} satisfies |R − 1| ≤ 0.0084/t at t = 10 falling
+  like t^{−2} (t|R − 1| = 8.4·10⁻⁶ at t = 10⁴, σ = −0.4): the modulus error is in fact O(t^{−2}) (the 1/t term of log χ is purely
+  imaginary). Only |χ| ≍ |t|^{½−σ} is used (Prop. 1.3(ii), (Z3), Rem. 1.3′) ✓.
+- Quoted inputs, verified at the page by this reader: MV (G.27)/(G.26) (image, §3); Hilberdink p. 336 (image); BDR ll. 1203–1205
+  (RH ⇒ ζ, 1/ζ ≪ |t|^ε on σ ≥ ½ + ε, citing MV I Th. 13.18, 13.23 — secondary, as in fr read-O); BH 2024 ll. 197–215; Avdeeva Thm 1.
+- Standard analysis used without citation (Plancherel on L¹ ∩ L², maximum modulus, Schwarz, Mellin inversion of Γ, Möbius inversion)
+  ✓; Lemmas Z.a and Z.b are proved in the NOTE and re-derived in §1.4 ✓.
+- Remark 1.3′'s unconditional variant ("mean value of |ζ|² on Re s > ½ [recalled]") is not load-bearing ✓ (the RH variant uses only
+  quoted inputs).
+
+## §5. FIX-FIRST items (OLD/NEW pairs against NOTE.md as read: 41,290 bytes, SHA-256 c1050e62…88e4)
+
+Not applied by the reader. None makes a theorem false. F1 corrects a proposition's index set; F2–F4 correct verdict sentences.
+
+**F1 — Prop. 1.1(a): the b = 1 frequencies are present (l. 37; l. 50).** Re-derivation §1.1: the frequency a/1 collects every
+m | Q with h = am, coefficient (1/(2πia))Σ_{m|Q}μ(m)/m = ρ/(2πia) ≠ 0 = the formula at b = 1; the printed Parseval product already
+contains the b = 1 term; without it the sum is short by ρ²/12 (euler_O (B): R = {2}: 0.0625 vs 1/12).
+- OLD (l. 37): `fractions a/b with b ∈ ⟨R⟩, b > 1, a ≠ 0, and c(a/b) = ρμ(b)b/(2πi·a·φ(b)). For finite R this is the Fourier series of the`
+- NEW: `fractions a/b with b ∈ ⟨R⟩ (b = 1 included: c(a) = ρ/(2πia)), a ≠ 0, and c(a/b) = ρμ(b)b/(2πi·a·φ(b)). For finite R this is the Fourier series of the`
+- OLD (l. 50–51): `Part (a) is checked exactly on nine sets` / `R (coefficients to 10⁻¹³ by exact integration of the piecewise-linear E over a period; (1/Q)∫E² = ρ2^{|R|}/12 in rationals).`
+- NEW: `Part (a) is checked exactly on nine sets` / `R (coefficients to 10⁻¹³ by exact integration of the piecewise-linear E over a period, b > 1; b = 1 checked to 10⁻³⁰ by read-O; (1/Q)∫E² = ρ2^{|R|}/12 in rationals).`
+
+**F2 — Lemma G is, under RH, equivalent to O₂(R) for each R (l. 26; l. 155–156; l. 311).** Re-derivation §1.6: Lemma G +
+Theorem Z ⇒ β₂(R) ≥ α_R/2; and β₂(R) ≥ α_R/2 makes Lemma G's hypothesis false. So "missing lemma" must not read as a weaker input.
+- OLD (l. 26): `(3) The exact missing lemma for general R is Lemma G (§1.6); a counterexample must have`
+- NEW: `(3) The exact missing lemma for general R is Lemma G (§1.6) — under RH equivalent, set by set, to O in mean square, i.e. a reformulation of O as a continuation statement, not a weaker input; a counterexample must have`
+- OLD (l. 156): `τ₀ < α_R/2 and T₀. — By Theorem Z, RH + Lemma G ⟹ Conjecture O (mean-square form, pure deletions) for every R. Equivalent form`
+- NEW: `τ₀ < α_R/2 and T₀. — By Theorem Z, RH + Lemma G ⟹ Conjecture O (mean-square form, pure deletions) for every R; conversely, if β₂(R) ≥ α_R/2 Lemma G holds vacuously for R, so under RH Lemma G for R is EQUIVALENT to β₂(R) ≥ α_R/2 (read-O F2): its content is the form (a mean-square saving must force the continuation of P_R) and the one-directional sufficient conditions below. Equivalent form`
+- OLD (l. 311): `**Close: G — the exact missing lemma is Lemma G (§1.6) — with T-parts; task 2 a named obstruction; task 3 N.**`
+- NEW: `**Close: G — the exact missing lemma is Lemma G (§1.6; under RH equivalent to O₂ set by set — a reformulation, read-O F2) — with T-parts; task 2 a named obstruction; task 3 N.**`

@@ -6,7 +6,8 @@ import numpy as np
 
 groups = {"DZ R (Thm 17.11, P_R)": "data/dz_R_s*.stats.json", "DZ C (Thm 17.14, P_B)": "data/dz_C_s*.stats.json",
           "ctl: rational primes": "data/ctl_primes.stats.json", "ctl: P_det (grid, no selection)": "data/ctl_det.stats.json",
-          "ctl: T1 surgery (alpha = 1)": "data/ctl_t1_s*.stats.json"}
+          "ctl: T1 surgery (w_p = 1/(1+log p))": "data/ctl_t1_s*.stats.json",
+          "ctl: T_0.90 (frontier)": "data/ctl_ta0.90_s*.stats.json", "ctl: T_0.95 (frontier)": "data/ctl_ta0.95_s*.stats.json"}
 lines, agg = [], {}
 def ms(v):
     v = np.array([u for u in v if np.isfinite(u)])
