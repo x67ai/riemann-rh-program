@@ -74,3 +74,6 @@ For U3/U4: (★) is the inequality any bound on E must respect locally; the clip
   (Bernoulli, not Poisson), so D(m) := Var/mean ≈ 1 − m·ρ²ψ′(½+ρ)/λ, ψ′(½) = π²/2. Deficit ∝ ρ² → vanishes as ρ → 0 at fixed τ.
 - [computed] Queue tail rate / Poisson-queue κ(λ): 1.05 (π/128, τ=0.6), 1.16 (π/64, τ=1.0), 1.31 (π/32, τ=2.0); mean queue /
   M/D/1 value λ²/(2(1−λ)): 0.88–0.92. Session 40's factor 1.5 (π/16) is this finite-ρ window effect.
+
+## 17:30 IST 2026-10-01 — ORCHESTRATOR: a control for U5 (and any unit testing an obstruction), from the wave-3 digest section C
+The function-field virtual curve V over F_5 (Z = (1 - 5u + 5u^2)/((1 - u)(1 - 5u)), A_n = (5^n - 1)/4) UNDERSHOOTS its linear part (A_n - 5^n/4 = -1/4 for every n >= 1) and still has a real zero at Re s = 0.79899 by the same sign change as in Theorem 1.6. So hypothesis (A) is sufficient, not necessary, for the real zero, and V is a rung-1 control: any proposed obstruction "real zero + discreteness forces a large integer error" must fail on V (exact counts, zeros off the line) or use something V lacks (a continuum of norms). Source: results/novel-wave-s39/insights-digest.md section C.
