@@ -42,10 +42,11 @@ fixed ρ the margin is f₀(τ) ≈ 1/τ and the factor e^{Kτ}, so it gives not
 scaling limit: at fixed ρ the regularity of the arrivals INCREASES with τ (queue tail rate / Poisson-queue κ = 1.05, 1.16, 1.31 at
 τ = 0.6, 1.0, 2.0, and Session 40's 1.45–1.65 at π/16, π/4), because the components with period below the excursion length become
 exact progressions. That corner is favorable to B and is where a proof would have to live; this unit's tools do not reach it.
-**For other units.** U1/U3: on τ < τ_c(ρ) the greedy feedback is irrelevant for upper bounds (Thm 2.1), and the scaling-limit
+**For other units.** U1/U3: on τ < τ_c(ρ) the greedy feedback is not needed for upper bounds (Thm 2.1), and the scaling-limit
 dynamics is the Volterra equation f = (1 − c[f])⁺ with unique solution f₀ — a rule whose limit dynamics keeps f > 0 inherits
 Theorem 4.4's proof. U7: the sub-Poisson window structure is quantitatively the random-phase model (§5.1–5.2) plus exact
-periodicity of components with period below the window; Session 40's factor 1.5 is this finite-ρ effect.
+periodicity of components with period below the window; Session 40's factor 1.5 belongs to this finite-ρ structure (at fixed τ
+the tail-rate factor shrinks as ρ decreases: 1.27 → 1.21 at τ = 1.5, 1.17 → 1.15 at τ = 1.15; `logs/collapse.log`).
 
 ## §1. Exact structure of the sparse regime
 
