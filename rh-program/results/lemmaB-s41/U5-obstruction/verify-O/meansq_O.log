@@ -1,0 +1,11 @@
+2*pi*int_1^1e5 E_L^2 u^(-2s-1), s=0.3: 0.689343
+2*pi*int_1^1e5 E_L^2 u^(-2s-1), s=0.45: 0.397362
+block mean square U=1.0e+3: 0.083394547
+block mean square U=1.0e+4: 0.083348734
+block mean square U=1.0e+5: 0.083333363
+block mean square U=4.9e+5: 0.083333247
+sigma=0.05: sigma*int = 0.040357527   (1/24 = 0.041666667, 1/(48 log 2) = 0.030056147)
+sigma=0.02: sigma*int = 0.04115521   (1/24 = 0.041666667, 1/(48 log 2) = 0.030056147)
+sigma=0.01: sigma*int = 0.041413125   (1/24 = 0.041666667, 1/(48 log 2) = 0.030056147)
+sigma=0.005: sigma*int = 0.041540458   (1/24 = 0.041666667, 1/(48 log 2) = 0.030056147)
+python3 meansq_O.py  68.62s user 0.14s system 99% cpu 1:08.78 total

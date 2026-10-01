@@ -6,12 +6,12 @@ from mpmath import mp, mpf, pi, besseli, log, zeta, exp
 mp.dps = 20
 rho = pi/16
 def ell(k): return 1 + (k - mpf(1)/2)/rho
-K = 20000
+K = 3000
 for sigma in (mpf('1.02'), mpf('1.05'), mpf('1.10')):
     a = [ell(k)**(-sigma) for k in range(1, K + 1)]
     tail2 = rho**(2*sigma)*zeta(2*sigma, mpf(1)/2 + rho) - sum(x*x for x in a)    # sum_{k>K} a_k^2
     best = None
-    for lam in [mpf(2)**(j/4) for j in range(0, 60)]:
+    for lam in [mpf(2)**(j/4) for j in range(8, 48)]:
         lg = -lam + sum(log(besseli(0, lam*x)) for x in a) + lam**2*tail2/4
         if best is None or lg < best[0]: best = (lg, lam)
     print(f"sigma={sigma}: X(sigma)={mp.nstr(rho**sigma*zeta(sigma, mpf(1)/2+rho), 6)}  "

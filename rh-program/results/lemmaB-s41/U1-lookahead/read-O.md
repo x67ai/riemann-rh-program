@@ -102,3 +102,29 @@ and (ii) held anyway. Control (same n_j bunched at a_j(1 + 0.005j/J), not aligne
 E ≤ ρG − τ ✓. 6.3: Σ_{n∈W}log n = Σ_{m∈G}ψ(W/m) is log = Λ ∗ 1 on a free monoid ✓, and the equivalence with Lemma M ✓ (for W = [y, y + |W|],
 log n = log y + O(|W|/y)). The constant is wrong (m7): Σ_{m≤y}1/m = N(y)/y + ∫_1^y N u^{−2}du = ρ log y + 1 + ∫_1^∞E u^{−2}du + o(1), so
 c_G = 1 + ∫_1^∞E(u)u^{−2}du, not 1 − ρ + …; check ℕ: 1 − ∫_1^∞{u}u^{−2}du = γ (the NOTE's form gives γ − 1). Not load-bearing.
+
+## §2. Independent re-run (`verify-O/`; own code from the NOTE's definitions; nothing imported from `verify/`)
+
+**2.1 Λ_{ρ,τ} and its root** (`lambda_arb.py`, `run_lambda.py`; logs `cert_lambda.log`, `roots_lambda.log`). Method A: python-flint arb,
+256-bit balls, closed-form pieces, every comparison decided on balls (piece 0 handled exactly: p*¹ = c₀). Method B: mpmath quadrature
+of each piece (no closed form). The 11 rows of Cor. 4.2, Λ(σ₁) (A; B agrees to all 12 printed digits):
+π/16: ½ 0.000612754264850 · 1/10 0.0127408950976 · 1/50 0.460598275921 · 1/100 1.65304587503; π/32: ½ 0.00286841455839 · 1/100 0.425925405077;
+π/8 1/100 2.30589386653; π/4: 1/10 0.0111543097896 · 1/100 3.61160532388 · 1/1000 387.958571893; 0.95π/3 1/100 4.30798442436 — all balls
+> 0 with radius ≤ 5·10⁻¹⁰, equal to `verify/powerbump_iv.log` digit for digit. Largest roots σ_L (scan + 60 bisections): π/16: ½ 0.7631837176,
+¼ 0.8316293090, 1/10 0.9114976726, 1/20 0.9518050842, 1/50 0.9799719898, 1/100 0.9899247148; π/32: ½ 0.8883704158, 1/100 0.9904126364;
+π/8 1/100 0.9896617268; π/4: 1/10 0.8692342333, 1/100 0.9895250389, 1/1000 0.9989929612, ½ none in (0.30, 0.99999); 0.95π/3 1/100
+0.9894958025 — equal to `powerbump_bound.log` to its 8 digits. So "any θ < 0.4945 at τ = 1/100 for each of the five densities" is
+right (σ_L/2 ≥ 0.494748), and σ₁ = 0.989 (0.990 for π/32) is a valid certified point for each.
+**2.2 Generator** (`bf_greedy.py`): min-heap enumeration, each g-integer generated once as (largest prime) × (cofactor) at the later of
+its two factors' appearance; 80-digit arithmetic; a-posteriori certificate = least relative gap over all placement decisions (≥ 2.6·10⁻⁹
+in every run, against a rounding error < 10⁻⁷⁶). Different algorithm (theirs: closure + insort at 50 digits) and different precision.
+(a) The unit's four validated cases (π/16, τ ∈ {0.02, 0.25, 0.5}; π/4, τ = ½; X = 2·10⁴): N, π, composites, sup E, inf E(x−), max gap
+identical to `validate_bf.log`. (b) **Target (d): τ = 1/100, π/16** — the unit's FIXED `rules2.cpp` (compiled to scratch) against mine:
+X = 2·10³: N 398, π 19, comp 378; 2·10⁴: 3,930, 191, 3,738; 2·10⁵: 39,272, 1,903, 37,368; sup E 73.2724 (at x ≈ 50, the power bump), inf E(x−)
+−0.010000, max gap 662.08 — identical in every field at all three X. The fixed generator is confirmed at τ = 1/100.
+**2.3 Sharpness** (`sigma_star.py` on my dumps, X = 2·10⁵, `sigma_star.log`): σ* = 0.9899264 (τ = 1/100; NOTE 0.98993, σ_L 0.9899247),
+0.9799828 (τ = 1/50; NOTE 0.97998, σ_L 0.9799720), 0.7947458 (τ = ½; NOTE 0.794752 at 10⁶, 0.794755 at 10⁷). The 4–5-digit agreement
+of σ* with σ_L for small τ reproduces, and σ* > σ_L as the theorem requires.
+**2.4 Explicit systems against Theorem 4.1** (`thm41_tests.py`, `cor44_counterexample.py`): template Λ(0.98) = 9.830 > ζ_c(0.98) = −8.818
+(discreteness is necessary); ℕ: ζ ≥ Λ_{1,1}, min gap 0.177 on a grid, Λ_{1,1} < 0 on (0, 1); Q′ = ℕ ∪ {1 + τ/ρ}: inf E_{π/4} = −0.0100000 exactly
+(at q⁻; integers alone keep E ≥ 0 beyond u = 5.66), N − ρ′X = −163, −255, −343, −442 at X = 10, …, 10⁴ (≈ −0.6 log X/log q): β(Q′) = 0.

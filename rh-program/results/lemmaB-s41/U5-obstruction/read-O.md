@@ -100,3 +100,20 @@ it states, hence for L_ρ". At the line:
   with θ < ½, Cor. 2(b) gives infinitely many zeros in (γ, 1) for every γ ∈ (θ, ½), so zero order (the only source of (3.4)) is unavailable
   left of ½, where (3.3) bites; and N–H's conclusion there is α = γ ≥ σ*, with β unconstrained. → FIX-FIRST F2 (restate (i) and Cor. 2.2)
   and F3 (§4.3, §4.4 L-part, l. 188, l. 237).
+**1.12 Remark 2.3, the function-field control V (l. 138–147; target (c))** ✓. 1/((1 − u)(1 − 5u)) = Σ(5^{n+1} − 1)/4·u^n, and multiplying by
+1 − 5u + 5u² gives A_n = (5^n − 1)/4 (n ≥ 1), so A_n − 5^n/4 = −¼ exactly. log Z = Σ_n a_n u^n/n with a_n = 5^n + 1 − (w₁^n + w₂^n),
+w₁,₂ = (5 ± √5)/2 (inverse roots of 1 − 5u + 5u²; |w| ≠ √5, so V violates the Weil bound, hence "virtual"), and b_d = (1/d)Σ_{j|d}μ(d/j)a_j.
+b_d ≥ 0 for ALL d [proved here]: d·b_d ≥ a_d − Σ_{j≤d/2}a_j ≥ 5^d(1 − 2·0.7237^d) − (5/4)·5^{d/2} − d > 0 for d ≥ 41 (w₂ < w₁ = 0.7236·5), and d ≤ 40 is
+checked exactly (the NOTE checked d ≤ 16). Zeros at u = (5 ∓ √5)/10: Re s = 0.79899371783272 and 0.20100628216728; Z(5^{−σ}) > 0 on
+(½, 0.79899), < 0 on (0.79899, 1), → −∞ at 1⁻. [computed, `curveV_O.log`: A_n exact to n = 39; b₁..b₈ = 1, 5, 25, 110, 500, 2215, 10000,
+45100 — the NOTE's list; the Euler product ∏(1 − u^d)^{−b_d} reproduces A_n exactly to n = 20.] The NOTE's reading — (D) and (P) jointly
+with a real zero > ½ coexist with a perfectly regular degree-level count on a geometric norm set, while V fails (A) (−¼ < 0) — ✓. One
+precision (minor m3): V has no archimedean density, so "(A)" and "integer error" for V are at degree level (N(5^n) = Σ_{m≤n}A_m); the
+sentence "V undershoots and so fails (A)" (l. 143) should say "its degree-level error −¼ is negative".
+**1.13 §3.1 Parseval (l. 151–153)** ✓ (u = e^v; Plancherel for v ↦ E(e^v)e^{−σv} ∈ L¹ ∩ L² when E = O(u^θ), θ < σ).
+**1.14 Prop. 3.2 (l. 155–162; target (d))** ✓ with one repair and one constant. Between atoms E has slope −ρ; on a piece of length ℓ,
+min_e∫_0^ℓ(e − ρv)²dv = ρ²ℓ³/12 at e = ρℓ/2 ✓. Repair (minor m4): the n atoms cut [U, 2U] into n + 1 pieces including the two boundary
+pieces, Σℓ_i = U exactly, so ∫_U^{2U}E² ≥ ρ²U³/(12(n + 1)²) = (U/12)(1 + o(1)) — the boundary pieces must be counted, else Σℓ_i < U and
+the Hölder step does not give U³. Equality case ✓ (all pieces 1/ρ, E = ±½ at their ends: E_L). Constant (minor m5): summing dyadic blocks
+with u^{−2σ−1} ≥ (2U)^{−2σ−1} gives (1 + o(1))/(48σ log 2) ✓ as a lower bound, but the sharp constant is 1/(24σ) (blocks [U, (1 + η)U],
+η → 0), attained by E_L; "L_ρ meets the bound" (l. 161) is off by the factor 2 log 2 = 1.386. [computed, `meansq_O.log`, below.]

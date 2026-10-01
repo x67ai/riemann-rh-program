@@ -161,3 +161,24 @@ On [1, p1), E(u)/(u − 1) = −rho; at p1 it equals (1/2)/(p1 − 1) = rho. [co
 S8(π/32), for all x > 1; i.e. N(x) ≤ (2rho + 10⁻⁴)(x − 1) + 1: the count never exceeds twice its target slope.** For general
 rho ∈ (0, 1/2): every record of E(u)/(u − 1) beyond X0 is ≤ rho + o(1) as X0 → ∞.
 
+## §2. ATTEMPT 2 (T2: E = o(x)) — breaks at: the record method is a linear-scale balance (18:35 IST 2026-10-01)
+**2.1 The drift identity [proved here].** Put Q(x) := psi(x) − rho x D(x) (= x(psi/x − rho D)). At a g-prime y, (*) reads
+  Q(y) = (1/2)log y − ∫_1^y E(u)du/u + rho − Σ_{d≤y} Λ(d)E(y/d),
+so psi(y)/y − rho D(y) = −W(y) + O(log y/y), W(y) := (1/y)Σ_{d≤y}Λ(d)E(y/d) (the Lambda-weighted mean of E over the lower scales).
+Between g-primes Q' = −rho(Delta + 1) plus jumps at prime powers, so the same holds up to rho(Delta + 1)·(gap)/x elsewhere.
+**2.2 What every record bound reduces to.** E1' gives at a record: A ≤ psi/(xD) − rho = (psi/x − rho D)/D ≈ −W/D. So the record
+method can give A → 0 only if W(x) ≥ −o(1) at the records. Since half of the weight of Σ_d Λ(d) sits at d > x/2 (scales y/d < 2),
+W is dominated by E at bounded scales, where E is a fixed function: on [1, p1) E(v) = −rho(v − 1) < 0.
+[computed, logs/t1_*.log and U7 §5.6(v) quoted]: psi/x − rho D = +0.060 (π/16, 10⁶), the U7-measured Lambda-mean of E is −0.064
+(π/16), −0.070 (π/32); the record ceiling (psi/x − rho D)/D is +0.0137 at 10⁶ and +0.010 at 10⁷ (π/16) — positive, slowly
+varying. So **the record method's output for S8 is E(x) ≤ (c + o(1))x with c ≈ 0.01, never o(x)**: the information it uses —
+upper bounds proportional to the scale at every lower scale — cannot see that E is small, because the identity balances terms of
+size x log x and the record comparison is only sensitive at order x (the term x·Delta).
+**2.3 Other comparison functions do not help [proved here].** (i) A u^theta, 0 < theta < 1: at a record (*) gives
+A·[x^theta log x − (x^theta − 1)/theta − Σ_{d≤x} Λ(d)(x/d)^theta] ≤ Q(x) − rho, and the bracket is negative as soon as
+Σ_{d≤x}Λ(d)d^{−theta} > log x, which holds whenever psi(x) > x^theta log x (each term d^{−theta} ≥ x^{−theta}); on data psi(x) ≈ 0.93x.
+So for sub-linear comparison functions the record inequality carries no information: the right side is dominated by the small
+scales x/d = O(1), where (x/d)^theta is not small compared with E. Only linear comparison functions balance (*) at order x log x.
+(ii) A u + b, b ≠ 0: shifts the effective constant (b > 0 worsens it by 2b rho/(1 − 2rho); b < 0 is beaten at u = 1).
+(iii) A(u − 1): best of this family (§1.8), ceiling as in 2.2.
+

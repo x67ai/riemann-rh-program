@@ -8,6 +8,7 @@
 import sys, heapq, math
 import numpy as np, mpmath as mp
 mp.mp.dps = int(sys.argv[5]) if len(sys.argv) > 5 else 40
+FIXED = len(sys.argv) > 6 and sys.argv[6] == 'fixed'   # U1 rules.cpp 'early': pos = max(B, x* - W) (U = 1, no draw)
 rho = eval(sys.argv[1], {"pi": mp.pi}); X = mp.mpf(sys.argv[2]); w = float(sys.argv[3]); seed = int(sys.argv[4])
 rng = np.random.default_rng(seed); t = 1/rho; p1 = 1 + t/2
 rho_f = float(rho); p1_f = 1.0 + (1.0/rho_f)/2.0
@@ -35,7 +36,7 @@ while True:
     if xs > X: break
     if w == 0: pos = xs
     else:
-        u = rng.random()                  # s40 draws for p1 too (its clip max(B, .) returns B = p1)
+        u = 1.0 if FIXED else rng.random()  # s40 draws for p1 too (its clip max(B, .) returns B = p1)
         pos = xs if len(P) == 0 else max(block_start(xs), xs - w*u)
     i = len(P); P.append(pos)
     for (m, lpm) in past[1:]:
