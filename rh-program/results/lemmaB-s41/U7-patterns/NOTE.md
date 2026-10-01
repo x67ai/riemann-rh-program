@@ -134,3 +134,29 @@ the dilated window) and the largest e at the lower scale inside W/p₁.
 | Poisson z of the mean | | | | +2.0 | +1.0 | +0.9 | +1.9 | +3.5 | +4.5 | +4.4 | | share with ΔE > 0: 1.00 .85 .90 .75 .60 | |
 
 (Rows #10–#19 for π/16 and all twenty for π/32 are in the logs; z = excess/√(ℓw), the excess measured in Poisson standard deviations.)
+
+**4.3 What the anatomy shows** [computed; the all-excursion averages by `verify/inherit.c`, lines XDEC of `verify/logs/b16_1e10.inh`,
+`b32_1e10.inh`, which apply (I2) with the classes p₁ | p₂ | p₃ | p₄ | rough (> p₄) to every one of the 2.0·10⁸ (π/16) and 8.9·10⁷ (π/32)
+excursions to 10¹⁰, checked to sum to h in each].
+*P4.1 (inherited layer).* In all 40 top excursions ΔE(W/p₁) > 0 (mean +5.7 for π/16, +3.0 for π/32); in 16 of 20 (π/16) the dilated window
+W/p₁ itself contains an excursion of height ≥ 4. ΔE(W/p_q) > 0 for q = 2, …, 5 in 60–95 % of them. A large burst at x sits on a rise of
+the same system at x/p₁, x/p₂, …: the lower scale "was rising just before".
+*P4.2 (coincidence layer).* The classes with smallest factor > p₁₀ carry 57 % (π/16) and 64 % (π/32) of the gross excess, each class at
++3 to +4.5 Poisson standard deviations; the excess is mostly in Ω = 2 (+8 to +32 per burst): semiprimes qp with q ∈ (p₁₀, √x], i.e.
+simultaneous g-prime surpluses in the windows W/q at hundreds of scales x/q, each window shorter than one cell there (a 0/1 event per q).
+*P4.3 (the rigid class cannot keep up).* Mean share of the height carried by each class, by height (π/16; π/32 in brackets):
+
+| height | p₁ | p₂ | p₃ | p₄ | rough (> p₄) |
+|---|---|---|---|---|---|
+| 1 | 48 % [40 %] | 14 % [13 %] | 5 % [7 %] | 4 % [5 %] | 29 % [35 %] |
+| 3 | 40 % [29 %] | 14 % [12 %] | 6 % [7 %] | 4 % [5 %] | 36 % [47 %] |
+| 9–12 | 33 % [22 %] | 13 % [9 %] | 6 % [6 %] | 5 % [5 %] | 43 % [58 %] |
+| ≥ 18 [13–17] | 28 % [28 %] | 12 % [7 %] | 6 % [4 %] | 5 % [4 %] | 49 % [57 %] |
+
+(Shares of the ARRIVALS at 10¹⁰: p₁ 36 % [28 %], rough 45 % [55 %].) The p₁ class is the system at x/p₁ (I1), so its excess over a window is
+at most the range of E there; its share of large bursts falls below its share of arrivals and the rough class takes over. Equivalently
+(Theorem 5.1 below) e_k ≤ E(x_k/p₁) + τ + r_k^{(1)}, and at the top of the range the rough queue r^{(1)} is nearly as large as e itself.
+**For the proof units.** U3: the inherited layer is controlled by induction on scale through (I1) at no cost; everything left is the
+coincidence layer, a sum over q > p₁₀ of 0/1 events "W/q contains a g-prime" at well-separated scales — the place for a second-moment or
+large-sieve bound. U1: a rule cannot remove composites; its only lever on a burst at x is the placement of g-primes at the scales x/q for
+q in the coincidence range, all of which are fixed before x/p₁ — so look-ahead must act about p₁₁ = 60–200 scale-units ahead (π/16).

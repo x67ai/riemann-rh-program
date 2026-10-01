@@ -1,0 +1,11 @@
+# # s8cert pi64 K=490873852 N=490873853 pi=310847297 eK=0 supE=10.4758397090 supE_at=7123894989.732212 maxgap_cells=31 maxgap_at_k=179147445 maxe=9 omax=9 decisions=180026556 fallbacks=117 fallbacksV=0 minrel=8.3747e-18 at 8.352355e+09 prefixes=23645 storedprimes=29271153 secs=19.1
+# X = x_K = [9999999988.3000936837 +/- 1.91e-11], K = 490873852, N(X) = 490873853, pi(X) = 310847297, E(X) = 0.5
+SIGMA1 0.947634190223  F_X(sigma1) = [1.030e-11 +/- 6.52e-15]  (proved > 0)
+ZERO_OF_F_X in (0.947634190223, 0.947634190224): F_X(right end) = [-7.59e-12 +/- 7.22e-15]  proved < 0: True
+SIGMA2 hyp E(u) <= 0.1 log^2 u (u >= X): sigma2 = 0.947634192  F+tail = [-1.2377e-8 +/- 8.28e-14]
+SIGMA2 hyp E(u) <= 1 log^2 u (u >= X): sigma2 = 0.947634202  F+tail = [-1.6653e-8 +/- 4.78e-14]
+SIGMA2 hyp E(u) <= 10 log^2 u (u >= X): sigma2 = 0.947634299  F+tail = [-5.7526e-9 +/- 4.56e-14]
+SIGMA2 hyp E(u) <= 100 log^2 u (u >= X): sigma2 = 0.947635275  F+tail = [-4.8761e-9 +/- 1.15e-14]
+SIGMA2 hyp E(u) <= 1 u^0.473817095 (u >= X): sigma2 = 0.947636234  F+tail = [-1.7336e-8 +/- 1.10e-13]
+SIGMA2 hyp E(u) <= 100 u^0.473817095 (u >= X): sigma2 = 0.947836709  F+tail = [-1.0592e-8 +/- 1.19e-13]
+SIGMA2 hyp int_Y^2Y E^2 <= Y^(1+2*0.473817095) (Y >= X): sigma2 = 0.947637648  F+tail = [-7.7619e-9 +/- 2.95e-14]

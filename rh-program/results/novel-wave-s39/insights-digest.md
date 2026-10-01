@@ -300,7 +300,7 @@ UT-M4 (task 6, zeros of F_X at 10⁹): not run (stop line).
 ### A.11 lg — S7, integer-level feedback acting only at prime powers (the prime-local class on ℕ). Close K-candidate + K-conditional theorems + G
 Verdicts: read-F AGREES-WITH-CORRECTIONS (rF:3); read-O AGREES-WITH-CORRECTIONS, F1–F2 record-level + 14 minor, 18 pairs (rO:14–30). 18/18
 applied; "Unit CLOSED DUAL-READ: K-candidate (numerical; two producers) + T (Lemmas 1.1, 1.2, 4.1; K₇ and K₇^{≤2} conditional on H and on
-floating-point boxes) + G (Lemmas H₇, H₇^{≤2})" (rF:21). m12–m13 deleted two sentences about the Riemann hypothesis (rF:15).
+floating-point boxes) + G (Lemmas H₇, H₇^{≤2})" (rF:21). m12–m13 applied standing order 14 (two sentences deleted; rF:15).
 Three most useful findings.
 1. **S7^{≤2}(3/5), the capped prime-local system** (NOTE:21–24, 229–230, 254): every m ≤ 2, so a_n ≪ n^ε is PROVED (Lemma 4.1, the Ramanujan
    condition; rF:8), and at X = 10⁹ β ≈ 0.19–0.22, α ≈ 0.79–0.83, a boxed zero z₁ = 0.8243658 + 11.0306646i of F_X, γ = 0.78–0.82:
@@ -706,4 +706,7 @@ tool losses across dz-half, lemmaG, s5-multiplicity, free-greedy, local-greedy, 
 fejer-form-s39 (K), qcond's LP, conj-O's feedback design, free-greedy's routes (a)–(b). Caught before spending: the S5 certification."
 
 ## Checks run (2026-10-01, before handing over)
-See `SHARED.md` blocks 11–21 for the hashes, the citation re-checks and the mechanical quote check.
+See `SHARED.md` blocks 11–24 for the hashes, the citation re-checks and the mechanical quote check. At the close (17:28 IST) every
+unit file (NOTE, read-F, read-O ×11), the lemmaB charter and BARRIER-ZOO.md hash as at the start (block 11); `directions/B2` and `C2`
+changed at 17:03 IST (same line counts, 178 and 224; no Session-40-unit row or Untried entry in either), so §D and §G duplicate nothing.
+§D: 16 rows, each 4 cells. §G: 22 entries. Quotations: 137 strings checked, the genuine mismatches fixed (block 21).

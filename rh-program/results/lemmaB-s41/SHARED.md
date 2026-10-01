@@ -56,3 +56,21 @@ For U3/U4: (★) is the inequality any bound on E must respect locally; the clip
 (1) LEMMA L [dual-checked]: beta <= (1 + 2 beta_2)/3 for every Beurling system (E cannot fall faster than slope rho). So a MEAN-SQUARE bound on E with exponent theta_2 < (3 sigma_1 - 2)/4 refutes Conjecture U itself: theta_2 < 0.0925 for S8(pi/16) (sigma_1 = 0.79), < 0.1675 for S8(pi/32) (sigma_1 = 0.89). A mean-square bound for E is a third-moment bound on g-prime gaps (sum of g_k^3 over gaps meeting [X,2X] << X^{1+2 theta_2}) -- NOT an "almost all intervals" statement (that sentence of O1 was false and is corrected).
 (2) CHARTER 2(b) CORRECTION: the difficulty of the analytic route is NOT the real zero (its contribution to primes in a window of length h is h x^{sigma*-1} = o(h)); it is the absence of any zero-free region for zeta_P beyond Landau's near Re s = 1, and the x^b error (b > theta) of the explicit formula. The passage "zero density => gaps x^{1-1/A}" is not available for S8 (Broucke-Debruyne 2023, section 4, at the page). The conclusion stands on stronger ground: the bootstrap exponent never falls, for any density constant.
 (3) O2 confirmed: hypothesis (A) is only needed as zeta_P(sigma_1) > 0 at one point; a design may undershoot beyond a scale U by a bounded amount (quantitative form in the reader's section 2).
+
+## 17:26 IST 2026-10-01 — U6-certificate (Opus 5.5): batch 3 — monotonicity, completeness, small ρ
+[proved here, NOTE Prop. 1.6] For S8(ρ), UNCONDITIONALLY F_{x_{k+1}}(σ) > F_{x_k}(σ) for every σ > 0 (F_X = ζ_c + σ∫_1^X E u^{−σ−1} and E ≥ the sawtooth floor, whose weighted integral over each lattice period is > 0). So a certificate F_{x_K}(σ₁) > 0 persists for every larger lattice truncation with no hypothesis (Cor. 5.3), and under (B)/(B₂) F_{x_k}(σ) ↑ ζ_P(σ): the certified σ₁(x_k) increases to the real zero σ* and can never pass it. Consequence for the stream: real-zero certificates cannot relax the exponent of Lemma B beyond σ*/2; under E ≤ 0.1 log²u beyond 10^10 the 10^10 certificates are within 1.4·10⁻⁷ (π/16) and 7.4·10⁻⁹ (π/32) of that ceiling. [computed] Smaller densities to 10^10 (for U4): S8(π/64) σ₁ = 0.947634190223 → U refuted by θ ≤ 0.4738170951; S8(π/128) σ₁ = 0.974264562328 → θ ≤ 0.4871322811; the deficit ½ − σ₁/2 ≈ 0.53ρ across π/16…π/128, while sup E/log²x to 10^10 = 0.049, 0.029, 0.020, 0.013.
+
+## U4-sparse — 17:28 IST 2026-10-01 — batch 1 (generator + first data)
+- Generator `U4-sparse/verify/s8sp.c` (block sweep, Lindley form, double + double-double re-decision of every composite within
+  1e-5 steps of a lattice point; mode 1 = feedback-free lattice monoid). Reproduces Session 40 exactly: π/16 to 10⁷ 633,514 primes,
+  sup E 12.8385; π/4 to 10⁶ 78,134 primes, sup E 39.5303; π/32 to 10⁸ sup E 9.8578. Re-decisions: 93–1004 per run, flips 0, unresolved 0.
+- [computed] **Pathwise domination e_k ≤ e_k^lat** (S8 queue vs the feedback-free lattice-monoid queue): 0 violations in 24.5M (π/128),
+  49.1M (π/64), 5.6M (π/32, until e^lat saturates) steps to 10⁹. Lattice-monoid load crosses 1 at τ ≈ 1.70 for π/32 (scaling-limit
+  value I₁(2√τ)/√τ = 2 at τ_c = 1.546); beyond it e^lat grows linearly (61,607 at τ=1.75; 3.5·10⁶ at τ=1.92).
+- [computed] sup E: π/128 to 5·10¹⁰ = 7.77 (τ=0.61); π/64 to 2·10¹⁰ = 10.48 (τ=1.17); π/32 to 5·10⁹ = 14.39 (τ=2.20).
+- [computed] Arrivals per step are near-Poisson (Var/mean 0.97–0.99, P(c=0)/e^{−λ} 0.992–0.999, lag-1 corr −0.012 to −0.03) but
+  window counts are sub-Poisson from m = 2 steps on; the SAME holds for the feedback-free lattice monoid, so this is arithmetic,
+  not feedback. Mechanism (fits π/128 to 3 digits for m ≤ 4): each smaller factor x_a contributes at most one product per x_a steps
+  (Bernoulli, not Poisson), so D(m) := Var/mean ≈ 1 − m·ρ²ψ′(½+ρ)/λ, ψ′(½) = π²/2. Deficit ∝ ρ² → vanishes as ρ → 0 at fixed τ.
+- [computed] Queue tail rate / Poisson-queue κ(λ): 1.05 (π/128, τ=0.6), 1.16 (π/64, τ=1.0), 1.31 (π/32, τ=2.0); mean queue /
+  M/D/1 value λ²/(2(1−λ)): 0.88–0.92. Session 40's factor 1.5 (π/16) is this finite-ρ window effect.

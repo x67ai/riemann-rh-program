@@ -192,7 +192,8 @@ period P and N(x) = Σ_{n≤P, (n,P)=1}(⌊(x − n)/P⌋ + 1), so ρ = φ(P)/P.
 R = N − ρx is Σ_{n}(½ − n/P) over n ≤ P prime to P, which is φ(P)/2 − φ(P)/2 = 0 for P ≥ 2 (Σn = Pφ(P)/2) and −½ for P = 1. R is not
 a.e. constant (it jumps by +1 at each integer prime to P), so it takes negative values. ∎
 **The lattice control shows (P) is used:** N_L(x) − ρx = 1 − ρ + E_L(x) is periodic with period t and has inf = ½ − ρ > 0. Corollary 6.1
-is therefore a genuine (D)+(P) statement — the one printed tool of that kind — and it separates L_ρ from every Beurling system.
+is therefore a genuine (D)+(P) statement — the only tool of that kind among the sources read for this unit (a search of the printed
+literature was not made; §7) — and it separates L_ρ from every Beurling system.
 
 **6.2 From periodic to bounded: where Hilberdink's argument stops** [reading at the page + proved here; the conclusion is a GAP].
 His discontinuous case (§3, l. 488–600) uses (i) Thm 1.1(b), the jump part N_J of a system again determines a system (l. 371–378, uses

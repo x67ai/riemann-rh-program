@@ -1,0 +1,8 @@
+N(1e6)=196350  primes=72603  (s8u5 log: 196350, 72603)
+A = rho + int R u^-2 = 0.937500   (template value 1; log-mean check E-bar(top half) = 1.251)
+h=   1.0: min psi(I) 0.000   min slack 0.057   slack - psi: mean +0.0647  max|.| 0.0778  (Mertens o(1)*h scale: 0.050)
+h=   5.0: min psi(I) 0.000   min slack 0.286   slack - psi: mean +0.3239  max|.| 0.3892  (Mertens o(1)*h scale: 0.250)
+h=  20.0: min psi(I) 0.000   min slack 1.147   slack - psi: mean +1.2996  max|.| 1.5539  (Mertens o(1)*h scale: 1.000)
+h= 100.0: min psi(I) 0.000   min slack 5.851   slack - psi: mean +6.4541  max|.| 7.7959  (Mertens o(1)*h scale: 5.000)
+max |exact identity defect| over all windows: 1.14e-13
+template at x=5e5, h=20: psi_c(I) = 18.4793, slack = A h = 20.0000, diff h x^-rho = 1.5207

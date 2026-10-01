@@ -205,3 +205,24 @@ Writes only: `directions/*.md` (insertions + Last-touched lines), this folder (`
 - Map (bottom-up): (iv) rows after 758; (i) Theorem 1.6 rider after 93; (iii) S7^{≤2} rider after 92; (ii) T1–T3 rider after 92;
   optional Block C after 43. No count change.
 - Running now: block (i). Resume here: append blocks (i), (ii), (iii), (iv), C, then the checks section.
+
+## 2026-10-01 17:27 IST block 23 — Deliverable 2 complete: ZOO-LINES-STAGED.md blocks (i)–(iv), C and checks
+
+- Blocks: (i) I.2 rider, Theorem 1.6 + Cor. 1.7 + Dichotomy, S8 the candidate, Lemma B_ρ NOT proved, label "new as a statement on a
+  printed core: Bateman–Grosswald 1964 p. 367; Phragmén"; (ii) I.2 rider, s5m T1–T3 dual-read (T1 core Olofsson 2010 pp. 10–11);
+  (iii) I.2 rider, S7^{≤2} (Lemma 4.1 proved; K₇^{≤2} conditional on H₇^{≤2} and floating-point boxes); (iv) 4 cross-reference rows;
+  C optional count paragraph (64, unchanged).
+- Zoo unchanged at the close (788 lines, 0a0a832d…). Quote check: 36 strings, 34 found, 2 non-quotations flagged.
+- Running now: final consistency pass of insights-digest.md (its closing "Checks run" pointer), then the report. Resume here: only the
+  final pointer and the report remain.
+
+## 2026-10-01 17:27 IST block 24 — CLOSE: both deliverables complete; nothing running
+
+- Final hashes: all 33 unit files, lemmaB CHARTER and BARRIER-ZOO.md (0a0a832d…, 788 lines) unchanged since block 11.
+  directions/B2 b9f37f49… → fe95057f… and C2 614e59e4… → 8a055953… changed at 17:03 IST by another hand (line counts unchanged,
+  178/224; no Session-40-unit rows or entries): §D/§G of the digest duplicate nothing.
+- insights-digest.md: §A (11 units), §B (B1–B9), §C (C1–C6), §D (16 rows), §E (E.1–E.12; 46 FIX-FIRST all applied; R1–R6 OPEN),
+  §F (six above threshold; seven ranked units), §G (22 Untried), §H (waste line + candidate LOG line), checks.
+- ZOO-LINES-STAGED.md: insertion map + blocks (i)–(iv) + optional C + checks. Nothing inserted anywhere; no git; no NOTE, zoo,
+  direction, STATUS or LOG file edited.
+- Resume here: nothing to resume — the consolidation is done; the orchestrator decides application.

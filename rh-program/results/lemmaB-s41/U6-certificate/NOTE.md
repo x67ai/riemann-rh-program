@@ -7,7 +7,32 @@ T(u) = ρ(u − 1) + 1, E = N − T, w(u) := ρ(u − 1) + ½ (so w(x_k) = k), F
 
 ## §0. Close
 
-(filled last)
+**Y holds: two proved finite certificates, each reducing the refutation of Conjecture U to one exponent of Lemma B.**
+**Theorem (S8(π/16), §5.1).** At X = x_K, K = 1,963,495,408 (X = 9,999,999,995.94…, N = 1,963,495,409, π_P = 449,911,828, E = ½):
+F_X(0.794755370097) = (2.0 ± 0.6)·10⁻¹² > 0. Hence if N_P(u) − (π/16)u = O(u^θ) with θ < 0.794755370097 (any constant), or the
+mean-square bound with such an exponent, ζ_P has a real zero in (0.794755370097, 1) and α > 0.794755370097; **if θ ≤ 0.3973776850,
+U is false.** **Theorem (S8(π/32), §5.2).** At K = 981,747,704 (X = 9,999,999,993.39…, N = 981,747,705, π_P = 409,388,073, E = ½):
+F_X(0.895076517592) = (1.4 ± 0.1)·10⁻¹² > 0; real zero in (0.895076517592, 1) under (B); **U false if θ ≤ 0.4475382587.**
+Labels: the inequalities are [computed] with proved ordering (1.51·10⁹ and 5.7·10⁸ cell decisions, each proved by a floating-point
+error bound or decided exactly in GMP from a Machin enclosure of π — 4,726 and 785 of them) and interval (arb) evaluation of F_X from
+block moments with proved error terms (§2–§3); the implications are [proved here] (§1).
+**The exponent left to prove:** Lemma B with θ ≤ 0.3973776850 (π/16) or θ ≤ 0.4475382587 (π/32) — s40 had 0.395 and 0.445.
+Addendum (§5.4): π/64, θ ≤ 0.4738170951; π/128, θ ≤ 0.4871322811 (the deficit from ½ is ≈ 0.53ρ).
+**New criterion (§1)** [proved here]: E ≥ ½ − {ρ(u − 1) + ½} (integrality of N plus E > −½), so at a lattice point the tail of the
+Mellin integral is positive and the certificate condition is F_{x_K}(σ₁) ≥ 0 — the −½X^{−σ₁} of s40 Cor. 1.7(iii) disappears, and the
+criterion holds under the mean-square hypothesis of ORCH O1 as well (Theorem 1.3). Unconditionally F_{x_{k+1}}(σ) > F_{x_k}(σ) for
+every σ > 0 (Prop. 1.6): a certificate persists for all larger lattice truncations with no hypothesis, and under (B) the certified
+σ₁(x_k) increase to the real zero σ*.
+**Upper bracket (§6)**: if E(u) ≤ 0.1·log²u beyond X (twice the measured envelope), the zero lies in (σ₁, 0.794755510) for π/16 and
+(σ₁, 0.895076525) for π/32; under Lemma B at the U-exponent with constant 1 beyond X, in (σ₁, 0.794799754) and (σ₁, 0.895083982).
+**Ceiling (§7.2)** [proved here]: under (B), no real-zero certificate can pass σ*, so this proof class cannot relax the exponent of
+Lemma B beyond σ*/2 — because ζ_P < 0 on (σ*, 1); under the 0.1·log²u envelope the certificates above are within 1.4·10⁻⁷ and
+7.4·10⁻⁹ of that ceiling.
+**Cross-checks (§4)**: N and π_P equal s8o's at all 14 half-decade checkpoints of each system; σ₁ equals the s8o zeros of F_X at
+10⁶…10¹⁰ to their 10 digits and the s8dd roots to 12 digits (π/16 at 10⁷, π/32 at 10⁸); the 362 closest decisions re-decided at
+80 digits in mpmath (0 disagreements); an all-exact control run is byte-identical. One discrepancy, in a statistic only: the closest
+π/16 cell decision to 10¹⁰ is 1.54·10⁻¹⁰ from a lattice point (c = x(533658)x(13)x(2)x(1) ≈ 5.385·10⁹), 150 times closer than the
+minimum s8o reports; its counts agree everywhere.
 
 ## §1. A sharper finite criterion: the sawtooth floor
 
@@ -49,6 +74,22 @@ exactly one statement to prove: **Lemma B with exponent θ < σ₁/2** (pointwis
 F_X(σ₁) > ½X^{−σ₁}. Lemma 1.2 removes that term when X is a lattice point: the integrality of N turns the one-sided bound into a
 floor of mean zero, and a decreasing weight makes its contribution positive. The gain in σ₁ is ½X^{−σ₁}/|F′_X| (about 5·10⁻⁸ at
 X = 10⁸ for π/16), so σ₁ can now be pushed to the zero of F_X itself, up to the interval radius.
+
+**Proposition 1.6 (monotone and complete)** [proved here]. Let P = S8(ρ), ρ ∈ (0, 1).
+(i) *Unconditionally*, for every σ > 0 and k ≥ 1: F_{x_{k+1}}(σ) > F_{x_k}(σ).
+(ii) Under (B) or (B₂) with exponent θ′ < σ: F_{x_k}(σ) ↑ ζ_P(σ) as k → ∞. So ζ_P(σ) > 0 iff F_{x_k}(σ) > 0 for some k.
+(iii) Under (B) or (B₂) with θ′ < σ_a: if ζ_P > 0 on [σ_a, σ*) and ζ_P(σ*) = 0, then s_k := sup{σ ≥ σ_a : F_{x_k} > 0 on [σ_a, σ]} is
+nondecreasing in k and s_k → σ*. Every σ₁ < σ* is certified by some finite lattice point, and no certificate passes σ*.
+*Proof.* (i) The identity F_X(s) = ζ_c(s) + s∫_1^X E(u)u^{−s−1}du holds for every X ≥ 1 (s40-NOTE l. 100–102 [quoted]; re-derived
+here: Σ_{n≤X}n^{−s} = X^{−s}N(X) + s∫_1^X N u^{−s−1}du by parts, then N = T + E with T(u) = ρu + 1 − ρ; no hypothesis on E). Hence F_{x_{k+1}}(σ) − F_{x_k}(σ) = σ∫_{x_k}^{x_{k+1}}E u^{−σ−1}du,
+which is ≥ the floor's integral over one period (Lemma 1.1) and that is > 0 (proof of Lemma 1.2). (ii) The tail
+σ∫_{x_k}^∞ E u^{−σ−1}du → 0 (absolute convergence, Theorem 1.3's proof), and the sequence is increasing by (i). (iii) By (i),
+the set {σ : F_{x_k}(σ) > 0} grows with k, so s_k is nondecreasing; F_{x_k}(σ*) < ζ_P(σ*) = 0 by (ii), so s_k < σ*. For σ < σ*,
+min_{[σ_a, σ]} ζ_P > 0, and F_{x_k} → ζ_P uniformly on [σ_a, σ] (the tail is bounded by σ∫_{x_k}^∞|E|u^{−σ_a−1}du there), so s_k ≥ σ
+for large k. ∎
+So the computed σ₁(X) of §4–§5 is (up to the interval radius) the sequence s_k, increasing toward the real zero; Theorem 5.1/5.2 and
+the table in §4 are its values at x_K ≈ 10⁶ … 10¹⁰. Under (B), a real-zero certificate for S8(ρ) can never pass σ*, so this route
+cannot relax the exponent needed in Lemma B beyond σ*/2 (§7).
 
 ## §2. The generator `s8cert.c`: exact ordering
 
@@ -199,6 +240,20 @@ log X). Geometric extrapolation [heuristic, not proved]: σ* ≈ 0.7947553738 (�
 about 4·10⁻⁹ and 1·10⁻¹⁰ below the zero it bounds. Proved instead, under a stated hypothesis: §6 (the zero lies within 1.4·10⁻⁷,
 resp. 7.4·10⁻⁹, of σ₁ if E(u) ≤ 0.1·log²u beyond X).
 
+**Corollary 5.3 (the unconditional core)** [proved here: Proposition 1.6(i)]. With no hypothesis on E: F_x(0.794755370097) > 0 for
+EVERY lattice point x ≥ X₁₆ of S8(π/16), and F_x(0.895076517592) > 0 for every lattice point x ≥ X₃₂ of S8(π/32) — including the
+lattice points beyond 10¹⁰ that were never computed. (B) or (B₂) enters only to identify lim F_x(σ₁) with ζ_P(σ₁).
+
+**5.4 Addendum: smaller densities** [computed: `logs/s8cert_pi{64,128}_1e10.log` (19 s, 9 s), `logs/certify_pi{64,128}_1e10.log`,
+`logs/sigma_table_pi{64,128}.log`; same generator and evaluator]. S8(π/64): K = 490,873,852, x_K = 9,999,999,988.30…,
+N = 490,873,853, π_P = 310,847,297, E(x_K) = ½, F(0.947634190223) = (1.030 ± 0.001)·10⁻¹¹ > 0; S8(π/128): K = 245,436,926,
+x_K = 9,999,999,978.11…, N = 245,436,927, π_P = 196,463,063, E(x_K) = ½, F(0.974264562328) = (3.57 ± 0.01)·10⁻¹¹ > 0. Exponents
+that refute U (Corollary 1.4): θ ≤ 0.4738170951 (π/64; ½ − ρ = 0.4509) and θ ≤ 0.4871322811 (π/128; ½ − ρ = 0.4755). Across
+ρ = π/16 … π/128 the deficit ½ − σ₁/2 = 0.1026, 0.0525, 0.0262, 0.0129 = (0.52–0.53)ρ: at these four densities the needed exponent
+is ½ − (0.52–0.53)ρ [computed; no limit statement is proved], while
+sup E to 10¹⁰ is 26.1, 15.4, 10.5, 7.1 (≈ 0.049, 0.029, 0.020, 0.013 times log²x). The π/64 value at 10⁶ (s40 table: 0.947634, read-O:
+0.9476341712) is consistent with the sequence 0.947634187624 (10⁷) … 0.947634190223 (10¹⁰).
+
 ## §6. The upper bracket (σ₂) under stated tail hypotheses
 
 **Lemma 6.1 (tail upper bounds)** [proved here]. Let X ≥ 1, 0 < σ < 1, L = log X.
@@ -234,3 +289,22 @@ So under Lemma B at the U-refuting exponent with constant 1 beyond 10¹⁰ (row 
 unique, or that ζ_P < 0 on [σ₂, 1) (the sign change gives an odd number of zeros in the box, with multiplicity).
 
 ## §7. What is left to prove
+
+**7.1 The one missing statement.** By Theorems 5.1, 5.2 (and 5.4), Conjecture U is false as soon as ONE of the following is proved:
+  Lemma B_{π/16}: N(u) − (π/16)u = O(u^θ) with θ ≤ 0.3973776850;   Lemma B_{π/32}: the same with π/32 and θ ≤ 0.4475382587;
+  (addendum) Lemma B_{π/64} with θ ≤ 0.4738170951;   Lemma B_{π/128} with θ ≤ 0.4871322811.
+The mean-square forms (B₂) with the same exponents refute the mean-square variant of U (ORCH O1). A real zero right of σ₁ follows
+already from (B) or (B₂) with any exponent < σ₁ (Theorem 1.3), no constant. Nothing in this unit bounds E from above; the data
+(E = O(log²x) to 10¹⁰, §6) are far inside every one of these exponents, and none of them is proved (`../CHARTER.md` §1: not even
+E = o(x) is).
+
+**7.2 Proposition (ceiling of the certificate route)** [proved here]. Let ρ ∈ (0, 1), assume (B) or (B₂) for S8(ρ) with exponent
+θ′ < 1, and let σ* ∈ (θ′, 1) be a real zero of ζ_P with ζ_P ≠ 0 on (σ*, 1). Then ζ_P < 0 on (σ*, 1), so no σ₁ ≥ σ* satisfies
+ζ_P(σ₁) > 0; in particular no lattice certificate F_{x_K}(σ₁) ≥ 0, for any K, has σ₁ ≥ σ*, and the exponent a real-zero certificate
+can leave for U is < σ*/2. *Proof.* ζ_P is continuous on (θ′, 1) and tends to −∞ at 1⁻ (Theorem 1.3's proof); with no zero in
+(σ*, 1) it has constant sign there, hence is negative. A lattice certificate gives ζ_P(σ₁) > 0 (Theorem 1.3). ∎
+With Theorem 6.2: if E(u) ≤ 0.1·log²u for u ≥ X, then σ* < σ₂ and the certificates of §5 are within 1.4·10⁻⁷ (π/16) and 7.4·10⁻⁹
+(π/32) of their ceiling; the exponents in 7.1 cannot be relaxed by more than 7·10⁻⁸ resp. 3.7·10⁻⁹ by any computation of this kind.
+Two ways past the ceiling, neither attempted here: (a) a zero of ζ_P with real part > σ* (then α > σ* and the needed exponent is
+half that real part; s40's exploratory winding count found no zero right of σ* below height 60 for π/16 [quoted: s40-NOTE
+l. 192–195, marked there "not a certificate"]); (b) smaller ρ, where the needed exponent is ½ − (0.52–0.53)ρ at π/16 … π/128 (§5.4).
