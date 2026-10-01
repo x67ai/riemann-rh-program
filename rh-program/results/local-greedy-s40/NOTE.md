@@ -13,9 +13,9 @@ numerically, and the crossing is zero-driven. At ρ = 0.6, X = 4·10⁹ (exact c
 to 10⁷; ρ = 1 returns the primes): **β ≈ 0.26–0.31** (running sup of |E| on windows [10^k, 4·10⁹), k = 3…7, falling as the window
 starts later) and **α ≈ 0.80–0.82 by three routes** — running sup of |ψ_P − x| (0.796–0.810), the zeros of ζ_P (ρ₁ = 0.8209965 +
 11.0877411i and ρ₂ = 0.8052963 + 20.2490762i, stable to 2·10⁻⁵ from X = 10⁷ to 10⁹, each with winding number 1 on a box at X = 10⁹;
-no other zero in σ ≥ 0.70 below height 100), and the Beurling Möbius sums (γ = 0.795–0.817, which Neamah–Hilberdink Thm 1 forces
+F_X at X = 10⁷ has no other zero in σ ≥ 0.70, 0.1 ≤ t ≤ 100 — a statement about the approximant, not about ζ_P), and the Beurling Möbius sums (γ = 0.795–0.817, which Neamah–Hilberdink Thm 1 forces
 to equal α when β < ½). **α − max{½, 2β} = +0.18…+0.29 on every window**, over six and a half decades; ρ = 0.75, 0.8, 0.9, 1.1 are
-also above the line at 10⁹ from 10⁴–10⁵ on (+0.05…+0.31), and their top zeros (X = 10⁸) sit at Re 0.806, 0.746, 0.840 for
+also above the line at 10⁹ from 10⁴–10⁵ on (+0.07…+0.31), and their top zeros (X = 10⁸) sit at Re 0.806, 0.746, 0.840 for
 ρ = 0.75, 0.8, 1.1 (§3.6); ρ = 1.25 sits below the line; ρ = 1.5 runs away (§2). The prime-side
 fluctuation is coherent, not a random walk (sup|T|/V = 12.6 at 10⁹, growing like x^{0.3}, §3.5).
 **The capped variant S7^{≤2}(0.6) (m_n ≤ 2; brief task 4) is the K-candidate with tame multiplicities** (§4.2): a_n ≪ n^ε is proved
@@ -43,7 +43,7 @@ fluctuation is coherent, not a random walk (sup|T|/V = 12.6 at 10⁹, growing li
   Dirichlet zero (uo §3.3), and Hilberdink 2012 confines periodic-error members to finite deletions.
 Consequence for the record: a second non-surgery discrete system in the corner β < α/2, now with multiplicative coefficients — the
 numerical counterexample to DMV's p. 4 speculation and the support for BDR's populating conjecture no longer rest on S5's
-multiplicities. U implies RH, not conversely: nothing here touches RH.
+multiplicities.
 
 ## §1. The object, the generator, the controls
 
@@ -58,8 +58,8 @@ g = μ ∗ a is multiplicative with g(p^e) = c_p(e) − c_p(e − 1), g(p) = m_p
 *Proof.* A product of g-primes p₁^{k₁}⋯ (prime powers) equals n iff, for each prime p, the g-primes that are powers of p multiply to
 the p-part of n; representations therefore factor over p, and the number of ways to write p^e as an unordered product of the
 chosen powers of p (with multiplicities m_{p^k}) is [u^e]Π_k(1 − u^k)^{−m_{p^k}}. The Euler product converges absolutely for
-σ > 1 because N(x) = ρx + o(x) on the data (§2) — as a statement for all x this is part of the system's definition as a density-ρ
-system, not proved. g = μ ∗ a has local factor (1 − u)F_p(u). ∎
+σ > 1 unconditionally: Lemma 1.2 gives m_q < 1 + ρ(q − q_prev) at every prime power q, so Σ_q m_q q^{−σ} < Σ_q q^{−σ} + ρ/(σ − 1)
+(read-O A1) and N(x) ≪_ε x^{1+ε}; N(x) = ρx + o(x) itself is a numerical statement (§2), not proved. g = μ ∗ a has local factor (1 − u)F_p(u). ∎
 
 **Lemma 1.2 (the downward side is bounded by prime-power gaps)** [proved here]. After every prime-power step, E(q) > −½; for
 consecutive prime powers q < q′ and q ≤ n < q′, E(n) > −½ − ρ(n − q); hence inf_{x≤X}(N(x) − ρx − (1 − ρ)) > −½ − ρ·G(X) with G(X)
@@ -69,7 +69,8 @@ then E(q) = ½ − {y} ∈ (−½, ½]; otherwise y < 1 and E(q) = ½ − y > �
 step. Finally m_q ≤ y ≤ ρ + ½ − E(q − 1) (as A(q) ≥ 0) < ρ + 1 + ρ(q − 1 − q_prev), q_prev the previous prime power. ∎
 (The unconditional size of G(X) is a printed gap theorem I have not opened: **[recalled, unverified]** G(X) ≪ X^{0.525}; Cramér's
 conjecture would give log²X. On the data, max m_p = 79 at ρ = 0.6, X = 10⁹, against ρ·(max prime gap below 10⁹) — the gap itself
-[recalled, unverified] 282 — the rule fills deficits well before the worst gap.)
+[computed, read-O `verify-O/logs/gapo_1e9.log`] 282 (after 436,273,009; it is also the largest gap between consecutive prime
+powers below 10⁹, so Lemma 1.2 gives inf E > −169.7 and m_q < 170.2 there) — the rule fills deficits well before the worst gap.)
 
 **Generator** [computed]. `verify/s7gen.c`: segmented over [L, R) with R − L ≤ L, so every composite non-prime-power n in a segment
 has all prime-power factors ≤ n/2 < L, already decided; prime powers in the segment are decided in increasing order (A(p^e) =
@@ -99,7 +100,7 @@ least-squares slopes of log(running sup) against log x over the bins of [10^k, X
 | ρ | sup E | inf E | sup\|ψ_P − x\| | sup\|M_g\| | max a_n | max m_p | b_sup, k = 3…7 | a_sup, k = 3…7 | a − 2b, k = 3…7 |
 |---|---|---|---|---|---|---|---|---|---|
 | 0.6 | 948.8 | −93.2 | 5.57·10⁶ | 9087 | 550 | 79 | .315 .303 .281 .278 .264 | .794 .801 .802 .811 .808 | **+.16 +.20 +.24 +.26 +.28** |
-| 0.75 | 763.0 | −93.0 | 9.14·10⁵ | 9212 | 234 | 93 | .333 .316 .276 .261 .267 | .718 .734 .735 .760 .843 | +.05 +.10 +.18 +.24 +.31 |
+| 0.75 | 763.0 | −93.0 | 9.13·10⁵ | 9212 | 234 | 93 | .333 .316 .276 .261 .267 | .718 .734 .735 .760 .843 | +.05 +.10 +.18 +.24 +.31 |
 | 0.8 | 1048 | −103.6 | 1.03·10⁶ | 11610 | 270 | 104 | .353 .329 .297 .296 .276 | .715 .723 .712 .685 .696 | +.01 +.07 +.12 +.09 +.14 |
 | 0.9 | 969.8 | −106.2 | 7.17·10⁵ | 6596 | 247 | 102 | .366 .340 .307 .282 .287 | .704 .699 .707 .733 .736 | −.03 +.02 +.09 +.17 +.16 |
 | 1.1 | 3839 | −174.4 | 3.68·10⁶ | 20270 | 825 | 142 | .416 .393 .337 .274 .240 | .796 .801 .791 .790 .787 | −.04 +.02 +.12 +.24 +.31 |
@@ -136,7 +137,8 @@ half-decades starting 10⁴, 10⁵, 10⁶, 10⁷, 3.16·10⁸ (ρ = 0.6; ρ = 0.
 C(y) = N(y) − ρ⌊y⌋; if (H_θ) |C(u)| ≤ u^θ for all u > X, partial summation gives convergence in σ > θ and
 |ζ_P(s) − F_X(s)| ≤ |C(X)|X^{−σ} + |s|∫_X^∞ u^{θ−σ−1}du = |C(X)|X^{−σ} + |s|X^{θ−σ}/(σ − θ), F_X(s) := ρζ(s) + Σ_{n≤X}(a_n − ρ)n^{−s}
 (uo §2.1, §4 step (1); the argument uses nothing about S5). Since ζ_P = ζ·L_g (Lemma 1.1), the zeros of ζ_P in σ > ½ below height
-100 are the zeros of L_g there (ζ has none off the line below height 100 **[recalled, unverified]**; not load-bearing: the zeros
+100 are the zeros of L_g there (ζ has none off the line below height 100 **[computed, read-O `verify-O/logs/zeta100.log`: mpmath
+nzeros(100) = 29 = number of sign changes of Z(t) on (0, 100]]**; not load-bearing: the zeros
 found below are zeros of F_X, whatever their origin).
 **Instruments.** `verify/zline.c` (memory-mapped a_n; vertical lines by recurrence in t, horizontal segments by recurrence in σ,
 point mode with D_X and D_X′, Taylor-moment mode M_k = Σ(a_n − ρ)n^{−s₀}(−log n)^k/k!; ζ by Euler–Maclaurin, M = 60, ten Bernoulli
@@ -165,7 +167,8 @@ Stable to ~2·10⁻⁵ over a hundredfold range of X. Amplitude: 2x^{0.821}/|ρ�
 sup|ψ_P − x| = 5.57·10⁶ (§2.1): the two zeros account for route 1's α ≈ 0.80.
 
 **3.3 Winding-number boxes at X = 10⁹** (`verify/cert7.py`; `logs/zeros/cert_r06_z1_1e9.log`, `…_z2_1e9.log`). F_X on ∂B evaluated
-from 25 Taylor moments at the centre (one pass over the 10⁹ coefficients; |M₂₄|h²⁴ ≤ 3·10⁻³⁹), validated at the four corners by
+from 25 Taylor moments at the centre (one pass over the 10⁹ coefficients; remainder ≤ Σ_n|a_n − ρ|n^{−0.801}·Σ_{k≥25}(h√2·log X)^k/k!
+= 316.9 · 1.05·10⁻³¹ ≤ 3.4·10⁻²⁹ on ∂B₁, read-O `verify-O/logs/taylor_remainder_bound.log`), validated at the four corners by
 direct sums (agreement ≤ 1.8·10⁻¹²); 400 boundary points.
 - B₁ = [0.8010, 0.8410] × [11.0677, 11.1077]: winding number 1.000000, min_{∂B₁}|F_X| = 0.0654, largest phase step 0.021 rad;
   C(10⁹) = −2. Tail bound max over ∂B₁ under H_θ: 0.00069 (θ = 0.30), 0.00216 (0.35), **0.00683 (0.40; ratio 9.6)**, 0.0220 (0.45).
@@ -210,18 +213,18 @@ zero in B₁ = [0.8010, 0.8410] × [11.0677, 11.1077], P is an [α, β]-system w
 converges in σ > θ and ζ_P = F_X + T_X with |T_X| ≤ |C(X)|X^{−σ} + |s|X^{θ−σ}/(σ − θ); (2) on ∂B₁, |T_X| ≤ 0.00683 < 0.0654 ≤ |F_X|,
 so by Rouché ζ_P has as many zeros in B₁ as F_X, namely the winding number 1; (3) N_P(x) − 0.6x = C(x) − 0.6{x} = O(x^θ); (4)
 ψ_P(x) − x = O(x^σ) with σ < Re ρ₁ would make −ζ_P′/ζ_P − s/(s − 1) = s∫(ψ_P − x)x^{−s−1}dx analytic at the zero, a contradiction. ∎
-The Rouché step alone survives to θ ≈ 0.47 (ratio 2.97 at θ = 0.45); the U-conclusion needs 2θ < 0.8010.
+The Rouché step alone survives to θ ≈ 0.495 (tail < 0.0654 for all θ < 0.4958; ratio 2.97 at θ = 0.45); the U-conclusion needs 2θ < 0.8010.
 
 **Lemma H₇ (the exact missing statement).** For S7(3/5): |N_P(u) − 0.6⌊u⌋| ≤ u^{0.40} for all u > 10⁹. In Lindley form: E(x)
 equals, within ½, the excess N(x) − N(q*) − 0.6(x − q*) since the last prime power q* ≤ x at which the rule added a copy (Lemma 1.2's
 proof), so H₇ says (a) that excess stays ≤ x^{0.40} — the upward side, the clusters of §2.3 — and (b) the deficit stays ≥ −x^{0.40}.
-Lemma 1.2 reduces (b) to prime-power gaps G(x) ≤ (x^{0.40} − 1.6)/0.6; the best gap bound I know of, x^{0.525} [recalled,
+Lemma 1.2 reduces (b) to prime-power gaps G(x) ≤ (x^{0.40} + 0.5)/0.6 (C(n) = E(n) + 0.4 > 0.5 − 0.6G); the best gap bound I know of, x^{0.525} [recalled,
 unverified], does not reach that, so even the downward half is not unconditional by this route (the data: inf E = −93.2 at 10⁹,
 far above −0.6·G). Verified on [10⁴, 10⁹] with constant ≤ 0.93 and 0.35 in the top decade; S5's Lemma H needed θ ≤ 0.35 against
 data ≈ 0.30, S7's needs θ ≤ 0.40 against data ≈ 0.26–0.28: more room, same logical position.
 **"Tame multiplicities" — what holds and what does not.** Multiplicities are bounded by ρ·(prime-power gap) + 1 + ρ (Lemma 1.2), so
-a_n is multiplicative with local values that are polylogarithmic if Cramér's conjecture holds [recalled, unverified]; but they are
-NOT bounded (max m_p = 79 at 10⁹) and the refused fraction rises with x (§2.2), so a_n ≪ n^ε is not proved here (§8, UT-L4).
+a_n is multiplicative with local values that are polylogarithmic if Cramér's conjecture holds [recalled, unverified]; but on the data they
+keep growing (max m_p = 42, 54, 79, 106 at 10⁷, 10⁸, 10⁹, 4·10⁹; read-O logs) — boundedness is neither proved nor refuted and the refused fraction rises with x (§2.2), so a_n ≪ n^ε is not proved here (§8, UT-L4).
 
 **4.2 The capped variant S7^{≤2}: tame by construction** (brief task 4, variant "cap m_n ≤ 2", `s7gen` variant 2: m_n := min(m_n, 2)).
 **Lemma 4.1** [proved here]. If every m_{p^k} ≤ 2, then a_n ≪_ε n^ε for every ε > 0.
@@ -266,13 +269,13 @@ Klurman, Compositio 153 (2017) 1622–1657 (`sources/klurman-1603.08453v1.txt` l
 f: ℕ → {−1, 1} has bounded partial sums iff f is periodic with Σ_{n=1}^{m} f(n) = 0 (and then f(2^k) = −1, f(p^k) = f((p^k, m))).
 *Consequence for S7* [proved here, one line each]: S7's g takes values in {−1, 0, 1, 2, …} (g(p) = m_p − 1 reaches 78 at ρ = 0.6),
 so neither theorem applies to S7 itself. They apply to the λ-rule variant (g completely multiplicative ±1): there M_g is unbounded
-(Tao), but E = Σ_{m≤x}M_g(x/m) − ρx is not controlled by M_g in either direction (bounded M_g with unbounded E: g = χ₋₄, where E is
+(Tao), but E = Σ_{m≤x}M_g(x/m) − ρx − (1 − ρ) is not controlled by M_g in either direction (bounded M_g with unbounded E: g = χ₋₄, where E is
 the circle-problem error; unbounded M_g with bounded E: none known to me), so Tao's theorem does not by itself make E unbounded.
 The question "is E unbounded for every non-periodic member" is open here; it is listed in §8.
 
 **5(iii) The hyperbola bound** [proved here]. For any y ∈ [1, x]: N(x) = Σ_{d≤y} g(d)⌊x/d⌋ + Σ_{m≤x/y} M_g(x/m) − ⌊x/y⌋M_g(y), so
-E(x) + (1 − ρ) = −Σ_{d≤y} g(d){x/d} + Σ_{m≤x/y} M_g(x/m) − ⌊x/y⌋M_g(y) − xΣ_{d>y} g(d)/d (using ρ = Σ_d g(d)/d, which needs
-M_g = o(x)). With Σ_{d≤y}|g(d)| ≪ y^{κ+ε} and M_g(u) ≪ u^{μ+ε} (μ ≤ κ ≤ 1; the tail is ≪ y^{μ−1} by partial summation):
+E(x) + (1 − ρ) = −Σ_{d≤y} g(d){x/d} + Σ_{m≤x/y} M_g(x/m) − ⌊x/y⌋M_g(y) − xΣ_{d>y} g(d)/d (using ρ = Σ_d g(d)/d, valid when
+M_g(u) ≪ u^{μ+ε} with μ < 1 (so L_g converges at 1) and N(x) ~ ρx). With Σ_{d≤y}|g(d)| ≪ y^{κ+ε} and M_g(u) ≪ u^{μ+ε} (μ ≤ κ ≤ 1; the tail is ≪ y^{μ−1} by partial summation):
 E ≪ y^κ + x^μ(x/y)^{1−μ} + x y^{μ−1} ≪ y^κ + x y^{μ−1}, and y = x^{1/(1+κ−μ)} gives **β ≤ κ/(1 + κ − μ)**; for bounded g (κ = 1)
 this is β ≤ 1/(2 − μ) ≤ ½ + μ/2 (the brief's form; (1 + μ)(2 − μ) ≥ 2). Nothing below ½ comes out unless κ < 1: the sawtooth
 Σ_{d≤y} g(d){x/d} is bounded only by Σ|g|. On S7 the support of g has density close to 1 (≈ 98 % of primes are exceptional in
@@ -292,9 +295,11 @@ Thm 1): with ψ_P = x + O(x^{α+ε}), N_P = ρx + O(x^{β+ε}), M_P = O(x^{γ+ε
 
 ## §6. Prior art at the page, novelty, distance from upstream
 
-- Révész–Pintz arXiv:2407.12746 (abstract only, `uo/sources/abstracts-related.txt` l. 9–10; arXiv metadata `sources/api_ids_1.xml`):
-  Carlson-type zero-density estimates for Beurling ζ when the integers are natural numbers and the Ramanujan condition holds —
-  S7's class when a_n ≪ n^ε. Density estimates allow sparse zeros in (½, 1); no conflict with §3. Full text not opened **[gap]**.
+- Révész–Pintz arXiv:2407.12746v1 (full text, read-O `verify-O/sources/revesz-pintz-2407.12746.{pdf,txt}`) [quoted]: Theorem 1
+  (p. 4), a Carlson-type zero-density bound under Axiom A (p. 3, Def. 1: |N(x) − κx| ≤ Ax^θ for x ≥ 1, some θ < 1), the integrality
+  condition (p. 3) and the Ramanujan condition G(ν) ≤ ν^δ (p. 3). S7^{≤2} satisfies integrality and Ramanujan unconditionally
+  (Lemma 4.1) and Axiom A exactly when an H_θ (θ < 1) holds — so the theorem applies to S7^{≤2} under the hypothesis of K₇^{≤2},
+  and to S7 only if also a_n ≪ n^ε. A density bound allows isolated zeros in (½, 1); no conflict with §3.
 - Neamah–Hilberdink, IJNT 2019 (arXiv:1901.06866v2, `sources/neamah-hilberdink-1901.06866v2.txt` l. 104–105): Thm 1, the two
   largest of α, β, γ are equal and ≥ ½ — used in §5(v) as a third route to α. S7(0.6) obeys it on the data (§3.4).
 - Hilberdink 2012 (`fr/sources/p3-22c2-…`, abstract l. 46–51): N(x) − cx periodic (finitely many jumps per bounded interval) ⇒ the
@@ -311,16 +316,15 @@ Thm 1): with ψ_P = x + O(x^{α+ε}), N_P = ρx + O(x^{β+ε}), M_P = O(x^{γ+ε
   on-disk sweeps of fr/ and uo/, 228 abstracts, are the gate, as in uo §5).
 - **Novelty: single-check.** S7 and its cap as constructions (orchestrator's brief), the numerical crossings with multiplicative
   coefficients (tame ones for the cap), the zeros, Lemmas 1.2 and 4.1, the K₇ and K₇^{≤2} statements; §5(iii) is a routine hyperbola computation and may be classical.
-- **Distance from upstream (10(n)).** Nearest published objects: Dedekind zeta functions (prime-local, a_p ∈ {0, …, d}, β > 0,
-  zeros = GRH territory) and BDR's region-III systems (RH-conditional surgery). Exact difference: S7's local data (m_p) are chosen
-  by feedback on the integer count, not by a field or a deletion; its a_p are unbounded (Lemma 1.2: ≤ ρ·gap + 1 + ρ). Every proved
+- **Distance from upstream (10(n)).** Nearest published objects: Dedekind zeta functions (prime-local, a_p ∈ {0, …, d}, β > 0) and BDR's region-III systems (RH-conditional surgery). Exact difference: S7's local data (m_p) are chosen
+  by feedback on the integer count, not by a field or a deletion; its a_p grow on the data (106 by 4·10⁹), bounded above by 1 + ρ·(local prime-power gap) (Lemma 1.2). Every proved
   statement here uses no printed input except the quoted theorems named at their lines.
 
 ## §7. Instruments rows (shape of `directions/B2-refutation-program.md`; records, never ranks; not applied — for the digest)
 
 | Quantity | Current best value | Result file | Dated |
 |---|---|---|---|
-| (α, β) of the prime-local integer-greedy system S7(ρ) (g-primes are prime powers, a_n multiplicative; numerical, not proved) | ρ = 0.6, X = 4·10⁹: β ≈ 0.26–0.31 (running sup of \|E\|, windows 10³…10⁷ → 4·10⁹: .307 .295 .276 .272 .259, falling), α ≈ 0.80–0.81 (running sup of \|ψ_P − x\|), γ (Beurling Möbius sums) 0.80–0.82; α − 2β = +0.18…+0.29 on every window. X = 10⁹: ρ = 0.75 / 0.8 / 0.9 / 1.1 above the line from 10⁴ / 10⁴ / 10⁵ / 10⁵ (+0.05…+0.31); ρ = 1.25 below (−0.02…−0.10); ρ = 1.5 runs away. One producer; generator re-derived independently (additive DP, 0 mismatches to 10⁷) | `local-greedy-s40/NOTE.md` §2; `…/verify/logs/sweep/fits_v0_1e9.log`, `fits_v0_r06_4e9.log` | 2026-10-01 |
+| (α, β) of the prime-local integer-greedy system S7(ρ) (g-primes are prime powers, a_n multiplicative; numerical, not proved) | ρ = 0.6, X = 4·10⁹: β ≈ 0.26–0.31 (running sup of \|E\|, windows 10³…10⁷ → 4·10⁹: .307 .295 .276 .272 .259, falling), α ≈ 0.80–0.81 (running sup of \|ψ_P − x\|), γ (Beurling Möbius sums) 0.80–0.82; α − 2β = +0.18…+0.29 on every window. X = 10⁹: ρ = 0.75 / 0.8 / 0.9 / 1.1 above the line from 10⁴ / 10⁴ / 10⁵ / 10⁵ (+0.07…+0.31); ρ = 1.25 below (−0.02…−0.10); ρ = 1.5 runs away. One producer; generator re-derived independently (additive DP, 0 mismatches to 10⁷) | `local-greedy-s40/NOTE.md` §2; `…/verify/logs/sweep/fits_v0_1e9.log`, `fits_v0_r06_4e9.log` | 2026-10-01 |
 | Off-line zeros of S7(0.6)'s ζ_P (route 2; the zeros behind Theorem K₇) | ρ₁ = 0.8209965 + 11.0877411i, ρ₂ = 0.8052963 + 20.2490762i (Newton at X = 10⁷, 10⁸, 10⁹; stable to 2·10⁻⁵); winding number 1 on B₁ = [0.8010, 0.8410] × [11.0677, 11.1077] (min\|F_X\| = 0.0654 vs tail ≤ 0.0068 under H_0.40) and on B₂ (0.0838 vs 0.018); no other zero in σ ≥ 0.70, t ≤ 100 at X = 10⁷. Route 2 also at ρ = 0.75 / 0.8 / 1.1: top zeros 0.80563 + 92.34370i / 0.74647 + 30.69772i / 0.83989 + 20.33964i (X = 10⁸, not boxed). One producer. Scratch data: `/private/tmp/rh-s40-local-greedy/a_r06_1e9.u16` (a_n, n ≤ 10⁹), `x_r06_1e9.u32` (non-default decisions) | `local-greedy-s40/NOTE.md` §3; `…/verify/logs/zeros/cert_r06_z1_1e9.log`, `newton_r06_X1e9.log`, `zcount_r06_1e7.log` | 2026-10-01 |
 | (α, β) of the capped prime-local system S7^{≤2}(ρ) (m_n ≤ 2, a_n ≪ n^ε proved; the K-candidate with tame multiplicities; numerical, not proved) | ρ = 0.6, X = 10⁹: β ≈ 0.19–0.22 (b_sup .215 .207 .204 .204 .192), α ≈ 0.79–0.83 (a_sup), zero z₁ = 0.8243658 + 11.0306646i (Newton 10⁷…10⁹, stable to 9·10⁻⁶; winding 1 on [0.8044, 0.8444] × [11.0107, 11.0507], min\|F_X\| = 0.0692 vs tail 0.0063 under H_0.40), γ = 0.78–0.82; α − 2β = +0.36…+0.44; max\|C(n)\|/n^{0.40} ≤ 0.93 on [10³, 10⁹], 0.10 in the top decade. One producer | `local-greedy-s40/NOTE.md` §4.2; `…/verify/logs/sweep/fits_v2_r06_1e9.log`, `…/logs/zeros/cert_v2r06_z1_1e9.log`, `hcheck_v2r06_1e9.log` | 2026-10-01 |
 | Lemma H₇ on the computed range (the one hypothesis of Theorem K₇) | max\|N(u) − 0.6⌊u⌋\|/u^{0.40} per decade 10³…10⁹: 1.05, 0.86, 0.93, 0.60, 0.45, 0.35 (needed: ≤ 1 for all u > 10⁹) | `local-greedy-s40/verify/logs/zeros/hcheck_r06_1e9.log` | 2026-10-01 |
@@ -347,6 +351,6 @@ Thm 1): with ψ_P = x + O(x^{α+ε}), N_P = ρx + O(x^{β+ε}), M_P = O(x^{γ+ε
 
 Spent for nothing: the first control-script run (uniform pair sampling almost never hit mn ≤ X; killed after six minutes, fixed by
 log-uniform sampling) and one scan launch whose log directory did not exist (relaunched at once) — "spent on the wrong thing", small;
-two shell loops lost to zsh's lack of word splitting (seconds, re-run under bash). Found: stop line (c), two certified boxes, a third
+two shell loops lost to zsh's lack of word splitting (seconds, re-run under bash). Found: stop line (c), three floating-point winding boxes (B₁, B₂, B^{≤2}; reproduced by direct sums in read-O), a third
 route agreeing, and the capped variant S7^{≤2} — tame and further across the line. Not done because of the stop rule: three of the
 four variants of task 4, most of task 5, part of task 6.

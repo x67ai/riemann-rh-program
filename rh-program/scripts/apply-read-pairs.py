@@ -28,20 +28,35 @@ def main():
     pairs, i = [], 0
     old_re = re.compile(r"^\s*(?:[-*]\s*)?\**OLD\**\s*(\([^)]*\))?\s*\**:\**\s?(.*)$")
     new_re = re.compile(r"^\s*(?:[-*]\s*)?\**NEW\**\s*(\([^)]*\))?\s*\**:\**\s?(.*)$")
+    def collect(idx, first):
+        """text of a pair side; a side opened with a double quote runs to the line that closes it."""
+        text = first.strip()
+        if text.startswith('"') and not (len(text) > 1 and text.endswith('"')):
+            j = idx + 1
+            while j < len(lines):
+                text += "\n" + lines[j]
+                if lines[j].rstrip().endswith('"'):
+                    break
+                j += 1
+            idx = j
+        text = text.strip()
+        for q in ('`', '"'):
+            if len(text) > 1 and text[0] == q and text[-1] == q:
+                text = text[1:-1]
+                break
+        return text, idx
     while i < len(lines):
         m = old_re.match(lines[i])
         if m:
-            j = i + 1
+            o, j = collect(i, m.group(2))
+            j += 1
             while j < len(lines) and lines[j].strip() == "":
                 j += 1
             n = new_re.match(lines[j]) if j < len(lines) else None
             if n:
-                o, w = m.group(2).strip(), n.group(2).strip()
-                # some readers wrap the quoted text in one pair of backticks
-                if len(o) > 1 and o[0] == "`" and o[-1] == "`" and len(w) > 1 and w[0] == "`" and w[-1] == "`":
-                    o, w = o[1:-1], w[1:-1]
+                w, j2 = collect(j, n.group(2))
                 pairs.append((o, w, i + 1))
-                i = j
+                i = j2
         i += 1
     applied = missed = ambiguous = skipped = 0
     for k, (old, new, ln) in enumerate(pairs, 1):
