@@ -145,3 +145,19 @@ Rounding: the run is in double precision; the ordering of S8 in double precision
 quantity above enters with a margin ≥ 10⁻² against rounding ≤ 10⁻⁸. U6/U7 exact generators reproduce N, π_P to 10¹⁰ [quoted, SHARED].
 So **(T1) holds for S8(π/16) with C = 0.5199 and for S8(π/32) with C = 0.2204**: N(x) ≤ C x + 1 − rho for all x ≥ 1.
 
+### §1.8 Sharper form: compare E with u − 1 instead of u (18:33 IST 2026-10-01) [proved here]
+**Lemma E1'.** If x > 1 and A := E(x)/(x − 1) = sup_{1<u≤x} E(u)/(u − 1) > 0, then A(1 + x D(x)) ≤ psi(x) − rho x D(x) − rho, so
+  A ≤ max{0, psi(x)/(x D(x)) − rho}.
+*Proof.* E(u) ≤ A(u − 1) on [1, x] (at u = 1 both sides vanish). LHS(*) ≥ A(x − 1)log x − A∫_1^x(1 − 1/u)du = A x log x − A(x − 1).
+RHS(*): Σ_d Λ(d)E(x/d) ≤ A Σ_d Λ(d)(x/d − 1) = A(x S − psi). With S = log x − 1 − Delta, D = Delta + psi/x and (*)'s first part
+= psi − rho x D: A x log x − A x + A ≤ psi − rho x D − rho + A x log x − A x − A x Delta − A psi, i.e. A(1 + x D) ≤ psi − rho x D − rho.
+If the right side is ≥ 0, A ≤ (psi − rho x D)/(x D). ∎
+**Theorem T1'.** For 0 < rho < 1/2 and X0 ≥ p1 with D0 := min{D(X0), 1/(2rho) − eps0/rho} > 0 (eps0 = eps(X0)): for all x > 1,
+  E(x) ≤ max{ sup_{1<u≤X0} E(u)/(u − 1),  rho + 2 eps0/D0 } · (x − 1).
+*Proof.* As for T1, with E1' in place of E1 and (C1) in the form psi/x ≤ 2rho D + 2 eps (F = psi/(2x) − rho D ≤ eps), so
+psi/(xD) − rho ≤ rho + 2eps0/D; D ≥ D0 on [X0, ∞) by D1. ∎  (Threshold tau: rho tau/(1 − tau) + eps0/((1 − tau)D0), same proof.)
+On [1, p1), E(u)/(u − 1) = −rho; at p1 it equals (1/2)/(p1 − 1) = rho. [computed, logs/t1const_*.log]: sup_{1<u≤3·10⁷} E(u)/(u − 1)
+= rho exactly at u = p1 for π/16 and π/32. Hence **E(x) ≤ (rho + 6.3·10⁻⁵)(x − 1) for S8(π/16), E(x) ≤ (rho + 2.3·10⁻⁵)(x − 1) for
+S8(π/32), for all x > 1; i.e. N(x) ≤ (2rho + 10⁻⁴)(x − 1) + 1: the count never exceeds twice its target slope.** For general
+rho ∈ (0, 1/2): every record of E(u)/(u − 1) beyond X0 is ≤ rho + o(1) as X0 → ∞.
+

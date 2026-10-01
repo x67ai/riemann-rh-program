@@ -5,7 +5,7 @@ rho = eval(sys.argv[1]); X0 = float(sys.argv[2]); tau = eval(sys.argv[3]) if len
 r0 = 1.0 - rho - tau; kap = rho / (1.0 - tau)
 t0 = time.time()
 val = [1.0]; lpf = [-1]; ppw = [-2]; primes = []; cursor = []; heap = []
-N = 1; x0 = 1.0; psi = 0.0; S = 0.0; Pt = 0.0; supEu = 0.0; argsup = 1.0; minE = 0.0
+N = 1; x0 = 1.0; psi = 0.0; S = 0.0; Pt = 0.0; supEu = 0.0; argsup = 1.0; minE = 0.0; supE1 = -1.0; arg1 = 1.0
 def advance(i):
     c = cursor[i] + 1
     while lpf[c] > i: c += 1
@@ -30,6 +30,7 @@ while True:
         lp = math.log(primes[isp]); psi += lp; S += lp / x
     E = N - rho * (x - 1.0) - 1.0
     if E / x > supEu: supEu = E / x; argsup = x
+    if E / (x - 1.0) > supE1: supE1 = E / (x - 1.0); arg1 = x
 Pt += psi * (1.0 / x0 - 1.0 / X0)
 P0 = primes[-1]; lX = math.log(X0)
 D_X0 = lX - 1.0 - Pt
@@ -54,3 +55,9 @@ print(f"P0 = {P0:.4f}; eta(P0) = {eta:.3e}; T(P0) known = {T:.3e}, lattice tail 
 print(f"D(X0) = {D_X0:.5f} vs (1-tau)/rho = {(1-tau)/rho:.5f}; D0 = {D0:.5f}; Delta0 = {Delta0:.5f}")
 print(f"record bound beyond X0: rho tau/r0 = {rho*tau/r0:.6f} + {(1-rho)*eps0/(r0*Delta0):.3e} = {Alarge:.6f}")
 print(f"THEOREM T1 constant: E(x) <= {CE:.6f} x for all x >= 1; N(x) <= {rho+CE:.6f} x + {1-rho:.4f}")
+# Theorem T1' (comparison u - 1): records of E(u)/(u-1) beyond X0 are <= u/D - rho <= rho tau/(1-tau) + eps0/((1-tau) D0)
+D0p = min(D_X0, (1.0 - tau) / rho - eps0 / rho)
+A1 = rho * tau / (1.0 - tau) + eps0 / ((1.0 - tau) * D0p)
+C1 = max(supE1, A1)
+print(f"T1': sup_(1<u<=X0) E(u)/(u-1) = {supE1:.6f} at u = {arg1:.6f}; records beyond X0 <= {A1:.6f}")
+print(f"THEOREM T1' constant: E(x) <= {C1:.6f} (x - 1) for all x > 1; N(x) <= {rho + C1:.6f} (x - 1) + 1")

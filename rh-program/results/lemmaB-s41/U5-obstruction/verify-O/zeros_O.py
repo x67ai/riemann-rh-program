@@ -37,6 +37,10 @@ if which == "A":
     for (s0, s1, t0, t1) in [(0.5, 1.0, 0.5, 50), (0.5, 1.0, 50, 100), (0.5, 0.75, 0.5, 100), (0.75, 1.0, 0.5, 100)]:
         w, m, n = box(mpf(s0), mpf(s1), mpf(t0), mpf(t1))
         print(f"box Re in [{s0},{s1}] Im in [{t0},{t1}]: winding = {mp.nstr(w, 6)}  min|L| on contour = {mp.nstr(m, 4)}  evals = {n}", flush=True)
+elif which == "D":   # small box around the real zero: complex zeros with |Im s| < 0.5?
+    for (s0, s1, t0, t1) in [(0.5, 0.95, -0.5, 0.5), (0.95, 1.2, 0.05, 0.5)]:
+        w, m, n = box(mpf(s0), mpf(s1), mpf(t0), mpf(t1))
+        print(f"box Re in [{s0},{s1}] Im in [{t0},{t1}]: winding = {mp.nstr(w, 6)}  min|L| on contour = {mp.nstr(m, 4)}  evals = {n}", flush=True)
 elif which == "B":   # right of Re s = 1: is L zero-free at low height?
     for (s0, s1, t0, t1) in [(1.0, 1.25, 0.5, 250), (1.0, 1.25, 250, 500), (1.0, 1.25, 500, 750), (1.0, 1.25, 750, 1000)]:
         w, m, n = box(mpf(s0), mpf(s1), mpf(t0), mpf(t1))

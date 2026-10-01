@@ -26,7 +26,9 @@ bounded composite discrepancy — Lemma B in another name; the remaining freedom
 **The inexact multiplicity substitute fails** (§3): P_κ (norm points n^κ, g-primes with multiplicity, greedy with clip and carry,
 (A) by construction, (B) with θ = 1 − 1/κ iff its queue is O(n^{κ−1})) [novelty: single-check; s39's S5 is κ = 1]. Lemma 3.1 and
 Prop. 3.2 [proved, rule-independent]: (A) turns composite load into overshoot point by point, and near-flatness below a squarefree
-point with k generators forces excess ≥ |κ_k(τ)|·w at it. [computed, 10⁷–10⁸] the forced overshoot switches on exactly at the first
+point with k generators forces excess ≥ |κ_k(τ)|·w at it; Prop. 3.3 [proved, any rule, κ ≥ 1]: g-primes of weight ≥ βw at EVERY
+product of j distinct primes from (z, 2z], for infinitely many z, force θ ≥ 1 − 1/(jκ) > ½ (the primorial-type counting
+k!/((j!)^{k/j}(k/j)!) = n^{1−1/j−o(1)}). [computed, 10⁷–10⁸] the forced overshoot switches on exactly at the first
 negative cumulant (k₀ = 7, 6, 5, 4 for τ = 0.03, 0.075, 0.15, 0.30), the load matches a clipped-cumulant model within 10 % at the
 onset, and the integer error of P_{1.5}(0.05) grows like u^{0.52} on [10¹⁰, 10¹²] — above every exponent U can use, including U1's
 power-bump threshold 0.4945. S5's multiplicity growth (s39) is this mechanism; it does not depend on S5's rule.
@@ -73,7 +75,8 @@ Z_T(u) = [1 − Su + Pu²]/((1 − u)(1 − qu)), S = q + 1 − m − c, P = q �
 f(q − m) = −cm < 0, f(q) = m(q − 1) > 0, and f(q − m + δ) = −cm + δ(q − m − 1 + c) + δ² > 0 for δ = cm/(q − m − 1 + c).)
 Since n·b_n ≥ a_n − Σ_{d|n, d<n}|a_d| and |a_d| ≤ 2q^d + 1 + |ω₂|^d, every b_n with n ≥ 3 is positive as soon as
 q ≥ max(2m, m + 1 + c, 16c², 116/m²) [crude; the steps: ω₁ ≤ q − m/2, |ω₂| < 2c ≤ √q/2, then (m/2)q^{n−1} > 5q^{n/2} + n·q^{n/4}],
-and b_2 = mq + c − (m + c)(m + c + 1)/2 ≥ 0 iff 2mq + 2c ≥ (m + c)(m + c + 1). So for every c ≥ 1 the one-sided target is exactly
+and b_2 = mq + c − (m + c)(m + c + 1)/2 ≥ 0 iff 2mq + 2c ≥ (m + c)(m + c + 1) — implied by the same four conditions, since
+(m + c)(m + c + 1) ≤ 2m² + 2c² + m + c and 2mq ≥ 2m·max(2m, 16c²) exceeds 2m² + 2c² + m in both cases (m ≥ 8c² or m ≤ 8c²). So for every c ≥ 1 the one-sided target is exactly
 realizable for all large q, with A_n − (m/q)qⁿ = c for n ≥ 1 — an F_q system with "(A)" (r_n ≡ c > 0), "(B)" with θ = 0, and the
 real zero s* = log ω₁/log q ∈ (log(q − m)/log q, 1). [computed, part (b): no negative b_n to n = 40 except where the n = 2 (or n = 3)
 condition fails: q = 5, m = 1, c ∈ {3, 5}; q = 7, c = 5; q = 11, m = 2, c = 5 — always at n ≤ 3; part (c): rounded targets
@@ -178,6 +181,21 @@ no proper power is involved). The term π = {[k]} is a(h); for the others insert
 So when κ_k(τ) < 0 (k ≥ k₀(τ), the first negative cumulant: k₀ = 7, 6, 5, 4 for τ = 0.03, 0.075, 0.15, 0.30), a system that is
 nearly flat below h overshoots AT h by ≥ (|κ_k(τ)| − Err_k)·w(h), whatever its rule; by Lemma 3.1 this enters E_D.
 
+**Proposition 3.3 (uniform positivity on one layer forces θ ≥ 1 − 1/(jκ) > ½)** [proved here]. Let a system on the norm points
+n^κ (κ ≥ 1; κ = 1 is ℕ-supported, S5's class) satisfy (A) and (B) with exponent θ, and suppose that for some j ≥ 2, β > 0 and
+infinitely many z, b(d) ≥ β·w(d) for every d that is a product of exactly j distinct primes in (z, 2z]. Then θ ≥ 1 − 1/(jκ) > ½.
+*Proof.* (A) and (B) give a(n) = N_D(n) − N_D(n − 1) ≤ (ρn^κ + Cn^{κθ}) − (ρn^κ + r₀) ≤ Cn^{κθ} for every n. Take n := product of
+k = j⌊(π(2z) − π(z))/j⌋ primes in (z, 2z]. Every partition of these k primes into blocks of size j, with one g-prime at each block product,
+is a factorization of n, so a(n) ≥ #{partitions}·β^{k/j}·w(n) (w completely multiplicative), and
+log #{partitions} = log k! − (k/j)log j! − log (k/j)! = (1 − 1/j)k log k + O(k) = (1 − 1/j + o(1))·log n, because
+log n = k·log z·(1 + O(1/log z)) and log k = log z − log log z + O(1) (Chebyshev: k ≍ z/log z); β^{k/j} = e^{O(k)} = n^{o(1)}. Hence n^{κ − 1/j − o(1)} ≤ Cn^{κθ} along z → ∞, i.e. θ ≥ 1 − 1/(jκ). ∎ [computed: `verify/partition_count.py`: log#/log n = 0.268, 0.310, 0.338, 0.358, 0.373 for j = 2 at
+z = 10³ … 10⁷ (limit ½), 0.343 … 0.559 for j = 5 (limit 0.8): the o(1) is of size log log z/log z, so the bound bites late.]
+So a multiplicity system with θ < ½ must leave, in EVERY layer j ≥ 2 and at every scale, some j-fold product of small primes with
+b < βw — it has to starve the very points where Theorem 2.1 says a flat system needs negative primes. [A density version (a positive
+proportion φ of good j-subsets) gives only θ ≥ 1 − (1 − c_jφ)/κ through matching-counting bounds (M. Hall's δ! lower bound for j = 2,
+recalled, unverified) and does not reach ½.] The greedy P_κ satisfies the hypothesis only on average (mean b/target ≈ 0.83 on
+semiprimes, τ = 0.075, but b = 0 during busy periods), which is why Proposition 3.3 does not close §3 by itself.
+
 **3.3 The clipped-cumulant law, measured** [computed: `verify/pkappa.c`, `verify/clipped_cumulant_model.py`; logs
 `pkappa_k1.5_r*_r04_1e7.log`, `pkappa_k1.5_r0.05_r04_1e8.log`, `clipped_cumulant_model.log`, `cumulant_predictions.log`].
 The greedy cannot place negative primes. MODEL: at squarefree points with j generators it places b_j = κ_j(τ)w for j < k₀ and
@@ -280,7 +298,8 @@ of ½ for free; positivity of the prime measure at products is what it costs (co
 
 **6.2 Gaps.** (G1) The rule-independent form of §3 is not proved: *for every system on the norm points n^κ, 1 < κ < 2, satisfying
 (A), sup_{n≤y} E_D(n)/n^{κ−1} ≥ y^δ for some δ > 0*. Proved: Lemma 3.1 (forced overshoot is c(n) minus the per-point target, for any
-rule) and Prop. 3.2 (near-flatness below a squarefree point forces excess ≥ |κ_k(τ)|w at it). Missing: a lower bound for the
+rule) and Prop. 3.2 (near-flatness below a squarefree point forces excess ≥ |κ_k(τ)|w at it). Proposition 3.3 [proved] settles the case of uniform positivity on one
+layer (θ ≥ 1 − 1/(jκ) > ½). Missing: a lower bound for the
 greedy's b at the divisors of the most factored n that survives the busy periods (the clipped-cumulant model ignores them; the data
 fit it within 10 % at the onset). (G2) The growth (k!)^{1−1/(k₀−1)} of the clipped-cumulant load is quoted from the theory of entire
 functions of finite order [recalled, unverified]; only the values to k = 24 are computed. (G3) Vivanti–Pringsheim is used as
