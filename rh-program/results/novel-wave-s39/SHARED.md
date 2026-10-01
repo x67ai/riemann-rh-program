@@ -136,3 +136,10 @@ Writes only: `directions/*.md` (insertions + Last-touched lines), this folder (`
 - Read-F/read-O differences recorded: lemG F1–F2 missed by read-F (its §4 says so; read-O re-derives); fej wording F1–F2 (read-F
   accepted, verified by hand at reconciliation); qtw F1 credit (Lemma M first in qcond's read). No contradiction on a theorem's validity.
 - Running now: the four Session-40 units (fgT, fgC, s5m, lg) + the free-greedy charter. Resume here: append §A.8 onward.
+
+## 2026-10-01 17:07 IST block 14 — §A.8–A.9 written (fgT, fgC); line citations of A.2–A.5, A.8 re-checked against the files
+
+- 27 citation corrections applied by exact-match script (each unique): read-F/read-O line numbers re-read with grep -n.
+- Found for §E (consolidator): fgT NOTE:11 and :103 still label Theorem 1.6 "[novelty: single-check — not found in print]" although both
+  reads say "new as a statement on a printed core" (rO:221–224; rF:35). fgC/fgT θ-thresholds consistent (Cor. 1.7 floor vs certificates).
+- Running now: s5m, lg. Resume here: append §A.10 onward.

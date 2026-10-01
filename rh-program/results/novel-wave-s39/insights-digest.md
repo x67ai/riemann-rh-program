@@ -47,26 +47,26 @@ in print (dual-checked)" (rO:24). Open residue G: weighted/mixed systems with cl
 Verdicts: read-F AGREES, no FIX-FIRST (rF:5); read-O AGREES-WITH-CORRECTIONS, F1–F4, m1–m12, none falsifies a theorem (rO:8–18).
 Three most useful findings.
 1. **Theorem Z (RH)** (NOTE:24–25; close NOTE:312–313): if the prime zeta function P_R continues with finite order past α_R/2 off the
-   real axis, then β₂(R) ≥ α_R/2. CONDITIONAL THEOREM (RH), dual-read: rF:11 (Z1–Z5 step by step), rO:8–9 ("re-derived at the line …
+   real axis, then β₂(R) ≥ α_R/2. CONDITIONAL THEOREM (RH), dual-read: rF:12 (Z1–Z5 step by step), rO:8–9 ("re-derived at the line …
    NEW"). The device: Hilberdink's order-zero passage, the logarithm with Borel–Carathéodory (NOTE:24; m10, rO:306).
 2. **Corollary Z.1 (RH)** (NOTE:313–315): every regular deletion, every c — "read-O's corner A8 is closed as a refutation corner".
-   CONDITIONAL THEOREM (RH), dual-read (rF:13; rO:9–10); its c = 1 analytic input is already BDR §5 (m11, rO:307).
+   CONDITIONAL THEOREM (RH), dual-read (rF:14; rO:9–10); its c = 1 analytic input is already BDR §5 (m11, rO:307).
 3. **Proposition O1** (read-O's addition, rO:312–324; recorded NOTE:342): β₂(R) ≥ α_R(1 − α_R)/4 for EVERY R with Σ1/p < ∞, α_R < 1,
    unconditionally. single-check (read-O proved it; the orchestrator recorded it, NOTE:342). Its ceiling is α_R/4, the same as Prop. 1.3
-   (RH; β₂ ≥ α_R/4, dual-read, rF:9, rO:12), because both see only the resolved denominators b ≤ √X (rO:327–331).
+   (RH; β₂ ≥ α_R/4, dual-read, rF:10, rO:12), because both see only the resolved denominators b ≤ √X (rO:327–331).
 Most useful failure. Remark 1.3′ (NOTE:316–317): the brief's gap lemma — a mean value for a function known only as analytic of finite
 order in a strip — is false (η(2s)); "no mean-value theorem driven by growth alone reaches α/2" (m3, rO:299). Second: the task-3 trigger
 could not separate a counterexample from a log-power (NOTE:330–331) — the greedy sets fall below X^{α−δ} in pure-power slope while β₂ ≥ α/2
 is proved for them (NOTE:327–328; F4, rO:287–293).
 Borrow. (a) Logarithm + Borel–Carathéodory converts polynomial growth into order zero (the repair of the Carlson obstruction, NOTE:31).
-(b) The κ-calibrated stop trigger: "below X^{α_R−δ} over three decades AND M/M_diag not fitted by a log-power κ ≤ 4" (rF:18, m3).
+(b) The κ-calibrated stop trigger: "below X^{α_R−δ} over three decades AND M/M_diag not fitted by a log-power κ ≤ 4" (rF:21, m3).
 (c) The resolved/unresolved split: every route stops at α_R/4 until the incomplete-period Franel pairs (b, b′ ∈ (√X, X]) are handled
 (rO:329–331, 338–341).
 Statuses. Prop. 1.1 (corrected by the coprimality factor (1 − p^{2σ−2})): dual-read (rF:8, independent mpmath check; rO:11–12, F1 adds the
 b = 1 frequencies). Lemma G: under RH EQUIVALENT to O₂ set by set — a reformulation, not a weaker input (F2, rO:266–273; NOTE:311). The
 α = 0.75 data: NUMERICAL (2 producers) — sup tension resolved (12 seeds 0.392 ± 0.016; read-O's 8 independent seeds 0.399 ± 0.011),
 top-window mean square UNDECIDED between α and 2/(3 − α) (20 seeds 0.816 ± 0.039; NOTE:326–327). Disagreement: read-F accepted the
-12-seed resolution "at the report level" (rF:12); read-O re-ran it with its own code and RNG and found the mean-square half undecided
+12-seed resolution "at the report level" (rF:16); read-O re-ran it with its own code and RNG and found the mean-square half undecided
 (rO:275–277, F3) — read-O re-derives the point. The "any A" addition clause: HEURISTIC, flagged for amendment (NOTE:323–324; rF m2).
 
 ### A.3 uoff — Conjecture U off the surgery class: the integer-greedy systems S5(ρ). Close CHANGED at the dual read: K-conditional + T + G
@@ -75,18 +75,18 @@ with the close as stated — "the theorems stand, the numerical crossing does no
 Three most useful findings.
 1. **The multiplicity mechanism (the burst inequality).** At ρ = 0.8 the late records of E are single integers of high multiplicity
    (n = 902538000 has a_n = 276; E jumps from −0.4 to 274.8), so sup_{u≤x}E ≥ max_{n≤x}a_n − 1.3 and β ≥ limsup log a_n/log n (rF C1–C2;
-   rO A2, :234). Refused rational primes enter only through composite "carriers" (20, 30, 110, … for 5), and integers divisible by a refused
+   rO A2, :235). Refused rational primes enter only through composite "carriers" (20, 30, 110, … for 5), and integers divisible by a refused
    prime and many carrier cofactors have many factorizations. Dual-read (two independent generators, exact counts).
 2. **Rigorous lower bounds beyond the computed range.** The factorizations of n into the g-primes ≤ 10⁹ bound a_n below forever (later
    g-primes only add) (rF C3): a_n ≥ 13,461,378,553 at n₃ (exponent 0.3327 at 10^{30.45}) and ≥ 7,047,237,674,851 at 10^{37.86} (0.3394,
-   local 0.367) (rO A3–A4, :235–236). Dual-read; carried to n_K in s5m (A.10).
-3. **§3.2 and §3.3 (T).** Tracking discretizations of rational templates have β ≥ ½ (a corollary of Hilberdink 2005 Remark C, rF:12;
+   local 0.367) (rO A3–A4, :236–237). Dual-read; carried to n_K in s5m (A.10).
+3. **§3.2 and §3.3 (T).** Tracking discretizations of rational templates have β ≥ ½ (a corollary of Hilberdink 2005 Remark C, rF:10;
    "new as a statement on a printed core", rO §6); periodic designs are abelian number fields or cross U only through an off-line
-   Dirichlet zero (§3.3(b), rF:13). THEOREM (dual-read; read-O: "correct, each with a one-line gap", rO:7).
+   Dirichlet zero (§3.3(b), rF:11). THEOREM (dual-read; read-O: "correct, each with a one-line gap", rO:7).
 Most useful failure. The numerical crossing of U's line by S5(0.8) — "β ≈ 0.30 over six decades" — is WITHDRAWN (NOTE:13): 0.30 was the
-slope of the running sup on [10³, 10⁹], a pre-asymptotic transient; the crossing needs β < Re ρ₁/2 ≈ 0.383 (rO A8, :238) and is
+slope of the running sup on [10³, 10⁹], a pre-asymptotic transient; the crossing needs β < Re ρ₁/2 ≈ 0.383 (rO A8, :241) and is
 undetermined. The fitted exponent of a greedy system is not evidence until the multiplicity growth beyond the range is bounded.
-Borrow. (a) The exact lower-bound ascent as the standard test of any "integer exponent" of a feedback system. (b) read-O A5 (:237):
+Borrow. (a) The exact lower-bound ascent as the standard test of any "integer exponent" of a feedback system. (b) read-O A5 (:238):
 ρ-dependence — exact ascents stay flat near 0.27 (ρ = 0.95, to 10^{38.8}) and 0.285 (ρ = 1.05, to 10^{40.8}); the smallest refused prime
 (5, 13, 23) is what compounds, so "a variant that never refuses small primes" is the better β-candidate (the seed of lg's S7). (c) A6
 (Rankin): over y-smooth n ≤ x, max a_n = x^{o(1)} — power growth of multiplicity needs records with growing prime support (rO:239).
@@ -98,7 +98,7 @@ Lemma H in its ≪ form: not refuted, unsupported (s5m NOTE:103). Novelty: S5 "n
 22 arXiv queries; nearest Olofsson 2010, Lagarias 1999 (rO §6).
 
 ### A.4 lemG — Lemma G on deterministic irregular classes; the rung-1 test. Close G with T-parts and a rung-1 counterexample
-Verdicts: read-F AGREES, no FIX-FIRST (rF:5); read-O AGREES-WITH-CORRECTIONS, F1–F5 (14 FIX-FIRST pairs) + 17 minor (rO:11–27). read-F's
+Verdicts: read-F AGREES, no FIX-FIRST (rF:5); read-O AGREES-WITH-CORRECTIONS, F1–F5 (14 FIX-FIRST pairs) + 17 minor (rO:12–28). read-F's
 reconciliation: "the reader's F1 and F2 are real and were MISSED here" (rF §4) — read-O re-derives both at the line.
 Three most useful findings.
 1. **Theorem R1 — Conjecture O is FALSE at the function-field rung** (NOTE:24–26; close NOTE:339–341): deleting M(a, N) irreducibles of
@@ -110,7 +110,7 @@ Three most useful findings.
    −κ log(s − s₀) + analytic with κ = Σμ(m)ord_{ms₀}D_R/m; any other singularity at Re s₀ forces β₂ ≥ Re s₀. It proves O unconditionally on
    four deterministic classes irregular at scale x^{α_R/2}: T2, T3, T4 (natural boundary on σ = α_R/2), T5. THEOREM (dual-read; Cor. 2.2
    with the path restriction {σ ≥ Re s₀}, F3; T2 and T5 repaired, F1–F2).
-3. **The cluster criterion** (read-O A1–A2, rO:363–380): the tight ℚ-necklace obeys O UNCONDITIONALLY (β = α_R = ½, β₂ ≥ ¼) by Selberg's
+3. **The cluster criterion** (read-O A1–A2, rO:365–382): the tight ℚ-necklace obeys O UNCONDITIONALLY (β = α_R = ½, β₂ ≥ ¼) by Selberg's
    upper-bound sieve — dual-read (read-O proved; the orchestrator re-derived it before applying, rF §4 F4); and in general "counterexamples
    to O must be anti-clustered": #R ∩ (y, y + h] ≤ 2(2y)^{α/2+δ} + C h y^{α−1+δ} + C h^{2α/(1+α)+δ} if β(R) < α_R/2 — single-check (A2).
 Most useful failure. The natural-boundary route for hash-defined / pseudo-random R is blocked by a named missing input: every
@@ -119,10 +119,10 @@ input is a bilinear equidistribution estimate for {pθ} at scale p^{α−1} (NOT
 α_R/2, or has a natural boundary there" is not one: T2's R_k and the tight necklace have neither, and O holds for both (NOTE:352–355).
 Borrow. (a) The sq family {nextprime(p²)} as a second calibration of the stop trigger beside conjO's κ: sub-diagonal slope 0.422 on
 [10⁶, 10¹⁰] on a set where O is a theorem (under RH, F1), with E the sum over ζ's zeros at ρ/2 (200-zero explicit formula, correlation
-0.998 for x ≥ 10⁸; rO:21–24 reproduces 0.882/0.980/0.998). (b) The rung-1 necklace as a control for any argument that consumes only
+0.998 for x ≥ 10⁸; rO:22–23 reproduces 0.882/0.980/0.998). (b) The rung-1 necklace as a control for any argument that consumes only
 Theorem Z's inputs. (c) A2 as a cheap first filter on any proposed counterexample to O.
 Statuses. R1, Thm 2.1, Cor. 2.2, Prop. 2.3, T3, T4: THEOREM (dual-read). T2: THEOREM (dual-read, repaired) — for sq only under RH or a
-recalled large-gap bound, "not 'uncond.' as the NOTE says four times" (F1, rO:16–18; A4). T5: THEOREM (dual-read, repaired by a greedy
+recalled large-gap bound, "not 'uncond.' as the NOTE says four times" (F1, rO:17–19; A4). T5: THEOREM (dual-read, repaired by a greedy
 choice, F2). Theorem F: CONDITIONAL THEOREM (RH), dual-read (read-F "structure only", rF:5; read-O re-derived); Cor. F.1 superseded by
 A1. 𝒞_self: definitional — "a tautology, not an obstruction theorem" (NOTE:342–343). Computation to 10¹⁰: NUMERICAL (2 producers, digit
 for digit), no K-candidate (NOTE:356–357).
@@ -135,7 +135,7 @@ Three most useful findings.
    "valid"). Novelty: "new — answers BDR fn. 4 and DZ p. 196 (θ < ½) for a.e. realization" (rO §6); not settled in print (dual-checked).
 2. **The one-scale method** (NOTE:23–27): the dependence across (x/2, x] is exact and one-dimensional — every g-integer ≤ x holds at most
    one block prime (Lemma 2.1) — so conditional Gaussian anti-concentration at a single scale gives the a.s. statement "with no
-   independence across scales and no 0–1 law" (rF:9, the point the brief asked to press; rO:17–18, the Fatou bound, A3).
+   independence across scales and no 0–1 law" (rF:11, the point the brief asked to press; rO:17–18, the Fatou bound, A3).
 3. **Addition A1** (rO:300–315): a.s. lim sup |N − ρx|/(x/log x)^{1/2} = +∞ and (A1′, one-sided) lim inf = −∞ — single-check; it answers
    the NOTE's U-2. What it does not reach (A2): θ = ½, "is N − ρx = O(x^{1/2})?" — the Mellin route cannot decide it.
 Most useful failure. The NOTE's own limits (NOTE:39–41): nothing about the exceptional null set — a particular subsequence of the grid
@@ -208,3 +208,62 @@ polynomials), I(V) = −0.1180339887, I(E₀) = +0.1055728090, Z3 values: NUMERI
 non-square q ≤ 13), A3 (λ_min(T_M(V)) in Lucas/Fibonacci closed form): single-check. The two zoo riders of §11 (on IV.1 and I.9): accurate
 after F1, F2e, m9 (rO:27–28) — already entered at the Session-40 zoo stream (BARRIER-ZOO.md:153, the I.9 rider; :443, the IV.1
 rider); not restaged here.
+
+### A.8 fgT — S8, the free greedy system: identities, mechanism, proof problem. Close T + G (Lemma B_ρ)
+Verdicts: read-F (partial Session 40, Theorem 1.6 only; completed Session 41 "BEFORE the Opus read-O was opened") AGREES-WITH-CORRECTIONS
+(rF:3–9, 16–35); read-O AGREES-WITH-CORRECTIONS, F1–F3 + 13 minor, 27 pairs (rO:11–27). All 27 pairs applied (rF:35).
+Three most useful findings.
+1. **Theorem 1.6 — one-sided integer regularity forces a real zero** (NOTE:103; §0 NOTE:11–14): if N(u) − ρu ≥ r₀ > 0 for all u ≥ 1 and
+   N − ρu = O(u^θ), θ < r₀/(r₀ + ρ), then ζ_P has a real zero σ* ∈ [r₀/(r₀ + ρ), 1) and α ≥ σ*. THEOREM (dual-read; rF:5–8, rO:13–16).
+   It uses discreteness nowhere (rF:7, 9; rO A1, :372–374: valid for every Beurling system; for discrete systems the zero is strictly
+   right of r₀/(r₀ + ρ)); the template dN = δ₁ + ρdx shows it is sharp (rF:9). Novelty: "new as a statement on a printed core"
+   (Bateman–Grosswald 1964 p. 367; Phragmén, as in Révész 2023) (rO:221–224; rF:35).
+2. **Corollary 1.7 and the Dichotomy** (NOTE:113, 208; §0 NOTE:14–18): S8's rule gives r₀ = ½ − ρ for free (E > −½), so for ρ < ¼
+   "Conjecture U is false as soon as S8(ρ) has N(x) − ρx = O(x^θ) for some θ ≤ ½ − ρ"; with the finite certificates (F_{10⁷}(0.79) =
+   +0.0222 for π/16, F_{10⁶}(0.89) = +0.0434 for π/32) the needed exponent relaxes to θ < 0.395 and θ < 0.445. THEOREM (dual-read;
+   rO:16–19 "correct as stated"). Conjecture U for never-undershooting systems is thereby ONE integer bound: Lemma B_ρ (NOTE:25), G.
+3. **Prop. 2.1, the gap identity** (NOTE:143): E = ½ + composites − ρ·elapsed on every g-prime gap, so E ≤ ρ·(largest gap) − ½. Dual-read.
+   read-F adds the Lindley form (proved there, not in the NOTE): e_k = max(e_{k−1} + c_k − 1, 0) — "S8 is a single-server queue, one
+   service per lattice step, fed by composites; the g-primes are its idle steps" (rF:22; single-check).
+Most useful failure. **The two-sided sieve form of Lemma B_ρ is false** (read-O F1, rO:19–21; NOTE:26): square-root cancellation in the
+Legendre remainder S(I) would force ψ_P ~ 2e^{−γ}x through the Beurling Mertens theorem (Diamond–Zhang Thm 5.10, read at the page);
+S(u, 2u] carries the bias (1 − 2e^{−γ} + o(1))u/log u, 12.3 % of the prime count (A3, rO:379–381). read-F upheld it: "I had not seen this
+in my own read" (rF:26) — read-O re-derives the point. Also: routes (a) and (b) break at the compensator (a short-interval PNT), and
+randomization is counterproductive (offsets of width 50 raise sup E at 10⁷ from 12.8 to 58–171; NOTE:27–30).
+Borrow. (a) Theorem 1.6 as a Siegel-zero test for any positive-coefficient zeta with a residue (UT-F5); its contrapositive A2 (rO:375–
+378): no real zero in (θ, 1) and O(u^θ) give inf(N − ρu) ≤ ρθ/(1 − θ). (b) The bias A3: any probabilistic model of S(I) must be centered
+on (1 − 2e^{−γ})u/log u. (c) read-F's price of B_ρ (rF:31–32, single-check): by Prop. 2.1, B_ρ has the strength of a g-prime gap bound
+x^θ, θ < ½ − ρ; a zero-density estimate N(σ, T) ≪ T^{A(1−σ)} gives gaps x^{1−1/A+ε}, so no zero-density bootstrap reaches B_ρ for S8 as it
+stands — "this is why the stream lemmaB-s41 carries two design units".
+Statuses. Lemmas 1.0–1.5, Theorem 1.6, Remark 1.6′, Cor. 1.7, Prop. 2.1, the Legendre form, the Dichotomy, Theorems 4.1–4.2: THEOREM
+(dual-read). Certificates: NUMERICAL (2 producers; read-O double-double with a 60-digit recheck of every close decision, rO:17–19); the
+stated ordering margins were 9–21× too large (F2) and survive. "sup E ≈ (0.20–0.37)·ρ·log²x" (F3, corrected from 0.37–0.53). Lemma B_ρ:
+NOT proved (G). Label lag: NOTE:11 and :103 still read "[novelty: single-check — not found in print]" (§E).
+
+### A.9 fgC — S8 at scale: the integer error and the zeros, to 10¹¹. Close: a numerical record (nothing proved, as the NOTE says)
+Verdicts: read-F AGREES-WITH-CORRECTIONS (rF:3); read-O AGREES-WITH-CORRECTIONS, F1–F2 (5 pairs) + 7 minor (rO:11). 12/12 pairs applied
+(rF:16–17). "Unit CLOSED DUAL-READ as a numerical record: two producers to 10¹⁰ (10¹¹ single producer)" (rF:17).
+Three most useful findings.
+1. **The law of E for S8(π/4)** (NOTE:11): sup_{u≤x}E = 8.22, 13.33, 26.63, 39.53, 47.86, 95.86, 95.86, 113.20, 123.62 at 10³ … 10¹¹;
+   best two-parameter description ≈ 0.2·log²x; sup E/x^{1/4} falls 1.25 → 0.22 over 10⁶–10¹¹, so β < ¼ on the observed range (F2 wording).
+   NUMERICAL: three producers to 10⁷ (unit, the orchestrator's prototype, rF:6), two to 10¹⁰ (read-O's 128-bit generator with a
+   per-decision ordering proof, rO A1, :189), one at 10¹¹. read-O A5 (:197, heuristic): "sup E ≈ c·log²x" and "E = O(log x) in
+   distribution" are one statement, and the second is the stronger evidence.
+2. **The zero ρ₁ = 0.8962124913 + 14.5499355887i of F_X** (NOTE:13–27): stable to 10 digits, the only zero with σ > 0.85 up to
+   t = 5000; it is a zero of ζ_P "provided |E(u)| ≤ 39,928·log²u for all u > 10¹¹" (Rouché; NOTE:28), and from the proved range alone
+   provided |E(u)| ≤ 6531·log²u beyond 10¹⁰ (rO A2, :191); observed max E/log²u = 0.307. The explicit formula over 44 zeros + the real
+   zero 0.51474 reproduces ψ_P − x on [10⁴, 10¹¹] to 0.2 % rms: α(S8(π/4)) = 0.8962 numerically. NUMERICAL (2 producers to 10¹⁰;
+   B_max 40,028 by read-O's second route; read-F's crude form gives 35,144 — "Either way the margin … five orders of magnitude", rF:8).
+3. **Small densities** (NOTE:30): S8(π/16), S8(π/32) to 10¹¹ have sup E = 33.27, 20.36 (≈ 0.05, 0.03·log²x) and rightmost zeros REAL at
+   0.7947553732, 0.8950765177 (read-O 0.7947553701, 0.8950765176 at 10¹⁰) — fgT's Theorem 1.6 regime. NUMERICAL (2 producers to 10¹⁰).
+Most useful failure. The claims beyond the data (read-O F1–F2, rO:123–143): the event ordering was called "certified" on an asserted
+double-double error the code never bounds (now proved to 10¹⁰ by read-O's generator, 0 flags), and "β = 0 numerically; no power law
+fits" overstated nine correlated running-maximum points (b = 0.145 fits with rms 0.21; the last three decades grew more slowly than
+log²x). Waste: the first zero scan ran its box edge through the real zero 0.5147 (NaN; NOTE:49).
+Borrow. (a) read-O's rigorous generator `compute/verify-O/s8o.cpp` (128-bit fixed point, per-decision ordering proof; A1) as the
+reference for every later S8 run. (b) A3 (:193): a rigorous bound on |F_X′| certifies the winding without a sampled derivative (min|F|
+≥ 0.1076 on the box). (c) A4 (:195): the √2-lattice is not free (L₄L₂₀L₂₃ = L₆²L₅₁) — free-monoid claims need transcendence of 1/ρ.
+Consistency note [consolidator's check]: fgC's "θ ≤ 0.304 (π/16), 0.402 (π/32)" (NOTE:30) is Cor. 1.7's floor ½ − ρ; fgT's "θ < 0.395,
+0.445" uses the finite certificates (fgT NOTE:16). Both correct; they answer different hypotheses.
+Statuses. Every number: NUMERICAL (producers as above). The zero of ζ_P: conditional on the tail hypothesis only. Untried (NOTE:43–47):
+interval Rouché, X = 10¹², the θ → 0 and ρ → 1 limits, zeros with σ < ½.
