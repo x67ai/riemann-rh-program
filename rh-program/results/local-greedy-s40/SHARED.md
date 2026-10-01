@@ -85,3 +85,14 @@ Scan at X = 10⁷ on [0.70, 1.00] × [0.1, 100] (`logs/zeros/zcount_v2r06_1e7.lo
 0.00629 (ratio 11.0). H-check (`logs/zeros/hcheck_v2r06_1e9.log`): max|C(n)|/n^{0.40} per decade = 0.93, 0.52, 0.34, 0.21, 0.15,
 **0.10** (k = 3…8) — H_0.40 holds on the whole computed range [10³, 10⁹]. Möbius route: γ = 0.78–0.82.
 **Theorem K₇^{≤2} (NOTE §4.2): if |N(u) − 0.6⌊u⌋| ≤ u^{0.40} for all u > 10⁹, U is false — for a system with a_n ≪ n^ε (Lemma 4.1).**
+
+## 2026-10-01 12:52 IST — CLOSE: K-candidate (S7 and its cap) + K-conditional theorems + G — NOTE.md §0
+- S7(0.6) to 4·10⁹: β ≈ 0.26–0.31, α ≈ 0.80–0.82 by three routes (running sups; zeros ρ₁ = 0.8209965 + 11.0877411i, ρ₂ = 0.8052963 +
+  20.2490762i boxed at 10⁹; Beurling Möbius sums γ = 0.80–0.82); α − 2β = +0.18…+0.29 on every window. ρ = 0.75, 0.8, 0.9, 1.1 also
+  above the line at 10⁹ (top zeros at Re 0.806, 0.746, 0.840 for 0.75, 0.8, 1.1); ρ = 1.25 below; ρ = 1.5 runs away.
+- S7^{≤2}(0.6) (cap m ≤ 2): a_n ≪ n^ε PROVED (Lemma 4.1), β ≈ 0.19–0.22, zero 0.8243658 + 11.0306646i boxed at 10⁹, α − 2β = +0.36…+0.44.
+- Theorems K₇, K₇^{≤2}: |N(u) − 0.6⌊u⌋| ≤ u^{0.40} for all u > 10⁹ ⇒ U false (for the cap: with tame coefficients); the hypothesis
+  holds at every computed u ∈ [10³, 10⁹] for the cap (constant ≤ 0.93; 0.10 in the top decade).
+- G: Lemmas H₇^{≤2} / H₇ (one Lindley-type recursion acting at prime powers). Multiplicities of uncapped S7 are bounded by prime gaps
+  (Lemma 1.2) but not small (84–94 % of primes refused, m_p up to 219); the brief's "local multiplicities stay small" holds only for the cap.
+- Not done (stop rule): variants 1, 3, 4; most of task 5; Révész–Pintz full text. RH untouched (U ⇒ RH, not conversely).

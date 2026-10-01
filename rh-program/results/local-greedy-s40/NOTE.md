@@ -21,7 +21,7 @@ fluctuation is coherent, not a random walk (sup|T|/V = 12.6 at 10⁹, growing li
 **The capped variant S7^{≤2}(0.6) (m_n ≤ 2; brief task 4) is the K-candidate with tame multiplicities** (§4.2): a_n ≪ n^ε is proved
 (Lemma 4.1: the Ramanujan condition), g(p) = ±1 at 96.6 % of primes (a feedback-chosen pseudo-character), and at X = 10⁹ β ≈ 0.19–0.22,
 α ≈ 0.79–0.83 (route 1), the zero z₁ = 0.8243658 + 11.0306646i (route 2, boxed at 10⁹), γ = 0.78–0.82 (route 3): **α − 2β =
-+0.36…+0.44**, the hypothesis of its K-theorem holding at every computed point.
++0.36…+0.44**, the hypothesis of its K-theorem (|C(u)| ≤ u^{0.40}) holding at every computed u ∈ [10³, 10⁹] (constant ≤ 0.93).
 **Close: K-candidate (both systems) + K-conditional theorems + G.**
 - **K₇^{≤2} and K₇ (Theorems, §4)** [proved here, modulo the floating-point evaluation of F_X on the box boundaries]: if
   |N_P(u) − 0.6⌊u⌋| ≤ u^{0.40} for all u > 10⁹, then **Conjecture U is false** — for P = S7^{≤2}(3/5) (zero in [0.8044, 0.8444] ×
@@ -227,10 +227,10 @@ NOT bounded (max m_p = 79 at 10⁹) and the refused fraction rises with x (§2.2
 **Lemma 4.1** [proved here]. If every m_{p^k} ≤ 2, then a_n ≪_ε n^ε for every ε > 0.
 *Proof.* Coefficientwise c_p(e) ≤ p₂(e) := [u^e]Π_{k≥1}(1 − u^k)^{−2} (all coefficients are ≥ 0 and (1 − u^k)^{−m} ≤ (1 − u^k)^{−2}
 coefficientwise for m ≤ 2). For 0 < x < 1, 1 − x^j = (1 − x)(1 + ⋯ + x^{j−1}) ≥ j(1 − x)x^{j−1}, so x^j/(1 − x^j) ≤ 1/(j(1 − x)) and
-log Σ_e p₂(e)x^e = 2Σ_{j≥1} j^{−1}x^j/(1 − x^j) ≤ (2/(1 − x))Σ_j j^{−2} = π²/(3(1 − x)). With 1 − x = e^{−1/2} (e ≥ 4):
-x^{−e} ≤ exp(√e/(1 − e^{−1/2})) ≤ exp(2√e), so p₂(e) ≤ exp((2 + π²/3)√e) ≤ exp(6√e); directly p₂(1), p₂(2), p₂(3) = 2, 5, 10. Hence
+log Σ_e p₂(e)x^e = 2Σ_{j≥1} j^{−1}x^j/(1 − x^j) ≤ (2/(1 − x))Σ_j j^{−2} = π²/(3(1 − x)). With 1 − x = 1/√e (the exponent e ≥ 4; −log(1 − δ) ≤ δ/(1 − δ)):
+x^{−e} ≤ exp(√e/(1 − 1/√e)) ≤ exp(2√e), so p₂(e) ≤ exp((2 + π²/3)√e) ≤ exp(6√e); directly p₂(1), p₂(2), p₂(3) = 2, 5, 10. Hence
 c_p(e) ≤ exp(7√e) for all e ≥ 1, and a_n ≤ exp(7Σ_{p|n}√e_p) ≤ exp(7√(ω(n)Ω(n))) (Cauchy–Schwarz). Ω(n) ≤ log₂n, and n ≥ ω! ≥
-(ω/e)^ω gives ω(n) ≪ log n/log log n; so a_n ≤ exp(O(log n/√(log log n))) = n^{o(1)}. ∎
+(ω/2.72)^ω (Euler's number; the product of the first ω primes is ≥ ω!) gives ω(n) ≪ log n/log log n; so a_n ≤ exp(O(log n/√(log log n))) = n^{o(1)}. ∎
 So S7^{≤2} satisfies the Ramanujan condition of Révész–Pintz's class (ℕ-supported, a_n ≪ n^ε); on the data a_n ≤ 72, a_n > d(n) for
 15,033 n ≤ 10⁹ only, max a_n/d(n) = 2.5. The price of the cap: the rule can no longer refill a deficit at one prime, so the
 downward side grows (inf E = −197.8 against −93.2 uncapped) — and yet sup|E| falls fourfold.
