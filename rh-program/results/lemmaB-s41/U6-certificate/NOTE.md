@@ -211,7 +211,26 @@ Cauchy–Schwarz, ∫_Y^{2Y}|E| ≤ Y^{1/2}(∫_Y^{2Y}E²)^{1/2} ≤ C·Y^{1+ϑ}
 Each hypothesis, with E > −½, implies (B) or (B₂) for every exponent above ϑ (resp. every θ > 0 in (a)), so Theorem 1.3 applies
 at σ₁ and ζ_P(σ₂) = F_X(σ₂) + tail ≤ F_X(σ₂) + (bound). **So F_X(σ₂) + bound(σ₂) < 0, proved in arb, puts a zero of ζ_P in
 (σ₁, σ₂)** (an odd number of zeros, with multiplicity). The search (`certify.py`) returns the smallest 9-decimal σ₂ with this proved.
-Scale of the hypotheses against the data [quoted: s8o logs, §4]: sup_{u≤10¹⁰}E/log²u = 26.137/530.2 = 0.049 (π/16) and
-15.434/530.2 = 0.029 (π/32); so K = 0.1 is about twice the measured envelope, K = 1, 10, 100 are generous.
+Scale of the hypotheses against the data [computed: `logs/s8cert_pi{16,32}_1e10.log`; s8o agrees, §4]: sup_{u≤x_K}E/log²u =
+26.137/530.2 = 0.049 (π/16) and 15.434/530.2 = 0.029 (π/32); so K = 0.1 is about twice the measured envelope, K = 1, 10, 100 are generous.
+
+**Theorem 6.2 (the zero boxed)** [computed: `logs/certify_pi{16,32}_1e10.log`; proved here: Lemma 6.1 + Theorem 1.3]. With P, X, σ₁
+as in Theorems 5.1/5.2: if E satisfies the hypothesis of a row for all u ≥ X (row 7: for all Y ≥ X), then F_X(σ₂) + bound(σ₂) < 0
+is proved, so ζ_P(σ₁) > 0 > ζ_P(σ₂) and ζ_P has a real zero in (σ₁, σ₂). ϑ is σ₁/2 truncated to 9 decimals (0.397377685 for π/16,
+0.447538258 for π/32): rows 5–7 are Lemma B at the exponent that refutes U, with an explicit constant beyond X.
+
+| hypothesis beyond X | σ₂ (π/16) | σ₂ − σ₁ | σ₂ (π/32) | σ₂ − σ₁ |
+|---|---|---|---|---|
+| E(u) ≤ 0.1·log²u | 0.794755510 | 1.40·10⁻⁷ | 0.895076525 | 7.4·10⁻⁹ |
+| E(u) ≤ log²u | 0.794756766 | 1.40·10⁻⁶ | 0.895076591 | 7.3·10⁻⁸ |
+| E(u) ≤ 10·log²u | 0.794769322 | 1.40·10⁻⁵ | 0.895077248 | 7.3·10⁻⁷ |
+| E(u) ≤ 100·log²u | 0.794894399 | 1.39·10⁻⁴ | 0.895083814 | 7.3·10⁻⁶ |
+| E(u) ≤ u^ϑ | 0.794799754 | 4.44·10⁻⁵ | 0.895083982 | 7.5·10⁻⁶ |
+| E(u) ≤ 100·u^ϑ | 0.798716538 | 3.96·10⁻³ | 0.895805019 | 7.3·10⁻⁴ |
+| ∫_Y^{2Y}E² ≤ Y^{1+2ϑ} | 0.794828566 | 7.32·10⁻⁵ | 0.895089041 | 1.25·10⁻⁵ |
+
+So under Lemma B at the U-refuting exponent with constant 1 beyond 10¹⁰ (row 5), the real zero is pinned to 4.5·10⁻⁵ (π/16) and
+7.5·10⁻⁶ (π/32); under the data-sized envelope 0.1·log²u to 1.4·10⁻⁷ and 7.4·10⁻⁹. Not proved here: that the zero in (σ₁, σ₂) is
+unique, or that ζ_P < 0 on [σ₂, 1) (the sign change gives an odd number of zeros in the box, with multiplicity).
 
 ## §7. What is left to prove

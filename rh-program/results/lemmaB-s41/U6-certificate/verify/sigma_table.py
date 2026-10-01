@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """sigma_1(X) for every snapshot x_K ~ 10^d of one system, with the s8o real zero of F_{10^d} (Session-40 log, data only).
-Usage: sigma_table.py <name: pi16|pi32> <lo> <hi>"""
+Usage: sigma_table.py <name: pi16|pi32|pi64|pi128> <lo> <hi>"""
 import sys, os, re, glob
 from fractions import Fraction as Fr
 from feval import Moments
 from certify import largest_pos, q, sign
 
-name = sys.argv[1]; den = 16 if name == "pi16" else 32
+name = sys.argv[1]; den = int(name[2:])
 lo, hi = Fr(sys.argv[2]), Fr(sys.argv[3])
 here = os.path.dirname(os.path.abspath(__file__))
 s8o = {}
 p = os.path.join(here, "..", "..", "..", "free-greedy-s40", "compute", "verify-O", "logs", f"realzero_o_{name}.txt")
-for line in open(p):
+for line in (open(p) if os.path.exists(p) else []):
     m = re.match(r"X=([\d.e+]+) N=(\d+) E\(X\)=(\S+) real zero (\S+)", line)
     if m: s8o[round(float(m[1]))] = (int(m[2]), float(m[3]), m[4])
 files = sorted(glob.glob(os.path.join(here, "data", f"{name}_K*.mom")), key=lambda f: int(re.search(r"_K(\d+)", f)[1]))

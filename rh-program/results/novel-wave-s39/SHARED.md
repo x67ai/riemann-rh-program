@@ -199,3 +199,9 @@ Writes only: `directions/*.md` (insertions + Last-touched lines), this folder (`
 - Line citations re-checked by phrase grep for lg, qtw, fej, dzh, s5m: 18 corrected (e.g. fej close lines 17–27, lg close 21–39).
 - §D table: 18 lines (header, separator, 16 rows), each 5 unescaped bars.
 - Running now: Deliverable 2, ZOO-LINES-STAGED.md. Resume here: write its header, zoo state, insertion map; then blocks (i)–(iv).
+
+## 2026-10-01 17:25 IST block 22 — ZOO-LINES-STAGED.md created: header, zoo state (788 lines, 0a0a832d…, 64 entries), insertion map
+
+- Map (bottom-up): (iv) rows after 758; (i) Theorem 1.6 rider after 93; (iii) S7^{≤2} rider after 92; (ii) T1–T3 rider after 92;
+  optional Block C after 43. No count change.
+- Running now: block (i). Resume here: append blocks (i), (ii), (iii), (iv), C, then the checks section.

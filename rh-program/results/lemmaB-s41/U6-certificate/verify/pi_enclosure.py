@@ -57,7 +57,7 @@ def main():
         print("# python-flint not available; arb cross-check skipped")
     D = 200
     out = []
-    for name, num in (("pi16", 16), ("pi32", 32)):
+    for name, num in (("pi16", 16), ("pi32", 32), ("pi64", 64), ("pi128", 128)):
         t_lo_q = Fr(num) / hi
         t_hi_q = Fr(num) / lo
         T_lo = (t_lo_q * 2**D).numerator // (t_lo_q * 2**D).denominator          # floor

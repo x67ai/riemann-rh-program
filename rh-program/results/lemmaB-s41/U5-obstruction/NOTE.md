@@ -144,11 +144,81 @@ irregularity at additive scale 1, which is harmless; (B) is about multiplicative
 
 ## §5. Where discreteness must enter: the clip, and the exact form of the obstruction for S8
 
-(pending)
+**Proposition 5.1 (the clip bound)** [proved here]. Let P be a discrete Beurling system with E ≥ −c on [1, ∞). For every interval
+I = (a, b]: E(b) ≥ E(a) + C(I) − ρ|I| ≥ C(I) − ρ|I| − c, where C(I) is the number of composite g-integers in I (with multiplicity).
+Hence sup_{u≤x}E(u) ≥ Q(x) − c, with Q(x) := sup_{I⊂[1,x]}(C(I) − ρ|I|) the *composite excess*.
+*Proof.* N(b) − N(a) ≥ C(I), since every g-integer in I is counted by N and the g-primes in I add ≥ 0; subtract ρ|I|. ∎
+(D) is used in "every composite is an atom of weight ≥ 1", (P) in "no later choice removes it" (m_λ ≥ 0 at products). For L_ρ the products
+are not atoms at all (Prop. 1.1(v)), so 5.1 is empty there, which is how L escapes.
+**For S8 the converse holds** [quoted: s40 NOTE Cor. 1.4′, l. 92–94]: E(x) = sup_{y≤x}(C[y, x] − ρ(x − y)) + r(x), r ∈ (−½, ½]. So
+  **for S8(ρ): (B) with exponent θ ⟺ Q(x) = O(x^θ).** The obstruction for S8 is exactly an Ω-theorem for the composite excess.
+[computed: `s8u5_*.log`] sup E − Q(x) ∈ [−0.30, +0.49] at every decade 10³…10⁸ for π/16 and π/32 (extremes −0.291 at 10⁸ for
+π/16, +0.482 at 10⁵ for π/32), inside the (−½, ½] the identity allows.
+
+**5.2 The square-root heuristic, written as an inequality and tested.** The heuristic behind Conjecture U (s37 NOTE §7.2: random
+surgery gives β = α/2) predicts that a prime deficit of mass ≍ x^{σ*}/log x, placed without regard to the composites, leaves a composite
+excess of order the square root of that mass: Q(x) ≥ c·x^{σ*/2}/log x infinitely often. For S8(π/16), σ*/2 = 0.3974 [computed + quoted]:
+
+| x | Q(x) (this unit) | sup E | x^{σ*/2} | Q/x^{σ*/2} | Q/log²x |
+|---|---|---|---|---|---|
+| 10⁶ | 9.754 | 9.636 | 242 | 0.040 | 0.0511 |
+| 10⁷ | 12.748 | 12.839 | 605 | 0.021 | 0.0491 |
+| 10⁸ | 16.655 | 16.364 | 1511 | 0.011 | 0.0491 |
+| 10¹⁰ | — | 26.137 (U7, SHARED 17:05) | 9420 | ≈ 0.0028 | ≈ 0.049 |
+
+The ratio to x^{σ*/2} falls by a factor 14 over four decades, the ratio to log²x is flat. An Ω-statement cannot be refuted on a finite
+range, but the heuristic's mechanism is visibly absent: in S8 the deficit is not placed at random — a slot is refused exactly when the
+composites have taken it (Prop. 2.1 of s40: E = ½ + C(p_k, x] − ρ(x − p_k) on every gap), so the deficit tracks the composites instead of
+adding independent noise to them. s40 §3.1 measured the converse: random offsets of width 50 raise sup E at 10⁷ from 12.8 to 58–171.
+
+**5.3 Where a composite clump could come from** [proved here: identities; the conclusion is a GAP]. For a g-prime q and a window I,
+#{n ∈ I : q | n} = N(I/q) = ρ|I|/q + ΔE(I/q) (free monoid; = orchestrator note O3): the multiples of a small g-prime in a window are as
+regular as N one scale down, so an excess there is an excess of E at scale x/q, carried up without amplification. By inclusion–exclusion
+over d | P(z), the composites with a g-prime factor ≤ z have count ρ|I|(1 − M(z)) − S_z(I), S_z(I) := Σ_{d|P(z), d>1} μ(d)ΔE(I/d), whose mean
+leaves the slack ρ|I|M(z) ≫ |I|/log x. A clump of size x^θ at scale x therefore needs either (i) E-increments at the scales x/d, d | P(z),
+that add coherently with the signs −μ(d) to size x^θ (an excess already present below — no source), or (ii) a clump of z-ROUGH
+composites (all factors > z): products of a bounded number of large g-primes in a short window. (ii) is the bilinear question of
+orchestrator note O4. So the obstruction for S8 reduces to: *products of two (or k) large g-primes cluster by x^θ in some window of
+length ≲ x^θ·log x.* No unit has a tool for (ii) in either direction; it is the same object on which Lemma B_ρ's proof is stuck.
 
 ## §6. Attempts at a weaker Ω-theorem, and where each stops
 
-(pending)
+**Corollary 6.1 (periodic integer error is impossible on class (A))** [proved here, from Hilberdink 2012 Thm A, quoted:
+`novel-wave-s37/beurling-frontier/sources/p3-22c2-…periodic-counting.txt` l. 102–112; Acta Arith. 152 (2012)]. If a discrete Beurling
+system has N(x) − ρx periodic, then inf_{x≥1}(N(x) − ρx) < 0; so no system satisfying (A) for any r₀ > 0 has periodic integer error.
+*Proof.* A discrete system's N is a step function with locally finitely many jumps, so N lies in Hilberdink's class T (l. 268–270), and
+"determines a g-prime system" is his Def. 1.3 (l. 326–333): Π = Σ_k π(x^{1/k})/k with π increasing — our (D)+(P). Thm A gives an integer
+period P and N(x) = Σ_{n≤P, (n,P)=1}(⌊(x − n)/P⌋ + 1), so ρ = φ(P)/P. Since ⌊y⌋ − y has period-average −½, the period-average of
+R = N − ρx is Σ_{n}(½ − n/P) over n ≤ P prime to P, which is φ(P)/2 − φ(P)/2 = 0 for P ≥ 2 (Σn = Pφ(P)/2) and −½ for P = 1. R is not
+a.e. constant (it jumps by +1 at each integer prime to P), so it takes negative values. ∎
+**The lattice control shows (P) is used:** N_L(x) − ρx = 1 − ρ + E_L(x) is periodic with period t and has inf = ½ − ρ > 0. Corollary 6.1
+is therefore a genuine (D)+(P) statement — the one printed tool of that kind — and it separates L_ρ from every Beurling system.
+
+**6.2 From periodic to bounded: where Hilberdink's argument stops** [reading at the page + proved here; the conclusion is a GAP].
+His discontinuous case (§3, l. 488–600) uses (i) Thm 1.1(b), the jump part N_J of a system again determines a system (l. 371–378, uses
+(P)); (ii) Props. 3.2–3.3 (l. 536–600): the discontinuities form finitely many residue classes mod P, so for irrational α at most k² of
+them have αβ in the set, which inserted in the Chebyshev identity (N_J)_L = N_J ∗ ψ_J forces rational discontinuities. For BOUNDED R the
+g-integers are only a bounded perturbation of an arithmetic progression (N(x) = ρx + O(1) ⟺ n_k = k/ρ + O(1)); the pigeonhole of 3.2
+needs exact recurrence mod P and has no analog. The continuous case (Thm 2.1, l. 404–468) is a maximum principle for R′ at a recurring
+maximum, using ψ′ ≥ 0; a discrete N has no R′. Its discrete form is local positivity of the primes: for I = (x, x + h], the Chebyshev
+identity ∫_I log u dN(u) = Σ_β Λ(β)N(I/β) (exact; β over prime powers) isolates ψ(I) as the β ∈ I terms, and with N(J) = ρ|J| + ΔR(J)
+and Mertens' Σ_{β≤x}Λ(β)/β = log x − A/ρ + o(1), A := ρ + ∫_1^∞R(u)u^{−2}du (the constant term of ζ_P at 1; the o(1) needs a PNT with
+error o(x/log x) [recalled: Landau-type PNT under (B)]), ψ(I) ≥ 0 reads
+  (★) Σ_{β≤x} Λ(β)·ΔR(I/β) ≤ ΔR(I)·log x + A·h + o(h) + O(N(I)·h/x).
+(★) holds automatically for every Beurling system. For L_ρ it fails at short windows around every product with m_λ < 0, in
+particular every ℓ_aℓ_b (for h → 0 the Mertens term is multiplied by h and drops out, so L's lack of a PNT does not matter): there the images
+I/ℓ_a ∋ ℓ_b and I/ℓ_b ∋ ℓ_a carry atoms (left side ≈ log ℓ_a + log ℓ_b ≈ log x) while I carries none (right side ≈ 0) — the negative
+"prime" of Prop. 1.1(v), seen locally. A proof that E is unbounded on class (A) along Hilberdink's lines must show that (A), (D) and
+bounded R force a window violating (★) — that keeping R bounded forces some product of g-primes to be absent. That is §5.3's
+composite-clump statement in its weakest form. **GAP: open; no tool in hand.**
+
+**6.3 Three smaller attempts** [proved here]. (a) *Landau on R − r₀ ≥ 0.* Ĝ(s) := ∫_1^∞(R − r₀)u^{−s−1}du is a Laplace transform of a
+non-negative function: |Ĝ(σ + it)| ≤ Ĝ(σ), and its abscissa is a real singularity. This gives |ζ_P(s) − ρs/(s − 1) − r₀| ≤ |s|Ĝ(σ), the
+growth O(|t|) that (B) gives anyway, and abscissa ≤ θ. L_ρ satisfies it. (b) *The value at 0.* For bounded R, ζ_P(0⁺) = lim sF(s) is
+the logarithmic mean of R (Abelian), ≥ r₀ > 0, while ζ_P(1⁻) = −∞: a second proof of the real zero when θ = 0. Each subsystem P ∖ {q}
+has ζ(0⁺) = 0 (factor 1 − q^{−s}), i.e. R(x) − R(x/q) has log-mean 0. Consistent with R ≥ r₀; L_ρ satisfies all of it (log-mean 1 − ρ =
+L(0), §1.4). (c) *The zero as a constraint on E.* ζ_P(σ*) = 0 ⟺ ∫_1^∞E(u)u^{−σ*−1}du = −ζ_c(σ*)/σ*: one linear functional of E, equal to
+−0.0545 for S8(π/16) and −0.0884 for L_{π/16} [computed from §1.4]. It carries no information on the amplitude of E.
 
 ## §7. Instruments, what was not done, and why
 
