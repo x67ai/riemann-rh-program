@@ -34,7 +34,7 @@ for tries in range(6):
     s1 = s1 - fmpq(1, 10 ** digits) if not F1 > 0 else s1 + fmpq(1, 10 ** digits)
 def fmt(s, d=None):
     d = digits if d is None else d
-    n = int((arb(s) * 10 ** d).floor().unique_fmpz()); assert fmpq(n, 10 ** d) == s
+    v = s * 10 ** d; n = int(v.p) // int(v.q); assert fmpq(n, 10 ** d) == s
     return "%s%d.%0*d" % ("-" if n < 0 else "", abs(n) // 10 ** d, d, abs(n) % 10 ** d)
 print("CERTIFIED: F_X(%s) = %s > 0" % (fmt(s1), show(F1)))
 print("           F_X(%s) = %s < 0" % (fmt(s1 + fmpq(1, 10 ** digits)), show(F2)))

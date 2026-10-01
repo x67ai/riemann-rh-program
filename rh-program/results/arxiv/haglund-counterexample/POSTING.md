@@ -35,3 +35,6 @@ The URL will be https://x67.ai/haglund-counterexample.pdf within a minute or two
 
 ## Zenodo — PUBLISHED (recorded 17:21 IST 2026-10-01, Session 41)
 Published by the sponsor. Concept DOI 10.5281/zenodo.23071930 (cite this); version DOI 10.5281/zenodo.23071931; record https://zenodo.org/records/23071931. Both files on the record equal this folder's `main.pdf` and certificate zip byte for byte (checked through the public record API). Recorded in `results/arxiv/README.md`. Still open: the x67.ai copy (the command block above).
+
+## x67.ai — LIVE (recorded 18:02 IST 2026-10-01, Session 41)
+https://x67.ai/haglund-counterexample.pdf serves the 15-page paper, byte-identical to the Zenodo file. `public/sync.sh` carries the copy line. Nothing in this file is open any more except arXiv (endorsement).

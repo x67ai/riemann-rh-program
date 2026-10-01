@@ -15,7 +15,9 @@ template load λ₀(τ) := 1 − f₀(τ).
 τ_c(ρ), with τ_c(ρ) → τ_c = 1.54609037074481 (root of I₁(2√τ)/√τ = 2) — S8 obeys **E(x) ≤ 3/2 + Q(x + t) ≤ 3/2 + 4ρ²(x + t)·e^{2τ+4ρ} + τ/(ρ log p₁)**,
 and E(x) ≤ 2 + ρ√(x + t) on the pure two-fold range x < p₁³ (Thm 2.3, §2) [proved here]. The proof class "pathwise domination by the
 lattice monoid + one count per component" cannot go further, for two named reasons: beyond τ_c(ρ) the comparison queue has load
-Λ(τ) > 1 because domination forgets which lattice points are busy (overcount Λ − λ₀ = τ²/4 − 5τ³/144 + …); inside the range it cannot
+Λ(τ) > 1 because domination forgets which lattice points are busy (overcount Λ − λ₀ = τ²/4 − 5τ³/144 + …) — the pathwise alternating
+brackets of Prop. 3.3 are the systematic repair, and in the limit their even levels carry the range only to τ = 2.25, 2.98, 3.72, 4.46
+(levels 2, 4, 6, 8), ≈ 0.73 per pair of levels; inside the range it cannot
 beat Q because the only cluster bound it has is "+1 per component", and anything better is the shifted divisor problem for (ℤ + δ)² in
 hyperbolic shells of width mρ (§3.2, Prop. 3.2: a cluster bound K gives E ≤ K + 3/2). Q is 10²–10³ times the truth (π/128: Q(10¹⁰) =
 7,381, sup E = 7.09). (2) *Scaling limit.* For every S, uniformly on x ≤ e^{S/ρ} as ρ → 0: π(y, x] = Π₀(y, x] + o(ρx),
@@ -29,7 +31,7 @@ proved o(ρe^{τ/ρ}) and explicitly bounded below τ_c, and conjectured to sati
 
 **T — proved here:** Lemmas 1.1–1.3 (bottom of the system; E ↔ Lindley queue; the template is exactly self-similar in τ);
 Thm 2.1 (e_k ≤ e_k^lat pathwise); Lemma 2.2, Thm 2.3 (explicit bound) and the elementary bound on Q; Prop. 3.1 (S_ρ → Λ(τ),
-vol{Σu + max u ≤ τ} = τ^j/(j+1)!); Prop. 3.2; Thm 4.1; Lemmas 4.2, 4.3, 4.6; **Thm 4.4**; Prop. 5.1 (model); Prop. 5.3 (model).
+vol{Σu + max u ≤ τ} = τ^j/(j+1)!); Props. 3.2, 3.3 (pathwise alternating brackets); Thm 4.1; Lemmas 4.2, 4.3, 4.6; **Thm 4.4**; Prop. 5.1 (model); Prop. 5.3 (model).
 **C — computed** (`verify/`, 12 production runs, ρ = π/16 … π/256 to 4·10⁹–10¹¹, exact ordering by double-double re-decision,
 validated against Session 40): zero violations of e_k ≤ e_k^lat in 7.9·10⁷ steps; the RPM fits of §5.2; maxima vs the Poisson model
 (13 vs 18, 9 vs 11.5, 7 vs 7.5, 5 vs 5 for π/32 … π/256); Mertens offsets Σ1/p − Ein(τ) falling like ρ log(1/ρ); τ_c(ρ) = 1.637,
@@ -170,8 +172,25 @@ step and grows linearly [computed, `logs/r32_m1_1e9.tsv`]: max e^lat = 26 to 10�
 set of BUSY lattice points (lattice points that are not g-primes, a fraction λ₀(τ′) ≈ τ′/2 of the steps at scale τ′): the lattice monoid
 overcounts S8's arrival rate by Λ(τ) − λ₀(τ) = τ²/4 − 5τ³/144 + O(τ⁴), the rate of lattice products with at least one busy factor.
 No argument that forgets which lattice points are busy can pass τ_c(ρ). To pass it one needs a LOWER bound for the busy set at scales
-≤ x/p₁, i.e. a lower bound for composites there, i.e. an upper bound for primes further down: the alternating scheme of §4.3, of
+≤ x/p₁, i.e. a lower bound for composites there, i.e. an upper bound for primes further down: the alternating scheme of Prop. 3.3, of
 which Theorem 2.1 is the zeroth term.
+**Proposition 3.3 (pathwise alternating brackets)** [proved here]. Put P⁽⁰⁾ := all lattice points; given P⁽ʲ⁾, let C⁽ʲ⁾ be the
+multiset products of ≥ 2 elements of P⁽ʲ⁾, e⁽ʲ⁾ its Lindley queue, and P⁽ʲ⁺¹⁾ := {x_k : e⁽ʲ⁾_{k−1} = 0 and c⁽ʲ⁾_k = 0} (its idle steps).
+Then P⁽¹⁾ ⊆ P⁽³⁾ ⊆ … ⊆ P ⊆ … ⊆ P⁽²⁾ ⊆ P⁽⁰⁾, e⁽²ⁱ⁺¹⁾ ≤ e ≤ e⁽²ⁱ⁾ for all steps, and P⁽ʲ⁾ = P on [1, p₁^{j+2}). Every P⁽ʲ⁾ is a function of
+t alone, so E ≤ e⁽²ⁱ⁾ + 3/2 bounds S8 by a feedback-free computable queue at every even level.
+*Proof.* Let Φ(P′) be the idle set of the queue driven by the products of P′. If P′ ⊆ P″ then C′ ⊆ C″ (as multisets),
+c′_k ≤ c″_k, and (Lindley is monotone) e′ ≤ e″, so Φ(P″) ⊆ Φ(P′): Φ is antitone. P⁽ʲ⁺¹⁾ = Φ(P⁽ʲ⁾), and S8's own g-prime set is the
+fixed point P = Φ(P) (Lemma 1.2: a g-prime sits at x_k iff e_{k−1} + c_k = 0). From P ⊆ P⁽⁰⁾: P⁽¹⁾ = Φ(P⁽⁰⁾) ⊆ Φ(P) = P, then
+P = Φ(P) ⊆ Φ(P⁽¹⁾) = P⁽²⁾, and so on. From P⁽²⁾ ⊆ P⁽⁰⁾: P⁽¹⁾ ⊆ P⁽³⁾, then P⁽⁴⁾ ⊆ P⁽²⁾, and so on. The queue inequalities follow from the
+set inclusions by the same monotonicity. Exactness at the bottom:
+P⁽⁰⁾ = P below p₁² (Lemma 1.1); if P⁽ʲ⁾ = P below p₁^{j+2}, then products below p₁^{j+3} have all factors below p₁^{j+2}, so C⁽ʲ⁾ = C,
+e⁽ʲ⁾ = e and P⁽ʲ⁺¹⁾ = P below p₁^{j+3}. ∎
+*What each level buys, in the scaling limit* [computed: `verify/brackets.py`, `logs/brackets.log`; grid h = 0.002 on [0, 12], check
+c[f₀] = 1 − f₀ to 3·10⁻⁷]. Macroscopically P⁽ʲ⁾ has density fʲ := Tʲ(1) with the antitone map T(f) := (1 − c[f])⁺, c[f] := density of
+exp*(f ds) − δ₀ − f ds; f^{2i} ≥ f₀ ≥ f^{2i+1}. The even-level load c[f^{2i}] stays below 1 up to τ = 1.548, 2.250, 2.978, 3.718, 4.460
+for i = 0, 1, 2, 3, 4: each further pair of levels gains ≈ 0.73 in τ. So any fixed number of levels covers only a bounded τ-range,
+and every level at finite ρ still pays a "+1 per component" count of its own; covering all τ needs unboundedly many levels, which
+is what the Gronwall argument of Theorem 4.4 does in the limit.
 (F2) *Inside the range, the step that makes the bound weak is the "+1 per component" of Lemma 2.2.* Precisely: the bound needs
 K(X, m) := max over windows W of m steps with right end ≤ X of #{M′ : the progression m′·P, P ≥ P⁺(M′), has a point in W}, and the
 only available bound is K ≤ Q(X). For one-element cofactors this is the count #{(a ≤ b) : (a + δ)(b + δ) ∈ [Y, Y + mρ]}, Y = ρ²y: lattice

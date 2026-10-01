@@ -1,10 +1,10 @@
-D=16 K=1963495408 X=x_K=[9999999995.939530952091960 +/- 2.52e-17] N(X)=1963495409 E(X)=0.50000 blocks=242938 individual=65536 (load 1.5s)
+D=16 K=1963495408 X=x_K=[9999999995.939530952091960 +/- 2.52e-17] N(X)=1963495409 E(X)=0.50000 blocks=242938 individual=65536 (load 1.6s)
 F(0.79) = [0.0222343583555111 +/- 4.28e-17]
 F(0.80) = [-0.0257085730727767 +/- 5.51e-17]
-Traceback (most recent call last):
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/lemmaB-s41/U6-certificate/verify-O/certify_O.py", line 39, in <module>
-    print("CERTIFIED: F_X(%s) = %s > 0" % (fmt(s1), show(F1)))
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/lemmaB-s41/U6-certificate/verify-O/certify_O.py", line 37, in fmt
-    n = int((arb(s) * 10 ** d).floor().unique_fmpz()); assert fmpq(n, 10 ** d) == s
-TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
-python3 certify_O.py 16 1963495408 $S/m_pi16_1e10 0.79 0.80 15 0.794755370097  6.42s user 0.05s system 99% cpu 6.508 total
+CERTIFIED: F_X(0.794755370097380) = [2.6e-15 +/- 3.12e-17] > 0
+           F_X(0.794755370097381) = [-2.2e-15 +/- 2.50e-17] < 0
+           so the zero of F_X lies in (0.794755370097380, 0.794755370097381); sigma1/2 = 0.3973776850486900; (3 sigma1 - 2)/4 = 0.09606652757303500
+F_X(0.794755370097) = [1.8192e-12 +/- 5.95e-17]
+F_X(0.794755370098) = [-2.9613e-12 +/- 2.53e-17]
+time 7.4s
+python3 certify_O.py 16 1963495408 $S/m_pi16_1e10 0.79 0.80 15 0.794755370097  7.43s user 0.04s system 99% cpu 7.474 total
