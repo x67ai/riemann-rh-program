@@ -1,0 +1,29 @@
+# run_gen.sh D=128 d=10 K=245436926 start 18:07:59 IST 2026-10-01 host arm64
+pi: Machin rational enclosure of width < 2^-1300, contains arb's pi; all 14 constants and 15 checkpoint enclosures certified by both methods; NCAP 11484147; t = [40.743665431525205957 +/- 1.66e-19]; written /private/tmp/rh-s41-U6-second/params_pi128_1e10.txt
+s8gen D=128 R=8 KFIN=245436926 NCAP=11484147 seg=2^27 ftest=0 t~40.743665431525208
+CHECK V=1000 cell=26 N(V)=26 pi(V)=24 | lattice x_25: N=26 pi=24 e=0
+CHECK V=3162 cell=79 N(V)=79 pi(V)=74 | lattice x_78: N=79 pi=74 e=0
+CHECK V=10000 cell=246 N(V)=246 pi(V)=230 | lattice x_245: N=246 pi=230 e=0
+CHECK V=31622 cell=777 N(V)=777 pi(V)=722 | lattice x_776: N=777 pi=722 e=0
+CHECK V=100000 cell=2455 N(V)=2455 pi(V)=2251 | lattice x_2454: N=2455 pi=2251 e=0
+CHECK V=316227 cell=7762 N(V)=7762 pi(V)=7024 | lattice x_7761: N=7762 pi=7024 e=0
+CHECK V=1000000 cell=24545 N(V)=24545 pi(V)=21912 | lattice x_24544: N=24545 pi=21912 e=0
+CHECK V=3162277 cell=77615 N(V)=77615 pi(V)=68344 | lattice x_77614: N=77615 pi=68344 e=0
+CHECK V=10000000 cell=245438 N(V)=245438 pi(V)=213180 | lattice x_245437: N=245438 pi=213180 e=0
+CHECK V=31622776 cell=776141 N(V)=776141 pi(V)=664934 | lattice x_776140: N=776141 pi=664934 e=0
+CHECK V=100000000 cell=2454370 N(V)=2454370 pi(V)=2074099 | lattice x_2454369: N=2454370 pi=2074099 e=0
+CHECK V=316227766 cell=7761398 N(V)=7761398 pi(V)=6469924 | lattice x_7761397: N=7761398 pi=6469924 e=0
+CHECK V=1000000000 cell=24543694 N(V)=24543694 pi(V)=20183541 | lattice x_24543693: N=24543694 pi=20183541 e=0
+CHECK V=3162277660 cell=77613972 N(V)=77613972 pi(V)=62968657 | lattice x_77613971: N=77613972 pi=62968657 e=0
+FINAL K=245436926 N(x_K)=245436927 pi(x_K)=196463063 e_K=0 E(x_K)=e_K+1/2
+composites=48973863 storedprimes=9528944 maxfactors=7 fallbacks_cell=0 fallbacks_checkpoint=0
+max e over lattice points=6 at m=149202890 (sup of E on the lattice = 6.5); mean e=0.022419
+closest fast-path decision: margin > 2.253800e-08 in W (= 9.182806e-07 in u), cell 92765050, factors x(n): 1 4340529
+individual=65536 cpu=3.7s wall=4s
+        3.74 real         3.72 user         0.02 sys
+           308297728  maximum resident set size
+           308019872  peak memory footprint
+4a0d4e11e8af55b9d291d6d377d69394c1e3aa4d1ef4266c6ee0d81e33d445cf  m_pi128_1e10.blk
+fb4b8332fd47a37fcb6732c1222cc37bc2bb8f7288aca91436b4368652c69a88  m_pi128_1e10.ind
+fea1eb3a06ff8ee9abaf9d82bf55beece9e9e58aed4ecb0e51301b4bfa177ab9  params_pi128_1e10.txt
+# end 18:08:03 IST 2026-10-01

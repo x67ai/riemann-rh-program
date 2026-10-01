@@ -25,3 +25,14 @@
 [  6291456, 12582911]     0.5063    9480240      6     0.1265        0.9087         0.581  8.65391e+08
 [ 12582912, 25165823]     0.6258   18960480      6     0.1371        0.9115         0.701  2.39493e+09
 [ 25165824, 50331647]     0.7494   37920960      6     0.1478        0.9141         0.824  6.62942e+09
+[ 50331648,100000000]     0.9225   82162080      7     0.1585        0.9164         0.998  1.80774e+10
+# squarefree n in [Y/2,Y] by omega=k: count, mean c/target_inc, max c/target_inc, mean b/target_inc, frac with forced overshoot (c > deficit)
+k= 1  n=  2760321  mean_c=0.0000  max_c=0.000  mean_b=0.8524  forced_frac=0.0546
+k= 2  n=  8486367  mean_c=0.0746  max_c=0.449  mean_b=0.8075  forced_frac=0.0506
+k= 3  n= 10319251  mean_c=0.2157  max_c=0.767  mean_b=0.7018  forced_frac=0.0489
+k= 4  n=  6363791  mean_c=0.4658  max_c=1.121  mean_b=0.4895  forced_frac=0.0575
+k= 5  n=  2092791  mean_c=0.8666  max_c=1.412  mean_b=0.1509  forced_frac=0.2634
+k= 6  n=   349036  mean_c=1.4171  max_c=1.920  mean_b=0.0000  forced_frac=0.9997
+k= 7  n=    24394  mean_c=2.2231  max_c=3.186  mean_b=0.0000  forced_frac=1.0000
+k= 8  n=      399  mean_c=3.6015  max_c=4.606  mean_b=0.0000  forced_frac=1.0000
+# N_D(Y)=5e+10  rho*Y^kappa=5e+10  ratio=1.000000  overflow=0
