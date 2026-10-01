@@ -18,14 +18,21 @@ to equal α when β < ½). **α − max{½, 2β} = +0.18…+0.29 on every window
 also above the line at 10⁹ from 10⁴–10⁵ on (+0.05…+0.31), and their top zeros (X = 10⁸) sit at Re 0.806, 0.746, 0.840 for
 ρ = 0.75, 0.8, 1.1 (§3.6); ρ = 1.25 sits below the line; ρ = 1.5 runs away (§2). The prime-side
 fluctuation is coherent, not a random walk (sup|T|/V = 12.6 at 10⁹, growing like x^{0.3}, §3.5).
-**Close: K-candidate + K-conditional theorem + G.**
-- **K₇ (Theorem, §4)** [proved here, modulo the floating-point evaluation of F_X on ∂B₁]: if |N_P(u) − 0.6⌊u⌋| ≤ u^{0.40} for all
-  u > 10⁹, then ζ_P has a zero in B₁ = [0.8010, 0.8410] × [11.0677, 11.1077] and **Conjecture U is false**. On the computed range the
-  hypothesis holds with constant 0.35 in [10⁸, 10⁹] (§3.3); S5's analog (uo §4) needed θ ≤ 0.35 against data ≈ 0.30, S7's needs
-  θ ≤ 0.40 against data ≈ 0.26–0.28.
-- **G (the exact missing lemma): Lemma H₇** (§4), a growth bound for one explicit Lindley-type recursion that acts only at prime
-  powers: E(x) is, within ½, the excess of g-integers since the last prime power at which the rule added a copy. Smallest undecided
-  class: S7(ρ), ρ ∈ [0.6, 1.1].
+**The capped variant S7^{≤2}(0.6) (m_n ≤ 2; brief task 4) is the K-candidate with tame multiplicities** (§4.2): a_n ≪ n^ε is proved
+(Lemma 4.1: the Ramanujan condition), g(p) = ±1 at 96.6 % of primes (a feedback-chosen pseudo-character), and at X = 10⁹ β ≈ 0.19–0.22,
+α ≈ 0.79–0.83 (route 1), the zero z₁ = 0.8243658 + 11.0306646i (route 2, boxed at 10⁹), γ = 0.78–0.82 (route 3): **α − 2β =
++0.36…+0.44**, the hypothesis of its K-theorem holding at every computed point.
+**Close: K-candidate (both systems) + K-conditional theorems + G.**
+- **K₇^{≤2} and K₇ (Theorems, §4)** [proved here, modulo the floating-point evaluation of F_X on the box boundaries]: if
+  |N_P(u) − 0.6⌊u⌋| ≤ u^{0.40} for all u > 10⁹, then **Conjecture U is false** — for P = S7^{≤2}(3/5) (zero in [0.8044, 0.8444] ×
+  [11.0107, 11.0507], a_n ≪ n^ε) and for P = S7(3/5) (zero in B₁ = [0.8010, 0.8410] × [11.0677, 11.1077]). On the computed range the
+  hypothesis holds with constant ≤ 0.93 on all of [10³, 10⁹] and 0.10 in the top decade for S7^{≤2}; 0.35 in the top decade for S7.
+  S5's analog (uo §4) needed θ ≤ 0.35 against data ≈ 0.30 and had exploding multiplicities; S7^{≤2} needs θ ≤ 0.40 against data
+  ≈ 0.19–0.22 with bounded ones.
+- **G (the exact missing lemma): Lemma H₇^{≤2} / H₇** (§4), a growth bound for one explicit Lindley-type recursion that acts only at
+  prime powers: for S7, E(x) is, within ½, the excess of g-integers since the last prime power at which the rule added a copy; for
+  S7^{≤2} a prime power raises E by at most A(q) + 2 − ρ, so a deep deficit is repaid over several prime powers (inf E = −197.8).
+  Smallest undecided class: S7^{≤2}(ρ) and S7(ρ), ρ ∈ [0.6, 1.1].
 - **Multiplicities — the brief's expectation corrected** [proved + computed]: they are bounded by ρ·(prime-power gap) + 1 + ρ
   (Lemma 1.2), so S5's factorization-counting explosion cannot occur, but they are not small: 84–94 % of primes are refused in
   [10⁸, 10⁹), the rest receive m_p up to 79–219, mean m_p = 1.000; the refused fraction rises with x. E's records come from clusters of
@@ -232,6 +239,20 @@ downward side grows (inf E = −197.8 against −93.2 uncapped) — and yet sup|
 feedback-chosen ±1 pseudo-character at the primes; higher prime powers with m > 0 in [10⁸, 10⁹): 1,063, of which 990 with m = 2); sup E = 218.4, inf E = −197.8, sup|ψ_P − x| = 5.0·10⁶, sup|M_g| =
 7803; b_sup (k = 3…7) = .215 .207 .204 .204 .192, b_rms = .152 .138 .126 .120 .113, a_sup = .794 .804 .804 .806 .827;
 **a − 2b = +.36 +.39 +.40 +.40 +.44** — a wider crossing than the uncapped system's, with provably tame coefficients.
+**Route 2 and route 3** [computed] (`logs/zeros/zcount_v2r06_1e7.log`, `newton_v2r06_X1e{7,8,9}.log`, `cert_v2r06_z1_1e9.log`,
+`hcheck_v2r06_1e9.log`; a_n dump `/private/tmp/rh-s40-local-greedy/a_v2r06_1e9.u16`): at X = 10⁷ F_X has exactly two zeros in
+[0.70, 1.00] × [0.1, 100] (none with σ ≥ 0.85; phase steps ≤ 1.23 rad on the boxes holding them); Newton at X = 10⁷, 10⁸, 10⁹ gives
+**z₁ = 0.8243658 + 11.0306646i** (|F′| = 3.617) and z₂ = 0.7665284 + 20.2045626i, stable to 9·10⁻⁶ — near the uncapped ρ₁, ρ₂ (the
+two systems share their early decisions). Box B^{≤2} = [0.8044, 0.8444] × [11.0107, 11.0507] at X = 10⁹: winding number 1.000000,
+min|F_X| = 0.0692, phase step ≤ 0.021 rad, corners agree with direct sums to 1.7·10⁻¹², C(10⁹) = −20; tail bound under H_θ: 0.00064,
+0.00199, **0.00629 (θ = 0.40, ratio 11.0)**, 0.0202 (0.45). H_θ on the data: max|C(n)|/n^{0.40} per decade = 0.93, 0.52, 0.34, 0.21,
+0.15, 0.10 (k = 3…8; ≤ 0.93 on all of [10³, 10⁹]); max|C(n)|/n^{0.30} in the top decade 0.66. Beurling Möbius exponent γ =
+.783 .802 .803 .814 .815 (`fits_v2_r06_1e9.log`), equal to α as Neamah–Hilberdink requires.
+**Theorem K₇^{≤2}** [proved here, modulo the floating-point evaluation of F_X on ∂B^{≤2}]. Let P = S7^{≤2}(3/5). If |N_P(u) −
+0.6⌊u⌋| ≤ u^θ for all u > 10⁹ with θ ≤ 0.40, then ζ_P has exactly one zero in B^{≤2}, P is an [α, β]-system with α ≥ 0.8044 > 2θ,
+β ≤ θ, and a_n ≪ n^ε (Lemma 4.1) — and **Conjecture U is false**. *Proof.* As Theorem K₇, with 0.00629 < 0.0692 on ∂B^{≤2}. ∎
+**Lemma H₇^{≤2}** (the exact missing statement): |N_P(u) − 0.6⌊u⌋| ≤ u^{0.40} for all u > 10⁹, for P = S7^{≤2}(3/5) — true with
+constant ≤ 0.93 at every computed u ≥ 10³ and 0.10 in the top decade; the data put the true exponent near 0.19–0.22.
 
 ## §5. Theory for the class (task 5; shortened by the stop rule)
 
@@ -288,8 +309,8 @@ Thm 1): with ψ_P = x + O(x^{α+ε}), N_P = ρx + O(x^{β+ε}), M_P = O(x^{γ+ε
 - arXiv API queries from this unit (`sources/api_ids_1.xml`, `sources/api_hilberdink.xml`), one at a time: no construction of a
   Beurling system by integer-level feedback, prime-local or otherwise, among the returned records (they were not a sweep — the
   on-disk sweeps of fr/ and uo/, 228 abstracts, are the gate, as in uo §5).
-- **Novelty: single-check.** S7 as a construction (orchestrator's brief), the numerical crossing with multiplicative coefficients,
-  the two zeros, Lemma 1.2, the K₇ statement; §5(iii) is a routine hyperbola computation and may be classical.
+- **Novelty: single-check.** S7 and its cap as constructions (orchestrator's brief), the numerical crossings with multiplicative
+  coefficients (tame ones for the cap), the zeros, Lemmas 1.2 and 4.1, the K₇ and K₇^{≤2} statements; §5(iii) is a routine hyperbola computation and may be classical.
 - **Distance from upstream (10(n)).** Nearest published objects: Dedekind zeta functions (prime-local, a_p ∈ {0, …, d}, β > 0,
   zeros = GRH territory) and BDR's region-III systems (RH-conditional surgery). Exact difference: S7's local data (m_p) are chosen
   by feedback on the integer count, not by a field or a deletion; its a_p are unbounded (Lemma 1.2: ≤ ρ·gap + 1 + ρ). Every proved
@@ -301,6 +322,7 @@ Thm 1): with ψ_P = x + O(x^{α+ε}), N_P = ρx + O(x^{β+ε}), M_P = O(x^{γ+ε
 |---|---|---|---|
 | (α, β) of the prime-local integer-greedy system S7(ρ) (g-primes are prime powers, a_n multiplicative; numerical, not proved) | ρ = 0.6, X = 4·10⁹: β ≈ 0.26–0.31 (running sup of \|E\|, windows 10³…10⁷ → 4·10⁹: .307 .295 .276 .272 .259, falling), α ≈ 0.80–0.81 (running sup of \|ψ_P − x\|), γ (Beurling Möbius sums) 0.80–0.82; α − 2β = +0.18…+0.29 on every window. X = 10⁹: ρ = 0.75 / 0.8 / 0.9 / 1.1 above the line from 10⁴ / 10⁴ / 10⁵ / 10⁵ (+0.05…+0.31); ρ = 1.25 below (−0.02…−0.10); ρ = 1.5 runs away. One producer; generator re-derived independently (additive DP, 0 mismatches to 10⁷) | `local-greedy-s40/NOTE.md` §2; `…/verify/logs/sweep/fits_v0_1e9.log`, `fits_v0_r06_4e9.log` | 2026-10-01 |
 | Off-line zeros of S7(0.6)'s ζ_P (route 2; the zeros behind Theorem K₇) | ρ₁ = 0.8209965 + 11.0877411i, ρ₂ = 0.8052963 + 20.2490762i (Newton at X = 10⁷, 10⁸, 10⁹; stable to 2·10⁻⁵); winding number 1 on B₁ = [0.8010, 0.8410] × [11.0677, 11.1077] (min\|F_X\| = 0.0654 vs tail ≤ 0.0068 under H_0.40) and on B₂ (0.0838 vs 0.018); no other zero in σ ≥ 0.70, t ≤ 100 at X = 10⁷. Route 2 also at ρ = 0.75 / 0.8 / 1.1: top zeros 0.80563 + 92.34370i / 0.74647 + 30.69772i / 0.83989 + 20.33964i (X = 10⁸, not boxed). One producer. Scratch data: `/private/tmp/rh-s40-local-greedy/a_r06_1e9.u16` (a_n, n ≤ 10⁹), `x_r06_1e9.u32` (non-default decisions) | `local-greedy-s40/NOTE.md` §3; `…/verify/logs/zeros/cert_r06_z1_1e9.log`, `newton_r06_X1e9.log`, `zcount_r06_1e7.log` | 2026-10-01 |
+| (α, β) of the capped prime-local system S7^{≤2}(ρ) (m_n ≤ 2, a_n ≪ n^ε proved; the K-candidate with tame multiplicities; numerical, not proved) | ρ = 0.6, X = 10⁹: β ≈ 0.19–0.22 (b_sup .215 .207 .204 .204 .192), α ≈ 0.79–0.83 (a_sup), zero z₁ = 0.8243658 + 11.0306646i (Newton 10⁷…10⁹, stable to 9·10⁻⁶; winding 1 on [0.8044, 0.8444] × [11.0107, 11.0507], min\|F_X\| = 0.0692 vs tail 0.0063 under H_0.40), γ = 0.78–0.82; α − 2β = +0.36…+0.44; max\|C(n)\|/n^{0.40} ≤ 0.93 on [10³, 10⁹], 0.10 in the top decade. One producer | `local-greedy-s40/NOTE.md` §4.2; `…/verify/logs/sweep/fits_v2_r06_1e9.log`, `…/logs/zeros/cert_v2r06_z1_1e9.log`, `hcheck_v2r06_1e9.log` | 2026-10-01 |
 | Lemma H₇ on the computed range (the one hypothesis of Theorem K₇) | max\|N(u) − 0.6⌊u⌋\|/u^{0.40} per decade 10³…10⁹: 1.05, 0.86, 0.93, 0.60, 0.45, 0.35 (needed: ≤ 1 for all u > 10⁹) | `local-greedy-s40/verify/logs/zeros/hcheck_r06_1e9.log` | 2026-10-01 |
 
 ## §8. Untried (format of the directions' lists)
@@ -309,8 +331,11 @@ Thm 1): with ψ_P = x + O(x^{α+ε}), N_P = ρx + O(x^{β+ε}), M_P = O(x^{γ+ε
   upward half bounds the clusters of §2.3; the downward half, by Lemma 1.2's route, would need prime-power gaps ≤ (x^{0.40} − 1.6)/0.6,
   beyond the known gap bound [recalled, unverified], so a proof has to use the composites that arrive inside gaps. Target: B2.
 - **UT-L2 Interval certification of B₁** (python-flint arb) at X = 10⁹, the floating-point step of K₇. Target: B2.
-- **UT-L3 The four variants** (brief task 4: act only at primes; cap m ≤ 2; look-ahead at 2p, 3p; the λ-rule m_p ∈ {0, 2} with p²
-  for refused p) — implemented in `s7gen` (variants 1–4), NOT run, because the stop rule fired. Target: B2.
+- **UT-L0 Prove Lemma H₇^{≤2}** (|N(u) − 0.6⌊u⌋| ≤ u^{0.40}, u > 10⁹, for the capped system) — the cleanest route to refuting U on the
+  record: bounded multiplicities, data exponent ≈ 0.2, constant ≤ 0.93 on the whole computed range. Certify B^{≤2} in arb. Target: B2.
+- **UT-L3 Three variants unrun** (brief task 4): act only at primes; look-ahead at 2p, 3p; the λ-rule m_p ∈ {0, 2} with p² for
+  refused p (completely multiplicative ±1 g: Tao's setting) — implemented in `s7gen` (variants 1, 3, 4), NOT run because of the stop
+  rule; only the cap (variant 2) was run, to settle the K-close's "tame multiplicities" clause. Densities ≠ 0.6 for the cap: unrun. Target: B2.
 - **UT-L4 Transient test for β.** The refused fraction rises (ρ = 0.6: .844 in [10⁸, 10⁹), .861 in [10⁹, 4·10⁹)); multiplicities grow
   (max m_p 79 → 106); b-fits still fall at 4·10⁹. Going to 10¹¹ needs the m-table compressed (now one byte per odd q ≤ X/2). Target: B2.
 - **UT-L5 Theory left open:** is E unbounded for every non-periodic prime-local member; a quantitative lower bound; the λ-rule under
@@ -323,4 +348,5 @@ Thm 1): with ψ_P = x + O(x^{α+ε}), N_P = ρx + O(x^{β+ε}), M_P = O(x^{γ+ε
 Spent for nothing: the first control-script run (uniform pair sampling almost never hit mn ≤ X; killed after six minutes, fixed by
 log-uniform sampling) and one scan launch whose log directory did not exist (relaunched at once) — "spent on the wrong thing", small;
 two shell loops lost to zsh's lack of word splitting (seconds, re-run under bash). Found: stop line (c), two certified boxes, a third
-route agreeing. Not done because of the stop rule: task 4 (variants), most of task 5, part of task 6.
+route agreeing, and the capped variant S7^{≤2} — tame and further across the line. Not done because of the stop rule: three of the
+four variants of task 4, most of task 5, part of task 6.

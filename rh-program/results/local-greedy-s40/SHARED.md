@@ -76,3 +76,12 @@ below 10⁹ — a pseudo-quadratic-field local structure), max a_n = 72, a_n > d
 **sup E = 218.4, inf E = −197.8; b_sup (k = 3…7) = .215 .207 .204 .204 .192; a_sup = .794 .804 .804 .806 .827 → a − 2b = +.36…+.44.**
 Bounded local multiplicities give a_n ≪ n^ε (the Ramanujan condition of Révész–Pintz's class; proof in NOTE §4). Next: route 2
 for this variant (dump to 10⁹, scan, Newton, box), then the close.
+
+## 2026-10-01 12:47 IST — S7^{≤2}(0.6), route 2: the K-candidate with tame multiplicities [computed + proved]
+Scan at X = 10⁷ on [0.70, 1.00] × [0.1, 100] (`logs/zeros/zcount_v2r06_1e7.log`): exactly 2 zeros (σ ≥ 0.90: none). Newton
+(`logs/zeros/newton_v2r06_X1e{7,8,9}.log`): **z₁ = 0.8243658 + 11.0306646i (|F′| = 3.617), z₂ = 0.7665284 + 20.2045626i**, stable to
+9·10⁻⁶ from 10⁷ to 10⁹ — close to the uncapped system's ρ₁, ρ₂ (the two systems share their early decisions). Box at 10⁹
+(`logs/zeros/cert_v2r06_z1_1e9.log`): B = [0.8044, 0.8444] × [11.0107, 11.0507], winding 1, min|F_X| = 0.0692, tail under H_0.40 =
+0.00629 (ratio 11.0). H-check (`logs/zeros/hcheck_v2r06_1e9.log`): max|C(n)|/n^{0.40} per decade = 0.93, 0.52, 0.34, 0.21, 0.15,
+**0.10** (k = 3…8) — H_0.40 holds on the whole computed range [10³, 10⁹]. Möbius route: γ = 0.78–0.82.
+**Theorem K₇^{≤2} (NOTE §4.2): if |N(u) − 0.6⌊u⌋| ≤ u^{0.40} for all u > 10⁹, U is false — for a system with a_n ≪ n^ε (Lemma 4.1).**
