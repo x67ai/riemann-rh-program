@@ -118,3 +118,14 @@ Writes only: `directions/*.md` (insertions + Last-touched lines), this folder (`
   digest-APPLIED a414302b; s37 digest e86f642a; s37 ZOO-LINES-STAGED 93e7e394.
 - Baseline read: s37 digest §B (B1–B10), §F (F.1–F.3, UT-1 … UT-13), §G; s37 staged-lines format (blocks, insertion map, Block C).
 - Running now: reading the eleven units (§0 close, read-F, read-O verdict/FIX-FIRST/additions). Resume here: no deliverable written yet.
+
+## 2026-10-01 17:01 IST block 12 — digest header + §A.1–A.3 written (qcond, conjO, uoff)
+
+- `insights-digest.md` created: header, conventions, A.1 qcond, A.2 conjO, A.3 uoff.
+- Found for §E (consolidator, not in either read): (1) qcond NOTE carries the corrected Theorem D block FIVE times (lines 219, 252,
+  335, 351, 451; the pre-reader NOTE has one) — at 218–219 it cuts L′'s COVERAGE sentence after "It strengthens BFE" (pre-reader 215–216
+  continues "§11(i) (finite Euler factors) to all finite Dirichlet-polynomial multipliers"); an application slip of F1, no theorem
+  changes. (2) uoff NOTE:22 ("at exponent 0.35 unrefuted") lags s5m NOTE:15/101 (H_θ false for θ ≤ 0.35, c < 1.88).
+- Disagreements noted: conjO α = 0.75 mean square (read-F accepted at report level; read-O re-ran, undecided); qcond Meyer subtraction
+  (read-F ρ_q·Leb, read-O (ρ_q − 1)·Leb — both valid).
+- Running now: lemG, dzh, qtw, fej. Resume here: append §A.4 onward.

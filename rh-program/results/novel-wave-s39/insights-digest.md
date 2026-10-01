@@ -68,3 +68,31 @@ b = 1 frequencies). Lemma G: under RH EQUIVALENT to O₂ set by set — a reform
 top-window mean square UNDECIDED between α and 2/(3 − α) (20 seeds 0.816 ± 0.039; NOTE:326–327). Disagreement: read-F accepted the
 12-seed resolution "at the report level" (rF:12); read-O re-ran it with its own code and RNG and found the mean-square half undecided
 (rO:275–277, F3) — read-O re-derives the point. The "any A" addition clause: HEURISTIC, flagged for amendment (NOTE:323–324; rF m2).
+
+### A.3 uoff — Conjecture U off the surgery class: the integer-greedy systems S5(ρ). Close CHANGED at the dual read: K-conditional + T + G
+Verdicts: read-F AGREES on every finite fact and on K′ as a conditional, DISAGREES with the close's weight, F1–F2 (rF:5); read-O DISAGREES
+with the close as stated — "the theorems stand, the numerical crossing does not", F1–F14 (rO:7). The two reads agree (rF §7); NOTE:13.
+Three most useful findings.
+1. **The multiplicity mechanism (the burst inequality).** At ρ = 0.8 the late records of E are single integers of high multiplicity
+   (n = 902538000 has a_n = 276; E jumps from −0.4 to 274.8), so sup_{u≤x}E ≥ max_{n≤x}a_n − 1.3 and β ≥ limsup log a_n/log n (rF C1–C2;
+   rO A2, :234). Refused rational primes enter only through composite "carriers" (20, 30, 110, … for 5), and integers divisible by a refused
+   prime and many carrier cofactors have many factorizations. Dual-read (two independent generators, exact counts).
+2. **Rigorous lower bounds beyond the computed range.** The factorizations of n into the g-primes ≤ 10⁹ bound a_n below forever (later
+   g-primes only add) (rF C3): a_n ≥ 13,461,378,553 at n₃ (exponent 0.3327 at 10^{30.45}) and ≥ 7,047,237,674,851 at 10^{37.86} (0.3394,
+   local 0.367) (rO A3–A4, :235–236). Dual-read; carried to n_K in s5m (A.10).
+3. **§3.2 and §3.3 (T).** Tracking discretizations of rational templates have β ≥ ½ (a corollary of Hilberdink 2005 Remark C, rF:12;
+   "new as a statement on a printed core", rO §6); periodic designs are abelian number fields or cross U only through an off-line
+   Dirichlet zero (§3.3(b), rF:13). THEOREM (dual-read; read-O: "correct, each with a one-line gap", rO:7).
+Most useful failure. The numerical crossing of U's line by S5(0.8) — "β ≈ 0.30 over six decades" — is WITHDRAWN (NOTE:13): 0.30 was the
+slope of the running sup on [10³, 10⁹], a pre-asymptotic transient; the crossing needs β < Re ρ₁/2 ≈ 0.383 (rO A8, :238) and is
+undetermined. The fitted exponent of a greedy system is not evidence until the multiplicity growth beyond the range is bounded.
+Borrow. (a) The exact lower-bound ascent as the standard test of any "integer exponent" of a feedback system. (b) read-O A5 (:237):
+ρ-dependence — exact ascents stay flat near 0.27 (ρ = 0.95, to 10^{38.8}) and 0.285 (ρ = 1.05, to 10^{40.8}); the smallest refused prime
+(5, 13, 23) is what compounds, so "a variant that never refuses small primes" is the better β-candidate (the seed of lg's S7). (c) A6
+(Rankin): over y-smooth n ≤ x, max a_n = x^{o(1)} — power growth of multiplicity needs records with growing prime support (rO:239).
+Statuses. Theorem K′ (NOTE:169–172): CONDITIONAL THEOREM (on H_θ and the floating-point box evaluation), dual-read; the zero ρ₁ =
+0.7658722 + 30.3260650i, NUMERICAL (3 producers: writer, read-F, read-O), floating point only (rO §8). H_θ: false for θ ≤ 0.3227 (rO A3)
+and — since s5m's n_K — false for every θ ≤ 0.35 with any constant below 1.88, so for K′'s stated constant 1 (s5m NOTE:15, 101; rF §7):
+K′ is a correct theorem with a false hypothesis. Record lag: NOTE:22 still reads "at exponent 0.35 unrefuted and unsupported" (§E).
+Lemma H in its ≪ form: not refuted, unsupported (s5m NOTE:103). Novelty: S5 "new (single-check)" — no printed feedback construction in
+22 arXiv queries; nearest Olofsson 2010, Lagarias 1999 (rO §6).
