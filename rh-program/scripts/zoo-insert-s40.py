@@ -52,7 +52,8 @@ SOURCES = {  # name: (path, full SHA-256)
     "fejer_note": (R / "fejer-form-s39" / "NOTE.md", "0ab5f19ed976a72ed507b271b40eb698d5b9cbfabad319214fc9eb4c406893c0"),
     "qtwin_note": (R / "qtwin-s39" / "NOTE.md", "0a7ea6be2449adf8f8a5cb5cf248e04d7c2317d6e0b9526b9fbaf2f1fa206af5"),
     "dz_note": (R / "dz-half-s39" / "NOTE.md", "51e062e9ddc3bb0edd092d1e9357e0f1c232df377c98554a826712b7d53bac3b"),
-    "uoff_readF": (R / "u-offsurgery-s39" / "read-F.md", "da220a16b9f93eaac3a0c3edd4dd4be46972857af6b29f6c81156e11911c8cb1"),
+    "uoff_readF": (R / "u-offsurgery-s39" / "read-F.md", "c30a9ee3883b67b4f43dbfdcf89b37c4651473277ad964fdc49bf85c23406058"),
+    "uoff_note": (R / "u-offsurgery-s39" / "NOTE.md", "ef143a4354b75580c17d619024d779de4484b0688fe886d7fce1cae9fddfc668"),
     "uoff_readO": (R / "u-offsurgery-s39" / "read-O.md", "f25749d79f2424a0daef8cf4de875d12132effbdc828fe30d5fd81a96211f4b5"),
     "s5_note": (R / "s5-multiplicity-s40" / "NOTE.md", "ced8b67448b79cddb4af13291230b550d15399ccb6fc349bf0fc7e8eaa5370ac"),
     "s5_recount": (R / "s5-multiplicity-s40" / "verify-F" / "recount_nK_F.log",
@@ -217,7 +218,7 @@ for j, row in enumerate(B["xref"]):
 # Drafted words: shapes, and every "quotation" found in its declared sources (normalized: whitespace, ** and backticks).
 norm = lambda s: re.sub(r"\s+", " ", s.replace("**", "").replace("`", "")).strip()
 NS = {k: norm(v) for k, v in SRC.items()}
-QUOTE_SRC = {"i2dz": ("dz_note",), "i2s5": ("uoff_readF", "uoff_readO", "s5_note", "s5_recount"),
+QUOTE_SRC = {"i2dz": ("dz_note",), "i2s5": ("uoff_readF", "uoff_readO", "uoff_note", "s5_note", "s5_recount"),
              "i11": ("lemmaG_note", "lemmaG_readF")}
 n_quotes = {}
 for k, srcs in QUOTE_SRC.items():

@@ -25,7 +25,7 @@ inserts); git is not run.
   I.10's last line), 157 `---`, 159 `## GROUP II`; 415 (### IV.1), 427 (IV.1's last line, its Session-34 LINUX REPLAY); 730–735 (the
   table's last six rows, the last being "| tournament s36 row T24 …").
 
-## 12:22 IST 2026-10-01 block 1 — sources for items 1–4 read at the line
+## 2026-10-01 block 1 (written 12:12–12:37 IST; stamp corrected in block 7) — sources for items 1–4 read at the line
 
 - Item 1 (I.10 rider). Staged qcond block (i) and row (ii) read (61728f38…). The appended sentence will be drafted from
   `qtwin-s39/NOTE.md` (0a7ea6be…): line 11 (DUAL-READ Session 40: read-F AGREES; read-O AGREES-WITH-CORRECTIONS, F1–F6, all pairs
@@ -54,7 +54,7 @@ inserts); git is not run.
   the default fill is bare "2026-10-01" plus the clause "; entered at the Session-40 zoo stream" before the parenthetical closes; the
   script also accepts the brief's literal fill (without the clause), the same at both staged sites.
 
-## 12:31 IST 2026-10-01 block 2 — sources for items 5–6, the I.11 wording findings, the placement plan
+## 2026-10-01 block 2 (written 12:12–12:37 IST; stamp corrected in block 7) — sources for items 5–6, the I.11 wording findings, the placement plan
 
 - Item 5 (I.11). `lemmaG-s39/NOTE.md` (41f195d4…): line 11 (DUAL-READ Session 40: read-F AGREES, R1 brute-forced; read-O
   AGREES-WITH-CORRECTIONS, F1–F5, 17 minor, 31 pairs applied); §1.2 lines 55–77 (Theorem R1, its proof, the F_3[T] brute force);
@@ -82,7 +82,7 @@ inserts); git is not run.
   (α, β)-frontier rider of Session 39" (line 87), and the DZ and S5 riders continue that rider's Conjecture-U thread, so all three go
   between line 87 and the thresholds rider (line 88) (+3); count after 41 (+2). Total +23: 765 → 788 lines; 63 → 64 entries.
 
-## 12:44 IST 2026-10-01 block 3 — `zoo-entries-proposed.md` begun: front matter (findings 1–5), blocks `count`, `i2o`, `i2dz`
+## 2026-10-01 block 3 (written 12:12–12:37 IST; stamp corrected in block 7) — `zoo-entries-proposed.md` begun: front matter (findings 1–5), blocks `count`, `i2o`, `i2dz`
 
 - Front matter: purpose, findings 1 (no stop line), 2 (placement, +23), 3 (sanctioned edits D1, E1, A1; the literal alternative),
   4 (drafted words; brief-vs-NOTE wording), 5 (optional pair O1; the brief title's "I.2 (×4)"; the post-insertion hash).
@@ -95,7 +95,7 @@ inserts); git is not run.
   item (3)); finite rung (lines 31–32); NOT said (lines 39–41); OPEN (line 392, quoted; A1 from line 11 and line 392); prior art
   (lines 42–43).
 
-## 12:53 IST 2026-10-01 block 4 — blocks `i2s5`, `i9`, `i10` written
+## 2026-10-01 block 4 (written 12:12–12:37 IST; stamp corrected in block 7) — blocks `i2s5`, `i9`, `i10` written
 
 - `i2s5` — DRAFTED; sentence by sentence: head (read-F line 5 verdict; read-O line 8 verdict, quoted; the 10(c) shape from the brief
   item 4 / KICKSTART 10(c)); "crosses U's line numerically" (read-F §2 lines 14–15 and F1 line 24: "the slope of the running sup of |E|
@@ -113,7 +113,7 @@ inserts); git is not run.
   frequencies"); (R1)–(R4) infinite-dimensional (lines 63–66); 𝒯 and its one condition (lines 67–69, 316–319); "no construction …
   no new Group-I control is claimed" (line 70); Hilberdink 2012 as the printed core (line 346; F2 at line 11).
 
-## 13:02 IST 2026-10-01 block 5 — block `i11` written (DRAFTED whole; lemmaG NOTE 41f195d4… at the line)
+## 2026-10-01 block 5 (written 12:12–12:37 IST; stamp corrected in block 7) — block `i11` written (DRAFTED whole; lemmaG NOTE 41f195d4… at the line)
 
 - Heading: title from the brief item 5, descriptor from line 77 ("the necklace deletion is exactly regular") and UT-L3 line 379 ("the
   method's named no-go"); session form as I.10 (session of both reads; O1 offers Session 39).
@@ -132,7 +132,7 @@ inserts); git is not run.
   cyclotomic identity's attribution). "CALIBRATION … as I.9 binds positivity generators" is the writer's classification, by analogy
   with I.9's KILLS line (zoo line 143) — flagged here as drafted, not quoted.
 
-## 13:09 IST 2026-10-01 block 6 — blocks `iv1` and `xref` written; all nine blocks on disk
+## 2026-10-01 block 6 (written 12:12–12:37 IST; stamp corrected in block 7) — blocks `iv1` and `xref` written; all nine blocks on disk
 
 - `iv1` — COPIED by program from `fejer-form-s39/NOTE.md` line 327 (BLOCK:iv1) with E1 (1,640 chars).
 - `xref` — rows 1 and 3 COPIED by program (qcond Block (ii), conj-O Block (ii), verbatim). Rows 2, 4, 5, 6, 7 DRAFTED in the table's
@@ -142,3 +142,29 @@ inserts); git is not run.
   INEQUALITY EXISTS ON RUNG 1, AND IT IS WEIL POSITIVITY WITH MULTIPLIER 1; THE LITERAL FEJÉR TRANSPORT IS V-BLIND", line 9 dual read).
 - Cosmetic: two block-header quotations with nested backticks rewritten with double backticks (headers only; no block text touched).
 - Next: `scripts/zoo-insert-s40.py` on the s39 template, then the dry run and `numbers-check.log`.
+
+## 12:39 IST 2026-10-01 block 7 — RECORD CORRECTION (stamps); a source changed mid-stream; the script and the dry run
+
+- RECORD CORRECTION (stamps). The headers of blocks 1–6 carried times written by estimate (12:22 … 13:09) that ran ahead of the
+  machine clock: the clock read 12:36:59 when first checked after block 6. All six blocks were written between block 0 (12:12, machine
+  time) and 12:37; their headers now say so. From this block on every stamp is `date` output.
+- SOURCE CHANGED AFTER MY READ. `results/u-offsurgery-s39/read-F.md` da220a16… → c30a9ee3883b67b4f43dbfdcf89b37c4651473277ad964fdc49bf85c23406058
+  (mtime 12:17:58; 33 → 37 lines): §1–§6 unchanged; a new §7 "Reconciliation with read-O and with unit `s5-multiplicity-s40`
+  (12:17 IST)" — read-O's 14 FIX-FIRST and 10 minor applied (24 pairs); 'H_0.35 not refuted' superseded by n_K; "S5(0.8) is
+  undetermined, not refuted, as an asymptotic statement" STANDS. The NOTE 717c1b11… → ef143a4354b75580c17d619024d779de4484b0688fe886d7fce1cae9fddfc668
+  (236 lines): line 13 "THE CLOSE IS CHANGED: the numerical crossing of Conjecture U's line by S5(0.8) is WITHDRAWN"; line 20 "leave
+  ρ = 0.8's integer exponent undetermined (≥ 0.339 at 10^{37.9}, rising) but stay near 0.27 for ρ = 0.95 (to 10^{38.8}) and near 0.285
+  for ρ = 1.05 (to 10^{40.8})". read-O unchanged (f25749d7…). The first dry run stopped on the read-F hash, as designed.
+- `i2s5` brought into line (DRAFTED words added, each quoted from the NOTE at line 13 / 20): the head cites read-F §7 and quotes the
+  NOTE's changed close; the body adds that S5(0.8) is asymptotically "undetermined", and that at ρ = 0.95, 1.05 the bounds stay near
+  0.27, 0.285, where the n_K certificate (ρ = 0.8) says nothing. Row 5 (xref): "WITHDRAWN, the numerical crossing" and "as an
+  asymptotic statement S5(0.8) is undetermined, not refuted". Nothing in the brief's item 4 is contradicted: the brief's "WITHDRAWN"
+  is the NOTE's own word for the crossing.
+- `scripts/zoo-insert-s40.py` written in six chunks on the s39 template (27 kB); gates: idempotence (16 markers), full SHA-256 of
+  the zoo and of 12 sources (read-F re-pinned to c30a9ee3…, the u-offsurgery NOTE added), copied blocks re-derived (mode house/literal),
+  A1 one sentence + 9 key phrases shared with the qtwin NOTE, every quotation of i2dz/i2s5/i11 found in its sources (4/7/10), T1–T4
+  once in one labeled clause, I.11 shape and O1, count figures and row names, 18 anchors unique with neighbors, insertion-only order
+  check, +23, tallies, recount, Group I/IV order, cited entries, 6 position checks.
+- DRY RUN (real zoo as read-only input; `--out results/zoo-s40/dryrun-BARRIER-ZOO.md`): exit 0, "765 -> 788 lines (+23); 63 -> 64
+  entries, I: 11, II: 5, III: 21, IV: 22, V: 5; mode 'house' (date fill '2026-10-01'); optional pairs applied: none"; cited entries
+  I.10, I.11, I.2, I.7, I.9, IV.1; SHA-256 d532e72904002ab1b814eed5e2015a65f44fdf60f069f68f240288facfbdb38d. BARRIER-ZOO.md still e42d544d….
