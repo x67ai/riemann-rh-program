@@ -4,7 +4,7 @@
 import sys, math, cmath
 import mpmath as mp
 mp.mp.dps = 30
-rho = float(mp.pi / 4) if len(sys.argv) < 9 else float(eval(sys.argv[8]))
+rho = float(mp.pi / 4) if len(sys.argv) < 9 else float(eval(sys.argv[8], {"pi": mp.pi}))
 mom, X, ci = sys.argv[1], float(sys.argv[2]), int(sys.argv[3])
 M = {}; N = None
 for line in open(mom):

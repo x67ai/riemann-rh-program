@@ -47,7 +47,7 @@ The NOTE is a computational note: it states no theorem of its own; every load-be
 4. **The Skorokhod form (l. 11, CHARTER §1(d)) — ✓.** N = 1 + π_P + C, so E = N − T = π_P − V with V = ρ(x − 1) − C. A g-prime is placed exactly when E would fall to −½, i.e. when V reaches π_P + ½; V moves up continuously (slope ρ) and down by jumps, so π_P(x) counts the levels ½, 3/2, … reached by sup_{y≤x}V: π_P = max(0, ⌊sup V + ½⌋) for transcendental 1/ρ (no composite on a lattice point), and E ≥ −½ with E(p⁻) = −½, E(p) = +½ at every g-prime. The NOTE's check of the identity "at all 7.85·10¹⁰ events" (l. 11, 110) is therefore a consistency test of the code, not independent evidence about E — fine as labeled [computed].
 5. **The gap identity quoted on l. 123 — ✓.** On [p_k, p_{k+1}), E(x) = ½ + #{composites in (p_k, x]} − ρ(x − p_k); at p_{k+1}⁻, E = −½, so ρ(p_{k+1} − p_k) = 1 + #{composites strictly between}; hence sup E ≤ ρG − ½. The NOTE's "loose by a factor ≈ 10" (l. 123): π/16 at 10¹¹, ρG − ½ = 0.19635·1858.9 − 0.5 = 364.5 against sup E = 33.27 — factor 11 ✓.
 6. **"α = 0.8962 by two routes" (l. 26, 76) — ✓ as numerical evidence, with one wording issue (m-pair).** Route 2 (the explicit formula over the 44 zeros of F_X with t ≤ 200 plus the real zero) is a fit of ψ_P − x on [10⁴, 10¹¹], not an evaluation of an asymptotic exponent; route 1 (local slopes 0.84, 0.91, 0.92 of sup|ψ_P − x|) is a three-decade slope. Both are consistent with α = Re ρ₁, and §1.3 gives α ≥ 0.8962 under the tail hypothesis; "α(S8(π/4)) = 0.8962" (l. 26) states an equality that neither route proves (the upper bound α ≤ Re ρ₁ needs the absence of zeros of ζ_P with larger real part at ALL heights, which is checked only for F_X and only to t = 5000).
-7. **"U fails as soon as N − ρx = O(x^θ), θ ≤ ½ − ρ" for π/16, π/32 (l. 30, 123) — ✓ arithmetic, theorem not mine to read.** ½ − π/16 = 0.30365, ½ − π/32 = 0.40183 (l. 30: 0.304, 0.402 ✓); sup E/x^θ at 10¹¹: 33.274/10^{11·0.30365} = 0.0152, 20.363/10^{11·0.40183} = 0.00077 (l. 30: 0.015, 0.0008 ✓). The statement inherits the theory NOTE's Theorem 1.6 — whose left endpoint is stated as an OPEN interval in SHARED 11:34 ("(max(θ, 1 − 2ρ), 1)") but CLOSED in SHARED 12:16 ("[r₀/(r₀ + ρ), 1)"); with a closed endpoint the borderline θ = ½ − ρ gives α ≥ 2θ only, not α > 2θ, and "≤" on l. 30 should read "<". Not load-bearing for the data (θ is far smaller), recorded as m-pair.
+7. **"U fails as soon as N − ρx = O(x^θ), θ ≤ ½ − ρ" for π/16, π/32 (l. 30, 123) — ✓.** ½ − π/16 = 0.30365, ½ − π/32 = 0.40183 (l. 30: 0.304, 0.402 ✓); sup E/x^θ at 10¹¹: 33.274/10^{11·0.30365} = 0.0152, 20.363/10^{11·0.40183} = 0.00077 (l. 30: 0.015, 0.0008 ✓). The inference uses the theory NOTE's Theorem 1.6 (theory NOTE l. 105–109, read for its statement only): the real zero lies in [σ₀, 1), σ₀ = 1 − ρ/(1 − c), and in the OPEN interval (σ₀, 1) when E > −c on a set of positive measure — true for S8 (c = ½, E > −½ everywhere). So σ* > 1 − 2ρ ≥ 2θ for θ ≤ ½ − ρ, and with ρ < ¼, α ≥ σ* > max{½, 2β}: the "≤" on l. 30 and l. 123 is right. (SHARED 12:16 writes the closed interval "[r₀/(r₀ + ρ), 1)"; the NOTE's statement is the sharper one.) The proof of Theorem 1.6 is the theory read's target, not this one's.
 
 ## §3 Prior art at the page
 
@@ -65,3 +65,103 @@ The NOTE labels as new only its machinery (l. 51: "has no upstream source"); it 
 **(d) The law of E — refit from the table [computed, `verify-O/fits_o.py`, `verify-O/logs/fits_o.txt`].** Input: the nine decade values of sup_{u≤x}E for π/4 (10³–10⁹ from my run, 10¹⁰ and 10¹¹ from the unit's logs). Least squares in log sup E on [10³, 10¹¹]: c·log²x, c = 0.2011 (rms 0.158); c·log^k x, k = 2.22 (rms 0.129); C·x^b, b = 0.1499 (rms 0.244, over-predicts the 10¹¹ point by e^{0.363} = 44 %). On [10³, 10⁹], [10³, 10¹⁰], [10³, 10¹¹] the fitted b is 0.185, 0.167, 0.150. The NOTE (l. 11, 111: c = 0.206, k = 2.19, b = 0.145; b = 0.183 → 0.162 → 0.145) fits the running sup at 100 points per decade (`verify/logs/win_pi4_1e11.Eanalysis.txt` (2)); the two samplings agree to the second digit and give the same picture. **What the data can and cannot say.** (i) The nine numbers are a running maximum — a non-decreasing step function set by two bursts (4.85·10⁷ and 4.89·10¹⁰ hold 95.86 and 123.62) — so their residuals are not independent and rms comparisons have little power; the "fall" of the fitted b is the flat stretch 10⁸–10⁹ entering the fit, which is what a running max of ANY law does between records. (ii) The local growth over the last three decades is SLOWER than log²x: sup E rose by 1.29 over [10⁸, 10¹¹], where log²x rose by 1.89 (effective log-power 0.80) and x^b by 10^{3b} (effective b = 0.037). So the log² law is not established either; it is the best two-parameter description of nine correlated points. (iii) With b fixed, a pure power C·x^b with b = 0.10 fits with rms 0.384 and end residual +0.10; b = 0.05 gives rms 0.64 — a pure power below ~0.1 is disfavored, but a power with an offset (C₀ + C·x^b, three parameters) cannot be excluded for any b ≲ 0.1. (iv) What the data DO establish on the observed range: sup E/x^{1/4} = 1.46, 1.33, 1.50, 1.25, 0.85, 0.96, 0.54, 0.36, 0.22 at 10³…10¹¹ — decreasing sixfold from 10⁶ — so every law with β ≥ ¼ would need growth to accelerate beyond 10¹¹. That is the half of the verdict U needs (β < α/2 = 0.448); "β = 0" and "no power law fits" (l. 11, 111) go beyond the data (F2). (v) The windowed distribution (mean E ≈ 0.24·log x, exponential tail with λ·log x ≈ 4.2, NOTE l. 11) is the stronger evidence for E = O(log x) in distribution; an extreme-value heuristic connects it to the sup: with tail rate κ/log x and ~x/polylog independent excursions, sup E ≈ (log x/κ)·log x = log²x/κ ≈ 0.24·log²x for κ = 4.2 — consistent with c ≈ 0.2 (single-check, heuristic). My check of the windowed law is in (g) below.
 
 **(f) Is the NOTE's "certified" ordering a proof? [read `verify/s8win.c` l. 1–30, 127, 335–345, 431–445 after my own run].** No — it is an estimate. The code computes positions in double-double (`ddmul` = fma-based product, `prime_value(k) = 1 + t·((k − 1) + θ)` with an exact double argument), records the smallest relative decision margin `wMinMargin` = |next composite − threshold|/threshold, counts decisions with margin < 10⁻¹⁴ (`wAmbig`, i.e. ambiguous in DOUBLE), and counts relative gaps < 10⁻²⁸ as ties. No error bound is propagated; the "dd error ≈ 10⁻²⁹" of l. 9, 41, 59, 110 appears nowhere in the code and is not derived in the NOTE. The figure is plausible (a chain of at most ~50 dd products, each with relative error of order 2⁻¹⁰⁴ [recalled, unverified: published bounds for this product algorithm are a few units of 2⁻¹⁰⁶], gives ≲ 10⁻³⁰), so the decisions are almost surely right — and my rigorous re-run (§2(a); per-decision bounds, 0 flags) PROVES them for X ≤ 10⁹ (10¹⁰ in (a′) below). For (10¹⁰, 10¹¹] the word "certified" (l. 41, 59) should read "estimated" (F1).
+
+**(a′) S8(π/4) to X = 10¹⁰ [computed, `verify-O/logs/o_pi4_1e10.log`, `runA_pi4_1e10.sh`; 1033 s, 1.57 GB, zeta moments accumulated in the same pass].** Every row 10³–10⁹ repeats (a); further rows: N(2.5·10⁹) = 1,963,495,416, N(5·10⁹) = 3,926,990,825, and at 10¹⁰: **N = 7,853,981,639, π_P = 450,305,513, sup E = 113.2048359644 at x = 5.67354377·10⁹, ψ_P − x = −109,031,795.28** — the NOTE's l. 59 (7,853,981,639; 450,305,513; 113.2048 at 5.6735·10⁹; −1.0903·10⁸) and SHARED 12:13 (−109,031,795 on l. 76) in every printed digit. Certification: 7,853,981,600 decisions, **0 flags**, smallest margin 3.93·10⁻¹⁰ absolute = 1.872·10⁻¹⁹ relative (NOTE l. 59: "1.9·10⁻¹⁹ relative" ✓) against error bounds ≤ 1.85·10⁻¹⁷ absolute: factor ≥ 1.05·10⁸. **So S8(π/4) is now computed with a per-decision proof of every ordering up to 10¹⁰**; only (10¹⁰, 10¹¹] rests on the unit's estimate (§2(f)).
+
+**(b, continued) ρ₁, the box, the Rouché arithmetic [computed, `verify-O/rouche_o.py`; logs `rouche_o_pi4_1e8.txt`, `rouche_o_pi4_X.txt`, `rouche_o_pi4_1e10_to_1e11.txt`].** F_X on the box is evaluated from the moments Σ n^{−s₀}(λ log n)^j/j!, j < 30, λ = 0.05, s₀ = 0.8962124913 + 14.5499355887i, taken in the generator's pass (a Taylor expansion in s, a third method beside the unit's binned block moments and my direct sum); against the direct sum at three box points (X = 10⁸, `zt_pi4_1e8_boxcheck.txt`) it agrees to 7·10⁻¹⁵.
+
+| X | ρ₁ of F_X (moments) | NOTE (table l. 66–73) | winding on the NOTE's box | min\|F_X\| (4000/side) | B_max, log² tail beyond X | u^{0.25} / u^{0.4} / u^{0.5} |
+|---|---|---|---|---|---|---|
+| 10⁸ | 0.896212310637 + 14.549935706583i | 0.8962123106 | +1 | 0.123786 | 184.3 | 504 / 24.1 / 3.00 |
+| 10⁹ | 0.896212483615 + 14.549935611447i | 0.8962124836 | +1 | 0.123786 | 1085 | 2084 / 70.4 / 6.96 |
+| 2.5·10⁹ | 0.896212490998 + … | 0.8962124910 | +1 | 0.123786 | 2211 | — |
+| 5·10⁹ | 0.896212486533 + … | 0.8962124865 | +1 | 0.123786 | 3797 | — |
+| 10¹⁰ | 0.896212490990 + 14.549935588839i | 0.896212491 + 14.549935589i | +1 | 0.123786 | **6531** | 8610 / 206 / 16.2 |
+
+NOTE l. 82: 6515 and 8589 / 205.5 / 16.1 at 10¹⁰ — my values are 0.25 % larger only because 4000 samples per side shrink the sampling-gap deduction (max|F′|·h/2) tenfold; same formula (B_max = min over the boundary of (|F_X| − gap)/K, as in `verify/rouche.py` l. 5, 32, read after my own run). **10¹¹ by a second route:** I cannot form F_{10¹¹}, but F_{10¹¹} − F_{10¹⁰} = s∫_{10¹⁰}^{10¹¹}E(u)u^{−s−1}du, so with the unit's sup|E| ≤ 123.62 on that range, |F_{10¹¹} − F_{10¹⁰}| ≤ 3.9·10⁻⁶ on the box; then B_max(10¹¹) ≥ **40,028** (log²), 35,580 / 603 / 37.6 (u^{0.25} / u^{0.4} / u^{0.5}) — the NOTE's 39,928 / 35,490 / 601 / 37.5 (l. 28, 38, 112) reproduce. The pure arithmetic of l. 28 also checks: max K over the box at X = 10¹¹ is 3.510·10⁻⁶ and 0.1233945/3.510·10⁻⁶ = 35,155 ≤ B_max; observed max E/log²u = 0.307 gives the stated margin factor 39,928/0.307 = 1.3·10⁵ ✓. The real zero of F_X for π/4 (real moments at 0.515): 0.5145067116 (10⁷), 0.5146626928 (10⁸), 0.5147172500 (10⁹), 0.5147320152 (5·10⁹), 0.5147357705 (10¹⁰) — the unit's 0.5145067, 0.5146627, 0.5147173, 0.5147320152, 0.5147357706; and F_{10⁷}(½) = +0.067067, F_{10⁷}(0.52) = −0.025933, F_{10⁷}(0.55) = −0.173679 — the theory unit's brackets (SHARED 11:55) to all six digits.
+
+**(a″) S8(π/16) and S8(π/32) to X = 10¹⁰ [computed, `verify-O/runBC_small_rho.sh`, logs `o_pi16_1e10.log` (165 s, 0.98 GB), `o_pi32_1e10.log` (74 s, 0.68 GB)].** Against the unit's `verify/logs/win_pi16_1e11.log`, `win_pi32_1e11.log` S-rows — identical in every printed digit:
+
+| ρ | x | N(x) | π_P(x) | sup E (mine; unit to 6 decimals) | ψ_P − x |
+|---|---|---|---|---|---|
+| π/16 | 10⁶ | 196,350 | 72,603 | 9.6362027473 | −73,780.567 |
+| π/16 | 10⁷ | 1,963,496 | 633,514 | 12.8384544436 | −459,615.724 |
+| π/16 | 10⁸ | 19,634,955 | 5,593,120 | 16.3639060142 | −2,874,414.106 |
+| π/16 | 10⁹ | 196,349,548 | 49,924,829 | 18.5365160221 | −17,874,880.352 |
+| π/16 | 10¹⁰ | 1,963,495,410 | 449,911,828 | 26.1369942787 (at 6.574·10⁹) | −111,438,149.046 |
+| π/32 | 10⁶ | 98,177 | 57,724 | 6.3931374803 | −262,238.477 |
+| π/32 | 10⁹ | 98,174,771 | 44,345,886 | 13.2227769272 | −127,006,726.029 |
+| π/32 | 10¹⁰ | 981,747,707 | 409,388,073 | 15.4341391242 | −997,501,176.163 |
+
+(π/32 at 10⁷, 10⁸: 981,749 / 526,606 / 8.9278579643 and 9,817,480 / 4,822,578 / 9.8578257114 — also identical, and equal to the theory unit's 10⁸ run in SHARED 12:11.) Certification: 0 flags in 1.96·10⁹ and 9.8·10⁸ decisions; smallest margins 2.7·10⁻¹⁸ and 8.2·10⁻¹⁹ relative, error bounds ≤ 3.3·10⁻¹⁸ absolute.
+
+**(c) The real zeros for π/16, π/32 and the signs at 0.79 / 0.89 [computed, real moments at 0.7948 and 0.8951 (λ = 0.05, j < 30) in the same passes; `verify-O/realzero_o.py`, logs `realzero_o_pi16.txt`, `realzero_o_pi32.txt`].**
+
+| ρ | X | real zero of F_X (mine) | unit / theory unit | F_X at the bracket points (mine) |
+|---|---|---|---|---|
+| π/16 | 10⁶ | 0.7947523020 | 0.794752 (SHARED 11:44) | F(0.75) = +0.176898 |
+| π/16 | 10⁷ | 0.7947547814 | 0.794755 | **F(0.79) = +0.022231, F(0.80) = −0.025711** (theory: +0.022231, −0.025711) |
+| π/16 | 10⁹ | 0.7947553533 | — | F(0.79) = +0.022234, F(0.80) = −0.025709 |
+| π/16 | 10¹⁰ | **0.7947553701** | **0.7947553701** (`zeros_pi16_X1.000000e+10.txt`) | same signs |
+| π/32 | 10⁶ | 0.8950763346 | 0.895076 | **F(0.89) = +0.043425** (theory: +0.0434), F(0.90) = −0.046302 |
+| π/32 | 10⁸ | 0.8950765135 | 0.895077 (SHARED 12:11) | F(0.89) = +0.043427 |
+| π/32 | 10¹⁰ | **0.8950765176** | **0.8950765176** (`zeros_pi32_X1.000000e+10.txt`) | same signs |
+
+The NOTE's 10¹¹ values (l. 30, 124: 0.7947553732, 0.8950765177) continue my 10⁹ → 10¹⁰ drift (+1.7·10⁻⁸, +5·10⁻¹⁰) consistently; I did not form F_{10¹¹}. Sign of F_X at 0.79 (π/16) and 0.89 (π/32) is positive at every X from 10⁶ to 10¹⁰, with |F| ≈ 0.022 and 0.043 against changes below 10⁻⁵ — the brackets used by the theory unit's certificates are reproduced.
+
+**(g) The windowed law of E, and the rational control ρ = 4/5 [computed, `verify-O/logs/o_pi4_1e9.Estats` (time-weighted statistics per half-decade window, from segment endpoints binned at 1/16), `o_r08_1e8.log`].** Window (3.16·10⁷, 10⁸]: mean E 4.4379, q50 3.19, q90 10.19, q99 21.06, q99.9 32.88, window max 95.862, tail rate λ = 0.1942 (fit of log P(E > y) on 10⁻⁴ < P < 10⁻¹), λ·log x_c = 3.47; window (10⁸, 3.16·10⁸]: 4.9106, 3.56, 11.19, 22.38, 34.06, 73.742, λ = 0.1991. The unit's `win_pi4_1e11.Eanalysis.txt` rows: 4.438, 3.15, 10.13, 21.03, 32.87, 95.86, 0.1942 and 4.911, 3.54, 11.17, 22.37, 34.02, 73.74, 0.1991 — the means, the maxima and λ agree to all printed digits, the quantiles to the 1/16 cell (my quantiles are cell edges). Earlier windows agree likewise (10⁶: mean 3.4698, λ 0.2678; 10⁷: 4.1637, 0.2385). The NOTE's "λ·log x = 3.47" at 10⁸ (l. 11, 111) is reproduced; the 10⁹–10¹¹ values (3.93, 4.16, 4.25) were not re-run. **ρ = 4/5 (rational, t = 5/4 exact in my fixed point):** N(10⁸) = 80,000,004, π_P(10⁸) = 5,726,057, sup E = 71.6501007080, ψ_P − x = −657,777.829 — the unit's `var_r08_th0.5_1e8.log` row exactly; **4,019,495 exactly equal adjacent composites** = the NOTE's "4.0·10⁶" ties (SHARED 12:27: 4,019,495) to the unit; and 0 composite-on-lattice ties, as the theory unit's p-odd criterion (1/ρ = 5/4) predicts.
+
+## §4 FIX-FIRST pairs
+
+**F1 — "certified" ordering is an estimate, not a certificate (target (f); §2(f)).** The generator propagates no error bound; the "dd error ≈ 10⁻²⁹" is asserted, not derived. The decisions are in fact right to 10¹⁰ (my rigorous run), so the fix is a label, plus the pointer to the proof that now exists.
+
+OLD (l. 59): `the double-double error bound is ≈ 10⁻²⁹ relative, so every ordering decision is certified with a factor ≥ 10⁹.`
+NEW (l. 59): `the double-double error is ESTIMATED at ≈ 10⁻²⁹ relative (an a-priori figure: the code records decision margins but propagates no error bound), so every ordering decision is safe by a factor ≥ 10⁹ under that estimate; the Session-41 reader's independent generator with rigorous per-decision bounds (compute/verify-O/s8o.cpp) PROVES every decision to 10¹⁰ (0 flags; smallest margin 1.87·10⁻¹⁹ relative against bounds ≤ 1.9·10⁻¹⁷ absolute) and reproduces this run's rows exactly.`
+
+OLD (l. 41): `ordering certified (margin ≥ 10⁸ × dd error)`
+NEW (l. 41): `ordering safe under the dd-error estimate (margin ≥ 10⁸ × the estimated dd error); proved to 10¹⁰ by the reader's rigorous run (compute/verify-O/logs/o_pi4_1e10.log)`
+
+**F2 — the law of E is stated beyond the data (target (d); §2(d)).** "No power law fits" is false as a statement about the table (b = 0.145 fits with rms 0.21; a power with an offset cannot be excluded for b ≲ 0.1), and "β = 0" is an asymptotic claim nine correlated running-max points cannot carry; the last three decades grow more slowly than log²x. What the data do carry — and all that the verdict needs — is β < ¼ on the observed range.
+
+OLD (l. 11): `**Law: E = O(log x) in distribution and sup_{u≤x}E ≈ 0.2·log²x; β(S8(π/4)) = 0 numerically; no power law fits.**`
+NEW (l. 11): `**Law: E = O(log x) in distribution (windowed mean ≈ 0.24·log x, exponential tail with λ·log x ≈ 3.5–4.3), and sup_{u≤x}E ≈ 0.2·log²x as the best two-parameter description of the running maximum; the data establish sup E/x^{1/4} falling from 1.25 to 0.22 over 10⁶–10¹¹ (β < ¼ on the observed range) and prefer a polylogarithm to a pure power (x^{0.145} over-predicts 10¹¹ by 46 %), but cannot exclude a small power with an offset, and over 10⁸–10¹¹ sup E grew more slowly than log²x (factor 1.29 against 1.89).**`
+
+OLD (l. 111): `**Measured law: E is O(log x) in distribution and sup_{u≤x}E(u) ≈ 0.2·log²x; no power law fits; β(S8(π/4)) = 0 numerically.**`
+NEW (l. 111): `**Measured law: E is O(log x) in distribution and sup_{u≤x}E(u) ≈ 0.2·log²x is the best two-parameter fit; a pure power fits worse (b = 0.145, falling with X as the flat stretch 10⁸–10⁹ enters) but a small power with an offset is not excluded; robust: sup E/x^{1/4} = 0.22 at 10¹¹ and falling (β < ¼ on [10³, 10¹¹]).**`
+
+OLD (l. 28): `β = 0 is the measured law (sup E ≈ 0.2·log²x to 10¹¹; even the rejected power fit has b = 0.145 < ¼)`
+NEW (l. 28): `β < ¼ is what the data establish on [10³, 10¹¹] (best fit sup E ≈ 0.2·log²x; the pure power fit has b = 0.145 < ¼; sup E/x^{1/4} falls from 1.25 to 0.22 over 10⁶–10¹¹), and U's violation needs only β < Re ρ₁/2 = 0.448`
+
+**Count: 2 FIX-FIRST items (F1 as 2 OLD/NEW pairs, F2 as 3 pairs).** Neither changes a number of the NOTE; both change what a number is claimed to show.
+
+## §5 Minor pairs
+
+**m1 — the margin at 10⁷ is relative, not absolute** (my run: smallest margin up to 10⁷ is 3.5924·10⁻⁷ absolute = 6.4111·10⁻¹⁴ relative, both at x = 5.6034·10⁶; the conclusion "drift 1.56·10⁻⁴ ≫ margin" stands).
+OLD (l. 58): `while the smallest composite-to-threshold margin at 10⁷ is 6.4·10⁻⁷ absolute`
+NEW (l. 58): `while the smallest composite-to-threshold margin up to 10⁷ is 6.4·10⁻¹⁴ relative (3.6·10⁻⁷ absolute, at x = 5.60·10⁶)`
+
+**m2 — α stated as an equality** (§1.6: α ≥ Re ρ₁ follows from the zero under the tail hypothesis; α ≤ Re ρ₁ rests on the F_X scan to t = 5000).
+OLD (l. 26): `α(S8(π/4)) = 0.8962.`
+NEW (l. 26): `α(S8(π/4)) = 0.8962 numerically (α ≥ Re ρ₁ follows once ρ₁ is a zero of ζ_P, i.e. under the tail hypothesis below; α ≤ Re ρ₁ rests on the zero scan of F_X to t = 5000).`
+
+**m3 — same, in the log.**
+OLD (l. 76): `So α(S8(π/4)) is zero-driven and equals the real part of ρ₁, 0.8962`
+NEW (l. 76): `So α(S8(π/4)) is zero-driven and, numerically, equals the real part of ρ₁, 0.8962`
+
+**m4 — the Instruments row.**
+OLD (l. 39): `| α(S8(π/4)) by the explicit formula | 0.8962;`
+NEW (l. 39): `| α(S8(π/4)) by the explicit formula | 0.8962 numerically (≥ 0.8962 under the tail hypothesis);`
+
+**m5 — a third, non-mathematical input of the zero statement** (the winding and min|F_X| are sampled floating-point values; Untried 1 names the remedy; §7 A3 gives a derivative-bound version).
+OLD (l. 28): `The unproved inputs are exactly two:`
+NEW (l. 28): `The unproved mathematical inputs are two (beside the floating-point evaluation of F_X on the box boundary — sampled, with a sampled derivative bound; see Untried, interval Rouché):`
+
+**m6 — "no ties" for 1/ρ = √2 is a computed fact, not a structural one.** The √2-lattice has exact multiplicative coincidences: L₄L₂₀L₂₃ = L₆²L₅₁ exactly in ℤ[√2] (L_k = 1 + (k − ½)√2; both products = (12467 + 2345√2)/2√2 ≈ 5580.2501; `verify-O/ties_sqrt2_o.py`, the only coincidence among triples with 2k − 1 ≤ 401). None of L₄, L₆, L₂₃, L₅₁ is a g-prime of S8(1/√2) (exact ℤ[√2] simulation to x = 7000, 906 g-primes, 0 multiplicities: `verify-O/s8_sqrt2_small_o.py`), so the NOTE's count stands.
+OLD (l. 26): `Exact product ties: none for irrational ρ (including 1/ρ = √2), 4.0·10⁶ for ρ = 4/5.`
+NEW (l. 26): `Exact product ties to 10⁸: none for irrational ρ (including 1/ρ = √2 — where the lattice itself does have exact coincidences, e.g. L₄L₂₀L₂₃ = L₆²L₅₁, none of them between g-primes), 4,019,495 for ρ = 4/5.`
+
+**m7 — the printed sources are now read at the page** (§3).
+OLD (l. 51): `Nearest printed objects (as surfaced by the theory unit and the orchestrator, not read at the page by this unit):`
+NEW (l. 51): `Nearest printed objects (read at the page by the Session-41 reader: DMV p. 4 = on-disk text l. 198–207; Broucke–Debruyne–Révész 2309.01567 Thm 1.1, 1.3 — no discrete [α, β]-system with β < ½ < α in print; Hilberdink 2012, whose introduction has the template N = cx + 1 − c as a continuous system):`
+
+**Count: 7 minor pairs (m1–m7).** Total: 2 FIX-FIRST items (5 OLD/NEW pairs) + 7 minor pairs = **12 OLD/NEW pairs**.

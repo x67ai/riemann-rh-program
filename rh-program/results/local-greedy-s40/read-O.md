@@ -70,6 +70,91 @@ VERDICT LINE: (filled last)
 (l) **Mechanism claims (§0 l. 33–34, l. 36–39)** ✓ as identities; "a_p are unbounded" (l. 316) and "they are NOT bounded" (l. 224) are
     numerical (max m_p = 42, 54, 79, 106 at 10⁷, 10⁸, 10⁹, 4·10⁹ — my logs), not proved; Lemma 1.2 gives only the upper bound (m8).
 
+## §2. Independent re-run (`verify-O/`)
+
+**Generators.** `gen7o.c` (segmented multiplicative sieve on [L, R), R ≤ 2L; local series c_p, g_p, μ_P,p for p ≤ √X; m_P table for
+odd P ≤ X/2; rule in __int128 as m = ⌊(6(n − 1) + 10(1 − N − A) + 5)/10⌋⁺; E kept exactly as 5E ∈ ℤ) and `dp7o.c` (array of A-counts,
+"a[kq] += a[k], k increasing" per copy of each chosen g-prime; no multiplicativity). Written from l. 50–53 only. Controls: ρ = 1 to
+10⁷ returns the 664,579 primes (m_p = 1, no higher power), E ≡ 0, M_P(10^k) = Mertens (−1, 1, 2, −23, −48, 212, 1037), ψ(10⁷) − 10⁷ =
+−1460.6 (`logs/gen7o_control_rho1_X1e7.log`). gen7o = dp7o **byte for byte to 10⁸** for ρ = 3/5, cap 0 and cap 2 (so multiplicativity
+and the segment ordering are confirmed on 10⁸ terms by a method that uses neither). **Against the unit's dumps
+(`/private/tmp/rh-s40-local-greedy/a_r06_1e9.u16`, `a_v2r06_1e9.u16`): 0 mismatches over all n ≤ 10⁹, both systems.**
+
+**Route 1, digit for digit** (exact counts; my logs `logs/gen7o_r3-5_cap{0,2}_X1e9.log`, `…cap0_X4e9.log`; fits `logs/fito_1e9.log`):
+
+| quantity | NOTE | read-O |
+|---|---|---|
+| S7(0.6), 10⁹: N, C(10⁹), sup E, inf E, max a_n, max m_p | C = −2; 948.8; −93.2; 550; 79 | N = 599,999,998; −2; 948.8; −93.2; 550 (n = 372,662,213); 79 (p = 788,368,543) |
+| sup\|ψ_P − x\|, sup\|M_g\|, ψ_P(10⁹) − 10⁹, sup\|M_P\| | 5.57·10⁶; 9087; 3.78·10⁶; 1.4·10⁶ | 5.571·10⁶; 9087; 3,781,277; 1.409·10⁶ |
+| m_p = 0/1/2/3/≥4 in [10⁸, 10⁹) (45,086,079 primes); h.p.p. with m > 0 | .844/.022/.017/.017/.100; 288 | .8444/.0222/.0166/.0169/.0999; 288 |
+| H-check θ = 0.40 per decade k = 3…8 | 1.05 .86 .93 .60 .45 .35 | 1.053 .857 .934 .599 .445 .349 |
+| H-check θ = 0.35, k = 3…8; θ = 0.32 top decade | 1.53 1.43 1.74 1.23 1.05 .88; 1.54 | 1.527 1.428 1.735 1.227 1.051 .881; 1.537 |
+| b_sup / a_sup, k = 3…7 (10⁹) | .315 .303 .281 .278 .264 / .794 .801 .802 .811 .808 | .314 .302 .281 .277 .262 / .795 .802 .803 .811 .808 |
+| S7(0.6), 4·10⁹: sup E, inf E, max a_n, max m_p, sup\|ψ_P − x\|, sup\|M_g\|, sup\|M_P\| | 1304.4; −105.6; 825; 106; 1.75·10⁷; 19,814; 4.37·10⁶ | 1304.4; −105.6; 825; 106; 1.747·10⁷; 19,814; 4.367·10⁶ |
+| 4·10⁹: b_sup / a_sup / γ, k = 3…7 | .307 .295 .276 .272 .259 / .796 .802 .803 .810 .807 / .795 .808 .807 .814 .817 | .307 .295 .276 .271 .258 / .796 .802 .804 .810 .808 / .795 .807 .807 .813 .816 |
+| refused fraction [10⁹, 4·10⁹) | .861 | .8608 (119,743,440 of 139,114,278) |
+| S7^{≤2}(0.6), 10⁹: C(10⁹), sup E, inf E, max a_n | −20; 218.4; −197.8; 72 | −20 (N = 599,999,980); 218.4; −197.8; 72 |
+| cap: m_p = 0/1/2 for p ≤ 10⁹; h.p.p. m > 0 in [10⁸, 10⁹) | 24,626,463 / 1,710,292 / 24,510,779; 1,063 | identical; 1,063 |
+| cap: sup\|ψ_P − x\|, sup\|M_g\|; H θ = 0.40, k = 3…8; θ = 0.30 top | 5.0·10⁶; 7803; .93 .52 .34 .21 .15 .10; .66 | 5.005·10⁶; 7803; .928 .515 .343 .209 .150 .104; .656 |
+| cap: b_sup / a_sup / γ, k = 3…7 | .215 .207 .204 .204 .192 / .794 .804 .804 .806 .827 / .783 .802 .803 .814 .815 | .215 .206 .203 .203 .190 / .795 .804 .804 .807 .827 / .783 .802 .803 .813 .814 |
+
+Slope conventions differ slightly (mine: x at the upper end of each of 20 log-bins per decade, running sup from x = 1); differences
+≤ 0.002, none changes a margin. New datum: H-ratio (θ = 0.40) on [10⁹, 4·10⁹) = 0.246 for S7 — the fall continues one more half-decade.
+
+**Route 2 by direct sums** (`zo.py`: F_X = ρζ + Σ_{n≤X}(a_n − ρ)n^{−s} summed term by term, ζ and ζ′ by mpmath; Newton from
+2-decimal starting points; |F_X| ≤ 10⁻¹⁴ at the end; logs `logs/zeros_cap{0,2}_X1e{7,8,9}.log`):
+
+| zero | X | NOTE | read-O | \|F′\| NOTE / read-O |
+|---|---|---|---|---|
+| ρ₁ | 10⁷ | 0.8209861 + 11.0877395i | 0.8209860944 + 11.0877394565i | 3.41 / 3.4116 |
+| ρ₁ | 10⁸ | 0.8210037 + 11.0877501i | 0.8210036915 + 11.0877501484i | — / 3.4123 |
+| ρ₁ | 10⁹ | 0.8209965 + 11.0877411i | 0.8209965365 + 11.0877411076i | 3.412 / 3.4120 |
+| ρ₂ | 10⁷, 10⁸ | 0.8052896 + 20.2491013i, 0.8052939 + 20.2490886i | 0.8052895659 + 20.2491012567i, 0.8052938994 + 20.2490886178i | 4.41 / 4.4055 |
+| ρ₂ | 10⁹ | 0.8052963 + 20.2490762i | 0.8052962768 + 20.2490761854i | 4.406 / 4.4060 |
+| z₁ (cap) | 10⁷, 10⁸ | — | 0.8243592650 + 11.0306730391i, 0.8243649288 + 11.0306662575i | — / 3.6168 |
+| z₁ (cap) | 10⁹ | 0.8243658 + 11.0306646i | 0.8243657829 + 11.0306645665i | 3.617 / 3.6172 |
+| z₂ (cap) | 10⁹ | 0.7665284 + 20.2045626i | 0.7665283791 + 20.2045625529i | — / 4.7362 |
+
+Moves 10⁸ → 10⁹: 1.15·10⁻⁵ (ρ₁), 1.27·10⁻⁵ (ρ₂), 1.9·10⁻⁶ (z₁) — as the NOTE says (≤ 2·10⁻⁵; cap ≤ 9·10⁻⁶).
+
+**The K-boxes by direct sums** (`boxo.py`, X = 10⁹, K = 40 per side = 160 boundary points, exact ratio recurrence along each side;
+the tail column is max over the samples of |C(X)|X^{−σ} + |s|X^{θ−σ}/(σ − θ), equal to its value at the corner (σ₀, t₁)):
+
+| box | winding | min\|F_X\| NOTE / read-O (where) | max\|F′\| on ∂B | sampled Lipschitz bound | tail θ = .30/.35/.40/.45 |
+|---|---|---|---|---|---|
+| B₁ = [0.8010, 0.8410] × [11.0677, 11.1077] | 1.000000 | 0.0654 / 0.06542 (0.8410 + 11.0877i) | 3.84 | 0.0635 | .00069/.00216/.00683/.02200 |
+| B^{≤2} = [0.8044, 0.8444] × [11.0107, 11.0507] | 1.000000 | 0.0692 / 0.06933 (0.8444 + 11.0307i) | 4.09 | 0.0673 | .00064/.00198/.00628/.02021 |
+| B₂ = [0.7853, 0.8253] × [20.2291, 20.2691] | 1.000000 | 0.0838 / 0.08378 (0.8253 + 20.2491i) | 5.02 | 0.0813 | .00179/.00563/.01793/.05808 |
+
+**The other densities (NOTE Table 2.1, §2.2, §3.6)** — `run_dens.sh`, logs `logs/gen7o_r{3-4,4-5,9-10,11-10,5-4}_cap0_X1e9.log`,
+`gen7o_r3-2_cap0_X1e8.log`, fits `logs/fito_densities_1e9.log`, zeros `logs/zeros_r{3-4,4-5,11-10}_X1e8.log`:
+
+| ρ | sup E / inf E (exact) | sup\|ψ_P − x\| | sup\|M_g\| | max a_n / max m_p | a − 2b, k = 3…7 (read-O; NOTE) |
+|---|---|---|---|---|---|
+| 0.75 | 763.0 / −93.0 | 913,482 (NOTE 9.14·10⁵; its own log 913482.0) | 9212 | 234 / 93 | +.05 +.11 +.18 +.24 +.31 (+.05 +.10 +.18 +.24 +.31) |
+| 0.8 | 1048.0 / −103.6 | 1,032,251 | 11,607 (NOTE 11610 = 4 s.f.) | 270 / 104 | +.01 +.07 +.12 +.09 +.15 (+.01 +.07 +.12 +.09 +.14) |
+| 0.9 | 969.8 / −106.2 | 716,596 | 6596 | 247 / 102 | −.03 +.02 +.09 +.17 +.16 (identical) |
+| 1.1 | 3839.1 / −174.4 | 3,684,431 | 20,270 | 825 / 142 | −.03 +.02 +.12 +.24 +.30 (−.04 +.02 +.12 +.24 +.31) |
+| 1.25 | 23003.25 / −219.0 | 10,453,256 | 45,230 | 1827 / 219 | −.10 −.07 −.03 −.04 −.07 (−.10 −.07 −.02 −.04 −.07) |
+
+Anatomy in [10⁸, 10⁹) (m_p = 0 / 1 / 2 / 3 / ≥ 4) reproduces every printed fraction at all six densities (e.g. ρ = 1.25: .9403 / .0012 /
+.0031 / .0032 / .0522); h.p.p. with m > 0: 258, 269, 247, 186, 134 (and 288 at 0.6) = the NOTE's "134–288"; ρ = 0.8 refused fraction
+.806 in [10⁶, 10⁷), .865 in [10⁸, 10⁹) ✓. ρ = 1.5: N(10⁸) = 150,993,396 (N/x = 1.50993) ✓ runaway. The a_sup fits on the last window
+are convention-sensitive (ρ = 0.75: .834 vs .843; 1.1: .779 vs .787) — no margin changes sign. §3.6 zeros at X = 10⁸ by direct sums:
+ρ = 0.75: 0.8056258 + 92.3437006i, 0.7544902 + 46.6915733i, 0.7282888 + 29.7659847i, 0.7084357 + 30.7006138i; ρ = 0.8: 0.7464737 +
+30.6977219i, 0.7461545 + 29.8576679i, 0.7387443 + 59.1720483i; ρ = 1.1: 0.8398906 + 20.3396393i, 0.8139518 + 29.9808735i — every
+printed digit of the NOTE's §3.6 table.
+
+**What remains floating-point in K₇ and K₇^{≤2}** (brief target (d)). The exact hypothesis is H_θ: |N_P(u) − 0.6⌊u⌋| ≤ u^θ for every
+real u > 10⁹ (constant 1), some θ ≤ 0.40; everything else in the proofs is exact, and the tail arithmetic reproduces (above).
+Floating-point are only: (i) the value of F_X on ∂B — a double-precision sum of 10⁹ terms (two independent methods agree: Taylor
+moments with corners checked by direct sums in the NOTE, ≤ 1.8·10⁻¹²; exact per-term ratio recurrence here: min|F_X| 0.0654 vs 0.06542 and
+0.0692 vs 0.06933, the last digit being sampling, 400 vs 160 points; the Taylor truncation itself is rigorously ≤ 3.4·10⁻²⁹, A4);
+(ii) the sampling of ∂B (400 points in the NOTE, 160 here):
+a Lipschitz bound is needed between samples — mine is the sampled max|F′| (not itself a bound), giving margins 0.0635 and 0.0673;
+(iii) ζ at the boundary points (Euler–Maclaurin in the NOTE, mpmath here; they agree). The 9–11× margin over the H_{0.40} tail makes a
+floating-point reversal implausible; a proof needs interval arithmetic (UT-L2).
+
 ## §3. Prior art at the page
 
 - **Tao**, "The Erdős discrepancy problem", Discrete Analysis 2016:1 (arXiv 1509.05363v6; `sources/tao-1509.05363v6.txt`). Thm 1.1
@@ -105,37 +190,6 @@ VERDICT LINE: (filled last)
   logs. **No printed construction of a Beurling system by integer-level feedback, prime-local or not, was found** — agreeing with §6.
 - Not re-opened here (used by the NOTE only as context, through uo §5): Hilberdink 2005, Hilberdink 2012, BDR, DMV.
 
-## §2. Independent re-run (`verify-O/`)
-
-**Generators.** `gen7o.c` (segmented multiplicative sieve on [L, R), R ≤ 2L; local series c_p, g_p, μ_P,p for p ≤ √X; m_P table for
-odd P ≤ X/2; rule in __int128 as m = ⌊(6(n − 1) + 10(1 − N − A) + 5)/10⌋⁺; E kept exactly as 5E ∈ ℤ) and `dp7o.c` (array of A-counts,
-"a[kq] += a[k], k increasing" per copy of each chosen g-prime; no multiplicativity). Written from l. 50–53 only. Controls: ρ = 1 to
-10⁷ returns the 664,579 primes (m_p = 1, no higher power), E ≡ 0, M_P(10^k) = Mertens (−1, 1, 2, −23, −48, 212, 1037), ψ(10⁷) − 10⁷ =
-−1460.6 (`logs/gen7o_control_rho1_X1e7.log`). gen7o = dp7o **byte for byte to 10⁸** for ρ = 3/5, cap 0 and cap 2 (so multiplicativity
-and the segment ordering are confirmed on 10⁸ terms by a method that uses neither). **Against the unit's dumps
-(`/private/tmp/rh-s40-local-greedy/a_r06_1e9.u16`, `a_v2r06_1e9.u16`): 0 mismatches over all n ≤ 10⁹, both systems.**
-
-**Route 1, digit for digit** (exact counts; my logs `logs/gen7o_r3-5_cap{0,2}_X1e9.log`, `…cap0_X4e9.log`; fits `logs/fito_1e9.log`):
-
-| quantity | NOTE | read-O |
-|---|---|---|
-| S7(0.6), 10⁹: N, C(10⁹), sup E, inf E, max a_n, max m_p | C = −2; 948.8; −93.2; 550; 79 | N = 599,999,998; −2; 948.8; −93.2; 550 (n = 372,662,213); 79 (p = 788,368,543) |
-| sup\|ψ_P − x\|, sup\|M_g\|, ψ_P(10⁹) − 10⁹, sup\|M_P\| | 5.57·10⁶; 9087; 3.78·10⁶; 1.4·10⁶ | 5.571·10⁶; 9087; 3,781,277; 1.409·10⁶ |
-| m_p = 0/1/2/3/≥4 in [10⁸, 10⁹) (45,086,079 primes); h.p.p. with m > 0 | .844/.022/.017/.017/.100; 288 | .8444/.0222/.0166/.0169/.0999; 288 |
-| H-check θ = 0.40 per decade k = 3…8 | 1.05 .86 .93 .60 .45 .35 | 1.053 .857 .934 .599 .445 .349 |
-| H-check θ = 0.35, k = 3…8; θ = 0.32 top decade | 1.53 1.43 1.74 1.23 1.05 .88; 1.54 | 1.527 1.428 1.735 1.227 1.051 .881; 1.537 |
-| b_sup / a_sup, k = 3…7 (10⁹) | .315 .303 .281 .278 .264 / .794 .801 .802 .811 .808 | .314 .302 .281 .277 .262 / .795 .802 .803 .811 .808 |
-| S7(0.6), 4·10⁹: sup E, inf E, max a_n, max m_p, sup\|ψ_P − x\|, sup\|M_g\|, sup\|M_P\| | 1304.4; −105.6; 825; 106; 1.75·10⁷; 19,814; 4.37·10⁶ | 1304.4; −105.6; 825; 106; 1.747·10⁷; 19,814; 4.367·10⁶ |
-| 4·10⁹: b_sup / a_sup / γ, k = 3…7 | .307 .295 .276 .272 .259 / .796 .802 .803 .810 .807 / .795 .808 .807 .814 .817 | .307 .295 .276 .271 .258 / .796 .802 .804 .810 .808 / .795 .807 .807 .813 .816 |
-| refused fraction [10⁹, 4·10⁹) | .861 | .8608 (119,743,440 of 139,114,278) |
-| S7^{≤2}(0.6), 10⁹: C(10⁹), sup E, inf E, max a_n | −20; 218.4; −197.8; 72 | −20 (N = 599,999,980); 218.4; −197.8; 72 |
-| cap: m_p = 0/1/2 for p ≤ 10⁹; h.p.p. m > 0 in [10⁸, 10⁹) | 24,626,463 / 1,710,292 / 24,510,779; 1,063 | identical; 1,063 |
-| cap: sup\|ψ_P − x\|, sup\|M_g\|; H θ = 0.40, k = 3…8; θ = 0.30 top | 5.0·10⁶; 7803; .93 .52 .34 .21 .15 .10; .66 | 5.005·10⁶; 7803; .928 .515 .343 .209 .150 .104; .656 |
-| cap: b_sup / a_sup / γ, k = 3…7 | .215 .207 .204 .204 .192 / .794 .804 .804 .806 .827 / .783 .802 .803 .814 .815 | .215 .206 .203 .203 .190 / .795 .804 .804 .807 .827 / .783 .802 .803 .813 .814 |
-
-Slope conventions differ slightly (mine: x at the upper end of each of 20 log-bins per decade, running sup from x = 1); differences
-≤ 0.002, none changes a margin. New datum: H-ratio (θ = 0.40) on [10⁹, 4·10⁹) = 0.246 for S7 — the fall continues one more half-decade.
-
 ## §4. FIX-FIRST pairs (record-level; neither touches the close's mathematics)
 
 **F1 — §0 attributes a scan of F_X at X = 10⁷ to ζ_P.** The scan (§3.1, l. 147–152) counts zeros of the Dirichlet-polynomial
@@ -169,6 +223,13 @@ system, not proved."
 NEW: "The Euler product converges absolutely for
 σ > 1 unconditionally: Lemma 1.2 gives m_q < 1 + ρ(q − q_prev) at every prime power q, so Σ_q m_q q^{−σ} < Σ_q q^{−σ} + ρ/(σ − 1)
 (read-O A1) and N(x) ≪_ε x^{1+ε}; N(x) = ρx + o(x) itself is a numerical statement (§2), not proved."
+
+**m2 — the margins quoted for ρ = 0.75…1.1 "from 10⁴–10⁵ on".** On those windows the smallest margin is +0.07 (ρ = 0.8, window from
+10⁴; read-O §2 reproduces it); +0.05 is ρ = 0.75's window from 10³.
+OLD (l. 18): "also above the line at 10⁹ from 10⁴–10⁵ on (+0.05…+0.31)"
+NEW: "also above the line at 10⁹ from 10⁴–10⁵ on (+0.07…+0.31)"
+OLD (l. 323, Instruments row): "above the line from 10⁴ / 10⁴ / 10⁵ / 10⁵ (+0.05…+0.31)"
+NEW: "above the line from 10⁴ / 10⁴ / 10⁵ / 10⁵ (+0.07…+0.31)"
 
 **m3 — the prime gap below 10⁹ is now computed.**
 OLD (l. 72): "[recalled, unverified] 282 — the rule fills deficits well before the worst gap.)"
@@ -225,3 +286,63 @@ OLD (l. 314–315): "Dedekind zeta functions (prime-local, a_p ∈ {0, …, d}, 
 NEW: "Dedekind zeta functions (prime-local, a_p ∈ {0, …, d}, β > 0)"
 (No other sentence of the NOTE says only that RH is open or untouched; l. 271 "is open here" is about the unit's own question and
 stays. SHARED.md 12:52 ends "RH untouched (U ⇒ RH, not conversely)" — append-only, left to the orchestrator.)
+
+**m14 — Table 2.1, one rounding.** The unit's own log (`verify/logs/sweep/s7_v0_r3-4_X1000000000.log`) and read-O both give
+sup|ψ_P − x| = 913,482 at ρ = 0.75.
+OLD (l. 102): "| 0.75 | 763.0 | −93.0 | 9.14·10⁵ |"
+NEW: "| 0.75 | 763.0 | −93.0 | 9.13·10⁵ |"
+
+## §6. Novelty per result
+
+| result (NOTE) | verdict | basis |
+|---|---|---|
+| S7(ρ) and S7^{≤2}(ρ) as constructions (§1, §4.2) | **new** (dual-checked search) | §3: arXiv q1–q3 + free-greedy's `Beurling AND greedy` (0) + on-disk grep; no integer-feedback Beurling construction in print |
+| numerical crossing of U's line with multiplicative a_n, tame for the cap (§2, §4.2) | **new (numerical)**; reproduced digit for digit | read-O §2 |
+| the zeros ρ₁, ρ₂, z₁, z₂ of F_X and their stability (§3.2, §4.2) | **new (numerical)**; reproduced to every printed digit | read-O §2 |
+| Lemma 1.1 (structure) | elementary, standard (Euler product over prime-power g-primes) | — |
+| Lemma 1.2 (downward side bounded by prime-power gaps) | **new as a statement** about this construction; elementary | — |
+| Lemma 4.1 (m ≤ 2 ⇒ a_n ≪ n^ε) | **new as a statement, routine method** (partition-function bound + ω(n) ≪ log n/log log n) | standard ingredients |
+| Theorems K₇, K₇^{≤2} | **new as statements on a printed core** — Rouché transfer + the Landau-type step (4); template uo §4 K′ | §1(e), (h) |
+| §5(i), §5(iii) identities and the hyperbola exponent κ/(1 + κ − μ) | routine (may be classical, as the NOTE says) | — |
+| §5(ii) "Tao/Klurman do not reach S7's g" | correct at the page | §3 |
+
+## §7. Additions (single-check, read-O)
+
+- **A1 [proved, single-check] Absolute convergence of ζ_P on σ > 1 and N(x) ≪_ε x^{1+ε}, unconditionally, for every S7(ρ).**
+  Lemma 1.2's proof gives m_q < 1 + ρ(q − q_prev) at every prime power q (q_prev = previous prime power, q_prev(2) = 1). Since
+  (q − q_prev)q^{−σ} ≤ ∫_{q_prev}^{q}x^{−σ}dx, Σ_q m_q q^{−σ} < Σ_q q^{−σ} + ρ/(σ − 1); with −log(1 − v) ≤ 2v (v ≤ ½),
+  log ζ_P(σ) = Σ_q m_q(−log(1 − q^{−σ})) ≤ 2Σ_q m_q q^{−σ} < ∞. Rankin: N(x) ≤ x^σζ_P(σ). Replaces "not proved" in Lemma 1.1 (m1).
+  It does not give N(x) = O(x): log ζ_P(σ) is only ≪ 1/(σ − 1) by this route.
+- **A2 [computed] Lemma 1.2 has no analog for the cap, on the data.** The largest prime-power gap below 10⁹ is 282 (`gapo_1e9.log`),
+  so for S7(0.6) Lemma 1.2 gives inf E > −169.7 (data −93.2) — but S7^{≤2}(0.6) reaches inf E = −197.8 < −169.7 by 10⁹. The cap's
+  downward side is NOT controlled by prime-power gaps; H₇^{≤2}'s lower half needs a different mechanism (the NOTE's "repaid over
+  several prime powers", l. 34) — UT-L0 should say so.
+- **A3 [proved, single-check] Lemma 4.1 for the inverse.** For m_{p^k} ≤ 2 the local factor of μ_P = a^{∗−1} is Π_k(1 − u^k)^{m_{p^k}},
+  whose coefficients are bounded in absolute value by those of Π_k(1 + u^k)² ≤ Π_k(1 − u^k)^{−2} coefficientwise; so |μ_P(n)| ≤
+  exp(7√(ω(n)Ω(n))) = n^{o(1)} too — both series of Révész–Pintz's key lemma (p. 4, their (17)) satisfy the Ramanujan condition.
+- **A4 [proved] Rigorous Taylor remainder for the unit's box method** (m5): ≤ 3.4·10⁻²⁹ on ∂B₁ — the method's truncation is not a
+  floating-point issue; what remains floating-point is the double-precision summation and the 400-point sampling.
+- **A5 [computed] Independent boxes by direct sums** (no Taylor moments; `boxo.py`, K = 40 per side, 160 points; logs
+  `box_*_X1e9_K40.log`): see §2 — winding 1 on B₁ and B^{≤2}, min|F_X| 0.06542 and 0.06933 (NOTE 0.0654, 0.0692), and a sampled
+  Lipschitz lower bound min|F| − max|F′|h/2 = 0.0635 and 0.0673, i.e. ≥ 9.3 and 10.7 times the H_{0.40} tails 0.00683 and 0.00628.
+- **A6 [computed] Rouché thresholds.** The box inequality holds for θ < 0.4958 (B₁), < 0.5018 (B^{≤2}), < 0.4654 (B₂); the binding
+  constraint for refuting U is 2θ < left edge: θ < 0.4005 (B₁), 0.4022 (B^{≤2}); B₂ alone would need θ < 0.3926.
+- **A7 [computed]** ζ has all 29 zeros with 0 < t ≤ 100 on the line (m4); the prime gap 282 (m3).
+- **A8 (possible sharpening, not run)** A thinner box with left edge 0.815 around ρ₁ (min|F| ≈ 3.41·0.006 ≈ 0.02 against an H_{0.407} tail
+  ≈ 0.006) would let K₇ run with θ ≤ 0.407; the gain over 0.40 is immaterial next to the data (top-decade ratio 0.35 at θ = 0.40).
+
+## §8. What I could not check, and why
+
+- **A proof-grade box.** My boxes (direct sums, double precision, Neumaier-compensated block sums, 160 boundary samples, sampled
+  max|F′| for the Lipschitz margin) are floating-point like the NOTE's; agreement of two independent methods (Taylor moments vs exact
+  per-term ratio recurrence) and a ≥ 9× margin make an error implausible, but an interval (arb) evaluation over all 10⁹ terms (UT-L2)
+  was not run — at 10⁹ terms per point it needs a vectorized ball-arithmetic kernel, beyond this read's 30-minute rule.
+- **The upward half of H₇ / H₇^{≤2}** (any growth bound for the clusters of §2.3): no argument found; the reading confirms only that
+  the NOTE's reduction (Lindley form, §1(f)) is right and that the cap's lower half needs something other than gaps (A2).
+- **§2.4 (Tt, W sizes), §3.5 (sup|T|/V = 12.6), §3.1 strips [0.55, 0.70] (27 zeros)**: not recomputed (not load-bearing; the NOTE
+  itself calls the last indicative). T(10⁹) ≈ ψ_P(10⁹) − 10⁹ = 3.78·10⁶ is consistent with my ψ_P(10⁹) − 10⁹ = 3,781,277.
+- **§4.2 "a_n > d(n) for 15,033 n ≤ 10⁹, max a_n/d(n) = 2.5"** (cap): not recounted (d(n) to 10⁹ not built). The analogous §1 control
+  (e) at ρ = 0.8, 10⁷ reproduces exactly: max a_n = 72 at 5,825,921 (d = 4), max a_n/d(n) = 23.5 at 9,353,411 (m = 47), 287,082 n
+  with a_n > d(n) (`logs/control_e_r08_1e7.log`).
+- **Not opened** (also not opened by the NOTE): the Baker–Harman–Pintz gap exponent 0.525 and Cramér's conjecture (both stay
+  [recalled, unverified]; nothing rests on them); Hilberdink 2005/2012, BDR, DMV (context only, through uo §5).

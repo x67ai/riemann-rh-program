@@ -1,0 +1,196 @@
+# gen7o rho=3/4 cap=0 X=1000000000 SQ=31622 nsp=3401
+CHK n=10 N=8 denE=1 denC=2 psi-n=-3.777 Mg=0 MP=-1
+CHK n=100 N=75 denE=-1 denC=0 psi-n=-16.937 Mg=-1 MP=-1
+CHK n=1000 N=749 denE=-5 denC=-4 psi-n=1.347 Mg=4 MP=-21
+CHK n=10000 N=7503 denE=11 denC=12 psi-n=-60.211 Mg=-5 MP=-29
+CHK n=100000 N=75000 denE=-1 denC=0 psi-n=-364.189 Mg=-47 MP=-19
+CHK n=1000000 N=750013 denE=51 denC=52 psi-n=1346.437 Mg=-72 MP=-736
+CHK n=10000000 N=7500014 denE=55 denC=56 psi-n=8649.807 Mg=175 MP=-1472
+CHK n=100000000 N=75000083 denE=331 denC=332 psi-n=76321.821 Mg=831 MP=5234
+CHK n=1000000000 N=750000069 denE=275 denC=276 psi-n=-9918.434 Mg=4238 MP=-10160
+SUM X=1000000000 N=750000069 C(X)=276/4 supE=3052/4 infE_int=-369/4 infE_real=-372/4 maxa=234@925711753 maxm=93@943974877 psi-X=-9918.434 Mg=4238 MP=-10160
+B 6 lo=2 supE=0.2 infE=-0.5 absE=0.5 psi=2.0 Mg=1 MP=0 maxa=1
+B 9 lo=3 supE=0.5 infE=-0.2 absE=0.5 psi=2.3 Mg=1 MP=1 maxa=1
+B 12 lo=4 supE=0.8 infE=0.0 absE=0.8 psi=2.2 Mg=1 MP=1 maxa=1
+B 13 lo=5 supE=0.0 infE=-0.8 absE=0.8 psi=2.5 Mg=0 MP=1 maxa=0
+B 15 lo=6 supE=0.2 infE=-0.5 absE=0.5 psi=0.0 Mg=0 MP=0 maxa=1
+B 16 lo=7 supE=0.5 infE=-0.2 absE=0.5 psi=4.5 Mg=0 MP=1 maxa=1
+B 18 lo=8 supE=0.8 infE=0.0 absE=0.8 psi=3.6 Mg=0 MP=1 maxa=1
+B 19 lo=9 supE=1.0 infE=0.2 absE=1.0 psi=3.9 Mg=0 MP=1 maxa=1
+B 20 lo=10 supE=0.5 infE=-0.5 absE=0.5 psi=4.8 Mg=0 MP=2 maxa=1
+B 21 lo=12 supE=0.8 infE=0.0 absE=0.8 psi=0.0 Mg=0 MP=2 maxa=1
+B 22 lo=13 supE=0.2 infE=-0.8 absE=0.8 psi=4.4 Mg=1 MP=2 maxa=1
+B 23 lo=15 supE=-0.5 infE=-1.2 absE=1.2 psi=0.0 Mg=1 MP=1 maxa=0
+B 24 lo=16 supE=0.0 infE=-1.0 absE=1.0 psi=7.7 Mg=1 MP=2 maxa=1
+B 25 lo=18 supE=0.5 infE=-0.5 absE=0.5 psi=6.9 Mg=1 MP=3 maxa=1
+B 26 lo=20 supE=0.2 infE=-1.0 absE=1.0 psi=0.0 Mg=1 MP=3 maxa=1
+B 27 lo=23 supE=0.8 infE=-0.8 absE=0.8 psi=7.9 Mg=1 MP=2 maxa=1
+B 28 lo=26 supE=0.8 infE=-1.5 absE=1.5 psi=8.8 Mg=1 MP=3 maxa=2
+B 29 lo=29 supE=0.5 infE=-1.5 absE=1.5 psi=8.4 Mg=1 MP=5 maxa=2
+B 30 lo=32 supE=1.2 infE=-0.2 absE=1.2 psi=2.5 Mg=0 MP=5 maxa=1
+B 31 lo=36 supE=0.8 infE=-1.2 absE=1.2 psi=6.8 Mg=1 MP=3 maxa=1
+B 32 lo=40 supE=0.8 infE=-2.0 absE=2.0 psi=10.8 Mg=1 MP=6 maxa=2
+B 33 lo=45 supE=1.0 infE=-0.8 absE=1.0 psi=5.6 Mg=0 MP=6 maxa=1
+B 34 lo=51 supE=1.2 infE=-1.0 absE=1.2 psi=5.8 Mg=0 MP=6 maxa=2
+B 35 lo=57 supE=1.5 infE=-1.0 absE=1.5 psi=7.9 Mg=0 MP=6 maxa=2
+B 36 lo=64 supE=1.8 infE=-0.5 absE=1.8 psi=7.0 Mg=1 MP=5 maxa=1
+B 37 lo=71 supE=0.8 infE=-2.5 absE=2.5 psi=14.7 Mg=1 MP=7 maxa=3
+B 38 lo=80 supE=2.2 infE=-1.0 absE=2.2 psi=10.5 Mg=1 MP=7 maxa=2
+B 39 lo=90 supE=0.5 infE=-2.2 absE=2.2 psi=18.5 Mg=1 MP=3 maxa=2
+B 40 lo=100 supE=1.8 infE=-1.8 absE=1.8 psi=17.9 Mg=1 MP=5 maxa=2
+B 41 lo=113 supE=2.8 infE=-3.0 absE=3.0 psi=14.6 Mg=1 MP=7 maxa=3
+B 42 lo=126 supE=2.2 infE=-1.2 absE=2.2 psi=17.9 Mg=2 MP=5 maxa=1
+B 43 lo=142 supE=2.2 infE=-3.0 absE=3.0 psi=20.1 Mg=2 MP=10 maxa=3
+B 44 lo=159 supE=3.8 infE=-2.2 absE=3.8 psi=14.0 Mg=2 MP=6 maxa=2
+B 45 lo=178 supE=2.0 infE=-2.5 absE=2.5 psi=20.0 Mg=2 MP=10 maxa=3
+B 46 lo=200 supE=4.0 infE=-3.5 absE=4.0 psi=20.6 Mg=2 MP=10 maxa=4
+B 47 lo=224 supE=4.8 infE=-2.2 absE=4.8 psi=10.9 Mg=1 MP=9 maxa=3
+B 48 lo=252 supE=3.0 infE=-2.5 absE=3.0 psi=22.2 Mg=2 MP=16 maxa=3
+B 49 lo=282 supE=2.8 infE=-2.0 absE=2.8 psi=13.3 Mg=1 MP=17 maxa=3
+B 50 lo=317 supE=2.8 infE=-3.2 absE=3.2 psi=31.6 Mg=3 MP=10 maxa=3
+B 51 lo=355 supE=2.8 infE=-2.2 absE=2.8 psi=25.9 Mg=2 MP=11 maxa=3
+B 52 lo=399 supE=4.8 infE=-4.2 absE=4.8 psi=16.1 Mg=3 MP=16 maxa=4
+B 53 lo=447 supE=3.2 infE=-2.5 absE=3.2 psi=39.3 Mg=3 MP=10 maxa=3
+B 54 lo=502 supE=3.8 infE=-3.0 absE=3.8 psi=37.1 Mg=4 MP=15 maxa=3
+B 55 lo=563 supE=3.0 infE=-3.8 absE=3.8 psi=35.9 Mg=4 MP=13 maxa=4
+B 56 lo=631 supE=6.0 infE=-6.5 absE=6.5 psi=25.7 Mg=3 MP=22 maxa=6
+B 57 lo=708 supE=4.0 infE=-3.8 absE=4.0 psi=34.0 Mg=5 MP=17 maxa=3
+B 58 lo=795 supE=6.0 infE=-2.5 absE=6.0 psi=50.7 Mg=4 MP=11 maxa=4
+B 59 lo=892 supE=3.0 infE=-5.0 absE=5.0 psi=54.8 Mg=6 MP=22 maxa=5
+B 60 lo=1000 supE=7.5 infE=-4.8 absE=7.5 psi=39.5 Mg=6 MP=21 maxa=4
+B 61 lo=1123 supE=6.2 infE=-8.2 absE=8.2 psi=58.4 Mg=6 MP=20 maxa=7
+B 62 lo=1259 supE=11.8 infE=-4.2 absE=11.8 psi=57.9 Mg=5 MP=13 maxa=6
+B 63 lo=1413 supE=4.0 infE=-3.8 absE=4.0 psi=42.9 Mg=4 MP=23 maxa=4
+B 64 lo=1585 supE=5.5 infE=-5.0 absE=5.5 psi=79.8 Mg=9 MP=32 maxa=5
+B 65 lo=1779 supE=8.5 infE=-5.8 absE=8.5 psi=69.3 Mg=6 MP=34 maxa=5
+B 66 lo=1996 supE=10.8 infE=-5.5 absE=10.8 psi=81.4 Mg=14 MP=18 maxa=6
+B 67 lo=2239 supE=12.5 infE=-4.8 absE=12.5 psi=102.4 Mg=16 MP=42 maxa=7
+B 68 lo=2512 supE=10.2 infE=-6.5 absE=10.2 psi=130.9 Mg=12 MP=34 maxa=7
+B 69 lo=2819 supE=8.2 infE=-6.0 absE=8.2 psi=52.4 Mg=8 MP=22 maxa=6
+B 70 lo=3163 supE=8.2 infE=-5.0 absE=8.2 psi=52.0 Mg=11 MP=33 maxa=7
+B 71 lo=3549 supE=8.0 infE=-6.2 absE=8.0 psi=119.8 Mg=12 MP=46 maxa=6
+B 72 lo=3982 supE=12.8 infE=-5.0 absE=12.8 psi=71.9 Mg=10 MP=49 maxa=6
+B 73 lo=4467 supE=18.5 infE=-5.5 absE=18.5 psi=145.0 Mg=19 MP=22 maxa=7
+B 74 lo=5012 supE=8.8 infE=-6.5 absE=8.8 psi=124.1 Mg=11 MP=43 maxa=7
+B 75 lo=5624 supE=13.5 infE=-9.0 absE=13.5 psi=128.1 Mg=14 MP=51 maxa=8
+B 76 lo=6310 supE=16.8 infE=-6.0 absE=16.8 psi=188.1 Mg=25 MP=48 maxa=8
+B 77 lo=7080 supE=10.8 infE=-10.5 absE=10.8 psi=189.5 Mg=22 MP=44 maxa=8
+B 78 lo=7944 supE=14.2 infE=-7.5 absE=14.2 psi=177.8 Mg=24 MP=37 maxa=8
+B 79 lo=8913 supE=16.5 infE=-9.0 absE=16.5 psi=200.3 Mg=22 MP=63 maxa=9
+B 80 lo=10000 supE=14.8 infE=-6.5 absE=14.8 psi=162.8 Mg=13 MP=53 maxa=8
+B 81 lo=11221 supE=19.5 infE=-8.0 absE=19.5 psi=191.1 Mg=16 MP=35 maxa=9
+B 82 lo=12590 supE=15.2 infE=-11.2 absE=15.2 psi=288.9 Mg=36 MP=93 maxa=11
+B 83 lo=14126 supE=16.2 infE=-8.5 absE=16.2 psi=316.4 Mg=25 MP=105 maxa=9
+B 84 lo=15849 supE=14.8 infE=-10.0 absE=14.8 psi=310.9 Mg=36 MP=69 maxa=12
+B 85 lo=17783 supE=28.5 infE=-8.5 absE=28.5 psi=217.1 Mg=31 MP=52 maxa=12
+B 86 lo=19953 supE=26.0 infE=-12.8 absE=26.0 psi=319.5 Mg=24 MP=80 maxa=12
+B 87 lo=22388 supE=27.8 infE=-12.0 absE=27.8 psi=261.9 Mg=33 MP=72 maxa=11
+B 88 lo=25119 supE=21.8 infE=-13.8 absE=21.8 psi=479.3 Mg=44 MP=159 maxa=13
+B 89 lo=28184 supE=19.8 infE=-11.0 absE=19.8 psi=252.9 Mg=51 MP=103 maxa=14
+B 90 lo=31623 supE=22.2 infE=-11.8 absE=22.2 psi=421.3 Mg=42 MP=85 maxa=12
+B 91 lo=35482 supE=33.8 infE=-17.5 absE=33.8 psi=442.5 Mg=59 MP=122 maxa=18
+B 92 lo=39811 supE=23.8 infE=-13.5 absE=23.8 psi=518.1 Mg=54 MP=121 maxa=14
+B 93 lo=44669 supE=27.8 infE=-12.0 absE=27.8 psi=345.2 Mg=60 MP=133 maxa=14
+B 94 lo=50119 supE=29.8 infE=-12.5 absE=29.8 psi=566.2 Mg=50 MP=169 maxa=18
+B 95 lo=56235 supE=29.5 infE=-19.0 absE=29.5 psi=829.7 Mg=71 MP=136 maxa=14
+B 96 lo=63096 supE=29.8 infE=-13.0 absE=29.8 psi=1020.9 Mg=61 MP=206 maxa=14
+B 97 lo=70795 supE=68.8 infE=-14.2 absE=68.8 psi=804.4 Mg=64 MP=166 maxa=18
+B 98 lo=79433 supE=35.8 infE=-15.0 absE=35.8 psi=893.2 Mg=56 MP=184 maxa=18
+B 99 lo=89126 supE=34.2 infE=-13.8 absE=34.2 psi=915.2 Mg=83 MP=257 maxa=21
+B 100 lo=100000 supE=41.0 infE=-17.5 absE=41.0 psi=881.7 Mg=111 MP=162 maxa=18
+B 101 lo=112202 supE=41.5 infE=-18.8 absE=41.5 psi=1126.6 Mg=108 MP=236 maxa=18
+B 102 lo=125893 supE=58.0 infE=-15.2 absE=58.0 psi=1146.9 Mg=79 MP=378 maxa=21
+B 103 lo=141254 supE=85.5 infE=-19.0 absE=85.5 psi=2154.3 Mg=77 MP=262 maxa=24
+B 104 lo=158490 supE=54.2 infE=-24.8 absE=54.2 psi=791.9 Mg=98 MP=241 maxa=24
+B 105 lo=177828 supE=53.8 infE=-20.0 absE=53.8 psi=1750.0 Mg=145 MP=388 maxa=21
+B 106 lo=199527 supE=86.0 infE=-18.5 absE=86.0 psi=1582.9 Mg=186 MP=341 maxa=21
+B 107 lo=223873 supE=49.2 infE=-17.8 absE=49.2 psi=1166.6 Mg=164 MP=268 maxa=28
+B 108 lo=251189 supE=60.8 infE=-17.5 absE=60.8 psi=2367.7 Mg=75 MP=476 maxa=24
+B 109 lo=281839 supE=53.8 infE=-25.5 absE=53.8 psi=2550.5 Mg=100 MP=640 maxa=26
+B 110 lo=316228 supE=77.2 infE=-24.5 absE=77.2 psi=2135.8 Mg=136 MP=349 maxa=25
+B 111 lo=354814 supE=55.8 infE=-19.0 absE=55.8 psi=2750.2 Mg=221 MP=732 maxa=24
+B 112 lo=398108 supE=92.8 infE=-20.0 absE=92.8 psi=3679.6 Mg=182 MP=621 maxa=24
+B 113 lo=446684 supE=85.8 infE=-30.8 absE=85.8 psi=2622.3 Mg=214 MP=544 maxa=30
+B 114 lo=501188 supE=99.2 infE=-22.5 absE=99.2 psi=2696.8 Mg=191 MP=890 maxa=28
+B 115 lo=562342 supE=83.2 infE=-23.0 absE=83.2 psi=4784.8 Mg=122 MP=1071 maxa=30
+B 116 lo=630958 supE=97.0 infE=-26.0 absE=97.0 psi=4914.8 Mg=204 MP=1039 maxa=28
+B 117 lo=707946 supE=96.5 infE=-23.0 absE=96.5 psi=3701.4 Mg=278 MP=794 maxa=42
+B 118 lo=794329 supE=95.0 infE=-24.0 absE=95.0 psi=4380.4 Mg=308 MP=1008 maxa=26
+B 119 lo=891251 supE=91.5 infE=-30.5 absE=91.5 psi=4992.5 Mg=213 MP=989 maxa=36
+B 120 lo=1000000 supE=124.0 infE=-26.0 absE=124.0 psi=6748.6 Mg=264 MP=1524 maxa=36
+B 121 lo=1122019 supE=114.0 infE=-31.5 absE=114.0 psi=5964.3 Mg=254 MP=1447 maxa=32
+B 122 lo=1258926 supE=127.5 infE=-27.5 absE=127.5 psi=6568.8 Mg=282 MP=2441 maxa=32
+B 123 lo=1412538 supE=130.2 infE=-33.2 absE=130.2 psi=6648.2 Mg=499 MP=1408 maxa=42
+B 124 lo=1584894 supE=116.2 infE=-29.8 absE=116.2 psi=5446.7 Mg=242 MP=1074 maxa=42
+B 125 lo=1778280 supE=97.8 infE=-25.5 absE=97.8 psi=9972.2 Mg=404 MP=2301 maxa=36
+B 126 lo=1995263 supE=213.8 infE=-29.8 absE=213.8 psi=14322.6 Mg=282 MP=3355 maxa=39
+B 127 lo=2238722 supE=146.5 infE=-30.8 absE=146.5 psi=7443.9 Mg=334 MP=2151 maxa=42
+B 128 lo=2511887 supE=145.0 infE=-29.5 absE=145.0 psi=10574.1 Mg=449 MP=2201 maxa=54
+B 129 lo=2818383 supE=175.8 infE=-30.5 absE=175.8 psi=11763.6 Mg=621 MP=2438 maxa=49
+B 130 lo=3162278 supE=134.0 infE=-39.8 absE=134.0 psi=13548.0 Mg=522 MP=2468 maxa=42
+B 131 lo=3548134 supE=179.8 infE=-41.5 absE=179.8 psi=11318.2 Mg=558 MP=3329 maxa=48
+B 132 lo=3981072 supE=155.2 infE=-38.2 absE=155.2 psi=17305.5 Mg=414 MP=4181 maxa=54
+B 133 lo=4466836 supE=177.5 infE=-38.5 absE=177.5 psi=13314.9 Mg=535 MP=4099 maxa=48
+B 134 lo=5011873 supE=153.5 infE=-37.0 absE=153.5 psi=15899.2 Mg=732 MP=2601 maxa=54
+B 135 lo=5623414 supE=211.8 infE=-35.5 absE=211.8 psi=20852.5 Mg=876 MP=2566 maxa=49
+B 136 lo=6309574 supE=178.0 infE=-35.2 absE=178.0 psi=18506.9 Mg=781 MP=4674 maxa=56
+B 137 lo=7079458 supE=217.8 infE=-40.5 absE=217.8 psi=22548.9 Mg=713 MP=3773 maxa=72
+B 138 lo=7943283 supE=211.0 infE=-49.2 absE=211.0 psi=26301.6 Mg=696 MP=5643 maxa=66
+B 139 lo=8912510 supE=243.5 infE=-45.0 absE=243.5 psi=28647.4 Mg=743 MP=5287 maxa=56
+B 140 lo=10000000 supE=171.0 infE=-44.0 absE=171.0 psi=22095.4 Mg=642 MP=5642 maxa=72
+B 141 lo=11220185 supE=251.0 infE=-42.8 absE=251.0 psi=32605.0 Mg=1388 MP=5384 maxa=60
+B 142 lo=12589255 supE=207.5 infE=-53.0 absE=207.5 psi=28101.1 Mg=1043 MP=7531 maxa=72
+B 143 lo=14125376 supE=245.5 infE=-40.0 absE=245.5 psi=32720.7 Mg=1271 MP=9606 maxa=77
+B 144 lo=15848932 supE=265.0 infE=-52.0 absE=265.0 psi=35775.3 Mg=977 MP=6144 maxa=78
+B 145 lo=17782795 supE=303.0 infE=-41.5 absE=303.0 psi=43502.0 Mg=1040 MP=6709 maxa=84
+B 146 lo=19952624 supE=215.2 infE=-52.0 absE=215.2 psi=44776.4 Mg=985 MP=7489 maxa=84
+B 147 lo=22387212 supE=282.0 infE=-51.5 absE=282.0 psi=50750.9 Mg=1781 MP=9847 maxa=108
+B 148 lo=25118865 supE=331.8 infE=-45.2 absE=331.8 psi=56285.4 Mg=1356 MP=7930 maxa=84
+B 149 lo=28183830 supE=276.0 infE=-55.5 absE=276.0 psi=58481.4 Mg=1294 MP=10017 maxa=91
+B 150 lo=31622777 supE=276.2 infE=-53.8 absE=276.2 psi=68852.2 Mg=1474 MP=9089 maxa=90
+B 151 lo=35481339 supE=344.8 infE=-57.5 absE=344.8 psi=68210.7 Mg=1683 MP=8707 maxa=96
+B 152 lo=39810718 supE=357.0 infE=-52.0 absE=357.0 psi=64390.0 Mg=1912 MP=10687 maxa=126
+B 153 lo=44668360 supE=385.8 infE=-50.5 absE=385.8 psi=91606.4 Mg=2464 MP=19759 maxa=108
+B 154 lo=50118724 supE=372.0 infE=-67.5 absE=372.0 psi=95097.8 Mg=2032 MP=13686 maxa=98
+B 155 lo=56234133 supE=308.2 infE=-59.8 absE=308.2 psi=87772.0 Mg=2241 MP=11872 maxa=126
+B 156 lo=63095735 supE=371.0 infE=-52.2 absE=371.0 psi=91770.7 Mg=2440 MP=18025 maxa=91
+B 157 lo=70794579 supE=364.8 infE=-59.2 absE=364.8 psi=150148.6 Mg=2693 MP=26752 maxa=108
+B 158 lo=79432824 supE=403.0 infE=-59.0 absE=403.0 psi=156093.7 Mg=2561 MP=22709 maxa=126
+B 159 lo=89125094 supE=445.2 infE=-53.0 absE=445.2 psi=115601.7 Mg=3415 MP=28060 maxa=126
+B 160 lo=100000000 supE=416.0 infE=-53.5 absE=416.0 psi=159606.7 Mg=2752 MP=35965 maxa=120
+B 161 lo=112201846 supE=455.0 infE=-64.8 absE=455.0 psi=146570.3 Mg=2358 MP=24810 maxa=144
+B 162 lo=125892542 supE=421.2 infE=-60.5 absE=421.2 psi=145789.7 Mg=2696 MP=26424 maxa=126
+B 163 lo=141253755 supE=527.2 infE=-67.0 absE=527.2 psi=256955.3 Mg=3344 MP=39908 maxa=114
+B 164 lo=158489320 supE=552.0 infE=-67.8 absE=552.0 psi=297688.0 Mg=4121 MP=55878 maxa=168
+B 165 lo=177827942 supE=481.2 infE=-67.5 absE=481.2 psi=183933.9 Mg=4798 MP=49240 maxa=140
+B 166 lo=199526232 supE=458.2 infE=-77.0 absE=458.2 psi=212066.8 Mg=5150 MP=46709 maxa=168
+B 167 lo=223872114 supE=475.2 infE=-70.8 absE=475.2 psi=359552.8 Mg=3866 MP=59624 maxa=150
+B 168 lo=251188644 supE=532.2 infE=-70.8 absE=532.2 psi=278055.8 Mg=4075 MP=61139 maxa=144
+B 169 lo=281838294 supE=692.2 infE=-62.0 absE=692.2 psi=286237.2 Mg=5954 MP=106772 maxa=144
+B 170 lo=316227767 supE=504.2 infE=-74.5 absE=504.2 psi=670517.8 Mg=6119 MP=134595 maxa=182
+B 171 lo=354813390 supE=600.8 infE=-79.5 absE=600.8 psi=502195.5 Mg=6719 MP=72347 maxa=168
+B 172 lo=398107171 supE=619.0 infE=-74.8 absE=619.0 psi=277563.2 Mg=5247 MP=52178 maxa=175
+B 173 lo=446683593 supE=606.0 infE=-70.5 absE=606.0 psi=614520.6 Mg=8245 MP=107643 maxa=198
+B 174 lo=501187234 supE=690.0 infE=-81.5 absE=690.0 psi=720380.7 Mg=5482 MP=145693 maxa=210
+B 175 lo=562341326 supE=613.8 infE=-86.0 absE=613.8 psi=506669.1 Mg=7999 MP=119028 maxa=216
+B 176 lo=630957345 supE=651.2 infE=-73.5 absE=651.2 psi=913482.0 Mg=8803 MP=170400 maxa=216
+B 177 lo=707945785 supE=643.2 infE=-84.0 absE=643.2 psi=723916.2 Mg=6670 MP=173489 maxa=216
+B 178 lo=794328235 supE=763.0 infE=-82.0 absE=763.0 psi=771524.1 Mg=7288 MP=126056 maxa=198
+B 179 lo=891250939 supE=746.8 infE=-93.0 absE=746.8 psi=845557.3 Mg=9212 MP=198460 maxa=234
+B 180 lo=1000000000 supE=68.8 infE=68.0 absE=68.8 psi=0.0 Mg=4238 MP=10160 maxa=0
+D 0 m0=1 m1=3 m2=0 m3=0 m4+=0 primes=4 summ=3 mean=0.7500 maxm=1 hpp=0
+D 1 m0=7 m1=11 m2=2 m3=1 m4+=0 primes=21 summ=18 mean=0.8571 maxm=3 hpp=1
+D 2 m0=65 m1=40 m2=21 m3=12 m4+=5 primes=143 summ=141 mean=0.9860 maxm=6 hpp=3
+D 3 m0=611 m1=168 m2=122 m3=80 m4+=80 primes=1061 summ=1048 mean=0.9877 maxm=9 hpp=3
+D 4 m0=5674 m1=713 m2=622 m3=506 m4+=848 primes=8363 summ=8314 mean=0.9941 maxm=18 hpp=10
+D 5 m0=51112 m1=3809 m2=3478 m3=2954 m4+=7553 primes=68906 summ=68972 mean=1.0010 maxm=31 hpp=29
+D 6 m0=463999 m1=20426 m2=19593 m3=18851 m4+=63212 primes=586081 summ=586385 mean=1.0005 maxm=45 hpp=54
+D 7 m0=4212850 m1=122402 m2=117220 m3=121960 m4+=522444 primes=5096876 summ=5099816 mean=1.0006 maxm=68 hpp=111
+D 8 m0=38511169 m1=756274 m2=728028 m3=805568 m4+=4285040 primes=45086079 summ=45079670 mean=0.9999 maxm=93 hpp=258
+H k=3 th0.30=1.4915 th0.32=1.2599 th0.35=0.9831 th0.40=0.6877
+H k=4 th0.30=2.4168 th0.32=1.9328 th0.35=1.3824 th0.40=0.7907
+H k=5 th0.30=2.4394 th0.32=1.9241 th0.35=1.3478 th0.40=0.7447
+H k=6 th0.30=2.7074 th0.32=2.0232 th0.35=1.3069 th0.40=0.6309
+H k=7 th0.30=1.9679 th0.32=1.4065 th0.35=0.8499 th0.40=0.3747
+H k=8 th0.30=1.9893 th0.32=1.3467 th0.35=0.7501 th0.40=0.2895
+H k=9 th0.30=0.1377 th0.32=0.0910 th0.35=0.0488 th0.40=0.0173

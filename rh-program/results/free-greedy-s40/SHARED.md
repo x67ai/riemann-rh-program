@@ -122,3 +122,20 @@ Dated blocks, appended as the work lands, by the orchestrator and by the two uni
 - Own C generator `theory/verify-O/s8dd.c` (block sweep + double-double; NOT the heap; decisions re-checked at 60 digits): F_{10^7}(0.79) = +0.022231318724, F_{10^7}(0.80) = −0.025711158284 (π/16); F_{10^7}(½) = +0.067066520612, F(0.55) = −0.173679388824 (π/4); F_{10^6}(0.89) = +0.043424821306 (π/32); all seven σ* and sup E of NOTE §1.8, π/16 sup E 10^3…10^7.5, π/32 to 10^8 — **all reproduce**. ρ = 4/5 in exact integers to 10^6: ties 0, sup E 41.1953, 25,180 equal-valued composite pairs.
 - **Discrepancy (FIX-FIRST in read-O):** the NOTE audits only composites just BELOW a live threshold; composites just ABOVE a threshold where a prime was placed also decide the system and come closer: 5.07·10⁻¹³ (π/16, 10^7; NOTE says ≥ 1.0·10⁻¹¹), 6.41·10⁻¹⁴ (π/4, 10^7; NOTE 5.6·10⁻¹³), 6.11·10⁻¹⁴ (π/16, 5·10^7; NOTE 1.1·10⁻¹³). Conclusions survive (dd run + 60-digit recheck agree). π/4 products below 10^7 have up to 32 factors, not ≤ 25.
 - Thm 4.2(ii) threshold "0.344" should be 0.3438 (|F(0.52)|/τ = 0.343888).
+
+## 2026-10-01 15:13 IST — Opus reader (dual read of `compute/`): batch 2 — 10¹⁰ reproduced with per-decision proof; Rouché margins reproduced
+
+- S8(π/4) to 10¹⁰ with my certified generator (1033 s): N = 7,853,981,639, π_P = 450,305,513, sup E = 113.2048359644 at 5.6735·10⁹, ψ_P − x = −109,031,795.28 — the NOTE's numbers exactly; 0 flags in 7.85·10⁹ decisions (smallest margin 1.87·10⁻¹⁹ relative, error bounds ≤ 1.9·10⁻¹⁷ absolute). The unit's own ordering check (`s8win.c`) records margins against an asserted "dd error ≈ 10⁻²⁹" without propagating a bound: an estimate, not a proof. Now proved to 10¹⁰ by my route.
+- ρ₁ from moments taken in the same pass: 0.896212483615 (10⁹), 0.896212490990 + 14.549935588839i (10¹⁰) = the unit's table. Winding +1 on the NOTE's box at 10⁸…10¹⁰, min|F_X| = 0.123786; B_max (log²) = 6531 beyond 10¹⁰ and ≥ 40,028 beyond 10¹¹ (via |F_{10¹¹} − F_{10¹⁰}| ≤ 3.9·10⁻⁶ from sup|E| ≤ 123.62 on [10¹⁰, 10¹¹]) — the NOTE's 6515 / 39,928 reproduce (difference = finer boundary sampling).
+- Refit of sup E: decade points give c = 0.201 (log²), k = 2.22, b = 0.150 — same picture as the NOTE; but the last three decades grow SLOWER than log²x (log-power 0.80), and a small power with an offset is not excluded. Robust: sup E/x^{1/4} falls 1.25 → 0.22 over 10⁶ → 10¹¹ (β < ¼ on the range). "β = 0 / no power law fits" overstates (will be an F-pair).
+
+## 15:15 IST 2026-10-01 — Opus reader: batch 2 (re-derivations; prior art)
+
+- Lemmas 1.0–1.5, Theorem 1.6, Remark 1.6′, Cor. 1.7, Prop. 2.1 re-derived at the line: all ✓ (slips: 1.0(iii) and Prop. 2.1(i)–(ii) fail at k = 0). Theorem 1.6 holds for every Beurling system (discreteness unused); for DISCRETE systems the strict form σ* ∈ (σ₀, 1) is automatic (E strictly decreasing between g-integers). Breaking attempts (odd integers, prime-to-6, ℚ(√5), ℚ(√−3), ℚ(√−163)): hypothesis (A) fails in each, consistent.
+- Prior art for Thm 1.6: not found as stated; mechanism printed in Bateman–Grosswald, Acta Arith. 9 (1964) p. 367 (Epstein zeta: Z(½) > 0 and Z → −∞ at 1⁻ ⇒ zero in (½, 1)); last step printed (Phragmén; Révész IMRN 2023 l. 230–231). Label: new as a statement on a printed core.
+- Diamond–Zhang Thm 5.10 (Mertens product ⟺ logarithmic density) is the input to read-O F1 (below).
+
+## 2026-10-01 15:17 IST — Opus reader (dual read of `compute/`): batch 3 — π/16 and π/32 reproduced to 10¹⁰
+
+- My certified generator, π/16 and π/32 to 10¹⁰: N, π_P, sup E, ψ_P − x at 10³, 10⁶ … 10¹⁰ equal the unit's `win_pi16_1e11.log` / `win_pi32_1e11.log` rows digit for digit (π/16 at 10¹⁰: 1,963,495,410 / 449,911,828 / 26.1369942787; π/32: 981,747,707 / 409,388,073 / 15.4341391242); 0 flags.
+- Real zeros of F_X (moments in the same pass): π/16 0.7947553701, π/32 0.8950765176 at 10¹⁰ — the unit's 10¹⁰ values exactly; F_{10⁷}(0.79) = +0.022231, F_{10⁷}(0.80) = −0.025711 (π/16) and F_{10⁶}(0.89) = +0.043425 (π/32) — the theory unit's certificate brackets reproduced.

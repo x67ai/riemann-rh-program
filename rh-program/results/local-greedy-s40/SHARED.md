@@ -125,3 +125,21 @@ S7(3/5) at 4·10⁹ (`verify-O/logs/gen7o_r3-5_cap0_X4e9.log`): sup E = 1304.4, 
 ρ₂ = **0.8052962768 + 20.2490761854i** (10⁹, |F′| = 4.4060); capped z₁ = **0.8243657829 + 11.0306645665i** (10⁹, |F′| = 3.6172),
 z₂ = 0.7665283791 + 20.2045625529i — every printed digit of the NOTE's §3.2/§4.2 values. Proofs: Lemmas 1.1, 1.2, 4.1, Theorems K₇,
 K₇^{≤2} re-derived at the line, no FALSE step; read-O §1 written. Running: the three boxes at 10⁹ by direct sums (K = 40 per side).
+
+## 15:11 IST 2026-10-01 — read-O: the K-boxes reproduce by direct sums; pairs drafted [computed + read]
+Boxes at X = 10⁹ by DIRECT sums (`verify-O/boxo.py`: exact per-term ratio recurrence along each side, 160 points, no Taylor moments):
+B₁ = [0.8010, 0.8410] × [11.0677, 11.1077]: winding 1.000000, min|F_X| = 0.06542 (NOTE 0.0654), max|F′| on ∂B₁ = 3.84, sampled
+Lipschitz bound min|F| − max|F′|h/2 = 0.0635 vs H_{0.40} tail 0.00683; B^{≤2} = [0.8044, 0.8444] × [11.0107, 11.0507]: winding 1.000000,
+min|F_X| = 0.06933 (NOTE 0.0692), Lipschitz bound 0.0673 vs tail 0.00628. Tails reproduce (0.00069/0.00216/0.00683/0.0220; cap
+0.00064/0.00198/0.00628/0.0202). Rigorous Taylor remainder of the unit's own method ≤ 3.4·10⁻²⁹ (316.9·Σ_{k≥25}0.586^k/k!).
+Also: largest prime (and prime-power) gap below 10⁹ = 282 after 436,273,009 [computed]; all 29 zeros of ζ with t ≤ 100 on the line
+[computed]; NOTE control (e) at ρ = 0.8, 10⁷ exact. read-O.md §1, §3–§8 drafted: 2 FIX-FIRST (F1 §0 scopes an F_X scan as ζ_P;
+F2 Révész–Pintz need Axiom A = the open H), ~13 minor (m12–m13 standing order 14). Running: B₂ box, other densities at 10⁹, strip scan.
+
+## 15:19 IST 2026-10-01 — read-O: B₂, the five other densities and the §3.6 zeros reproduce [computed]
+B₂ = [0.7853, 0.8253] × [20.2291, 20.2691] at 10⁹ by direct sums: winding 1.000000, min|F_X| = 0.08378 (NOTE 0.0838), tails
+.00179/.00563/.01793/.05808 (NOTE .0018/.0056/.0179/.058). Densities 0.75, 0.8, 0.9, 1.1, 1.25 at 10⁹ (own gen7o; exact sup/inf E):
+every Table 2.1 entry reproduces (sup E 763.0, 1048.0, 969.8, 3839.1, 23003.25; inf E −93.0, −103.6, −106.2, −174.4, −219.0; max a_n
+234, 270, 247, 825, 1827; max m_p 93, 104, 102, 142, 219; anatomy fractions all), except a rounding: sup|ψ_P − x| at 0.75 is 913,482
+(the unit's own log agrees) → 9.13·10⁵, not 9.14·10⁵ (minor m14); a − 2b within ±0.01. ρ = 1.5: N(10⁸)/10⁸ = 1.50993. §3.6 zeros at
+10⁸ (ρ = 0.75, 0.8, 1.1; nine zeros) to every printed digit. Pairs now: 2 FIX-FIRST, 14 minor (all OLD quotes checked verbatim).

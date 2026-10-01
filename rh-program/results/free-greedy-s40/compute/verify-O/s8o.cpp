@@ -48,7 +48,7 @@ static uint64_t cnt = 1, npr = 0;  // g-integers placed so far (1 included), g-p
 static double supE = 0.0, supEx = 1.0;
 static double thS = 0.0, thC = 0.0; // theta_P, Neumaier-compensated
 static long long flags = 0, ncmp = 0, flagsB = 0, nties = 0;
-static double minratio = 1e300, minabs = 1e300, minrel = 1e300;
+static double minratio = 1e300, minabs = 1e300, minrel = 1e300, minabsx = 0, minrelx = 0;
 static FILE* dumpf = nullptr; static double dumpX = 0;
 static std::vector<double> dumpbuf;
 // checkpoints
@@ -208,8 +208,8 @@ int main(int argc, char** argv) {
         ncmp++;
         if (dd <= bound) flags++;
         double r = dd / bound; if (r < minratio) minratio = r;
-        double ab = dd * ULP; if (ab < minabs) minabs = ab;
-        double rl = ab / toD(c); if (rl < minrel) minrel = rl;
+        double ab = dd * ULP; if (ab < minabs) { minabs = ab; minabsx = toD(c); }
+        double rl = ab / toD(c); if (rl < minrel) { minrel = rl; minrelx = toD(c); }
         if (c < L) { emit(c, false); i++; continue; }
       }
       if (L >= bfx) break;
@@ -250,6 +250,7 @@ int main(int argc, char** argv) {
   }
   printf("# certification: comparisons=%lld flags=%lld boundary_flags=%lld min(|diff|/errbound)=%.3e min|diff|=%.3e abs, %.3e rel; max composite err=%.3e ulps (=%.3e abs)\n",
          ncmp, flags, flagsB, minratio, minabs, minrel, maxErrAll, maxErrAll * ULP);
+  printf("# smallest absolute margin %.4e at x = %.8e; smallest relative margin %.4e at x = %.8e\n", minabs, minabsx, minrel, minrelx);
   printf("# composite pairs within 2x error bound (exact ties for rational t, near-ties otherwise): %lld\n", nties);
   printf("# final: N(X)=%llu pi_P(X)=%llu supE=%.10f at %.8e prefixes_left=%zu storedprimes=%zu\n",
          (unsigned long long)cnt, (unsigned long long)npr, supE, supEx, PRE.size(), PK.size());
