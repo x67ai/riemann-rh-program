@@ -52,6 +52,15 @@ def frac_primes(y, span=100000):
 csp = np.zeros(8); com = np.zeros(4); ncell = 0
 for a, b in ctrl:
     s1, o1, _ = classes(range(a, b + 1)); csp += s1; com += o1; ncell += b - a + 1
+# exact shares w_class = sum over q in class of (1/q) prod_{p<q} (1 - 1/p); M(sqrt x) closes the decomposition
+bins = [0, 1, 2, 3, 10, 100, 1000]
+def shares(x):
+    z = math.sqrt(x); M = 1.0; w = np.zeros(8); j = 0
+    while True:
+        q = pv(j)
+        if q > z: break
+        cls = np.searchsorted(bins, j, side='right') - 1; w[min(cls, 7)] += M / q; M *= (1 - 1 / q); j += 1
+    return w, M
 print('BASE per-cell spf classes [p1,p2,p3,p4..p10,p11..p100,p101..p1000,>p1000]:', ' '.join('%.4f' % v for v in csp[:7] / ncell),
       '| Omega 2,3,4,>=5:', ' '.join('%.4f' % v for v in com / ncell), '| cells', ncell)
 for i, T in enumerate(tops):
@@ -66,5 +75,7 @@ for i, T in enumerate(tops):
         k1, k2 = int(ucell(y1)), int(ucell(y2)) + 1
         emax = int(np.asarray(e[max(k1-1, 0):k2]).max()); e0 = int(e[max(k1 - 2, 0)])
         lower.append('q%d: dE=%+.2f primes=%d/%.2f emax=%d e0=%d' % (q + 1, X[q], npr, fp * (y2 - y1) * rho, emax, e0))
-    print('ANAT %d h=%d x=%.4e lbuild=%d len=%d arrivals=%d | spf excess:' % (i, h, xk(a), lb, b - a, int(sp.sum())),
-          ' '.join('%+.1f' % v for v in (sp - exp_sp)[:7]), '| Omega excess 2,3,4,5+:', ' '.join('%+.1f' % v for v in om - exp_om), '|', ' ; '.join(lower))
+    w, Msq = shares(xk(pk_)); ex = sp[:7] - lb * w[:7]
+    if abs(ex.sum() - lb * Msq - h) > 1e-6: print('decomposition check failed', i, ex.sum() - lb * Msq, h)
+    print('ANAT %d h=%d x=%.4e lbuild=%d len=%d arrivals=%d | exact spf-class excess C-lb*w [p1,p2,p3,p4-10,p11-100,p101-1000,>p1000]:' % (i, h, xk(a), lb, b - a, int(sp.sum())),
+          ' '.join('%+.2f' % v for v in ex), '(z:', ' '.join('%+.1f' % (v / math.sqrt(lb * ww)) for v, ww in zip(ex, w[:7])), ') -lb*M(sqrt x)=%.2f' % (-lb * Msq), '| Omega excess 2,3,4,5+:', ' '.join('%+.1f' % v for v in om - exp_om), '|', ' ; '.join(lower))

@@ -586,3 +586,124 @@ F.2 Ranking of candidate next units (contract clause; price; stop line). Reads =
 7. **Theorem 1.6 as a Siegel-zero criterion elsewhere** (fgT UT-F5): prior-art check first (Bateman–Grosswald, Rosser; number fields
    fail (A) by Ω₋ lattice-point results). Price: ½ slot (a scout). Instrument-grade.
 Not ranked (Untried, §G): s5m UT-M2/M3 (S5's certified exponent past 0.383 — the candidate is withdrawn), lg UT-L3 (three unrun variants).
+
+## §G Untried entries for the four Session-40 units (the directions' format; ready to append; files not edited)
+
+Format of the B2/C2 "Untried" lists (README line 34: each with its S1–S5 fit reason and first rung). Text from the NOTEs as corrected by
+the reads; renames to avoid collisions: lg's UT-L0…UT-L7 → **UT-LG0…UT-LG7** (B2 already holds lemG's UT-L1…UT-L5); fgC's four unnamed
+bullets → **UT-C1…UT-C4**. Items funded in §F.2 say so; they stay Untried until a result file exists (10(m)).
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/free-greedy-s40/theory/NOTE.md` §6]** **UT-F1 Prove Lemma B_ρ** for one
+  ρ < ¼ (π/16 the natural choice): E = O(x^θ) for some θ ≤ ½ − ρ, any constant; with Theorem 1.6 it refutes U with no computation. The
+  sieve form is NOT a shortcut — two-sided square-root cancellation in S(I) is false for S8 (Mertens bias, DZ Thm 5.10; read-O F1); the
+  usable form is the one-sided Lemma S, a short-interval lower bound for the primes of S8. Fit: S1 (discrete, Λ ≥ 0, one-sided integer
+  positivity consumed); a proof is a conditional-free refutation of U. First rung: the Lindley form (fgT rF:22) and U3's "E = o(x)".
+  IN FLIGHT: `lemmaB-s41` U1–U7. Target: B2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/free-greedy-s40/theory/NOTE.md` §6]** **UT-F2 The one-sided Lemma S for the
+  randomized rule S8^w** (early placement keeps E > −½ for every realization): a martingale ordered by the scale u/d of the increments
+  ΔE(I/d), controlling fluctuations AROUND the Mertens bias (decorrelation of μ(d) from the drift is false, read-O F1); positive
+  probability suffices for U. Fit: S1; S2 (one realization suffices). First rung: the bias A3 as the compensator's mean. Caution: S8^w's
+  offsets of width 50 RAISED sup E at 10⁷ from 12.8 to 58–171 (fgT NOTE:29–30). Target: B2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/free-greedy-s40/theory/NOTE.md` §6]** **UT-F3 Large-X evidence at small ρ.**
+  sup E and the largest g-prime gap for π/16, π/32 to 10⁹–10¹⁰ with an exact-ordering generator. PARTLY DONE: fgC ran both to 10¹¹
+  (sup E 33.27, 20.36; ≈ 0.05, 0.03·log²x) and read-O proved the ordering to 10¹⁰; the largest-gap series beyond 10⁸ is still owed (gap
+  1858.9 = 2.90·log²x at π/4, fgC NOTE l. 121, not re-run by read-O). Fit: instrument. First rung: gap records from `s8o.cpp` to 10¹⁰.
+  Target: B2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/free-greedy-s40/theory/NOTE.md` §6]** **UT-F4 Rigorous bracket at scale.**
+  π/16: F_X(0.79) > 0 and F_X(0.80) < 0 by interval arithmetic at X = 10⁹ (not needed when ρ < ¼; it lifts the floor 1 − 2ρ = 0.607 to
+  0.79 and relaxes the needed θ to 0.395). Fit: instrument. IN FLIGHT: `lemmaB-s41` U6-certificate. Target: B2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/free-greedy-s40/theory/NOTE.md` §6]** **UT-F5 Is Theorem 1.6 a Siegel-zero
+  criterion elsewhere?** For a zeta with Euler product, positive coefficients and residue ρ: "the coefficient count never falls below
+  ρu + r₀, r₀ > ρ ⇒ real zero ≥ r₀/(r₀ + ρ)"; number fields fail the hypothesis by Ω₋ lattice-point results. Its mechanism is printed for
+  Epstein zeta (Bateman–Grosswald 1964 p. 367; read-O §3). Fit: S2-adjacent (a real-zero detector from counts). First rung: the
+  prior-art check (§F.2 item 7). Target: C2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/free-greedy-s40/compute/NOTE.md` §0 (Untried)]** **UT-C1 Interval-arithmetic
+  Rouché for ρ₁ of S8(π/4).** Turns "min|F_X| = 0.1234 on the box" into a certificate. PARTLY DONE: read-O A3 bounds |F′_X| rigorously
+  (2154.7 on the box at 10¹⁰) and gets min|F_{10¹⁰}| ≥ 0.1076, winding +1 "up to the floating-point error of the samples". Fit:
+  instrument (a certified ρ₁ plus the tail bound |E(u)| ≤ 39,928·log²u beyond 10¹¹ would refute U, since Re ρ₁/2 = 0.448 exceeds every
+  measured β-estimate; π/4 > ¼ lies outside Theorem 1.6's regime). First rung: mpmath/arb intervals on the 1600 boundary
+  points at X = 10⁶ (785,400 dumped g-integers). Target: B2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/free-greedy-s40/compute/NOTE.md` §0 (Untried)]** **UT-C2 X = 10¹² for
+  ρ = π/4.** One more decade of the E-law (the last three decades grew more slowly than log²x, read-O F2). Fit: instrument. First rung:
+  the large-prime list on disk read by the multiplier cursors in windows (memory caps the run at ~10¹¹). Target: B2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/free-greedy-s40/compute/NOTE.md` §0 (Untried)]** **UT-C3 The θ → 0 and
+  ρ → 1 limits of S8(ρ, θ).** Where does the rightmost zero go — θ = ¼ already pulls it to 0.71 with a real zero 0.62. Fit: S2 (the zero
+  moves with the rule: a design knob for lemmaB-s41's "threshold τ → 0", CHARTER §2(d)). First rung: θ = 0.1, 0.05 at 10⁸. Target: B2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/free-greedy-s40/compute/NOTE.md` §0 (Untried)]** **UT-C4 Zeros of S8 with
+  σ < ½.** The zero-counting function of ζ_P, and whether S8 has a "critical line". Fit: S3-adjacent (zero statistics). First rung: the
+  existing scanner on 0.2 < σ < 0.5 at 10¹⁰. Target: B2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/s5-multiplicity-s40/NOTE.md` §7]** **UT-M1 Lemma H with unspecified
+  constant (the ≪ form).** Refuting it needs g-primes beyond any fixed bound (f_G(n) ≤ (1 + log₂ n)^{|G|} for fixed G): a lower bound for
+  a_n that uses the rule itself (n is a g-prime iff A(n) = 0 and E(n − 1) ≤ 0.3) to guarantee carriers of every refused ℓ at all scales.
+  Fit: S1. First rung: prove each refused ℓ ≤ y has ≥ 1 carrier ℓs with s ≤ y^C (data: c_ℓ(x) ≈ 0.9(x/ℓ)/ln x, heuristic). Target: B2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/s5-multiplicity-s40/NOTE.md` §7]** **UT-M2 Certify the exponent 0.383.**
+  Exact f_G beyond 10^{42.6} (a lattice-free counter: the top-prime derivation recursion with more top primes and a sparse memo; G enlarged
+  by the 2·10⁹ extension). Goal f_G(n) ≥ n^{0.383} at an explicit n (model: 10⁶⁴–10⁸⁸). If reached, S5(0.8) obeys α ≤ 2β only PROVIDED
+  α = Re ρ₁ (read-O F3; the record has α ≥ Re ρ₁ only under the refuted H_θ). Fit: instrument. Target: B2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/s5-multiplicity-s40/NOTE.md` §7]** **UT-M3 Theorem K″.** A refutation of U
+  from S5(ρ) now needs a hypothesis with constant ≥ 2.13 at θ = 0.35, hence a larger truncation X′; price the exact system to X′ = 10¹¹
+  (Ω-recursion) — first checking that max a_n has not already outgrown n^{Re ρ₁/2}. Fit: S1, S2. Target: B2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/s5-multiplicity-s40/NOTE.md` §7]** **UT-M4 Zeros of S5(0.8)'s F_X at
+  X = 10⁹, σ > ½, t ≤ 300** (task 6, not run at the stop line): does the largest real part rise with height? (A zero right of 0.766 raises
+  the U-threshold, F3.) Fit: S2. First rung: block moments in log n (width 0.01, ~25 Taylor terms, one 10⁹-term pass) + Euler–Maclaurin
+  tail + argument principle. Target: B2, B4.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/s5-multiplicity-s40/NOTE.md` §7]** **UT-M5 The open case of 4(b):** an
+  ℕ-supported system with N = ρx + O(x^θ), a_n ≪ n^ε and a positive proportion of refused primes — construct (balanced carriers across
+  many ℓ, so that Σ_K q^{−s} − Σ_R p^{−s} continues analytically) or refute. [Digest note: lg's S7^{≤2}(3/5) is a candidate member
+  exactly when its Lemma H₇^{≤2} holds — §B B3.] Fit: S1 (Ramanujan consumed). Target: C2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/local-greedy-s40/NOTE.md` §8 (UT-L0)]** **UT-LG0 Prove Lemma H₇^{≤2}**
+  (|N(u) − 0.6⌊u⌋| ≤ u^{0.40}, u > 10⁹, for the capped system): bounded-by-n^ε multiplicities, data exponent ≈ 0.2, constant ≤ 0.93 on the
+  whole computed range; with an arb-certified B^{≤2} it refutes U (K₇^{≤2}). The downward half is NOT controlled by prime-power gaps for
+  the cap (inf E = −197.8 below the gap bound −169.7; read-O A2) and needs its own mechanism. Fit: S1 (Ramanujan proved). FUNDED: §F.2
+  item 2. Target: B2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/local-greedy-s40/NOTE.md` §8 (UT-L1)]** **UT-LG1 Prove Lemma H₇** for S7(3/5):
+  |N(u) − 0.6⌊u⌋| ≤ u^{0.40} for u > 10⁹. Both halves open: the upward half bounds the clusters of §2.3; the downward half, by Lemma 1.2's
+  route, would need prime-power gaps ≤ (x^{0.40} − 1.6)/0.6, beyond the known gap bound [recalled, unverified]. Fit: S1. Target: B2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/local-greedy-s40/NOTE.md` §8 (UT-L2)]** **UT-LG2 Interval certification of B₁
+  and B^{≤2}** (python-flint arb) at X = 10⁹ — the floating-point step of K₇, K₇^{≤2}; read-O A4 already bounds the Taylor truncation by
+  3.4·10⁻²⁹ and A5 reproduces the boxes by direct sums (min|F| − max|F′|h/2 = 0.0635, 0.0673). Fit: instrument. FUNDED with UT-LG0.
+  Target: B2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/local-greedy-s40/NOTE.md` §8 (UT-L3)]** **UT-LG3 Three variants unrun**
+  (act only at primes; look-ahead at 2p, 3p; the λ-rule m_p ∈ {0, 2} with p² for refused p — completely multiplicative ±1 g, Tao's
+  setting), implemented in `s7gen` (variants 1, 3, 4); densities ≠ 0.6 for the cap. Fit: S1. First rung: the λ-rule at ρ = 0.6, 10⁹.
+  Target: B2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/local-greedy-s40/NOTE.md` §8 (UT-L4)]** **UT-LG4 Transient test for β.** The
+  refused fraction rises (.844 in [10⁸, 10⁹), .861 in [10⁹, 4·10⁹)), max m_p grows 79 → 106, the b-fits still fall at 4·10⁹ — the S5
+  lesson (§B B8) says test before trusting. First rung: compress the m-table (one byte per odd q ≤ X/2 now) and run to 10¹¹. Target: B2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/local-greedy-s40/NOTE.md` §8 (UT-L5)]** **UT-LG5 Theory left open:** is E
+  unbounded for every non-periodic prime-local member; a quantitative lower bound; the λ-rule under Tao/Klurman; why the feedback produces a
+  zero near 0.82 + 11.09i (a pseudo-character whose L-function has an off-line zero). Fit: S4-adjacent (a feedback-chosen pseudo-character).
+  Target: C2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/local-greedy-s40/NOTE.md` §8 (UT-L6)]** **UT-LG6 Zeros of S7's F_X in
+  σ ∈ [0.55, 0.70]** (27 counted at X = 10⁷ with phase steps up to 2.95 rad): refine at 10⁸–10⁹ — statements about F_X, not ζ_P, until a
+  tail bound transfers them (read-O F1). Fit: S2. Target: B2.
+- **[2026-10-01, Session 41 — Session-40 unit NOTE, `results/local-greedy-s40/NOTE.md` §8 (UT-L7)]** **UT-LG7 Prior art.** PARTLY DONE:
+  Révész–Pintz 2407.12746 full text read by read-O (Axiom A needed — F2); Borwein–Choi–Coons at the page still owed. Fit: standing order 1.
+  Target: B2.
+Count: 22 entries (fgT 5, fgC 4, s5m 5, lg 8); B2 19 (UT-M4 also names B4), C2 3 (UT-F5, UT-M5, UT-LG5).
+
+## §H The waste line (KICKSTART 10(o), with 10(m)'s three labels; from the eleven NOTEs' waste lines and the twenty-two reads)
+
+Spent on the wrong thing. uoff's K-close — the S5(0.8) crossing of U's line, WITHDRAWN at the dual read (NOTE:13) — because the brief's
+stop trigger ("α > max{½, 2β} + 0.05 numerically over two decades", rO F1) accepted a six-decade running-sup fit as an exponent; label
+(i): obstruction stated and re-derived (the multiplicity mechanism, B3), already a zoo I.2 rider (BARRIER-ZOO.md:92). What the unit
+built is not waste: S5, the §3.2–§3.3 theorems, and the data that exposed the mechanism.
+(ii) budget / tool / time — small, each re-run or replaced: dzh's T₁ control (designed as surgery at α = 1, β(T₁) = 1) and a 5.5-min
+Irwin–Hall residue check (NOTE:401–405); lemG's two launches of `rung1_ff.py`, ≈ 15 min (NOTE:392–395); s5m's superseded greedy and lossy
+split counter, ≈ 11 min (NOTE §10); fgC's first zero scan through the real zero 0.5147 (NaN), ≈ 6 min (NOTE:49); lg's uniform pair
+sampling, 6 min (NOTE §9); fgT's 10⁷ reflection check on the prototype (float drift, passed to fgC) (NOTE:416–417); fej's one wrong
+recalled arXiv ID (NOTE:311). About 45 minutes of tool time in all.
+Found nothing, correctly (not waste). fej's whole unit (K: the rung-1 inequality is Weil's; UT-4 closed); qcond's finite Euler-side LP
+(identities hold for every signed sieve, rO R4); conjO's new feedback design (fails for a proved reason: its error contains its own
+future discrepancy, NOTE:328–329); fgT's crude unconditional bounds (none gives E = o(x)) and routes (a)–(b) (both break at the
+compensator, Lemma M — a short-interval PNT for the system, NOTE:27–29); dzh's prior-art search (no paper after BDR settles fn. 4).
+Caught before spending. The queue's certification unit for S5's zero (Session-40 item 1(b)) was not funded: "a certified winding number
+for F_X at 10⁹ decides nothing while the hypothesis of K′ is in doubt" (uoff rF §6) — n_K then made K′ vacuous.
+(iii) unexplained — none. Every slip is explained where it happened (qtw retracted one heuristic, "Fourier uniqueness for q < 4", at the
+page; fej and s5m list theirs in place).
+Candidate LOG line: "Spent for nothing: u-offsurgery-s39's K-close (S5(0.8) crossing, withdrawn), because (i) the stop trigger took a
+six-decade running-sup fit for an exponent — the multiplicity obstruction, stated and re-derived, is zoo I.2's S5 rider; (ii) ≈ 45 min of
+tool losses across dz-half, lemmaG, s5-multiplicity, free-greedy, local-greedy, fejer-form, each re-run. Found nothing, correctly:
+fejer-form-s39 (K), qcond's LP, conj-O's feedback design, free-greedy's routes (a)–(b). Caught before spending: the S5 certification."
+
+## Checks run (2026-10-01, before handing over)
+See `SHARED.md` blocks 11–21 for the hashes, the citation re-checks and the mechanical quote check.

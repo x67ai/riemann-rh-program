@@ -32,3 +32,6 @@ The served copy is deployed from `public/` by the Cloudflare Worker on every pus
     cp rh-program/results/arxiv/haglund-counterexample/main.pdf public/haglund-counterexample.pdf && git add public && git commit -m "serve haglund-counterexample.pdf" && git push origin main
 
 The URL will be https://x67.ai/haglund-counterexample.pdf within a minute or two (add the same `cp` line to `public/sync.sh` for later rebuilds).
+
+## Zenodo — PUBLISHED (recorded 17:21 IST 2026-10-01, Session 41)
+Published by the sponsor. Concept DOI 10.5281/zenodo.23071930 (cite this); version DOI 10.5281/zenodo.23071931; record https://zenodo.org/records/23071931. Both files on the record equal this folder's `main.pdf` and certificate zip byte for byte (checked through the public record API). Recorded in `results/arxiv/README.md`. Still open: the x67.ai copy (the command block above).

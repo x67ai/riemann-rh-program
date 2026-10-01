@@ -81,6 +81,11 @@ def tail_pow(s, X, theta, C=1):
     s = arb(s); th = arb(theta)
     return arb(C) * s * X ** (th - s) / (s - th)
 
+def tail_ms(s, X, theta, C=1):
+    """mean-square hypothesis int_Y^{2Y} E^2 <= C^2 Y^{1+2 theta} (Y >= X): tail <= C s X^{theta-s}/(1 - 2^{theta-s})"""
+    s = arb(s); th = arb(theta)
+    return arb(C) * s * X ** (th - s) / (1 - arb(2) ** (th - s))
+
 if __name__ == "__main__":
     mo = Moments(sys.argv[1], int(sys.argv[2]))
     print("#", mo.head)

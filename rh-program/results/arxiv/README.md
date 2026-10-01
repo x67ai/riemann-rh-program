@@ -52,6 +52,7 @@ Both recommended papers are public, by the sponsor's act, and are now **frozen r
 |---|---|
 | The two-moment certificate is robust under Rudnick–Sarnak-range cubic augmentation with capacity control (`a4-no-go/`, 41 pp) | `https://x67.ai/cubic-augmentation-no-go.pdf`; Zenodo concept DOI **10.5281/zenodo.22171688** (v1 record DOI 10.5281/zenodo.22171689; file `cubic-augmentation-no-go.pdf`, 631.4 kB; CC BY 4.0; record date 2026-08-26) |
 | Products of the per-prime Tate curves of absolute geometry carry no correspondence calculus for the Weil explicit formula (`seed-no-go/`, 19 pp) | `https://x67.ai/tate-products-no-go.pdf`; Zenodo concept DOI **10.5281/zenodo.22171136** (v1 record DOI 10.5281/zenodo.22171137; file `tate-products-no-go.pdf`, 472.8 kB; CC BY 4.0; record date 2026-08-26) |
+| A counterexample to Haglund's monotonic-zeros conjecture for the Riemann Ξ approximants (`haglund-counterexample/`, 15 pp) | Zenodo concept DOI **10.5281/zenodo.23071930** (v1 record DOI 10.5281/zenodo.23071931, https://zenodo.org/records/23071931; files `main.pdf`, 397,375 bytes, and `haglund-counterexample-certificate.zip`, 520,346 bytes; CC BY 4.0; Preprint; published 2026-10-01); `https://x67.ai/haglund-counterexample.pdf` once the sponsor has pushed the copy in `public/` (commands in `haglund-counterexample/POSTING.md`) |
 
 The two DOIs the sponsor reported (10.5281/zenodo.22171688 and 10.5281/zenodo.22171136) are Zenodo
 **concept DOIs** (resolve to the latest version); each currently points at a v1 record whose DOI is one
@@ -61,6 +62,8 @@ match the served PDFs in `public/` byte for byte (631,405 and 472,779 bytes). Ci
 Any later change to either paper is a **public revision** (a new
 Zenodo version, with the change stated), never a silent edit of the `.md`/`.tex`. Neither paper is on
 arXiv (endorsement gate, CIRCULATION-PREP STEP 6 item 4). `m0-axiom/` and `m1-noncirc/` remain internal.
+
+**Haglund paper — POSTED on Zenodo (recorded 17:21 IST 2026-10-01, Session 41).** The sponsor published the draft; he reported "10.5281/zenodo.23071930" and "https://zenodo.org/records/23071931" — these are the two DOIs asked for: the **concept DOI** 10.5281/zenodo.23071930 (resolves to the latest version; cite this one) and the **version DOI** 10.5281/zenodo.23071931 (this exact version). Read from the public record API (`https://zenodo.org/api/records/23071931`, HTTP 200) the same hour: state published; title, author (Tyagi, Kunal), license CC BY 4.0, type Preprint as prepared; both files on the record equal the local package byte for byte (MD5 889884ea53a8cd31a2b1f4f692f45f5d for `main.pdf`, 6feab33da47bb3b6af19f29d7a1be5f9 for the zip; the zip's SHA-256 4dfb1360042c3123b815e571a1916720081beca51fe9be8d6ed4760f41b1091c is the one printed in the paper). The paper is now a **frozen record**: any change is a new Zenodo version with the change stated. Not on arXiv (endorsement gate).
 
 ## What is here
 

@@ -5,7 +5,7 @@ for each stated tail hypothesis. Usage: certify.py <file.mom> <16|32> <lo> <hi> 
 import sys
 from fractions import Fraction as Fr
 from flint import arb, fmpq
-from feval import Moments, tail_log2, tail_pow
+from feval import Moments, tail_log2, tail_pow, tail_ms
 
 def q(fr):
     return fmpq(fr.numerator, fr.denominator)
@@ -67,3 +67,6 @@ if __name__ == "__main__":
         g = lambda s, C=C: F(s) + tail_pow(s, mo.X, q(th9), arb(C))
         s2 = smallest_neg(g, s1, hi, 9)
         print(f"SIGMA2 hyp E(u) <= {C} u^{float(th9):.9f} (u >= X): sigma2 = {float(s2):.9f}  F+tail = {g(q(s2)).str(5, radius=True)}")
+    g = lambda s: F(s) + tail_ms(s, mo.X, q(th9), arb(1))
+    s2 = smallest_neg(g, s1, hi, 9)
+    print(f"SIGMA2 hyp int_Y^2Y E^2 <= Y^(1+2*{float(th9):.9f}) (Y >= X): sigma2 = {float(s2):.9f}  F+tail = {g(q(s2)).str(5, radius=True)}")

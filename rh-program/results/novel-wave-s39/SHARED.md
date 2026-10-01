@@ -173,3 +173,19 @@ Writes only: `directions/*.md` (insertions + Last-touched lines), this folder (`
 - Residues (consolidator): R1 qcond D block ×5 + cut sentence; R2 qcond novelty label; R3 uoff NOTE:22/170 lag; R4 fgT 1.6 label;
   R5 s5m row producers; R6 lg row producers.
 - Running now: §F (survivor filter + ranking). Resume here: append §F, then §G (Untried for the four Session-40 units), §H (waste line).
+
+## 2026-10-01 17:19 IST block 19 — §F written (F.1 filter: six results above threshold; F.2 seven ranked units)
+
+- Correction to block 18: §E lists 46 read-O FIX-FIRST items (qcond 3, conjO 4, uoff 14, lemG 5, dzh 2, qtw 6, fej 2, fgT 3, fgC 2,
+  s5m 3, lg 2) plus uoff read-F's F1–F2 (coincident with read-O items), not 36.
+- F.2 item 3 (feedback selection on DZ's grid inside (17.46)) is the consolidator's reading, single-check; first rung at the page.
+- ID check for §G: B2/C2 hold U-1…5, UT-3…13, UT-L1…L5, UT-U1…U5, UT-1…5, UT-QT1…4; no UT-F/UT-M/UT-C. lg's UT-L0…L7 renamed
+  UT-LG0…UT-LG7; fgC's four unnamed bullets named UT-C1…UT-C4.
+- Running now: §G (22 Untried entries), then §H. Resume here: append §G.
+
+## 2026-10-01 17:21 IST block 20 — §G (22 Untried: B2 19, C2 3) and §H written; Deliverable 1 drafted in full
+
+- §G renames: lg UT-L0…L7 → UT-LG0…LG7; fgC bullets → UT-C1…C4. Items in flight/funded marked (UT-F1, UT-F4 → lemmaB-s41; UT-LG0,
+  UT-LG2 → §F.2 item 2).
+- Running now: mechanical checks of Deliverable 1 (quotes, table bars), then Deliverable 2 (ZOO-LINES-STAGED.md). Resume here: run the
+  checks; then write ZOO-LINES-STAGED.md block by block.

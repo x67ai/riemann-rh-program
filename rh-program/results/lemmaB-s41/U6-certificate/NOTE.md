@@ -139,4 +139,17 @@ F(0.81) = −0.0785447458226 — the s8dd values at X = 10⁷ (read-O §2; `free
 
 ## §6. The upper bracket (σ₂) under stated tail hypotheses
 
+**Lemma 6.1 (tail upper bounds)** [proved here]. Let X ≥ 1, 0 < σ < 1, L = log X.
+(a) If E(u) ≤ K log²u for all u ≥ X, then σ∫_X^∞E(u)u^{−σ−1}du ≤ K·τ_X(σ), τ_X(σ) := σX^{−σ}(L²/σ + 2L/σ² + 2/σ³).
+(b) If E(u) ≤ C·u^ϑ for all u ≥ X, with ϑ < σ, then the tail is ≤ C·σX^{ϑ−σ}/(σ − ϑ).
+(c) If ∫_Y^{2Y}E(u)²du ≤ C²Y^{1+2ϑ} for all Y ≥ X, with ϑ < σ, then the tail is ≤ C·σX^{ϑ−σ}/(1 − 2^{ϑ−σ}).
+*Proof.* (a) I_n := ∫_X^∞ log^n u·u^{−σ−1}du satisfies I_0 = X^{−σ}/σ and, integrating by parts, I_n = X^{−σ}L^n/σ + (n/σ)I_{n−1};
+so I_2 = X^{−σ}(L²/σ + 2L/σ² + 2/σ³). (b) ∫_X^∞u^{ϑ−σ−1}du = X^{ϑ−σ}/(σ − ϑ). (c) On [Y, 2Y], u^{−σ−1} ≤ Y^{−σ−1} and, by
+Cauchy–Schwarz, ∫_Y^{2Y}|E| ≤ Y^{1/2}(∫_Y^{2Y}E²)^{1/2} ≤ C·Y^{1+ϑ}; sum Y = 2^mX, m ≥ 0: σC·X^{ϑ−σ}Σ_m 2^{m(ϑ−σ)}. ∎
+Each hypothesis, with E > −½, implies (B) or (B₂) for every exponent above ϑ (resp. every θ > 0 in (a)), so Theorem 1.3 applies
+at σ₁ and ζ_P(σ₂) = F_X(σ₂) + tail ≤ F_X(σ₂) + (bound). **So F_X(σ₂) + bound(σ₂) < 0, proved in arb, puts a zero of ζ_P in
+(σ₁, σ₂)** (an odd number of zeros, with multiplicity). The search (`certify.py`) returns the smallest 9-decimal σ₂ with this proved.
+Scale of the hypotheses against the data [quoted: s8o logs, §4]: sup_{u≤10¹⁰}E/log²u = 26.137/530.2 = 0.049 (π/16) and
+15.434/530.2 = 0.029 (π/32); so K = 0.1 is about twice the measured envelope, K = 1, 10, 100 are generous.
+
 ## §7. What is left to prove
