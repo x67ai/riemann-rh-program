@@ -6,7 +6,7 @@ import heapq, math, sys, time
 import numpy as np
 rho = eval(sys.argv[1]); X = float(sys.argv[2]); t0 = time.time()
 val = [1.0]; lpf = [-1]; primes = []; cursor = []; heap = []
-N = 1
+N = 1; mind = 1.0; mindx = 0.0
 def advance(i):
     c = cursor[i] + 1
     while lpf[c] > i: c += 1
@@ -17,13 +17,14 @@ while True:
     if heap and heap[0][0] <= xstar:
         x, i = heapq.heappop(heap)
         if x > X: break
+        if (xstar - x) / x < mind: mind = (xstar - x) / x; mindx = x
         N += 1; val.append(x); lpf.append(i); advance(i)
     else:
         x = xstar
         if x > X: break
         N += 1; primes.append(x); val.append(x); lpf.append(len(primes) - 1); cursor.append(0); advance(len(primes) - 1)
 v = np.array(val); P = np.array(primes)
-print(f"S8 rho={rho:.10f} X={X:g} N={len(v)} pi={len(P)} time={time.time()-t0:.1f}s")
+print(f"S8 rho={rho:.10f} X={X:g} N={len(v)} pi={len(P)} time={time.time()-t0:.1f}s  ordering margin (min rel. dist. composite->live threshold) = {mind:.3e} at {mindx:.6g}")
 # E on [v_j, v_{j+1}): E(u) = j + rho - rho*u  (j = index, N = j+1).  Right end value of piece j: E(v_{j+1}-) = j + rho - rho*v_{j+1}
 j = np.arange(len(v), dtype=np.float64); a = np.append(v[1:], X)
 Eleft = j + rho - rho * v          # value just after event j (right-continuous)

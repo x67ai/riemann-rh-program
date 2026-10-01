@@ -446,3 +446,26 @@ CLOSEST UNCONDITIONAL DISCRETE SYSTEMS IN PRINT (none below 1/2): Broucke arXiv:
   Riemann zeros: they say nothing about zeros right of 1/2 unconditionally. Q1 -- perturbation of P, not feedback. Context for S8:
   the multiplicity => log-growth remark is the printed form of the charter's diagnosis of S5; S8's free monoid (distinct values)
   is exactly the case Olofsson says a small-error example must be in.
+
+[21] Zhang, "Beurling primes with RH and Beurling primes with large oscillation", Math. Ann. 337 (2007) 671-704,
+  doi:10.1007/s00208-006-0051-5. [quoted: abstract only] Opened: Springer abstract page via Firecrawl (direct curl returned a
+  3 kB stub) -> here/pa-zhang2007-springer-abstract.md (l. 31-45). Full text paywalled, not opened.
+  Abstract: "Two Beurling generalized number systems, both with N(x) = kx + O(x^{1/2} exp{c(log x)^{2/3}}) and k > 0, are
+  constructed. The associated zeta function of the first satisfies the RH and its prime counting function satisfies
+  pi(x) = li(x) + O(x^{1/2}). The associated zeta function of the second has infinitely many zeros on the curve sigma = 1 - 1/log t
+  and no zeros to the right of the curve and the Chebyshev function psi(x) of its primes satisfies limsup (psi(x) - x)/(x exp{-2
+  sqrt(log x)}) = 2 and liminf ... = -2. A sharpened form of the Diamond-Montgomery-Vorhauer random approximation and elements of
+  analytic number theory are used in the construction."
+  Relevance: Q5 -- Zhang's large-oscillation example: zeros approaching Re s = 1 along sigma = 1 - 1/log t, N-error exponent exactly
+  1/2 (x^{1/2} exp{c(log x)^{2/3}}), same as Diamond-Zhang Thm 17.14 (entry [5]). Q2 -- not below 1/2. Q1 -- random approximation.
+
+[22] Hilberdink, Kaziulyte, "Omega-result for the remainder term in Beurling's prime number theorem for well-behaved integers",
+  Acta Arith. 208 (2023) 69-81, doi:10.4064/aa220516-20-3. [quoted: abstract only] Opened: IMPAN landing page (curl) ->
+  here/pa-hilberdink-kaziulyte2023-impan-abstract.txt. Full text paywalled, not opened.
+  Abstract: "We obtain a new Omega-result for the remainder term psi(x) - x of a Beurling prime system for which the integers are very
+  well-behaved in the sense that N(x) = ax + O(x^beta) for some a > 0 and beta < 1/2. As part of this, we prove how bounds on
+  psi(x) - x lead to zero-free regions for the Beurling zeta function, generalizing a result of Pintz to the Beurling setting."
+  The Omega bound itself, as quoted by Broucke-Hilberdink 2024 (entry [9], t-19a l. 112-115): psi(x) - x = Omega(sqrt x
+  e^{-c sqrt(log x loglog x)}) for some c > 0.
+  Relevance: Q3 -- for theta < 1/2 the printed constraint is a LOWER bound on psi - x of size ~ sqrt x; it does not forbid zeros
+  right of 1/2 (it is implied by them). Q2 -- no example.

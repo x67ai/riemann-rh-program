@@ -72,8 +72,39 @@ if __name__ == "__main__":
     print("#   sigma              t                 |F_X| at zero   |F_X'|      cell winding")
     for z, fv, fd, wn in inside:
         print(f"  {z.real:.12f}  {z.imag:16.12f}  {fv:.2e}   {fd:10.4e}  {wn:+d}")
-    tot = winding_box(smin, smax, 0.0, tmax, D, n=400) if "--count" in sys.argv else float("nan")
-    print(f"# argument principle on the whole rectangle: winding = {tot:.4f}  (zeros found inside: {len(inside)})")
+    # real zeros of F_X on (smin, smax) (sign changes of G on the real axis, then bisection)
+    gr = [Gfun(complex(x, 0.0), D).real for x in sig]
+    real0 = []
+    for i in range(len(sig) - 1):
+        if gr[i] == 0 or gr[i] * gr[i + 1] < 0:
+            lo, hi = sig[i], sig[i + 1]
+            for _ in range(60):
+                mid = 0.5 * (lo + hi)
+                if Gfun(complex(lo, 0), D).real * Gfun(complex(mid, 0), D).real <= 0: hi = mid
+                else: lo = mid
+            real0.append(0.5 * (lo + hi))
+    print(f"# real zeros of F_X in ({smin}, {smax}): " + (", ".join(f"{r:.10f}" for r in real0) if real0 else "none"))
+    t0 = 0.01                                  # bottom edge just above the real axis (real zeros are reported above)
+    if "--count" in sys.argv:
+        boxes = [(t0 if k == 0 else 10.0 * k, min(10.0 * (k + 1), tmax)) for k in range(int(math.ceil(tmax / 10.0)))]
+        total, extra = 0, []
+        for (ta, tb) in boxes:
+            w = round(winding_box(smin, smax, ta, tb, D, n=80))
+            have = [q for q in inside + extra if ta < q[0].imag <= tb]
+            if w > len(have):                  # deficit: multi-start Newton inside the box
+                for ss in np.linspace(smin + 0.005, smax - 0.005, 12):
+                    for tt in np.linspace(ta + 0.05, tb - 0.05, 60):
+                        z, fv, fd = newton(complex(ss, tt), D)
+                        if smin < z.real < smax and ta < z.imag <= tb and fv < 1e-8 and all(abs(z - q[0]) > 1e-7 for q in inside + extra):
+                            extra.append((z, fv, fd, 0))
+                    if len([q for q in inside + extra if ta < q[0].imag <= tb]) >= w: break
+                have = [q for q in inside + extra if ta < q[0].imag <= tb]
+                print(f"# box t in ({ta:.2f}, {tb:.2f}]: winding {w}, zeros after multi-start search {len(have)}")
+            total += w
+        for z, fv, fd, wn in sorted(extra, key=lambda q: q[0].imag):
+            print(f"  {z.real:.12f}  {z.imag:16.12f}  {fv:.2e}   {fd:10.4e}  multistart")
+        inside = sorted(inside + extra, key=lambda q: q[0].imag)
+        print(f"# argument principle on {smin} < sigma < {smax}, {t0} < t <= {tmax} (sum over boxes of height 10): winding = {total}  (zeros found inside: {len(inside)})")
     if inside:
         best = max(inside, key=lambda q: q[0].real)
         print(f"# largest real part: {best[0].real:.10f} at t = {best[0].imag:.6f}")
