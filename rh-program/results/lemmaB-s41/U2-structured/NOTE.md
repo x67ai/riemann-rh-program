@@ -8,7 +8,37 @@ density, R(u) := N(u) − ρu, E(u) := N(u) − ρ(u − 1) − 1 = R(u) − (1 
 
 ## §0. Close
 
-(filled last)
+**Close — stop condition (ii): the route of this unit cannot work, and the theorem is written.** No object with (A) and (B) proved.
+**Proof class X — exact, count-determined bookkeeping in the F_q sense (a prescribed fraction τ ∈ (0, 1) of a multiplicative
+weight at every norm point, realized by the triangular greedy b = T − C) — cannot yield (A) + (B) on the real line, because**
+(Theorem 2.1) on every free norm monoid of rank ≥ 2 such a target needs infinitely many NEGATIVE primes (Pringsheim on
+log[(1 − 2sz + sz²)/(1 − sz)²], s = 1 − τ; at rank ∞ the squarefree coefficients are the Bernoulli(τ) cumulants), while
+(Proposition 2.2) rank one — indeed any finite rank r — forces sup_{[x,2x]}|N − ρu| ≥ ρx/(2K + 2), K ≪ (log x)^r. [proved here]
+**What makes exact regularity possible on rung 1** (§1): rank one. Theorem 1.1 [proved]: the target m·q^{n−1} is realized by
+b_n = M(q, n) − M(q − m, n) (primitive necklaces using one of m special letters), Z = (1 − (q − m)u)/(1 − qu); with ρ = m/(q − 1)
+it is Diamond's template N_c = 1 + ρ(x − 1) sampled EXACTLY at the norms qⁿ, zero log(1 + (1 − ρ)(q − 1))/log q → 1 − ρ as q → 1.
+Prop. 1.2: one-sided targets m·q^{n−1} + c (c ≥ 1) are exact for q ≥ max(2m, m + 1 + c, 16c², 116/m²). The slack is ≈ τqⁿ/n
+integers per norm point, from the rank-one logarithm Σ(1 − (1 − τ)ⁿ)(qu)ⁿ/n > 0.
+**The real-scale substitute** (§4): the Lindley recursion e_k = max(e_{k−1} + c_k − 1, 0) of S8 IS b_n = T_n − C_n with one integer
+per lattice cell, a clip and a carry; the slack drops from τqⁿ/n per point to under one integer per cell, and Lemma 4.1 [proved]:
+no never-undershooting system beats the one-sided discrepancy of its own composites (S8 attains it within ½). Exactness on ℝ is
+bounded composite discrepancy — Lemma B in another name; the remaining freedom is the placement of the g-primes (U1's domain).
+**The inexact multiplicity substitute fails** (§3): P_κ (norm points n^κ, g-primes with multiplicity, greedy with clip and carry,
+(A) by construction, (B) with θ = 1 − 1/κ iff its queue is O(n^{κ−1})) [novelty: single-check; s39's S5 is κ = 1]. Lemma 3.1 and
+Prop. 3.2 [proved, rule-independent]: (A) turns composite load into overshoot point by point, and near-flatness below a squarefree
+point with k generators forces excess ≥ |κ_k(τ)|·w at it. [computed, 10⁷–10⁸] the forced overshoot switches on exactly at the first
+negative cumulant (k₀ = 7, 6, 5, 4 for τ = 0.03, 0.075, 0.15, 0.30), the load matches a clipped-cumulant model within 10 % at the
+onset, and the integer error of P_{1.5}(0.05) grows like u^{0.52} on [10¹⁰, 10¹²] — above every exponent U can use, including U1's
+power-bump threshold 0.4945. S5's multiplicity growth (s39) is this mechanism; it does not depend on S5's rule.
+**Other structured classes closed** (§5): periodic integer counts violate (A) by ρ (Lemma 5.1, one line; U5 reaches the same from
+Hilberdink 2012); a system whose integers are exactly 1 + tℕ₀ has t ∈ {1, 2} (Lemma 5.2: ℕ, odd numbers); non-adaptive structured prime
+sets have β ≥ ½ (s39 §3.2, quoted); gluing independent subsystems cannot create the real zero (5.4). Control (§6.1): the non-free
+monoid {1} ∪ mℕ has N − u/m ∈ (0, 1] and a real zero (0.5951 for m = 3) but negative prime coefficients — exact additive bookkeeping
+costs positivity, as U5's L_ρ does on S8's lattice.
+**Exact missing statement (G1, §6.2):** for every system on the norm points n^κ, 1 < κ < 2, with (A), sup_{n≤y}E_D(n)/n^{κ−1} ≥ y^δ
+for some δ > 0 — the rule-independent form of §3. Its proof needs a lower bound for the primes at the divisors of the most factored
+norms that survives busy periods. **For the stream:** the only structured route left is multiplicity one with feedback, i.e. S8-type
+queues; the per-point slack that makes rung 1 exact is unavailable on ℝ by Theorem 2.1 and Proposition 2.2.
 
 ## §1. Rung 1: what makes exact regularity possible over F_q
 
@@ -172,7 +202,7 @@ power of n, not a polylog [heuristic extrapolation, not proved].
 **3.4 The queue of P_κ grows like a power** [computed: `pkappa_k1.5_r0.05_r04_1e8.log` (28 s, 1.2 GB), `pkappa_k1.2_r005_1e7.log`].
 κ = 1.5, ρ = 0.05, r₀ = 0.4, to Y = 10⁸ (x = Y^κ = 10¹²): max E_D/n^{κ−1} per dyadic block of n = 0.102, 0.118, 0.142, 0.147, 0.187,
 0.249, 0.304, 0.353, 0.426, 0.506, 0.626, 0.749, 0.923 (blocks from 1.2·10⁴ to 10⁸); on the last five blocks E_D/w grows by
-2^{0.27}, 2^{0.25}, 2^{0.31}, 2^{0.26}, 2^{0.30} per doubling, i.e. E_D ≈ n^{0.78}, so E_P(x) ≈ x^{0.52} on [10¹⁰, 10¹²] — already above
+2^{0.27}, 2^{0.25}, 2^{0.31}, 2^{0.26}, 2^{0.30} per doubling, i.e. E_D ≈ n^{0.78}, so sup(N_P − ρu) ≈ u^{0.52} on [10¹⁰, 10¹²] — already above
 every exponent U could use (½·r₀/(r₀ + ρ) = 0.444 here). The maximizers are the superior highly composite numbers 720720, 1441440,
 2882880, 4324320 (ω = 6, 7); the busy fraction rises 4.3 % → 15.9 %; 91 % of the g-primes sit at composite n. κ = 1.2 (ρ = 0.05,
 r₀ = 0.5, to 10⁷; per-point target only 1–2 integers, integrality dominates): E_D/w grows by 2^{0.12} per doubling, x-exponent ≈ 0.27
@@ -195,8 +225,8 @@ the sign pattern of the Bernoulli cumulants, i.e. as Theorem 2.1 acting on the r
 | no carry needed | carry e_k = max(e_{k−1} + c_k − 1, 0) (Lindley) |
 
 So the real-scale substitute of b_n = T_n − C_n is the Lindley recursion, and the F_q slack (exponentially many integers per norm
-point) becomes a slack of less than one integer per cell: the clip that is never active over F_q is active on a positive fraction
-of cells (U7: busy cells with e_k > 0). Exactness on the real line means bounded one-sided discrepancy of the composites:
+point) becomes a slack of less than one integer per cell: the clip that is never active over F_q is active whenever a cell holds
+two composites (the queue tail of s40 §2.3 and U7's batch of 17:22 in SHARED). Exactness on the real line means bounded one-sided discrepancy of the composites:
 
 **Lemma 4.1 (no rule beats the composite discrepancy)** [proved here]. For any discrete Beurling system with E ≥ −c and any y ≤ x,
 E(x) ≥ C[y, x] − ρ(x − y) − c, C[y, x] := composites in [y, x]. *Proof.* N(x) − N(y−) ≥ C[y, x] (g-primes only add), and
