@@ -9,7 +9,16 @@ free-greedy-s40/CHARTER.md §1; free-greedy-s40/theory/NOTE.md Lemmas 1.0-1.5, P
 block; the unit's verify/ scripts and logs (read only, never imported). `read-F.md` and `verify-F/` not opened.
 Re-run: `U3-firstbound/verify-O/` (own C generator, double-double arithmetic with certified ordering margins; own Python checks).
 
-Status: IN PROGRESS (sections are appended as each check closes).
+**VERDICT LINE: AGREES-WITH-CORRECTIONS.** The close stands as mathematics: identity (*), Lemmas B1, C1, D1, Corollary D2,
+Lemmas E1, E1' and Theorems T1, T1' are re-derived at the line with no circularity (only (*), E > −1/2, E = +1/2 at g-primes,
+lattice spacing and infinitude of g-primes are used; rho < 1/2 enters only in C1, and in D2 for T1); T1' holds for ALL x > 1,
+the initial range being covered by a finite run whose every placement decision I certified independently (own double-double
+generator); every number reproduces (rho + 2eps0/D0 = 0.19641319 for pi/16, 0.09819826 for pi/32). Corrections: the
+qualitative T1 is in print once D2 is known — Diamond–Zhang Thm 6.13, p. 61 (psi1(x) <= log x + O(1) ⇒ N ≪ x) — so the new
+content is the Mertens bound D2 for S8 and the sharp explicit constant of T1' (F1); Cor. 1.9's lower half is DZ Thm 4.7 /
+Cor. 8.7 (F2); §2's "class R cannot yield T2" rests in part (c) on data (F3); the headline constants are printed rounded DOWN
+below what is proved (F4); §1.6 with early placement needs pi(x) = O(x), one-line fix given (F5). Total: 5 FIX-FIRST items
+(8 pairs) and 6 minor items (7 pairs), 15 pairs in all.
 
 ## §1 Re-derivations at the line
 
@@ -184,7 +193,7 @@ Source on disk: Diamond–Zhang, *Beurling Generalized Numbers*, AMS Surveys 213
   1201.1405 and 1205.4281 and Tranoy–Vindas 2602.07690 give Chebyshev bounds (psi ≪ x) from L¹ / O(x/log x) conditions on
   N − ax (abstracts read) — the opposite direction, with hypotheses S8 is not known to satisfy. Nothing closer than DZ 6.13.
 
-## §4 FIX-FIRST pairs (5 items, 7 pairs)
+## §4 FIX-FIRST pairs (5 items, 8 pairs)
 **F1 — missed prior art changes the novelty label of T1 (l. 20).**
 OLD: **(T1) holds, proof in §1 (Theorem T1 §1.5, sharper Theorem T1' §1.8) [proved here; novelty: single-check, prior art not searched].**
 NEW: **(T1) holds, proof in §1 (Theorem T1 §1.5, sharper Theorem T1' §1.8) [proved here; novelty: the qualitative N(x) = O(x) is new as a statement on a printed core — it follows from Corollary D2 (S(x) ≤ log x + O(1) for all x ≥ 1) and Diamond–Zhang, Beurling Generalized Numbers (2016), Thm 6.13, p. 61 (ψ1(x) ≤ log x + O(1) ⇒ N(x) ≪ x); new here: the Mertens upper bound D2 for S8 (Lemmas B1, C1, D1, where the greedy rule enters) and the explicit constant of T1' (records ≤ rho + 2eps0/D0), which DZ's proof does not give].**
@@ -238,3 +247,42 @@ NEW: Rounding: the run is in double precision; the ordering of S8 in double prec
 **m6 — the rho = 0.3 and 0.45 side runs cross lattice ties (l. 85-86).**
 OLD: −0.276 (0.45); logs/t1_*.log.]
 NEW: −0.276 (0.45); logs/t1_*.log. For rho = 0.3 and 0.45, t = 10/3 and 20/9 have even numerators, so composites can sit exactly on the lattice (s40 Lemma 1.4; e.g. rho = 0.3: 6 = x_2 is a g-prime and (8/3)·6 = 16 = x_5), and a double-precision event loop decides such ties by rounding; these two rows are not certified, and no theorem uses them.]
+
+## §6 Novelty per result
+| result | verdict |
+|---|---|
+| (A1) and (*) | in print as Chebyshev's identity L dN = dψ ∗ dN (DZ eq. (3.3), used at p. 57 l. 3393-3396); the (E, psi, Psi~) rearrangement is routine |
+| Lemma B1 (Chebyshev–Mertens inequality at every g-prime) | new (S8-specific: uses E = +1/2 at g-primes) [single-check → second check here ✓] |
+| Lemmas C1, D1, Cor. D2 (S <= log x − 1/(2rho) + o(1)) | new for S8; D2 is exactly the hypothesis of DZ Thm 6.13 |
+| Lemma E1, E1' (record inequality) | new as a statement; same Chebyshev-identity bootstrap as DZ Thm 6.13's induction (p. 61-62) |
+| Theorem T1 (N = O(x)) | new as a statement on a printed core: D2 + DZ Thm 6.13 p. 61 (F1) |
+| Theorem T1' and the constants of §1.7-1.8 | new (explicit sharp constant, not in DZ); reproduced here independently |
+| §1.6 variants | new as statements on the same core (F5 fix needed for w > 0) |
+| Cor. 1.9 | lower half in print (DZ Thm 4.7 p. 33, Cor. 8.7 p. 81); upper half routine from D2 (F2) |
+| §2 (a) | elementary; (b) new, closed unconditionally by A2 below; (c) observation on data, not a theorem (F3) |
+
+## §7 Additions (single-check)
+**A1 (a second proof of T1).** For x >= p1, D1 (X0 = p1) and D2 give Delta(x) >= (1 − 2rho)(min{D(p1), 1/(2rho)} − eps(p1)/rho)
+− 2eps(p1) =: −K, so psi1(x) = S(x) <= log x − 1 + K for all x >= 1, and DZ Thm 6.13 gives N(x) ≪ x. Step E is needed only for
+the constants.
+**A2 (§2.3(i) without data).** For every theta < 1 there is x_theta with Σ_{d<=x}Λ(d)d^{−theta} > log x for x >= x_theta, so
+the bracket of §2.3(i) is negative and sub-linear comparison functions give no upper bound, unconditionally. Proof: Cor. 1.9
+gives log log x − K1 <= Σ_{p<=x}1/p <= log log x + K2; with a := exp(−(K1 + K2 + 1)), Σ_{x^a<p<=x}1/p >= 1, so
+S(x) − S(x^a) >= Σ_{x^a<p<=x} log p/p >= a log x; then Σ_{d<=x}Λ(d)d^{−theta} >= Σ_{x^a<d<=x}(Λ(d)/d)d^{1−theta} >=
+x^{a(1−theta)}·a log x > log x once x^{a(1−theta)} > 1/a.
+**A3 (Chebyshev-type corollary from print).** By DZ Prop. 9.8 (p. 90), O-log density (from D2, or from T1) gives
+liminf pi_P(x) log x/x <= 1, and positive lower log density (from E > −1/2, every rho) gives limsup pi_P(x) log x/x >= 1. So for
+S8(rho), rho < 1/2: liminf pi_P(x) log x/x <= 1 <= limsup pi_P(x) log x/x. (Data at 3·10⁷, pi/16: pi_P log x/x = 1.026.)
+**A4 (robust certificate).** The T1' constant can be certified with a lattice-uniform bound for T(P0) (any g-prime set on the
+lattice): rho + 1.39·10⁻⁴ (pi/16), rho + 3.48·10⁻⁵ (pi/32) (§2), so the theorem's constants survive any error in the fine
+structure of the 3·10⁷ run other than P0 and D(X0) — and D(X0) enters only through a minimum it exceeds by more than 2.
+
+## §8 What I could not check, and why
+- rho = 0.3 and 0.45 rows (side data, no theorem uses them): not reproduced; my generator takes a decimal rho as a double, which
+  does not reproduce exact lattice ties (m6).
+- s40 Lemmas 1.0-1.2 are used as dual-read in Session 40; I re-derived only the parts T1 uses (E(p) = +1/2, E > −1/2, spacing).
+- DZ page numbers are read from the running heads of the on-disk text, not from page images.
+- My certification of the run needs no transcendence (it bounds every composite away from the lattice directly); the
+  "no ties" count for pi/16, pi/32 is a finite check to 3·10⁷ only.
+
+Closed 19:18 IST 2026-10-01. Files: read-O.md; verify-O/s8gen.c (build: clang -O2 -ffp-contract=off s8gen.c -lm; run: s8gen 16 3e7, s8gen 32 3e7, s8gen 16 1e7 0.1, s8gen 4 1e6); verify-O/logs/s8gen_*.log; verify-O/sources/q1-q3.xml (arXiv queries). Nothing over 50 MB written.

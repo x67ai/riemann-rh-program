@@ -1,4 +1,4 @@
-rho = 0.19634954084936207 (+7.654e-18), t = 5.0929581789406511, X0 = 3e+07
+rho = 0.19634954084936207 (+7.654e-18), t = 5.0929581789406511, X0 = 3e+07, tau = 0.5
 generated: G=5890490 g-integers, 1788258 g-primes, 4102231 composites, up to B=30000010.037552; ties(rel<1e-22)=0
 min lattice margin of a composite (lattice units) = 9.355e-08 at c = 939201.057216  [dd error bound ~1e-22 units]
 first g-primes: 3.546479 8.639437 18.825354 23.918312 29.011270 39.197186 44.290145 54.476061
@@ -12,9 +12,9 @@ sup_{u<=X0} E/u = 0.140985 at u = 3.546479; sup E = 14.7145 at 21331017.45; N(X0
 B1: max over g-primes y <= X0 of F(y) - (log y + rho)/y = -0.221148 (at y = 29.0113)
 psi(X0) = 28896973.358722 (psi/X0 = 0.963232), S(X0) = 12.58429552, S - log X0 = -4.632412, D(X0) = 4.595645, P0 = 29999951.468533, #primes<=X0 = 1788257
 T(P0) = 1.608913e-04 (exact part 1.607721e-04 + tail bound 1.192e-07); lattice-uniform T <= 3.520444e-04; eta(P0) = 5.804e-07
-exact primes  : eps0 = 8.102610e-05, D0 = 2.546066, T1' constant rho + 2eps0/D0 = 0.19641319 (= rho + 6.3648e-05); Delta0 = 1.546066, T1 record bound = 0.323454
+exact primes  : eps0 = 8.102610e-05, D0 = 2.546066, T1' constant = 0.19641319 (= rho + 6.3648e-05); Delta0 = 1.546066, T1 record bound = 0.323454
    => E(x) <= 0.196413 (x-1) for all x>1 iff sup_{u<=X0} E/(u-1) <= that; N(x) <= 0.392763 (x-1) + 1
-lattice-uniform: eps0 = 1.766026e-04, D0 = 2.545580, T1' constant rho + 2eps0/D0 = 0.19648829 (= rho + 1.3875e-04); Delta0 = 1.545580, T1 record bound = 0.323617
+lattice-uniform: eps0 = 1.766026e-04, D0 = 2.545580, T1' constant = 0.19648829 (= rho + 1.3875e-04); Delta0 = 1.545580, T1 record bound = 0.323617
    => E(x) <= 0.196488 (x-1) for all x>1 iff sup_{u<=X0} E/(u-1) <= that; N(x) <= 0.392838 (x-1) + 1
 (*) at x = 1000.50: LHS = 4.361000997, RHS = 4.361000997, diff = -4.62e-14 | (A1): sum log n = 1165.220579, sum Lambda N(x/d) = 1165.220579, diff = 0.00e+00
     E(x) = 0.748634, psi/x = 0.709436, D(x) = 3.291751, psi/(xD) - rho = 0.019170, W(x) = -0.058547

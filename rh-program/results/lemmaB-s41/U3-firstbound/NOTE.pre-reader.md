@@ -17,24 +17,24 @@ Opened: 18:08 IST 2026-10-01
 7. Close §0 with the theorem-shaped statement.
 
 ## §0 Result (filled 18:45 IST 2026-10-01)
-**(T1) holds, proof in §1 (Theorem T1 §1.5, sharper Theorem T1' §1.8) [proved here; novelty: the qualitative N(x) = O(x) is new as a statement on a printed core — it follows from Corollary D2 (S(x) ≤ log x + O(1) for all x ≥ 1) and Diamond–Zhang, Beurling Generalized Numbers (2016), Thm 6.13, p. 61 (ψ1(x) ≤ log x + O(1) ⇒ N(x) ≪ x); new here: the Mertens upper bound D2 for S8 (Lemmas B1, C1, D1, where the greedy rule enters) and the explicit constant of T1' (records ≤ rho + 2eps0/D0), which DZ's proof does not give].**
+**(T1) holds, proof in §1 (Theorem T1 §1.5, sharper Theorem T1' §1.8) [proved here; novelty: single-check, prior art not searched].**
 For every rho ∈ (0, 1/2), S8(rho) has N(x) = O(x): every record of E(u)/(u − 1) beyond X0 is ≤ rho + 2eps(X0)/D0 with
 eps(X0) → 0, so sup_{x>1} E(x)/(x − 1) < ∞. Explicitly (finite run to 3·10⁷ for the initial range, §1.7–1.8):
-  **S8(π/16): E(x) ≤ 0.1964132·(x − 1), i.e. N(x) ≤ 0.3927628·(x − 1) + 1, for all x > 1;**
-  **S8(π/32): E(x) ≤ 0.0981983·(x − 1), i.e. N(x) ≤ 0.1963731·(x − 1) + 1, for all x > 1**
+  **S8(π/16): E(x) ≤ 0.196413·(x − 1), i.e. N(x) ≤ 0.392763·(x − 1) + 1, for all x > 1;**
+  **S8(π/32): E(x) ≤ 0.098198·(x − 1), i.e. N(x) ≤ 0.196373·(x − 1) + 1, for all x > 1**
 — the count never exceeds twice its target slope (plus 10⁻⁴). Threshold-tau variants with early placement by at most w (§1.6):
 records ≤ rho tau/(1 − tau) + o(1). Inputs: only E > −1/2 everywhere, E = +1/2 at every g-prime, rho < 1/2, and the Chebyshev
 identity (*) (= U7 Thm 5.5); no prime-gap, zero-free-region or PNT input.
 Mechanism: (*) at each g-prime y gives psi(y)/(2y) + rho Psi~(y) ≤ rho(log y − 1) + (log y + rho)/y (Lemma B1); it persists between
 g-primes (C1) and integrates to the Mertens bound S(x) ≤ log x − 1/(2rho) + o(1) (D2); at a record of E(u)/(u − 1), (*) forces
 A ≤ psi/(xD) − rho ≤ rho + o(1) (E1').
-**Corollary (§1.9):** Σ_{p≤x} 1/p = log log x + O(1) for S8(rho), rho < 1/2 [lower half in print: Diamond–Zhang Thm 4.7 p. 33 and Cor. 8.7 p. 81, whose hypotheses S8 meets (positive lower log density from E > −1/2; ∫u^{−2}dΠ < ∞ from the lattice); upper half: partial summation from D2].
-**(T2) is not obtained; a uniform linear comparison cannot yield it, and the restarted record method stops at a positive ceiling on data (§2):** class R = "the Chebyshev identity (*) at a point, with scale-
+**Corollary (§1.9):** Σ_{p≤x} 1/p = log log x + O(1) for S8(rho), rho < 1/2.
+**(T2) is not obtained; proof class R cannot yield it (§2):** class R = "the Chebyshev identity (*) at a point, with scale-
 proportional upper bounds A·(v − 1) or A·v at the lower scales and any information on psi, S". Because (a) R bounds the GLOBAL
 supremum of E(u)/(u − 1), which equals rho exactly at u = p1 (E(p1) = 1/2, p1 − 1 = 1/(2rho)), and for every threshold tau the
 output is ≥ max{rho(1−tau)/tau, rho tau/(1−tau)} ≥ rho (§2.4); (b) for sub-linear comparison functions (*) gives no inequality
 (§2.3); (c) restarted at large scales, R stops at psi/(xD) − rho = −W/D + O(log x/x), W the Lambda-mean of E over lower scales,
-which is dominated by the bounded scales where E(v) = −rho(v − 1) < 0 (≈ +0.010–0.014 on data for π/16) [computed, not proved: it needs ∫_1^x E du/u = O(log x) and the distribution of psi in (x/2, x], neither of which is proved; (a) is proved, and (b) for all large x via Cor. 1.9 (read-O A2)]. GAP (T2), exact: a lower
+which is dominated by the bounded scales where E(v) = −rho(v − 1) < 0 (≈ +0.010–0.014 on data for π/16). GAP (T2), exact: a lower
 bound for g-primes in macroscopic windows (x/K, x], or a non-lossy control of z-rough composites in a prime gap (§2.5).
 (T3) not attempted beyond §2.3(i) (sub-linear comparison functions are excluded from class R).
 Data on disk: verify/t1_check.py, t1_const.py, mertens2.py; logs/t1_*.log, t1const_*.log, mertens2_*.log.
@@ -83,7 +83,7 @@ So at every g-prime the Mertens deficit Delta controls psi from above. This is w
 enter: E(y) = +1/2 exactly at y (a g-prime is placed only when the count is 1/2 behind the target, and then lifts it to 1/2
 ahead), and E > −1/2 at every smaller scale y/d.
 [computed: max over all g-primes of F(y) − (log y + rho)/y = −0.221 (π/16, 1.79·10⁶ primes to 3·10⁷), −0.155 (π/32), −0.274 (0.3),
-−0.276 (0.45); logs/t1_*.log. For rho = 0.3 and 0.45, t = 10/3 and 20/9 have even numerators, so composites can sit exactly on the lattice (s40 Lemma 1.4; e.g. rho = 0.3: 6 = x_2 is a g-prime and (8/3)·6 = 16 = x_5), and a double-precision event loop decides such ties by rounding; these two rows are not certified, and no theorem uses them.]
+−0.276 (0.45); logs/t1_*.log.]
 
 ### §1.3 Step C — F stays below a vanishing bound everywhere [proved here]
 (L4) There are infinitely many g-primes: with only p1..pk, N(x) ≤ Π_{i≤k}(1 + log x/log p_i) (s40 1.0), so E(x) → −∞, against (L1).
@@ -145,7 +145,7 @@ C1: dF_tau/dx = −(1 − tau − rho)psi/x² − rho/x < 0 needs only r0 := 1 �
 has the particular solution t − 1 − (1 − tau)/rho, so liminf D ≥ (1 − tau)/rho, and D2 reads Delta ≥ (r0/(1 − tau)) D − eps/(1 − tau)
 → liminf Delta ≥ r0/rho. E1 is unchanged (it never uses the rule). Final step: A + rho ≤ (1 − rho)(rho + eps/Delta)/r0, so
   **every record of E(u)/u at large u is ≤ rho·tau/(1 − rho − tau) + o(1)**;  for tau = 1/2: rho/(1 − 2rho).
-So T1 holds for every S8_{tau,w} with rho + tau < 1, and the bound on large records is proportional to tau. (For w > 0 the g-primes leave the lattice, and if rho w ≥ 1 several may coincide; T(0) < ∞ still holds: m placements in [a, b] force tau − rho w ≤ tau − (m − 1) + rho(b − a), so pi(b) − pi(a−) ≤ rho(b − a) + rho w + 1, pi(x) = O(x), and T(0) < ∞ by partial summation. eps is nonincreasing from the point where eta_w decreases, log z > 1 − rho/(1 + rho w).)
+So T1 holds for every S8_{tau,w} with rho + tau < 1, and the bound on large records is proportional to tau.
 Caution (why tau → 0 with scale does not give T2): the tau in B1 enters through Σ_{d≤y}Λ(d)E(y/d) ≥ −Σ Λ(d) tau(y/d), a Lambda-
 weighted mean dominated by the SMALL scales y/d = O(1) (on data about half the weight of psi(y) sits at y/d ≤ 2; unconditionally
 the distribution of psi in (y/2, y] is not known); a threshold that falls with
@@ -158,17 +158,17 @@ for g-primes > X0; D(X0); then D0 = min{D(X0), (1 − tau)/rho − eps0/rho} (Le
 (r0 D0 − eps0)/(1 − tau), record bound rho tau/r0 + (1 − rho)eps0/(r0 Delta0).
 | system | X0 | sup_{u≤X0} E/u (at) | eps0 | D(X0) | Delta0 | records beyond X0 ≤ | **E(x) ≤ c x, all x ≥ 1** | N(x) ≤ |
 |---|---|---|---|---|---|---|---|---|
-| S8(π/16) | 3·10⁷ | 0.14099 (p1 = 3.5465) | 8.1·10⁻⁵ | 4.596 | 1.546 | 0.32346 | c = 0.32346 | 0.51981 x + 0.8037 |
-| S8(π/32) | 3·10⁷ | 0.08206 (p1 = 6.0930) | 6.0·10⁻⁵ | 7.741 | 4.092 | 0.12220 | c = 0.12220 | 0.22037 x + 0.9019 |
+| S8(π/16) | 3·10⁷ | 0.14099 (p1 = 3.5465) | 8.1·10⁻⁵ | 4.596 | 1.546 | 0.32346 | c = 0.32346 | 0.51981 x + 0.80 |
+| S8(π/32) | 3·10⁷ | 0.08206 (p1 = 6.0930) | 6.0·10⁻⁵ | 7.741 | 4.092 | 0.12220 | c = 0.12220 | 0.22037 x + 0.90 |
 | S8_{0.1}(π/16) | 10⁷ | 0.76782 (u = 2.2780) | 1.6·10⁻⁴ | 8.024 | 3.583 | 0.02796 | c = 0.76782 | 0.96417 x + 0.80 |
-Rounding: the run is in double precision; the ordering of S8 in double precision is exact below 5·10⁷ (π/16) and 7.1·10⁷ (π/32), and every composite-versus-lattice decision to 3·10⁷ is certified independently by read-O (double-double, minimum distance 9.4·10⁻⁸ (π/16) and 2.3·10⁻⁶ (π/32) lattice units against an error below 10⁻²², verify-O/logs/s8gen_*.log)
+Rounding: the run is in double precision; the ordering of S8 in double precision is exact below 5·10⁷ (π/16) and 7.1·10⁷ (π/32)
 [quoted: s40 theory NOTE §3.0 and the row "Integer error of S8" in §6, ordering margins 6.1·10⁻¹⁴ and 6.5·10⁻¹⁵ relative]; every
 quantity above enters with a margin ≥ 10⁻² against rounding ≤ 10⁻⁸. U6/U7 exact generators reproduce N, π_P to 10¹⁰ [quoted, SHARED].
 So **(T1) holds for S8(π/16) with C = 0.5199 and for S8(π/32) with C = 0.2204**: N(x) ≤ C x + 1 − rho for all x ≥ 1.
 
 ### §1.8 Sharper form: compare E with u − 1 instead of u (18:33 IST 2026-10-01) [proved here]
 **Lemma E1'.** If x > 1 and A := E(x)/(x − 1) = sup_{1<u≤x} E(u)/(u − 1) > 0, then A(1 + x D(x)) ≤ psi(x) − rho x D(x) − rho, so
-  A ≤ max{0, psi(x)/(x D(x)) − rho}   whenever D(x) > 0 (the only case T1' uses: D ≥ D0 > 0 on [X0, ∞)).
+  A ≤ max{0, psi(x)/(x D(x)) − rho}.
 *Proof.* E(u) ≤ A(u − 1) on [1, x] (at u = 1 both sides vanish). LHS(*) ≥ A(x − 1)log x − A∫_1^x(1 − 1/u)du = A x log x − A(x − 1).
 RHS(*): Σ_d Λ(d)E(x/d) ≤ A Σ_d Λ(d)(x/d − 1) = A(x S − psi). With S = log x − 1 − Delta, D = Delta + psi/x and (*)'s first part
 = psi − rho x D: A x log x − A x + A ≤ psi − rho x D − rho + A x log x − A x − A x Delta − A psi, i.e. A(1 + x D) ≤ psi − rho x D − rho.
@@ -179,14 +179,14 @@ If the right side is ≥ 0, A ≤ (psi − rho x D)/(x D). ∎
 psi/(xD) − rho ≤ rho + 2eps0/D; D ≥ D0 on [X0, ∞) by D1. ∎  (Threshold tau: rho tau/(1 − tau) + eps0/((1 − tau)D0), same proof.)
 On [1, p1), E(u)/(u − 1) = −rho; at p1 it equals (1/2)/(p1 − 1) = rho. [computed, logs/t1const_*.log]: sup_{1<u≤3·10⁷} E(u)/(u − 1)
 = rho exactly at u = p1 for π/16 and π/32; the next largest value over all other events is 0.0655 (u = 8.64, π/16) and 0.0402
-(u = 37.1, π/32), margins 0.13 and 0.058 below rho against rounding ≤ 10⁻¹² (verify/second_sup.py, logs/second_sup_*.log). Hence **E(x) ≤ (rho + 6.37·10⁻⁵)(x − 1) for S8(π/16), E(x) ≤ (rho + 2.35·10⁻⁵)(x − 1) for
+(u = 37.1, π/32), margins 0.13 and 0.058 below rho against rounding ≤ 10⁻¹² (verify/second_sup.py, logs/second_sup_*.log). Hence **E(x) ≤ (rho + 6.3·10⁻⁵)(x − 1) for S8(π/16), E(x) ≤ (rho + 2.3·10⁻⁵)(x − 1) for
 S8(π/32), for all x > 1; i.e. N(x) ≤ (2rho + 10⁻⁴)(x − 1) + 1: the count never exceeds twice its target slope.** For general
 rho ∈ (0, 1/2): every record of E(u)/(u − 1) beyond X0 is ≤ rho + o(1) as X0 → ∞.
 
 ## §2. ATTEMPT 2 (T2: E = o(x)) — breaks at: the record method is a linear-scale balance (18:35 IST 2026-10-01)
 **2.1 The drift identity [proved here].** Put Q(x) := psi(x) − rho x D(x) (= x(psi/x − rho D)). At a g-prime y, (*) reads
   Q(y) = (1/2)log y − ∫_1^y E(u)du/u + rho − Σ_{d≤y} Λ(d)E(y/d),
-so psi(y)/y − rho D(y) = −W(y) + ((1/2)log y − ∫_1^y E(u)du/u + rho)/y ≤ −W(y) + (log y + rho)/y (the remainder is O(log y/y) only if ∫_1^y E du/u = O(log y), which is not proved), W(y) := (1/y)Σ_{d≤y}Λ(d)E(y/d) (the Lambda-weighted mean of E over the lower scales).
+so psi(y)/y − rho D(y) = −W(y) + O(log y/y), W(y) := (1/y)Σ_{d≤y}Λ(d)E(y/d) (the Lambda-weighted mean of E over the lower scales).
 Between g-primes Q' = −rho(Delta + 1) plus jumps at prime powers, so the same holds up to rho(Delta + 1)·(gap)/x elsewhere.
 **2.2 What every record bound reduces to.** E1' gives at a record: A ≤ psi/(xD) − rho = (psi/x − rho D)/D ≈ −W/D. So the record
 method can give A → 0 only if W(x) ≥ −o(1) at the records. On data about half of the weight of Σ_d Λ(d) sits at d > x/2 (scales
@@ -203,7 +203,7 @@ A·[x^theta log x − (x^theta − 1)/theta − Σ_{d≤x} Λ(d)(x/d)^theta] ≤
 Σ_{d≤x}Λ(d)d^{−theta} > log x, which holds whenever psi(x) > x^theta log x (each term d^{−theta} ≥ x^{−theta}); on data psi(x) ≈ 0.93x.
 So for sub-linear comparison functions the record inequality carries no information: the right side is dominated by the small
 scales x/d = O(1), where (x/d)^theta is not small compared with E. Only linear comparison functions balance (*) at order x log x.
-(ii) A u + b, b ≠ 0: shifts the effective constant (b > 0 worsens it by 2b rho/(1 − 2rho); b < −A is beaten at u = 1, and −A ≤ b < 0 interpolates toward (iii)).
+(ii) A u + b, b ≠ 0: shifts the effective constant (b > 0 worsens it by 2b rho/(1 − 2rho); b < 0 is beaten at u = 1).
 (iii) A(u − 1): best of this family (§1.8), ceiling as in 2.2.
 
 ### §1.9 Corollary: Mertens' second theorem up to O(1) for S8 (18:42 IST 2026-10-01) [proved here]
