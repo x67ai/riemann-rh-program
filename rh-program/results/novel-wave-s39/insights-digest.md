@@ -267,3 +267,32 @@ Consistency note [consolidator's check]: fgC's "θ ≤ 0.304 (π/16), 0.402 (π/
 0.445" uses the finite certificates (fgT NOTE:16). Both correct; they answer different hypotheses.
 Statuses. Every number: NUMERICAL (producers as above). The zero of ζ_P: conditional on the tail hypothesis only. Untried (NOTE:43–47):
 interval Rouché, X = 10¹², the θ → 0 and ρ → 1 limits, zeros with σ < ½.
+
+### A.10 s5m — the fate of Lemma H: multiplicity in S5(0.8) and in every dense ℕ-supported system. Close K (stop line (b)) + T
+Verdicts: read-F AGREES-WITH-CORRECTIONS (rF:3); read-O AGREES-WITH-CORRECTIONS, F1–F3 (5 pairs) + 12 minor (rO:12–21). 18/18 pairs
+applied; "Unit CLOSED DUAL-READ: K (n_K, four code paths) + T (T1 on a printed core; T2, T3, T4, T4′ new as statements)" (rF:17).
+Three most useful findings.
+1. **K: the integer n_K** (NOTE:11–16): n_K = 2⁸·3⁵·5⁹·7³·11²·13·17·19³·23·29²·37·41²·59·61·79·89·109·149 (≈ 3.78·10⁴²) has a_{n_K} ≥
+   f_G(n_K) = 3,403,961,916,617,140 > 3.76·n_K^{0.35} + 3, so "hypothesis H_θ of Theorem K′ is false for every θ ≤ 0.35 and every
+   constant c < 1.88; Theorem K′ is vacuous as stated" (NOTE:15–16). Dual-read; four code paths (fcert 128-bit, checkK mod three primes,
+   the orchestrator's recount `verify-F/recount_nK_F.log`, read-O's full-lattice count on its own sieve generator, A1, rO:295–297).
+   read-O A5 (rO:311–313): c = 1.88 fails for every θ ≤ 0.351285; exact Rouché tolerance c < 1.8790.
+2. **T1–T3: bounded multiplicity forces a thin surgery** (NOTE:160, 171, 180): sup a_n < ∞ ⇔ a_n ≤ 1 ⇔ free g-primes with m_q ≤ 1 (T1;
+   a relation forces a_{n₀^k} ≥ k + 1); in a free ℕ-supported system K(x) ≤ R(x/2) (T2); free + N = ρx + O(x^θ), θ < 1 ⇒ refused primes and
+   added composites are both O(x e^{−c√log x}) (T3, via Landau's PNT quoted from DMV 2006 pp. 2–3). THEOREM (dual-read; rF:6–8; rO:16–17).
+   Prior art (F2): T1's core is Olofsson 2010 pp. 10–11 (checked at the line by the orchestrator, rF:13); Lagarias 1999 is the nearest
+   printed relative of T2–T3 ("[quoted from the review]" — neither reader opened it).
+3. **The certified climb** (NOTE:21–22; Instruments row 3): the exponent of the exact lower bound f_G(n) is 0.2726 (10⁹), 0.3294 (10^20.3),
+   0.3493 (10^29.9), 0.3617 (10^40.0), 0.3648 (10^42.6), marginal 0.37–0.46 from 10¹⁵ on, no decline — exact at all six points (rO A2,
+   :299–300). NUMERICAL (2 producers). Model crossing of n^{0.383} at 10⁶⁴–10⁸⁸ [model].
+Most useful failure. What T does NOT give (read-O F1, rO:201–207): T4′ (rank excess ⇒ max a_n ≥ x^{κ/log log x}) allows β = 0, so "integer-
+level feedback cannot keep β small" for every dense non-surgery system on ℕ is unproved (the open case 4(b), NOTE:197–198; UT-M5); the
+proposed rider headline was narrowed accordingly. And F3 (rO:216–220): "S5(0.8) obeys α ≤ 2β if the exponent passes 0.383" needs
+α = Re ρ₁, which the record has only as α ≥ Re ρ₁ under H_θ — now refuted.
+Borrow. (a) The exact multiplicity lower bound f_G with a FIXED finite G — but note its ceiling: "no fixed finite G can refute" Lemma H in
+its ≪ form, f_G(n) ≤ (1 + log₂ n)^{|G|} (NOTE:17–18). (b) A3–A4 (rO:301–310): T3's power-saving hypothesis cannot be dropped (R(x) ≍
+x/log²x example), and infinite thin surgeries have unbounded gaps (never in Lagarias's Delone class). (c) §5.1's exact rule (n is a
+g-prime iff A(n) = 0 and E(n − 1) ≤ 0.3) — already in the record (uoff read-O A1; F2(iii)).
+Statuses. T1 (core in print), T2, T3 and its converse, Lemma A, T4, T4′: THEOREM (dual-read). K: dual-read computation (above). Exact
+system to 2·10⁹ (max a_n = 344, sup E = 348.0): NUMERICAL (2 producers, byte-identical g-prime lists). Lemma H in the ≪ form: open.
+UT-M4 (task 6, zeros of F_X at 10⁹): not run (stop line).

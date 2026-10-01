@@ -14,3 +14,14 @@ Plan: own generator `U6-certificate/verify/s8cert.c` (lattice/cell form, every c
 
 ## 17:07 IST 2026-10-01 — ORCHESTRATOR: two more notes in ORCH-NOTES.md
 O8: the zero-density bootstrap cannot close (pointwise or mean square) — a pricing, under check by an Opus agent. O9 (for U3 especially): the one-block Chebyshev identity theta_P(X,2X] = sum_{n in (X,2X]} log n - sum_{p^k <= 2X/p_1} log p N(X/p^k, 2X/p^k] — the next block's g-primes need only UPPER bounds for E on the past plus the free lower bound N(I) >= rho X - E(X) - 1/2; main term X(1 + rho log(p_1/2)) with the template's Mertens constant c_1 = -1/rho; the crude sup bound on E loses by a factor about 4 rho B.
+
+## U4-sparse — 17:08 IST 2026-10-01 — start
+Unit U4-sparse (Opus 5.5 agent) started. Folder `U4-sparse/` (NOTE.md skeleton, `verify/`). Plan: (1) own block generator for
+S8(ρ) and for the feedback-free lattice monoid (all lattice points as primes), double precision with a double-double re-decision
+of every near-tie, per-bin statistics of c_k, e_k, window dispersion; ρ = π/32, π/64, π/128 to 10⁹–10¹⁰. (2) Theory: pathwise
+domination e_k ≤ e_k^lat, the lattice monoid's load I₁(2√τ)/√τ − 1 (crosses 1 at τ ≈ 1.55), explicit bound on the sparse range;
+the scaling limit in τ = ρ log x (macroscopic law and the local arrival process). Notation clash: the charter's "t = ρ log x" is
+τ in my NOTE (t = 1/ρ as in Session 40).
+
+## 17:09 IST 2026-10-01 — ORCHESTRATOR: CORRECTION to the O9 pointer above
+The one-block identity is for psi_P (prime POWERS in the block count), not theta_P: psi_P(2X) - psi_P(X) = sum_{n in (X,2X]} log n - sum_{p^k <= 2X/p_1} log p N(X/p^k, 2X/p^k]. Checked on exact data (orch-verify/o9_check.py). See the correction block in ORCH-NOTES.md, which also gives the telescoped exact relation between E and Delta = u - psi_P.

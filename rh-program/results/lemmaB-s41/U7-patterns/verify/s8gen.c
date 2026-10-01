@@ -25,7 +25,7 @@ static inline int ddlt(dd a, dd b){ return a.hi<b.hi || (a.hi==b.hi && a.lo<b.lo
 static dd T, RHO, DELTA; static double TAU;
 static uint32_t *PK = NULL; static double TH1; /* prime j has value 1 + (PK[j]-1+tau)t - delta */ static long np = 0, npcap = 0, npblock = 0;
 static long K0, K1;                 /* current chunk: cells K0..K1 */
-static uint8_t *cc, *c1, *c2;       /* per-cell counts in chunk: total, spf = p1, Omega = 2 */
+static uint8_t *cc, *c1, *c2, *dv[3]; /* per-cell counts in chunk: total, spf = p1, Omega = 2, divisible by p2, p3, p4 */
 static float *lastf;                /* largest fractional position of a composite in the cell */
 static long nflag = 0, ncomp = 0, nover = 0; static double minmargin = 1.0, minmargin_x = 0;
 static FILE *fflag = NULL, *fwatch = NULL;
@@ -59,6 +59,7 @@ static inline void record(dd c, int depth){   /* stk[0..depth] = factor indices,
   if (cc[j] == 255) nover++; else cc[j]++;
   if (stk[0] == 0 && c1[j] < 255) c1[j]++;
   if (depth == 1 && c2[j] < 255) c2[j]++;
+  { int seen = 0; for (int i = 0; i <= depth && stk[i] <= 3; i++){ int q = stk[i]; if (q >= 1 && !(seen & (1<<q))){ seen |= 1<<q; if (dv[q-1][j] < 255) dv[q-1][j]++; } } }
   if (f > lastf[j]) lastf[j] = (float)f;
   for (int i = 0; i < nck; i++) if (k == ckcell[i] && f < ckf[i]) ckpart[i]++;
   if (fwatch && nw && inwatch(k)){
@@ -89,9 +90,9 @@ int main(int argc, char **argv){
   DELTA = ddaddd(ddmuld(T, dfrac), dabs);
   double drho = DELTA.hi * RHO.hi;                  /* delta/t: E jump left after an early prime */
   long Kmax = cell_plain((dd){X, 0}) - 1;           /* cells with x_k <= X */
-  char fn[1024]; FILE *fc, *fe, *f1, *f2, *fp;
+  char fn[1024]; FILE *fc, *fe, *f1, *f2, *fp, *fd[3];
   sprintf(fn, "%s.c.u8", pre); fc = fopen(fn, "wb"); sprintf(fn, "%s.e.u8", pre); fe = fopen(fn, "wb");
-  sprintf(fn, "%s.c1.u8", pre); f1 = fopen(fn, "wb"); sprintf(fn, "%s.c2.u8", pre); f2 = fopen(fn, "wb");
+  sprintf(fn, "%s.c1.u8", pre); f1 = fopen(fn, "wb"); sprintf(fn, "%s.c2.u8", pre); f2 = fopen(fn, "wb"); for (int q = 0; q < 3; q++){ sprintf(fn, "%s.d%d.u8", pre, q+2); fd[q] = fopen(fn, "wb"); }
   sprintf(fn, "%s.primes.u32", pre); fp = fopen(fn, "wb"); sprintf(fn, "%s.flag", pre); fflag = fopen(fn, "w");
   if (argc > 10){ FILE *fw = fopen(argv[10], "r"); long a, b; int cap = 1024; wa = malloc(cap*sizeof(long)); wb = malloc(cap*sizeof(long));
     while (fscanf(fw, "%ld %ld", &a, &b) == 2){ if (nw == cap){ cap*=2; wa = realloc(wa, cap*sizeof(long)); wb = realloc(wb, cap*sizeof(long)); } wa[nw]=a; wb[nw]=b; nw++; }
@@ -99,14 +100,14 @@ int main(int argc, char **argv){
   for (double lx = 1.0; lx <= log10(X) + 1e-9 && nck < NCK; lx += 0.25){ double x = pow(10.0, lx); if (x > X) x = X;
     dd u = ddaddd(ddmul(ddaddd((dd){x,0}, -1.0), RHO), 1.0 - TAU); double k = floor(u.hi); double f = (u.hi-k)+u.lo; if (f<0){k-=1;f+=1;} else if (f>=1){k+=1;f-=1;}
     ckx[nck] = x; ckcell[nck] = (long)k + 1; ckf[nck] = f; ckpart[nck] = 0; nck++; }
-  long W = 1L << 25; cc = malloc(W); c1 = malloc(W); c2 = malloc(W); lastf = malloc(W*sizeof(float));
+  long W = 1L << 25; cc = malloc(W); c1 = malloc(W); c2 = malloc(W); for (int q = 0; q < 3; q++) dv[q] = malloc(W); lastf = malloc(W*sizeof(float));
   uint8_t *eb = malloc(W);
   double xcap = X / (1.0 + TAU*T.hi - DELTA.hi) * 1.0000001 + 10;   /* store dd values of primes below X/p1 */
   npcap = 1 << 20; PK = malloc(npcap*sizeof(uint32_t)); TH1 = 1.0 + TAU*T.hi - DELTA.hi;
   long e = 0, lastpk = 0, maxgap = 0, maxgap_k = 0, ckdone = 0, npr = 0, busy = 0, maxbusy = 0, maxbusy_k = 0;
   double supE = 0, supE_x = 1; int emax = 0;
   /* cell 1: always a prime */
-  { uint8_t z = 0; fwrite(&z,1,1,fc); fwrite(&z,1,1,fe); fwrite(&z,1,1,f1); fwrite(&z,1,1,f2); uint32_t k1 = 1; fwrite(&k1,4,1,fp);
+  { uint8_t z = 0; fwrite(&z,1,1,fc); fwrite(&z,1,1,fe); fwrite(&z,1,1,f1); fwrite(&z,1,1,f2); for (int q = 0; q < 3; q++) fwrite(&z,1,1,fd[q]); uint32_t k1 = 1; fwrite(&k1,4,1,fp);
     PK[np++] = 1; npr = 1; lastpk = 1; supE = (1 - TAU) + drho; }
   long Kdone = 1;
   printf("s8gen: t=%.17g%+.3g rho=%.17g tau=%g delta=%.17g (delta/t=%.6g) X=%.6g Kmax=%ld\n", T.hi, T.lo, RHO.hi, TAU, DELTA.hi, drho, X, Kmax);
@@ -118,7 +119,7 @@ int main(int argc, char **argv){
     if (Knext > Kmax) Knext = Kmax;
     for (long a = Kdone + 1; a <= Knext; a += W){
       long b = a + W - 1; if (b > Knext) b = Knext; long n = b - a + 1;
-      K0 = a; K1 = b; memset(cc, 0, n); memset(c1, 0, n); memset(c2, 0, n); for (long i = 0; i < n; i++) lastf[i] = 0;
+      K0 = a; K1 = b; memset(cc, 0, n); memset(c1, 0, n); memset(c2, 0, n); for (int q = 0; q < 3; q++) memset(dv[q], 0, n); for (long i = 0; i < n; i++) lastf[i] = 0;
       LB = xlat(a - 1); LB.hi *= (1 - 1e-13); RB = xlat(b); RB.hi *= (1 + 1e-13);
       dfs((dd){1.0, 0.0}, 0, 0);
       for (long k = a; k <= b; k++){
@@ -143,7 +144,7 @@ int main(int argc, char **argv){
         if (e > 255){ fprintf(stderr, "e overflow at %ld\n", k); return 3; }
         eb[j] = (uint8_t)e;
       }
-      fwrite(cc, 1, n, fc); fwrite(eb, 1, n, fe); fwrite(c1, 1, n, f1); fwrite(c2, 1, n, f2);
+      fwrite(cc, 1, n, fc); fwrite(eb, 1, n, fe); fwrite(c1, 1, n, f1); fwrite(c2, 1, n, f2); for (int q = 0; q < 3; q++) fwrite(dv[q], 1, n, fd[q]);
     }
     fprintf(stderr, "block K %ld..%ld (x %.4g..%.4g) primes %ld stored %ld comps %ld minmargin %.3e flags %ld\n", Kdone+1, Knext, xlat(Kdone).hi, xlat(Knext).hi, npr, np, ncomp, minmargin, nflag);
     Kdone = Knext;
@@ -152,6 +153,6 @@ int main(int argc, char **argv){
          Kmax, xlat(Kmax).hi, e + Kmax + 1, npr, ncomp, supE, supE_x, supE/(log(X)*log(X)), maxgap, maxgap*T.hi, maxgap_k, maxbusy, maxbusy_k, emax, e);
   printf("AUDIT minmargin=%.4e at %.10g flagged(<%.0e)=%ld count-overflow=%ld max-factors=%d\n", minmargin, minmargin_x, FLAGTOL, nflag, nover, depth_top + 1);
   printf("first primes:"); for (int i = 0; i < 6 && i < np; i++) printf(" %.10f", pvj(i).hi); printf("\n");
-  fclose(fc); fclose(fe); fclose(f1); fclose(f2); fclose(fp); fclose(fflag); if (fwatch) fclose(fwatch);
+  fclose(fc); fclose(fe); fclose(f1); fclose(f2); for (int q = 0; q < 3; q++) fclose(fd[q]); fclose(fp); fclose(fflag); if (fwatch) fclose(fwatch);
   return 0;
 }
