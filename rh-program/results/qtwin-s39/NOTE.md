@@ -1,11 +1,12 @@
 # NOTE — unit `qtwin-s39`: the last corner of Q_cond — weighted, clustering Beurling systems with Riemann's exact FE at q > 1
 
-Session 39, 2026-10-01. Writer: Opus 5.5 (unit agent). Status: IN PROGRESS — built section by section; §0 carries the close.
+Session 39, 2026-10-01. Writer: Opus 5.5 (unit agent). Status: COMPLETE — CLOSE G, stated as a theorem (§0.4), with RIGIDITY extended (Theorem D unconditional; Theorems G1, L‴;
+Proposition S); no construction. Sections were written in order (§1–§10); §0.4 was inserted last.
 Conventions (as in `qcond-s38/NOTE.md`, cited "QC", and `novel-wave-s37/beurling-fe/NOTE.md`, cited "BFE"): every load-bearing
 claim is (P) proved here, (C) computed in `verify/` with its log, or (Q) quoted from a file on disk at the line.
 `[recalled, unverified]` carries no load. Novelty: `[novelty: single-check]`. Distance-from-upstream lines (10(n)) marked "UPSTREAM".
 
-## 0. The question, the record, the digest (close stated in §0.4 once reached)
+## 0. The question, the record, the digest, the close
 
 ### 0.1 Setting (QC §1.1; BFE §3, §8(b))
 dN ≥ 0 on [1, ∞) of polynomial growth, F(s) = ∫x^{−s}dN(x), Λ_F(s) = (q/π)^{s/2}Γ(s/2)F(s), and (A): Λ_F(s) = Λ_F(1 − s), poles
@@ -43,6 +44,37 @@ the infeasibility certificate on disk (or for all q)' … Why first: both outcom
 program's first Q-side control with {Euler product, Λ ≥ 0, exact FE} (B5, B6); the refutation branch extends B1 to every
 conductor (then {Euler product, Λ ≥ 0, exact Riemann FE at any conductor} has one model)."
 QC answered this for u.d. systems (U_q) and, given Q4, for discrete ones (D); this unit owns the residue, QC §2.6(c).
+
+### 0.4 CLOSE — G, stated as a theorem (with RIGIDITY extended to every parametrizable class)
+THEOREM G (the exact obstruction in Q_cond's last corner). Let dN = exp*(dΠ), dΠ ≥ 0, be a Beurling system whose
+Λ_F(s) = (q/π)^{s/2}Γ(s/2)F(s) satisfies Riemann's exact FE (A) at some q > 1. Then:
+(1) RIGIDITY, EXTENDED (P). μ_q is NOT a finite generalized Dirac comb, whatever its weights (Theorem G1, §2); dN is not purely
+    atomic with finitely many mass values (G1′) and not discrete (Theorem D, now UNCONDITIONAL: Meyer p. 25 at the page + Lagrange,
+    Lemma M, §1); and if F/ζ converges absolutely on some Re s > σ₀ with σ₀ < ½, then the rational primes S occurring in the group of
+    its atoms have abscissa σ_S ≥ ½ (Theorem L‴ with Proposition S, §4, §6 — this covers the whole Poisson-pair cone 𝒦_r with thin
+    atoms, continuous parts included; the "zeta-zero repairs" of route (iii) split directly, §6). With QC: 𝒩 not u.d., c ≤ ρ_q, ∫u^{−1}dΠ_c ≤ log ρ_q.
+(2) THE OBSTRUCTION TO RIGIDITY (P + Q). Both mechanisms on record stop exactly at the boundary of (1). The structure theory of
+    positive self-dual measures (Lev–Olevskii, Meyer–Córdoba, G1) needs finitely many lattices or values; beyond them the
+    classification is open in print (BSS 2023 §8; Kurasov–Sarnak 2020 line 49). The Landau obstruction needs the multiplier's monoid
+    to see only a thin set of ζ's Euler factors (σ_S < ½); at σ_S ≥ ½ the pole of ζ becomes visible on that monoid — the Q-side
+    form of the rung-1 mechanism (pole and zeros in one local variable), which has no rung-1 image (§3).
+(3) THE OBSTRUCTION TO CONSTRUCTION (P). Every finite-dimensional family on which the exact FE can be imposed is excluded (§7.1
+    table: G1, G1′, D, L′, L‴, U_q, P1, W3). What survives is infinite-dimensional: (R1) positive J-symmetric Poisson mixtures with
+    thick rational part; (R2) model-set (cut-and-project) measures whose self-dual weight is non-smooth and vanishes on a
+    cut-and-project zero set (route (ii), §5); (R3) infinitely many twisted combs; (R4) solutions with F/ζ not absolutely convergent
+    left of ½ (general non-comb pure point measures, mixed systems, model sets).
+THE SMALLEST OPEN SUB-CLASS (named). 𝒯 = (R1), §7.2: m ≥ 0 atomic on [1, q], m({1}) = 1, m_{q/b} = √q·m_b/b, atom group with
+σ_S ≥ ½. On 𝒯 the exact FE, self-duality, dN ≥ 0 and the gap hold AUTOMATICALLY; Q_cond on 𝒯 ⟺ the one condition
+Π_ζ + log*(m) ≥ 0. Every finite truncation fails (L′); the probe raises the best attainable min Π_F on [1, 64] from −0.68 (one atom
+pair, global) to −0.31 (five pairs, local) at q = 4 as primes are added — evidence only.
+NO CONSTRUCTION. No candidate passed the exact self-duality test with dΠ ≥ 0 at any q > 1; no new Group-I control is claimed. The
+Gaussian Pisot comb (§5) passes the self-duality test (2.7e−51) and fails the gap and Euler positivity.
+STOP LINE (brief): "the infeasibility certificate covers the whole design space you can parametrize (then the close is G with the
+certificate)" — met in the form of §7.1: every parametrizable family is excluded by a theorem or an exact finite computation.
+WHAT IT MEANS FOR THE PROGRAM. QC §2.6(c)'s residue ("weighted or mixed, infinitely many values") shrinks to (R1)–(R4);
+{Euler product, Λ ≥ 0, exact Riemann FE at any conductor} has exactly one model, ζ, on every class in (1). A Q-side twin of the
+virtual curve, if it exists, lives in (R1)–(R4); in (R1) it needs nothing but one positivity condition. Digest B5's "only drop not yet
+paid with Λ ≥ 0 and a discrete system" is now paid in the negative unconditionally (Theorem D).
 
 ## 1. Meyer's finite-values theorem at the page, and Theorem D made unconditional
 
@@ -127,8 +159,10 @@ only place the FT is used) and, through L′, the FE. Finiteness of the comb: St
 frequencies). Integrality of masses: nowhere. `[novelty: single-check]`
 CONTROLS (the theorem must fail exactly where the hypotheses fail; `verify/v2_controls_G1.{py,log}`): F_{5,5} = π_{1/5} + (5/2)π_1 is a
 positive finite comb with (A) at q = 25 — Steps 0–4 go through (𝒩 = N is a monoid, one class, periodic weights) and it is excluded
-only at QC step (6)/L′, i.e. by Π(25) = −7 < 0; Davenport–Heilbronn (q = 5, complex periodic weights) and read-O R1 (signed, q = 1)
-fail Step 0 (no positive measure, no monoid) — G1 says nothing about them, as it must not.
+only at QC step (6)/L′, i.e. by Π(25) = −7 < 0 (v2: its exact self-duality test passes — theta 0 at 50 digits, Fejér exact via
+Poisson to ≤ 9e−50 — and Π(5), Π(25), Π(125) = 6, −7, 17); Davenport–Heilbronn (Γ((s+1)/2), q = 5: outside (A); real periodic
+coefficients of both signs, a(1..4) = 1, 0.2841, −0.2841, −1) and read-O R1 (signed, q = 1; atoms +√5, −2, +2 at 1.1180, 1.3416,
+1.7889) fail Step 0 (no positive measure, no monoid) — G1 says nothing about them, as it must not.
 
 ## 3. Rung 1 first — the weighted mechanism, and the rung-1 image of each design route (C: `verify/v1_rung1_weighted.{py,log}`)
 
@@ -183,8 +217,8 @@ abscissa of convergence of Σ_{p∈S}p^{−s} (σ_S := −∞ if S is finite). I
  forces q = 1. BFE Theorem T: F = ζ. ∎
 COVERAGE. S finite (Γ ∩ Q_{>0} finitely generated): QC's L′ is the case "m finite atomic"; L‴ adds countably many atoms, continuous
 parts, any irrational frequencies. Hence EVERY positive self-dual measure in the closed Poisson-pair cone 𝒦_r whose atoms generate a
-group with thin rational part (σ_S < ½) — e.g. all atoms in a finitely generated group, or in {b : b transcendental over Q(b₀)}·Q_S
-with S finite — is excluded at every conductor. `[novelty: single-check]` UPSTREAM: Landau 1905 / Widder, The Laplace Transform,
+group with thin rational part (σ_S < ½) — e.g. all atoms in a finitely generated multiplicative group, or atoms whose ratio group
+meets Q_{>0} only in S-units for a finite (or thin) prime set S — is excluded at every conductor. `[novelty: single-check]` UPSTREAM: Landau 1905 / Widder, The Laplace Transform,
 Thm II.5b `[recalled, standard]`; QC Theorem L′.
 THE RESIDUE OF ROUTE (i) (named): (R-i-1) Poisson-pair mixtures whose atoms generate a group with THICK rational part, σ_S ≥ ½
 (e.g. atoms at b_p = (p + 1)/p for all primes p, weights summable): the Landau obstruction proves D_a zero-free only on Re s > σ_S,
@@ -277,7 +311,7 @@ the thick case.
 | purely atomic, finitely many mass values | positions, values | Lemma M + M1 + G1 (G1′) | §1–§2 |
 | discrete (integer multiplicities) | prime multiset | Theorem D, now unconditional | §1.4 |
 | ζ·D, D any finite generalized Dirichlet polynomial | frequencies, coefficients | QC Theorem L′ | QC §2.3 |
-| ζ·D, D abs. convergent left of ½, thin rational part (incl. the whole cone 𝒦_r with thin atoms, continuous parts, zeta-zero repairs) | a measure m | THEOREM L‴ + Prop. S | §4, §6 |
+| ζ·D, D abs. convergent left of ½, thin rational part (incl. the whole cone 𝒦_r with thin atoms and continuous parts; zeta-zero repairs, split directly in §6) | a measure m | THEOREM L‴ + Prop. S | §4, §6 |
 | u.d. generalized integers | everything | QC Theorem U_q | QC §2.4 |
 | model sets with finite Hermite weights (exactly self-dual) | Hermite coefficients | Prop. P1 (finitely many zeros vs Z_j infinite) | §5 |
 | rung 1, genus 1 over F₅, real weights | t ∈ R | (W3): s₁..s₄ ≤ 1 has no real solution | §3, v1 |
@@ -305,7 +339,7 @@ violation L′ predicts; ζ(s)(1 + q^{½−s}) has Π_F(q^{2k}) ≤ 1 − q^k/(2
 ## 8. Prior-art gate at the page (paths: [BFE] = `novel-wave-s37/beurling-fe/sources/`, [QC] = `qcond-s38/sources/`, [here] = `sources/`)
 | source | what it prints (at the line) | bearing on the weighted corner |
 |---|---|---|
-| Meyer 1970, LNM 117, p. 25 (`fetched-r9/…ocr.txt` 677–709) | unit masses: μ̂ = Σ_Λδ_λ, |μ| TB ⟹ Λ = finite union of α_jZ + β_j up to a finite set (Cohen–Rosenthal) | used: Lemma M (finitely many values by Lagrange); says nothing about infinitely many values |
+| Meyer 1970, LNM 117, p. 25 (`fetched-r9/…ocr.txt` 677–709) | unit masses: μ̂ = Σ_Λδ_λ, ‖μ‖_TB < ∞ ⟹ Λ = finite union of α_jZ + β_j up to a finite set (Cohen–Rosenthal) | used: Lemma M (finitely many values by Lagrange); says nothing about infinitely many values |
 | Córdoba 1989, Lett. Math. Phys. 17, 191–196 ([here] `cordoba-1989-springer-landing.md`, abstract only; body paywalled) | "finite superpositions of periodic structures" for Dirac sums with Dirac FT; per Lev–Olevskii 2015 ([BFE] 1312.6884 lines 63–66) the finitely-many-values case | same class as Lemma M; no infinitely-valued statement |
 | Lev–Olevskii 2015 Invent. ([BFE] 1312.6884, 61–68, Thm 1 103–105) | equal atoms + positive pure point FT ⟹ lattice (Córdoba); finitely many values [17 p. 25], [6], [11], via Helson–Cohen idempotents; u.d. support+spectrum ⟹ finite union of lattice translates | needs u.d. or finitely many values |
 | Kurasov–Sarnak 2020 ([BFE] u-20b, 43–49, 56–58, 792–796) | Meyer's finite-values theorem as quoted; "any such classification is probably very difficult [5]"; positive crystalline non-comb examples, |μ̂| not TB | non-comb positive examples are not self-dual (QC §1.3(iii)) |
@@ -342,3 +376,32 @@ G1, Prop. S, L‴, P1–P2 as applied, 𝒯 `[novelty: single-check]`.
     uniqueness when q < 4") was wrong for S and is retracted in §5.1 rather than deleted.
 (h) Numerics carry no load: v1 (exact root isolation, used as a certificate only for the rung-1 statements), v3/v3d (acceptance test
     and probe), v4/v4b (probe; local searches flagged non-global).
+
+## 10. Rows for the orchestrator (texts only — this unit edits nothing outside its folder)
+
+### 10.1 Instruments rows, in `directions/C2-rigidity-conservation.md`'s column shape (| Quantity | Current best value | Result file | Dated |)
+| Q_cond's last corner — weighted / clustering Beurling systems with Riemann's exact FE at q > 1: the exact obstruction | THEOREM G (`qtwin-s39` §0.4): no solution whose μ_q is a finite generalized Dirac comb with ANY weights (G1), purely atomic with finitely many masses (G1′), discrete (Theorem D, now UNCONDITIONAL — Meyer LNM 117 p. 25 at the page + Lagrange interpolation), or ζ-divisible left of ½ with thin rational part σ_S < ½ (Prop. S + L‴; covers the whole cone 𝒦_r with thin atoms; the zeta-zero repairs of route (iii) split directly); residue infinite-dimensional (R1–R4); smallest open sub-class 𝒯 = thick positive J-symmetric Poisson mixtures, on which FE, self-duality, dN ≥ 0 and the gap are automatic and only Π_ζ + log*(m) ≥ 0 is open; no construction. Single-check | `results/qtwin-s39/NOTE.md` §0.4, §1–§7; `verify/v1_…`–`v4b_…` logs | 2026-10-01 |
+| Thick-mixture probe (truncations of 𝒯 at q = 4): best attainable min_{x ≤ 64} Π_F(x) | −0.680 (one pair 3/2 ↔ 8/3, global grid + polish); −0.401, −0.311 (M = 3, 4 pairs, local search, achieved values); q = 9: −0.506 (local). Every finite truncation is excluded by L′; evidence only | `results/qtwin-s39/verify/v4_thick_mixture_probe.log`, `v4b_thick_grid.log` | 2026-10-01 |
+| Weighted genus-1 admissibility over F₅ (L = 1 − tu + 5u², t real; rung 1 of the weighted Q_cond corner) | b_d ≥ 0 (d ≤ 60, arb root isolation) ⟺ t ∈ [−5, 6] (the convex hull of the integer set); RH-false part [−5, −2√5) ∪ (2√5, 6]; Q-side q-part positivity s_n ≤ 1 EMPTY over R already from n ≤ 4 | `results/qtwin-s39/verify/v1_rung1_weighted.log` | 2026-10-01 |
+
+### 10.2 Untried entries (KICKSTART 10(m))
+- **[2026-10-01, Session 39 — `qtwin-s39`]** **UT-QT1 The one-condition class 𝒯** (NOTE §7.2): decide Π_ζ + log*(m) ≥ 0 for positive
+  J-symmetric atomic m on [1, q] whose atom group has thick rational part (σ_S ≥ ½). First rung: a Bohr-lift (several-variable,
+  Laurent) Landau theorem — the one-variable version is L‴ and stops at σ_S = ½ — or a construction with atoms (p + 1)/p. Fit: S1
+  (Λ ≥ 0 is the whole condition). Target: C2.
+- **[2026-10-01, Session 39 — `qtwin-s39`]** **UT-QT2 Route (ii)'s harmonic core** (NOTE §5): is there a positive, self-dual,
+  necessarily non-smooth k vanishing on the cut-and-project set Z_j (q = √5φ^{2j})? KNS 2023 Thm 1(ii) shows the zero conditions
+  alone allow k ≠ 0. First rung: j = 1, an LP in a non-smooth self-dual family (e^{−2π|t|} + 1/(π(1 + t²)) and Hermite terms), then
+  the Euler test on Z[φ] (unit orbit first). Target: C2 (and the BSS §8 classification problem).
+- **[2026-10-01, Session 39 — `qtwin-s39`]** **UT-QT3 Mixed systems not ζ-divisible** (NOTE §6, §9(c)): G1 and Prop. S both need the
+  pure-point / continuous split to commute with μ̂ = μ; for positive self-dual measures with a gap, does it? First rung: the 𝒦_r cone
+  with continuous m (where it does) against a twisted-comb mixture with a continuous part.
+- **[2026-10-01, Session 39 — `qtwin-s39`]** **UT-QT4 Infinitely many twisted combs** (NOTE §4 (R-i-2)): Saias–Weingartner's
+  two-character zero theorem (QC Lemma S–W′) for infinitely many characters with summable Dirichlet-polynomial weights.
+
+### 10.3 The waste line (10(o))
+10(o): found something, correctly — a G close stated as a theorem with RIGIDITY extended: Theorem D made unconditional (Meyer
+p. 25 read at the page; the finitely-valued case by Lagrange interpolation), Theorem G1 (finite combs, any weights), Proposition S
+and Theorem L‴ (ζ-divisible solutions with thin rational part, continuous parts included); the corner shrinks to infinite-dimensional
+families with one named one-condition sub-class 𝒯; the brief's truncated LP was replaced by exact certificates for the reason QC
+§2.5 records; one heuristic of this writer ("Fourier uniqueness for q < 4") was caught at the page (KNS) and retracted in the note.

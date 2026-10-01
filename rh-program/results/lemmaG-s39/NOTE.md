@@ -8,7 +8,34 @@ Notation as in cO/NOTE.md ll. 7–11: R ⊂ ℙ, Σ_{p∈R}1/p < ∞, α_R = lim
 
 ## §0. Summary and close (written at the close)
 
-(pending)
+*The digest, quoted* (`results/novel-wave-s37/insights-digest.md`, SHA-256 e86f642a47cf4bde…). §B2 (l. 136): "B2 (the price of a zero;
+the line). Under surgery on the rational primes a zero at Re s = α > ½ costs integer error at least x^{α/2} — proved for random and for
+regular deletions, conjectured for every deletion — and RH is the endpoint β = 0 of the line α = 2β, not the β = 0 case of a threshold."
+§F.2 item 2 (ll. 363–369): "2. U1 — Conjecture O by the Franel/Landau mean-square route, with a structured-R counterexample hunt …
+Why second: its proof branch is RELATIVE — by Prop. 2.3 it cannot bear on ζ, whose own α_R is 0 — so only its refutation branch touches
+the line α = 2β that contains RH; still the cheapest theorem-grade unit on the table." This unit is cO's next unit (a): "Lemma G for
+one irregular deterministic class (e.g. hash-defined R: prove a natural boundary of P_R at α/2 …)" (cO/NOTE.md §4).
+
+*Summary.* **Close G, with T-parts and a rung-1 counterexample** (stated as a theorem in §6). (1) *Ladder.* Finite R reproduced by a
+third route (a dilation recursion, exact in rationals, §1.1). At the function-field rung the degree-wise Conjecture O is FALSE: deleting
+M(a, N) irreducibles of each degree N from F_q[T] gives D_R = 1 − au and E ≡ 0 with α_R = log a/log q (Thm R1; brute force + exact
+generating functions). That deletion satisfies every input of Theorem Z's proof except zero-freeness of D_R, so no proof of O or of
+Lemma G can rest on those inputs alone; it must use the injectivity of the norm on ⟨R⟩ (§1.3). (2) *Over ℚ, unconditional.* The
+singularities of P_R right of β₂ are exactly logarithmic germs with κ = Σμ(m)ord_{ms₀}D_R/m (Thm 2.1); any other singularity at Re s₀
+forces β₂ ≥ Re s₀ (Cor. 2.2). This proves O on four deterministic classes irregular at scale x^{α_R/2}: primes near p^k (T2, via the
+pole of 1/ζ(ks) at ρ₁/k), primes near n^k (T3, β₂ = α_R), modulated deletions — including deterministic R with a natural boundary of
+P_R on σ = α_R/2 (T4) — and spread necklaces (T5, β₂ = α_R). Under RH a counterexample needs D_R analytic past β₂ with infinitely many
+ZEROS and no poles (Prop. 2.3, sharpening cO Prop. 1.6). (3) *Over ℚ, RH.* Theorem F (Theorem Z with a model divided out) proves O for
+every R whose D_R-zeros are carried by a polynomially controlled model, including the tight ℚ-necklace — the exact transplant of the
+rung-1 counterexample, whose realization factor carries the prime diagonal. Every counterexample lies in the class 𝒞_self (§6), where
+the diagonal method is provably silent; 𝒞_self over ℚ is the smallest class where the answer is unknown, with no member known.
+(4) *Computation* (exact dyadic mean squares to 10¹⁰, five deterministic families and two controls, second routes throughout): no
+K-candidate. The one sub-diagonal family, sq = {nextprime(p²)} (slope 0.422 on [10⁶, 10¹⁰]), carries a theorem (T2), and its E is the
+sum over ζ's zeros at ρ/2 (200-zero explicit formula, correlation 0.998 for x ≥ 10⁸): a second calibration of the stop-line trigger
+beside cO's κ. T3's Bessel law fits nsq with R² = 0.995 at the residue-fixed frequency; the planted-pole control is read at slope
+0.906–0.940 against 0.90. (5) *Blocked route, named.* For hash-defined / pseudo-random R the natural-boundary route is blocked: every
+natural-boundary theorem read at the page needs gaps, shift structure, independence, or a constant local factor. The missing input for
+the Weyl family is a bilinear equidistribution estimate for {pθ} at scale p^{α−1}.
 
 ## §1. The ladder (standing order 10(b)): finite R, then the function-field rung — where Conjecture O is FALSE
 
@@ -256,3 +283,112 @@ into branch points (T5): slope 0.885 against T5's (log X)^{−3.66} law, whose l
 (a log-power); the sq case needs a second calibration — log-periodic modulation by zeros (here of ζ itself, at ρ/2) — which a κ-fit
 reads as κ = 1.41. **No family is a K-candidate**: every sub-diagonal window is explained by a proved mechanism.
 
+## §5. Prior-art gate (standing orders 1, 7) and distance-from-upstream lines (10(n))
+
+Read at the line (files in `sources/` unless prefixed fr/ or cO/):
+- **Hilberdink 2005** (fr `sources/w-18a…txt` ll. 222–258): Theorem A (zero order of log ζ_P for σ > max(α, β)), Remark B(ii) ("if … ζ_P(s)
+  has finitely many zeros here, then … zero order in this range"), and Carlson's mean value under the separation (3.1). Our §2.3 is its
+  relative form: a counterexample to O needs infinitely many zeros of D_R; Theorem F is Carlson applied after dividing by a model G.
+- **Diamond–Montgomery–Vorhauer 2006** (fr `sources/p1-02…txt` ll. 183–200): a Beurling system with N_B well behaved and ζ_B with infinitely
+  many zeros on σ = 1 − a/log t — RH-type failure with regular integers in the CONTINUOUS-density world. Relevant to U, not to O's
+  relative form; our deletions are discrete subsets of ℙ.
+- **Broucke–Vindas 2024** (fr `sources/z-18…txt` ll. 34–45, 97–111): the DMV–Zhang discrete random approximation (Thm 1.1) and Thm 1.2:
+  for any F ≪ x/log x a generalized-prime system with |π_P − F| ≤ 2 and Σ_{p_j≤x}p_j^{−it} − ∫u^{−it}dF ≪ √x + √(x log(|t|+1)/log x).
+  Nearest object to the Weyl (pseudo-random) family; difference: BV choose real g-primes by a random construction and PROVE square-root
+  discrepancy in every frequency; our Weyl sets are explicit subsets of ℙ with no proved discrepancy (that is the missing input of §6(c)).
+  "Zhang" enters here (BV's ref. [15], the DMVZ method); DZ's book (`sources/dz-2016-book.txt`, 14,436 lines) has no function-field example.
+- **Avdeeva 2015** (cO `sources/avdeeva…txt` ll. 117–135, Thm 1): if the semigroup ⟨B⟩ has count AN^α + O(N^β), β < α < 1, 2 ∉ B, the
+  shift-averaged variance of B-free counts in intervals of length N is ∼ CN^α — the stationary square-root law. It applies to sq
+  (Π(1 − r_p^{−s})^{−1} = ζ(2s)·(analytic on σ > 0.03): count A√N + O(N^β)), not to nsq (count √N·e^{c√log N}), not to the necklaces
+  (log-periodic count), not to the Weyl sets (x^α/log x): it never reaches the single interval [0, x] of Conjecture O.
+- **Fabry gap theorem and Pólya's refinement** (`sources/wiki-fabry-gap-theorem.txt`, quoting Fabry 1896/1899, Pólya 1929, Erdős 1945):
+  exponents of density D = lim sup k/n_k = 0 give a natural boundary; every arc longer than 2πD carries a singularity. The Dirichlet-series
+  form (Pólya) [recalled, unverified] needs frequencies λ_k with positive gaps and finite density; {log p : p ∈ R} has gaps → 0 and
+  counting function ≍ e^{α_Rλ}/λ (density ∞): the theorem is void for P_R.
+- **Breuer–Simon 2011** (`sources/breuer-simon-…txt` ll. 180–260, 618–700): Szegő's theorem (finitely-valued coefficients ⇒ natural
+  boundary unless eventually periodic, Thm 5.1), Steinhaus/Paley–Zygmund/Kahane random series (Thm 6.1: independent, non-degenerate
+  coefficients ⇒ strong natural boundary a.s.), ergodic nondeterministic coefficients (Thm 1.7). All are POWER series: the proofs use
+  "right limits", i.e. the shift structure of the exponent set ℕ. The frequency set {log p} has no shift structure.
+- **Estermann 1928 / Dahlquist 1952** via Bhowmik–Schlage-Puchta (`sources/bhowmik-…txt` ll. 30–60): Π_p W(p^{−s}) with the SAME local
+  factor W at every prime is either a finite product of ζ(νs)^{c_ν} or has σ = 0 as natural boundary. D_R has local factor 1 − x on R and
+  1 off R — outside their scope; our T2 is an Estermann-type transplant (W = 1 − x^k moved onto primes r_p ≈ p^k), landing in the
+  finite-product case (1/ζ(ks)).
+- Searches (`sources/arxiv-q1…q6.xml`): q3 found arXiv 2606.24536 (zeta-regularization on the natural boundary of the prime zeta
+  function; not about thin sets); q4–q6 (Beurling + function field; generalized primes + necklace; Euler product + thin set): 0 hits.
+  Under zoo V.5 a null search is not evidence of novelty.
+
+**Distance-from-upstream lines.** Thm 2.1/Cor. 2.2 ↔ Landau–Walfisz's structure of P(s) = Σμ(m)m^{−1}log ζ(ms) (singularities at ρ/m, 1/m)
+[recalled] and cO Prop. 1.6(i); difference: for an arbitrary thin R, relative to β₂, with the exact list of admissible germs (integer /
+half-integer / 1/L coefficients). Thm R1 ↔ the cyclotomic identity [recalled] and fr §5.4's virtual curve; difference: a deletion inside
+F_q[T] (O's own class) that is exactly regular. T2 ↔ squarefree-number Ω-results and Estermann's finite-product case; difference: primes
+near p^k, a deletion with α_R = 1/k. T3 ↔ none found (a deletion whose P_R has a pole at α_R; its Bessel law in √log x). T4 ↔ Hadamard /
+Breuer–Simon natural boundaries by planted singularities; difference: planted in a prime count through a greedy deletion. T5, F, F.1 ↔
+Hilberdink 2005 Thm 1 / cO Theorem Z (F is Z with a model G divided out); the ℚ-necklaces ↔ none (transplants of R1). Lemma 3.6 ↔ Legendre.
+
+## §6. Close — G, with T-parts and a rung-1 counterexample
+
+**Theorem (the close).** (T, unconditional) For every deletion R, the singularities of P_R right of β₂(R) are exactly the germs
+−κ log(s − s₀) + analytic, κ = Σ_m μ(m)ord_{ms₀}D_R/m (Thm 2.1); every other singularity at Re s₀ forces β₂ ≥ Re s₀ (Cor. 2.2). Hence
+Conjecture O holds unconditionally on four deterministic classes, each irregular at scale x^{α_R/2} and outside Cor. Z.1: prime-power
+mimics (T2, β₂ ≥ α_R/2), primes next to k-th powers (T3, β₂ = α_R), modulated deletions with a forbidden Mellin singularity —
+including deterministic R whose P_R has a NATURAL BOUNDARY on σ = α_R/2 (T4) — and spread necklaces (T5, β₂ = α_R).
+(T, RH) Theorem F: O holds whenever, past α_R/2, D_R = G·C with C zero-free carrying a divergent diagonal and G polynomially controlled
+in size and in minimum modulus on circles; in particular for the tight ℚ-necklace, the exact transplant of the rung-1 counterexample.
+(G) At rung 1 (F_q[T], RH true) Lemma G and the degree-wise Conjecture O are FALSE (Thm R1: E ≡ 0, α_R = log a/log q), and the
+counterexample satisfies every input of Theorem Z's proof except zero-freeness of D_R. Define, over ℚ, 𝒞_self := {R : for some
+τ₀ < α_R/2, D_R continues to {σ > τ₀, |t| > T₀} with polynomial growth and infinitely many zeros, and NO factorization D_R = G·C with
+(F1)–(F2) has a divergent diagonal (F3)}. Then: **(RH, α_R < ½) every counterexample to Conjecture O lies in 𝒞_self** (Prop. 2.3 +
+Theorem F); **the proof class "Carlson–Montgomery–Vaughan diagonal on log(D_R/G)" — Theorem Z, Theorem F — cannot yield Lemma G on
+𝒞_self, because there, by definition, every admissible G leaves log(D_R/G) with a convergent diagonal; and the class is not vacuous in
+the axioms that method consumes: its F_q[T] analogue contains the necklace deletion, which violates O.** A proof must use the
+injectivity of the norm on ⟨R⟩ (§1.3(d)). **Smallest class where the answer is unknown: 𝒞_self over ℚ.** No member is known; every
+construction of a D_R with infinitely many zeros past α_R/2 on the record (the ℚ-necklaces) is covered by T5 or Theorem F.
+*The brief's T-shape, corrected.* "P_R continues past α_R/2 off the axis, or has a natural boundary at α_R/2" is not a dichotomy for
+deterministic R: R_k (T2) and the tight ℚ-necklace have neither — P_R has logarithmic branch points on or beyond σ = α_R/2 — and O holds
+for both. The right shape is Corollary 2.2's list plus Theorem F.
+*Stop lines (the brief's).* No printed theorem decides Lemma G on these classes (§5). No K-candidate: every sub-diagonal window
+(sq, slope 0.422 on [10⁶, 10¹⁰]; greedy c = 1) lies on a set where O is an unconditional theorem (§4.3(e)). **The natural-boundary
+route for hash-defined / pseudo-random R IS blocked, by a named missing input:** a natural-boundary (or single forbidden-singularity)
+theorem for Σ_{p∈R}p^{−s} with 1_R a deterministic pseudo-random selection. Every natural-boundary theorem read at the page needs one of
+(a) gaps and finite frequency density (Fabry–Pólya; {log p} has gaps → 0 and infinite density), (b) the shift structure of ℕ (Szegő,
+Breuer–Simon right limits), (c) independence (Steinhaus–Paley–Zygmund–Kahane; Theorem B), (d) one local factor at every prime
+(Estermann–Dahlquist). For the Weyl family the concrete missing input is a pair-correlation (bilinear) equidistribution estimate for
+{pθ} over primes p ∈ (x/2, x] at the scale p^{α−1}, i.e. with frequencies h up to p^{1−α} — the input that turns Theorem B's one-scale
+argument deterministic (cf. Broucke–Vindas 2024, Thm 1.2, which builds such square-root discrepancy for random real g-primes).
+
+**Instruments rows** (column shape of `directions/B2-refutation-program.md` "Instruments": Quantity | Current best value | Result file |
+Dated; records, never ranks):
+| Quantity | Current best value | Result file | Dated |
+|---|---|---|---|
+| Conjecture O at the function-field rung (degree-wise; F_q[T], RH true) | FALSE: necklace deletion (M(a, N) irreducibles of degree N) has E ≡ 0 with α_R = log a/log q; brute force F_3[T] deg ≤ 8, generating functions deg ≤ 60; regular (round(a^N/N)) and random rung-1 deletions at |E(n)| ≍ a^{n/2}n^{−3/2} and ≍ a^{n/2} | `results/lemmaG-s39/NOTE.md` §1.2–1.3; `verify/logs/rung1_ff.log` | 2026-10-01 |
+| Deterministic deletions with O (β₂ ≥ α_R/2) a theorem beyond Cor. Z.1 | unconditional: R_k = primes near p^k (β₂ ≥ 1/(2k)); primes near n^k, k ≥ 3 (β₂ = α_R); planted natural boundary at α/2; spread ℚ-necklace (β₂ = α_R). RH: every model-factorizable D_R (Theorem F), incl. the tight ℚ-necklace | `results/lemmaG-s39/NOTE.md` §3, §6 | 2026-10-01 |
+| Exact dyadic mean square of deterministic deletions at X = 10¹⁰ | sq = {nextprime(p²)}: slope 0.422 on [10⁶, 10¹⁰] on a PROVED set, explained by ζ's zeros (200-zero explicit formula, corr 0.998 for x ≥ 10⁸); nsq: Bessel law R² 0.995; tight / spread necklaces 0.79 / 0.885; planted-pole control 0.906–0.940 vs 2σ₁ = 0.90 | `results/lemmaG-s39/NOTE.md` §4; `verify/logs/dyadic_1e10.log`, `sq_explicit_200.log`, `nsq_bessel.log` | 2026-10-01 |
+
+**Untried entries** (KICKSTART 10(m): fit reason + first ladder rung):
+- **UT-L1 The ℚ-limit of the rung-1 counterexample.** A continuous family between rung 1 and ℚ: Beurling necklaces with c_N g-primes in
+  [e^{Nλ}, e^{Nλ}(1 + η_N)] inside the ambient ℙ ∪ (those g-primes), deleted again — find the threshold spread η_N at which O switches on
+  (Theorem F needs Σ_N c_N η_N e^{−Nλσ} < ∞ for some σ < θ/2; at η_N = 0 O fails). Fit: S1 (the input is exactly norm-injectivity, the
+  property §1.3(d) isolates). First rung: R1 itself (η = 0), then η_N = e^{−κN} for a ladder of κ, computed exactly with this unit's `lg.c`.
+- **UT-L2 Pair-correlation input for pseudo-random deletions.** Prove M(X) ≫ X^{α}/log X for the Weyl set {p : {p√2} < p^{α−1}} from a
+  bilinear equidistribution estimate for {pθ} at scale p^{α−1} (the named missing input of §6). Fit: S2 (a single planted defect — the
+  §4 planted pole — is visible to the statistic; the estimate would make the visibility deterministic). First rung: F_q[T] with irreducibles
+  selected by a hash of their coefficient vector (pair correlations computable exactly), then ℚ at α = 0.75.
+- **UT-L3 Membership test for 𝒞_self.** Given R, search for a model G with (F1)–(F2) and divergent diagonal, or certify none: e.g. test
+  whether D_R(s)·Π_ρ(1 − s/ρ)^{−1} over its computed zeros has bounded log-diagonal. Fit: S1, S5 (it must survive the rung-1 necklace, the
+  method's named no-go). First rung: rung 1 (answer known: the necklace is in the F_q[T]-analogue of 𝒞_self), then the tight ℚ-necklace
+  (answer known: not in 𝒞_self).
+- **UT-L4 The stop-line trigger, recalibrated twice.** Restate cO's K-trigger with both calibrations found so far — log-powers (κ; greedy)
+  and zero-driven log-periodic beats (sq; explicit formula) — and test it on sq to 10¹⁴ through the explicit formula alone (no sieve).
+  Fit: bookkeeping for B2's refutation instruments (no S1–S5 content). First rung: sq at 10¹⁰ (on disk), where the beat is measured.
+- **UT-L5 T3's Bessel law across a full period.** nsq to 10¹¹ (the next zero crossing of J₁(√(2 ln x)) is near 5·10¹⁰): a quantitative
+  instrument for "pole of P_R at α_R ⇒ essential singularity of D_R". Fit: S2-type visibility calibration. First rung: k = 3 to 10¹⁰.
+
+*Recalled inputs* (load-bearing, not read at the page here): Ingham's gap bound and Huxley's short-interval PNT (T2–T5 spreads; BHP 0.525
+would also do), the first zero of ζ and its simplicity (T2), Littlewood's Ω± (only for "irregular at scale x^{α_R/2}", not for any
+theorem), Stirling and the RH bounds for ζ, 1/ζ (as in cO §4, via Theorem Z/F), the cyclotomic identity (re-derived in §1.2's proof).
+Quoted at the line: Hilberdink 2005, DMV 2006, Broucke–Vindas 2024, Avdeeva 2015, Breuer–Simon 2011, Bhowmik–Schlage-Puchta 2010, the
+Fabry/Pólya statements (§5).
+*Waste line (10(o)).* Spent for nothing: the first two launches of `verify/rung1_ff.py` (a (1 − u^N)^{r_N} product looped r_N ≈ 10¹⁶ times;
+a Python loop over 1.4·10⁹ irreducibles to sample the random deletion) — label (ii), tool/time: replaced by the binomial expansion and
+binomial sampling, ≈ 15 min lost; three arXiv queries returned 503/empty on the first attempt (network, retried). Nothing else: every
+run fed a section ("found nothing, correctly" for K: no candidate, with a proved reason for each sub-diagonal window).
