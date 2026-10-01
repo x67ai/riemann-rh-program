@@ -117,3 +117,80 @@ pieces, Σℓ_i = U exactly, so ∫_U^{2U}E² ≥ ρ²U³/(12(n + 1)²) = (U/12)
 the Hölder step does not give U³. Equality case ✓ (all pieces 1/ρ, E = ±½ at their ends: E_L). Constant (minor m5): summing dyadic blocks
 with u^{−2σ−1} ≥ (2U)^{−2σ−1} gives (1 + o(1))/(48σ log 2) ✓ as a lower bound, but the sharp constant is 1/(24σ) (blocks [U, (1 + η)U],
 η → 0), attained by E_L; "L_ρ meets the bound" (l. 161) is off by the factor 2 log 2 = 1.386. [computed, `meansq_O.log`, below.]
+[computed, `meansq_O.log`, closed-form piece integrals at 30 digits:] block mean squares of E_L at U = 10³, 10⁴, 10⁵, 4.9·10⁵: 0.083394547,
+0.083348734, 0.083333363, 0.083333247 — the NOTE's L column (l. 162) ✓; σ·∫_1^∞E_L²u^{−2σ−1}du = 0.040358, 0.041155, 0.041413, 0.041540
+at σ = 0.05, 0.02, 0.01, 0.005 → 1/24 = 0.041667, not 1/(48 log 2) = 0.030056.
+**1.15 §3.3 (l. 164–182)** spot-checked. The "exact" Parseval right sides for L, 0.6875 (σ = 0.3) and 0.3955 (σ = 0.45) (l. 165–166), are
+3-point Gauss–Legendre values per gap (`verify/meansq_split.py` l. 19–20), inaccurate on the first gap [1, ℓ₁) where u^{−2σ−1} varies by a
+factor 4–6. Exact closed form: 0.689343 and 0.397362 (cross-checked by adaptive quadrature to ℓ₁₉₉ plus the mean-1/12 tail: 0.68944,
+0.39737). Minor m6; the reading (shortfall = the tail |t| > 2048) is unchanged. The S8 values share the same first gap and are presumably
+low by a similar 0.002 [not recomputed: no S8 dump of my own]. The energy table and readings (i)–(iii) were not re-run (§8).
+**1.16 §3.4 zeros (l. 184–191; target (a))** ✓ and sharpened. Newton from the NOTE's values: 0.730915276980 + 42.089391949i and
+0.512473951247 + 22.437212622i, |L| < 10⁻²¹. Argument principle (adaptive arg-tracking, |Δarg| < 0.3 per step, min|L| on every contour
+≥ 0.012) [computed, `zeros_O_A.log`, `zeros_O_D.log`]: winding 5 on [½, 1] × [½, 50], 7 on [½, 1] × [50, 100], 12 on [½, ¾] × [½, 100],
+0 on [¾, 1] × [½, 100], 1 on [½, 0.95] × [−½, ½] (the real zero only), 0 on [0.95, 1.2] × [0.05, ½]. So L_{π/16} has EXACTLY 12 zeros
+with ½ < Re s < 1, 0 < Im s < 100 (the NOTE: "≥ 12"), all with Re s < ¾ — numerically, not interval-certified. Right of 1
+[`zeros_O_B.log`]: winding 0 on [1, 1.25] × [½, 1000] in four boxes (min|L| ≥ 0.41), consistent with 1.8. Why no scan can see the zeros
+of 1.8 [computed, `chernoff_O.log`; heuristic for heights, rigorous for the random model]: by Kronecker–Weyl the values X(σ + it) are
+distributed as Σa_ke^{iθ_k} with independent uniform θ_k [recalled: Bohr–Jessen], and Chernoff with log I₀(x) ≤ x²/4 for the tail gives
+P(Re X ≤ −1) ≤ 10^{−31.6}, 10^{−60.2}, 10^{−245.9} on Re s = 1.02, 1.05, 1.10 (π/16) — zeros there first occur at heights of that order.
+"Cor. 2(b) of Hilberdink predicts infinitely many for both" (l. 188): false for L (1.11); for S8 it is conditional on (B) with θ < ½,
+i.e. on Lemma B — minor m7 for the S8 half, F3 for the L half.
+**1.17 §4.1–4.6 at the page (target (b))**. 4.1's quotations ✓ at the lines named (Thm 1 w-18a l. 195; Cor. 2(b) l. 211–214; Remark C
+l. 496–501; (3.2) l. 317–320, Fejér l. 330–341, (3.3) l. 345–354; (3.4) l. 436–455), with one omission that matters: Theorem A needs an
+[α, β]-system, and its proof uses ζ ≠ 0 right of α before positivity (1.11). 4.2 ✓ re-derived (class (A)&(B), θ < ½: Thm 1 is satisfied;
+Cor. 2(b) gives infinitely many zeros in (γ, 1), γ ∈ (θ, ½); so zero order left of ½ is unavailable and (3.3) meets no (3.4)). 4.3 FALSE
+below σ₁ (F3). 4.4: class-(A) reading ✓ (α ≥ σ* > ½ > θ ≥ β forces α = γ; β free); L-part route FALSE, conclusion true (F3). 4.5 ✓ as a
+summary. 4.6 ✓ for (D) + (P): log ζ_P − log ζ_ref = s∫(Π_P − Π_ref)u^{−s−1}du = η̂, analytic on Re s > α′, so ζ_P inherits the finitely
+many zeros of ζ_ref right of max(θ, α′, γ₀) < ½, against Cor. 2(b). "For signed data by 4.3" (l. 237) is unsupported: for signed Π the
+three-circles step has no bounded M₁ (η̂ = O(|t|) only), and 4.3 is false (F3).
+**1.18 Prop. 5.1, the clip bound (l. 244–249; target (d))** ✓. N(b) − N(a) = #g-primes in I + C(I) ≥ C(I), so E(b) − E(a) ≥ C(I) − ρ|I|, and
+E(a) ≥ −c; sup over I ⊂ [1, x] gives sup_{u≤x}E ≥ Q(x) − c. "For S8 the converse holds" ✓: s40 Lemma 1.4/Cor. 1.4′ (no ties, t
+transcendental) give E(u) = sup_{y≤u}(C[y, u] − ρ(u − y)) + r(u), r ∈ (−½, ½], hence |sup_{u≤x}E(u) − Q(x)| ≤ ½; with E > −½,
+(B) with exponent θ ≥ 0 ⟺ Q(x) = O(x^θ) ✓. (Cited as s40 l. 92–94; at today's s40 text it is l. 90–92: m8.)
+**1.19 §5.2 table (l. 259–264)** ✓ arithmetic: x^{σ*/2} with σ*/2 = 0.397376 gives 242, 605, 1511, 9420; Q/log²x = 0.0511, 0.0491,
+0.0491, 0.0493; the ratio to x^{σ*/2} falls by 14.3. Q and sup E themselves are the unit's S8 data (not re-run, §8).
+**1.20 §5.3 (l. 271–283)** ✓. #(g-integers in I prime to P(z)) = Σ_{d|P(z)}μ(d)N(I/d) (free monoid) = ρ|I|M(z) + ΔE(I) + S_z(I); these are
+π(I) + C_rough(I) (a > z); with N(I) = π(I) + C(I) = ρ|I| + ΔE(I) this gives C(I) − ρ|I| = C_rough(I) − ρ|I|M(z) − S_z(I) exactly. |ΔE(J)| ≤
+2max|E| and 2^{π(z)} − 1 terms give |S_z| ≤ 2^{π(z)+1}max_{y≤b/p₁}|E(y)| ✓.
+**1.21 Cor. 6.1 (l. 287–297; target (d))** ✓ at the page: Hilberdink 2012 Thm A (p3-22c2 l. 102–110: N ∈ T, N(x) − cx of period P, N
+determines a g-prime system ⇒ P ∈ ℕ, N(x) = Σ_{n≤P,(n,P)=1}([(x − n)/P] + 1), the integers prime to P); Def. 1.3 l. 326–333 ✓; class T
+l. 264–270 ✓. Period-average of [y] − y is −½, so the average of R = N − (φ(P)/P)x is φ(P)/2 − (1/P)Σ_{(n,P)=1,n≤P}n = 0 (P ≥ 2;
+Σn = Pφ(P)/2) or −½ (P = 1); R is not a.e. constant, so inf R < 0 ✓. L_ρ (periodic R, inf R = ½ − ρ > 0) is excluded only through
+"determines a g-prime system", i.e. (P) ✓.
+**1.22 §6.2, the local positivity inequality (★) (l. 299–320; target (e))** ✓ derivation, ✓ failure for L, one hypothesis to tighten.
+Free monoid: log n = Σ_{β|n}Λ(β), so Σ_{n∈I}log n = Σ_βΛ(β)N(I/β) (exact). For I = (x, x + h] with x + h < p₁x, the β ∈ I terms give
+ψ(I) (I/β ∋ 1 only); β > x + h give 0. Write N(J) = ρ|J| + ΔR(J); ∫_I log u dN = ρh log x + ΔR(I)log x + O((N(I) + h)h/x); Mertens
+Σ_{β≤x}Λ(β)/β = log x − A/ρ + o(1) with A = ρ + ∫_1^∞Ru^{−2}du the constant term of ζ_P at 1 (ζ_P = ρs/(s − 1) + s∫Ru^{−s−1}du =
+ρ/(s − 1) + A + O(s − 1), so −ζ′/ζ = 1/(s − 1) − A/ρ + …). Then ψ(I) ≥ 0 is exactly (★) ✓. Tighten (minor m9): the Mertens form needs
+ψ(u) − u = o(u) and ∫_1^∞(ψ(u) − u)u^{−2}du convergent; "a PNT with error o(x/log x)" (l. 308) does not give the convergence. Under (B)
+the PNT with error O(x e^{−c√log x}) is quoted at Hilberdink 2005 l. 126–131 (from Diamond), which does; and "(★) holds automatically for
+every Beurling system" (l. 310) should read "for every Beurling system with (B)". For L [computed, `star_L_O.log`, h = 10⁻⁸, all
+semigroup elements ≤ 9000, A_L = 1 + ρ log ρ − ρψ(½ + ρ) = 0.921962]: the exact identity holds (both sides 0 to 10⁻³⁰) and
+LHS − RHS of (★) = −Π_L(λ)log λ in every window: +3.4223 (ℓ₁ℓ₂), +1.2660 (ℓ₁², Π = −½), +5.3310 (ℓ₂ℓ₅), +1.2660 (ℓ₁⁴, Π = −¼), +53.864
+(ℓ₁ℓ₂ℓ₃ℓ₄, Π = −6) — (★) FAILS; −12.084 (ℓ₁ℓ₂ℓ₃), −4.688 (ℓ₁²ℓ₂), −1.266 (ℓ₁³), −13.903 (ℓ₁ℓ₂ℓ₇) — holds. So (★) fails for L exactly at
+the windows around λ with Π_L(λ) < 0, i.e. k even — where the NOTE says ✓. "A = 0.937500 for S8(π/16) … a coincidence" (l. 318) is S8 data
+(not re-run). The GAP statement (l. 313–315) is a correct description of what a proof along this line would need; it is not a theorem.
+**1.23 §6.3 (l. 322–330)** ✓. (a) ζ_P = ρs/(s − 1) + r₀ + sĜ(s), Ĝ = Mellin transform of R − r₀ ≥ 0, |Ĝ(σ + it)| ≤ Ĝ(σ) ✓. (b) ζ_P(0⁺) =
+lim sF(s) = log-mean of R ≥ r₀ (Abelian) and ζ_P(1⁻) = −∞ ✓ — gives a zero in (0, 1), not the sharper (σ₀, 1) (wording "a second proof
+of the real zero" is fine); P ∖ {q} has R(x) − R(x/q) (N_{P∖q} = N(x) − N(x/q), density ρ(1 − 1/q)) ✓. (c) Ê(σ*) = −ζ_c(σ*)/σ* ✓:
+−0.08838 for L (σ*_L = 0.788933), −0.05455 for S8 (σ* = 0.794752) ✓. (d) quoted, not re-derived (s40 read-O F1).
+
+## §2. Independent re-run (`verify-O/`; own code from the NOTE's definitions; nothing imported from `verify/`)
+
+| quantity (NOTE line) | NOTE | read-O (method) | agreement |
+|---|---|---|---|
+| σ*_L π/64, π/32, π/16, π/8 (l. 85–88) | 0.947589, 0.893876, 0.788933, 0.589399 | 0.947588630, 0.893875616, 0.788932804, 0.589399248 (bisection, Hurwitz, 30 digits; `lattice_control_O.log`) | all printed digits |
+| first-order s₀ + ρL(s₀); L(0) (l. 85–88) | 0.947802 … 0.589755; 1 − ρ | 0.94780193, 0.89446023, 0.78982354, 0.58975476; L(0) = 1 − ρ to 10 digits | all digits |
+| E_L range (l. 54, 71) | (−½, ½] | +½ at atoms, −½ + 10⁻²⁵ left of them; Hurwitz = direct sum to 4·10⁻²⁹ | ✓ |
+| σ₁ π/16, π/32 (l. 189) | 1.181340, 1.091222 | 1.1813403944, 1.0912223517 (bisection) | ✓ |
+| Euler exponents, census λ ≤ 400, truncated product (l. 62–71) | as listed; 1.0247170 / 1.0501612 | two exact routes to degree 7 (`euler_O.log`); census and 1.02471695 / 1.05016124 (`star_L_O.log`) | exact / 8 digits |
+| zeros of L right of ½ (l. 185–186) | ≥ 12 below Im 100; 0.730915 + 42.089392i, 0.512474 + 22.437213i | exactly 12 (argument principle), all Re < ¾; both zeros to 12 digits (`zeros_O_A.log`, `zeros_O_D.log`) | ✓, sharpened |
+| zeros of L in 1 < Re s < σ₁ (l. 189–191) | not settled | infinitely many (proof, §1.8); none with Re ≤ 1.25, Im ≤ 1000 (`zeros_O_B.log`); Chernoff 10^{−31.6} on Re s = 1.02 (`chernoff_O.log`) | settled |
+| V: A_n, b_d, zeros (l. 140–142) | −¼; 1, 5, 25, 110, …; 0.79899, 0.20101 | exact to n = 39, d = 40; 0.79899371783, 0.20100628217 (`curveV_O.log`) | ✓ |
+| L block mean squares (l. 162) | 0.083395, 0.083349, 0.083333, 0.083333 | 0.0833945, 0.0833487, 0.0833334, 0.0833332 (closed form; `meansq_O.log`) | ✓ |
+| L Parseval right side σ = 0.3, 0.45 (l. 165–166) | 0.6875, 0.3955 | 0.689343, 0.397362 (closed form; quadrature 0.68944, 0.39737) | DIFFERS 0.3–0.5 % (m6) |
+| σ → 0 constant of Prop 3.2 (l. 160) | 1/(48σ log 2) | σ·∫ → 0.041540 at σ = 0.005 → 1/24 | m5 |
+| (★) for L (l. 310–313) | fails at even products | LHS − RHS = −Π_L(λ)log λ, 9 windows (`star_L_O.log`) | ✓ |
+| S8(π/16) at 10³…10⁶ (l. 94–96, 252, 261) | π(10⁶) = 72,603 (l. 317); sup E 9.636; Q 9.754 | own sweep generator (`s8_O.py`): π = 72603, C = 123746, sup E = 9.6362, Q = 9.7537; 10³–10⁵ rows equal the unit's log | all digits |
+| S8(π/32) sup E at 10⁶ (l. 95) | 6.393 | 6.3931 | ✓ |

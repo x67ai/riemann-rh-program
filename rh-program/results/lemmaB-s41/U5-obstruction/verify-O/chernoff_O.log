@@ -1,0 +1,4 @@
+sigma=1.02: X(sigma)=9.73882  P(Re X(sigma+it) <= -1) <= exp(-72.8258) = 10^-31.63  (lambda=430.5)
+sigma=1.05: X(sigma)=3.84745  P(Re X(sigma+it) <= -1) <= exp(-138.551) = 10^-60.17  (lambda=1024.0)
+sigma=1.1: X(sigma)=1.8826  P(Re X(sigma+it) <= -1) <= exp(-566.297) = 10^-245.9  (lambda=3444.0)
+python3 chernoff_O.py  9.46s user 0.01s system 99% cpu 9.477 total

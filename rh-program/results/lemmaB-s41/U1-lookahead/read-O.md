@@ -128,3 +128,21 @@ of σ* with σ_L for small τ reproduces, and σ* > σ_L as the theorem requires
 **2.4 Explicit systems against Theorem 4.1** (`thm41_tests.py`, `cor44_counterexample.py`): template Λ(0.98) = 9.830 > ζ_c(0.98) = −8.818
 (discreteness is necessary); ℕ: ζ ≥ Λ_{1,1}, min gap 0.177 on a grid, Λ_{1,1} < 0 on (0, 1); Q′ = ℕ ∪ {1 + τ/ρ}: inf E_{π/4} = −0.0100000 exactly
 (at q⁻; integers alone keep E ≥ 0 beyond u = 5.66), N − ρ′X = −163, −255, −343, −442 at X = 10, …, 10⁴ (≈ −0.6 log X/log q): β(Q′) = 0.
+**2.5 Target (d), second half: the bug in s40's `s8w_block.py` DOES change s40 theory NOTE §3.1** (`s8w_bugcheck.sh`, logs
+`s8w_bugcheck_1e6.log`, `s8w_bugcheck_1e7.log`). The original script and a copy patched ONLY in the cofactor search (U1's widening by
+10⁻¹², membership test on the computed product unchanged), same seeds. Arbiter: my own S8^w brute force (`bf_s8w.py`: no blocks, heap
+enumeration, 40 digits, the rule exactly as the script implements it, same numpy RNG stream) at X = 10⁵, w = 50, seed 2: N 19,637, π 6,744,
+sup E 140.843, σ* 0.879177 = the PATCHED script exactly; the original gives 19,644, 6,777, 71.843, 0.878362. Mechanism: the script places an
+early prime at max(B, x* − wU), B = p₁ᵏ the block start, so every prime whose draw falls below B sits EXACTLY on B (repeated g-primes);
+their p₁-multiples sit exactly on the next edge B·p₁, and B·p₁/q rounding up skips them — the same search as the p₁ᵏ case, but hit
+far more often. Effect on the numbers of s40 §3.1 (orig → patched): 10⁶ (brackets in the NOTE): w = 2.5: 9.782, 8.513 unchanged; w = 10:
+15.736 unchanged, **11.506 → 9.858** (seed 2); w = 50: **33.998 → 35.998, 81.998 → 196.998**; 10⁷: w = 2.5 seed 1 11.299 unchanged; w = 50:
+**58.182 → 49.669, 171.182 → 336.182** ("0.22 and 0.66·log²X" → 0.19 and 1.29·log²X; seed 2 grows ×1.71 per decade, local exponent 0.23,
+not ×2.1 / 0.32); π(10⁷) for w = 50: 573,644 → 573,434, **556,046 → 555,864** (so "556,046–626,208" → 555,864–626,208); σ* (10⁶) seed 2,
+w = 50: 0.878375 → 0.879191 ("0.878" → 0.879); w = 10 seed 2: 0.824048 → 0.824086 (3 digits unchanged). w = 0 (S8 itself) unchanged.
+The qualitative conclusion of §3.1 ("randomization makes the integer error WORSE") stands, and is stronger for seed 2. Two further
+s40 observations: (i) the rule as STATED in §3.1 ("uniformly in [max(x*_k − w, 1 + t/2), x*_k]") is not the rule RUN (an atom at the block
+start B: all draws below B are placed at B); (ii) U1's §0 "harmless for τ = ½ at π/4, π/16" (l. 37) is true for greedy (w = 0) only — F3.
+**2.6 U1's own early-placement code path** (`early_rules_check.log`): U1 `rules.cpp` (fixed) "early" (pos = max(B, x* − W)) against my
+brute force with U ≡ 1, X = 10⁵: W = 5: N 19,636, π 7,658, sup E 5.582 (both); W = 100: N 19,636, π 5,825, sup E 1,210.84 (both). The §5 rows
+at 10⁷ were not re-run (my exact generator is Python; 10⁷ is out of reach in the time box) — they rest on code now validated at 10⁵.

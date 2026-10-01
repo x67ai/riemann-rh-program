@@ -1,0 +1,9 @@
+S8 rho=0.098174770425 X=3e+07 primes=1514045; T2 = sum 1/(p(p-1)) over g-primes <= X = 0.04015
+x        sum_{p<=x}1/p - loglog x    S(x) - log x
+1e2     -1.16957                  -3.57882
+1e3     -1.40615                  -4.88328
+1e4     -1.53017                  -5.86263
+1e5     -1.60630                  -6.64181
+1e6     -1.65497                  -7.25312
+1e7     -1.68722                  -7.73306
+proved lower bound for sum 1/p - loglog x (as x -> oo): log rho - T2 - 0.59 = -2.9512

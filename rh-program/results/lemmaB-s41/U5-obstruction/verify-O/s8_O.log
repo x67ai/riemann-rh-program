@@ -1,0 +1,7 @@
+rho=pi/16 X=1000: pi(X)=118 composites=79 N(X)=198 supE=3.0381 Q=2.7057 supE-Q=+0.3324
+rho=pi/16 X=10000: pi(X)=990 composites=973 N(X)=1964 supE=3.5351 Q=3.7339 supE-Q=-0.1988
+rho=pi/16 X=100000: pi(X)=8415 composites=11221 N(X)=19637 supE=6.8801 Q=6.5686 supE-Q=+0.3115
+rho=pi/16 X=1e+06: pi(X)=72603 composites=123746 N(X)=196350 supE=9.6362 Q=9.7537 supE-Q=-0.1175
+rho=pi/32 X=1e+06: pi(X)=57724 composites=40452 N(X)=98177 supE=6.3931 Q=6.5316 supE-Q=-0.1385
+rho=pi/16 X=1e+07: pi(X)=633514 composites=1329981 N(X)=1963496 supE=12.8385 Q=12.7478 supE-Q=+0.0906
+python3 s8_O.py 1e7  17.33s user 0.04s system 99% cpu 17.373 total
