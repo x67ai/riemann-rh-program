@@ -5,3 +5,4 @@ S8 F_1e5  box (0.55, 0.99, 100.0, 200.0): winding +6.0000  max phase step 0.904 
 L         box (0.55, 0.99, 0.5, 100.0): winding +7.0000  max phase step 2.896  min|f| on boundary 0.0051
 L         box (0.8, 0.99, 0.5, 100.0): winding +0.0000  max phase step 0.219  min|f| on boundary 0.1407
 L         box (0.55, 0.99, 100.0, 200.0): winding +11.0000  max phase step 0.730  min|f| on boundary 0.0415
+# 17:43 IST 2026-10-01: scan of |L| on Re s = 1.02, t in [1,1000] (20000 mpmath Hurwitz evaluations) killed after ~30 min without output (charter stop line iii); sigma_1 line was not flushed. Rerun in zeros_newton.py / sigma1 below.

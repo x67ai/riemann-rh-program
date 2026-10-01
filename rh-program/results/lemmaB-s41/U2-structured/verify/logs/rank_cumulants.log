@@ -1,0 +1,34 @@
+# (1) Bernoulli cumulants kappa_k(tau), k <= 40: first negative k and its value (relative to tau)
+tau=1/20   first k with kappa_k<0: 6  (#neg k<=40: 19)  kappa_k0/tau=-0.1465
+tau=1/10   first k with kappa_k<0: 5  (#neg k<=40: 20)  kappa_k0/tau=-0.0576
+tau=1/5    first k with kappa_k<0: 5  (#neg k<=40: 19)  kappa_k0/tau=-0.4416
+tau=1/4    first k with kappa_k<0: 4  (#neg k<=40: 18)  kappa_k0/tau=-0.09375
+tau=1/3    first k with kappa_k<0: 4  (#neg k<=40: 19)  kappa_k0/tau=-0.2222
+tau=1/2    first k with kappa_k<0: 4  (#neg k<=40: 10)  kappa_k0/tau=-0.25
+tau=2/3    first k with kappa_k<0: 3  (#neg k<=40: 18)  kappa_k0/tau=-0.1111
+tau=9/10   first k with kappa_k<0: 3  (#neg k<=40: 21)  kappa_k0/tau=-0.08
+
+# (2) diagonal log(1 - tau + tau (1-x)^{-r}): first n with [x^n] < 0, n <= 200
+r=1: 1/20:-  1/10:-  1/5:-  1/4:-  1/3:-  1/2:-  2/3:-  9/10:-
+r=2: 1/20:-  1/10:-  1/5:-  1/4:-  1/3:-  1/2:-  2/3:-  9/10:-
+r=3: 1/20:14  1/10:11  1/5:8  1/4:8  1/3:7  1/2:-  2/3:-  9/10:-
+r=4: 1/20:11  1/10:9  1/5:7  1/4:6  1/3:6  1/2:5  2/3:9  9/10:-
+r=6: 1/20:9  1/10:7  1/5:6  1/4:5  1/3:5  1/2:4  2/3:4  9/10:7
+
+# (3) full multivariate coefficients, first negative (total degree, multi-index, value)
+r=2 DEG=40 tau=1/20  monomials=861: deg=18 a=(7, 11) F_a=-0.0008032
+r=2 DEG=40 tau=1/10  monomials=861: deg=12 a=(6, 6) F_a=-0.0003421
+r=2 DEG=40 tau=1/5   monomials=861: deg=9 a=(3, 6) F_a=-0.001398
+r=2 DEG=40 tau=1/4   monomials=861: deg=8 a=(3, 5) F_a=-0.003708
+r=2 DEG=40 tau=1/3   monomials=861: deg=7 a=(3, 4) F_a=-0.007316
+r=2 DEG=40 tau=1/2   monomials=861: deg=6 a=(2, 4) F_a=-0.007812
+r=2 DEG=40 tau=2/3   monomials=861: deg=5 a=(2, 3) F_a=-0.00823
+r=2 DEG=40 tau=9/10  monomials=861: deg=4 a=(2, 2) F_a=-0.00315
+r=3 DEG=18 tau=1/20  monomials=1330: deg=10 a=(2, 3, 5) F_a=-0.002899
+r=3 DEG=18 tau=1/10  monomials=1330: deg=7 a=(2, 2, 3) F_a=-0.002187
+r=3 DEG=18 tau=1/5   monomials=1330: deg=6 a=(1, 2, 3) F_a=-0.02048
+r=3 DEG=18 tau=1/4   monomials=1330: deg=5 a=(1, 2, 2) F_a=-0.01758
+r=3 DEG=18 tau=1/3   monomials=1330: deg=5 a=(1, 1, 3) F_a=-0.03292
+r=3 DEG=18 tau=1/2   monomials=1330: deg=4 a=(1, 1, 2) F_a=-0.0625
+r=3 DEG=18 tau=2/3   monomials=1330: deg=3 a=(1, 1, 1) F_a=-0.07407
+r=3 DEG=18 tau=9/10  monomials=1330: deg=3 a=(1, 1, 1) F_a=-0.072

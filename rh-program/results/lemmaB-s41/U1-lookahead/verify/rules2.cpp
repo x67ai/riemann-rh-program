@@ -124,6 +124,16 @@ int main(int argc, char** argv) {
         double v = q * log(a + L / 2) / L; mn = min(mn, v); sm += v; nw++; }
       printf("LEMMA_M L=%.5g (%.2f log^%d X) windows=%ld min_pi(W)log/L=%.4f mean=%.4f\n", L, c, pw, nw, mn, sm / nw); }
   }
+  if (getenv("ZERO")) {  // real zero of F_X(s) = sum_{n<=X} n^-s + rho X^{1-s}/(s-1) - E(X) X^-s (s40 Lemma 1.5); certificate F_X(s1) > tau X^-s1
+    double EX = (double)G.size() - (rho * (X - 1) + 1);
+    auto FX = [&](double s) { double acc = 0, c = 0; for (double n : G) { double y = exp(-s * log(n)) - c, z = acc + y; c = (z - acc) - y; acc = z; }
+      return acc + rho * pow(X, 1 - s) / (s - 1) - EX * pow(X, -s); };
+    double lo = 0.5, hi = 0.99999; if (FX(lo) <= 0) printf("ZERO F_X(0.5) <= 0\n");
+    for (int it = 0; it < 40; it++) { double m = 0.5 * (lo + hi); if (FX(m) > 0) lo = m; else hi = m; }
+    double s1 = floor(lo * 100) / 100; double f1 = FX(s1);
+    printf("ZERO sigma*=%.6f  F_X(%.2f)=%+.6f  tau*X^-s1=%.3e  certificate=%s  r0/(r0+rho)=%.4f\n", lo, s1, f1, tau * pow(X, -s1),
+           f1 > tau * pow(X, -s1) ? "yes" : "no", (1 - rho - tau) / (1 - tau));
+  }
   printf("RESULT rule=%s tau=%g W=%g K=%d J=%d N=%zu pi=%zu comp=%ld supE=%.4f supE/log2X=%.5f infE(x-)=%.6f maxgap=%.2f\n",
          rule, tau, W, K, J, G.size(), P.size(), ncomp, supE, supE / pow(log(X), 2), infEm, maxgap);
 }

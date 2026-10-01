@@ -14,14 +14,15 @@ def parse(fn):
     rho = float(kv['rho']); rows = []
     for l in open(fn):
         if l.startswith('#'): continue
-        a, hc, he, w = l.split('|')
+        parts = l.split('|'); a, hc, he, w = parts[:4]
+        r_sinvp = float(parts[4]) if len(parts) > 4 else float('nan')
         a = a.split(); r = dict(b=int(a[0]), xlo=float(a[1]), xhi=float(a[2]))
         for i, k in enumerate('nsteps nidle ncomp sc2 scc1 cmax se se2 emax kemax'.split()):
             r[k] = int(a[3 + i])
         r['Emax'] = float(a[13]); r['om'] = [int(z) for z in a[14:18]]; r['viol'] = int(a[18]); r['cmpd'] = int(a[19])
         r['hc'] = np.array([int(z) for z in hc.split()]); r['he'] = np.array([int(z) for z in he.split()])
         w = [float(z) for z in w.split()]; r['win'] = [(w[3*j], w[3*j+1], w[3*j+2]) for j in range(13)]
-        rows.append(r)
+        r['sinvp'] = r_sinvp; rows.append(r)
     return rho, kv, rows
 
 def kappa(lam):

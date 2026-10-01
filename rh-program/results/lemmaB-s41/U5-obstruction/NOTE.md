@@ -8,7 +8,39 @@ R(u) = N(u) − ρu = 1 − ρ + E(u), C = composites, ζ_c(s) = (s − 1 + ρ)/
 
 ## §0. Close
 
-(filled last)
+**Close: the obstruction is NOT proved. Proved instead: "proof class X cannot yield it, because of the controls below", the exact form
+the obstruction must take, and one weak joint statement. Stop condition (ii) of the charter.**
+
+**Theorem (method classes; §2, Thm 2.1, Cor. 2.2, Rem. 2.3)** [proved here; novelty: single-check]. Fix ρ < ¼.
+(i) No argument whose premises on the system are (A), (B) and integrality of N — Parseval/Plancherel and Carlson mean values on vertical
+lines, the L² abscissa ½ of integer-coefficient series, Hilberdink 2005's (3.2)–(3.4), Remark C and Cor. 2, Neamah–Hilberdink's Thm 1,
+Landau's theorem on R − r₀ ≥ 0, Theorem 1.6 — can prove that (A) and (B) are incompatible, nor even that E is unbounded: the lattice
+control L_ρ(s) = 1 + ρ^s ζ(s, ½ + ρ) (atoms at 1 and at S8's prime lattice 1 + (k − ½)/ρ) satisfies all those premises with
+E_L ∈ (−½, ½] and has a real zero in (1 − 2ρ, 1) (π/16: 0.788933; S8: 0.794755; template: 0.803650) plus complex zeros right of ½.
+(ii) No argument using positivity of the prime measure (PNT, Mertens, Λ ≥ 0, non-vanishing on Re s = 1) without integrality can: the
+template has all of it with E ≡ 0. (iii) Even integrality and positivity together are not enough without the continuum of norms: the
+virtual curve V over F₅ has both, a real zero 0.79899 and a constant degree-level integer error −¼.
+**Where discreteness must enter: the clip.** L_ρ is S8's lattice with every composite cancelled by an integer Euler exponent of the
+wrong sign (m = −1 at every 2-fold product, (−1)^{k+1}(k − 1)! at k distinct factors; Prop. 1.1(v)). A proof must use that composites of a
+discrete positive system are atoms of weight +1 that nothing removes (Π ≥ 0 at products of g-primes), at real (archimedean) positions.
+
+**Consequences proved here.** (a) Conjecture U is FALSE for signed discrete systems: L_ρ has α_L ≥ σ*_L > ½ = max{½, 2β_L} (§1.3); with the
+known failure for continuous systems, U, if true, rests on positivity AND integrality. (b) Clip bound: any discrete system with E ≥ −c has
+sup_{u≤x}E ≥ Q(x) − c, Q the composite excess; for S8 the converse holds (s40 Cor. 1.4′), so **for S8, (B) ⟺ Q(x) = O(x^θ): the obstruction
+for S8 is exactly an Ω-theorem for the composite excess** (§5.1). (c) Integrality alone says only (1/U)∫_U^{2U}E² ≥ 1/12 − o(1), attained
+uniquely by the lattice (Prop. 3.2). (d) No discrete Beurling system satisfying (A) for any r₀ > 0 has N(x) − ρx periodic (Cor. 6.1, from
+Hilberdink 2012 Thm A at the page) — the only joint (D)+(P) result found, and it does exclude L_ρ, whose R is periodic.
+
+**GAP (exact).** The obstruction, and already its weakest form "E is unbounded on class (A)", reduce (§5.3, §6.2) to one statement:
+*keeping E small forces some product of g-primes to be missing* — equivalently, products of a bounded number of large g-primes cluster
+by x^θ in windows of length ≲ x^θ·log x (orchestrator O4). Neither direction has a tool; it is the bilinear object on which Lemma B_ρ is
+stuck from the other side. The discrete local form of positivity, (★) of §6.2, is the inequality such a proof would have to violate.
+
+**Evidence against the obstruction** [computed; U7 quoted]. For S8(π/16) the composite excess is Q = 9.75, 12.75, 16.66 at 10⁶, 10⁷, 10⁸
+(own generator; sup E within ½ of Q at every decade) and sup E = 26.14 at 10¹⁰ (U7): Q/log²x = 0.049 flat, Q/x^{σ*/2} = 0.040 → 0.0028.
+The square-root heuristic behind U assumes a prime deficit placed independently of the composites; S8 refuses exactly the slots the
+composites took (s40 Prop. 2.1), and randomizing the placement by width 50 raises sup E at 10⁷ from 12.8 to 58–171 (s40 §3.1, quoted). The real zero is a first-order (mean
+density) property; E is a second-order (clustering) property; L_ρ, T and S8 share the first and differ in the second.
 
 ## §1. Three objects: the template, the lattice control, S8
 
@@ -36,6 +68,9 @@ at λ is Σ_{j: μ^j = λ} m_μ/j, and μ^j = λ forces j | g, μ = λ^{1/j} (un
 *Check* [computed: `verify/hurwitz_control.py`, log `hurwitz_control.log`]: ρ = π/16, all λ ≤ 400: 78 lattice points (m = +1), 35 two-fold
 products (m = −1), six ℓ_a²ℓ_b (m = +1), ℓ₁³ (m = 0), ℓ₁³ℓ₂ (m = −1), ℓ₁⁴ (m = 0); the truncated signed product gives 1.0247170 and 1.0501612
 at s = 3, 2.5 against L = 1.0247173, 1.0501717 (truncation tail ≈ 6·10⁻⁷, 2·10⁻⁵). E_L ∈ [−0.5000, 0.5000] on a 2·10⁵-point grid.
+
+*Every (A)-parameter has a control* [proved here, same proof]: for 0 < ρ < r₀ < 1 − ρ, L_{ρ,r₀}(s) := 1 + ρ^s ζ(s, 1 − r₀) has atoms
+at 1 and (k − r₀)/ρ, k ≥ 1, N − ρx ∈ (r₀, r₀ + 1], and a real zero in [r₀/(r₀ + ρ), 1) by Remark 1.6′ of s40; L_ρ is the case r₀ = ½ − ρ.
 
 **1.3 What L is.** L is S8's prime lattice with EVERY lattice point an atom of N and every composite cancelled by a negative multiplicity.
 S8 has the same slots, but its composites are forced atoms with multiplicity +1 that nothing removes: the rule can only refuse slots
@@ -99,9 +134,60 @@ hypotheses it states, hence for L_ρ; so none of them can prove the obstruction,
 (4) Landau's theorem applied to the non-negative function R − r₀ (§3.3); (5) Theorem 1.6 and every bound on the location of the real
 zero derived from it. Verification for each item is in the section named.
 
+**Remark 2.3 (a third control at rung 1: (D) and (P) jointly are still not enough)** [re-derived and computed: `verify/curveV_check.py`
+→ `curveV_check.log`; the object is the orchestrator's suggestion, SHARED 17:30, from `results/novel-wave-s39/insights-digest.md` §C].
+The virtual curve V over F₅, Z(u) = (1 − 5u + 5u²)/((1 − u)(1 − 5u)), u = 5^{−s}: A_n = (5^n − 1)/4 for n ≥ 1 (A₀ = 1); closed-point counts
+b_d = 1, 5, 25, 110, 500, 2215, 10000, 45100, … are non-negative integers (checked to d = 16), so V has (D) and (P); its zeros are at
+Re s = 0.79899 and 0.20101 (u = (5 ∓ √5)/10). Its degree-level integer error A_n − 5^n/4 = −1/4 is CONSTANT, and Z(5^{−σ}) changes sign at
+0.79899 exactly as in Theorem 1.6 (Z → −∞ as σ → 1⁻), although V undershoots and so fails (A). So a real zero > ½, integer weights and a
+positive prime measure coexist with a perfectly regular count once the norms are confined to the geometric lattice 5^ℤ. Together with
+Theorem 2.1: a proof of the obstruction must use (D) and (P) jointly at products AND the archimedean feature V lacks — that g-integers
+take a continuum of values, so that (B) constrains N between the norms of its own elements — or use (A) beyond its consequence "there is
+a real zero" (V has the zero without (A)).
+
 ## §3. Mean square, Parseval, the L² abscissa ½ — at the line, with tests
 
-(pending)
+**3.1 Parseval on vertical lines** [proved here; standard]. If E = O(u^θ) and σ > θ, then v ↦ E(e^v)e^{−σv} lies in L¹ ∩ L²(0, ∞) and
+Ê(σ + it) is its Fourier transform, so ∫_ℝ|Ê(σ + it)|²dt = 2π∫_1^∞E(u)²u^{−2σ−1}du; and ζ_P = ζ_c + sÊ. Any mean-square argument on a
+vertical line is a statement about the two sides of this identity.
+
+**Proposition 3.2 (the whole content of integrality for the size of E)** [proved here]. Let N have unit atoms (D) and density ρ, with
+n(U) = ρU + o(U) atoms in [U, 2U]. Then (1/U)∫_U^{2U}E(u)²du ≥ (1/12)(1 + o(1)), with equality iff the atoms in the block are equally spaced
+and E is centred on each gap — the lattice control L_ρ attains it exactly.
+*Proof.* Between consecutive atoms E is linear with slope −ρ; on a gap of length ℓ_i, ∫(e_i − ρv)²dv over v ∈ [0, ℓ_i] ≥ ρ²ℓ_i³/12 (minimum
+at e_i = ρℓ_i/2). Hölder: Σℓ_i³ ≥ (Σℓ_i)³/n² = U³/n². So ∫_U^{2U}E² ≥ ρ²U³/(12n²) = (U/12)(1 + o(1)). Equality forces all ℓ_i equal to
+1/ρ and e_i = ½, which is E_L. ∎ Consequence (summing dyadic blocks): ∫_1^∞E²u^{−2σ−1}du ≥ (1 + o(1))/(48σ log 2) as σ → 0⁺, i.e. "E is
+not o(1) in mean square" — and nothing more, since L_ρ meets the bound with E_L bounded. *Test* [computed: `meansq_split.log` (4)]: block
+mean squares 0.5392, 0.7037, 1.1351, 1.4879 (S8(π/16), U = 10³, 10⁴, 10⁵, 4.9·10⁵) against 0.083395, 0.083349, 0.083333, 0.083333 (L).
+
+**3.3 Where S8 and L differ on a vertical line** [computed: `verify/meansq_split.py`, log `meansq_split.log`; X = 10⁵, both truncated
+at X; 1500 stratified t-samples per window]. Parseval check: Σ over windows |t| ≤ 2048 gives 1.0267 (S8) and 0.6714 (L) at σ = 0.3 against
+the exact 2π∫_1^X E²u^{−1.6} = 1.0543 and 0.6875 (σ = 0.45: 0.4821/0.4835, 0.3946/0.3955); the shortfall is the tail |t| > 2048.
+Energy ∫_W|Ê(σ + it)|²dt by frequency window, ratio S8/L:
+
+| window W | σ = 0.10 | σ = 0.30 | σ = 0.45 | (1/|W|)∫_W|Σ_{n≤X}n^{−s}|² at σ = 0.3: S8 / L / Σ_{n≤T}n^{−0.6} |
+|---|---|---|---|---|
+| [0, ¼] | 89.4 | 5.28 | 0.70 | 756233 / 756071 / 1 |
+| [½, 1] | 6.15 | 2.75 | 2.11 | 374466 / 374432 / 1 |
+| [8, 16] | 2.44 | 1.46 | 1.19 | 3002.6 / 3001.7 / 1.96 |
+| [64, 128] | 2.48 | 1.45 | 1.18 | 52.16 / 50.85 / 3.90 |
+| [256, 512] | 2.84 | 1.45 | 1.10 | 12.20 / 9.55 / 6.43 |
+| [1024, 2048] | 3.69 | 1.73 | 1.26 | 18.50 / 11.11 / 10.86 |
+
+Reading: (i) the Dirichlet polynomials of S8 and L have the same mean square to 0.2 % up to T = 32 (the smooth part ρX^{1−s}/(1 − s)
+dominates); (ii) beyond T ≈ 100 L's mean square tracks the diagonal Σ_{n≤T}n^{−2σ} (the lattice's dual-sum cancellation, as for ζ), while
+S8's exceeds it — off-diagonal terms of g-integers closer than 1/ρ: local clustering; (iii) the low-frequency energy |t| ≲ 1, which is the
+multiplicatively smoothed amplitude of E, is where the two differ most (factor 3–89 at σ ≤ 0.3). The L² abscissa ½ is the statement that
+the high-frequency energy decays only like |t|^{−1−2σ} (unit jumps at density ρ) — met by both.
+
+**3.4 Zeros right of ½ and the abscissa σ₁ of L** [computed, exploratory: `verify/zeros_newton.py` → `zeros_newton.log`; `sigma1_L.log`;
+`zeros_L_S8.log`]. Newton from minima of |f| on five vertical lines, kept if |f| < 10⁻⁸ (not an exhaustive count): L_{π/16} has ≥ 12 zeros
+in ½ < Re s < 1, 0 < Im s < 100 (e.g. 0.730915 + 42.089392i, 0.512474 + 22.437213i); F_{10⁶} of S8(π/16) has ≥ 6, among them
+0.573259 + 30.779677i (s40 NOTE l. 194 to all six digits), 0.523335 + 16.080818i, 0.587661 + 62.291038i. Both objects are "RH-false" in the
+same way — a real zero near 1 − ρ plus complex zeros right of ½ (Cor. 2(b) of Hilberdink predicts infinitely many for both) — with
+E_L bounded. σ₁ (where Σ_kℓ_k^{−σ₁} = 1) is 1.181340 (π/16) and 1.091222 (π/32): log L converges absolutely only beyond it. A scan of
+|L| on Re s = 1.02, 0 < t < 1000, for zeros right of 1 exceeded 30 minutes and was stopped (stop line (iii); `zeros_L_S8.log`): whether
+L vanishes in 1 < Re s < σ₁ was not settled numerically.
 
 ## §4. Hilberdink 2005 and Neamah–Hilberdink at the page
 
@@ -138,9 +224,11 @@ semigroup of §1.2), and the same steps (with σ₁ for 1, as in 4.3) give γ_L 
 **4.5 Where the "L² abscissa ½" sits.** For a Dirichlet series with integer weights on a set of positive density, Σ a_n²n^{−2σ} = ∞ for
 σ ≤ ½, so no such series has bounded mean square on a line Re s ≤ ½ (Carlson's theorem, quoted at Hilberdink l. 237–262, is the
 well-spaced form; (3.2)–(3.3) is the form without spacing). This is a fact about the JUMPS of N (unit atoms at density ρ), and both S8
-and L_ρ have the same jumps at the same density. §3 measures that the mean square of Ê at height T is fixed by the jumps (S8 and L agree
-to within a few per cent from T ≈ 8 on) while the AMPLITUDE of E — the thing (B) is about — lives at |t| ≲ 1. Integer weights force
-irregularity at additive scale 1, which is harmless; (B) is about multiplicative scale 1.
+and L_ρ have the same jumps at the same density; its whole content for E is Prop. 3.2 (block mean square ≥ 1/12, attained by L_ρ).
+§3.3 measures where S8 and L differ on vertical lines: (i) at |t| ≲ 1 — the AMPLITUDE of E, the thing (B) is about — by factors 3–89;
+(ii) at |t| ≳ 100, by factors 1.2–3.7, through the off-diagonal terms of g-integers closer than the lattice spacing (local clustering,
+which the rigid lattice lacks). A lower bound for (ii) would detect clustering, but the real zero is a statement at t = 0 and L_ρ has the
+zero with no clustering at all. Integer weights force irregularity at additive scale 1, which is harmless; (B) is about multiplicative scale 1.
 
 ## §5. Where discreteness must enter: the clip, and the exact form of the obstruction for S8
 
@@ -212,6 +300,11 @@ I/ℓ_a ∋ ℓ_b and I/ℓ_b ∋ ℓ_a carry atoms (left side ≈ log ℓ_a + l
 "prime" of Prop. 1.1(v), seen locally. A proof that E is unbounded on class (A) along Hilberdink's lines must show that (A), (D) and
 bounded R force a window violating (★) — that keeping R bounded forces some product of g-primes to be absent. That is §5.3's
 composite-clump statement in its weakest form. **GAP: open; no tool in hand.**
+*Test* [computed: `verify/star_check.py` → `star_check.log`; S8(π/16), own dump to 10⁶, primes identified as atoms on the lattice to
+relative 10⁻¹³ (count 72,603 = the generator's π(10⁶)); 400 windows per h at x ∈ [2·10⁵, 9·10⁵]]: the exact identity holds to 1.1·10⁻¹³ in
+all 1600 windows; A = ρ + ∫R u^{−2} = 0.937500 (template: 1; π/32: 0.931643 — so the π/16 value 15/16 is a coincidence); (★) holds in every
+window, with minimal slack 0.057, 0.286, 1.147, 5.851 for h = 1, 5, 20, 100; slack − ψ(I) = (0.0645–0.0650)·h on average (max 0.078h) — the
+Mertens remainder, which on the template is exactly h·x^{−ρ} = 0.076h at x = 5·10⁵: the real zero's prime deficit, seen locally.
 
 **6.3 Three smaller attempts** [proved here]. (a) *Landau on R − r₀ ≥ 0.* Ĝ(s) := ∫_1^∞(R − r₀)u^{−s−1}du is a Laplace transform of a
 non-negative function: |Ĝ(σ + it)| ≤ Ĝ(σ), and its abscissa is a real singularity. This gives |ζ_P(s) − ρs/(s − 1) − r₀| ≤ |s|Ĝ(σ), the
@@ -229,7 +322,8 @@ largest gap; reproduces s40's π/16 and π/32 rows to every printed digit) → `
 `hurwitz_control.py` → `hurwitz_control.log` (E_L range, σ*_L for four ρ, the Thm 1.6 floor, L(0), signed Euler exponents and the
 truncated-product check); `zeros_L_S8.py` → `zeros_L_S8.log` (exploratory argument-principle counts for F_{10⁵} of S8(π/16) and for L,
 σ₁ of L, search for zeros of L right of Re s = 1); `meansq_split.py` → `meansq_split.log` (§3); `star_check.py` → `star_check.log`
-(§6.2: exact local Chebyshev identity and (★) on S8(π/16) windows at 2·10⁵–9·10⁵, template comparison).
+(§6.2: exact local Chebyshev identity and (★) on S8(π/16) windows at 2·10⁵–9·10⁵, template comparison); `zeros_newton.py` → `zeros_newton.log` and
+`sigma1_L.log` (§3.4); `curveV_check.py` → `curveV_check.log` (Remark 2.3).
 
 **Recalled, unverified (none load-bearing):** the continuation of Hurwitz ζ(s, a) to ℂ and its digamma constant term; Lindemann
 (π transcendental, so t = 16/π, 32/π and ½ + ρ are transcendental — used only for the closed form of m_λ in Prop. 1.1(v); integrality

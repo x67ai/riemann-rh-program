@@ -1,0 +1,215 @@
+# PATHS-KEEP — program-authored files in the examined folders
+
+Written 17:47 IST 2026-10-01 by the read-only purge inventory (history snapshot at commit `fe1b4fd274`). These paths are NOT in PATHS-THIRD-PARTY.txt and must survive the purge. Flags: H = tracked at HEAD, h = history only. Grouped by folder; a uniform group is one line.
+
+## 1. Program-authored files inside or beside literature folders (examined one by one)
+
+- `(repository root)` `LICENSE`, `NOTICE` [H] — repository license text and notices
+- `anthropic/rh-program/results/arxiv/` `README.md`, `check-submittable.sh`, `novelty-check.md` [h] — program paper package, notes, citation verification, build files
+- `anthropic/rh-program/results/arxiv/a4-no-go/` `abstract.txt`, `main.aux`, `main.log`, `main.out`, `main.tex` [h] — program paper package, notes, citation verification, build files
+- `anthropic/rh-program/results/arxiv/a4-no-go/` `main.pdf` [h] — program's own paper (built from the program's LaTeX)
+- `anthropic/rh-program/results/arxiv/citation-verification/` 19 files (.md) [h] — program paper package, notes, citation verification, build files
+- `anthropic/rh-program/results/arxiv/m0-axiom/` `abstract.txt`, `main.aux`, `main.log`, `main.out`, `main.tex` [h] — program paper package, notes, citation verification, build files
+- `anthropic/rh-program/results/arxiv/m0-axiom/` `main.pdf` [h] — program's own paper (built from the program's LaTeX)
+- `anthropic/rh-program/results/arxiv/m1-noncirc/` `abstract.txt`, `main.aux`, `main.log`, `main.out`, `main.tex` [h] — program paper package, notes, citation verification, build files
+- `anthropic/rh-program/results/arxiv/m1-noncirc/` `main.pdf` [h] — program's own paper (built from the program's LaTeX)
+- `anthropic/rh-program/results/arxiv/seed-no-go/` `abstract.txt`, `main.aux`, `main.log`, `main.out`, `main.tex` [h] — program paper package, notes, citation verification, build files
+- `anthropic/rh-program/results/arxiv/seed-no-go/` `main.pdf` [h] — program's own paper (built from the program's LaTeX)
+- `anthropic/rh-program/results/decisive-tests/` `arxiv-2606-body-read.json` [h] — program read record (verdicts with short quotes)
+- `anthropic/rh-program/results/journals/` 17 files (.jsonl) [h] — program workflow journal (agent run log)
+- `anthropic/zeta-23-lean-main/Zeta23/DBN/` `Defs.lean` [h] — program-authored Lean written inside the vendored library (commit 09c26223), same blobs now under rh-program/lean/
+- `anthropic/zeta-23-lean-main/Zeta23/PairCeiling/` `GridCorner.lean`, `GridParseval.lean`, `GridWitness.lean` [h] — program-authored Lean written inside the vendored library (commit 09c26223), same blobs now under rh-program/lean/
+- `anthropic/zeta-23-lean-main/Zeta23/W1/` `Checker.lean`, `Examples.lean`, `Format.lean`, `Soundness.lean` [h] — program-authored Lean written inside the vendored library (commit 09c26223), same blobs now under rh-program/lean/
+- `public/` `.assetsignore`, `README.md`, `_headers`, `_redirects`, `sync.sh` [H] — site config for the program papers
+- `public/` `cubic-augmentation-no-go.pdf` [H] — program paper (same blob as results/arxiv/a4-no-go/main.pdf)
+- `public/` `tate-products-no-go.pdf` [H] — program paper (same blob as results/arxiv/seed-no-go/main.pdf)
+- `rh-program/` `NOTICE` [H] — repository license text and notices
+- `rh-program/results/arxiv/` `ANNOUNCEMENTS.md`, `DE-INTERNALIZATION.md`, `README.md`, `check-submittable.sh`, `novelty-check.md` [H] — program paper package, notes, citation verification, build files
+- `rh-program/results/arxiv/a4-no-go/` `abstract.txt`, `main.aux`, `main.log`, `main.out`, `main.tex` [H] — program paper package, notes, citation verification, build files
+- `rh-program/results/arxiv/a4-no-go/` `main.pdf` [H] — program's own paper (built from the program's LaTeX)
+- `rh-program/results/arxiv/citation-verification/` 19 files (.md) [H] — program paper package, notes, citation verification, build files
+- `rh-program/results/arxiv/haglund-counterexample/` 11 files (.aux, .log, .md, .out, .sha256, .tex, .txt) [H] — program paper package, notes, citation verification, build files
+- `rh-program/results/arxiv/haglund-counterexample/` `main.pdf` [H] — program's own paper (built from the program's LaTeX)
+- `rh-program/results/arxiv/haglund-counterexample/certificate/` `NOVELTY-F.md`, `README.md`, `SHA256SUMS` [Hh] — program paper package, notes, citation verification, build files
+- `rh-program/results/arxiv/haglund-counterexample/certificate/producer-A/` 13 files (.log, .md, .py) [Hh] — program paper package, notes, citation verification, build files
+- `rh-program/results/arxiv/haglund-counterexample/certificate/producer-B/` 11 files (.md, .py) [Hh] — program paper package, notes, citation verification, build files
+- `rh-program/results/arxiv/haglund-counterexample/certificate/producer-B/lit/` `html2txt.py` [H] — program script (DLMF page to text converter)
+- `rh-program/results/arxiv/haglund-counterexample/certificate/producer-B/logs/` 7 files (.log) [H] — program paper package, notes, citation verification, build files
+- `rh-program/results/arxiv/haglund-counterexample/certificate/rerun-F/` `A-h1-diff.txt`, `A-h1-rerun.log`, `B-ladder-rerun.log` [h] — program paper package, notes, citation verification, build files
+- `rh-program/results/arxiv/haglund-counterexample/certificate/reruns/` `A-h1-diff.txt`, `A-h1-rerun.log`, `B-ladder-rerun.log` [H] — program paper package, notes, citation verification, build files
+- `rh-program/results/arxiv/haglund-counterexample/certificate/third-evaluation/` `haglund_direct_arb.log`, `haglund_direct_arb.py`, `rerun_N27.log`, `rerun_N27.py` [H] — program paper package, notes, citation verification, build files
+- `rh-program/results/arxiv/haglund-counterexample/certificate/verify-F/` `haglund_direct_arb.log`, `haglund_direct_arb.py`, `rerun_N27.log`, `rerun_N27.py` [h] — program paper package, notes, citation verification, build files
+- `rh-program/results/arxiv/haglund-counterexample/lit/` 11 files (.txt) [H] — program-extracted bibliographic metadata (DOI, title, journal, pages; no abstract or text)
+- `rh-program/results/arxiv/m0-axiom/` `abstract.txt`, `main.aux`, `main.log`, `main.out`, `main.tex` [H] — program paper package, notes, citation verification, build files
+- `rh-program/results/arxiv/m0-axiom/` `main.pdf` [H] — program's own paper (built from the program's LaTeX)
+- `rh-program/results/arxiv/m1-noncirc/` `abstract.txt`, `main.aux`, `main.log`, `main.out`, `main.tex` [H] — program paper package, notes, citation verification, build files
+- `rh-program/results/arxiv/m1-noncirc/` `main.pdf` [H] — program's own paper (built from the program's LaTeX)
+- `rh-program/results/arxiv/seed-no-go/` `abstract.txt`, `main.aux`, `main.log`, `main.out`, `main.tex` [H] — program paper package, notes, citation verification, build files
+- `rh-program/results/arxiv/seed-no-go/` `main.pdf` [H] — program's own paper (built from the program's LaTeX)
+- `rh-program/results/beta-shapes-s35/verify/` `arxiv_search.out`, `arxiv_search2.out` [H] — program arXiv query log / parsed hit list (query strings, counts, ids, titles)
+- `rh-program/results/beta-shapes-s35/verify-O/` `arxiv-O-parsed.txt` [H] — program arXiv query log / parsed hit list (query strings, counts, ids, titles)
+- `rh-program/results/c2-m2/verify/` `arxiv_prior_art_queries.log` [H] — program arXiv query log / parsed hit list (query strings, counts, ids, titles)
+- `rh-program/results/c2-m2/verify-O/` `opus_arxiv_queries.log` [H] — program arXiv query log / parsed hit list (query strings, counts, ids, titles)
+- `rh-program/results/c3-r/s14/` `alkl23-derivations.pdf`, `alkl23-note.pdf` [h] — program-authored courtesy note and derivations (pdfTeX build of the program LaTeX)
+- `rh-program/results/conj-O-s38/verify-O/arxiv/` `index.txt` [H] — program index of its own arXiv queries
+- `rh-program/results/conj-O-s38/verify-O/arxiv/` `q.sh` [H] — program query script
+- `rh-program/results/d4-infty-s36/verify/` `arxiv-parsed.txt` [H] — program arXiv query log / parsed hit list (query strings, counts, ids, titles)
+- `rh-program/results/d5-lean-s30/tools/` `gen_prove2me_layout.py`, `gen_prove2me_solutions.py`, `run.sh`, `statement_identity_d5.py`, `trust_greps_d5.py` [H] — program tool script/log
+- `rh-program/results/decisive-tests/` `arxiv-2606-body-read.json` [H] — program read record (verdicts with short quotes)
+- `rh-program/results/e1-m5u/sources-O/` `README-mitkovski-pdf-moved.md` [H] — program note
+- `rh-program/results/external/cognition-rsa260-2026/` `process-lessons.md`, `reader-report.md` [H] — program reader report/notes
+- `rh-program/results/external/openai-ns-2026/` `README.md`, `euler-and-context.md`, `lean-repos.md`, `ns-paper-read.md`, `process-lessons.md` [H] — program reader report/notes
+- `rh-program/results/external/prove2me/` `NOTE.md` [H] — program reader report/notes
+- `rh-program/results/f1-spec-s29/verify-O/` `page_quotes_O_run.log` [H] — program check log
+- `rh-program/results/f1-spec-s29/verify-O/sources-O/` `README.txt` [H] — program note
+- `rh-program/results/fejer-form-s39/sources/` `fetch_sources.log`, `fetch_sources.sh` [H] — program fetch script and its log (ids, sizes, hashes)
+- `rh-program/results/fejer-form-s39/verify-O/sources/` `crossref_hp19_min.txt` [H] — program-extracted bibliographic metadata (DOI, title, journal, pages; no abstract or text)
+- `rh-program/results/fetch-r4/` 16 files (.md) [H] — program ingest report/brief
+- `rh-program/results/fetch-r4/` `sweep-2026-09-09.json` [H] — program mechanical sweep record of the fetched corpus (metadata, short notes)
+- `rh-program/results/fetch-r5/` `BRIEF.md`, `a01.md`, `a02.md`, `a03.md`, `a04.md` [H] — program ingest report/brief
+- `rh-program/results/fetch-r5/` `sweep-2026-09-10.json` [H] — program mechanical sweep record of the fetched corpus (metadata, short notes)
+- `rh-program/results/free-greedy-s40/theory/sources/` `pa-diamond1970-p24-transcription.txt`, `pa-hilberdink2005-transcription.txt`, `pa-malliavin1961-sec6-transcription.txt` [H] — program transcription note: short quoted passages with source, page and line pointers and commentary
+- `rh-program/results/free-greedy-s40/theory/sources/` `prior-art-log.txt` [H] — program prior-art log
+- `rh-program/results/h4-pair-lean-s33/tools/` `h4_numbers.log`, `h4_numbers.py`, `powersums-timing.lean`, `run.sh`, `statement_identity_h4.py`, `trust_greps_h4.py` [H] — program tool script/log
+- `rh-program/results/h5-c2-lean-s32/tools/` `run.sh`, `statement_identity_h5.py`, `trust_greps_h5.py` [H] — program tool script/log
+- `rh-program/results/haglund-cert-s37/producer-B/lit/` `html2txt.py` [H] — program script (DLMF page to text converter)
+- `rh-program/results/i1-witness-lean-s32/tools/` `run.sh`, `statement_identity_i1.py`, `trust_greps_i1.py` [H] — program tool script/log
+- `rh-program/results/iv17-lean-s30/tools/` `run.sh`, `statement_identity_g8.py`, `trust_greps_g8.py` [H] — program tool script/log
+- `rh-program/results/journals/` 17 files (.jsonl) [H] — program workflow journal (agent run log)
+- `rh-program/results/novel-wave-s36/fingerprint/tables/` `zeta_zeros_arb.txt` [H] — zeta zeros computed by the program (acb.zeta_zeros, 138 bits)
+- `rh-program/results/novel-wave-s36/fingerprint/verify/` `u7_arxiv.log`, `u7_arxiv2.log` [H] — program arXiv query log / parsed hit list (query strings, counts, ids, titles)
+- `rh-program/results/novel-wave-s36/ly-infinity/verify/` `arxiv_search.log` [H] — program arXiv query log / parsed hit list (query strings, counts, ids, titles)
+- `rh-program/results/novel-wave-s36/staircase/lit/` `PRIOR-ART.md` [H] — program prior-art log
+- `rh-program/results/novel-wave-s36/staircase/lit/` `queries.log` [H] — program query log (timestamps, query URLs)
+- `rh-program/results/novel-wave-s36/staircase/lit/tools/` `abs.py`, `aq.py`, `check_haglund.log`, `check_haglund.py`, `fc.sh` [H] — program tool script/log
+- `rh-program/results/novel-wave-s36/tournament/verify/` `prior_art_arxiv.log` [H] — program arXiv query log / parsed hit list (query strings, counts, ids, titles)
+- `rh-program/results/novel-wave-s37/beurling-fe/sources/arxiv-queries/` `q.sh`, `s.sh` [H] — program query script
+- `rh-program/results/novel-wave-s37/proof-mine/verify-O/` `o_arxiv.log` [H] — program arXiv query log / parsed hit list (query strings, counts, ids, titles)
+- `rh-program/results/theoremR-lean-s36/tools/` 7 files (.log, .py, .sh) [H] — program tool script/log
+- `rh-program/results/u-offsurgery-s39/verify-O/logs/` `arxiv_q.log`, `arxiv_q2.log` [H] — program arXiv query log / parsed hit list (query strings, counts, ids, titles)
+
+## 2. Program-authored by default (no file-level review needed)
+
+Every other path in history: outside every literature folder, and no version of it carries a third-party signature (PDF/PNG magic, arXiv header, publisher or JSTOR/NUMDAM/Project Euclid marks, HTML page, Atom feed, Crossref/OpenAlex/zbMATH record, scrape markers, wiki markup). Files over 20 kB and every prose-like file without program markers were also read at the head. Counts by folder:
+
+- `.claude/settings.json` — 1 (1 at HEAD)
+- `.gitignore` — 1 (1 at HEAD)
+- `CITATION.cff` — 1 (1 at HEAD)
+- `README.md` — 1 (1 at HEAD)
+- `anthropic/rh-program/` — 12 (0 at HEAD)
+- `anthropic/rh-program/directions/` — 13 (0 at HEAD)
+- `anthropic/rh-program/results/` — 282 (0 at HEAD)
+- `anthropic/rh-program/scripts/` — 11 (0 at HEAD)
+- `rh-program/BARRIER-ZOO.md` — 1 (1 at HEAD)
+- `rh-program/CIRCULATION-PREP.md` — 1 (1 at HEAD)
+- `rh-program/FETCH-LIST-RESPONSE.md` — 1 (1 at HEAD)
+- `rh-program/FETCH-LIST-ROUND2.md` — 1 (1 at HEAD)
+- `rh-program/FETCH-LIST-ROUND3.md` — 1 (1 at HEAD)
+- `rh-program/FETCH-LIST-ROUND4.md` — 1 (1 at HEAD)
+- `rh-program/FETCH-LIST-ROUND5.md` — 1 (1 at HEAD)
+- `rh-program/FETCH-LIST-ROUND6.md` — 1 (1 at HEAD)
+- `rh-program/FETCH-LIST-ROUND7.md` — 1 (1 at HEAD)
+- `rh-program/FETCH-LIST-ROUND8.md` — 1 (1 at HEAD)
+- `rh-program/FETCH-LIST-ROUND9.md` — 1 (1 at HEAD)
+- `rh-program/FETCH-LIST.md` — 1 (1 at HEAD)
+- `rh-program/FETCH-RESPONSE-ROUND2.md` — 1 (1 at HEAD)
+- `rh-program/FETCH-RESPONSE-ROUND4.md` — 1 (1 at HEAD)
+- `rh-program/FETCH-RESPONSE-ROUND5.md` — 1 (1 at HEAD)
+- `rh-program/FETCH-VERIFICATION.md` — 1 (1 at HEAD)
+- `rh-program/KICKSTART.md` — 1 (1 at HEAD)
+- `rh-program/LOG.md` — 1 (1 at HEAD)
+- `rh-program/STATUS.md` — 1 (1 at HEAD)
+- `rh-program/directions/` — 13 (13 at HEAD)
+- `rh-program/lean/` — 237 (237 at HEAD)
+- `rh-program/prospectus.html` — 1 (1 at HEAD)
+- `rh-program/results/` — 43 (43 at HEAD)
+- `rh-program/results/a4-m2-gate/` — 57 (57 at HEAD)
+- `rh-program/results/a4-no-go/` — 41 (41 at HEAD)
+- `rh-program/results/beta-shapes-s35/` — 22 (22 at HEAD)
+- `rh-program/results/c2-followups/` — 4 (4 at HEAD)
+- `rh-program/results/c2-m2/` — 159 (159 at HEAD)
+- `rh-program/results/c2-m4/` — 172 (172 at HEAD)
+- `rh-program/results/c2-m5/` — 24 (24 at HEAD)
+- `rh-program/results/c2-m5b/` — 24 (24 at HEAD)
+- `rh-program/results/c2-m6/` — 88 (88 at HEAD)
+- `rh-program/results/c2-r1/` — 25 (24 at HEAD)
+- `rh-program/results/c2-siegel/` — 36 (33 at HEAD)
+- `rh-program/results/c3-m0-epstein/` — 2 (2 at HEAD)
+- `rh-program/results/c3-r/` — 148 (146 at HEAD)
+- `rh-program/results/ccm-dh-test/` — 41 (41 at HEAD)
+- `rh-program/results/conj-O-s38/` — 195 (155 at HEAD)
+- `rh-program/results/d1-m0/` — 19 (19 at HEAD)
+- `rh-program/results/d1-m1/` — 139 (139 at HEAD)
+- `rh-program/results/d1-m2a/` — 829 (822 at HEAD)
+- `rh-program/results/d1-m3/` — 18 (18 at HEAD)
+- `rh-program/results/d2-scout-s26/` — 9 (9 at HEAD)
+- `rh-program/results/d4-infty-s36/` — 11 (11 at HEAD)
+- `rh-program/results/d4-sign-sweep/` — 1236 (1228 at HEAD)
+- `rh-program/results/d5-lean-s30/` — 51 (51 at HEAD)
+- `rh-program/results/decisive-tests/` — 1 (1 at HEAD)
+- `rh-program/results/dz-half-s39/` — 207 (162 at HEAD)
+- `rh-program/results/e1-m5u/` — 20 (20 at HEAD)
+- `rh-program/results/e3-borger-rung1/` — 16 (16 at HEAD)
+- `rh-program/results/e5-kappa-s29/` — 154 (154 at HEAD)
+- `rh-program/results/f1-spec-s29/` — 14 (14 at HEAD)
+- `rh-program/results/fejer-form-s39/` — 46 (46 at HEAD)
+- `rh-program/results/fesenko-pricing-s32/` — 19 (18 at HEAD)
+- `rh-program/results/free-greedy-s40/` — 312 (306 at HEAD)
+- `rh-program/results/g2-ks-close-s30/` — 5 (5 at HEAD)
+- `rh-program/results/grossmann-rescout-s22/` — 72 (72 at HEAD)
+- `rh-program/results/h4-pair-lean-s33/` — 47 (47 at HEAD)
+- `rh-program/results/h4-pair-typing-s32/` — 6 (6 at HEAD)
+- `rh-program/results/h5-c2-lean-s32/` — 39 (39 at HEAD)
+- `rh-program/results/haglund-cert-s37/` — 40 (37 at HEAD)
+- `rh-program/results/i1-witness-lean-s32/` — 47 (47 at HEAD)
+- `rh-program/results/iv17-lean-s30/` — 46 (46 at HEAD)
+- `rh-program/results/lemmaB-s41/` — 112 (112 at HEAD)
+- `rh-program/results/lemmaG-s39/` — 131 (130 at HEAD)
+- `rh-program/results/linux-check-s30/` — 27 (27 at HEAD)
+- `rh-program/results/linux-check-s33/` — 29 (29 at HEAD)
+- `rh-program/results/local-greedy-s40/` — 228 (228 at HEAD)
+- `rh-program/results/novel-wave-s36/` — 286 (286 at HEAD)
+- `rh-program/results/novel-wave-s37/` — 152 (146 at HEAD)
+- `rh-program/results/novel-wave-s39/` — 6 (6 at HEAD)
+- `rh-program/results/novel-wave-s41/` — 1 (1 at HEAD)
+- `rh-program/results/program-digest-s21/` — 5 (5 at HEAD)
+- `rh-program/results/program-digest-s25/` — 7 (7 at HEAD)
+- `rh-program/results/program-digest-s27/` — 5 (5 at HEAD)
+- `rh-program/results/program-digest-s28/` — 5 (5 at HEAD)
+- `rh-program/results/program-digest-s29/` — 5 (5 at HEAD)
+- `rh-program/results/program-digest-s30/` — 6 (6 at HEAD)
+- `rh-program/results/program-digest-s32/` — 6 (6 at HEAD)
+- `rh-program/results/qcond-s38/` — 21 (21 at HEAD)
+- `rh-program/results/qtwin-s39/` — 40 (40 at HEAD)
+- `rh-program/results/s5-multiplicity-s40/` — 59 (59 at HEAD)
+- `rh-program/results/sweep-audit-s21/` — 3 (3 at HEAD)
+- `rh-program/results/theoremR-lean-s36/` — 70 (70 at HEAD)
+- `rh-program/results/u-offsurgery-s39/` — 142 (140 at HEAD)
+- `rh-program/results/watch-S-record-eisenberg-2026-09/` — 3 (3 at HEAD)
+- `rh-program/results/watch-lamzouri-2609.02882/` — 7 (7 at HEAD)
+- `rh-program/results/watch-pbss-perry-2026-09/` — 1 (1 at HEAD)
+- `rh-program/results/watch-poll-s34/` — 5 (5 at HEAD)
+- `rh-program/results/watch-poll-s35/` — 8 (8 at HEAD)
+- `rh-program/results/watch-poll-s37/` — 5 (5 at HEAD)
+- `rh-program/results/zoo-s21/` — 4 (4 at HEAD)
+- `rh-program/results/zoo-s22/` — 4 (4 at HEAD)
+- `rh-program/results/zoo-s22b/` — 4 (4 at HEAD)
+- `rh-program/results/zoo-s23/` — 1 (1 at HEAD)
+- `rh-program/results/zoo-s25/` — 20 (20 at HEAD)
+- `rh-program/results/zoo-s26/` — 9 (9 at HEAD)
+- `rh-program/results/zoo-s27/` — 17 (17 at HEAD)
+- `rh-program/results/zoo-s28/` — 10 (10 at HEAD)
+- `rh-program/results/zoo-s29/` — 8 (8 at HEAD)
+- `rh-program/results/zoo-s30/` — 9 (9 at HEAD)
+- `rh-program/results/zoo-s31/` — 8 (8 at HEAD)
+- `rh-program/results/zoo-s32/` — 8 (8 at HEAD)
+- `rh-program/results/zoo-s33/` — 9 (9 at HEAD)
+- `rh-program/results/zoo-s35/` — 8 (8 at HEAD)
+- `rh-program/results/zoo-s36/` — 8 (8 at HEAD)
+- `rh-program/results/zoo-s37/` — 9 (9 at HEAD)
+- `rh-program/results/zoo-s39/` — 5 (5 at HEAD)
+- `rh-program/results/zoo-s40/` — 6 (6 at HEAD)
+- `rh-program/scripts/` — 57 (57 at HEAD)
+- `wrangler.toml` — 1 (1 at HEAD)
+
+Note: everything under `anthropic/` is already gitignored (Session 9 policy); the program-authored files there are the pre-2026-08-27 copies of today's `rh-program/` tree, history only.

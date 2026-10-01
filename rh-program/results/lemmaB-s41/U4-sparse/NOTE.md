@@ -151,7 +151,41 @@ in Lemma 2.2 every one of them costs its own "+1".
 
 ## §4. The scaling limit τ = ρ log x: macroscopic law
 
-(pending)
+Throughout, ρ → 0 along any sequence in (0, 1/16], S > 0 is fixed, and "uniformly" means uniformly in 1 ≤ y < x ≤ e^{S/ρ}.
+Template counts: Π₀(y, x] := ∫_y^x ρf₀(ρ log u)du (primes), Λ₀(y, x] := ρ(x − y) − Π₀(y, x] (composites). Additive measures in
+the variable v = ρ log u: μ_ρ := Σ_p p^{−1}δ_{ρ log p}, μ̃_ρ := Σ_p Σ_{k≥1} k^{−1}p^{−k}δ_{kρ log p}, ν_ρ := Σ_{n∈G} n^{−1}δ_{ρ log n}.
+
+**Theorem 4.1 (below τ_c)** [proved here]. For 0 < S < τ_c there are ρ₁(S) > 0 and C(S) < ∞ such that for ρ < ρ₁(S):
+E(x) ≤ 2 + C(S)ρ²x + S/(ρ log p₁) for all 1 ≤ x ≤ e^{S/ρ}. So E(x)/(ρx) = O(ρ) + O(1/(ρ²x log(1/ρ))) there.
+*Proof.* By Prop. 3.1, S_ρ(e^{S/ρ} + 2t) → Λ(S) < 1, so S_ρ ≤ 1 on the range for small ρ. Theorem 2.3 gives E(x) ≤ 3/2 + Q(x + t),
+and §2 gives Q(z) ≤ 4ρ²z·e^{2σ_z} + log z/log p₁ with σ_z ≤ S + 2ρ. ∎
+
+**Lemma 4.2 (exact identities)** [proved here]. For 1 ≤ y < x: (i) π(y, x] + C(y, x] = ρ(x − y) + E(x) − E(y);
+(ii) C(y, x] = Σ_{M′} π(J_{M′}), over nonempty multisets M′ of g-primes, J_{M′} := (y/m′, x/m′] ∩ [P⁺(M′), ∞), and every element of
+every M′ that contributes is ≤ √x; (iii) E(x) ≤ ½ + sup_{1≤y<x}(C(y, x] − ρ(x − y))⁺.
+*Proof.* (i) N(u) = ρ(u − 1) + 1 + E(u) and N(x) − N(y) = π(y, x] + C(y, x]. (ii) n ↦ (M′, P⁺(n)) as in Lemma 2.2 (now for g-primes);
+if Q ∈ M′ then Q² ≤ Q·P⁺(n) ≤ n ≤ x. (iii) For x < p₁, E(x) ≤ 0. Otherwise let y be the largest g-prime ≤ x; E(y) = ½ [quoted:
+Session-40 NOTE l. 52, 1.0(ii)] and π(y, x] = 0, so (i) gives E(x) = ½ + C(y, x] − ρ(x − y). ∎
+
+**Lemma 4.3 (integer regularity gives the prime law, vaguely)** [proved here]. Suppose E(x) ≤ ε_ρρx + K for 1 ≤ x ≤ e^{S/ρ},
+with ε_ρ → 0 and K fixed. Then for every interval I ⊂ [0, S]: μ_ρ(I) → ∫_I f₀(v)dv; in particular Σ_{p ≤ x} 1/p → Ein(τ) :=
+∫₀^τ (1 − e^{−v})/v dv uniformly for τ = ρ log x ∈ [0, S].
+*Proof.* (a) ν_ρ = exp*(μ̃_ρ) (additive convolution exponential on [0, ∞)): the g-integers are the free commutative monoid on the
+g-primes, so ν_ρ = ⊛_p Σ_{k≥0} p^{−k}δ_{kρ log p} = ⊛_p exp*(Σ_{k≥1} k^{−1}p^{−k}δ_{kρ log p}), using Σ_{k≥0}y^k = exp(Σ_{k≥1}y^k/k) in the
+convolution algebra (y = p^{−1}δ_{ρ log p}). On [0, S] all sums are finite, since every term is supported on [s₁, ∞), s₁ := ρ log p₁.
+(b) For I = (v₁, v₂] with a = e^{v₁/ρ}, b = e^{v₂/ρ}: ν_ρ(I) = ∫_{(a,b]}dN(u)/u = ρ log(b/a) + E(b)/b − E(a)/a + ∫_a^b E(u)u^{−2}du
+(insert N = ρ(u − 1) + 1 + E; the other terms cancel). With −½ < E ≤ ερu + K and a ≥ p₁ ≥ 1/(2ρ) when v₁ ≥ s₁ (and ν_ρ puts no
+mass on (0, s₁)), this gives |ν_ρ(I) − |I|| ≤ ε_ρ|I| + β_ρ for every I ⊂ (0, S], β_ρ := (4K + 6)ρ log(1/ρ) → 0.
+(c) σ_ρ := ν_ρ − δ₀ satisfies σ_ρ(I) ≤ 2|I| + β_ρ. Let U be the uniform probability on [0, β_ρ]; σ_ρ * U has density
+σ_ρ([w − β_ρ, w])/β_ρ ≤ 3, so σ_ρ^{*n}([0, S]) ≤ (σ_ρ*U)^{*n}([0, S + nβ_ρ]) ≤ 3^n(S + nβ_ρ)^n/n!. On [0, S] only n ≤ S/s₁ occur and
+nβ_ρ ≤ S(4K + 6)log(1/ρ)/log(1/(2ρ)) ≤ (8K + 12)S, so Σ_{n>n₀} σ_ρ^{*n}([0, S])/n → 0 as n₀ → ∞ uniformly in ρ.
+(d) σ_ρ → Lebesgue measure vaguely on [0, ∞), with uniform local bounds; convolution is jointly continuous for vague convergence of
+such measures on [0, ∞) (products of the restrictions to [0, S + 1]² converge weakly, and u + v ≤ S is a compact condition), so
+σ_ρ^{*n} → (v^{n−1}/(n − 1)!)dv for each n, also on intervals (the limit is absolutely continuous).
+(e) μ̃_ρ = Σ_{n≥1}((−1)^{n+1}/n)σ_ρ^{*n} on [0, S] (convolution logarithm; a finite sum there). By (c)–(d), μ̃_ρ(I) →
+∫_I Σ_{n≥1}(−1)^{n+1}v^{n−1}/n! dv = ∫_I f₀. Finally μ̃_ρ − μ_ρ has total mass ≤ 2Σ_a x_a^{−2} ≤ 10ρ² (prime powers). ∎
+*Corollary* [proved here]: below τ_c (Theorem 4.1 gives the hypothesis with ε_ρ = O(ρ)), the Mertens-type law Σ_{p≤x} 1/p →
+Ein(ρ log x) holds uniformly on τ ≤ S < τ_c. For the lattice itself Σ_{x_a≤x} 1/x_a → τ; Ein(τ) = τ − τ²/4 + … records the busy steps.
 
 ## §5. The local arrival process and the maximal queue length
 

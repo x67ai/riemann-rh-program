@@ -81,7 +81,7 @@ static int kcmp(const void *a, const void *b){ const comp_t *x = a, *y = b;
 #define HE 48
 #define NWIN 13
 typedef struct { long long nsteps, nprime, ncomp, sc2, scc1, cmax, se, se2, emax, kemax, om[4], hc[HC], he[HE];
-  double Emax; long long nw[NWIN]; double w1[NWIN], w2[NWIN]; long long viol, cmpd; } bin_t;
+  double Emax, sinvp; long long nw[NWIN]; double w1[NWIN], w2[NWIN]; long long viol, cmpd; } bin_t;
 static bin_t bins[NB];
 
 int main(int argc, char **argv){
@@ -148,7 +148,7 @@ int main(int argc, char **argv){
       int idle = (e == 0 && c == 0);
       int64_t en = e + c - 1; if (en < 0) en = 0;
       if (en + 0.5 > Emx) Emx = en + 0.5;
-      bp->nsteps++; bp->nprime += idle; bp->ncomp += c; bp->sc2 += c * c; bp->scc1 += c * prevc;
+      bp->nsteps++; bp->nprime += idle; if (mode == 0 ? idle : 0) bp->sinvp += 1.0 / xk; bp->ncomp += c; bp->sc2 += c * c; bp->scc1 += c * prevc;
       if (c > bp->cmax) bp->cmax = c; bp->hc[c < HC ? c : HC - 1]++;
       bp->se += en; bp->se2 += en * en; if (en > bp->emax){ bp->emax = en; bp->kemax = k; }
       bp->he[en < HE ? en : HE - 1]++; if (Emx > bp->Emax) bp->Emax = Emx;
@@ -191,7 +191,8 @@ int main(int argc, char **argv){
       bp->se, bp->se2, bp->emax, bp->kemax, bp->Emax, bp->om[0], bp->om[1], bp->om[2], bp->om[3], bp->viol, bp->cmpd);
     for (int j = 0; j < HC; j++) fprintf(fo, " %lld", bp->hc[j]); fprintf(fo, " |");
     for (int j = 0; j < HE; j++) fprintf(fo, " %lld", bp->he[j]); fprintf(fo, " |");
-    for (int j = 0; j < NWIN; j++) fprintf(fo, " %lld %.0f %.0f", bp->nw[j], bp->w1[j], bp->w2[j]); fprintf(fo, "\n"); }
+    for (int j = 0; j < NWIN; j++) fprintf(fo, " %lld %.0f %.0f", bp->nw[j], bp->w1[j], bp->w2[j]);
+    fprintf(fo, " | %.12f\n", bp->sinvp); }
   fclose(fo); if (fdw) fclose(fdw); if (fdc) fclose(fdc);
   fprintf(stderr, "done: audits=%lld flips=%lld unresolved=%lld min_dd_margin=%.3e Gn=%zu ngen=%zu\n",
     n_audit, n_flip, n_unres, min_dd_margin, Gn, ngen);

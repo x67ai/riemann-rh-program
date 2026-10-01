@@ -113,3 +113,38 @@ NOTE `U6-certificate/NOTE.md` §0. Y holds: F_{x_K}(0.794755370097) > 0 for S8(�
 
 ## 17:41 IST 2026-10-01 — U1-lookahead: BUG in block generators (mine fixed; affects the s40 pattern) — batches 1–4 superseded
 Block rules on [B, p₁B) find cofactors with `lower_bound(G, B/q)` (s40 `theory/verify/s8w_block.py` l. 18: `searchsorted(G, B/q, side='left')`). The block boundaries are B = p₁ᵏ, and the composites p₁ᵏ sit EXACTLY on them; if the division B/q rounds above the stored p₁ᵏ⁻¹, that composite falls in neither block. It did not trigger for τ = ½ at π/4, π/16 (my numbers equal s40's and the brute force), but it does for other thresholds (τ = 0.02: p₁ = 1.102, every boundary hit; my earlier "sup E = 9.56" was wrong, true sup E = 30.72 already at x ≈ 50 from the powers of p₁). Fix: search [B/q·(1−10⁻¹²), Bh/q·(1+10⁻¹²)) and keep the membership test v ∈ [B, Bh) on the computed product. Fixed generator = 50-digit brute force exactly (`U1-lookahead/verify/validate_bf.py`, log `validate_bf.log`: N, π, sup E, inf E for τ ∈ {0.02, 0.25, 0.5} at π/16 and τ = ½ at π/4, X = 2·10⁴). Batch 1–4 logs moved to `verify/superseded/`; rerun in `batches_v2.log` (script `run_batches.sh`). The SHARED blocks above quoting τ < ½ or open-loop numbers are superseded by the next block.
+
+## 17:46 IST 2026-10-01 — U5-obstruction: batch 3 — what mean squares see (tests on S8(π/16), L, template)
+[proved here + computed; NOTE §3, §6.2] (1) Prop. 3.2: for unit atoms at density ρ, (1/U)∫_U^{2U}E² ≥ 1/12 − o(1), equality iff equally spaced atoms with E centred — the lattice control is the unique minimiser. That is ALL integrality says about the size of E (data: S8 0.54, 0.70, 1.14, 1.49 at U = 10³…4.9·10⁵; L 0.0833). (2) Parseval split by frequency (X = 10⁵): S8/L energy ratio 5–89 at |t| ≲ 1 (the amplitude of E), 1.1–3.7 at |t| ≥ 8 (local clustering of g-integers, absent in the lattice); Dirichlet-polynomial mean squares of S8 and L agree to 0.2 % up to T = 32, then S8 exceeds the diagonal while L tracks it. (3) Both are "RH-false" alike: L_{π/16} has ≥ 12 Newton-verified zeros in ½ < Re s < 1 below height 100 (one at 0.7309 + 42.09i), S8's F_{10⁶} ≥ 6 (incl. s40's 0.573259 + 30.779677i to all digits); σ₁(L) = 1.18134. (4) Local positivity (★) holds in all 1600 tested S8 windows; its slack minus ψ(I) is ≈ 0.065·h = the real zero's prime deficit (template: h·x^{−ρ} = 0.076h). Side note: A = 1 + ∫E u^{−2} = 0.937500 for π/16 is a coincidence (π/32: 0.931643).
+One correction to my own draft: Ê's high-frequency energy is NOT identical for S8 and L (factor 1.2–3.7); only the Dirichlet-polynomial mean square below T ≈ 32 is.
+
+## 17:46 IST 2026-10-01 — U6-certificate read-O (Opus 5.5, second producer): start
+Second, independent producer and line reader of `U6-certificate/NOTE.md`. Own generator (exact integer fixed point: every cell decision W(c) = Σ_r E_r(c)·t^{r−1}/2^r made from integer elementary symmetric functions E_r of the factors and certified integer enclosures of the constants t^{r−1}/2^r; high-precision exact fallback) and own F_X evaluator (python-flint arb from integer block moments). `verify/` and `read-F.md` not opened until my numbers are final. Deliverable `U6-certificate/read-O.md`, code and logs `U6-certificate/verify-O/`.
+
+## 17:46 IST 2026-10-01 — U1-lookahead: corrected batches + **the threshold moves the real zero to ≈ 1 − τ, so U needs only θ < (1−τ)/2**
+[computed] `batches_v2.log`, `zero_tau_1e7.log`, `zero_tau_1e8.log` (double precision; ordering not certified — U6's job). π/16 greedy, threshold τ:
+| τ | σ* (real zero of F_X, X=10⁷ and 10⁸) | F_X(σ₁) vs τX^{−σ₁} | Thm 1.6 floor r₀/(r₀+ρ) | sup E 10⁸ (global; top half-decade) | Lemma M min at log³X (10⁸) |
+|---|---|---|---|---|---|
+| ½ | 0.794755 | F(0.79)=+0.0222 ≫ 1.5e−6 | 0.607 | 16.36; 16.36 | 0.77 |
+| ¼ | 0.840214 | F(0.84)=+0.0017 | 0.738 | 14.93; 14.93 | 0.77 |
+| 0.1 | 0.912352 | F(0.91)=+0.060 | 0.782 | 12.31; 12.31 | 0.68 |
+| 0.05 | 0.951948 | F(0.95)=+0.163 | 0.793 | 9.49 (10⁷) | — |
+| 0.02 | 0.979983 (both X) | F(0.97)=+3.33 | 0.800 | 30.72 (bump at x≈50); 13.67 | 0.25 (mean 0.30) |
+| 0.01 | 0.989926 (both X) | F(0.98)=+9.83 | 0.802 | 73.27 (bump); 13.99 | 0.14 (mean 0.17) |
+π/32: τ=½ σ*=0.895076, τ=0.02 σ*=0.981817. Mechanism [heuristic, consistent]: p₁ = 1 + τ/ρ, its powers give E a constant bump ≈ (ρ/τ)log(1/τ) on [1, ≈1/(ρ log p₁)], so Ê(σ) ≈ ρ/τ and the zero equation 1 + σÊ(σ) − ρ/(1−σ) = 0 gives 1 − σ* ≈ τ; the low prime density at 10⁸ (×log x = 0.30 for τ = 0.02) is exactly ψ(x) ≈ x − x^{σ*}/σ*. **Consequence (Cor. 1.7(iii) with τ in place of ½, once U6 certifies σ₁ rigorously): Conjecture U is false as soon as S8_τ(π/16) with τ = 0.01 has N − ρu = O(u^θ) for some θ < 0.49; as τ → 0 the requirement tends to "any θ < ½" — the weakest sub-square-root statement, the natural boundary of Hilberdink's wall.** Large-scale E is unchanged by τ (top half-decade 13.7–16.4 at 10⁸), so the threshold costs nothing where it matters. Open-loop rules (corrected): Beatty λ ≥ 0.95 and Poisson λ = 1 grow linearly (0.012–0.034·x at 10⁸); λ = 0.9/0.8 grow like x^{0.09–0.16}; look-ahead −10…−28 % vs greedy at 10⁷; greedy π/32 10⁸: sup E 9.86, Lemma M min 0.72.
+
+## U4-sparse — 17:47 IST 2026-10-01 — batch 3 (scaling comparison, 9 values of ρ)
+- [computed] Runs ρ = π/D, D ∈ {16, 24, 32, 48, 64, 96, 128, 192, 256}, to 4·10⁹–10¹¹ (logs `U4-sparse/verify/logs/`, `collapse.log`).
+  At FIXED τ every deviation from Poisson shrinks as ρ ↓: τ = 0.6, ρ = 0.0245/0.0327/0.0491: D(4) = 0.953/0.914/0.814, mean-queue ratio
+  0.915/0.844/0.676. One-hit-per-component law (components = progressions x_a·P of period x_a steps, independent random phases):
+  per-step count is Poisson-binomial with probabilities 1/x_a; P(c=2)/Poisson = 1 − ρ²ψ′(½)/λ² (π/256, τ=0.3: 0.938 measured, 0.938
+  predicted); D(m) = 1 − mρ²ψ′(½+ρ)/λ (π/256, τ=0.3, m=16: 0.897 vs 0.896). Le Cam: TV distance to Poisson ≤ Σ(m/x_a)² ≈ 4.93m²ρ².
+- [computed] Max queue vs Poisson-model queue (same steps, measured λ per bin, 10 replicates): π/32 13 vs 18 [17,20]; π/64 9 vs 11.5
+  [10,13]; π/128 7 vs 7.5 [7,8]; π/256 5 vs 5 [5,6]. Prime fraction offset φ − f₀(τ) at τ = 0.3: +0.0251/+0.0301/+0.0377 for
+  ρ = 0.0123/0.0164/0.0245 — matches Δ_ρ f₀(τ), Δ_ρ := ρ(log(1/ρ) + ψ(½)) (the lattice in s = ρ log x is Lebesgue shifted by Δ_ρ).
+- Theory in progress (NOTE §4): macroscopic law in the scaling limit for ALL τ (not only τ < τ_c) by a Gronwall bootstrap over τ:
+  composites at τ use cofactor primes at scales ≤ τ/2 and one top prime; Lipschitz control of the cofactor functional by the
+  "monotone sections" argument.
+
+## 17:48 IST 2026-10-01 — U7-patterns: CLOSE (NOTE §0, deliverables §8)
+Proved: (I1) exact divisible-arrival identity; Theorem 5.1 e_k ≤ E(x_k/d) + τ + r_k^{(d)} for every g-PRIME d (for composite d replace τ by 1 — correction to my 17:38 IST 2026-10-01 block, which said g-integer); Cor. 5.4 Lemma B_ρ ⟸ r^{(1)} = O(x^θ); Thm 5.5 multiscale Chebyshev identity. Correction to my 17:22 IST 2026-10-01 block: the coincidence layer carries 57% (π/16) and 67% (not 64%) (π/32) of the gross burst excess. Record-exact worst cases to 10¹⁰: max_{j≤k} e_j/log²x_k ≤ 0.0498 (π/16, x ≥ 10⁴), 0.0392 (π/32); G/log³x ≤ 0.1172 / 0.0931. New best target for (B): S8 with threshold τ = 0.1 — to 10¹⁰ the same log² law with a 26% (π/16) / 14% (π/32) smaller constant (sup E(10¹⁰) = 19.23 / 13.24), r₀ = 0.9 − ρ, so Theorem 1.6 needs only θ < 0.391 / 0.4455. Cell arrays to 10¹⁰ (c_k, e_k, c_k^{(1)}, g-prime cells) kept in /private/tmp/rh-s41-lemmaB-U7-patterns/ for any unit.
