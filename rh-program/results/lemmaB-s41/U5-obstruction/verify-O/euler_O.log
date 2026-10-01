@@ -1,0 +1,20 @@
+route1 == route2 on all 791 monomials of degree <= 7 with 5 variables: True
+all exponents integers: True
+log-coefficient == (-1)^{k+1}(k-1)!/prod e_i! everywhere: True
+  m[l1] = 1   Pi_L weight (log-coeff) = 1
+  m[l1 l2] = -1   Pi_L weight (log-coeff) = -1
+  m[l1^2] = -1   Pi_L weight (log-coeff) = -1/2
+  m[l1 l2 l3] = 2   Pi_L weight (log-coeff) = 2
+  m[l1..l4] = -6   Pi_L weight (log-coeff) = -6
+  m[l1..l5] = 24   Pi_L weight (log-coeff) = 24
+  m[l1^2 l2] = 1   Pi_L weight (log-coeff) = 1
+  m[l1^3] = 0   Pi_L weight (log-coeff) = 1/3
+  m[l1^3 l2] = -1   Pi_L weight (log-coeff) = -1
+  m[l1^4] = 0   Pi_L weight (log-coeff) = -1/4
+  m[l1^2 l2^2] = -1   Pi_L weight (log-coeff) = -3/2
+  m[l1^6] = 0   Pi_L weight (log-coeff) = -1/6
+  m[l1^2 l2 l3] = -3   Pi_L weight (log-coeff) = -3
+  m[l1^4 l2^2] = -3   Pi_L weight (log-coeff) = -5/2
+m = (-1)^{k+1}(k-1)! at every product of k distinct atoms (k<=5): True
+m = -1 at every 2-fold product (incl. squares): True
+python3 euler_O.py  0.80s user 0.01s system 99% cpu 0.816 total

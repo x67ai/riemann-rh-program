@@ -21,8 +21,8 @@ brackets of Prop. 3.3 are the systematic repair, and in the limit their even lev
 inside the range it cannot
 beat Q because the only cluster bound it has is "+1 per component", and anything better is the shifted divisor problem for (ℤ + δ)² in
 hyperbolic shells of width mρ (§3.2, Prop. 3.2: a cluster bound K gives E ≤ K + 3/2). Q is 10²–10³ times the truth (π/128: Q(10¹⁰) =
-7,381, sup E = 7.09). (2) *Scaling limit.* For every S, uniformly on x ≤ e^{S/ρ} as ρ → 0: π(y, x] = Π₀(y, x] + o(ρx),
-C(y, x] = Λ₀(y, x] + o(ρx), E(x) = o(ρx), and Σ_{p≤x} 1/p → Ein(τ) (Thm 4.4) [proved here, single-check]: the queue's arrival process
+7,381, sup E = 7.09). (2) *Scaling limit.* For every S, uniformly on 1 ≤ y < x, p₁² ≤ x ≤ e^{S/ρ} as ρ → 0: π(y, x] = Π₀(y, x] + o(ρx), C(y, x] = Λ₀(y, x] + o(ρx),
+E(x) = o(ρx); on all of 1 ≤ x ≤ e^{S/ρ}, −½ < E(x) ≤ ½ + o(ρx); and Σ_{p≤x} 1/p → Ein(τ) (Thm 4.4; with the rate C_S·ρ log(1/ρ), Thm 4.4′) [proved here; second read agrees, corrections applied]: the queue's arrival process
 has intensity λ₀(τ) = 1 − (1 − e^{−τ})/τ per step at EVERY τ, the same function for every ρ, with no restriction to τ < τ_c. The
 local structure is conjecturally Poisson(λ₀(τ)) (Conj. 5.2); its finite-ρ deviations are exactly those of the random-phase model of
 independent progressions m′·P (one point per period m′ ≥ p₁ steps), with no free parameter (π/256, τ = 0.3: window dispersion D(16) =
@@ -32,7 +32,8 @@ proved o(ρe^{τ/ρ}) and explicitly bounded below τ_c, and conjectured to sati
 
 **T — proved here:** Lemmas 1.1–1.3 (bottom of the system; E ↔ Lindley queue; the template is exactly self-similar in τ);
 Thm 2.1 (e_k ≤ e_k^lat pathwise); Lemma 2.2, Thm 2.3 (explicit bound) and the elementary bound on Q; Prop. 3.1 (S_ρ → Λ(τ),
-vol{Σu + max u ≤ τ} = τ^j/(j+1)!); Props. 3.2, 3.3 (pathwise alternating brackets); Thm 4.1; Lemmas 4.2, 4.3, 4.6; **Thm 4.4**; Prop. 5.1 (model); Prop. 5.3 (model).
+vol{Σu + max u ≤ τ} = τ^j/(j+1)!); Props. 3.2, 3.3 (pathwise alternating brackets); Thm 4.1; Lemmas 4.2, 4.3, 4.6; **Thms 4.4, 4.4′** (second read `read-T44.md`: AGREES-WITH-CORRECTIONS; its one gap,
+Step 3's local mass bound, filled; corrections applied); Prop. 5.1 (model); Prop. 5.3 (model).
 **C — computed** (`verify/`, 12 production runs, ρ = π/16 … π/256 to 4·10⁹–10¹¹, exact ordering by double-double re-decision,
 validated against Session 40): zero violations of e_k ≤ e_k^lat in 7.9·10⁷ steps; the RPM fits of §5.2; maxima vs the Poisson model
 (13 vs 18, 9 vs 11.5, 7 vs 7.5, 5 vs 5 for π/32 … π/256); Mertens offsets Σ1/p − Ein(τ) falling like ρ log(1/ρ); τ_c(ρ) = 1.637,
@@ -41,14 +42,15 @@ to 10⁹ (past τ_c(ρ)) while the lattice-monoid queue exceeds 65,535.
 **G — gaps, named:** (G1) the cluster bound K(X, m) for lattice-monoid components in short windows (needed for any sharp bound on
 τ < τ_c); (G2) Conjecture 5.2 needs joint equidistribution of the phases {x/m′ mod t} over all ≈ ρ√x cofactors (Kronecker–Weyl
 gives any fixed finite set when t is transcendental); (G3) Conjecture 5.4 needs G2 in large-deviation form on windows of O(1/ρ) steps.
-**For Lemma B_ρ (fixed ρ, τ → ∞).** Nothing here proves it. Theorem 4.4's argument needs the margin f₀(S) > 0 and pays e^{O(S)}; at
-fixed ρ the margin is f₀(τ) ≈ 1/τ and the factor e^{Kτ}, so it gives nothing (§4.8). The data place Lemma B's corner opposite the
+**For Lemma B_ρ (fixed ρ, τ → ∞).** Nothing here proves it. Theorem 4.4's argument uses no positive margin (only f₀ ≥ 0: the template never clips) and closes by Gronwall with
+factor exp(2(K_S + L_S)S), super-exponential in S, against error terms that vanish only as ρ → 0; at fixed ρ those terms are fixed
+positive numbers (of size ρ log(1/ρ), Thm 4.4′), so it gives nothing as τ → ∞ (§4.8). The data place Lemma B's corner opposite the
 scaling limit: at fixed ρ the regularity of the arrivals INCREASES with τ (queue tail rate / Poisson-queue κ = 1.05, 1.16, 1.31 at
 τ = 0.6, 1.0, 2.0, and Session 40's 1.45–1.65 at π/16, π/4), because the components with period below the excursion length become
 exact progressions. That corner is favorable to B and is where a proof would have to live; this unit's tools do not reach it.
 **For other units.** U1/U3: on τ < τ_c(ρ) the greedy feedback is not needed for upper bounds (Thm 2.1), and the scaling-limit
-dynamics is the Volterra equation f = (1 − c[f])⁺ with unique solution f₀ — a rule whose limit dynamics keeps f > 0 inherits
-Theorem 4.4's proof. U7: the sub-Poisson window structure is quantitatively the random-phase model (§5.1–5.2) plus exact
+dynamics is the Volterra equation f = (1 − c[f])⁺ with unique solution f₀ — a rule whose template never clips and which has analogs of Lemma 4.2(iii) (a greedy reflection) and Lemma 1.3 (a
+self-similar template) inherits Theorem 4.4's proof. U7: the sub-Poisson window structure is quantitatively the random-phase model (§5.1–5.2) plus exact
 periodicity of components with period below the window; Session 40's factor 1.5 belongs to this finite-ρ structure (at fixed τ
 the tail-rate factor shrinks as ρ decreases: 1.27 → 1.21 at τ = 1.5, 1.17 → 1.15 at τ = 1.15; `logs/collapse.log`).
 
@@ -239,7 +241,7 @@ and §2 gives Q(z) ≤ 4ρ²z·e^{2σ_z} + log z/log p₁ with σ_z ≤ S + 2ρ.
 every M′ that contributes is ≤ √x; (iii) E(x) ≤ ½ + sup_{1≤y<x}(C(y, x] − ρ(x − y))⁺.
 *Proof.* (i) N(u) = ρ(u − 1) + 1 + E(u) and N(x) − N(y) = π(y, x] + C(y, x]. (ii) n ↦ (M′, P⁺(n)) as in Lemma 2.2 (now for g-primes);
 if Q ∈ M′ then Q² ≤ Q·P⁺(n) ≤ n ≤ x. (iii) For x < p₁, E(x) ≤ 0. Otherwise let y be the largest g-prime ≤ x; E(y) = ½ [quoted:
-Session-40 NOTE l. 52, 1.0(ii)] and π(y, x] = 0, so (i) gives E(x) = ½ + C(y, x] − ρ(x − y). ∎
+Session-40 NOTE l. 49–50, 1.0(ii)] and π(y, x] = 0, so (i) gives E(x) = ½ + C(y, x] − ρ(x − y). ∎
 
 **Lemma 4.3 (integer regularity gives the prime law, vaguely)** [proved here]. Suppose E(x) ≤ ε_ρρx + K for 1 ≤ x ≤ e^{S/ρ},
 with ε_ρ → 0 and K fixed. Then for every interval I ⊂ [0, S]: μ_ρ(I) → ∫_I f₀(v)dv; in particular Σ_{p ≤ x} 1/p → Ein(τ) :=
@@ -249,23 +251,24 @@ g-primes, so ν_ρ = ⊛_p Σ_{k≥0} p^{−k}δ_{kρ log p} = ⊛_p exp*(Σ_{k�
 convolution algebra (y = p^{−1}δ_{ρ log p}). On [0, S] all sums are finite, since every term is supported on [s₁, ∞), s₁ := ρ log p₁.
 (b) For I = (v₁, v₂] with a = e^{v₁/ρ}, b = e^{v₂/ρ}: ν_ρ(I) = ∫_{(a,b]}dN(u)/u = ρ log(b/a) + E(b)/b − E(a)/a + ∫_a^b E(u)u^{−2}du
 (insert N = ρ(u − 1) + 1 + E; the other terms cancel). With −½ < E ≤ ερu + K and a ≥ p₁ ≥ 1/(2ρ) when v₁ ≥ s₁ (and ν_ρ puts no
-mass on (0, s₁)), this gives |ν_ρ(I) − |I|| ≤ ε_ρ|I| + β_ρ for every I ⊂ (0, S], β_ρ := (4K + 6)ρ log(1/ρ) → 0.
-(c) σ_ρ := ν_ρ − δ₀ satisfies σ_ρ(I) ≤ 2|I| + β_ρ. Let U be the uniform probability on [0, β_ρ]; σ_ρ * U has density
-σ_ρ([w − β_ρ, w])/β_ρ ≤ 3, so σ_ρ^{*n}([0, S]) ≤ (σ_ρ*U)^{*n}([0, S + nβ_ρ]) ≤ 3^n(S + nβ_ρ)^n/n!. On [0, S] only n ≤ S/s₁ occur and
-nβ_ρ ≤ S(4K + 6)log(1/ρ)/log(1/(2ρ)) ≤ (8K + 12)S, so Σ_{n>n₀} σ_ρ^{*n}([0, S])/n → 0 as n₀ → ∞ uniformly in ρ.
-(d) σ_ρ → Lebesgue measure vaguely on [0, ∞), with uniform local bounds; convolution is jointly continuous for vague convergence of
-such measures on [0, ∞) (products of the restrictions to [0, S + 1]² converge weakly, and u + v ≤ S is a compact condition), so
+mass on (0, s₁)), this gives |ν_ρ(I) − |I|| ≤ ε_ρ|I| + b_ρ for every I ⊂ (0, S], b_ρ := (4K + 6)ρ log(1/ρ) → 0.
+(c) σ_ρ := ν_ρ − δ₀ satisfies σ_ρ(I) ≤ 2|I| + b_ρ. Let U be the uniform probability on [0, b_ρ]; σ_ρ * U has density
+σ_ρ([w − b_ρ, w])/b_ρ ≤ 3, so σ_ρ^{*n}([0, S]) ≤ (σ_ρ*U)^{*n}([0, S + nb_ρ]) ≤ 3^n(S + nb_ρ)^n/n!. On [0, S] only n ≤ S/s₁ occur and
+nb_ρ ≤ S(4K + 6)log(1/ρ)/log(1/(2ρ)) ≤ (8K + 12)S, so Σ_{n>n₀} σ_ρ^{*n}([0, S])/n → 0 as n₀ → ∞ uniformly in ρ.
+(d) σ_ρ → Lebesgue measure weakly on [0, S] (by (b), on every subinterval; nothing is assumed beyond S), with uniform local bounds; convolution is jointly continuous for vague convergence of
+such measures on [0, ∞) (σ_ρ^{*n} on [0, S] depends only on σ_ρ restricted to [0, S], and products of these restrictions converge weakly on [0, S]², and u + v ≤ S is a compact condition), so
 σ_ρ^{*n} → (v^{n−1}/(n − 1)!)dv for each n, also on intervals (the limit is absolutely continuous).
 (e) μ̃_ρ = Σ_{n≥1}((−1)^{n+1}/n)σ_ρ^{*n} on [0, S] (convolution logarithm; a finite sum there). By (c)–(d), μ̃_ρ(I) →
 ∫_I Σ_{n≥1}(−1)^{n+1}v^{n−1}/n! dv = ∫_I f₀. Finally μ̃_ρ − μ_ρ has total mass ≤ 2Σ_a x_a^{−2} ≤ 10ρ² (prime powers). ∎
 *Corollary* [proved here]: below τ_c (Theorem 4.1 gives the hypothesis with ε_ρ = O(ρ)), the Mertens-type law Σ_{p≤x} 1/p →
 Ein(ρ log x) holds uniformly on τ ≤ S < τ_c. For the lattice itself Σ_{x_a≤x} 1/x_a → τ; Ein(τ) = τ − τ²/4 + … records the busy steps.
-**Theorem 4.4 (macroscopic law in the scaling limit, every τ)** [proved here; single-check]. For every S > 0, as ρ → 0,
+**Theorem 4.4 (macroscopic law in the scaling limit, every τ)** [proved here; second read `read-T44.md`: AGREES-WITH-CORRECTIONS,
+one fillable gap (Step 3's local mass bound) filled there, all corrections applied]. For every S > 0, as ρ → 0,
   sup_{1≤y<x≤e^{S/ρ}} |π(y, x] − Π₀(y, x]|/(ρx) → 0,  sup |C(y, x] − Λ₀(y, x]|/(ρx) → 0,  sup_{x≤e^{S/ρ}} (E(x) − ½)/(ρx) → 0
 (the first two over x ≥ p₁²). So at every τ the queue's arrival intensity per step is λ₀(τ) = 1 − (1 − e^{−τ})/τ in every window of
 fixed relative length (y = x(1 − η)), the g-primes fill the fraction f₀(τ), the queue content is o(ρx), and by Lemma 4.3
 Σ_{p≤x} 1/p → Ein(τ) for every τ — no restriction to τ < τ_c.
-*Proof.* Put α_ρ(v) := sup{|π(y, x] − Π₀(y, x]|/(ρx) : 1 ≤ y < x, p₁² ≤ x ≤ e^{v/ρ}}, β_ρ(v) the same with C, Λ₀; both are
+*Proof.* Put α_ρ(v) := sup{|π(y, x] − Π₀(y, x]|/(ρx) : 1 ≤ y < x, p₁² ≤ x ≤ e^{v/ρ}}, β_ρ(v) the same with C, Λ₀ (sup ∅ := 0, i.e. both vanish while e^{v/ρ} < p₁²); both are
 nondecreasing in v and bounded (α_ρ ≤ 2 since π(y, x] ≤ ρ(x − y) + 1; β_ρ ≤ Λ(S) + 2 by Theorem 2.1's C ≤ C^lat and Lemma 2.2).
 Let A, B be their limsups as ρ → 0.
 *Step 1 (queue).* Lemma 4.2(iii) and Λ₀(y, x] ≤ ρ(x − y) give −½ < E(x) ≤ ½ + β_ρ(v)ρx for x ≤ e^{v/ρ}.
@@ -274,19 +277,23 @@ Let A, B be their limsups as ρ → 0.
 *Step 3 (composites).* By Lemma 4.2(ii), C(y, x] − Λ₀(y, x] = T₁ + T₂ with T₁ := Σ_{M′}(π(J_{M′}) − Π₀(J_{M′})) and
 T₂ := Σ_{M′}Π₀(J_{M′}) − Λ₀(y, x]. Each J_{M′} is a window with right end x/m′. If x/m′ ≥ p₁² its error is ≤ α_ρ(v − u)ρx/m′,
 u := ρ log m′; if x/m′ < p₁², all lattice points in J are g-primes (Lemma 1.1) and the error is ≤ ρ(x/m′)·2s₁ + 1. With
-κ_ρ := Σ_{M′: m′P⁺(M′)≤x} δ_{ρ log m′}/m′ and Q(x) ≤ 4ρ²x e^{2S+4ρ} (§2):
+κ_ρ := Σ_{M′: m′P⁺(M′)≤x} δ_{ρ log m′}/m′ and Q(x) ≤ 4ρ²x e^{2S+4ρ} + log x/log p₁ ≤ ρx(4ρe^{2S+4ρ} + 8ρ) for x ≥ p₁² (§2):
   |T₁| ≤ ρx∫α_ρ(v − u)dκ_ρ(u) + 2s₁ρx·κ_ρ([0, v]) + Q(x).
-κ_ρ is dominated by the lattice monoid exp*(λ_ρ) − δ₀; smoothing λ_ρ (λ_ρ(I) ≤ |I| + 2ρ) by the uniform law on [0, 2ρ] as in
-Lemma 4.3(c) gives κ_ρ(I) ≤ K_S(|I| + ρ log(1/ρ)), K_S := 4e^{2S+2}. As α_ρ is nondecreasing, summing over a partition of [0, v]
+κ_ρ is dominated by the lattice multiset measure exp*(λ̃_ρ) − δ₀, λ̃_ρ := Σ_aΣ_{k≥1}k^{−1}x_a^{−k}δ_{kρ log x_a} (Euler product;
+exp*(λ_ρ) alone gives a multiset with multiplicities (e_a) only 1/Πe_a! of its weight), and λ̃_ρ(I) ≤ |I| + 2ρ + Σ_a x_a^{−2} ≤ |I| + 3ρ
+for every interval I. With U uniform on [0, 2ρ], λ̃_ρ * U has density ≤ 3; since ν(I) ≤ (ν * U^{*n})(I + [0, 2nρ]) for every measure
+ν, λ̃_ρ^{*n}(I) ≤ 3^n(|I| + 2nρ)(2v)^{n−1}/(n − 1)! for I ⊂ [0, v] (only n ≤ v/s₁ occur, and then 2nρ ≤ 2v/log p₁ ≤ v). Dividing by n!
+and summing over n: κ_ρ(I) ≤ 6I₀(2√(6S))(|I| + ρ) ≤ K_S(|I| + ρ), K_S := 4e^{2S+2} (6I₀(2√(6S)) ≤ 0.7·4e^{2S+2} for all S > 0)
+[this bound is the second reader's fill of a gap in the first version; `read-T44.md` §2]. As α_ρ is nondecreasing, summing over a partition of [0, v]
 into intervals of length δ_ρ := (ρ log(1/ρ))^{1/2} gives |T₁| ≤ ρx[K_S∫₀^v α_ρ(w)dw + o(1)].
 For T₂ use Lemma 4.6 below: |T₂| ≤ ρx[L_S·D_ρ(v/2) + O(ρ)], D_ρ(w) := sup_{I⊂[0,w]} |μ_ρ(I) − ∫_I f₀|, L_S := 4e^{S+2}.
 *Step 4 (discrepancy from window errors).* For I = (w₁, w₂] ⊂ [2s₁, w], a = e^{w₁/ρ}, b = e^{w₂/ρ}: μ_ρ(I) − ∫_I f₀ =
 Δ(b)/b − Δ(a)/a + ∫_a^b Δ(u)u^{−2}du with Δ(u) := π(a, u] − Π₀(a, u] (integration by parts on dπ − dΠ₀), and |Δ(u)| ≤ α_ρ(ρ log u)ρu;
-so |μ_ρ(I) − ∫_I f₀| ≤ 2ρα_ρ(w) + ∫_{w₁}^{w₂}α_ρ. On [0, 2s₁] every lattice point is a g-prime and the discrepancy is ≤ λ_ρ-vs-Lebesgue
+so |μ_ρ(I) − ∫_I f₀| ≤ 2ρα_ρ(w) + ∫_{w₁}^{w₂}α_ρ. On [0, 2s₁) every lattice point is a g-prime (p₁² itself can be a busy lattice point — for integer t ≡ 2 mod 4, e.g. ρ = 1/18,
+p₁² = x₆ carries p₁·p₁ — and its mass 1/p₁² ≤ 4ρ² is absorbed) and the discrepancy is ≤ λ_ρ-vs-Lebesgue
 error + 2s₁·(1 − f₀(2s₁)) = O(ρ log(1/ρ)). Hence D_ρ(w) ≤ ∫₀^w α_ρ + o(1).
 *Step 5 (closing).* Steps 3–4 give β_ρ(v) ≤ (K_S + L_S)∫₀^v α_ρ + o(1); with Step 2 and reverse Fatou (0 ≤ α_ρ ≤ 2 on [0, S]):
-A(v) ≤ 2(K_S + L_S)∫₀^v A(w)dw, A nondecreasing and bounded. If A ≢ 0 on [0, S], let v₁ := inf{v : A(v) > 0}; for
-v₁ < v < v₁ + 1/(4(K_S + L_S)): A(v) ≤ 2(K_S + L_S)(v − v₁)A(v) ≤ ½A(v), so A(v) = 0 — a contradiction. So A ≡ 0, B ≤ (K_S + L_S)∫A ≡ 0,
+A(v) ≤ 2(K_S + L_S)∫₀^v A(w)dw, A nondecreasing and bounded. Iterating from A ≤ 2: A(v) ≤ 2(2(K_S + L_S)v)^n/n! for every n, so A ≡ 0 on [0, S]. So A ≡ 0, B ≤ (K_S + L_S)∫A ≡ 0,
 and Step 1 gives (E(x) − ½)/(ρx) ≤ β_ρ(S) → 0. ∎
 **Lemma 4.6 (the cofactor functional is Lipschitz in the prime discrepancy)** [proved here]. For p₁² ≤ x ≤ e^{S/ρ}, v = ρ log x,
 y < x: |Σ_{M′}Π₀(J_{M′}) − Λ₀(y, x]| ≤ ρx[L_S·D_ρ(v/2) + O(ρ)].
@@ -307,9 +314,21 @@ in u_i. Telescoping μ^{⊗j} − μ₀^{⊗j} = Σ_i μ^{⊗(i−1)} ⊗ (μ �
 ⊗ μ₀^{⊗(j−i)} and integrating the i-th factor over the section first: |(μ^{⊗j} − μ₀^{⊗j})(R)| ≤ j·D_ρ(v/2)·M^{j−1}, M := v/2 + 2ρ
 (masses of μ_ρ, μ₀ on [0, v/2]). Summing over j with weights 1/j! and the mixture weight 1: |T₂|/(ρx) ≤ e^{M}D_ρ(v/2) + O(ρ). ∎
 (The constant L_S = 4e^{S+2} of Theorem 4.4 covers e^{M}.)
-*Status of Theorem 4.4.* Every step is written above; it is single-checked (this unit only). The two places most worth a second
-reader: the uniform local mass bound for κ_ρ (smoothing argument, Step 3) and the section argument of Lemma 4.6(c), which needs
-each region to have interval sections — true here because Σu and Σu + max u are nondecreasing in every coordinate.
+*Status of Theorem 4.4.* Second read (`read-T44.md`, Opus agent, 18:14–18:37 IST): every step ✓ except Step 3's local mass bound,
+whose first version used the wrong majorant exp*(λ_ρ) (it undercounts repeated elements) and did not write the local smoothing;
+the reader's fill (now in Step 3) gives κ_ρ(I) ≤ 6I₀(2√(6S))(|I| + ρ). Nothing in §4 uses transcendental 1/ρ; the reader stress-tested
+the identities exactly at ρ = 1/18, where every composite lies on the lattice (46,992 tie decisions).
+**Theorem 4.4′ (with a rate)** [proved here; the argument is the second reader's (`read-T44.md` §5), re-derived by the writer]. For
+ρ ≤ 1/16 and every S there is C_S = exp(O(e^{2S})) with
+  sup|π(y, x] − Π₀(y, x]|/(ρx), sup|C(y, x] − Λ₀(y, x]|/(ρx), sup_{x≤e^{S/ρ}}(E(x) − ½)/(ρx) ≤ C_S·ρ log(1/ρ)
+(the first two over 1 ≤ y < x, p₁² ≤ x ≤ e^{S/ρ}). *Proof.* (1) In Step 3 replace the partition by a layer cake: α_ρ(v − u) is
+nonincreasing in u, so its superlevel sets are initial segments [0, u_s), and κ_ρ([0, u_s)) ≤ K_S(u_s + ρ) gives
+∫α_ρ(v − u)dκ_ρ(u) ≤ K_S∫₀^v α_ρ + 2K_Sρ. (2) Every other error is O_S(ρ log(1/ρ)) uniformly in y and v ≤ S: 4ρ (Step 2); 2K_Sρ,
+2s₁K_S(v + ρ), Q/(ρx) ≤ 4ρe^{2S+4ρ} + 8ρ (Step 3); ρe^{M} + O(ρ²) and 2ρL_Sα_ρ ≤ 4ρL_S (Lemma 4.6 with Step 4); the [0, 2s₁) part
+of Step 4 (late start s₁ = ρ log p₁). (3) Hence, at fixed ρ, α_ρ(v) ≤ ε_ρ + c∫₀^v α_ρ with c := 2(K_S + L_S), ε_ρ = O_S(ρ log(1/ρ)), and
+Gronwall gives α_ρ(S) ≤ ε_ρe^{cS}, β_ρ(S) ≤ ε_ρ(1 + (K_S + L_S)Se^{cS}); Step 1 then bounds E. ∎ The rate is the one measured in §4.7
+(offsets falling like ρ log(1/ρ)). At fixed ρ the bound is informative only while exp(O(e^{2τ}))·ρ log(1/ρ) is small, i.e. for
+τ ≲ ½ log log(1/ρ).
 **4.7 The macroscopic law on the data** [computed: `logs/collapse.log`, `logs/mertens.log` (`verify/mertens.py`, runs `m_*_1e10`),
 `verify/s8sp.c` with the per-bin sum of 1/p]. (i) Prime fraction per step minus f₀(τ), at fixed τ, ρ decreasing: τ = 0.3: +0.0377,
 +0.0301, +0.0251 (ρ = 0.0245, 0.0164, 0.0123); τ = 0.6: +0.0398, +0.0333, +0.0288 (ρ = 0.0491, 0.0327, 0.0245); τ = 1.15: +0.0274,
@@ -324,10 +343,12 @@ at v = 0 from the template and solving the linearized Volterra equation δf(v) =
 **4.8 What Theorem 4.4 is and is not.** It identifies the MACROSCOPIC arrival process of the charter's queue in the scaling limit:
 intensity λ₀(τ) per step at every τ, the same function for every ρ (Lemma 1.3), and the queue content o(ρx). It is a law of large
 numbers in the window of relative size η, uniform on τ ≤ S for each fixed S. It is not a statement about S8(ρ) at fixed ρ as x → ∞:
-the constants K_S, L_S grow like e^{S}, and the error o(ρx) is θ = 1 in the language of Lemma B. Why it says nothing at fixed ρ, precisely: the proof
-needs (a) the queue margin, here f₀(S) > 0 fixed, and (b) a Gronwall factor e^{O(S)}; at fixed ρ and τ → ∞ the margin is
-f₀(τ) ≈ 1/τ → 0 while the factor grows like e^{Kτ}, so the same inequalities give no bound. The limit dynamics is the Volterra
-equation f = (1 − c[f])⁺ (c[f] = Σ_{j≥2} f^{*j}/j!), whose unique solution is f₀ — f₀ > 0, so the clip never binds; the comparison with
+the constants are K_S = 4e^{2S+2}, L_S = 4e^{S+2}, and the error o(ρx) is θ = 1 in the language of Lemma B. Why it says
+nothing at fixed ρ, precisely: the proof uses no positive margin — only f₀ ≥ 0 (the template never clips, so Λ₀ ≤ ρ(x − y) in
+Step 1), which holds at every τ — but it closes by Gronwall, α_ρ(S) ≤ ε_ρ·exp(2(K_S + L_S)S), where ε_ρ collects terms that vanish
+only as ρ → 0 (the granularity 1/(ρp₁²) ≤ 4ρ, the late start s₁ = ρ log p₁, the Q and repeated-element terms). At fixed ρ, ε_ρ is a
+fixed positive number and the factor is super-exponential in τ, so the same inequalities give no bound. The limit dynamics is the Volterra
+equation f = (1 − c[f])⁺ (c[f] = Σ_{j≥2} f^{*j}/j!), whose unique solution is f₀ — f₀ ≥ 0, so the clip never binds; the comparison with
 the template is exact at every scale (Lemma 4.6(b)), so no first-order expansion around the template is needed, which is where
 Session 40's route (a) stopped (`../../free-greedy-s40/theory/NOTE.md` §3.1, Lemma M) [quoted].
 

@@ -218,3 +218,17 @@ The U6 certificates now have two independent producers. S8(π/16): zero of F_{x_
 ## 18:22 IST 2026-10-01 — U3-firstbound (Opus 5.5, second agent): ATTEMPT 1 — T1 PROVED (N(x) = O(x) for every S8(rho), rho < 1/2)
 - [proved] Record argument on the Chebyshev identity (*) (= U7 Thm 5.5): at a g-prime y, E(y) = 1/2 and E > −1/2 give psi(y)/(2y) + rho Psi~(y) ≤ rho(log y − 1) + (log y + rho)/y; this extends to all x (F decreases between prime powers), integrates to the Mertens bound S(x) ≤ log x − 1/(2rho) + o(1), and at any record of E(u)/u yields E/u ≤ rho/(1 − 2rho) + o(1). Hence sup E(x)/x < ∞. Threshold-tau variants (with bounded early placement): records ≤ rho tau/(1 − rho − tau) + o(1).
 - [computed] identity, B1, C1, record inequality checked to 3·10⁷ (π/16, π/32) and 10⁷ (0.3, 0.45): U3-firstbound/verify/t1_check.py, logs/t1_*.log. NOTE §1.1–1.6. Next: explicit C for π/16, π/32; then T2.
+
+## 18:28 IST 2026-10-01 — U1-lookahead read-O: batch 2 (re-derivations; two statement-level corrections)
+[proved, re-derived at the line, `U1-lookahead/read-O.md` §1] Thm 4.1, Prop 4.3, Cor 4.2, Thm 2.1 (Hilberdink 2005 Cor. 2(b) opened at w-18a l. 211–214, proof l. 669–673), Props 3.1–3.3: all ✓. Corrections: (F1) Cor 4.4 as worded ("every discrete system with E ≥ −1/100 has β ≥ 0.4945") is FALSE if β is the system's own exponent — Q′ = ℕ plus one g-prime q = 1 + τ/ρ has E_{π/4} ≥ −1/100 (checked exactly to 10⁴, `verify-O/cor44_counterexample.log`) and β = 0; true and proved for "N − ρu ≠ O(u^θ), θ < 0.4945, same ρ". (F2) "fixing the primes in advance is impossible" overstates Thm 2.1 (ℕ: primes fixed, θ = 0); the class is "within u^{α′} of a reference finitely zeroed right of some γ₀ < ½". Minor: Λ table rounds up under a "≥" header; c_G in §6.3 should be 1 + ∫E u⁻² (ℕ gives γ); Prop 3.2(c) rests on a recalled W–I but the (B)-failure has an Abelian proof; Prop 3.3 needs unique factorization (free monoid) and y₀ > p_J². Prop 3.3 reproduced at y₀ = 2·10⁵ (`verify-O/prop33.log`): E_{P′}(y₀) − E_P(y₀) = Σn_j exactly (41 > K y₀^θ = 26.8).
+
+## U4-sparse — 18:28 IST 2026-10-01 — batch 6 (close; Thm 4.4 second-read)
+- Independent second read of Thm 4.4 (`U4-sparse/read-T44.md`): **AGREES-WITH-CORRECTIONS**; no step false; one fillable gap
+  (Step 3's local mass bound used exp*(λ_ρ), which undercounts repeated elements; filled: κ_ρ(I) ≤ 6I₀(2√(6S))(|I| + ρ)); editorial
+  fixes E1–E9 applied to NOTE.md. Correction of my commentary: the proof needs only f₀ ≥ 0 (the template never clips), not a margin;
+  the Gronwall factor exp(2(K_S+L_S)S) is super-exponential in S. Nothing in §4 uses transcendental 1/ρ (stress-tested at ρ = 1/18).
+- **Thm 4.4′ (with a rate)** [proved; reader's layer-cake + Gronwall at fixed ρ]: all three sups (π, C windows, E) ≤ C_S·ρ log(1/ρ),
+  C_S = exp(O(e^{2S})) — the rate the data show (§4.7). At fixed ρ informative only for τ ≲ ½ log log(1/ρ).
+- NOTE.md is complete (§0 close theorem-shaped). Final state: Thm 2.1/2.3 (explicit sparse-range bound), Prop 3.1 (τ_c = 1.54609…),
+  Prop 3.3 (pathwise alternating brackets; level 2 passes τ_c at π/32), Thms 4.4/4.4′ (macroscopic law with rate), Prop 5.3 (limit
+  queue), Conjectures 5.2/5.4 (local Poisson limit; ρ·max E → τ/κ(λ₀(τ))).

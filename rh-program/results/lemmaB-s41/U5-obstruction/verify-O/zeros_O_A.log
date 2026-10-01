@@ -1,0 +1,7 @@
+Newton from NOTE value (0.730915 + 42.089392j) -> (0.73091527698 + 42.0893919488j)  |L| = 9.36e-22
+Newton from NOTE value (0.512474 + 22.437213j) -> (0.512473951247 + 22.4372126216j)  |L| = 6.45e-22
+box Re in [0.5,1.0] Im in [0.5,50]: winding = 5.0  min|L| on contour = 0.02474  evals = 2098
+box Re in [0.5,1.0] Im in [50,100]: winding = 7.0  min|L| on contour = 0.01242  evals = 2202
+box Re in [0.5,0.75] Im in [0.5,100]: winding = 12.0  min|L| on contour = 0.01242  evals = 4285
+box Re in [0.75,1.0] Im in [0.5,100]: winding = 1.88186e-20  min|L| on contour = 0.04114  evals = 4021
+python3 zeros_O.py A  19.82s user 0.03s system 99% cpu 19.848 total

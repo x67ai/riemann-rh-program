@@ -58,7 +58,8 @@ primitive v of length d | n, so Σ_{d|n} P(Q, d) = Qⁿ with P = number of primi
 rotation acts freely on primitive words of length n (orbits of size exactly n) and preserves "uses a special letter", so this number
 is n times a nonnegative integer. Hence b_n = (P(q, n) − P(q − m, n))/n ∈ ℤ_{≥0}. ∎
 *Real-line reading* [proved here]. With ρ := m/(q − 1), N_F(qⁿ) = 1 + Σ_{k≤n} m q^{k−1} = 1 + ρ(qⁿ − 1) = N_c(qⁿ): the F_q template is
-the REAL template N_c(x) = 1 + ρ(x − 1) sampled exactly at the norms qⁿ (Diamond's continuous system, §0 of the s40 charter), and its
+the REAL template N_c(x) = 1 + ρ(x − 1) sampled exactly at the norms qⁿ (the continuous template of s40 Lemma 1.5, Diamond 1970 p. 24
+as quoted in `free-greedy-s40/theory/NOTE.md` §0 l. 37–38), and its
 zero s*(q) = log(1 + (1 − ρ)(q − 1))/log q tends to the template zero 1 − ρ as q → 1⁺ and to 1 as q → ∞. Between norms the count is
 the step function, N_F(x) − N_c(x) ∈ (−ρ(q − 1)qⁿ, 0] on [qⁿ, q^{n+1}): over ℝ the error is linear and log-periodic (β = 1).
 Exactness needs m·q^{n−1} ∈ ℤ for all n, which forces q ∈ ℤ (if q = a/b in lowest terms with b > 1, b^{n−1} | m for all n; if q

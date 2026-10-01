@@ -1,0 +1,16 @@
+semigroup elements <= 9000: 3504  atoms: 1768
+elements <= 400 by (k, multiplicity pattern): {(1, (1,)): 78, (2, (2,)): 4, (2, (1, 1)): 31, (3, (3,)): 1, (3, (1, 2)): 6, (4, (4,)): 1, (4, (1, 3)): 1}
+  with Euler exponent m: {(1, (1,), 1): 78, (2, (2,), -1): 4, (2, (1, 1), -1): 31, (3, (3,), 0): 1, (3, (1, 2), 1): 6, (4, (4,), 0): 1, (4, (1, 3), -1): 1}
+s=3.0: truncated product = 1.02471695143  L = 1.02471734766
+s=2.5: truncated product = 1.05016124114  L = 1.05017172412
+A_L (constant term of L at 1) = 0.921961539585
+l1 l2        lambda= 30.63958362 Pi_L= -1.0  identity: 0 = 0.0   (*) LHS-RHS = 3.4222928  (-Pi_L log lambda = 3.4222928)  (*) FAILS
+l1^2         lambda= 12.57751393 Pi_L= -0.5  identity: 0 = 0.0   (*) LHS-RHS = 1.2659553  (-Pi_L log lambda = 1.2659553)  (*) FAILS
+l1 l2 l3     lambda= 420.7548786 Pi_L=  2.0  identity: 0 = 1.5777e-30   (*) LHS-RHS = -12.084101  (-Pi_L log lambda = -12.084101)  (*) holds
+l1^2 l2      lambda= 108.6626426 Pi_L=  1.0  identity: 0 = 0.0   (*) LHS-RHS = -4.6882481  (-Pi_L log lambda = -4.6882481)  (*) holds
+l1^3         lambda= 44.60589016 Pi_L=0.3333  identity: 0 = 0.0   (*) LHS-RHS = -1.2659553  (-Pi_L log lambda = -1.2659553)  (*) holds
+l1 l2 l3 l4  lambda= 7920.859379 Pi_L= -6.0  identity: 0 = 0.0   (*) LHS-RHS = 53.86353  (-Pi_L log lambda = 53.86353)  (*) FAILS
+l1^4         lambda= 158.1938567 Pi_L=-0.25  identity: 0 = 0.0   (*) LHS-RHS = 1.2659553  (-Pi_L log lambda = 1.2659553)  (*) FAILS
+l2 l5        lambda= 206.6407544 Pi_L= -1.0  identity: 0 = 0.0   (*) LHS-RHS = 5.3309818  (-Pi_L log lambda = 5.3309818)  (*) FAILS
+l1 l2 l7     lambda= 1044.939351 Pi_L=  2.0  identity: 0 = 0.0   (*) LHS-RHS = -13.903428  (-Pi_L log lambda = -13.903428)  (*) holds
+python3 star_L_O.py  7.55s user 0.01s system 99% cpu 7.565 total

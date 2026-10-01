@@ -56,3 +56,49 @@ unbounded for each θ < 0.4945; it does not say |N − ρu| ≥ u^{0.4945} ever,
 **1.5 Remark 4.5 (l. 209–212) — ✓, one wording slip (m3).** No real zero in (θ, 1) and ζ_P → −∞ at 1 ⟹ ζ_P < 0 on (θ, 1) ⟹ Λ ≤ ζ_P < 0
 there with τ = −inf E (the proof of 4.1 needs only E ≥ −τ; τ = 1 for ℕ is outside the stated range but harmless). For ℕ the bump
 (k − (u − 1) + 1)⁺ is 2 − u on [1, 2) and 3 − u on [2, 3): two unit right triangles (a sawtooth), not "a single unit triangle on [1, 3)".
+
+**1.6 Q1 and Theorem 2.1 (l. 60–74) — ✓.** Q1 opened at the line: Hilberdink, JNT 112 (2005) p. 336, Cor. 2(b) (`novel-wave-s37/
+beurling-frontier/sources/w-18a-…txt` l. 211–214): "If N_P(x) = ρx + O(x^β) for some constants ρ > 0 and β < ½, then for every η ∈ (β, ½),
+ψ_P(x) − x = Ω(x^η) and ζ_P(s) has infinitely many zeros in the strip {η < Re s < 1}" (Greek letters lost in the transcription,
+structure unambiguous); g-prime systems are sequences 1 < p₁ ≤ p₂ ≤ … (l. 31–34); proof l. 669–673 via Remark B(ii) (l. 233–235)
+and Remark C (l. 496–501), as the NOTE says. Proof of 2.1 re-derived: Π_P ≤ N_P = O(u) under (ii), so log ζ_P = ∫u^{−s}dΠ_P on Re s > 1;
+by (i), η̂ = ∫u^{−s}dD is analytic on Re s > α′ (absolute convergence after one integration by parts; the "−D(1)" term is the
+convention ∫_{(1,∞)}, harmless); ζ_P = ζ_ref·e^{η̂} on Re s > 1; both sides meromorphic on the half-plane Re s > γ₁ = max(α′, γ₀, θ)
+(the left by (ii)), so equal there; finitely many zeros in Re s > γ₁ contradict Q1 applied with β = θ and any η ∈ (γ₁, ½) ✓. Q1 is used at the statement level
+only; its proof in print is terse (the step "then P is an [α′, β′]-system", i.e. finitely many zeros ⟹ a power-saving PNT, is standard
+but not written there) — recorded, not a defect of the NOTE.
+**1.7 Corollaries 2.2–2.3 (l. 75–85) — ✓ with one GAP (m4) and one overreach in the headline (F2).** (a) Π_P − Π_F = Σ_k(π_P − F)(u^{1/k})/k
+needs the series to converge: for k > log u/log p₁, π_P(u^{1/k}) = 0 and the terms are −F(u^{1/k})/k, so F(v) → 0 as v → 1⁺ at a rate
+(e.g. F(v) = O(log v)) is required, else Π_F is undefined ("any function F" is too wide). F_c satisfies it: F_c(v) ~ (6/π²)ρ log v. The
+Möbius identity Σ_k F_c(u^{1/k})/k = Π_c(u) ✓ (absolutely convergent: Π_c(u^{1/n}) ≤ ρ log u/n·(1 + o(1))). (b) ζ_F = Π_k ζ_c(ks)^{1/k} ✓;
+the k = 2 factor blows up like (s − ½)^{−1/2} at ½ while the k ≥ 3 factors and e^{η̂} are analytic and nonzero near ½ ✓. 2.3 is the
+contrapositive ✓. **But** the theorem's class is "within u^{α′}, α′ < ½, of a reference meromorphic and finitely zeroed right of some
+γ₀ < ½"; the headlines (l. 22–25 "So … by fixing the primes in advance is impossible"; §2 title l. 58) drop that qualifier. As worded
+they are false: ℕ's primes are fixed in advance and ℕ has N − u = O(1). Theorem 2.1 is silent on ℕ only because ζ has infinitely many
+zeros on Re s = ½ > γ₀ (any reference ζ_ref with infinitely many zeros right of ½ − ε escapes it). Fix in §4.
+**1.8 Proposition 3.1 (l. 102–111) — ✓.** Composites in [B, Bh) have all prime factors < B (a factor q ≥ B gives qm ≥ p₁B); the least
+x₀ with π_G(B, x₀] > π_R(B, x₀] exists (right-continuous integer steps) and is a greedy prime, so E_G(x₀−) = −τ and no composite sits at
+x₀ (it would be counted first, lifting E_G to 1 − τ); minimality forces π_R(B, x₀) = π_G(B, x₀) and no R-prime at x₀, so E_R(x₀) = −τ and
+E_R < −τ on (x₀, min(x₁, Bh)) — nonempty even if R's next event is beyond Bh ✓. Notation (m5): with B = p₁ᵏ (the generator's blocks) a
+composite sits AT B, so f and the counts should run over [B, x], not (B, x].
+**1.9 Proposition 3.2 (l. 116–126) — ✓ with a label defect (m6).** (a), (b) ✓; residue ρe^{η̂(1)}, η̂(1) = −D(1) + ∫D u^{−2} ✓. (c) rests on
+Wiener–Ikehara, labeled [recalled, unverified] (not on disk) yet load-bearing. The (B)-failure needs no Tauberian theorem: if
+N_{P₀}(x) ≤ (ρ + δ)x + C for all x, then ζ_{P₀}(σ) = σ∫N_{P₀}u^{−σ−1} ≤ (ρ + δ)σ/(σ − 1) + C, so ρ₀ ≤ ρ + δ; hence ρ₀ > ρ gives
+limsup(N_P − ρx)/x ≥ ρ₀ − ρ > 0 by (a), and (B) fails for every θ < 1. Only the "≥ (ρ₀ − ρ)x(1 + o(1)) for all large x" form needs W–I.
+**1.10 Proposition 3.3 (l. 128–148) — ✓ under two implicit hypotheses (m8), reproduced numerically.** (i) Moving primes down maps each
+g-integer to one ≤ it, so N_{P′} ≥ N_P pointwise ✓. (ii) For x < y₀ only g-integers with exactly ONE moved prime factor, to the first power,
+can cross x — this needs y₀ < a_J², i.e. y₀ > p_J² ("y₀ large"); such an n = qm crosses iff m·a_j ≤ x < m·q, so m ≤ x/a_j < p_j (the NOTE
+writes "<" for the first), m lies in the finite set, x in a window of relative width < δ₀/2. "At most one pair (j, m) per x" needs
+m p_{j′} ≠ m′ p_j for distinct pairs — δ₀ only separates DISTINCT values. That holds in a free monoid (m p_{j′} = m′ p_j with j ≠ j′ forces
+p_j | m, impossible for m < p_j), e.g. S8 with t transcendental (s40 Lemma 1.3), but not for a general "discrete system P" as stated: add
+"with unique factorization". Then N_{P′} − N_P ≤ n_j ≤ ¼Kx^θ + 1 and |E_{P′}| ≤ Kx^θ for x ≥ max(a_J, (4/K)^{1/θ}); below a_J nothing moved ✓.
+(iii) ✓ if no moved prime sat exactly at a_j (else its dilate was already ≤ y₀: take the windows (a_j, a_j + H_j]). **Re-run**
+(`verify-O/prop33.py`, own code, `prop33.log`): S8(π/16) greedy to 2.04·10⁵, θ = ¼, K := 2 sup_{x≤y₀}|E_P|/x^θ = 1.2668, y₀ = 2·10⁵, the
+n_j = ⌈¼K a_j^θ⌉ primes just above a_j moved to a_j: (i) min(N_{P′} − N_P) = 0; (ii) sup_{x<y₀}|E_{P′}|/x^θ = 0.6334 = K/2 (on [a_J, y₀) it
+rises 0.46 → 0.55, J = 12); (iii) E_{P′}(y₀) − E_P(y₀) = 23 = Σn_j (J = 6) and 41 = Σn_j (J = 12), the latter 41.29 > K y₀^θ = 26.79: the bound
+breaks at y₀ exactly as stated. The window hypothesis H_j < δ₀a_j/2 is NOT met at this scale (max H_j/a_j = 0.0118 vs δ₀/2 = 4.3·10⁻⁴),
+and (ii) held anyway. Control (same n_j bunched at a_j(1 + 0.005j/J), not aligned with y₀/p_j): E(y₀) unchanged (0.288).
+**1.11 §6 (l. 249–269).** 6.1: with threshold τ, E = 1 − τ after a prime and −τ just before the next, so C(p_k, p_{k+1}) = ρg_k − 1 and
+E ≤ ρG − τ ✓. 6.3: Σ_{n∈W}log n = Σ_{m∈G}ψ(W/m) is log = Λ ∗ 1 on a free monoid ✓, and the equivalence with Lemma M ✓ (for W = [y, y + |W|],
+log n = log y + O(|W|/y)). The constant is wrong (m7): Σ_{m≤y}1/m = N(y)/y + ∫_1^y N u^{−2}du = ρ log y + 1 + ∫_1^∞E u^{−2}du + o(1), so
+c_G = 1 + ∫_1^∞E(u)u^{−2}du, not 1 − ρ + …; check ℕ: 1 − ∫_1^∞{u}u^{−2}du = γ (the NOTE's form gives γ − 1). Not load-bearing.

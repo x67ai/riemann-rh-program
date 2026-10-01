@@ -6,6 +6,14 @@ mp.dps = 30
 def ell(k, rho):            # lattice point 1 + (k - 1/2)/rho
     return 1 + (k - mpf(1)/2)/rho
 
+def bisect(f, a, b, n=110):     # f(a), f(b) of opposite signs; pure bisection (no derivative)
+    fa = f(a)
+    for _ in range(n):
+        m = (a + b)/2; fm = f(m)
+        if (fm > 0) == (fa > 0): a, fa = m, fm
+        else: b = m
+    return (a + b)/2
+
 def L(s, rho):
     return 1 + rho**s * zeta(s, mpf(1)/2 + rho)
 
@@ -35,7 +43,7 @@ for name, rho in [("pi/64", pi/64), ("pi/32", pi/32), ("pi/16", pi/16), ("pi/8",
     d1 = abs(L(3, rho) - L_direct(3, rho)); d2 = abs(L(mpf('2.5'), rho) - L_direct(mpf('2.5'), rho))
     # 2. real zero in (1-2rho, 1)
     lo, hi = 1 - 2*rho, mpf(1) - mpf(10)**-12
-    sstar = findroot(lambda s: L(s, rho), (lo + mpf(10)**-9, hi), solver='illinois')
+    sstar = bisect(lambda s: L(s, rho), lo + mpf(10)**-9, hi)
     # sign check at the bracket ends
     sg = (L(lo + mpf(10)**-6, rho) > 0, L(mpf(1) - mpf(10)**-6, rho) < 0)
     # 3. Theorem 1.6 floor L(sigma) >= 1/2 - rho/(1-sigma) on a grid in (0,1)
@@ -45,7 +53,7 @@ for name, rho in [("pi/64", pi/64), ("pi/32", pi/32), ("pi/16", pi/16), ("pi/8",
     fo = s0 + rho*L(s0, rho)
     L0 = L(mpf(0), rho)
     # 5. sigma_1: rho^s zeta(s, 1/2+rho) = 1  (absolute abscissa of log L)
-    s1 = findroot(lambda s: rho**s*zeta(s, mpf(1)/2 + rho) - 1, (1 + mpf(10)**-9, mpf(3)), solver='illinois')
+    s1 = bisect(lambda s: rho**s*zeta(s, mpf(1)/2 + rho) - 1, 1 + mpf(10)**-12, mpf(3))
     print(f"{name}: |L-direct|(3)={mp.nstr(d1,3)} (2.5)={mp.nstr(d2,3)}  sigma*_L={mp.nstr(sstar,15)}  "
                f"signs(+ at 1-2rho, - at 1-)={sg}  Thm1.6floor_ok={floor_ok}  s0+rhoL(s0)={mp.nstr(fo,8)}  "
                f"L(0)={mp.nstr(L0,10)} (1-rho={mp.nstr(1-rho,10)})  sigma_1={mp.nstr(s1,12)}", flush=True)

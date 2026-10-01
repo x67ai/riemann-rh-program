@@ -1,8 +1,8 @@
-Traceback (most recent call last):
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/lemmaB-s41/U5-obstruction/verify-O/lattice_control_O.py", line 38, in <module>
-    sstar = findroot(lambda s: L(s, rho), (lo + mpf(10)**-9, hi), solver='illinois')
-  File "/Users/jaytyagi/Library/Python/3.9/lib/python/site-packages/mpmath/calculus/optimization.py", line 985, in findroot
-    raise ValueError('Could not find root within given tolerance. '
-ValueError: Could not find root within given tolerance. (0.00464219270145558661697038171036646521 > 1.92592994438723585305597794258492732e-34)
-Try another starting point or tweak arguments.
-python3 lattice_control_O.py  0.09s user 0.01s system 97% cpu 0.102 total
+pi/64: |L-direct|(3)=1.97e-31 (2.5)=1.97e-31  sigma*_L=0.94758862977925  signs(+ at 1-2rho, - at 1-)=(True, True)  Thm1.6floor_ok=True  s0+rhoL(s0)=0.94780193  L(0)=0.9509126148 (1-rho=0.9509126148)  sigma_1=1.04623532736
+pi/32: |L-direct|(3)=1.97e-31 (2.5)=1.18e-30  sigma*_L=0.893875615743513  signs(+ at 1-2rho, - at 1-)=(True, True)  Thm1.6floor_ok=True  s0+rhoL(s0)=0.89446023  L(0)=0.9018252296 (1-rho=0.9018252296)  sigma_1=1.09122235171
+pi/16: |L-direct|(3)=0.0 (2.5)=6.71e-30  sigma*_L=0.788932804185144  signs(+ at 1-2rho, - at 1-)=(True, True)  Thm1.6floor_ok=True  s0+rhoL(s0)=0.78982354  L(0)=0.8036504592 (1-rho=0.8036504592)  sigma_1=1.1813403944
+pi/8: |L-direct|(3)=3.94e-31 (2.5)=3.79e-29  sigma*_L=0.589399247686147  signs(+ at 1-2rho, - at 1-)=(True, True)  Thm1.6floor_ok=True  s0+rhoL(s0)=0.58975476  L(0)=0.6073009183 (1-rho=0.6073009183)  sigma_1=1.36405754447
+E_L over 2697 points (atoms +-1e-20 and random x in [1,201]): min=-0.4999999999999999999980365 max=0.5
+E_L at atoms ell_k exactly: ['0.5']
+E_L just below atoms: ['-0.5']
+python3 lattice_control_O.py  2.04s user 0.01s system 99% cpu 2.057 total
