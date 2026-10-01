@@ -103,3 +103,18 @@ Writes only: `directions/*.md` (insertions + Last-touched lines), this folder (`
 - Totals: 22 table rows (17 NOTE + 5 ↳), 27 Untried lines (24 copied incl. UT-U3 twice + 3 drafts), 2 Last-touched lines prefixed.
   Nothing left unplaced. For the orchestrator: pre-existing `\\|` bars in C2 row 142 and B2 row 120 (GFM off-count; not changed).
 - No git command run. Nothing running. Resume here: nothing to resume — the unit is done.
+
+## 2026-10-01 16:58 IST block 11 — CONSOLIDATION START (Session 41, KICKSTART 10(a)); brief read; inputs hashed
+
+- Agent: consolidation, Opus 5.5. Brief: `DIGEST-BRIEF.md` (this folder, 6 175 B, read in full). Outputs: `insights-digest.md`,
+  `ZOO-LINES-STAGED.md` (this folder), and these dated blocks. No git; no NOTE, zoo, direction, STATUS or LOG file is edited.
+- Stop check: all 33 files present (NOTE, read-F, read-O for each of the eleven units). No stop.
+- SHA-256 prefixes at 16:57:43 IST (NOTE / read-F / read-O): qcond-s38 579f22e3 / 5695b73f / 4ab28867; conj-O-s38 e897b844 /
+  0f5bd889 / 3e67be7e; u-offsurgery-s39 ef143a43 / c30a9ee3 / f25749d7; lemmaG-s39 41f195d4 / 1766f908 / daafc8bf; dz-half-s39
+  51e062e9 / 766eeafa / 26241c2f; qtwin-s39 0a7ea6be / d487577b / 885ee374; fejer-form-s39 0ab5f19e / e323d3d6 / 6d598b76;
+  free-greedy-s40/theory 9c5a8886 / 148f9dbf / 9c8a5eec; free-greedy-s40/compute 25a78d32 / 5fdd0da4 / f723ac3f; s5-multiplicity-s40
+  ca102d85 / ebca8c39 / 23092da4; local-greedy-s40 e8dc8e87 / 2045e251 / 459c85e2. Others: lemmaB-s41/CHARTER 4596b371;
+  free-greedy-s40/CHARTER 4ae44bd3; BARRIER-ZOO 0a0a832d (788 lines); directions/README e7d22586; B2 b9f37f49 (178); C2 614e59e4 (224);
+  digest-APPLIED a414302b; s37 digest e86f642a; s37 ZOO-LINES-STAGED 93e7e394.
+- Baseline read: s37 digest §B (B1–B10), §F (F.1–F.3, UT-1 … UT-13), §G; s37 staged-lines format (blocks, insertion map, Block C).
+- Running now: reading the eleven units (§0 close, read-F, read-O verdict/FIX-FIRST/additions). Resume here: no deliverable written yet.
