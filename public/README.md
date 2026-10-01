@@ -1,6 +1,6 @@
 # What this folder is
 
-The two papers, served at https://x67.ai by Cloudflare Pages.
+The landing page (`index.html`) and the three papers, served at https://x67.ai by Cloudflare.
 
 ## Cloudflare Pages settings
 
@@ -17,10 +17,9 @@ redeploys within a minute or two.
 
     https://x67.ai/cubic-augmentation-no-go.pdf
     https://x67.ai/tate-products-no-go.pdf
+    https://x67.ai/haglund-counterexample.pdf
 
-`/` itself 302s to the GitHub repository (see `_redirects`), so the root does not
-return 404 for anyone who trims the URL out of curiosity. To put a real page
-there later, drop an `index.html` into this folder and delete that line.
+`/` serves `index.html` (a self-contained page: inline CSS, no scripts, no external requests; the draft, notes and screenshots are in `rh-program/results/x67-landing-s41/`). `/github` 302s to the repository (see `_redirects`).
 
 ## Keeping the PDFs current
 

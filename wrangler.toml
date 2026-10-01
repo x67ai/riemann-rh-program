@@ -1,4 +1,4 @@
-# Static-assets Worker: serves the two papers at x67.ai.
+# Static-assets Worker: serves the landing page and the papers at x67.ai.
 # There is no Worker script — `[assets]` with no `main` is an assets-only
 # deployment, so every request is answered straight from ./public.
 #
@@ -12,4 +12,4 @@ compatibility_date = "2026-08-28"
 directory = "./public"
 
 # public/_headers  sets cache control on the PDFs
-# public/_redirects sends / to the GitHub repository
+# public/_redirects sends /github to the GitHub repository; / serves public/index.html
