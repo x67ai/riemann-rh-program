@@ -1,0 +1,17 @@
+# zeros_scan /private/tmp/rh-s40-free-greedy/win_pi32_1e11.mom.1.000000e+11
+# X = 1.000000e+11  N = 9817477043  E(X) = -0.369929  rho = 0.098174770424681  rectangle 0.5 < sigma < 1.05, 0 <= t <= 200.0
+# grid: 111 sigma values x 6677 t values (dt = 0.02996); distinct zeros found by Newton: 7
+#   sigma              t                 |F_X| at zero   |F_X'|      cell winding
+  0.517087678679   77.334162642694  4.96e-12   5.2259e+00  +1
+  0.504533633279   95.040238263173  7.52e-11   4.3492e+00  +1
+  0.601381684462  115.796874879309  7.28e-12   4.3978e+00  +1
+  0.519412992552  133.573531155487  3.04e-11   3.8095e+00  +1
+  0.524573416000  167.823339252058  3.91e-11   4.5353e+00  +1
+  0.534999594227  178.964110501425  6.12e-11   3.7084e+00  +1
+  0.542193645492  185.590251316333  9.36e-12   4.2002e+00  +1
+# real zeros of F_X in (0.5, 1.05): 0.8950765177
+# argument principle on 0.5 < sigma < 1.05, 0.01 < t <= 200.0 (sum over boxes of height 10): winding = 7  (zeros found inside: 7)
+# largest real part: 0.6013816845 at t = 115.796875
+#   max sigma over zeros with t <=  100: 0.517088  (2 zeros)
+#   max sigma over zeros with t <=  150: 0.601382  (4 zeros)
+#   max sigma over zeros with t <=  200: 0.601382  (7 zeros)

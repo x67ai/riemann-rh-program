@@ -1,1 +1,7 @@
 pi16 1.000000e+10: # real zeros of F_X in (0.5, 1.05): 0.7947553701 # argument principle on 0.5 < sigma < 1.05, 0.01 < t <= 200.0 (sum over boxes of height 10): winding = 16  (zeros found inside: 16) # largest real part: 0.6423617949 at t = 100.039112 
+pi16 1.000000e+11: # real zeros of F_X in (0.5, 1.05): 0.7947553732 # argument principle on 0.5 < sigma < 1.05, 0.01 < t <= 200.0 (sum over boxes of height 10): winding = 16  (zeros found inside: 16) # largest real part: 0.6423619094 at t = 100.039112 
+pi16 explicit: # residual (measured - predicted): rms over x >= 1e+04 relative to rms(measured): 0.000
+pi32 1.000000e+10: # real zeros of F_X in (0.5, 1.05): 0.8950765176 # argument principle on 0.5 < sigma < 1.05, 0.01 < t <= 200.0 (sum over boxes of height 10): winding = 7  (zeros found inside: 7) # largest real part: 0.6013816676 at t = 115.796875 
+pi32 1.000000e+11: # real zeros of F_X in (0.5, 1.05): 0.8950765177 # argument principle on 0.5 < sigma < 1.05, 0.01 < t <= 200.0 (sum over boxes of height 10): winding = 7  (zeros found inside: 7) # largest real part: 0.6013816845 at t = 115.796875 
+pi32 explicit: # residual (measured - predicted): rms over x >= 1e+04 relative to rms(measured): 0.000
+batch7 end 14:00:55
