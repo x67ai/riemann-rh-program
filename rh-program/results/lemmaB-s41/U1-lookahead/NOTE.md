@@ -32,7 +32,7 @@ below ½ at all; §3 shows what look-ahead and early placement can and cannot ch
 ## §2. Rules that fix the primes in advance cannot reach (B) below ½ — the relative Hilberdink wall
 
 **Quoted input (Q1).** Hilberdink, JNT 112 (2005), Cor. 2(b) [quoted: `../../novel-wave-s37/beurling-frontier/sources/w-18a-…txt`
-l. 211–214; its proof l. 667–673 uses only Theorem 1 (l. 195), Remark B(ii) and Remark C (l. 496–501)]: *if N_P(x) = ρx + O(x^β) with
+l. 211–214; its proof l. 659–673 uses only Theorem 1 (l. 195), Remark B(ii) and Remark C (l. 496–501)]: *if N_P(x) = ρx + O(x^β) with
 ρ > 0, β < ½, then for every η′ ∈ (β, ½), ζ_P has infinitely many zeros in η′ < Re s < 1.* (P any discrete Beurling system.)
 
 **Theorem 2.1 (relative wall)** [proved here, from Q1]. Let P be a discrete Beurling system and Π_ref a real measure on [1, ∞) with
@@ -57,11 +57,14 @@ branch point ((2s − 1 + ρ)/(2s − 1))^{1/2} at s = ½; then ζ_P = ζ_F·e^{
 there. So N_P − ρu ≠ O(u^θ) for θ < ½ [proved here, same continuation argument].
 **Corollary 2.3 (the primes of a (B)-system are wild)** [proved here]. If N_P − ρu = O(u^θ) with θ < ½, then for every reference as in 2.1,
 Π_P − Π_ref ≠ O(u^{γ}) for every γ < ½. In particular, if Lemma B_ρ holds for S8(ρ), then Π_{S8} − Π_c ≠ O(u^{γ}) for all γ < ½.
-**Remarks.** (1) Hilberdink's own final section (w-18a l. 679–700) builds exactly such a prescription relative to ψ = x
-(p_n = R^{−1}(n)) and concludes β ≥ ½ from his Theorem 1; 2.1–2.2 are the same wall measured from any finitely-zeroed reference, in
-particular from the template, whose zero 1 − ρ is the one a never-undershooting system needs. BDR's heuristic "any discretization giving
-O(x^θ), θ < ½, on one counting function should have an uncertainty of size at least x^{1/2−ε} on the other" [quoted, z-02 l. 171–179] is
-here a theorem for discretizations of the PRIME side with sub-square-root error. (2) Not covered: random prescriptions (Poisson thinning
+**Remarks.** (1) Hilberdink's own final section (w-18a l. 677–700) builds exactly such a prescription relative to ψ = x
+(p_n = R^{−1}(n)) and concludes β ≥ ½ from his Theorem 1; BDR state the same for the reference ζ = s/(s − 1): "any method for
+approximating systems in the extended sense by discrete systems (P, N) which yields O(x^θ) control on either Π_P(x) or N_P(x), where
+θ < 1/2, should have an uncertainty of size at least x^{1/2−ε} … on the other counting function. If not, then approximating the extended
+system (Π(x), N(x)) = (Li(x), x), for which ζ(s) = s/(s − 1), would yield an [α, β]-system with max{α, β} < 1/2, contradicting
+Hilberdink's result" [quoted, z-02 l. 172–177]. That argument needs a zero-free reference (it goes through Theorem 1, which needs
+ψ = x + O(x^{<½})); Theorem 2.1 goes through Cor. 2(b) instead and so allows references WITH finitely many zeros — in particular the
+template, whose zero 1 − ρ is exactly the one a never-undershooting system must carry (s40 Theorem 1.6). (2) Not covered: random prescriptions (Poisson thinning
 of a density has |Π_P − Π_ref| ≍ u^{1/2} up to logs, the borderline α′ = ½), and rules whose primes are not close to any finitely-zeroed
 reference — among them greedy S8, whose ψ_P is far from smooth (s40 charter §2 table: sup|ψ_P − x| local exponents 0.6–1.0).
 (3) What this kills in the charter's language: a rule cannot make the mean "controllable by construction" by fixing the prime counting
