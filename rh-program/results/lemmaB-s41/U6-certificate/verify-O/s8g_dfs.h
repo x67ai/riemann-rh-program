@@ -11,6 +11,7 @@ static u64 dep_b[MAXR + 2]; static u128 dep_E[MAXR + 2][MAXR + 2];
 static u128 dep_A[MAXR + 2], dep_B[MAXR + 2], dep_SA[MAXR + 2], dep_SB[MAXR + 2];
 static u64 ncomp, nfall, nfall_cp, maxj, ftest;   /* ftest: S8G_FTEST, forces the exact path on a fraction 2^(1-ftest) */
 static double minmarg = 1e300; static u64 minfac[MAXR + 2]; static int minj; static u64 mincell;
+static FILE *dumpf;
 static int nact; static int act[MAXCP]; static u64 cpbelow[MAXCP];
 
 static inline double xa(u64 n) { return 1.0 + ((double)n - 0.5) * tdbl; }
@@ -75,6 +76,7 @@ static void dfs(int d) {
     if (cell < m0) continue;
     if (cell >= m1) break;
     cnt[cell - m0]++; ncomp++;
+    if (dumpf) { fprintf(dumpf, "%llu", (unsigned long long)cell); for (int k = 1; k <= d; k++) fprintf(dumpf, " %u", P[dep_idx[k]]); fprintf(dumpf, " %llu\n", (unsigned long long)n); }
     if (d + 1 > (int)maxj) maxj = d + 1;
     if (Mlo == Mhi) {
       double mg = (double)(dl < dh ? dl : dh) / (double)one;

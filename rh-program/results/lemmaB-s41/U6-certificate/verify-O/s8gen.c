@@ -11,6 +11,7 @@ int main(int argc, char **argv) {
   read_params(argv[1]);
   int seglog = argc > 3 ? atoi(argv[3]) : 27;
   u64 SEG = 1ULL << seglog;
+  const char *dp = getenv("S8G_DUMP"); if (dp) { dumpf = fopen(dp, "w"); if (!dumpf) die("dump"); }
   const char *ft = getenv("S8G_FTEST"); ftest = ft ? strtoull(ft, NULL, 10) : 0;
   mom = calloc(NBLK, sizeof(Mom)); cnt = malloc(SEG * sizeof(u16));
   capP = 1 << 20; P = malloc(capP * 4);
@@ -52,6 +53,7 @@ int main(int argc, char **argv) {
         pic++; Nm++;
         if (m <= NCAP) { if (nP == capP) { capP *= 2; P = realloc(P, capP * 4); if (!P) die("alloc P"); } P[nP++] = (u32)m; }
         add_point(m, (u128)m << F, (u128)m << F);
+        if (dumpf) fprintf(dumpf, "P %llu\n", (unsigned long long)m);
       }
       u64 e = Nm - m - 1;
       esum += e; if (e > emax) { emax = e; emax_at = m; }
@@ -73,5 +75,6 @@ int main(int argc, char **argv) {
   for (int k = 0; k < minj; k++) printf(" %llu", (unsigned long long)minfac[k]);
   printf("\nindividual=%zu cpu=%.1fs wall=%.0fs\n", nind, (double)(clock() - t0) / CLOCKS_PER_SEC, difftime(time(NULL), w0));
   write_moments(argv[2]);
+  if (dumpf) { fprintf(dumpf, "PRIMES"); for (size_t k = 0; k < nP; k++) fprintf(dumpf, " %u", P[k]); fprintf(dumpf, "\n"); fclose(dumpf); }
   return 0;
 }

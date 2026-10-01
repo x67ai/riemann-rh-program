@@ -86,7 +86,8 @@ w_a = 1/x_a, x_a ≤ Y), N₀ = 1. Since Σ_n h_n(w) = Π_a(1 − w_a)^{−1} �
 using p₁ ≥ 1/(2ρ). And σ_z = ρ(ψ(A + ½ + ρ) − ψ(½ + ρ)), A = #{a : x_a ≤ z}, so σ_z = τ_z + ρ(log ρ − ψ(½ + ρ)) + O(ρ/A), with
 −ψ(½) = 1.9635 [ψ = digamma]. **So on the sparse range E(x) ≤ 2 + 4ρ²x·e^{2τ+4ρ} + τ/(ρ log p₁): the integer error is at most
 O(ρ) times the number of steps, explicitly.** The exact Q is far smaller (table below): its j-element part is ≈ c_j ρ^j z^{j/(j+1)}
-(Q₁(z) = #{a : x_a² ≤ z} ≤ ρ√z + 1), so for small τ the bound is ≈ ρ√x.
+(Q₁(z) = #{a : x_a² ≤ z} ≤ ρ√z + 1), so for small τ the bound is ≈ ρ√x. On the pure two-fold range [1, p₁³) of Lemma 1.1 only one-element cofactors occur
+(m′P⁺(M′) ≥ p₁³ when |M′| ≥ 2) and S < 1, so **E(x) ≤ 2 + ρ√(x + t) for x < p₁³** [proved here].
 
 *Theorem 2.3 in numbers* [computed: `verify/qs.c` (exact enumeration of S, Q), logs `logs/qs_*.log`, `logs/tauc.log`; measured
 sup E from `logs/r*_m0_*.tsv`; the S8 runs re-decide every composite within 10⁻⁵ steps of a lattice point in double-double: 2,706–7,354
@@ -152,7 +153,7 @@ in Lemma 2.2 every one of them costs its own "+1".
 ## §4. The scaling limit τ = ρ log x: macroscopic law
 
 Throughout, ρ → 0 along any sequence in (0, 1/16], S > 0 is fixed, and "uniformly" means uniformly in 1 ≤ y < x ≤ e^{S/ρ}.
-Template counts: Π₀(y, x] := ∫_y^x ρf₀(ρ log u)du (primes), Λ₀(y, x] := ρ(x − y) − Π₀(y, x] (composites). Additive measures in
+Template counts: Π₀(y, x] := ∫_{max(y,1)}^x ρf₀(ρ log u)du (primes), Λ₀(y, x] := ρ(x − y) − Π₀(y, x] (composites). Additive measures in
 the variable v = ρ log u: μ_ρ := Σ_p p^{−1}δ_{ρ log p}, μ̃_ρ := Σ_p Σ_{k≥1} k^{−1}p^{−k}δ_{kρ log p}, ν_ρ := Σ_{n∈G} n^{−1}δ_{ρ log n}.
 
 **Theorem 4.1 (below τ_c)** [proved here]. For 0 < S < τ_c there are ρ₁(S) > 0 and C(S) < ∞ such that for ρ < ρ₁(S):
@@ -262,8 +263,120 @@ Session 40's route (a) stopped (`../../free-greedy-s40/theory/NOTE.md` §3.1, Le
 
 ## §5. The local arrival process and the maximal queue length
 
-(pending)
+**5.1 The random-phase model.** By Lemma 2.2's decomposition the arrivals are a superposition of components, one per cofactor
+M′: the points m′·P (P a g-prime ≥ P⁺(M′)), an arithmetic progression of step exactly m′ lattice steps, thinned by primality of P.
+Every period is ≥ p₁ ≈ 1/(2ρ) steps, so in a window of m < p₁ steps each component has at most one point. The random-phase model
+RPM(ρ, τ) replaces the phases of the components by independent uniform phases; for the dominant one-element cofactors x_a the count
+in a window of m steps is then Poisson-binomial with probabilities w_a = m/x_a, Σ_a w_a = mλ₂, Σ_a w_a² = m²Σ_a x_a^{−2} = m²ρ²ψ′(½ + ρ)
+(trigamma, ψ′(½) = π²/2).
+**Proposition 5.1 (the model)** [proved here; Le Cam's inequality recalled, unverified, used only in (iii)]. In RPM, for one-element
+cofactors and m < p₁: (i) Var/mean of the window count = 1 − mρ²ψ′(½ + ρ)/λ₂; (ii) P(c = 2)/Poisson_{λ₂}(2) = 1 − ρ²ψ′(½ + ρ)/λ₂² + O(ρ⁴),
+and P(c = j)/Poisson(j) = exp(−binom(j, 2)ρ²ψ′/λ₂² + O(jρ²)) for fixed j; (iii) total-variation distance to Poisson(mλ₂) ≤ m²ρ²ψ′(½ + ρ).
+*Proof.* (i) Var = Σw_a(1 − w_a). (ii) P(c = j) = e_j(w)Π_a(1 − w_a) with e_j the elementary symmetric function; e₂ = (σ² − p₂)/2,
+and e_j = (σ^j/j!)(1 − binom(j,2)p₂/σ² + …) for small p₂/σ². (iii) Le Cam. ∎
+As ρ → 0 at fixed τ all three corrections vanish (∝ ρ²), and for m = o(1/ρ) the window law tends to Poisson; in RPM the
+superposition of many sparse independent components tends to a Poisson process (law of rare events).
 
-## §6. Numerical record (ρ = π/32, π/64, π/128)
+**5.2 S8 against the model** [computed: `verify/collapse.py`, `logs/collapse.log`, `logs/collapse_pc.log`]. For small ρ the
+model's formulas hold to three digits, with no free parameter:
 
-(pending)
+| ρ, τ | quantity | measured | RPM (5.1) |
+|---|---|---|---|
+| π/256, 0.30 | D(1), D(4), D(16) | 0.992, 0.970, 0.897 | 0.993, 0.974, 0.896 |
+| π/256, 0.30 | P(c=2), P(c=3) / Poisson | 0.938, 0.827 | 0.938, 0.83 |
+| π/128, 0.59 | D(1), D(4), D(16) | 0.987, 0.953, 0.834 | 0.987, 0.949, 0.798 |
+| π/96, 0.60 | D(1), D(4) | 0.976, 0.914 | 0.978, 0.912 |
+| π/64, 1.16 | D(1), D(4), D(16) | 0.981, 0.930, 0.801 | 0.974, 0.894, 0.577 |
+
+The model fails once m approaches p₁ or τ is large (three-fold products, and the thinning by primality, give extra points per
+component); there the measured window counts are LESS sub-Poisson than RPM's one-element prediction. **At fixed τ every deviation
+from Poisson shrinks as ρ decreases** (τ = 0.6, ρ = 0.0245/0.0327/0.0491: D(4) = 0.953/0.914/0.814; mean queue / M/D/1 mean =
+0.915/0.844/0.676), and the feedback-free lattice monoid shows the same window structure (§6), so it is arithmetic, not feedback.
+
+**Conjecture 5.2 (local Poisson limit)** [conjecture]. For fixed τ > 0, η ∈ (0, 1) and m ≥ 1, with k uniform among the steps with
+x_k ∈ (x(1 − η), x], x = e^{τ/ρ}: (c_{k+1}, …, c_{k+m}) → i.i.d. Poisson(λ₀(τ)) in law as ρ → 0. Evidence: §5.2 and the per-step law
+(P(c = 0)/e^{−λ} = 0.996–1.000, lag-one correlation −0.012 at π/128). What a proof needs: asymptotic independence of the component
+phases {x/m′ mod t}, jointly over all ≈ ρ√x cofactors. For any FIXED finite set of components this is Kronecker–Weyl (the
+frequencies ρ²/(a + δ) are rationally independent when t is transcendental: Σ n_a/(a + δ) = 0 is a polynomial identity in δ that
+fails at δ = −a); uniformly over all components it is again the shifted divisor problem in short intervals (§3.2 (F2)). GAP.
+**5.3 The queue of the limit process** [proved here]. Let c_k be i.i.d. Poisson(λ), 0 < λ < 1, e₀ = 0, e_k = max(e_{k−1} + c_k − 1, 0),
+and κ = κ(λ) the positive root of λ(e^κ − 1) = κ (g(κ) := λ(e^κ − 1) − κ is convex with g(0) = 0, g′(0) = λ − 1 < 0).
+**Proposition 5.3.** (i) P(e_k ≥ h) ≤ e^{−κh} for all k, h ≥ 0; stationary mean λ²/(2(1 − λ)). (ii) For every ε > 0,
+P((1 − ε)log n/κ ≤ max_{k≤n} e_k ≤ (1 + ε)log n/κ) → 1. (iii) Scaling form: if the steps with x_k ≤ e^{τ/ρ} carry independent
+Poisson(λ₀(τ_k)) arrivals, τ_k := ρ log x_k, then ρ·max_{x_k≤e^{τ/ρ}} e_k → η(τ) := τ/κ(λ₀(τ)) in probability as ρ → 0.
+*Proof.* (i) By Lemma 1.2(iii) and time reversal, e_k has the law of max_{j≤k} S_j, S_j := Σ_{i≤j}(c_i − 1). Since
+E e^{κ(c−1)} = e^{−κ}e^{λ(e^κ−1)} = 1, e^{κS_j} is a martingale and Doob's maximal inequality gives P(max_{j≤k} S_j ≥ h) ≤ e^{−κh}.
+Mean: squaring e_k = e_{k−1} + X_k + I_k (X = c − 1, I_k := 1{e_{k−1} + c_k = 0}, so (e_{k−1} + X_k)I_k = −I_k) gives
+e_k² = (e_{k−1} + X_k)² − I_k; in stationarity E I = 1 − λ, E X² = λ + (1 − λ)², E[e]·2(λ − 1) + λ + (1 − λ)² − (1 − λ) = 0. (ii) Upper:
+union bound with (i) at h = (1 + ε)log n/κ. Lower: under the tilted law (Poisson(λe^κ)) the step c − 1 has mean μ̃ = λ + κ − 1 > 0
+(κ > 1 − λ, since e^y − 1 ≤ y/(1 − y) gives g(1 − λ) ≤ 0); on a block of L := ⌈h/μ̃⌉ steps the tilted mean of S_L is ≈ h, so
+P(S_L ≥ h) = Ẽ[e^{−κS_L}; S_L ≥ h] ≥ e^{−κ(h + √L)}P̃(h ≤ S_L ≤ h + √L) ≥ c·e^{−κh − Cκ√h} (central limit theorem under P̃); e at the block's end is ≥ the block's increment, and
+the ⌊n/L⌋ blocks are independent; with h = (1 − ε)log n/κ the expected number of successful blocks → ∞. (iii) λ₀ is increasing, so
+the arrivals are stochastically dominated by i.i.d. Poisson(λ₀(τ)) (Lindley is monotone): with n ≤ ρe^{τ/ρ} + 1 steps, (ii) gives
+ρ·max ≤ (1 + ε)τ/κ(λ₀(τ)) + o(1). For the lower bound restrict to the ≥ ρe^{τ/ρ}(1 − e^{−δ/ρ}) steps with τ_k ∈ [τ − δ, τ], which
+dominate i.i.d. Poisson(λ₀(τ − δ)); let ε, δ → 0. ∎
+η(τ) [computed, `logs/eta.log`]: 0.0540 (τ = 0.2), 0.0982 (0.31), 0.262 (0.61), 0.571 (1.0), 1.139 (1.5), 1.918 (2.0), 4.17 (3.0),
+48.3 (10); η(τ) ~ τ²/2 as τ → ∞, which is Session 40's heuristic "(ρ/2)log²x" [quoted: Session-40 NOTE l. 174–177] as the large-τ
+asymptote of the scaling-limit constant.
+
+**5.4 What is proved about S8's maximal queue, and what is measured.** Proved: (a) Theorem 4.4: max_{x≤e^{τ/ρ}} E(x) = o(ρe^{τ/ρ})
+for every τ; (b) Theorems 2.3, 4.1 on τ < τ_c(ρ): E(x) ≤ 3/2 + Q(x + t) ≤ 2 + 4ρ²x·e^{2τ+4ρ} + τ/(ρ log p₁), explicitly. Not proved:
+any bound of order 1/ρ or polylog. **Conjecture 5.4** [conjecture]: ρ·max_{x≤e^{τ/ρ}} E(x) → η(τ). It would follow from
+Conjecture 5.2 in a large-deviation form on windows of O(1/ρ) steps; in RPM the cumulant generating function of such a window count
+differs from Poisson's by −(e^θ − 1)²Σ_a w_a²/2 = O(1) against a main term of order 1/ρ, so RPM is consistent with it.
+Measured [computed: `verify/sim_pq.py`, logs `logs/sim_pq_*.log`; 10 replicates of the Poisson-model queue with the SAME number
+of steps and the measured arrival rate in every quarter-decade bin]:
+
+| ρ (top τ) | max e, S8 | Poisson model: median [min, max] | ρ(max e + ½) | η(τ) |
+|---|---|---|---|---|
+| π/256 (0.31) | 5 | 5 [5, 6] | 0.067 | 0.098 |
+| π/128 (0.61) | 7 | 7.5 [7, 8] | 0.184 | 0.262 |
+| π/64 (1.19) | 9 | 11.5 [10, 13] | 0.466 | 0.763 |
+| π/32 (2.20) | 13 | 18 [17, 20] | 1.325 | 2.293 |
+
+S8 approaches the Poisson model as ρ decreases (ratio of maxima 0.72, 0.78, 0.93, 1.0). The leading-order constant η(τ) is far
+from reached at these ρ: the finite-n term −log(prefactor)/κ and the rate offset λ̂ < λ₀ (§4.7) are O(1) in max e, i.e. O(ρ) in
+ρ·max e; they vanish as ρ → 0 but slowly.
+
+**5.5 The two corners of the (ρ, τ) plane.** The scaling limit is ρ → 0 at fixed τ; Lemma B is τ → ∞ at fixed ρ. They do not
+commute, and the data show the arithmetic regularity moving the other way along the second direction: at fixed ρ the queue's
+excursions grow (length ~ τ² steps at large τ), the components with period x_a shorter than the excursion become perfectly regular
+(⌊m/x_a⌋ or ⌈m/x_a⌉ points per window), and the measured tail rate exceeds the Poisson-queue κ by the factor 1.05 (π/128, τ = 0.6),
+1.16 (π/64, 1.0), 1.31 (π/32, 2.0), and Session 40's 1.45–1.65 at π/16 and π/4 [quoted: Session-40 NOTE l. 178–183]. So at
+fixed ρ, large τ, the arrival process is MORE regular than the scaling limit — favorable to Lemma B, but nothing proved here
+controls that corner.
+
+
+## §6. Numerical record (ρ = π/32, π/64, π/128, and six more values)
+
+**Generator** `verify/s8sp.c` [computed]: block sweep (composites in [B, B′), B′ ≤ p₁B, are q·m with q a generator, q² < B′, and m a
+stored element with spf(m) ≥ q, so every cofactor is known); Lindley queue per lattice step; mode 0 = S8, mode 1 = the feedback-free
+lattice monoid; e-dumps for the step-by-step domination check. Exact ordering: every composite within 10⁻⁵ steps of a lattice
+point is re-decided in double-double (t = D/π and each lattice factor in double-double, factorization read from the stored
+spf/cofactor chain); no decision was unresolved at margin 10⁻²². Validation against Session 40 [quoted: Session-40 NOTE l. 127,
+l. 133–134, l. 215, §3.1 l. 234]: π/4 to 10⁶: 78,134 g-primes, sup E = 39.5303; π/16 to 10⁷: 633,514 g-primes, sup E = 12.8385;
+π/32 to 10⁶ and 10⁸: sup E = 6.3931, 9.8578; π/64 to 10⁶: 3.5062 (logs `logs/val_*.tsv`). Statistics per quarter decade:
+arrival histogram, lag-one product, windows of 2^j steps (j ≤ 12), queue histogram, max e, sup E (exact, at every arrival),
+Σ1/p (`verify/ana.py`, `collapse.py`, `mertens.py`, `sim_pq.py`, `eta.py`, `tauc.py`, `qs.c`; runners `run_main.sh`,
+`run_extra.sh`, `run_sim.sh`). Runs (`logs/`, scratch binaries under `/private/tmp/rh-s41-lemmaB-U4-sparse/`):
+
+| run | ρ | mode | X | steps | idle steps (g-primes in mode 0) | sup E | max e | re-decided / flips / unresolved | time |
+|---|---|---|---|---|---|---|---|---|---|
+| `r16_m0_4e9` | π/16 | 0 | 4·10⁹ | 7.854·10⁸ | 1.874·10⁸ | 22.26 | 21 | 11,888 / 41 / 0 | 56 s |
+| `r24_m0_5e9` | π/24 | 0 | 5·10⁹ | 6.545·10⁸ | 2.226·10⁸ | 17.46 | 16 | 8,994 / 13 / 0 | 41 s |
+| `r32_m0_5e9` | π/32 | 0 | 5·10⁹ | 4.909·10⁸ | 2.096·10⁸ | 14.39 | 13 | 5,337 / 10 / 0 | 27 s |
+| `r32_m1_1e9` | π/32 | 1 | 10⁹ | 9.817·10⁷ | 2.354·10⁵ | 2.0·10⁷ | 2.0·10⁷ | 2,304 / 1 / 0 | 10 s |
+| `r48_m0_1e10` | π/48 | 0 | 10¹⁰ | 6.545·10⁸ | 3.574·10⁸ | 13.36 | 12 | 5,868 / 15 / 0 | 31 s |
+| `r64_m0_2e10` | π/64 | 0 | 2·10¹⁰ | 9.817·10⁸ | 6.126·10⁸ | 10.48 | 9 | 7,354 / 38 / 0 | 39 s |
+| `r64_m1_1e10` | π/64 | 1 | 10¹⁰ | 4.909·10⁸ | 2.182·10⁸ | 14.16 | 13 | 5,326 / 26 / 0 | 26 s |
+| `r96_m0_3e10` | π/96 | 0 | 3·10¹⁰ | 9.817·10⁸ | 7.140·10⁸ | 9.46 | 8 | 5,272 / 11 / 0 | 31 s |
+| `r128_m0_5e10` | π/128 | 0 | 5·10¹⁰ | 1.227·10⁹ | 9.641·10⁸ | 7.77 | 7 | 5,271 / 16 / 0 | 32 s |
+| `r128_m1_1e10` | π/128 | 1 | 10¹⁰ | 2.454·10⁸ | 1.865·10⁸ | 8.29 | 7 | 1,082 / 0 / 0 | 7 s |
+| `r192_m0_1e11` | π/192 | 0 | 10¹¹ | 1.636·10⁹ | 1.392·10⁹ | 6.12 | 5 | 4,792 / 32 / 0 | 36 s |
+| `r256_m0_1e11` | π/256 | 0 | 10¹¹ | 1.227·10⁹ | 1.090·10⁹ | 5.78 | 5 | 2,706 / 8 / 0 | 24 s |
+
+(The 10⁹ runs `r*_m0_1e9`, `r*_m1_1e9` carry the domination check of Theorem 2.1; `m_*_1e10` carry Σ1/p.) "Flips" are composites
+whose double-precision step was wrong and was corrected by the double-double re-decision; without the re-decision these runs
+would not be S8. For π/16 to 4·10⁹, sup E/log²x = 0.0456 (Session 40: 0.049 to 10^7.5).
+**Lattice monoid vs S8 (same ρ, same X)**: max e^lat = 7 vs max e = 6 (π/128, to 10¹⁰); 13 vs 9 (π/64, to 10¹⁰): on the sparse range
+the feedback-free queue is a good proxy, and Proposition 3.2 makes it the only object a sharp bound must control there.

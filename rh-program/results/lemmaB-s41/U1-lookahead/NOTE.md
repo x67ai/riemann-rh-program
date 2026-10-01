@@ -88,7 +88,7 @@ block it looks at: every deviation from greedy (early placement, choice of posit
 composites it creates in LATER blocks — which are not yet determined when the choice is made.
 
 **Proposition 3.2 (the leading constant is a global functional)** [proved here]. (a) If P₀ ⊂ P is a set of g-primes of a system P,
-then N_P(x) ≥ N_{P₀}(x) for all x (the monoid of P₀ is a sub-multiset). (b) If Π_{P₀} − Π_c = D with D bounded, then ζ_{P₀} = ζ_c·e^{η̂}
+then N_P(x) ≥ N_{P₀}(x) for all x (the monoid of P₀ is a sub-multiset). (b) If Π_{P₀} − Π_c = D with D(u) = O(u^ε) for every ε > 0 (e.g. the rounding rule, where D = O(log log u)), then ζ_{P₀} = ζ_c·e^{η̂}
 with η̂ analytic on Re s > 0, ζ_{P₀} has no zeros on Re s = 1 and its only pole there is s = 1, with residue ρ₀ = ρ·e^{η̂(1)},
 η̂(1) = −D(1) + ∫_1^∞D(u)u^{−2}du; by the Wiener–Ikehara theorem [recalled, unverified; standard] N_{P₀}(x) ~ ρ₀x.
 (c) Hence any rule containing an open-loop sub-rule P₀ with ρ₀ > ρ has E_P(x) ≥ (ρ₀ − ρ)x(1 + o(1)): (B) fails for every θ < 1, and no
@@ -176,3 +176,44 @@ same fact seen from ψ: ψ_P(x) ≈ x − x^{σ*}/σ*.
 never-undershooting discrete system of ANY density, with undershoot depth 1/100 and integer error O(u^{0.494}), refutes U**; and the
 greedy rule with threshold 1/100 costs nothing at large scales (top half-decade sup E = 13.99 at 10⁸ against 16.36 for τ = ½,
 `verify/zero_tau_1e8.log`). The proof target is now the weakest sub-square-root statement — exactly the boundary of Hilberdink's wall.
+**Corollary 4.4 (the dichotomy, sharpened)** [proved here, from 4.2]. Either Conjecture U fails, or every discrete system with E ≥ −1/100
+has β ≥ 0.4945 for each of ρ = π/32, π/16, π/8, π/4, 0.95π/3 — in particular the greedy rule with threshold 1/100, whose measured sup E on
+[10^{7.5}, 10⁸] is 13.99 (π/16). (s40's form: β(S8(π/16)) > 0.395.) Under U the integer error of these explicit systems would have to
+reach u^{0.4945} — about 9,000 at u = 10⁸ — eventually.
+**Remark 4.5 (contrapositive, for U5).** If a discrete system has (B) with exponent θ and ζ_P has no real zero in (θ, 1) (ℕ, number
+fields), then ζ_P < 0 on (θ, 1) (it tends to −∞ at 1 and never changes sign), so Λ_{ρ,τ} < 0 on all of (θ, 1) with τ := −inf E,
+i.e. σ_L(ρ, τ) ≤ θ: a system without a real zero must undershoot by at least the τ at which σ_L(ρ, τ) = θ (ℕ: −inf E → 1, p₁ = 2,
+and the bump is a single unit triangle on [1, 3)).
+
+## §5. Every candidate rule, tested [computed]
+
+Generator `verify/rules.cpp` / `rules2.cpp` (blocks [B, p₁B); double precision, ordering not certified). Validation: equal to the
+s40 numbers (π/4, 10⁶: N = 785,400, π = 78,134, sup E = 39.53; π/16, 10⁷: sup E = 12.84, π = 633,514, largest gap 336.1, σ* = 0.794755,
+F_{10⁷}(0.79) = +0.022231 as in read-O) and to an independent 50-digit brute force (`verify/validate_bf.py`, `validate_bf.log`: N, π,
+sup E, inf E equal for τ ∈ {0.02, 0.25, 0.5} at π/16 and τ = ½ at π/4, X = 2·10⁴). A boundary bug (composites p₁ᵏ on block edges lost
+when B/q rounds up; the s40 `s8w_block.py` has the same search) was found by that check and fixed; runs before the fix are in
+`verify/superseded/`. All numbers below: `verify/batches_v2.log` (script `run_batches.sh`), `zero_tau_1e8.log`, `look_pi16_1e8.log`.
+"LM" = min over windows W ⊂ [X/√10, X] (step |W|/2) of π(W)·log x/|W| at |W| = log³X — the empirical Lemma M margin; mean in brackets.
+
+| rule (π/16) | sup E at 10⁷ | sup E at 10⁸ | LM at 10⁸ (mean) | verdict |
+|---|---|---|---|---|
+| greedy, τ = ½ (S8) | 12.84 | 16.36 | 0.77 (0.97) | baseline; 0.048·log²X |
+| greedy, τ = ¼ | 11.45 | 14.93 | 0.77 (0.94) | same law |
+| greedy, τ = 1/10 | 9.22 | 12.31 | 0.68 (0.79) | same law |
+| greedy, τ = 1/50 | 30.72 (bump at x ≈ 50; top half-decade 10.30) | 30.72 (top 13.67) | 0.25 (0.30) | same law at large x; σ* = 0.980 |
+| greedy, τ = 1/100 | 73.27 (bump) | 73.27 (top 13.99) | 0.14 (0.17) | same law; σ* = 0.990 |
+| early, fixed offset W = 1, 2.5, 5, 10, 20, 100 | 52.3, 11.3, 10.2, 15.7, 52.4, 5852 | — | — | erratic; large W bunches primes on B (Prop 3.3 in action) |
+| look-ahead (W, K, J, H) = (5,6,3,2) / (5,11,6,5) / (5,6,6,2) / (2.5,6,6,2) / (10,11,6,5) | 10.89 / 9.26 / 12.44 / 10.75 / 11.34 | 13.23 (5,6,3,2) / 14.24 (5,11,6,5) | — | −3…−28 % at 10⁷, −13…−19 % at 10⁸; law unchanged (0.039–0.042·log²X) |
+| open loop: primes at λF_c = k − ½ + feedback, λ = 1 / 0.97 / 0.95 | 3.4e5 / 2.2e5 / 1.3e5 | 3.4e6 / 2.1e6 / 1.2e6 | — | linear in x (Prop 3.2) |
+| open loop, λ = 0.9 / 0.8 | 50.9 / 32.6 | 70.7 / 40.4 | 0.87 / 0.78 | ≈ x^{0.14} / x^{0.09} |
+| Poisson(λF_c) + feedback, λ = 1; λ = 0.9 seeds 1, 2, 3 | 1.1e5; 115, 8.7e4, 2.2e5 | 1.1e6; 168, 6.4e5, 2.0e6 | — | linear unless the seed undershoots |
+
+π/32, greedy τ = ½, 10⁸: sup E = 9.86 (0.029·log²X), LM 0.72 (0.85). Anatomy of the top excursion (greedy τ = ½, π/16): at 10⁷ E rises
+0.37·log²X from the last prime inside a gap of 0.82·log²X; at 10⁸ 0.62·log²X inside a gap of 1.52·log²X — excursions live inside
+single prime gaps of length ≍ log²x (s40 Prop 2.1).
+**Readings.** (1) Lemma M is TRUE in the data with a wide margin: in every window of length log³x the system's own prime density is
+≥ 0.77 (π/16) and ≥ 0.72 (π/32) of 1/log x at 10⁸, against a mean 0.97 / 0.85; at length ¼log³x it is 0.47; at log²x it is 0 (gaps of
+length ≍ log²x exist). The margin decreases slowly with X (π/16: 0.81 at 10⁷, 0.77 at 10⁸). (2) No rule beats greedy by more than a
+constant factor; the rules that fix the prime density in advance are far worse, as §2–§3 predict: linear growth when the realized
+density constant ρe^{η̂(1)} overshoots ρ, power growth when it undershoots. (3) The threshold changes the constants at small scales
+and the real zero (§4), not the large-scale excursion law.

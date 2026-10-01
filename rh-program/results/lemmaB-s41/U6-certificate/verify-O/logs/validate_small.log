@@ -1,0 +1,41 @@
+brute D=16 X=200000.0 K=39270 N(x_K)=39271 pi(x_K)=16083 e_K=0 composites=23187 min margin in W 2.094e-05
+CHECK V=1000 N(V)=198 pi(V)=118
+CHECK V=3162 N(V)=622 pi(V)=340
+CHECK V=10000 N(V)=1964 pi(V)=990
+CHECK V=31622 N(V)=6211 pi(V)=2888
+CHECK V=100000 N(V)=19637 pi(V)=8415
+CHECK V=1000 cell=197 N(V)=198 pi(V)=118 | lattice x_196: N=197 pi=118 e=0
+CHECK V=3162 cell=622 N(V)=622 pi(V)=340 | lattice x_621: N=622 pi=340 e=0
+CHECK V=10000 cell=1964 N(V)=1964 pi(V)=990 | lattice x_1963: N=1964 pi=990 e=0
+CHECK V=31622 cell=6210 N(V)=6211 pi(V)=2888 | lattice x_6209: N=6210 pi=2888 e=0
+CHECK V=100000 cell=19636 N(V)=19637 pi(V)=8415 | lattice x_19635: N=19636 pi=8415 e=0
+FINAL K=39270 N(x_K)=39271 pi(x_K)=16083 e_K=0 E(x_K)=e_K+1/2
+composites=23187 storedprimes=4952 maxfactors=9 fallbacks_cell=0 fallbacks_checkpoint=0
+closest fast-path decision: margin > 2.094359e-05 in W (= 1.066648e-04 in u), cell 19040, factors x(n): 2 2204
+D=16: cells of all 23187 composites IDENTICAL to brute force
+D=16: the 4952 stored g-primes (all <= x_K/p1) equal the first 4952 of the brute force (16083 in all)
+composites=23187 storedprimes=4952 maxfactors=9 fallbacks_cell=6040 fallbacks_checkpoint=0
+D=16: .blk identical (normal / 2^4-cell segments / forced exact path)
+D=16: .ind identical (normal / 2^4-cell segments / forced exact path)
+D=16: dumps identical in all three runs
+brute D=32 X=200000.0 K=19635 N(x_K)=19636 pi(x_K)=12342 e_K=0 composites=7293 min margin in W 1.744e-05
+CHECK V=1000 N(V)=99 pi(V)=75
+CHECK V=3162 N(V)=311 pi(V)=232
+CHECK V=10000 N(V)=983 pi(V)=700
+CHECK V=31622 N(V)=3105 pi(V)=2106
+CHECK V=100000 N(V)=9818 pi(V)=6350
+CHECK V=1000 cell=99 N(V)=99 pi(V)=75 | lattice x_98: N=99 pi=75 e=0
+CHECK V=3162 cell=311 N(V)=311 pi(V)=232 | lattice x_310: N=311 pi=232 e=0
+CHECK V=10000 cell=983 N(V)=983 pi(V)=700 | lattice x_982: N=983 pi=700 e=0
+CHECK V=31622 cell=3105 N(V)=3105 pi(V)=2106 | lattice x_3104: N=3105 pi=2106 e=0
+CHECK V=100000 cell=9818 N(V)=9818 pi(V)=6350 | lattice x_9817: N=9818 pi=6350 e=0
+FINAL K=19635 N(x_K)=19636 pi(x_K)=12342 e_K=0 E(x_K)=e_K+1/2
+composites=7293 storedprimes=2191 maxfactors=6 fallbacks_cell=0 fallbacks_checkpoint=0
+closest fast-path decision: margin > 1.743740e-05 in W (= 1.776159e-04 in u), cell 16845, factors x(n): 4 460
+D=32: cells of all 7293 composites IDENTICAL to brute force
+D=32: the 2191 stored g-primes (all <= x_K/p1) equal the first 2191 of the brute force (12342 in all)
+composites=7293 storedprimes=2191 maxfactors=6 fallbacks_cell=1948 fallbacks_checkpoint=0
+D=32: .blk identical (normal / 2^4-cell segments / forced exact path)
+D=32: .ind identical (normal / 2^4-cell segments / forced exact path)
+D=32: dumps identical in all three runs
+./validate_small.sh  3.40s user 0.21s system 101% cpu 3.561 total

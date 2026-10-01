@@ -45,8 +45,20 @@ static inline void add_point(u64 m, u128 Hlo, u128 Hhi) {
   if (width > b->wmax) b->wmax = width;
 }
 
+typedef struct { u64 cell; u128 lo, hi; } Ind;
+static int ind_cmp(const void *a, const void *b) {
+  const Ind *x = a, *y = b;
+  if (x->cell != y->cell) return x->cell < y->cell ? -1 : 1;
+  if (x->lo != y->lo) return x->lo < y->lo ? -1 : 1;
+  return 0;
+}
 static void write_moments(const char *base) {
   char fn[1024];
+  Ind *tmp = malloc(nind * sizeof(Ind)); if (!tmp) die("alloc tmp");
+  for (size_t k = 0; k < nind; k++) { tmp[k].cell = ind_cell[k]; tmp[k].lo = ind_lo[k]; tmp[k].hi = ind_hi[k]; }
+  qsort(tmp, nind, sizeof(Ind), ind_cmp);              /* canonical order, independent of the enumeration order */
+  for (size_t k = 0; k < nind; k++) { ind_cell[k] = tmp[k].cell; ind_lo[k] = tmp[k].lo; ind_hi[k] = tmp[k].hi; }
+  free(tmp);
   snprintf(fn, sizeof fn, "%s.blk", base);
   FILE *f = fopen(fn, "wb"); if (!f) die("open blk");
   u64 nb = NBLK; fwrite(&nb, 8, 1, f); fwrite(mom, sizeof(Mom), NBLK, f); fclose(f);
