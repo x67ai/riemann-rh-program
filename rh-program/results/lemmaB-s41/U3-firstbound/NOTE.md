@@ -130,3 +130,18 @@ Caution (why tau → 0 with scale does not give T2): the tau in B1 enters throug
 weighted mean dominated by the SMALL scales y/d = O(1) (half the weight of psi(y) sits at y/d ≤ 2); a threshold that falls with
 scale leaves this mean at the early thresholds.
 
+### §1.7 Explicit constants (18:24 IST 2026-10-01) [proved here, with a finite computation [computed]]
+Inputs from one run to X0 (verify/t1_const.py; logs/t1const_*.log): sup_{u≤X0} E(u)/u; P0 = last g-prime ≤ X0; eps0 = eta(P0)
++ (1 − tau)T(P0), with T(P0) summed exactly over the g-primes ≤ X0 plus the lattice bound rho(log a + 1)/(a − 1), a = X0 − 1/rho,
+for g-primes > X0; D(X0); then D0 = min{D(X0), (1 − tau)/rho − eps0/rho} (Lemma D1 as a convex combination), Delta0 =
+(r0 D0 − eps0)/(1 − tau), record bound rho tau/r0 + (1 − rho)eps0/(r0 Delta0).
+| system | X0 | sup_{u≤X0} E/u (at) | eps0 | D(X0) | Delta0 | records beyond X0 ≤ | **E(x) ≤ c x, all x ≥ 1** | N(x) ≤ |
+|---|---|---|---|---|---|---|---|---|
+| S8(π/16) | 3·10⁷ | 0.14099 (p1 = 3.5465) | 8.1·10⁻⁵ | 4.596 | 1.546 | 0.32346 | c = 0.32346 | 0.51981 x + 0.80 |
+| S8(π/32) | 3·10⁷ | 0.08206 (p1 = 6.0930) | 6.0·10⁻⁵ | 7.741 | 4.092 | 0.12220 | c = 0.12220 | 0.22037 x + 0.90 |
+| S8_{0.1}(π/16) | 10⁷ | 0.76782 (u = 2.2780) | 1.6·10⁻⁴ | 8.024 | 3.583 | 0.02796 | c = 0.76782 | 0.96417 x + 0.80 |
+Rounding: the run is in double precision; the ordering of S8 in double precision is exact below 5·10⁷ (π/16) and 7.1·10⁷ (π/32)
+[quoted: s40 theory NOTE §3.0 and the row "Integer error of S8" in §6, ordering margins 6.1·10⁻¹⁴ and 6.5·10⁻¹⁵ relative]; every
+quantity above enters with a margin ≥ 10⁻² against rounding ≤ 10⁻⁸. U6/U7 exact generators reproduce N, π_P to 10¹⁰ [quoted, SHARED].
+So **(T1) holds for S8(π/16) with C = 0.5199 and for S8(π/32) with C = 0.2204**: N(x) ≤ C x + 1 − rho for all x ≥ 1.
+

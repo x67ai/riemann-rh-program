@@ -177,3 +177,33 @@ Optional, same point: in §4.8, l. 330, `f₀ > 0, so the clip never binds` → 
 "For other units" sentence, "a rule whose limit dynamics keeps f > 0 inherits Theorem 4.4's proof", should name
 what is actually inherited: a template that never clips, plus the analogs of Lemma 4.2(iii) and Lemma 1.3.
 
+## 5. Optional strengthening: Theorem 4.4 with a rate (reader's suggestion, checked here, not required)
+1. *Layer cake instead of the partition (Step 3).* α_ρ(v − u) is nonincreasing in u, so each superlevel set {u ∈ [0, v] :
+   α_ρ(v − u) > s} is an initial segment [0, u_s), and κ_ρ([0, u_s]) ≤ K_S(u_s + ρ) by §2. Hence
+   ∫α_ρ(v − u)dκ_ρ(u) = ∫₀^2 κ_ρ({α_ρ(v − ·) > s})ds ≤ K_S∫₀^v α_ρ(w)dw + 2K_Sρ. There is no δ_ρ and no (ρ log 1/ρ)^{1/2}.
+2. *Every error term is then O_S(ρ log(1/ρ)), uniformly in v ≤ S and y.* They are: 4ρ (Step 2); 2K_Sρ,
+   2s₁K_S(v + ρ) and Q/(ρx) ≤ 4ρe^{2S+4ρ} + 8ρ (Step 3); ρe^{M} + O(ρ²) (Lemma 4.6); 4ρ + s₁ + 2ρ + 2s₁² + 4ρ² (Step 4,
+   the [0, 2s₁) part including the late start s₁ = ρ log p₁).
+3. *Gronwall at fixed ρ.* α_ρ is bounded and nondecreasing (so measurable), and α_ρ(v) ≤ ε_ρ + c∫₀^v α_ρ with
+   c := 2(K_S + L_S), ε_ρ = O_S(ρ log(1/ρ)). Gronwall's inequality gives α_ρ(S) ≤ ε_ρe^{cS}, and then
+   β_ρ(S) ≤ ε_ρ(1 + (K_S + L_S)Se^{cS}).
+So, for ρ ≤ 1/16 and with C_S finite:
+sup abs(π(y, x] − Π₀(y, x])/(ρx), sup abs(C(y, x] − Λ₀(y, x])/(ρx), sup (E(x) − ½)/(ρx) ≤ C_S·ρ log(1/ρ).
+The ρ-dependence matches the measured offsets in NOTE §4.7, which fall like ρ log(1/ρ), and the late-start heuristic
+there. C_S is of size exp(O(e^{2S})), which is why nothing transfers to fixed ρ. The limsup/reverse-Fatou closing in
+the NOTE becomes unnecessary, though it remains correct.
+
+## 6. Summary of marks
+- ✓: Lemma 4.2 (i)–(iii); Lemma 4.3 (a)–(e) (wording E4, E5); Theorem 4.4 statement, α/β setup, Steps 1, 2, 3 (window
+  errors, partition, T₂), 4, 5 (reverse Fatou, Gronwall; edge case E8); Lemma 4.6 (a), (b) incl. the template's
+  largest-element decomposition (also numerically, N1), (c) mixtures, interval sections, telescoping.
+- GAP (fillable, filled in §2): G1, the local mass bound κ_ρ(I) ≤ K_S(abs(I) + ρ log(1/ρ)) in Step 3. The majorant
+  exp*(λ_ρ) − δ₀ was wrong (it must be exp*(λ̃_ρ) − δ₀), and the local smoothing was not written. Corrected, the
+  bound holds with abs(I) + ρ and the NOTE's own K_S.
+- FALSE: none in the proof. As literally worded, the §0 Close paraphrase (E2) claims o(ρx) uniformly on all x ≤ e^{S/ρ};
+  it fails at x = p₁, and the fix is to add the theorem's own qualifiers.
+- Editorial: E1 (Q term), E3 ([0, 2s₁) and the busy p₁²), E6 (citation), E7 (sup ∅); commentary E9 (no margin is used;
+  the Gronwall factor is super-exponential).
+- Transcendental 1/ρ: used nowhere in §4, which holds for every ρ ∈ (0, 1/16]. Stress-tested exactly at ρ = 1/18, where
+  every composite is on the lattice.
+
