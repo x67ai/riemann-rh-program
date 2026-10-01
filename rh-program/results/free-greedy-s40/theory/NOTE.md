@@ -149,6 +149,10 @@ p. 336]: if N_P(x) = ρx + O(x^β), β < ½, then for every γ ∈ (β, ½), ψ_
 γ < Re s < 1. So (B) with θ < ½ forces infinitely many zeros right of θ, not right of ½; nothing printed that we have read forces
 sup Re = 1. The real zero is a fixed σ* < 1, stable to 3·10⁻⁶ between 10⁶ and 10⁷ (π/16). Whether complex zeros climb toward 1
 is the compute unit's question (its task 3(ii)); see §4 for what arrives.
+*Exploratory count, π/16* [computed, not a certificate: `verify/s8_wind.py`, `s8_newton.py`, logs `wind_pi16_1e5.log`,
+`newton_pi16.log`]: argument principle for F_{10⁵} gives winding 0 on [0.80, 0.99] × [0.5, 60] (min|F_X| = 0.52 on the boundary) and 1
+on [0.55, 0.80] × [0.5, 60], the zero sitting in [30, 45]; Newton: 0.573197 + 30.779514i (X = 10⁵), 0.573259 + 30.779677i (10⁶). So below
+height 60 the real zero σ* = 0.7948 is the rightmost zero, and α(S8(π/16)) should equal σ* if no zero far up lies further right.
 *Heuristic for the complex zeros* [heuristic, not proved]. ζ_P(s) = Σ_{n≤|t|}n^{−s} + (rest), and the rest is governed by E: beyond
 u ≈ |t| the oscillation u^{−it} is slower than E's unit-scale jumps and only E's slow (polylog) variation survives, so the tail is
 O(|t|·polylog·|t|^{−σ}); the head Σ_{n≤|t|}n^{−s} behaves like a sum with independent phases of size (Σ n^{−2σ})^{1/2} ≈ |t|^{½−σ} for

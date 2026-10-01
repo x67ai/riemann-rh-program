@@ -426,3 +426,23 @@ CLOSEST UNCONDITIONAL DISCRETE SYSTEMS IN PRINT (none below 1/2): Broucke arXiv:
   here/pa-arxiv-q-beurling-real-zero.txt). [recalled, unverified: the same positivity-plus-IVT mechanism is the classical one behind
   real (Siegel-type) zeros of Dedekind zeta functions -- Stark 1974-style arguments -- but no Beurling-setting statement with a
   one-sided bound on N was found.]
+
+[20] Olofsson, "Properties of the Beurling generalized primes", preprint dated July 8, 2010 (www2.math.uu.se/~rikardo/beurling.pdf;
+  journal version not verified here). [quoted] Opened: on disk results/novel-wave-s37/beurling-fe/sources/
+  olofsson-2010-properties-beurling-primes.txt (surfaced again by this session's web search).
+  Abstract (l. 18-22): "we will discuss a problem posed by Beurling, namely how small |N(x) - [x]| can be made for a Beurling prime
+  number system Q != P, where P is the rational primes. We prove that for each c > 0 there exists a Q such that |N(x) - [x]| < c ln x
+  and conjecture that this is the best possible bound."  Conjecture 1.2 (l. 101-105): "If P is a Beurling prime system different
+  from the set of rational primes, then lim sup |N(x) - [x]|/ln x > 0."  Theorem 1.3 (l. 112-116). The problem is attributed to
+  Bateman-Diamond [3] (Studies in Number Theory, 1969) (l. 98-99, 884).
+  Construction (§3, l. 642-646): "Q = (P \ {p_1, ..., p_m}) u {q_1, ..., q_n}", zeta_Q(s) = psi(s) zeta(s) with psi a finite ratio of
+  Euler factors (l. 676-682) -- so the zeros of zeta_Q in Re s > 0 are exactly those of the Riemann zeta function: no zero off the
+  line unless RH fails. Remark (l. 659-664): "if two different Beurling integers have the same value alpha, then there are at least
+  n + 1 different Beurling integers having the value alpha^n, hence the remainder term is of at least logarithmic growth. This shows
+  that a counterexample to Conjecture 1.2 must consist of Beurling integers which all have different values."  l. 620-622: if
+  R(t) = O((ln t)^n), (2) gives "an analytic continuation to Re(s) > 0. However, it is not possible to get estimates that would allow
+  us to pass even further to the left" (Prop. 3.1: |N(t) - [t]| = o(1) iff Q = P).
+  Relevance: Q2 -- integer error O(log x) discrete systems exist in print (Theorem 1.3), but their zeros off Re s = 0 are the
+  Riemann zeros: they say nothing about zeros right of 1/2 unconditionally. Q1 -- perturbation of P, not feedback. Context for S8:
+  the multiplicity => log-growth remark is the printed form of the charter's diagnosis of S5; S8's free monoid (distinct values)
+  is exactly the case Olofsson says a small-error example must be in.

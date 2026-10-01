@@ -19,3 +19,13 @@ The exact certificates of §7.1 and the probe of §7.2 are re-run by the Opus re
 
 ## 4. Close
 G as a theorem (rigid classes; the two obstructions; the open class 𝒯 with its single positivity condition); no Group-I control.
+
+## 5. Reconciliation with read-O (12:09 IST 2026-10-01)
+read-O: AGREES-WITH-CORRECTIONS — six FIX-FIRST, ten minor (30 OLD/NEW pairs and one added table row). This side had no FIX-FIRST; the reader's items concern sections this side left to it (§1, §5–§7) and prior art. Checked before applying:
+- **F1** (credit) ✓: the Session-39 LOG records `qcond-s38`'s dual read finding the Meyer upgrade at 05:24 IST, before this NOTE closed at 06:05; Lemma M is an independent second derivation, not the first.
+- **F2** (prior art on disk) ✓ at the page: Hilberdink 2012 Theorem A (l. 101–111) and Proposition 3.4 (l. 632 ff.: D_N ⊂ ℕ and P ∈ ℕ for periodic N − cx) read in `novel-wave-s37/beurling-fe/sources/p3-22c2…txt`; the novelty labels of L‴ and (W3) are split accordingly.
+- **F3** — accepted as the reader's achieved values (its own optimizer, exact-rational recheck of M = 4: −0.293650523); the probe is evidence only and no conclusion rests on it.
+- **F4** ✓: μ = δ₀ is purely atomic with μ̂ = Lebesgue; Cor. M1 needs 'μ̂ purely atomic'; every use has μ̂_q = μ_q pure point.
+- **F5** ✓: a repair term carries |x^{ρ−1}| = x^{−½} on the line, so ∫x^{−σ₀}d|m| diverges for σ₀ ≤ ½ and hypothesis (i) of Prop. S fails; the coverage sentence is corrected to the direct splitting plus the bounded-range L‴.
+- **F6** ✓ (a downgrade): §5.2's mechanism (b) compares only the second-order term of log*; smooth self-dual weights vanishing on Z_j exist (KNS Lemma 6, at the page per the reader), so §0.4(3) now claims exclusion only for the families in the §7.1 table.
+NOTE cebe0a96… → 0a7ea6be2449adf8… (`NOTE.pre-reader.md` kept).
