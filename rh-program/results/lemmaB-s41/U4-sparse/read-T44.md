@@ -115,7 +115,8 @@ and their logs). They are not part of the record; the numbers below are the full
   t = 18 to 4·10⁶ (τ ≤ 0.845) and t = 32 to 10⁷ (τ ≤ 0.504). For t ≡ 2 (mod 4) the lattice residue r = t/2 + 1 is
   idempotent mod t, so every composite lies on a lattice point. t = 18: 47,430 busy lattice points, 46,992 decided by
   the tie rule, 12,144 composite values carrying ≥ 2 multisets (max 6). t = 32: 2,765 busy, 2,443 ties, max multiplicity
-  5. In both runs: zero Lindley mismatches; min E(n−) = −½ exactly, attained only at primes and ties; min E(n) = ½ − (t − 1)/t
+  5. In both runs: zero Lindley mismatches. E(n−) = −½ holds exactly on the g-primes plus the tie points and nowhere
+  else: 207,669 = 160,677 + 46,992 (t = 18) and 262,056 = 259,613 + 2,443 (t = 32), all on the lattice. min E(n) = ½ − (t − 1)/t
   > −½; E(p) = ½ at every g-prime (to 10⁻¹²); Lemma 4.2(iii) holds at every integer x. Window errors on a grid
   (y = x(1 − η), η ∈ {0.02, …, 0.98}): over x ∈ [10⁵, X], max abs(π − Π₀)/(ρx) = 0.0368 (t = 18), 0.0372 (t = 32), and
   max abs(C − Λ₀)/(ρx) = 0.0367, 0.0373. Over x ∈ [p₁², X] the maxima are 0.13 and 0.09, which is the 1/(ρx) granularity
