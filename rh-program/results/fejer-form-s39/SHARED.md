@@ -91,3 +91,13 @@ o4b (own DH code; argument principle on the FULL rectangle [-2,3]x[50,120]; off-
 N = 47 = 43 on + 2 off + 2 mirrors; off-line 0.808517182457 + 85.6993484854i, 0.65083008061 + 114.163342731i; FE residual 5e-20.
 W grid min -681.6591 at T = 85.49 (off-line share -681.8654, on-line 0.2063) — reproduces the NOTE; continuous min -682.3798 at
 T = 85.49290. Conclusion of §6 Z3 unaffected (grid minima stated as minima: a minor wording item).
+
+## Block O-3 — 11:29 IST 2026-10-01 — read-O §1 (re-derivations) and §2 (re-run table) written
+Every theorem re-derived: W(i)–(iii) ✓; F(a)–(e) ✓ (F(b) is stated for D_1 and is right); K(i), (iv) ✓; Clifford ✓; Bombieri (5) read
+at the page (p. 236: "ν_1 < q + (2g + 1)q^{1/2} + 1", q = p^α, α even, q > (g+1)^4) ✓. Corrections forming:
+F1 — "equality exactly at genus 0" attached to D_k (all k) in §0(iii), K(iii), §8 row, I.9 rider: FALSE for k >= 2 (D_k(P^1) = q^{k-1} - 1).
+F2 — K(ii)/§0(ii)/§0 WHY/IV.1 rider: "the separating ones are the Toeplitz cone" holds for separation from the Weil region only;
+counterexample to the unqualified wording: 4g + N_1 - 6 >= 0 over F_5 (all genuine curves, every genus; V: -1; f = 4 - 2 sqrt5 cos(theta)
+< 0 at 0) — class (B); and "the optimum is Oesterle's program" mis-describes Oesterle's upper-bound LP, which cannot see V.
+Minor so far: AHL Lemma 3.4's hypothesis g >= 2 not stated; C2 "Untried line 168" is line 176 at the recorded hash 04496dce…; Z3
+values are grid minima (continuous: -872.7931, -682.3798); "on Z" in K's last sentence overreaches (three forms tested).

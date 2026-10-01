@@ -1,0 +1,41 @@
+Hilberdink, T. W., "Well-behaved Beurling primes and integers", J. Number Theory 112 (2005) 332-344, doi:10.1016/j.jnt.2004.09.001.
+Transcription made 2026-10-01 from the PAGE IMAGES of the publisher PDF on disk
+(rh-program/fetched/w-18a-hilberdink-2005-well-behaved-beurling-primes-JNT112.pdf, PDF pp. 3-5 and 9 rendered with pdftoppm),
+because the text file fr/sources/w-18a-...txt drops every Greek letter. Text-file line numbers (w-18a) given in brackets.
+
+p. 334 [w-18a l. 115-124] "2.1. [alpha, beta]-systems. For 0 <= alpha, beta < 1, we define an [alpha, beta]-system to be a generalised
+prime-system for which psi_P(x) = x + O(x^{alpha+eps}) (2.1), N_P(x) = rho x + O(x^{beta+eps}) (for some rho > 0) (2.2) hold for all
+eps > 0, but for no eps < 0."
+
+p. 335 [w-18a l. 191] "However, at present it seems that no actual examples of [alpha, beta]-systems are known."
+Footnote 4 [l. 201-202]: "In a recent personal communication, H. Montgomery told me that he believes that the methods employed in [4]
+can be used to find examples of [alpha, beta]-systems for any alpha, beta >= 1/2."
+
+p. 335 [w-18a l. 195] "Theorem 1. Let P be an [alpha, beta]-system. Then Theta = max{alpha, beta} >= 1/2."
+
+p. 335 [w-18a l. 197-199] "Corollary 2. (a) If psi_P(x) = x + O(x^alpha) for some constant alpha < 1/2 (which implies that
+N_P(x) ~ rho x for some rho > 0), then for every eta in (alpha, 1/2), N_P(x) - rho x = Omega(x^eta) and zeta_P(s) does not have
+finite order throughout the strip {s in C : eta < Re s < 1}."
+p. 336 [w-18a l. 211-214] "(b) If N_P(x) = rho x + O(x^beta) for some constants rho > 0 and beta < 1/2, then for every
+eta' in (beta, 1/2), psi_P(x) - x = Omega(x^{eta'}) and zeta_P(s) has infinitely many zeros in the strip {s in C : eta' < Re s < 1}."
+
+p. 336 [w-18a l. 222-229] "Theorem A (Hilberdink and Lapidus [5, Theorem 2.3]). Let P be a [alpha, beta]-system. Then for
+sigma > Theta = max{alpha, beta}, and uniformly for sigma >= Theta + delta (any delta > 0),
+phi_P(sigma+it) = O((log|t|)^{(1-sigma)/(1-Theta)+eps}) and zeta_P(sigma+it) = O(exp{(log|t|)^{(1-sigma)/(1-Theta)+eps}}),
+for all eps > 0. In particular, both phi_P(s) and zeta_P(s) have zero order for Re s > Theta."
+p. 336 [w-18a l. 231-235] "Remark B. (i) If alpha < beta and we already know that zeta_P(s) is of finite order for sigma > eta for
+some eta in (alpha, beta), then zeta_P(s) and phi_P(s) have zero order in this range. (ii) If beta < alpha and we already know that
+phi_P(s) has only finitely many poles for sigma > eta' (equivalently, zeta_P(s) has finitely many zeros here), then zeta_P(s) and
+phi_P(s) have zero order in this range."
+p. 336 [w-18a l. 237-244] Proof of Thm 1 is immediate from Carlson IF "(3.1) n' > n + 1/n^A for some A >= 0, where n and n' are
+consecutive g-integers".
+p. 337 [w-18a l. 266-267] "However, we do not want to restrict the size of n' - n by assuming something like (3.1)."
+   (The general proof, l. 268-494, picks N with (N - 1/N, N + 1/N) disjoint from the g-integers, l. 439-442: "This is possible
+   since otherwise n_{k+1} < n_k + O(1/n_k) (where n_k is the kth g-integer), which leads to n_k = O(sqrt k) -- a contradiction.")
+p. 340 [w-18a l. 496-501] "Remark C. Note that in the proof of Theorem 1, no explicit use was made of the fact that zeta_P(s) has no
+zeros for sigma > alpha (which follows from (2.1)). This was only implicitly used (in Theorem A) to show that zeta_P(s) has zero
+order for sigma > Theta. In particular, after Remark B(ii), this means that the same proof holds for the following: for an
+[alpha, beta]-system with beta < alpha, if zeta_P(s) has finitely many zeros for sigma > eta' with eta' in (beta, alpha), then
+eta' >= 1/2."
+p. 343 [w-18a l. 679-681] "After Theorem 1, we see that the best possible systems are [1/2, 0] and [0, 1/2]. The existence of the
+former is conjectured for N, but there is no apparent candidate for the latter system."

@@ -1,0 +1,11 @@
+[1e10] bins=190 N(X)=6685241558  rho_me - rho_unit = 2.3864e-15
+  count diffs: max 0;  sumE2 rel. diff vs unit CSV (7 sig. digits printed): with unit rho max 3.83e-07, with own rho max 5.16e-06;  |maxE diff| <= 2.39e-05, |minE diff| <= 2.37e-05 (own rho; Δrho*X = 2.39e-05)
+  (unit rho) ms-slope [1e4,X] 0.431 [1e5,X] 0.445 [1e6,X] 0.422 [1e7,X] 0.424 top3 0.431; sup-slope [1e4,X] 0.231
+  (own rho) ms-slope [1e4,X] 0.431 [1e5,X] 0.445 [1e6,X] 0.422 [1e7,X] 0.424 top3 0.431; sup-slope [1e4,X] 0.231
+  M(X) windows: 1e+04:3.93583, 2e+04:6.6453, 3.98e+04:8.39844, 7.94e+04:9.10986, 1.58e+05:10.466, 3.16e+05:15.0414, 6.31e+05:18.2557, 1.26e+06:36.8794, 2.51e+06:45.3094, 5.01e+06:54.6248, 1e+07:104.053, 2e+07:87.6915, 3.98e+07:106.304, 7.94e+07:261.743, 1.58e+08:211.323, 3.16e+08:481.169, 6.31e+08:427.048, 1.26e+09:417.433, 2.51e+09:1363.22, 5.01e+09:965.071
+  #<R> <= 10000000000: 56021;  M/M_diag at window X: 1e+04:1.06, 2e+04:1.29, 4e+04:1.15, 7.9e+04:0.89, 1.6e+05:0.719, 3.2e+05:0.728, 6.3e+05:0.631, 1.3e+06:0.906, 2.5e+06:0.793, 5e+06:0.674, 1e+07:0.904, 2e+07:0.54, 4e+07:0.465, 7.9e+07:0.81, 1.6e+08:0.463, 3.2e+08:0.746, 6.3e+08:0.468, 1.3e+09:0.324, 2.5e+09:0.75, 5e+09:0.376;  kappa (X>=1e6, X = lower edge) = 1.41
+  |c_rho| for rho_1, rho_2, rho_5: 0.0364, 0.0210, 0.0256
+  explicit formula (200 zeros), bins x >= 1e+04 (n=120): corr 0.8824, resid rms 0.0557, signal rms 0.0929
+  explicit formula (200 zeros), bins x >= 1e+06 (n=80): corr 0.9800, resid rms 0.0229, signal rms 0.0758
+  explicit formula (200 zeros), bins x >= 1e+08 (n=40): corr 0.9979, resid rms 0.0093, signal rms 0.0690
+python3 o_sq_analysis.py 1e10 200  15.57s user 0.03s system 99% cpu 15.619 total

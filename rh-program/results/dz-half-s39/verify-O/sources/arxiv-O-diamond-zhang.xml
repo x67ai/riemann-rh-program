@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/uHLxq/3CVX3tLq+QZggtsluSpH0</id>
+  <title>arXiv Query: search_query=abs:Diamond AND abs:Zhang AND abs:primes&amp;id_list=&amp;start=0&amp;max_results=60</title>
+  <updated>2026-10-01T05:58:43Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:Diamond+AND+(abs:Zhang+AND+abs:primes)&amp;start=0&amp;max_results=60&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>60</opensearch:itemsPerPage>
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2102.08478v2</id>
+    <title>A new generalized prime random approximation procedure and some of its applications</title>
+    <updated>2024-06-17T10:04:30Z</updated>
+    <link href="https://arxiv.org/abs/2102.08478v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2102.08478v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present a new random approximation method that yields the existence of a discrete Beurling prime system $\mathcal{P}=\{p_{1}, p_{2}, \dotso\}$ which is very close in a certain precise sense to a given non-decreasing, right-continuous, nonnegative, and unbounded function $F$. This discretization procedure improves an earlier discrete random approximation method due to H. Diamond, H. Montgomery, and U. Vorhauer [Math. Ann. 334 (2006), 1-36], and refined by W.-B. Zhang [Math. Ann. 337 (2007), 671-704].
+  We obtain several applications. Our new method is applied to a question posed by M. Balazard concerning Dirichlet series with a unique zero in their half plane of convergence, to construct examples of very well-behaved generalized number systems that solve a recent open question raised by T. Hilberdink and A. Neamah in [Int. J. Number Theory 16 05 (2020), 1005-1011], and to improve the main result from [Adv. Math. 370 (2020), Article 107240], where a Beurling prime system with regular primes but extremely irregular integers was constructed.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-02-16T22:32:21Z</published>
+    <arxiv:comment>15 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Math Z. 307(2024), Article 62</arxiv:journal_ref>
+    <author>
+      <name>Frederik Broucke</name>
+    </author>
+    <author>
+      <name>Jasson Vindas</name>
+    </author>
+    <arxiv:doi>10.1007/s00209-024-03526-4</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s00209-024-03526-4" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1201.1405v2</id>
+    <title>Chebyshev Estimates for Beurling Generalized Prime Numbers. I</title>
+    <updated>2012-06-04T21:04:02Z</updated>
+    <link href="https://arxiv.org/abs/1201.1405v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1201.1405v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We provide new sufficient conditions for Chebyshev estimates for Beurling generalized primes. It is shown that if the counting function $N$ of a generalized number system satisfies the $L^{1}$-condition $$ \int_{1}^{\infty}|\frac{N(x)-ax}{x}|\frac{\mathrm{d}x}{x}&lt;\infty $$ and $N(x)=ax+o(x/\log x),$ for some $a&gt;0$, then $$ 0&lt;\liminf_{x\to\infty}\frac{ψ(x)}{x}\ \ \ {and}\ \ \ \limsup_{x\to\infty}\frac{ψ(x)}{x}&lt;\infty $$ hold. We give an analytic proof of this result. It is based on Wiener division theorem. Our result extends those of Diamond (Proc. Amer. Math. Soc. 39 (1973), 503--508) and Zhang (Proc. Amer. Math. Soc. 101 (1987), 205--212).</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2012-01-06T12:50:21Z</published>
+    <arxiv:comment>6 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>J. Number theory 132 (2012), 2371-2376</arxiv:journal_ref>
+    <author>
+      <name>Jasson Vindas</name>
+    </author>
+    <arxiv:doi>10.1016/j.jnt.2012.04.019</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.jnt.2012.04.019" title="doi"/>
+  </entry>
+</feed>

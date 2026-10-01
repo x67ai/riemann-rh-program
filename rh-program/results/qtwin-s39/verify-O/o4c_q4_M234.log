@@ -1,0 +1,10 @@
+gradient check (max abs error vs central differences): 3.04e-10
+q=4 M=2 (1 lower atoms) |G<=64|=51 : best max-min Pi_F = -0.680076  t=2.04143  w=[0.24985]  binding x=16/3  (0s)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/qtwin-s39/verify-O/o4c_gradopt.py:23: RuntimeWarning: divide by zero encountered in matmul
+  Z = spsolve_triangular(T, (R - Y) @ self.K, lower=True)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/qtwin-s39/verify-O/o4c_gradopt.py:23: RuntimeWarning: overflow encountered in matmul
+  Z = spsolve_triangular(T, (R - Y) @ self.K, lower=True)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/qtwin-s39/verify-O/o4c_gradopt.py:23: RuntimeWarning: invalid value encountered in matmul
+  Z = spsolve_triangular(T, (R - Y) @ self.K, lower=True)
+q=4 M=3 (3 lower atoms) |G<=64|=408 : best max-min Pi_F = -0.400711  t=0.74486  w=[0.48669, 0.48669, 0.68611]  binding x=288/5  (1s)
+q=4 M=4 (5 lower atoms) |G<=64|=2547 : best max-min Pi_F = -0.310091  t=0.54168  w=[0.4208, 0.43501, 0.1577, 0.30317, 0.62374]  binding x=48/5  (5s)

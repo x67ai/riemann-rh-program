@@ -82,3 +82,23 @@ VERDICT LINE: (provisional — filled at the end of the read)
     L‴ (general) … every zeta-zero repair whose atomic part is thin") and line 299 ("More atoms in m_a lead back to L‴") attribute
     them to L‴(general). Correct route: the direct splitting (G_c has the FE alone) + log* splitting (needs only large σ) + §4's
     bounded-range L‴ applied to F_a. The conclusion stands; the attribution must change.
+(m) §5.1 the exact reduction ✓. Minkowski lattice {(x/c, x^σ/c)} has covolume √5/c² = 1 ✓; its dual is {(z/c, −z^σ/c)} (for w = zx ∈ O_K,
+    (w − w^σ)/√5 ∈ Z) ✓; Poisson for g ⊗ k gives μ̂_k = μ_{k̂(−·)} = μ_{k̂} for even k ✓; k ↦ μ_k injective (the x^σ/c are dense) ✓, so
+    "self-dual iff k̂ = k" ✓. Gap ⟺ k = 0 on Z_j: the atom "1" at φ^{−j}/c = r gives q = √5φ^{2j} ✓, n = xφ^j, weight k(n^σφ^j/c) ✓;
+    density 2/(cφ^j) ✓ (window width 2, covolume √5, scale φ^j/c). P1 ✓ (one line).
+(n) P2 — GAP (minor, m7). KNS Thm 1(ii) is quoted correctly (sources/ txt lines 101–139: subcritical pairs are non-uniqueness
+    pairs for S; Z_j u.d. ⟹ |λ_j|^{p−1}(λ_{j+1} − λ_j) → ∞ ✓). But it yields f ≠ 0 with f|_Z = f̂|_Z = 0, not an EVEN SELF-DUAL k: the
+    space V of such f is Fourier-invariant (Z_j = −Z_j), yet its eigenvalue-1 part is not shown non-zero, so "the zero conditions
+    alone do not force k = 0" (line 253) is not yet proved for k̂ = k. Fix (§7 A3, single-check): KNS Lemma 6 (§7.3, lines 2000–2016)
+    interpolates freely on Λ′_L ⊋ Λ with infinitely many extra nodes; prescribing data at N symmetric extra nodes and imposing the
+    K finitely many conditions on Z_j ∩ [−L, L] leaves a ≥ (2N − K)-dimensional family, and for N > K some member has a non-zero
+    eigenvalue-1 projection P₁f = (f + f̂ + f(−·) + f̂(−·))/4, which is even, self-dual, vanishes on Z_j; Re or Im of it is real.
+(o) §5.2 ✓ (re-derived): unit orbit divisor-closed in O_K (a unit factors only into units) ✓; Π(φ²) ≥ 0 ⟺ e^{πφ^{2j−2}/√5} ≤ 2 ✓
+    (algebra: log 2 ≥ (π/√5)φ^{2j−4}(φ² − 1)² = (π/√5)φ^{2j−2}); values reproduced (§2(c)). k = e^{−2π|t|} + 1/(π(1 + t²)) is
+    positive, self-dual (FT e^{−2π|t|} = 1/(π(1 + ξ²))) ✓.
+(p) §7.2 the class 𝒯 ✓ as a reduction: for m ∈ 𝒯, dN = Σ_nΣ_b m_bδ_{nb} ≥ 0 carried by [1, ∞) (gap) ✓, FE by J-symmetry ✓, μ_q ∈ 𝒦_r ✓,
+    so Q_cond on 𝒯 ⟺ Π_ζ + log*(m) ≥ 0 ✓; L′ excludes finite truncations ✓; thin atomic m excluded by §4 ✓; continuous parts
+    reduce to atomic by Lemma A ✓. A member of 𝒯 satisfying the condition WOULD be a Q-side twin (q > 1, not ζ). Numbers: §2(d).
+(q) THEOREM G (§0.4) as a whole ✓ as a summary of (1)–(3), with three record corrections: (1)'s "Theorem D, now UNCONDITIONAL" is
+    the parent's dual-read result (F1); (1)'s coverage parenthesis "the zeta-zero repairs … split directly" is right, but §6's
+    coverage line contradicts it (m6); the 𝒯 probe numbers in (THE SMALLEST OPEN SUB-CLASS) change at M = 4 (F3).

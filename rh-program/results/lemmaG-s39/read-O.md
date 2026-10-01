@@ -169,3 +169,80 @@ sup|E| ≥ x^{α_R}/(C log x) infinitely often" is TRUE but not shown: with Lege
 (ρ_z − ρ)h_N = o(c_N); z = N³ does not (π_R(N³) ≍ N^{3/2}/log N > N), z = CN² does: π_R(CN²) ≍ √C·N/log N < N − log₂(4N), and
 (ρ_z − ρ)h ≍ c_N/(√C log N) → the clause holds given tightness. A1 removes the tightness hypothesis (Ingham's span suffices).
 
+**(m) §4 and §6 (computation; 𝒞_self) — targets (d), (e):** see §2 for the re-run. §6: 𝒞_self is well defined as a predicate
+on R (all of (F1)–(F3) are definite conditions; "no factorization exists" is a legitimate, if non-effective, clause). "(RH, α_R < ½)
+every counterexample lies in 𝒞_self" ✓: a counterexample has β₂ < α_R/2; Prop. 2.3(a) gives continuation with polynomial growth to
+{σ > τ₀} for τ₀ ∈ (β₂, α_R/2); 2.3(b) gives infinitely many zeros there (hence at unbounded heights); Theorem F excludes every
+(F1)–(F3) factorization on every Ω — so the clause holds under either reading of its quantifiers ✓. Three caveats: (1) the inclusion
+is true BY DEFINITION once 2.3 and F are proved — 𝒞_self is "what Prop. 2.3 leaves and Theorem F does not cover"; the obstruction
+sentence ("cannot yield Lemma G on 𝒞_self, because there, by definition, …", ll. 348–349) is a tautology and should be labeled as
+such (m12); (2) "convergent diagonal" (l. 349) is not the negation of (F3) — the negation is "sub-polynomial growth for some
+σ < α_R/2" (m13); (3) "Smallest class where the answer is unknown" (ll. 31, 351) is not a theorem: no minimality is proved, and
+𝒞_self as defined only constrains |t| > T₀, so it can contain sets on which O is KNOWN by Cor. 2.2 applied near the real axis (a
+forbidden real singularity, e.g. a T5-type germ at s = α_R). A sharper residual class that still contains every counterexample
+(Prop. 2.3(a)): add "D_R analytic on the whole half-plane σ > τ₀" (ADD A3). The F_q[T]-analogue claim ✓: at rung 1 periodicity
+makes D_R bounded, so any (F2) factor forces |log C| bounded and Parseval bounds the diagonal — no deletion admits (F1)–(F3) there;
+the necklace (infinitely many zeros, polynomial growth) is in the analogue ✓.
+
+## §2. Independent re-run (`verify-O/`; own code; big scratch in `/private/tmp/rh-s40-lemmaG/`, regenerable as below)
+
+**2.1 Rung 1** — §1(b): brute force over all monic polynomials (15 cases, 3 deletion rules) and exact series: ALL EQUAL.
+**2.2 sq = {nextprime(p²)} — exact dyadic mean squares to 10⁹ AND 10¹⁰ by an independent route.** Own segmented sieve
+(`o_sieve_bins.c`, 1.2 s at 10⁹, 11.8 s at 10¹⁰) emitting EXACT integer bin sums Σ N, Σ N², Σ N(2n + 1) in __int128 (no float in
+the counts); Σ (N(n) − ρ(n + ½))² formed afterwards in 50-digit arithmetic (`o_sq_analysis.py`); ρ from my own product
+(`o_sq_gen.py`: p ≤ 10⁶ exactly, tail via primezeta(2), neglected terms < 10⁻¹⁸): ρ = 0.668524156691798154409989…, which differs from
+the unit's header value 0.668524156691795768 by 2.39·10⁻¹⁵ (the unit's double-precision log-sum; harmless: Δρ·X = 2.4·10⁻⁵ at 10¹⁰).
+Bins = the unit's grid (edges read from its CSV). Results: counts equal in all 170 / 190 bins; Σ(N − ρ(n + ½))² equal to the unit's
+CSV to its printed 7 digits (max rel. diff 3.8·10⁻⁷ with the unit's ρ); maxE/minE equal up to Δρ·x. With EITHER ρ:
+10⁹: ms-slope [10⁴,X] 0.437, [10⁶,X] 0.435, top3 0.463, sup 0.239, κ = 1.12, M/M_diag (own DFS for W, 14 073 R-numbers)
+1.06, 0.89, 0.906, 0.904, 0.81 — `verify/logs/dyadic_1e9.log` digit for digit. 10¹⁰: 0.431 / 0.422 / 0.431, sup 0.231, κ = 1.41,
+M/M_diag 1.06, 0.91, 0.81, 0.324 (56 021 R-numbers) — NOTE l. 258 digit for digit. N(10⁹) = 668 524 135, N(10¹⁰) = 6 685 241 558.
+**2.3 The explicit formula for sq (NOTE l. 270–276), recomputed:** own C(ρ_j/2) (numpy over the 9 592 R-primes ≤ 10¹⁰), mpmath
+zeros/ζ/ζ′: |c_ρ| = 0.0364, 0.0210, 0.0256 (ρ₁, ρ₂, ρ₅) ✓; bin means of E (exact, from Σ N) vs exact bin averages of the 200-zero
+sum, both / x^{1/4}: corr 0.8824 (120 bins ≥ 10⁴), 0.9800 (≥ 10⁶), 0.9979 (≥ 10⁸; resid rms 0.0093, signal 0.0690) — the NOTE's
+0.882 / 0.980 / 0.998 and 0.0093 / 0.069 ✓. So sq's sub-diagonal slope 0.422 is the low-zero beat at ρ/2, as claimed.
+**2.4 Second family, tight ℚ-necklace to 10¹⁰** (`o_neck_gen.py`; ρ from the cyclotomic identity + a first-order tail model,
+0.61358259343171, vs the unit's 0.613582593431613 (Nmax = 22 explicit) — Δ = 9.5·10⁻¹⁴): counts equal in all 190 bins; ms 0.801 /
+0.792 / 0.789, sup 0.479, κ = −5.23, M/M_diag 16.3, 46.1, 165, 371 — NOTE l. 262 digit for digit.
+**2.5 Cluster lemma / A1 numbers** — §1(k) (inclusion–exclusion route). **2.6 ζ inputs** — §1(g).
+Regenerate scratch: `python3 o_sq_gen.py 1e10 1e6; python3 o_neck_gen.py`; bins = columns 2–3 of the unit's CSVs;
+`clang -O3 o_sieve_bins.c -o o_sieve_bins -lm; ./o_sieve_bins 1e10 R_sq_1e10.txt bins_1e10.txt <rho_hi> <rho_lo>` (bin TSVs copied
+to `verify-O/logs/`).
+
+## §3. Prior art at the page
+
+*Citations the NOTE relies on, opened at the lines it names* (all ✓ unless stated):
+- Hilberdink 2005 (fr `w-18a…txt` ll. 222–258): Theorem A (zero order), Remark B(ii) (finitely many zeros ⟹ zero order), Carlson's
+  mean value under separation (3.1) — as described ✓.
+- DMV 2006 (fr `p1-02…txt` ll. 183–200): Thm 1 — a system of Beurling primes with N = κx + O(x^θ), ζ_B analytic on σ ≥ θ but with
+  infinitely many zeros on σ = 1 − a/log t ✓. Wording: DMV's system is DISCRETE (a sequence of real g-primes); "in the CONTINUOUS-
+  density world" (l. 300) misdescribes it — the contrast intended is "real g-primes, not a subset of ℙ" (m14).
+- Broucke–Vindas 2024 (fr `z-18…txt` ll. 34–45, 97–111): Thm 1.1 (DMVZ) and Thm 1.2 (|π_P − F| ≤ 2 and the √x + √(x log(|t|+1)/
+  log(x+1)) bound) ✓ (the NOTE writes log x for log(x + 1); immaterial).
+- Avdeeva 2015 (cO `avdeeva…txt` ll. 117–135): Thm 1 (2 ∉ B, N_B = AN^α + O(N^β), β < α < 1 ⟹ Var_B(N) ∼ CN^α) ✓.
+- Breuer–Simon 2011 (`sources/breuer-simon…txt` l. 247 Thm 1.7, ll. 618–628 Thm 5.1 (Szegő/Duffin–Schaeffer/Boas), ll. 672–680
+  Thm 6.1 (independent coefficients)) ✓ — all power series, as the NOTE says.
+- Bhowmik–Schlage-Puchta (`sources/bhowmik…txt` ll. 30–60): Estermann (integer-valued polynomial W, W(0) = 1: finite product of
+  ζ(νs)^{c_ν} or natural boundary Re s = 0) and Dahlquist's extension ✓.
+- Fabry/Pólya (`sources/wiki-fabry…txt`): Fabry for power series ✓; the Dirichlet-series form stays [recalled] as labeled.
+- DZ book (`sources/dz-2016-book.txt`): 0 hits for "function field / finite field / polynomial ring" ✓ (the NOTE's claim).
+- Ingham 1937 / Huxley 1972 / BHP 2001: only through Wikipedia "Prime gap" (`verify-O/sources/wiki-prime-gap.raw.txt` ll. 270–287:
+  Ingham θ > 5/8 asymptotic, Quart. J. Math. 8 (1937) 255–266; Huxley θ = 7/12, Invent. Math. 15 (1972); BHP 0.525) — [quoted,
+  secondary]; first zero and simplicity — computed (§1(g)).
+*Missed on disk — bears on R1 and on §1.3(d) (F5).* **Hilberdink 2012**, "Generalised prime systems with periodic integer counting
+function" (Acta Arith. 152), `novel-wave-s37/beurling-fe/sources/p3-22c2-…txt` ll. 44–51 (abstract) and ll. 102–116 (Theorem A): "Let
+N ∈ T be such that N(x) − cx has period P, and suppose that N determines a g-prime system. Then P ∈ ℕ and N(x) = Σ_{n≤P,(n,P)=1}
+([(x − n)/P] + 1), i.e. N is the integer-counting function of the g-prime system P ∖ {p_1, …, p_k} where p_1, …, p_k are the prime
+divisors of P." — the ℚ-side theorem that EXACT regularity (E periodic, in particular E ≡ 0 up to a periodic term) forces a FINITE
+deletion. It is the nearest published object to Thm R1 and the precise ℚ-counterpart of §1.3(d)'s "commensurability" diagnosis:
+over ℝ-norms the rung-1 phenomenon (infinitely many deletions, E ≡ 0) is impossible by a printed theorem. It does not touch R1's
+novelty (R1 lives in F_q[T]); it should replace "[recalled] cyclotomic identity" as the distance-from-upstream anchor.
+*Novelty searches* (arXiv API, one query at a time, saved in `verify-O/sources/arxiv-r1…r6*.xml`): additive/arithmetical semigroups
+(4 + 14 hits: Meissel, power-free elements, Alladi, Warlimont functions, Beurling-prime RvM formula — none constructs a deletion with
+exactly regular counts); "Beurling" ∧ "function field" (0); "necklace polynomial" ∨ "cyclotomic identity" (13: Witt transform
+math/0311194, necklace analytics 2605.11445, liminal reciprocity 1803.08438, cyclotomic enumeration 2410.12058 — counting identities,
+no Beurling/O content); "natural boundary" ∧ Dirichlet ∧ primes (2: Bhowmik–Schlage-Puchta on disk, one unrelated); "prime zeta
+function" (17: none treats Σ_{p∈R}p^{−s} for thin R relative to an error exponent). Null searches are not evidence of novelty (zoo V.5).
+Knopfmacher–Zhang's book on additive arithmetic semigroups (where an example with Z(y) = (1 − ay)/(1 − qy) would naturally live) was
+not available — [not checked].
+

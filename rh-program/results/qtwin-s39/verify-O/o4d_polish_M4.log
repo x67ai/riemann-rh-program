@@ -1,0 +1,7 @@
+  Z = spsolve_triangular(T, (R - Y) @ self.K, lower=True)
+  Z = spsolve_triangular(T, (R - Y) @ self.K, lower=True)
+  Z = spsolve_triangular(T, (R - Y) @ self.K, lower=True)
+DE point: min Pi_F = -0.293661
+polished: max-min = -0.293651 at t=0.318472 w=[0.386373, 0.386373, 0.355084, 0.301804, 0.665016] (SLSQP status Optimization terminated successfully)
+8 smallest Pi_F (x, value): [('64/21', np.float64(-0.293651)), ('128/21', np.float64(-0.293651)), ('320/7', np.float64(-0.293651)), ('4608/175', np.float64(-0.293651)), ('20/7', np.float64(-0.293651)), ('16/3', np.float64(-0.293651)), ('64/7', np.float64(-0.293651)), ('256/49', np.float64(-0.288814))]
+EXACT (rational weights, power-series route, independent of the triangular solve): min Pi_F = <fraction> = -0.293650523 at x = 64/7; #points = 2547

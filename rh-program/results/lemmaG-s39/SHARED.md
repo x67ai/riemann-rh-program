@@ -74,3 +74,17 @@
 - Theorem F, Cor F.1 ✓ (RH). NEW (single-check): Lemma 3.6 + Selberg's upper-bound sieve (error Q_R(ξ)², tail ξ^{−1/2}) gives
   UNCONDITIONALLY |E| ≥ c_N/3 at a cluster end of R_tight: β(R_tight) = α_R = ½, β₂ ≥ ¼ — Cor F.1 without RH. Computed by
   inclusion–exclusion (36 849 R-numbers ≤ 4.3e9): h_N/(c_N ln4^N) = NOTE's values digit for digit; jump −1.36c_N; sieve dev −0.36c_N.
+## 2026-10-01 11:31 IST — read-O batch 3: independent re-run (lemmaG-s39)
+- Own segmented sieve with exact __int128 bin sums + 50-digit post-processing: sq = {nextprime(p²)} to 1e9 and 1e10, tight
+  ℚ-necklace to 1e10. Counts equal in every bin; slopes 0.437/0.435/0.463 (1e9) and 0.431/0.422/0.431, sup 0.231, κ 1.41,
+  M/M_diag 1.06…0.324 (1e10); necklace 0.801/0.792/0.789, sup 0.479, κ −5.23, M/M_diag 371 — all digit for digit.
+- sq explicit formula (own C(ρ/2), 200 zeros): corr 0.8824 / 0.9800 / 0.9979, resid 0.0093 vs 0.0690 — reproduced.
+- Unit's ρ(sq) is off by 2.4e−15 (double log-sum); harmless (Δρ·X ≤ 2.4e−5).
+- 𝒞_self: well defined; "every counterexample (RH, α_R < ½) lies in 𝒞_self" ✓ but definitional; "smallest class" not a theorem.
+## 2026-10-01 11:37 IST — read-O batch 4: prior art (lemmaG-s39)
+- Every on-disk citation opened at the named lines: Hilberdink 2005, DMV 2006 (discrete, not "continuous-density"), BV 2024 Thm
+  1.2, Avdeeva Thm 1, Breuer–Simon Thms 1.7/5.1/6.1, Bhowmik–Schlage-Puchta (Estermann/Dahlquist), Fabry — all ✓.
+- MISSED on disk: Hilberdink 2012 (Acta Arith. 152; beurling-fe/sources/p3-22c2) Thm A: N(x) − cx periodic ⟹ ℙ minus FINITELY many
+  primes. The ℚ-side impossibility of R1's phenomenon; nearest published object for R1 and the exact counterpart of §1.3(d).
+- arXiv (6 queries): nothing constructs a deletion with exactly regular counts in F_q[T] or treats thin-R prime zeta functions
+  relative to β₂. Ingham/Huxley via Wikipedia only (secondary).

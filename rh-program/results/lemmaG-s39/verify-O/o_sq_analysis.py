@@ -5,12 +5,14 @@
     and 'top3' (X >= xmax/1e3/1.9999), running-sup slope; (3) M_diag = rho^2 W/12 with W = sum_{b in <R>, b <= Xe-1} prod (p+1)/(p-1)
     by own DFS; kappa from log(M/M_diag) = a - kappa log ln X (X >= 1e6); (4) explicit formula over the first Z zeros:
     E(x) ~ 2 Re sum c_rho x^{rho/2}, c_rho = zeta(rho/2) C(rho/2)/(rho zeta'(rho)); bin means vs exact bin averages, both / x^{1/4}."""
-import sys, math, numpy as np, mpmath as mp
+import sys, re, math, numpy as np, mpmath as mp
 mp.mp.dps = 50
-tag = sys.argv[1]; Z = int(sys.argv[2]) if len(sys.argv) > 2 else 0
+fam = sys.argv[1]; tag = sys.argv[2]; Z = int(sys.argv[3]) if len(sys.argv) > 3 else 0
+ucsv = f"../verify/data/{fam}2_{tag}.csv"
 T = "/private/tmp/rh-s40-lemmaG/"
-rho_me = mp.mpf(open(T + "rho_sq_1e10.txt").readline().strip()); rho_unit = mp.mpf("0.668524156691795768")
-rows = [l.split("\t") for l in open(T + f"sq_{tag}_bins.tsv")]
+rho_me = mp.mpf(open(T + f"rho_{fam}_1e10.txt").readline().strip())
+rho_unit = mp.mpf(re.search(r"rho=([0-9.]+)", open(ucsv).readline()).group(1))
+rows = [l.split("\t") for l in open(T + f"{fam}_{tag}_bins.tsv")]
 lo = [int(r[0]) for r in rows]; hi = [int(r[1]) for r in rows]; cnt = [int(r[2]) for r in rows]
 S1 = [int(r[3]) for r in rows]; S2 = [int(r[4]) for r in rows]; SN = [int(r[5]) for r in rows]
 mx = [float(r[6]) for r in rows]; mn = [float(r[7]) for r in rows]
@@ -19,7 +21,7 @@ def sq_sum(a, b):          # sum_{n=a}^{b} (n+1/2)^2 = sum n^2 + sum n + cnt/4, 
     return mp.mpf(f2(b) - f2(a - 1) + f1(b) - f1(a - 1)) + mp.mpf(b - a + 1) / 4
 def s2(rho): return [mp.mpf(S2[i]) - rho * SN[i] + rho ** 2 * sq_sum(lo[i], hi[i]) for i in range(len(lo))]
 s2_me, s2_unit = s2(rho_me), s2(rho_unit)
-unit = [l.strip().split(",") for l in open(f"../verify/data/sq2_{tag}.csv") if not l.startswith("#")]
+unit = [l.strip().split(",") for l in open(ucsv) if not l.startswith("#")]
 assert [int(u[1]) for u in unit] == lo and [int(u[2]) for u in unit] == hi
 d_cnt = max(abs(int(u[6]) - cnt[i]) for i, u in enumerate(unit))
 rel = [abs(float(s2_unit[i]) / float(u[5]) - 1) for i, u in enumerate(unit) if float(u[5]) > 0]
@@ -45,7 +47,7 @@ for rho, s2v, name in ((rho_unit, s2_unit, "unit rho"), (rho_me, s2_me, "own rho
           f"[1e7,X] {slope(X, M, 1e7):.3f} top3 {slope(X, M, Xe.max() / 1e3 / 1.9999):.3f}; sup-slope [1e4,X] {sup:.3f}")
 print("  M(X) windows:", ", ".join(f"{x:.3g}:{m:.6g}" for x, m in zip(X, M)))
 # W(X) by DFS over squarefree R-numbers <= max Xe
-R = sorted(int(l) for l in open(T + "R_sq_1e10.txt") if int(l) <= Xe.max())
+R = sorted(int(l) for l in open(T + f"R_{fam}_1e10.txt") if int(l) <= Xe.max())
 Y = int(Xe.max()); bs, ws = [], []
 sys.setrecursionlimit(100000)
 def dfs(i0, b, w):

@@ -6,6 +6,207 @@ Line numbers "l. N" refer to the text file named in the entry (as on disk, cat -
 Labels: [quoted] = read at the source on disk/web in this session; [recalled, unverified] = not opened.
 
 === TOP-OF-LOG FLAGS (stop conditions) ===
-(none yet — updated as sources are read)
+Stop condition (a) [printed theorem forbids theta < 1/2 with a zero off the line, discrete]: NOT MET so far. Hilberdink 2005
+  Thm 1 / Cor. 2(b) / Remark C (entry [1]) forbid only max{alpha, beta} < 1/2 and FORCE zeros in {eta' < Re s < 1}.
+Stop condition (b) [printed construction already gives the target]: NOT MET so far.
+NEAR MISS, flagged 11:45 IST: Broucke-Debruyne-Revesz arXiv:2309.01567v2, Theorem 1.3 (p. 4, z-02 l. 183-184), ASSUMING RH, gives
+  discrete [alpha, beta]-systems with 1/2 < alpha < 2/3 and 2alpha/(alpha+2) <= beta < 1/2 (zeta has a real zero at s = alpha, from
+  zeta_{alpha,beta} = zeta(s)zeta(s/beta)/zeta_S(s), l. 1186-1200, 1255-1256). This is "theta < 1/2 with a zero of real part > 1/2"
+  in print, CONDITIONALLY, but with alpha < 2*theta (theta >= 2/5) -- it does not give a zero with real part > max{1/2, 2 theta},
+  and it is not unconditional. See entry [4].
 
 === ENTRIES ===
+
+[1] Hilberdink, "Well-behaved Beurling primes and integers", J. Number Theory 112 (2005) 332-344. [quoted]
+  Opened: fr/sources/w-18a-...txt (text, Greek letters lost) + publisher PDF page images (rh-program/fetched/w-18a-...pdf, pp. 334-336,
+  340). Greek-correct transcription saved: here/pa-hilberdink2005-transcription.txt.
+  Proves: Theorem 1 (p. 335; w-18a l. 195): "Let P be an [alpha, beta]-system. Then Theta = max{alpha, beta} >= 1/2."
+  Corollary 2(b) (p. 336; l. 211-214): "If N_P(x) = rho x + O(x^beta) for some constants rho > 0 and beta < 1/2, then for every
+  eta' in (beta, 1/2), psi_P(x) - x = Omega(x^{eta'}) and zeta_P(s) has infinitely many zeros in the strip {eta' < Re s < 1}."
+  Corollary 2(a) (p. 335; l. 197-199): psi_P = x + O(x^alpha), alpha < 1/2 => N_P - rho x = Omega(x^eta) for all eta in (alpha, 1/2),
+  and zeta_P not of finite order in {eta < Re s < 1}.
+  Remark C (p. 340; l. 496-501): for beta < alpha, "if zeta_P(s) has finitely many zeros for sigma > eta' with eta' in (beta, alpha),
+  then eta' >= 1/2."
+  Scope: covers ALL discrete systems (real g-primes, multiplicities allowed); the proof explicitly avoids any gap hypothesis:
+  "we do not want to restrict the size of n' - n by assuming something like (3.1)" (p. 337; l. 266-267).
+  Relevance: Q3 -- forbids max{alpha, beta} < 1/2 only. For theta < 1/2 it FORCES infinitely many zeros in every strip
+  {eta' < Re s < 1}, eta' in (theta, 1/2), and psi - x = Omega(x^{eta'}) for eta' < 1/2; it does NOT force zeros onto Re s = 1/2 and
+  does NOT forbid zeros with Re s > 1/2. S8 (beta ~ 0, alpha in 0.6-1.0, zeros with Re > 1/2) is consistent with Thm 1, Cor. 2(b),
+  Remark C. Q2 -- p. 335 (l. 191): "at present it seems that no actual examples of [alpha, beta]-systems are known"; p. 343
+  (l. 679-681): "there is no apparent candidate for the latter [0, 1/2] system". No discrete theta < 1/2 example in this paper.
+
+[2] Diamond, Montgomery, Vorhauer, "Beurling primes with large oscillation", Math. Ann. 334 (2006) 1-36. [quoted]
+  Opened: fr/sources/p1-02-...txt + PDF page image p. 5 (rh-program/fetched/p1-02-...pdf) to restore the << / >> signs.
+  Landau's theorem as stated there (pp. 2-3; l. 99-115): if "(3) N_B(x) = kappa x + O(x^theta) with kappa > 0 and 0 <= theta < 1",
+  then "zeta_B(s) != 0 for sigma > 1 - c(1 - theta)/log t, t >= t_0, (4)" and "pi_B(x) = li(x) + O(x exp(-c sqrt((1-theta) log x)))
+  for x >= 2. (5)" -- a REGION sigma > 1 - c(1-theta)/log t, not a strip.
+  Theorem 1 (p. 4; l. 183-193): "Let theta and a be fixed with 1/2 < theta < 1 and a > (4/e)(1-theta). Then ... there is a system of
+  Beurling primes P such that (i) the resulting Beurling integers satisfy (3) with kappa > 0; (ii) ... zeta_B(s) is analytic for
+  sigma >= theta, apart from a simple pole at s = 1 with residue kappa; (iii) the function zeta_B(s) has infinitely many zeros on the
+  curve sigma = 1 - a/log t, t >= 2, and no zero to the right of this curve; (iv) psi_B(x) - x = Omega_pm(x exp(-2 sqrt(a log x)));
+  (v) psi_B(x) = x + O(x exp(-2 sqrt(a log x)))."  => N-error exponent: any prescribed theta in (1/2, 1); never theta <= 1/2.
+  Method (p. 3; l. 120-124): continuous Pi_C first, then "a probabilistic construction to show that there exists a discrete measure
+  pi_B(x) that is sufficiently close to Pi_C(x)" (independent Bernoulli selection, §7 l. 959-1126). Not feedback.
+  Key sentence (p. 4; l. 198-206): "Examples have been given previously by Malliavin ... and Diamond ... of continuous non-negative
+  'prime counting' measures dPi for which the associated 'integer counting' measure dN = exp dPi satisfies (3), but for which the
+  corresponding zeta function has a zero at any desired location in the interval (0, 1). Thus for such systems, the relation (3) does
+  not imply RH. However, it seems that in Theorem 1 we have for the first time a proof that (3) does not imply RH for discrete
+  Beurling primes. On the other hand, it may still be the case that (3) with theta < 1/2 does imply RH for discrete Beurling
+  generalized numbers."
+  Theorem 2 (p. 5; l. 230-258, verified on page image): under (3) with 0 <= theta < 1, "(s-1)zeta_B(s) is analytic for sigma > theta",
+  "n_B(r,t) << r log t/(1-theta) for 0 <= r <= (1-theta)/2, t >= t_0 (7)"; a zero beta_0 + i gamma_0 with
+  beta_0 > 1 - (1-theta)/sqrt(log gamma_0) forces n_B(r,gamma_0) + n_B(r,2gamma_0) >> r(1-theta)/((1-beta_0)^2 log gamma_0) (9) --
+  zeros near sigma = 1 come in clusters.
+  Relevance: Q2 -- DMV states the theta < 1/2 discrete question as OPEN (l. 204-206); their example has theta > 1/2. Q5 -- zero-free
+  region forced by (3) is sigma > 1 - c(1-theta)/log t (Landau), sharp up to c by Thm 1 (for theta > 1/2); no strip is forced.
+  Q1 -- no feedback construction.
+
+[3] Broucke, Debruyne, Vindas, "Beurling integers with RH and large oscillation", Adv. Math. 370 (2020) 107240; arXiv:2004.11501v2.
+  [quoted] Opened: fr/sources/z-01-...txt (arXiv v2 text).
+  Theorem 1.1 (p. 2; l. 80-87): "There exists a Beurling generalized number system such that (1.4) pi(x) = Li(x) + O(sqrt x) and,
+  for any constant c > 2 sqrt 2, (1.5) N(x) = rho x + Omega_pm(x exp(-c sqrt(log x log log x))), where rho > 0 is the asymptotic
+  density of N."  => N-error exponent beta = 1 (no power saving at all); zeta has NO zeros in Re s > 1/2 ("(1.4) implies the
+  Beurling number system satisfies the RH", p. 3, l. 109-111). It is the mirror image of what S8 needs (regular primes, wild integers).
+  Method (p. 3-4; l. 120-122, 173-176): continuous example (Bohr-type, saddle point) + "the Diamond-Montgomery-Vorhauer probabilistic
+  scheme [10] based upon approximations by random Beurling primes" + "adding finitely many well-chosen primes" (l. 179-181).
+  On Zhang [19] = Math. Ann. 337 (2007) 671-704 (p. 2; l. 67-69 and p. 3; l. 114-117): "Zhang complemented these results by showing
+  that there are also Beurling number systems for which, in contrast, the RH and the asymptotic estimate (1.1) both hold" and
+  "Zhang's example ... has generalized prime counting function satisfying (1.4) (hence the RH holds here), but its generalized integer
+  counting function is too regular for our purposes, i.e., (1.1) holds for it." [(1.1) is N(x) = rho x + O(x^theta), l. 28.]
+  Zhang's DMV-type sharpening (p. 2; l. 67): "Several arguments from [10] have been sharpened by W.-B. Zhang in [19]."
+  Problem 1.4 (p. 4; l. 187-200): Malliavin exponents alpha*(beta), beta*(alpha) for x exp(-c log^alpha x)-type errors; only
+  beta*(1) = 1/2 and alpha*(1) = 1/2 known.
+  Relevance: Q5 -- BDV 2020 is NOT an example of zeros near Re s = 1 with regular N: it has RH and N-error x exp(-c sqrt(log x loglog x)).
+  Q1 -- random approximation, not feedback. Q2 -- no.
+
+[4] Broucke, Debruyne, Revesz, "Some examples of well-behaved Beurling number systems", arXiv:2309.01567v2 (26 Jun 2024) [journal
+  version 2025 per the on-disk file name; venue not re-verified here]. [quoted] Opened: fr/sources/z-02-...txt.
+  Theorem 1.1 (p. 3; l. 131): "For any alpha in [0, 1) and beta in [1/2, 1) there exists an [alpha, beta]-system." (unconditional)
+  Theorem 1.3 (p. 4; l. 183-184): "Assume RH. Then there exists a [1/2, beta]-system for each 0 <= beta < 1/2 and an [alpha, beta]-
+  system for 1/2 < alpha < 2/3 and 2alpha/(alpha + 2) <= beta < 1/2."  (Figure 1, p. 5, l. 244-249: "region III", corner beta = 2/5.)
+  Construction of region III (§5, pp. 18-21; l. 1091-1096, 1215-1218, 1254-1256): delete from P a random subsequence P_S of primes
+  with counting function ~ Li(x^alpha) and add P^{1/beta}: "P_{alpha,beta} = P u P^{1/beta} \ P_S", zeta_{alpha,beta}(s) =
+  zeta(s) zeta(s/beta)/zeta_S(s), where on Re s >= alpha/2 + eps "log zeta_S(s) = log zeta(s + 1 - alpha) + O_eps(sqrt(log|t|))"
+  (l. 1186-1200). [Derived here, not stated in these words in the paper: zeta_S has a pole at s = alpha, so zeta_{alpha,beta} has a
+  REAL ZERO at s = alpha in (1/2, 2/3), under RH.] N-error: N_{alpha,beta}(x) = (zeta(1/beta)/zeta_S(1))x + (zeta(beta)/zeta_S(beta))x^beta
+  + O_eps(x^{beta/(1+beta-2alpha/(alpha+2))+eps}) for beta > 2alpha/(alpha+2) (l. 1231-1239).
+  Obstruction (p. 18; l. 1075-1090): "one cannot form [alpha, beta]-systems with alpha > 1/2 and beta < 1/2 by simply adding extra
+  generalized primes to the classical primes P (if RH is true)."
+  Integer-first remark (p. 16-17; l. 991-1003): "a direct application of Theorem 1.2 will always yield an error term of at least
+  O(x^{1/2}) on the integers. So, it appears that considering continuous Beurling systems is of little help here, and one has to
+  construct a discrete example right from the start. As the integers have to display the best behavior, it seems natural to define a
+  Beurling system through the sequence of the integers rather than the primes. Yet, it appears that for sequences defined through
+  this philosophy, it is often extremely difficult to show which behavior the primes must admit."
+  Uncertainty heuristic (p. 4; l. 169-178): any method approximating extended systems by discrete ones with O(x^theta) control,
+  theta < 1/2, on one counting function "should have an uncertainty of size at least x^{1/2-eps}" on the other.
+  Footnote 4 (p. 3; l. 134-135, 165-166): the [1, beta_0]-system of [7, Ch. 17] (Diamond-Zhang book; based on DMV and Zhang 2007)
+  has "some beta_0 <= 1/2" -- "Most likely the value of beta_0 equals 1/2, but in principle it is still possible that beta_0 could be
+  smaller."  Zhang 2007 [17] (p. 3; l. 121-124): "the first unconditional example of a well-behaved system ... psi_P(x) = x +
+  O(x^{1/2+eps}) and N_P(x) = ax + O(x^{1/2+eps})". Broucke-Vindas [5]: "[0, 1/2]-systems" (l. 125-127).
+  Relevance: Q2 -- YES, CONDITIONALLY (RH): region III gives discrete systems with N-error exponent beta in [2alpha/(alpha+2), 1/2)
+  (so beta >= 2/5) and alpha in (1/2, 2/3), with a zeta zero at s = alpha > 1/2. All satisfy alpha <= 2beta (since 2beta >=
+  4alpha/(alpha+2) > alpha), i.e. they obey Conjecture U. No unconditional beta < 1/2 example; none with beta < 2/5 and alpha > 1/2.
+  Q1 -- the paper names the integer-first idea and declines it; no feedback construction. Q3 -- no prohibition beyond Hilberdink.
+
+[5] Diamond, Zhang, "Beurling Generalized Numbers", AMS Math. Surveys and Monographs 213 (2016). [quoted]
+  Opened: dz/t-50-diamond-zhang-2016-book.txt (grep + read of Ch. 1, Ch. 16 intro, Ch. 17 §§17.1, 17.3.2, 17.4, 17.10, 17.11).
+  p. 1 (l. 356-360), answer (2): "There exist g-number systems whose integer counting function N(x) is, like that of the rational
+  integers, very close to x but have neither an additive structure nor a 'zeta functional equation,' and for which the analogue of
+  the Riemann hypothesis does not hold. Thus, a proof of the Riemann hypothesis will require more than just the multiplicative
+  structure of integers and smallness of N(x) - x."  ["very close" = the Ch. 17 example below, error x^{1/2} exp{c(log x)^{2/3}}.]
+  p. 175 (l. ~10330-10340), Ch. 16 intro: "if we assume that N(x) = Ax + O(x^theta) with some number theta in [0, 1), then the zeta
+  function ... can be analytically continued to the half plane {sigma > beta} [sic; theta]. In this case, estimates of Delta with
+  beta equal to 1/2 can be obtained by mimicking classical contour shifting methods. We shall not pursue this case further here. In
+  the next chapter, we shall show with an example that such a bound is optimal."  (Delta(x) << x exp{-c log^beta x}: dlVP-type.)
+  p. 195 (l. 11511-11517): Landau: (17.3) N(x) = kx + O(x^theta), theta in (0,1) => (17.1) zero-free region sigma > 1 - c/log t and
+  (17.2) pi(x) = li(x) + O(x exp{-c sqrt(log x)}).
+  p. 196 (l. 11533-11534) KEY: "In each case, the Beurling g-number system that is constructed satisfies (17.3) with theta in
+  (1/2, 1) (optimality is not known for theta <= 1/2)".
+  Theorem 17.11 (p. 205; l. 12108-12118), RH example: "(i) N_R(x) = k_1 x + O(x^{1/2} exp{c(log x)^{2/3}}) ... (iii) zeta_R(s) has no
+  zeros on the half plane sigma > 1/2; (iv) pi_R(x) = li(x) + O(x^{1/2})."
+  Theorem 17.14 (p. 208; l. 12285-12297), large oscillation: "(i) N_B(x) = k_2 x + O(x^{1/2} exp{c(log x)^{2/3}}) with k_2 > 0;
+  (ii) zeta_B(s) is analytic for sigma > 1/2 except for a simple pole at s = 1 ...; (iii) the function zeta_B(s) has infinitely many
+  zeros on the curve sigma = 1 - 1/log t, t >= e^2, and no zeros to its right; (iv) limsup (psi_B(x) - x)/(x exp{-2 sqrt(log x)}) = 2
+  and liminf = -2."  => N-error exponent exactly 1/2 up to exp{c(log x)^{2/3}} (beta_0 <= 1/2; BDR fn. 4: "most likely" = 1/2).
+  Method (p. 196; l. ~11545-11555): template zeta + "random g-primes are created from a sequence of positive real numbers {v_k} as
+  the nonzero values of {v_k X_k}, where {X_k} are independent Bernoulli variables" + Kolmogorov inequality. Notes §17.1 (p. 227,
+  l. 13511): "based on the articles [DMV06] and [Zh07]". No "greedy", "feedback", "inverse problem", "prescribed", or
+  "self-regulat" anywhere in the book text (grep, l. 1-end).
+  Relevance: Q5 -- the discrete example with zeros approaching Re s = 1 has N-error O(x^{1/2+eps}) (Thm 17.14), DMV's has any
+  theta in (1/2,1); the book says explicitly that the theta <= 1/2 case is open. Zero-free region forced by (17.3): only Landau's
+  sigma > 1 - c/log t. Q2 -- not in the book (theta <= 1/2 open). Q1 -- no feedback construction.
+
+[6] Broucke, Vindas, "A new generalized prime random approximation procedure and some of its applications", arXiv:2102.08478v2
+  (17 Jun 2024; Math. Z. per BDR ref. [5], "to appear"). [quoted] Opened: fr/sources/z-18-...txt.
+  Theorem 1.2 (p. 2; l. 97-111): for F non-decreasing, right-continuous, F(1) = 0, F(x) << x/log x, "there exists a set of
+  generalized primes P = {p_j} such that |pi_P(x) - F(x)| <= 2 and such that for any real t and any x >= 1
+  |sum_{p_j<=x} p_j^{-it} - int_1^x u^{-it} dF(u)| << sqrt x + sqrt(x log(|t|+1)/log(x+1))". Random selection (P_j with
+  distribution function F - j + 1); no feedback on N.
+  Theorem 3.1 (p. 10; l. 582-594): a discrete system with Pi_P(x) = Li(x) + O(log log x), N_P(x) = x + O(x^{1/2} exp(c(log x)^{2/3})),
+  M_P(x) = O(x^{1/2} exp(c(log x)^{2/3})), and N_P(x) = x + Omega_eps(x^{1/2-eps}) -- a [0, 1/2, 1/2]-system.
+  [alpha, beta, gamma]-systems (p. 9; l. 552-566): "The main result of [14] (Hilberdink-Neamah 2020) (see also [7]) tells us that
+  Theta = max{alpha, beta, gamma} is at least 1/2 and that at least two of these numbers must be equal to Theta."
+  Footnote 6 (p. 9; l. 567-569): "For this result it is imperative to consider discrete number systems, since it is obviously false
+  for continuous ones: consider for example Pi_0 = Li, for which [6] N_0(x) = x and M_0(x) = 1 - log x, for an easy counterexample."
+  Relevance: Q1 -- no. Q2 -- no (beta = 1/2 here). Q3 -- Hilberdink-Neamah: if beta < 1/2 then alpha = gamma = Theta >= 1/2; no
+  prohibition of zeros off the line. S8 (beta ~ 0) is consistent: it needs alpha = gamma (Mobius sum exponent = prime exponent).
+  Q6/Q7 context -- footnote 6 is a printed statement that the continuous template (Pi_0 = Li, N_0 = x) escapes the discrete
+  theorems.
+
+[7] Hilberdink, "Generalised prime systems with periodic integer counting function", Acta Arith. 152 (2012) 217-241,
+  doi:10.4064/aa152-3-1 (accepted version, CentAUR 23409). [quoted] Opened: fr/sources/p3-22c2-...txt.
+  Abstract (l. 42-48): "We study generalised prime systems (both discrete and continuous) for which the 'integer counting function'
+  N(x) has the property that N(x) - cx is periodic for some c > 0. We show that this is extremely rare. In particular, we show that
+  the only such system for which N is continuous is the trivial system with N(x) - cx constant, while if N has finitely many
+  discontinuities per bounded interval, then N must be the counting function of the g-prime system containing the usual primes
+  except for finitely many."
+  Introduction (l. 66-68): "For example, N(x) = cx + 1 - c for x >= 1 determines a continuous g-prime system for 0 < c <= 2 at least."
+  Theorem 2.1 and its proof (accepted-version p. 6; l. 404-412): "Let N(x) = cx - R(x) ... Then Pi is increasing if and only if R is
+  constant; i.e. N(x) = cx + 1 - c for x >= 1. Proof. If R is constant, then N(x) = cx + 1 - c (x >= 1) and N^(s) = 1 + c/(s-1).
+  Thus psi^(s) = -N^'(s)/N^(s) = 1/(s-1) - 1/(s+c-1), which implies psi'(x) = 1 - x^{-c} >= 0. Hence Pi is increasing."
+  Remark (i) (l. 471-473): "N(x) = cx + 1 - c determines an outer g-prime system for every c > 0. ... We show in the appendix that
+  this happens [pi increasing] for 0 < c <= lambda and fails for c > lambda for some lambda > 2."
+  Relevance: Q7 -- the S8 continuous template N_c(x) = 1 + rho(x-1) = rho x + 1 - rho, zeta_c(s) = 1 + rho/(s-1) = (s-1+rho)/(s-1),
+  psi_c'(x) = 1 - x^{-rho} (prime density (1 - x^{-rho})/log x) IS IN PRINT here (with c = rho); the zero of zeta_c at s = 1 - c is
+  implicit (the pole of psi^ at 1 - c), not remarked on as a zero. Continuous only. Q6 -- this is a "quite simple" printed example
+  with N(x) - cx = O(1) (exactly constant) and, for c < 1/2, a zeta zero at 1 - c > 1/2; continuous, not discrete.
+  Hilberdink 2012 also shows a DISCRETE N with N(x) - cx periodic (finitely many jumps per interval) is the usual primes minus
+  finitely many -- so the S8-type target can never have a periodic integer error; S8's E is not periodic (no conflict).
+
+[8] Revesz, "Oscillation of the remainder term in the prime number theorem of Beurling, 'caused by a given zeta-zero'", IMRN 2023
+  no. 14, 11752-11790; arXiv:2202.01837v3. [quoted] Opened: fr/sources/t-14b-...txt.
+  Setting (p. 2; l. 56-60, 67-77): arithmetical semigroups with |G| locally finite ("discrete"); "Axiom A(kappa, theta) ... if we have
+  for the remainder term R(x) := N(x) - kappa(x - 1) the estimate |R(x)| <= A x^theta (x >= 1 arbitrary). (2)"
+  Background (p. 3-4; l. 172-190): DMV "basically showed that under Axiom A the Riemann Hypothesis ... may still fail; moreover,
+  nothing better than the most classical [64] zero-free region and error term of zeta(s) != 0 whenever sigma > 1 - c/log t (9) and
+  psi(x) = x + O(x exp(-c sqrt(log x)) (10) follows from (2) at least if theta > 1/2."  Footnote 2 (l. 175-179): Kahane proves
+  O(T) zeros on the segment {a + it, 0 < t <= T} for any a > max(1/2, theta).
+  Theorem 2 (p. 5; l. 272-276): under Axiom A, a zero rho_0 = beta_0 + i gamma_0 with beta_0 > theta gives |Delta(x)| >=
+  (1 - eps) x^{beta_0}/|rho_0| (and (pi/2 - eps) x^{beta_0}/|rho_0| if gamma_0 != 0) for arbitrarily large x.
+  Theorem 3 (p. 5; l. 278-282): "Let eps > 0, beta_0 in (1/2, 1) and 1/2 < r < beta_0 be given. Then there exists an arithmetical
+  semigroup G satisfying Axiom A with theta = r (but with no better value), such that there is a zeta-zero rho_0 = beta_0 + i gamma_0
+  ... and |Delta(x)| <= (pi/2 + eps) x^{beta_0}/|rho_0| holds true for all sufficiently large values of x."
+  Theorem 8 (pp. 21-22; l. 1452-1468): "Let 1/2 <= r < 1 be a parameter and S a finite, symmetric ... multiset of elements
+  rho = beta + i gamma, all satisfying r < beta < 1. If r > 1/2, then there exists a sequence P of Beurling primes such that the
+  corresponding integer counting function satisfies Axiom A with theta = r ... Further, if r = 1/2, then there exists a sequence P of
+  Beurling primes such that the corresponding integer counting function satisfies Axiom A with theta = 1/2 + eps, for any eps > 0.
+  ... the Beurling zeta function is analytic in the halfplane Re s > 1/2, except for a simple pole at s = 1 ... and in this halfplane
+  it vanishes precisely at the points of S". Method: Broucke-Vindas random approximation (l. 1062-1097).
+  Remark 1 (p. 22; l. 1477-1497): "even if we know analyticity, we cannot get good order estimates in the 'bad half' q < Re s <= 1/2
+  of the critical strip, and, correspondingly, we cannot infer a better error estimate for N(x). Although this may seem only a
+  deficiency of our methods, in fact it is not. ... This shows that we cannot expect, in general, to arrive at Axiom A with better
+  exponent than 1/2, at least not when we can prescribe good error bounds for the PNT."
+  Relevance: Q2 -- closest unconditional printed result: discrete, zeros PRESCRIBED anywhere in (1/2, 1), N-error O(x^{1/2+eps})
+  (theta = 1/2 + eps, never < 1/2). Q5 -- prescribed finite zero sets with Re in (r, 1); N-error exponent r >= 1/2. Q1 -- random.
+
+[9] Broucke, Hilberdink, "An omega-result for Beurling generalized integers", Acta Arith. 212 (2024) (per on-disk file name).
+  [quoted] Opened: fr/sources/t-19a-...txt.
+  Theorem 1.1 (p. 2; l. 92-97): "Let P be a g-prime system for which (1.1) [psi(x) = x + O(x^alpha) for some alpha < 1/2] holds. Then
+  N(x) - rho x = Omega(sqrt x e^{-(log x)^beta}) for every beta > 2/3."
+  p. 2-3 (l. 106-115): "There is a closely related problem concerning a system with very well-behaved integers, namely when
+  N(x) = rho x + O(x^alpha) with alpha < 1/2. Under this assumption, it was shown in [6] that psi(x) - x = Omega(x^{1/2-eps}) for all
+  eps > 0. ... This was recently considered in [7], where this was improved to psi(x) - x = Omega(sqrt x e^{-c sqrt(log x loglog x)})
+  for some c > 0."  [7] = Hilberdink, Kaziulyte, "Omega-result for the remainder term in Beurling's prime number theorem for
+  well-behaved integers", Acta Arith. 208 (2023) 69-81 (l. 643-644) -- NOT opened yet; see later entry if found.
+  Relevance: Q3 -- the only printed constraint on psi for theta < 1/2 is a LOWER bound (Omega of size ~sqrt x); it pushes psi - x up,
+  never forbids zeros right of 1/2. S8 (psi - x exponent 0.6-1.0) is consistent. Q2 -- no example.
