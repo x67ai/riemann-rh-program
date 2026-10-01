@@ -206,4 +206,5 @@ statements, no rounding).
 Statuses. W, F, K and the Clifford claims: THEOREM (dual-read), no new mathematics. Census (4591 data, the 111, 115 + 192 genuine L-
 polynomials), I(V) = −0.1180339887, I(E₀) = +0.1055728090, Z3 values: NUMERICAL (2 producers, rO:16–19). A1, A2 (class-(B) window for
 non-square q ≤ 13), A3 (λ_min(T_M(V)) in Lucas/Fibonacci closed form): single-check. The two zoo riders of §11 (on IV.1 and I.9): accurate
-after F1, F2e, m9 (rO:27–28) — routed to the zoo stream by the Session-40 applier's report, not restaged here.
+after F1, F2e, m9 (rO:27–28) — already entered at the Session-40 zoo stream (BARRIER-ZOO.md:153, the I.9 rider; :443, the IV.1
+rider); not restaged here.
