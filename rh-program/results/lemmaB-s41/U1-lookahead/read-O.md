@@ -98,7 +98,7 @@ composite sits AT B, so f and the counts should run over [B, x], not (B, x].
 Wiener–Ikehara, labeled [recalled, unverified] (not on disk) yet load-bearing. The (B)-failure needs no Tauberian theorem: if
 N_{P₀}(x) ≤ (ρ + δ)x + C for all x, then ζ_{P₀}(σ) = σ∫N_{P₀}u^{−σ−1} ≤ (ρ + δ)σ/(σ − 1) + C, so ρ₀ ≤ ρ + δ; hence ρ₀ > ρ gives
 limsup(N_P − ρx)/x ≥ ρ₀ − ρ > 0 by (a), and (B) fails for every θ < 1. Only the "≥ (ρ₀ − ρ)x(1 + o(1)) for all large x" form needs W–I.
-**1.10 Proposition 3.3 (l. 128–148) — ✓ under two implicit hypotheses (m8), reproduced numerically.** (i) Moving primes down maps each
+**1.10 Proposition 3.3 (l. 128–148) — ✓ under two implicit hypotheses (m8, m9; m10 for (iii)), reproduced numerically.** (i) Moving primes down maps each
 g-integer to one ≤ it, so N_{P′} ≥ N_P pointwise ✓. (ii) For x < y₀ only g-integers with exactly ONE moved prime factor, to the first power,
 can cross x — this needs y₀ < a_J², i.e. y₀ > p_J² ("y₀ large"); such an n = qm crosses iff m·a_j ≤ x < m·q, so m ≤ x/a_j < p_j (the NOTE
 writes "<" for the first), m lies in the finite set, x in a window of relative width < δ₀/2. "At most one pair (j, m) per x" needs
@@ -156,6 +156,8 @@ w = 50: 0.878375 → 0.879191 ("0.878" → 0.879); w = 10 seed 2: 0.824048 → 0
 The qualitative conclusion of §3.1 ("randomization makes the integer error WORSE") stands, and is stronger for seed 2. Two further
 s40 observations: (i) the rule as STATED in §3.1 ("uniformly in [max(x*_k − w, 1 + t/2), x*_k]") is not the rule RUN (an atom at the block
 start B: all draws below B are placed at B); (ii) U1's §0 "harmless for τ = ½ at π/4, π/16" (l. 37) is true for greedy (w = 0) only — F3.
+The affected numbers are quoted in s40 theory NOTE l. 228–231 (current file) and `free-greedy-s40/SHARED.md` l. 46; no other file in
+`results/` uses `s8w_block.py`.
 **2.6 U1's own early-placement code path** (`early_rules_check.log`): U1 `rules.cpp` (fixed) "early" (pos = max(B, x* − W)) against my
 brute force with U ≡ 1, X = 10⁵: W = 5: N 19,636, π 7,658, sup E 5.582 (both); W = 100: N 19,636, π 5,825, sup E 1,210.84 (both). The §5 rows
 at 10⁷ were not re-run (my exact generator is Python; 10⁷ is out of reach in the time box) — they rest on code now validated at 10⁵.
