@@ -123,7 +123,8 @@ class-(B) phenomenon is re-derived by hand in §1(j)).
 **F1 — "equality exactly at genus 0" is true for D_1 only; and "every zeta datum" includes P¹, where D_1 = 0.** Theorem F(b)
 (line 147) is right; the close and its copies attach the equality clause to the whole family D_k. At genus 0, L = 1, h = 1:
 D_k(P¹) = q^{k−1} − 1, i.e. 0, 4, 24 at q = 5 for k = 1, 2, 3 (o1). §1(d) gives the reason: only the degree −1 box is the
-gap-width Fejér test. The fix is wording only; no conclusion moves (D_1 alone carries the positions-side verdict). Six pairs:
+gap-width Fejér test. The fix is wording only; no conclusion moves (D_1 alone carries the positions-side verdict). Seven pairs
+(F1f has two fragments):
 
 F1a, line 19
 OLD: (iii) Theorem F: M1a's Fejér defect on q^Z is D_k = h(q^{g−1+k} − 1) (AHL Lemma 3.4): equality exactly at genus 0, genus-1 form
@@ -165,12 +166,12 @@ integrality), and its M = 1 boundary member is PRINTED: the Weil–Serre lower b
 m = ⌊2q^{1/2}⌋ (V: h = 1 < 2). So brief stop line 2 ("a known Oesterlé/Serre bound") fires for class (B) too. Separately: Oesterlé's
 program (Howe–Lauter p. 2) is the UPPER-bound optimization under Weil + b_d ≥ 0 — the sign class the NOTE itself shows is V-blind
 (line 122) — while V's separator is a lower bound; and the printed relation is "closely related to the dual" (HPM p. 4) /
-"inverse functions in some sense" (HP19 abstract), not "its dual is". The close K stands: class (B) is Weil + integrality. Five pairs:
+"inverse functions in some sense" (HP19 abstract), not "its dual is". The close K stands: class (B) is Weil + integrality. Seven pairs (F2e has three fragments):
 
 F2a, lines 16–17
 OLD: identically on every zeta datum; the separating ones are the Toeplitz cone = Hallouin–Perret's Hodge-index Gram cone on X × X;
 OLD: the optimum is Oesterlé's program, whose dual is HP19's SDP — all printed (§5). The best separator of V is Weil's lower bound
-NEW: identically on every zeta datum; those separating a datum from the Weil region W_{g,M} (all real-angle data) are the Toeplitz cone = Hallouin–Perret's Hodge-index Gram cone on X × X, while separators from the genuine integer data alone form the larger class (B), Weil + integrality (e.g. 17g/4 + N_1 − 6 ≥ 0 over F_5: V −3/4, f(0) < 0);
+NEW: identically on every zeta datum; those separating a datum from the Weil region W_{g,M} (all real-angle data) are the Toeplitz cone = Hallouin–Perret's Hodge-index Gram cone on X × X, while separators from the genuine integer data alone form the larger class (B), Weil + integrality, whose M = 1 boundary is the Weil–Serre lower bound N_1 ≥ q + 1 − g⌊2√q⌋ (HPM p. 2; e.g. 17g/4 + N_1 − 6 ≥ 0 over F_5: V −3/4, f(0) < 0);
 NEW: the method is Serre's explicit formula (Oesterlé optimized it for UPPER bounds, a class that does not see V), and HP's Gram SDP "is closely related to the dual of the optimization problem solved by Oesterlé" (HPM p. 4) — all printed (§5). The best Weil-test separator of V is Weil's lower bound
 
 F2b, line 29
@@ -181,7 +182,7 @@ F2c, lines 263–264
 OLD: Σ_j f(θ_j) (Theorem W(i)); the separating ones are exactly the Toeplitz cone = the Hodge-index Gram cone of the Frobenius graphs on
 OLD: X × X (HP 1409.2357 (5)); the optimum is Oesterlé's program (Howe–Lauter p. 2) and its dual is HP19's SDP (HPM p. 4). IV.1.
 NEW: Σ_j f(θ_j) (Theorem W(i)); those separating a datum from the Weil region W_{g,M} are exactly the Toeplitz cone = the Hodge-index Gram cone of the Frobenius graphs on
-NEW: X × X (HP 1409.2357 (5)); separators from the genuine integer data alone form class (B), Weil + integrality (17g/4 + N_1 − 6 over F_5; AHL Cor. 2.10); the method is Serre's explicit formula, optimized for upper bounds by Oesterlé (Howe–Lauter p. 2), and HP's Gram SDP "is closely related to the dual" of Oesterlé's problem (HPM p. 4; HP19). IV.1.
+NEW: X × X (HP 1409.2357 (5)); separators from the genuine integer data alone form class (B), Weil + integrality — at M = 1 the Weil–Serre lower bound N_1 ≥ q + 1 − g⌊2√q⌋ (HPM p. 2), e.g. 17g/4 + N_1 − 6 > 0 over F_5, V −3/4; AHL Cor. 2.10; the method is Serre's explicit formula, optimized for upper bounds by Oesterlé (Howe–Lauter p. 2), and HP's Gram SDP "is closely related to the dual" of Oesterlé's problem (HPM p. 4; HP19). IV.1.
 
 F2d, line 210
 OLD: WHAT IS NEW RELATIVE TO OESTERLÉ (10(n)): nothing in the LP — it is Oesterlé's program, and its dual is HP19's Hodge-index SDP.
@@ -194,3 +195,78 @@ OLD: the LP optimum is Oesterlé's (
 NEW: the method is Serre's explicit formula, optimized for upper bounds by Oesterlé (
 OLD: and its dual is HP19's SDP (Hallouin–Moustrou–Perret arXiv:2506.05212 p. 4)
 NEW: and HP's Gram SDP "is closely related to the dual of the optimization problem solved by Oesterlé, as shown in [HP19]" (Hallouin–Moustrou–Perret arXiv:2506.05212 p. 4)
+
+## §5. Minor pairs (OLD quoted exactly, NOTE line first)
+
+m1, lines 116–117 — class (B) was not run at (q, g) = (11, 2) (r1_lp.log: "g2_q11 … "n_gen": null … "B": 0").
+OLD: finite set) catches all, and its optimum is NEVER a Weil test (min f on the circle < 0 in all 2 + 199 + 4 + 675 + 10 cases):
+NEW: finite set) catches all 890 data where it was run (not run at q = 11, g = 2: genuine genus-2 curves over F_11 not enumerated), and its optimum is NEVER a Weil test (min f on the circle < 0 in all 2 + 199 + 4 + 675 + 10 cases):
+
+m2, lines 54 and 157 — AHL state Lemma 3.4 for g ≥ 2 (p. 14); (R) is used at g = 1.
+OLD: (R) Θ_n = q^{n−g+1}Θ_{2g−2−n} for all n ∈ Z (class-summed Riemann–Roch; printed for virtual zeta functions as AHL Lemma 3.4
+NEW: (R) Θ_n = q^{n−g+1}Θ_{2g−2−n} for all n ∈ Z (class-summed Riemann–Roch; printed for virtual zeta functions, for g ≥ 2, as AHL Lemma 3.4 — for g = 0, 1 it is a one-line check —
+OLD: Printed: (R) with (a) is Aubry–Haloui–Lachaud's Lemma 3.4, (10)–(11) (`sources/arxiv-1201.4967.txt` lines 811–814, printed p. 14 —
+NEW: Printed: (R) with (a) is Aubry–Haloui–Lachaud's Lemma 3.4, (10)–(11), stated there under "assume g ≥ 2" (`sources/arxiv-1201.4967.txt` lines 811–814, printed p. 14 —
+
+m3, lines 119 and 186 — "the" validity proof of class (B): at (q, g) = (5, 1) its separator N_1 ≥ 2 also has an RH-free proof (§7 A1).
+OLD: generator (its validity proof is RH + t ∈ Z; §5).
+NEW: generator (one validity proof is RH + t ∈ Z — the Weil–Serre bound, HPM p. 2; at q = 5, g = 1 an RH-free coordinate proof also exists, read-O §7 A1; §5).
+OLD: takes RH as input (HPM 2506.05212 §1.2, p. 4: Serre's refinement from "{ω_1, …, ω_g, ω̄_1, …, ω̄_g} stable under Gal(Q̄/Q)").
+NEW: takes RH as input in Serre's proof (HPM 2506.05212 §1.2, p. 4: Serre's refinement from "{ω_1, …, ω_g, ω̄_1, …, ω̄_g} stable under Gal(Q̄/Q)"; the Weil–Serre bound itself, HPM p. 2).
+
+m4, lines 234–238 — the Z3 values are grid minima (step 0.05 / 0.01); the ζ minimum sits at the endpoint T = 0 (verify-O/o4a, o4b).
+OLD: min over T ∈ [0, 10⁴) of W = +0.0069 — vacuous, every
+NEW: min over T ∈ [0, 10⁴) of W = +0.0069, at the endpoint T = 0 (interior minimum 0.0072 at T = 5.65) — vacuous, every
+OLD: term ≥ 0 because every γ is real. F_{2.9,2} (zeros closed-form): min W = −872.45 at T = 13.80 (the factor zeros at
+NEW: term ≥ 0 because every γ is real. F_{2.9,2} (zeros closed-form): grid min (step 0.01) W = −872.45 at T = 13.80, continuous min −872.79 at T = 13.8018 (the factor zeros at
+OLD: 0.650830 + 114.163343i with their mirrors 1 − β + iγ, by findroot; the argument principle on the half-rectangle gives 47.0000): min W = −681.66
+NEW: 0.650830 + 114.163343i with their mirrors 1 − β + iγ, by findroot; the argument principle on the half-rectangle gives 47.0000): grid min (step 0.01; continuous min −682.38 at T = 85.4929) W = −681.66
+
+m5, line 271 — on Z three forms were tested; the sentence states a general conclusion.
+OLD: Hence the Fejér defect is not a positivity generator outside Weil's cone, on rung 1 or on Z: its POSITIONS form is positive for
+NEW: Hence no form of the Fejér defect built here is a positivity generator outside Weil's cone, on rung 1 or (for the three Z-forms tested) on Z: its POSITIONS form is positive for
+
+m6, lines 109 and 204 — HP19 was not read at the page by the NOTE; its abstract (fetched by this read) says "inverse functions in some sense".
+OLD: (1409.2357 p. 7 eq. (5), from the Hodge index theorem on X × X), and its duality with Oesterlé's LP is HP19 (§5 below, at the page).
+NEW: (1409.2357 p. 7 eq. (5), from the Hodge index theorem on X × X), and its relation to Oesterlé's LP is HP19's ("closely related to the dual", HPM p. 4; "inverse functions in some sense", HP19 abstract).
+OLD: (HP19 = Trans. AMS 372 (2019) 5409–5451, not fetched)
+NEW: (HP19 = Trans. AMS 372 (2019) 5409–5451, DOI 10.1090/tran/7813; abstract read by read-O: "We relate this set of bounds to those of Oesterlé, proving that these are inverse functions in some sense")
+
+m7, line 205 — page and label.
+OLD: | V's best separating inequality | Weil's lower bound N ≥ q + 1 − 2g√q (HPM's (1)) | HPM p. 1–2 |
+NEW: | V's best Weil-test separator; best class-(B) separator | Weil's lower bound N ≥ q + 1 − 2g√q; the Weil–Serre bound "(q + 1) − g⌊2√q⌋ ≤ ♯X(Fq)" | HPM p. 1 (unnumbered; (1) is on p. 3); HPM p. 2 |
+
+m8, lines 34 and 300 — at the recorded hash 04496dce… of directions/C2-rigidity-conservation.md, line 168 is blank; the entry is line 176.
+OLD: answered at its first rung (C2 Untried line 168: the
+NEW: answered at its first rung (C2 Untried line 176: the
+OLD: ξ"** at its first rung (C2 Untried line 168:
+NEW: ξ"** at its first rung (C2 Untried line 176:
+
+m9, line 329 — the I.9 entry already uses "D_k" for DD3's squeeze (BARRIER-ZOO line 143: "the squeeze positivity of D_k (DD3"); rename in the rider.
+OLD: is D_k = h(q^{g−1+k} − 1) — Aubry
+NEW: is 𝔇_k = h(q^{g−1+k} − 1) (not DD3's squeeze D_k of this entry) — Aubry
+(and D_1(V) → 𝔇_1(V) in the same rider; apply after F1f.)
+
+Total: FIX-FIRST 2 items (F1: 7 OLD/NEW pairs, F2: 7 pairs); minor 9 items (m1–m9: 15 pairs). Record notes, no NOTE pair: SHARED.md
+Blocks 2–4 carry stamps 05:40, 06:10, 06:30, later than Block 5 (05:26) and than the file's own mtime (05:26) — not machine-clock
+stamps; SHARED Block 1 puts HP's "experimental observation" on p. 2 (it is p. 3); the read brief's target (d) attributes −872.45
+to Epstein — it is F_{2.9,2}'s value, as the NOTE says (Epstein's Z3 was not run, §9).
+
+## §6. Novelty per result
+
+| result | NOTE's label | verdict of this read |
+|---|---|---|
+| Theorem W(i), identity (E) | (P); "Serre's explicit formula" | in print: HPM p. 3, (2) "tk = Σ ωj^k + ω̄j^k = 1 + q^k − Nk" and §1.1 (explicit formulæ, [Ser20, Ch. V.3]) |
+| Theorem W(ii), λ_min(T_M) = 2 min I_c; separation from W_{g,M} = Toeplitz cone | (P); pieces printed | in print as a statement on a printed core: HP 1409.2357 (3), (5) (Gram = T_M/2g), HPM (3) (= the integer H_M), HP19 abstract ("the Riemann hypothesis for the curve X can be merely seen as a euclidean property coming from the Toeplitz shape of some intersection matrix on the surface X×X"); the Fejér–Riesz / Carathéodory–Toeplitz step is classical `[recalled, unverified: no textbook page opened]` |
+| class (B) (lines 116–119) | refinement, Serre | in print: Weil–Serre bound, HPM p. 2; AHL Cor. 2.10 p. 8 (nonlinear) |
+| Theorem F(a), (R), D_k formula | (P) + printed | in print: AHL Lemma 3.4 (10)–(11), p. 14 (for g ≥ 2; g ≤ 1 one line) |
+| Theorem F(e), the window | printed | in print: AHL p. 1 |
+| the "Fejér pairing on q^Z" reading of (R); F(c)'s affine link at g = 1 | `[novelty: single-check]` (reading) | re-derived here (§1(d)); stands as a reading for D_1 only (F1); now dual-checked in that form |
+| Bombieri's (5) as a twisted Fejér test; 41 = 41 at Q = 25 | `[reading: single-check]` | re-derived (§1(f)) against p. 236 at the page: dual-checked |
+| Theorem K | the close | packaging of the above; no new mathematics, as the NOTE says |
+| class-summed Clifford N_1 ≤ h; its catch counts | recalled, standard; (C) | standard (Abel–Jacobi + F. K. Schmidt); counts reproduced exactly |
+| Z1, Z2, Z3 | (C) + (P) | Z1 is M1a's (C_q), an identity (re-derived); Z3 numbers reproduced as grid minima (m4) |
+| IV.1 rider (§11) | single-check packaging | accurate after F2e; not a duplicate (grep of BARRIER-ZOO.md: no text on Oesterlé, Hallouin–Perret or the rung-1 LP) |
+| I.9 rider (§11) | single-check | accurate after F1f and m9; a named instance of I.9's existing KILLS ("a mechanism the virtual curve passes cannot be the generator", line 143), not a duplicate; "D_k" collides with DD3's squeeze D_k in the same entry (m9) |
+
+Verdict on the label "Found nothing new, correctly": UPHELD. Nothing in the NOTE is new mathematics, and the NOTE claims none.

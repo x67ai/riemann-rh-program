@@ -39,3 +39,27 @@ f(902538000) = 276 and f(478800) = 26 pass (`logs/fcount_selftest_C3.log`). Seco
 
 (The 20.20 integer was not named in the record; it is the orchestrator's greedy rule rerun over primes ≤ 47,
 `logs/search_greedy_K15_orchestrator_cands.log`, which also re-finds the other two.) Divisor lists: `logs/gdiv_C3b.txt`, `gdiv_C3c.txt`.
+
+## §2. Pushing the lower bound (task 2)
+
+**2.1 The identity behind every tool [proved here].** Let G be any finite or infinite set of integers ≥ 2 with multiplicities m_q, and
+f(n) the number of multisets from G (copies distinguished) with product n. For every completely additive h: ℕ → ℤ,
+
+  h(n)·f(n) = Σ_{q∈G} m_q·h(q)·Σ_{k≥1, q^k | n} f(n/q^k).
+
+*Proof.* Sum h(x) over all elements x of all multisets M with product n. Since h(ΠM) = Σ_{x∈M} h(x) = h(n), the total is h(n)f(n).
+Grouping instead by the element: a given copy of q occurs in M with multiplicity j ≥ 0, contributing j·h(q) = h(q)·#{k ≥ 1: k ≤ j};
+and multisets containing that copy at least k times are in bijection with all multisets of product n/q^k (remove k copies). ∎
+Cases used: h = Ω gives task 3's recursion a(n)Ω(n) = Σ_{q^k|n} m_q Ω(q) a(n/q^k); **h = v_p** gives
+v_p(n) f(n) = Σ_{q∈G, p|q} m_q v_p(q) Σ_{k: q^k|n} f(n/q^k), whose right side involves only f at divisors of n with smaller
+p-exponent. In particular, if p ∥ n then f(n) = Σ_{q∈G, p | q | n} m_q f(n/q).
+
+**2.2 Tools [computed].** `verify/fcount.c` (full divisor lattice, 128-bit, §1). `verify/search2.c`: one lattice DP (float) per
+accepted move, every candidate move n → np and every swap n → np/q scored from that one array through the v_p identity (the
+right side needs only f at divisors of n); moves +1 over the first K primes ranked by rate Δln f/Δln n, then swaps accepted while
+they raise X(n) = ln f − 0.35 ln n without raising τ(n). Scores agree with a fresh DP after every move (the program prints a
+WARNING otherwise; none occurred). `verify/fcert.c`: exact f_G(n) for n = n₀·p₁⋯p_j (p_i ∥ n) with memory τ(n₀) only — 128-bit
+lattice on n₀, then the v_p identity at exponent 1 for the top primes, memoized; it reproduces the full-lattice counts (276;
+107,416,400,010 at log₁₀n = 31.41 with two and with three top primes). `verify/fsplit.c` (counts only factorizations in which no
+factor contains two primes of a chosen set L): loses a factor 4.7 to 150 on the same n — multi-large-prime g-primes carry much of
+the count, so it is not used for bounds.

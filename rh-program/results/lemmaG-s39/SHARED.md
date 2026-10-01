@@ -88,3 +88,7 @@
   primes. The ℚ-side impossibility of R1's phenomenon; nearest published object for R1 and the exact counterpart of §1.3(d).
 - arXiv (6 queries): nothing constructs a deletion with exactly regular counts in F_q[T] or treats thin-R prime zeta functions
   relative to β₂. Ingham/Huxley via Wikipedia only (secondary).
+## 2026-10-01 11:41 IST — read-O batch 5: pairs written (lemmaG-s39)
+- read-O §4–§5: 31 OLD/NEW pairs — 14 FIX-FIRST in 5 items: F1 T2 k = 2 disjointness false / sq not "uncond." (6 pairs);
+  F2 T5 distinctness false, greedy fix (1); F3 Cor 2.2 path quantifier (2); F4 tight necklace obeys O unconditionally — close
+  upgraded (3); F5 missed Hilberdink 2012 Thm A as R1's nearest object (2). 17 minor (m1–m16).

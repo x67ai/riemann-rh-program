@@ -210,3 +210,80 @@ NEAR MISS, flagged 11:45 IST: Broucke-Debruyne-Revesz arXiv:2309.01567v2, Theore
   well-behaved integers", Acta Arith. 208 (2023) 69-81 (l. 643-644) -- NOT opened yet; see later entry if found.
   Relevance: Q3 -- the only printed constraint on psi for theta < 1/2 is a LOWER bound (Omega of size ~sqrt x); it pushes psi - x up,
   never forbids zeros right of 1/2. S8 (psi - x exponent 0.6-1.0) is consistent. Q2 -- no example.
+
+[10] Broucke, "On zero-density estimates for Beurling zeta functions", arXiv:2409.10051v1 (16 Sep 2024) [Ann. Sc. Norm. Super.
+  Pisa per the on-disk PDF name; venue not re-verified]. [quoted] Opened: rh-program/fetched-r2/t-16b-...pdf, converted to
+  here/pa-broucke2025-zero-density-pisa.txt (line numbers below refer to that file).
+  Landau region as stated (p. 2; l. 75-82): (1.2) "implies the zero-free region sigma > 1 - C(1-theta)/log|t|, |t| >= T_0".
+  Theorem 1.2 (p. 3; l. 116-121): "Let (P, N) be a Beurling number system satisfying (1.2) [N_P(x) = Ax + O(x^theta)] for some
+  theta in [0, 1). Then we have uniformly for alpha >= (1+theta)/2 and T >= 2, N(zeta_P; alpha, T) << T^{4(1-alpha)/(3-2alpha-theta)}
+  (log T)^9."  Earlier exponents (p. 2; l. 104-113): Revesz sigma_0 = (11+theta)/12, c(alpha) = 12(1-alpha)/(1-theta); Broucke-
+  Debruyne sigma_0 = (2+theta)/3, c(alpha) = c_1(alpha)(1-alpha)/(1-theta); Pintz-Revesz (integrality + Ramanujan)
+  N(alpha,T) <<_eps T^{2(1-alpha)/(alpha-theta)+eps} for alpha near 1.
+  Theorem 6.3 (p. 22; l. ~1448-1456), with its construction §6.1 (pp. 18-21): "Let theta in [1/2, 1). Then there exists a Beurling
+  number system (P, N) for which N_P(x) = Ax + O(x^theta (1 + I_{theta=1/2} log x)) for some A > 0, and whose zeta function zeta_P(s)
+  satisfies N(zeta_P; (1+theta)/2, T) ~ ((1-theta)T/2pi) log((1-theta)T/2pi)."  The system is DISCRETE: "we now construct our
+  sequence of generalized primes P as the sequence of numbers p^{m/(1-theta)} with multiplicity floor(a_{p,m})" (p. 20), with
+  zeta_P(s) = zeta_theta(s)/zeta_R(s), zeta_theta(s) = zeta((s-theta)/(1-theta)) (6.1), 1/zeta_R analytic in Re s > 1 - theta.
+  "For this however, we will assume that theta >= 1/2." (p. 19)
+  [Derived here: at theta = 1/2, zeta_P(s) = zeta(2s-1)/zeta_R(s), so every Riemann zero 1/2 + i gamma gives a zero of zeta_P at
+  3/4 + i gamma/2 -- infinitely many zeros on Re s = 3/4, UNCONDITIONALLY, with N-error O(x^{1/2} log x).]
+  §6.2 (p. 22; l. ~1462-1490): DMV-example density N(zeta_DMV; alpha, T) = Omega(T^{(1-alpha)/(1-theta)}) "at the cost of only
+  having the slightly weaker N_DMV(x) = Ax + O_eps(x^{theta+eps})"; "(Probably the error term O(x^theta exp(c(log x)^{2/3})) with some
+  c > 0 is possible, see [5, Chapter 17] for the case theta = 1/2.)"; "One possible limiting factor to the amount of zeros of
+  zeta_DMV is the fact that it is an approximation of a 'continuous system'".
+  Relevance: Q5 -- density theorem: zeros right of (1+theta)/2 are allowed but sparse, N(alpha,T) << T^{4(1-alpha)/(3-2alpha-theta)}
+  log^9 T; for theta ~ 0 the range is alpha >= 1/2. No strip forced. Q2 -- Theorem 6.3 at theta = 1/2 is the closest UNCONDITIONAL
+  printed discrete system: N-error x^{1/2} log x (boundary, not < 1/2) and zeros on Re s = 3/4; it obeys U (3/4 <= 2 theta = 1).
+  [Line precision for [10], pa-broucke2025-zero-density-pisa.txt: Thm 6.3 l. 1450-1456; "(6.1) zeta_theta(s) := zeta((s-theta)/
+  (1-theta))" l. 1232; "For this however, we will assume that theta >= 1/2" l. 1289-1290; primes "p^{m/(1-theta)} with multiplicity
+  floor(a_{p,m})" l. 1345-1346; "Probably the error term ..." l. 1487; "One possible limiting factor ..." l. 1491.]
+
+[11] Broucke, "On the connection between zero-free regions and the error term in the prime number theorem", arXiv:2507.13780v1
+  (18 Jul 2025). [quoted] Opened: dz/broucke-2025-2507.13780v1.txt.
+  p. 3 (l. 116-130): "(1.1) N_P(x) = Ax + O(x^theta), for some A > 0 and theta in [0, 1)" ... "(1.1) implies the existence of an
+  absolute constant c > 0 such that zeta_P(s) has no zeros in the region (1.2) sigma > 1 - c(1-theta)/log|t|, |t| >= t_0(P)".
+  Theorem 1.6 (p. 4; l. 245-253): for every admissible contour f, "there exists a Beurling number system (P, N) satisfying (1) N_P(x) =
+  Ax + O_eps(x^{1/2+eps}) for some A > 0 and every eps > 0; (2) ... psi_P(x) - x = Omega_pm(...); (3) zeta_P(s) has infinitely many
+  zeros on the contour sigma = 1 - f(log|t|), and none to the right of this contour."  l. 254-257: "This is a generalization of the
+  seminal result of Diamond, Montgomery, and Vorhauer [8], which states that assuming only (1.1) with some theta >= 1/2, one is not
+  able to improve upon the classical de la Vallee Poussin zero-free region (1.2)". Method: DMV random construction (l. 258-264).
+  Relevance: Q5 -- zeros approaching Re s = 1 along ANY reasonable contour, with N-error exponent 1/2 + eps (not below 1/2); forced
+  region only sigma > 1 - c(1-theta)/log|t|. Q2 -- no (theta = 1/2 + eps). Q1 -- random, not feedback.
+
+[12] Zero-density theorems for Beurling zeta under N(x) = Ax + O(x^theta) ("Axiom A"). [quoted] All opened from the PDFs in
+  rh-program/fetched-r2 (and fetched/z-03), converted to here/pa-*.txt; line numbers refer to those files.
+  (a) Revesz, "Density estimates for the zeros of the Beurling zeta function in the critical strip", Mathematika 68 (2022);
+  arXiv:2012.09045v3 -> here/pa-revesz2022-density-mathematika68.txt. Theorem 1 (p. 6; l. 288-293): "Assume that G satisfies besides
+  Axiom A also Conditions B and G, too. Then for any eps > 0 there exists a constant C = C(eps, G) such that for all sufficiently
+  large T and alpha > (1 + theta)/2 we have N(alpha, T) <= C T^{((6-2theta)/(1-theta))(1-alpha)+eps}." Condition B (l. 252-253): "the
+  norm |g| of any element g in G is a natural number" (S8 FAILS Condition B; its norms are real).
+  (b) Revesz, "The Carlson-type zero-density theorem for the Beurling zeta function", J. London Math. Soc. 111 (2025);
+  arXiv:2209.01689v3 -> here/pa-revesz2025-carlson-jlms111.txt. Theorem 1 (p. 4; l. 199-203): "Let G be a Beurling system subject to
+  Axiom A. Then for any sigma > (1 + theta)/2 ... N(sigma, T) <= 1000 ((A+kappa)^4/((1-theta)^3 (1-sigma)^4)) T^{(12/(1-theta))
+  (1-sigma)} log^5 T" (no integrality, no Ramanujan condition).
+  (c) Broucke, Debruyne, "On zero-density estimates and the PNT in short intervals for Beurling generalized numbers", arXiv:2211.08716v2
+  -> here/pa-broucke-debruyne2023-zero-density.txt. Abstract (l. 6-12): "N(alpha, T) << T^{c(1-alpha)/(1-theta)} log^9 T, for a constant
+  c arbitrarily close to 4". Theorem 1.2 (p. 3; l. 126-131) with mu >= 2/3 + delta; Corollary 1.3 (l. 132-133): "N(alpha, T) = o(T)
+  for every alpha > (theta + 2)/3. It would be of interest to know if the range where N(alpha, T) = o(T) holds, can be improved,
+  potentially to alpha > (theta + 1)/2."
+  (d) Pintz, Revesz, "New zero-density estimates for the Beurling zeta function", Acta Arith. 221 (2025) [per file name];
+  arXiv:2407.12746v1 -> here/pa-pintz-revesz2025-density-acta221.txt. Theorem 1 (p. 4; l. 197-210): under Axiom A + integrality +
+  Ramanujan condition, N(1-eta, T) << T^{B(eta) eta + eps} with B(eta) = 2/(1-theta-eta) for small eta (Turan-strength near 1).
+  (e) Broucke 2409.10051 Thm 1.2 (entry [10]): the best general one, alpha >= (1+theta)/2, T^{4(1-alpha)/(3-2alpha-theta)} log^9 T.
+  Relevance: Q5 -- every printed density theorem allows zeros right of 1/2 (they are upper bounds on how many); none forces a zero-
+  free strip {Re s > 1 - delta}. Forced zero-free set = Landau region sigma > 1 - c(1-theta)/log|t| only (entries [2], [10], [11]).
+  Q3 -- nothing here forbids theta < 1/2 with zeros off the line. For S8 (theta ~ 0, real norms): (b), (c), (e) apply; (a), (d) need
+  integer norms and do not apply.
+
+[13] On-disk arXiv abstract sweeps (fr/sources/arxiv-search-*.xml: 228 entries; dz/arxiv-*.xml: 517 entries; overlapping).
+  Method: parsed every <entry> (title + summary) with a regex (script in the session scratchpad, grep_arxiv.py).
+  Pattern "greedy|feedback|self-regulat|inverse problem|prescribed integer|prescribed counting": 3 hits, all off-topic
+  (2609.17629 regularized inverse problems; 2607.12413 feedback control of PDE; 2203.05446 Eulerian cycles). None about
+  generalized primes.
+  Pattern "(Beurling|generalized prime|g-prime).{0,400}(given integer|prescribed|from the integers|discretiz|approximat)": the
+  generalized-prime hits are exactly 2102.08478 (Broucke-Vindas, random approximation), 2202.01837 (Revesz, prescribed zero, random
+  approximation), 2507.13780 (Broucke, DMV-type random); the rest are Nyman-Beurling criterion / Beurling-type theorems in function
+  spaces (not generalized primes).
+  Relevance: Q1 -- no abstract in the on-disk sweeps describes building g-primes by feedback on N; every construction is
+  "continuous template + random discretization" or "perturb the rational primes".

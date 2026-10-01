@@ -8,7 +8,7 @@ Labels: [proved here], [quoted, file:line], [recalled, unverified], [computed], 
 
 ## §0. Close
 
-**Close: T** (a proof, every step written). **DUAL-READ, Session 40 (11:41 IST 2026-10-01): the orchestrator's `read-F.md` AGREES (every lemma and both proofs re-derived); the Opus `read-O.md` AGREES-WITH-CORRECTIONS (2 FIX-FIRST, record-level, each re-derived by the orchestrator before applying — `verify-F/f1_gap_F.py`; 7 minor); 11 + 2 pairs applied; `NOTE.pre-reader.md` kept. The reader adds A1 (lim sup |N − ρx|/(x/log x)^{1/2} = +∞ a.s., single-check, read-O §7).**
+**Close: T** (a proof, every step written; single writer — the standing dual read is still owed).
 
 **THEOREM (BDR fn. 4, for almost every realization)** [proved here, §2]. Let P_B be the g-prime system of Diamond–Zhang
 Theorem 17.14, i.e. the independent Bernoulli selection from the grid (17.13) with p_k = ∫_{v_{k−1}}^{v_k} f_C. Almost
@@ -22,7 +22,7 @@ is therefore correct, and the sharpest in-print test of Conjecture U lands on U'
 
 **How the named risk was handled.** The dependence across (x/2, x] is exact and one-dimensional: every g-integer ≤ x holds at
 most one block prime, and the block enters the density only as ρ = ρ^c e^{S}, S = Σ_{block} X_k(−log(1 − 1/v_k)) (Lemma 2.1).
-Linearizing e^{S} leaves a remainder R with P(|R| > u | G) ≤ E[D²|G](1 + eκx/(2u)), E[D²|G] ≤ 5C_*/(x log x) (Lemma 2.3); the linear part has conditional variance
+Linearizing e^{S} leaves a remainder R with E[R²|G]^{1/2} ≪ κ/log x (Lemma 2.3); the linear part has conditional variance
 ≥ c κ²x/((N₀+1)² log x) (Lemma 2.2) and is Gaussian by Berry–Esseen. Anti-concentration alone then gives the theorem; no
 0–1 law is needed. The brief's stop condition (dependence uncontrollable) was not met. **Second, independent proof**
 (Prop. 2.4): ζ_B = ζ_C e^{−F₁+F₂} with −F₁ ≥ 0 and the random part of F₂ unbounded above as σ → ½+ a.s. (CLT + Kolmogorov),
@@ -63,7 +63,7 @@ f_C(v) = (1 − v⁻¹)/log v − 2Σ_{k≥1} (g(v^{4^{−k}})/4^k) v^{−4^{−
 (p. 214), g = Σ_n χ^{*n}/n with χ = 1_{[e,e²]} (17.30); and (17.45), p. 218: "(1 − c)(1 − v⁻¹)/log v ≤ f_C(v) ≤
 (1 + c)(1 − v⁻¹)/log v holds for v ≥ e⁴", c = 2c₁/(1 − e⁻⁴), c₁ = 0.410616… (p. 216), so c = 0.8366… < 1 [computed].
 For v < e⁴, f_C = f_R (p. 218). Both templates therefore satisfy
-  (H) c_* /log v ≤ f(v) ≤ C_*/log v for v ≥ v_*, with (c_*, C_*) = (0.49, 1) for f_R (v_* = 100), (0.16, 1.84) for f_C (v_* = e⁴; (1 − c)(1 − e⁻⁴) = 0.1604).
+  (H) c_* /log v ≤ f(v) ≤ C_*/log v for v ≥ v_*, with (c_*, C_*) = (0.49, 1) for f_R (v_* = 100), (0.16, 1.84) for f_C.
 
 **1.3 What DZ prove about the result** [quoted]. Thm 17.14 (book p. 208): "(i) N_B(x) = k₂x + O(x^{1/2} exp{c(log x)^{2/3}})
 with k₂ > 0; (ii) ζ_B(s) is analytic for σ > 1/2 except for a simple pole at s = 1 with residue k₂; (iii) ζ_B(s) has
@@ -79,7 +79,7 @@ that … satisfies k₁ = 1 … (These remarks apply as well for the example in 
 **1.4 The question** [quoted, z-02 l. 133–136, 165]. BDR: "that of a [1, β₀]-system⁴ is in [7, Ch. 17] (which is based on
 the papers [6] and [17]) for some β₀ ≤ 1/2"; fn. 4: "Most likely the value of β₀ equals 1/2, but in principle it is still
 possible that β₀ could be smaller." Also l. 122–124, on Zhang's system: "Due to the probabilistic nature of the method,
-no precise value of α and β could be determined." BDR's definition (l. 97–101): β = lim sup log|N(x) − ax|/log x. The question is older: DZ book p. 196 (`sources/…book.txt` l. 11531–11532) — the constructed systems satisfy "(17.3) with θ ∈ (1/2, 1) (optimality is not known for θ ≤ 1/2)", (17.3) being N(x) = kx + O(x^θ). The THEOREM settles θ < ½ almost surely; θ = ½ stays open.
+no precise value of α and β could be determined." BDR's definition (l. 97–101): β = lim sup log|N(x) − ax|/log x.
 **1.5 DMV** [quoted, fr `sources/p1-02-…txt` l. 935–945]: DMV's Lemma 9 uses the same selection ("let X_k be independent
 Bernoulli variables with parameters p_k = ∫_{v_{k−1}}^{v_k} 1 dΠ_C(v) … The v_k must increase sufficiently slowly to
 ensure that p_k ≤ 1/2"), so §2 applies to DMV's random system as soon as dΠ_C satisfies (H) (not checked at the page).
@@ -102,8 +102,9 @@ In particular, almost surely N(x) − ρx ≠ O(x^τ) for every τ < ½.
 **Corollary 2 (BDR fn. 4)** [proved here, given DZ's (i)–(iv) quoted in §1.3]. For almost every realization of the
 Diamond–Zhang construction of Theorem 17.14, the system P_B satisfies N_B(x) − k₂x = Ω((x/log x)^{1/2}) and
 N_B(x) − k₂x = O(x^{1/2}exp{c(log x)^{2/3}}); hence β(P_B) = ½, and with 17.14(iv) (ψ_B − x ≠ O(x^{1−δ}) for every δ > 0)
-α(P_B) = 1: **P_B is a [1, ½]-system, so β₀ = ½ for almost every realization.** The same holds after any finite change of the g-primes (Lemma 2.5) and for the normalized system of Remark 17.12 as the book builds it in §17.10 — which may add an infinite, O(log x)-sparse deterministic sequence {w_n}: Theorem 1 applies verbatim with the w_n ∈ (x/2, x] counted in N^c and ρ^c. For Theorem 17.11's P_R: β(P_R) = ½ and α(P_R) = ½ a.s.
-(Corollary 2.6), so the book's P_R — its version of Zhang's construction [Zh07], not read here — is a [½, ½]-system, the value BDR l. 123–124 say "could not be determined" for Zhang's system (the pair [½, ½] itself is in print: BDR Cor. 3.3 with α = β = ½, z-02 l. 668–679).
+α(P_B) = 1: **P_B is a [1, ½]-system, so β₀ = ½ for almost every realization.** The same holds after any finite change of
+the g-primes (Remark 17.12's normalization; Lemma 2.5). For Theorem 17.11's P_R: β(P_R) = ½ and α(P_R) = ½ a.s.
+(Corollary 2.6), so Zhang's system is a [½, ½]-system — the value BDR l. 123–124 say "could not be determined".
 
 *Scope, stated exactly.* The statement is about the random construction (every realization off a null set). It says
 nothing about a particular subsequence of Γ that satisfies DZ's (17.46) but lies in the exceptional null set; whether
@@ -155,7 +156,7 @@ first bound. On {|D| ≤ 1}, |e^{D} − 1 − D| ≤ (e/2)D², so {|R| > u} ⊂ 
 
 **Proof of Theorem 1.** Fix λ > 0. By Lemma 2.1, {|E(x)| ≤ λs_x} ⊂ {|Y + L| ≤ 2λs_x} ∪ {|R| > λs_x}. Given G, L is a sum of
 independent centered terms ξ_k = (X_k − p_k)c_k with |ξ_k| ≤ M := N₀ + 1 + 3κ and Σ E|ξ_k|³ ≤ Mσ². The Berry–Esseen
-inequality for non-identically distributed summands [at the page: Tyurin, arXiv:0912.0726, p. 1 inequality (1) and Theorem 7, C₀ ≤ 0.5606 — read-O §3] gives
+inequality for non-identically distributed summands [recalled, unverified: Esseen 1945, any absolute constant C₀] gives
 sup_t |P(L ≤ t | G) − Φ(t/σ)| ≤ C₀M/σ, so for every G-measurable Y
   P(|Y + L| ≤ 2λs_x | G) ≤ 4λs_x/(σ√(2π)) + 2C₀M/σ.
 Insert Lemma 2.2 (σ ≥ √c_* κ s_x/(2^{5.5}(N₀+1))) and Lemma 2.3 (u = λs_x): for x ≥ max(x₁, x₂),
@@ -175,14 +176,14 @@ does the work). (ii) The only inputs from DZ are the construction and (H3); the 
 **Proposition 2.4 (second, independent proof of β ≥ ½: ζ_B is unbounded at s = ½)** [proved here]. For P_B (and P_R with
 ζ_C replaced by s/(s − 1)), almost surely lim sup_{σ→½+} |ζ_B(σ)| = +∞; hence ζ_B has no analytic continuation to any
 neighborhood of s = ½, and N_B(x) − k₂x ≠ O(x^τ) for every τ < ½.
-*Proof.* (1) Mellin step (absolute convergence only; Landau's nonnegativity theorem is not used): if E(x) = O(x^τ), τ < ½, then ζ_B(s) = s∫₁^∞ N_B(x)x^{−s−1}dx = k₂s/(s − 1) + s∫₁^∞ E(x)x^{−s−1}dx
+*Proof.* (1) Landau step: if E(x) = O(x^τ), τ < ½, then ζ_B(s) = s∫₁^∞ N_B(x)x^{−s−1}dx = k₂s/(s − 1) + s∫₁^∞ E(x)x^{−s−1}dx
 continues analytically to σ > τ, s ≠ 1, and is bounded on [½, ½ + δ]. (2) On real σ ∈ (½, 1), DZ's representation (§1.3)
 gives ζ_B(σ) = ζ_C(σ)exp{−F₁(σ) + F₂(σ)}, with −F₁(σ) = Σ_p Σ_{j≥2} p^{−jσ}/j ≥ 0. (3) |ζ_C(σ)| ≥ c₀ > 0 on [½, 1): by
 (17.39), ζ_C = (s/(s − 1))Π_k |G(4^k(σ − ρ_k))|² on the real axis, and for z = 4^k(σ − ρ_k), Re z = 1 − 4^k(1 − σ) ≥ 1 − 4^k/2,
 |z| ≥ 4^k e^{4^k}, so by (17.22) |G(z) − 1| ≤ (|e^{−z}| + |e^{−2z}|)/|z| ≤ (e^{−4^k/2−1} + e^{−2})/4^k ≤ 0.19·4^{−k}; the product is
 ≥ Π_k(1 − 0.19·4^{−k})² > 0 and |σ/(σ − 1)| ≥ 1 [computed from the printed definitions]. (4) F₂(σ) = W(σ) + Δ(σ), with
 W(σ) := Σ_k (X_k − p_k)v_k^{−σ} and Δ(σ) := Σ_k ∫_{v_{k−1}}^{v_k}(v_k^{−σ} − v^{−σ})f(v)dv, |Δ(σ)| ≤ Σ_k p_k σ v_{k−1}^{−σ−1}
-(mesh ≤ 1) — bounded on [½, 1). W converges a.s. at each σ > ½ (independent centered terms, Σ p_k v_k^{−2σ} < ∞), hence a.s. for all σ > ½ at once (take σ = ½ + 1/n; a Dirichlet series convergent at σ₀ converges for σ > σ₀) and is continuous there. Its variance
+(mesh ≤ 1) — bounded on [½, 1). W converges a.s. for σ > ½ (independent centered terms, Σ p_k v_k^{−2σ} < ∞). Its variance
 V(σ) = Σ p_k(1 − p_k)v_k^{−2σ} ≥ (1/8)∫_{v_*}^∞ f(v)v^{−2σ}dv → ∞ as σ → ½+ (by (H1), since v_k ≤ 2v on each late cell and
 p_k ≤ ½); the summands are bounded by 1, so Lindeberg's CLT gives W(σ)/V(σ)^{1/2} ⇒ N(0, 1) as σ → ½+. Hence for all M,
 δ: P(sup_{(½,½+δ)} W > M) ≥ lim_{σ→½+} P(W(σ) > M) = ½, so P(lim sup_{σ→½+} W(σ) = +∞) ≥ ½. Changing finitely many X_k moves
@@ -206,7 +207,8 @@ the block part is linear, with conditional variance Σ_{k∈B} p_k(1 − p_k)log
 P(|ψ_P(x) − x| ≤ λ(x log x)^{1/2} | G) ≤ K′λ + o(1), and the end of the proof of Theorem 1 applies. ∎
 
 **Proof of Corollary 2.** (H0)–(H2) hold for f_C and f_R on DZ's grid (§1.1–1.2); (H3) and the O-bound are DZ's (i).
-Theorem 1 gives the Ω-bound, so β(P_B) = ½ with BDR's definition (l. 97–101); 17.14(iv) gives α = 1; Lemma 2.5 carries all of it through finite changes, and Theorem 1 (with the deterministic w_n inside G) through the §17.10 normalization of Remark 17.12, whose sequence {w_n} may be infinite; Corollary 2.6 gives α(P_R) = ½. ∎
+Theorem 1 gives the Ω-bound, so β(P_B) = ½ with BDR's definition (l. 97–101); 17.14(iv) gives α = 1; Lemma 2.5 carries
+all of it through Remark 17.12's finite changes; Corollary 2.6 gives α(P_R) = ½. ∎
 
 ## §3. The variance, computed two ways
 
@@ -218,8 +220,8 @@ c_k = c(v_k), c(v) := n₀(x/v) − κx a(v), a(v) = −log(1 − 1/v).
 taken exactly. For larger x the grid has ~x·2^{x}/2 points in the block and only way 2 is available — which is legitimate,
 because of the bound in 3.2. Result (`logs/onescale_A.log`, κ ∈ {0.7, 1, 2.4}, both n₀): relative gap grid − continuum
 −1.8·10⁻¹ at x = 6 (56 cells), −6.8·10⁻² at x = 8, −1.1·10⁻² at x = 12, −1.9·10⁻³ at x = 16, −1.6·10⁻⁴ at x = 22 (κ = 0.7,
-1.5 ∉ P; 4 192 256 cells), down to −1.5·10⁻⁶ (κ = 1, 1.5 ∈ P; continuum split at v = 2x/3 — the unsplit fixed-grid rule of `onescale.py` gave +7.6·10⁻⁷, an artifact): it shrinks like 2^{−x/2} up to the 1/(x/log x) normalization, as the bound says. The
-Theorem-B asymptotic (x/log x)I(κ; n₀) is 4–26 % off at x = 22 (κ = 0.7, N₀ = 1: +3.8 %; κ = 1, N₀ = 0: −26 %) — the O(1/log x) — and 3–5 % off at x = 2²³ (3.3).
+1.5 ∉ P; 4 192 256 cells), down to 7.6·10⁻⁷ (κ = 1, 1.5 ∈ P): it shrinks like 2^{−x/2}, as the bound says. The
+Theorem-B asymptotic (x/log x)I(κ; n₀) is 10–20 % off at x = 22 — the O(1/log x) — and 3–5 % off at x = 2²³ (3.3).
 
 **3.2 Way 2 — the Theorem-B (continuum) route** [proved here]. Put σ²_cont := ∫_{x/2}^{x} f(v)c(v)² dv. Then
   |σ² − σ²_cont| ≤ m(x)·Σ_{k∈B} p_k c_k² + 2M·h(x)·(5κ/x)·∫_{x/2−1}^{x} f + 2(N₀ + 2)M²m(x),
@@ -389,7 +391,7 @@ outside its folder):
 - **U-1 The exceptional null set.** Does every subsequence of Γ satisfying DZ's (17.46) have β ≥ ½? This is Conjecture U at
   α = 1 inside DZ's class. Fit: S1 (discrete, Λ ≥ 0); a negative answer refutes U (read-O §4 preamble). First rung: a
   derandomized selection whose primes target Π_C − ½Π_C(√·) − … (no prime-square branch point) on [10³, 10⁸]: measure β.
-- **U-2 The sharp order.** lim sup |E|/(x/log x)^{1/2} = ∞ a.s. (read-O §7 A1, single-check: prime-square branch point × Prop. 2.4's lim sup W = ∞; with Landau's theorem lim inf E/(x/log x)^{1/2} = −∞); still open: is N − ρx = O(x^{1/2}) (DZ p. 196, θ = ½)? Heuristically the dyadic blocks add Var E(x) ≍
+- **U-2 The sharp order.** Is lim sup |E|/(x/log x)^{1/2} = ∞ a.s.? Heuristically the dyadic blocks add Var E(x) ≍
   x log log x/log x; the data show seed-dependent amplitudes 0.3–66. Fit: instrument. First rung: the block-variance sum
   against MS_j on the 10 runs on disk.
 - **U-3 Remark 5.1 at the page.** Check that Broucke's ζ_c (2507.13780 §4–5) is continuous and non-zero at s = ½ from the right;

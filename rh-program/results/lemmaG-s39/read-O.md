@@ -246,3 +246,137 @@ function" (17: none treats Σ_{p∈R}p^{−s} for thin R relative to an error ex
 Knopfmacher–Zhang's book on additive arithmetic semigroups (where an example with Z(y) = (1 − ay)/(1 − qy) would naturally live) was
 not available — [not checked].
 
+## §4. FIX-FIRST pairs (OLD quoted at NOTE hash 37622108…, line numbers as there)
+
+**Total: 31 pairs — 14 FIX-FIRST pairs in 5 items (F1–F5) and 17 minor pairs (m1–m16, m15 in two parts).**
+
+**F1 — T2 for k = 2: the disjointness claim is false; sq is covered under RH (or a recalled large-gap bound), not "uncond."** (§1(g))
+F1a OLD (l. 153): prime p ≥ p₀ let r_p be a prime in [p^k, p^k + p^{kθ′}] (it exists by Ingham; the intervals are disjoint for p ≥ p₀). Put R_k := {r_p}.
+F1a NEW: prime p ≥ p₀ let r_p be a prime in [p^k, p^k + p^{kθ′}], with p ↦ r_p injective (r_p exists by Ingham; for k ≥ 3 the intervals are disjoint for p ≥ p₀, as (p′)^k − p^k ≥ 2kp^{k−1} > p^{kθ′} ⟺ θ′ < 1 − 1/k; for k = 2 they overlap whenever p′ − p < p^{1/4}/3, and an injective choice is made greedily — the interval holds ≫ p^{kθ′}/log p primes by Ingham's asymptotic while ≪ p^{kθ′−k+1} earlier intervals meet it). Put R_k := {r_p}.
+F1b OLD (l. 160): π_R(x) = π(x^{1/k}) + O(1) gives α_R = 1/k.
+F1b NEW: π_R(x) = π(x^{1/k}) + O(x^{σ_C}) (O(1) for k ≥ 3) gives α_R = 1/k.
+F1c OLD (l. 258): | sq = {nextprime(p²)} (T2: β₂ ≥ ¼ uncond.) |
+F1c NEW: | sq = {nextprime(p²)} (T2: β₂ ≥ ¼ under RH, or unconditionally given a large-gap bound of exponent < 3/4; injectivity of p ↦ nextprime(p²) is open) |
+F1d OLD (l. 276): β₂ ≥ ¼ is Theorem T2.
+F1d NEW: β₂ ≥ ¼ is Theorem T2 once the collisions nextprime(p²) = nextprime(p′²) are shown sparse (exponent < ¼): under RH by Selberg's Σ_{d_n ≥ H} d_n ≪ x log²x/H, or by a large-gap bound of exponent < 3/4 (Peck, Matomäki) [recalled]; none occurs for p ≤ 10⁶ (read-O).
+F1e OLD (l. 289): (δ ≈ 0.16) — both sets on which β₂ ≥ α_R/2 is an UNCONDITIONAL theorem (T2; fr Thm C).
+F1e NEW: (δ ≈ 0.16) — sets on which β₂ ≥ α_R/2 is a theorem (greedy: fr Thm C, unconditional; sq: T2 under RH or with a recalled large-gap bound).
+F1f OLD (l. 357): (sq, slope 0.422 on [10⁶, 10¹⁰]; greedy c = 1) lies on a set where O is an unconditional theorem (§4.3(e)).
+F1f NEW: (sq, slope 0.422 on [10⁶, 10¹⁰]; greedy c = 1) lies on a set where O is a theorem (§4.3(e); for sq under RH or a recalled large-gap bound).
+
+**F2 — T5: the distinctness justification is false (the spacing is below every proved gap bound); fix by a greedy definition.** (§1(j))
+F2 OLD (ll. 197–198): R_spr = {nextprime(4^N + j⌊4^N/c_N⌋) : 0 ≤ j < c_N} (distinct for large N: 4^N/c_N ≈ N2^N exceeds the Ingham gap 4^{(5/8+ε)N}).
+F2 NEW: R_spr = {r_{N,j} : 0 ≤ j < c_N}, r_{N,j} := the least prime ≥ 4^N + j⌊4^N/c_N⌋ not already chosen (the spacing 4^N/c_N ≈ N2^N lies BELOW every proved gap bound 4^{θN}, θ ≥ 0.525, so nextprime alone need not be injective; with the greedy rule |r_{N,j} − 4^N(1 + j/c_N)| ≤ 4^{(5/8+ε)N} + c_N for large N, since by Ingham's asymptotic any window of length L ≥ 4^{(5/8+ε)N} holds ≫ L/log 4^N primes while at most L/(N2^N) + 1 targets compete for them; on the computed range N ≤ 16 the two definitions coincide — the unit's code aborts on duplicates).
+
+**F3 — Corollary 2.2 and the close: the path must stay in {σ ≥ Re s₀}.** (§1(e))
+F3a OLD (ll. 129–130): β₂(R) ≥ Re s₀ for every point s₀ at which P_R (continued from σ > α_R along some path) has a singularity
+F3a NEW: β₂(R) ≥ Re s₀ for every point s₀ at which P_R (continued from σ > α_R along some path lying in the closed half-plane {σ ≥ Re s₀}) has a singularity
+F3b OLD (l. 338): every other singularity at Re s₀ forces β₂ ≥ Re s₀ (Cor. 2.2).
+F3b NEW: every other singularity at Re s₀, reached along a path in {σ ≥ Re s₀}, forces β₂ ≥ Re s₀ (Cor. 2.2).
+
+**F4 — the tight ℚ-necklace obeys O UNCONDITIONALLY (β = α_R; β₂ ≥ α_R/2): the close's "(T, RH) … in particular for the tight
+ℚ-necklace" is upgraded, and Theorem F is left with no example on record that needs RH.** (§1(k), proof §7 A1)
+F4a OLD (ll. 28–30): (3) *Over ℚ, RH.* Theorem F (Theorem Z with a model divided out) proves O for every R whose D_R-zeros are carried by a polynomially controlled model, including the tight ℚ-necklace — the exact transplant of the rung-1 counterexample, whose realization factor carries the prime diagonal.
+F4a NEW: (3) *Over ℚ, RH.* Theorem F (Theorem Z with a model divided out) proves O for every R whose D_R-zeros are carried by a polynomially controlled model; its example, the tight ℚ-necklace — the exact transplant of the rung-1 counterexample, whose realization factor carries the prime diagonal — obeys O even unconditionally, in sup form with β = α_R (cluster lemma + Selberg's sieve, read-O §7 A1).
+F4b OLD (l. 241): computed range — as long as the clusters stay this tight (h_N ≪ c_N log 4^N), sup|E| ≥ x^{α_R}/(C log x) infinitely often.
+F4b NEW: computed range — and unconditionally: with Selberg's upper-bound sieve in place of Legendre (error Q_R(ξ)² ≪ ξ^{1+ε}, main term hρ_z(1 + O(ξ^{−1/2+ε})), ξ = h^{2/3}), Ingham's span h_N ≤ 4^{(5/8+ε)N} gives E(4^N + h_N) − E(4^N) ≤ −c_N + o(c_N), so sup|E| ≥ x^{α_R}/(C log x) infinitely often and β₂ ≥ α_R/2 (read-O §7 A1).
+F4c OLD (ll. 342–343): in size and in minimum modulus on circles; in particular for the tight ℚ-necklace, the exact transplant of the rung-1 counterexample.
+F4c NEW: in size and in minimum modulus on circles; in particular for the tight ℚ-necklace, the exact transplant of the rung-1 counterexample — for which O (β = α_R, β₂ ≥ α_R/2) also holds unconditionally by Lemma 3.6 with Selberg's sieve (read-O §7 A1).
+
+**F5 — missed prior art on disk: Hilberdink 2012, Theorem A, is the nearest published object to Thm R1 and the ℚ-counterpart of
+§1.3(d).** (§3)
+F5a OLD (ll. 105–106): *Nearest published object.* The cyclotomic (necklace) identity 1 − au = Π_N(1 − u^N)^{M(a,N)} is classical (Metropolis–Rota; Moreau 1872) [recalled, unverified];
+F5a NEW: *Nearest published object.* Hilberdink 2012, Theorem A (Acta Arith. 152; `novel-wave-s37/beurling-fe/sources/p3-22c2-…txt` ll. 102–116): a g-prime system whose N(x) − cx is periodic is ℙ minus FINITELY many primes — over real norms exact regularity forces a finite deletion, and R1 is the function-field failure of exactly that rigidity. The cyclotomic identity 1 − au = Π_N(1 − u^N)^{M(a,N)} is classical (Metropolis–Rota; Moreau 1872) [re-derived in §1.2; stated in the abstract of arXiv math/0311194];
+F5b OLD (l. 329): Thm R1 ↔ the cyclotomic identity [recalled] and fr §5.4's virtual curve; difference: a deletion inside
+F5b NEW: Thm R1 ↔ Hilberdink 2012 Thm A (over ℚ: N − cx periodic ⟹ finite deletion), the cyclotomic identity and fr §5.4's virtual curve; difference: an INFINITE deletion inside
+
+## §5. Minor pairs
+
+m1 OLD (l. 77): has E(n)/2^{n/2} between −0.16 and 0.46 for n = 6…22 —
+m1 NEW: has E(n)/2^{n/2} between −0.16 and 0.46 at n = 6, 8, …, 22 —
+m2 OLD (ll. 74–75): has |E(n)|·n^{3/2}/2^{n/2} oscillating between −0.37 and +0.26 for n = 20…60
+m2 NEW: has E(n)·n^{3/2}/2^{n/2} (signed) oscillating between −0.38 and +0.29 for n = 20…60 (−0.37 … +0.26 at n = 20, 25, …, 60)
+m3 OLD (l. 91): |ζ_P| ≤ C|t| trivially (steps Z1, Z3 — polynomial bounds);
+m3 NEW: the polynomial bound that Z3 delivers, here trivially (ζ_P itself has poles at s = 1 + 2πik/log q at every height — harmless, only D_R's bound is used);
+m4 OLD (ll. 98–99): the norm is injective on ⟨R⟩; equivalently the log p, p ∈ R, are linearly independent over ℚ).
+m4 NEW: the norm is injective on ⟨R⟩; for rational primes the log p, p ∈ R, are moreover linearly independent over ℚ — a strictly stronger property for general g-primes).
+m5 OLD (l. 80): **1.3 What rung 1b says about Lemma G and about any proof of O** [proved here; novelty: single-check].
+m5 NEW: **1.3 What rung 1b says about Lemma G and about any proof of O** [(a)–(c) proved here; (d) and Statement (G₁) heuristic — statements about the rung-1 dictionary, not theorems over ℚ; novelty: single-check].
+m6 OLD (l. 141): |t| ≥ 1 (cO Theorem Z steps Z1, Z3);
+m6 NEW: |t| ≥ 1 (cO Prop. 1.3(i)–(ii): for α_R < ½ the product bounds D_R on σ ≥ α_R + δ and ζ_P·χ(s)^{−1}·ζ(1 − s)^{−1} bounds it to the left; no Phragmén–Lindelöf band is needed);
+m7 OLD (l. 144): This replaces cO Prop. 1.6(ii)'s "zeros or poles" by "zeros, no poles" (α_R < ½);
+m7 NEW: This replaces cO Prop. 1.6(ii)'s "zeros or poles" by "zeros, no poles" (α_R < ½) — the proposition form of cO's remark under (G′), cO l. 159;
+m8 OLD (l. 150): the first nontrivial zero ρ₁ = ½ + 14.1347…i is simple and ζ has no zero in {0 < σ < 1, 0 < |t| < 14.13}.
+m8 NEW: ζ has no zero in {0 < σ < 1, 0 < |t| < 14.13} (argument principle, read-O `verify-O/logs/o_zeta_checks.log`); simplicity of ρ₁ is not needed (1/ζ(ks) has a pole of order ord_{ρ₁}ζ ≥ 1 at ρ₁/k).
+m9 OLD (l. 183): has |π_R − T| ≤ 2 for large x (T's jumps at primes are ≤ 1 and G varies by o(1) between consecutive primes).
+m9 NEW: has |π_R − T| ≤ 2 for large x when α < 0.95 (T's jumps at primes are ≤ 1 and, with gaps ≪ x^{0.525}, G varies by o(1) between consecutive primes) and |π_R − T| ≪ 1 + x^{α/2−0.475} for every α < 1 — enough, since only π_R − T = O(x^θ), θ < α/2, is used.
+m10 OLD (l. 185): Re s₀ ≥ α/2, a singularity forbidden by Corollary 2.2, then β₂ ≥ Re s₀;
+m10 NEW: Re s₀ ≥ α/2, a singularity forbidden by Corollary 2.2 at a point where P(s + 1 − α) is analytic (or a non-logarithmic one anywhere), then β₂ ≥ Re s₀;
+m11 OLD (l. 219): z₀ = α_R + 2 + it₀ (|t₀| large) and radius ρ₁ ≤ α_R + 2 − τ₀
+m11 NEW: z₀ = σ₂ + it₀, σ₂ := max(α_R + 2, σ₁ + 1) (|t₀| large; then log C(z₀) = O(1) by (F1)), and radius ρ₁ ≤ σ₂ − τ₀
+m12 OLD (ll. 348–349): cannot yield Lemma G on 𝒞_self, because there, by definition,
+m12 NEW: cannot yield Lemma G on 𝒞_self — true by the definition of 𝒞_self (it records what Theorem F does not cover: a tautology, not an obstruction theorem), because there,
+m13 OLD (l. 349): every admissible G leaves log(D_R/G) with a convergent diagonal;
+m13 NEW: every admissible G leaves log(D_R/G) with a diagonal of sub-polynomial growth at some σ < α_R/2 (the negation of (F3));
+m14 OLD (l. 300): many zeros on σ = 1 − a/log t — RH-type failure with regular integers in the CONTINUOUS-density world.
+m14 NEW: many zeros on σ = 1 − a/log t — RH-type failure with regular integers for a discrete system of REAL g-primes (not a subset of ℙ).
+m15a OLD (l. 351): **Smallest class where the answer is unknown: 𝒞_self over ℚ.**
+m15a NEW: **Residual class (minimality not shown): 𝒞_self over ℚ — sharpened by requiring D_R analytic on the whole half-plane σ > τ₀ (Prop. 2.3(a)), which removes the sets settled by Cor. 2.2 near the real axis.**
+m15b OLD (l. 31): 𝒞_self over ℚ is the smallest class where the answer is unknown, with no member known.
+m15b NEW: 𝒞_self over ℚ is the residual class (minimality not shown), with no member known.
+m16 OLD (l. 240): the measured max|E| next to the cluster is 1.9c_N (7781).
+m16 NEW: |E| at the cluster's right end is 1.20c_N and keeps rising beyond it (1.81c_N within 6h_N in read-O's grid; 1.9c_N (7781) on the unit's window).
+
+## §6. Novelty per result
+
+- Lemma 1.1 (dilation recursion): a third ROUTE to a printed identity (fr Prop. 5.1 = cO Prop. 1.1(a)) — route new, result not.
+- Thm R1 (necklace deletion, E ≡ 0 in F_q[T]): **new as a statement on a printed core** — the identity is classical (stated at the
+  page in arXiv math/0311194's abstract); the ℚ-side rigidity is Hilberdink 2012 Thm A (F5). Not found in print as a deletion /
+  Conjecture-O counterexample (searches null; Knopfmacher–Zhang's book unchecked — §8).
+- §1.3 (G₁): heuristic framing (m5); new as a diagnosis, not a theorem.
+- Thm 2.1 / Cor 2.2: **new as statements on a printed core** — the Möbius inversion P = Σμ(m)m^{−1}log ζ(ms) (Landau–Walfisz,
+  [recalled]) and cO Prop. 1.6(i); the κ-integrality list and its use as a criterion relative to β₂ are the new part; the mechanism
+  appears in print in special cases (fr Thm C's (s − α)^c; Estermann's accumulation argument, Bhowmik–Schlage-Puchta ll. 41–50).
+- Prop. 2.3: not new beyond cO (G′) (m7).
+- T2, T3, T5: new as statements (single-check), elementary given 2.2 (T2: Estermann-type finite product transplanted onto primes;
+  T3: P_R ⊃ ζ(ks); T5: non-integer κ = Φ(½)). T4: new as a statement; the device (dense planted poles ⟹ natural boundary) is classical.
+- Theorem F: new as a statement on a printed core (Hilberdink 2005 Thm 1 / Carlson, through cO Theorem Z). Cor. F.1: superseded
+  unconditionally by A1.
+- 𝒞_self and the obstruction sentence: definitional (m12, m15).
+
+## §7. Additions (single-check)
+
+**A1 (Theorem; unconditional). For R_tight: max(|E(4^N)|, |E(4^N + h_N)|) ≥ c_N/3 for all large N; hence β(R_tight) = α_R = ½
+and β₂(R_tight) ≥ ¼ = α_R/2.** *Proof.* Let I = (4^N, 4^N + h_N], the span of the N-th cluster; by Ingham's asymptotic h_N ≤
+4^{(5/8+ε)N}, and the only R-primes ≤ 4^N + h_N are the earlier clusters (all < 4^N) and the c_N cluster primes in I. An n ∈ I
+divisible by a cluster prime r is r itself (2r > 4^N + h_N), so #{R-free n ∈ I} = S(I, P) − c_N, P := Π_{r∈R, r<4^N} r. Selberg's
+upper-bound sieve (density 1/d, |r_d| ≤ 1, |λ_d| ≤ 1): S(I, P) ≤ h/G(ξ) + (#{d < ξ : d | P})², G(ξ) = Σ_{d<ξ, d|P}μ²(d)/φ(d) =
+1/ρ_P − T(ξ), with ρ_P := Π_{r|P}(1 − 1/r), T(ξ) ≤ ρ^{−1}Σ_{d∈⟨R⟩, d≥ξ}1/d ≪ ξ^{−1/2+ε} and #{d < ξ : d | P} ≤ Q_R(ξ) ≪ ξ^{1/2+ε}
+(⟨R⟩ has counting exponent α_R = ½). With ξ = h^{2/3}: S(I, P) ≤ hρ_P + O(h^{2/3+2ε}). Hence E(4^N + h) − E(4^N) = S − c_N − ρh ≤
+−c_N + (ρ_P − ρ)h + O(h^{2/3+2ε}); here (ρ_P − ρ)h ≤ hΣ_{N′≥N}c_{N′}4^{−N′} ≪ 2^{(1/4+2ε)N}/N and h^{2/3+2ε} ≪ 2^{(5/6+5ε)N}, both
+o(c_N) = o(2^N/N). So one endpoint has |E| ≥ c_N/3 ≍ x^{1/2}/log x (x = 4^N): β ≥ ½ = α_R ≥ β. Mean square: E has slope −ρ and unit
+jumps, so |E| ≥ c_N/5 on an interval of length c_N/12 inside [4^N, 2·4^N]; thus ∫_{4^N}^{2·4^N}E² ≫ c_N³ and
+∫_1^∞E²x^{−2σ−1}dx ≥ Σ_N c_N³4^{−N(2σ+1)} = ∞ for σ < ¼. ∎ *Computed* (§1(k)): the exact interval-sieve deviation is −0.36c_N (so
+the true jump, −1.36c_N, is even larger than the bound needs), h_N^{2/3} < c_N already at N = 16.
+**A2 (general cluster criterion; unconditional).** For any deletion R with α = α_R < 1, any y and 1 ≤ h ≤ y, with c := #R ∩ (y, y + h]:
+E(y + h) − E(y) ≤ −c + (ρ_y − ρ)h + O_{R,ε}(h^{2α/(1+α)+ε}), ρ_y := Π_{r∈R, r≤y}(1 − 1/r) (same proof; ξ = h^{1/(1+α)} balances
+hξ^{α−1} against Q_R(ξ)² ≪ ξ^{2α+ε}). *Corollary (counterexamples are anti-clustered):* if β(R) < α_R/2 then for every δ > 0, all
+large y and all h ≤ y: #R ∩ (y, y + h] ≤ 2(2y)^{α/2+δ} + C h y^{α−1+δ} + C h^{2α/(1+α)+δ} (ρ_y − ρ ≪ y^{α−1+δ}). This is a
+quantitative, unconditional form of cO Prop. 1.6(iii)'s "irregular at scale x^{α_R/2}" — on the opposite side: a counterexample
+must AVOID dense clusters — and it settles every cluster construction with c ≫ h^{2α/(1+α)+δ} directly, without RH or Theorem F.
+**A3 (sharper residual class).** 𝒞′_self := {R ∈ 𝒞_self : D_R analytic on the whole half-plane σ > τ₀}. Under RH with α_R < ½ every
+counterexample lies in 𝒞′_self (Prop. 2.3(a) gives analyticity on σ > β₂, not only for |t| > T₀); 𝒞′_self excludes the sets
+settled by a forbidden singularity of P_R near the real axis (Cor. 2.2), which 𝒞_self as defined does not.
+**A4 (T2 needs no simplicity; sq under RH).** T2's pole argument uses only ord_{ρ₁}ζ ≥ 1; and under RH the collisions of
+p ↦ nextprime(p²) number ≪ log²X up to X (Selberg's large-gap bound [recalled]), so T2 covers sq under RH.
+
+## §8. What I could not check, and why
+
+- Ingham 1937, Huxley 1972, BHP 2001 originals: not on disk; read only through Wikipedia (secondary). The large-gap bounds used in
+  F1/A4 (Selberg under RH; Peck; Matomäki) are [recalled, unverified]; they affect only whether sq is covered unconditionally.
+- Knopfmacher–Zhang, *Number Theory Arising from Finite Fields* (the natural home of an additive-semigroup example with
+  Z(y) = (1 − ay)/(1 − qy)): not available; R1's novelty label remains single-check.
+- Not re-run: nsq (T3 Bessel fit), the two Weyl families, the planted-pole control, the T_α / greedy controls (only sq and the
+  tight necklace were re-run, plus rung 1, the ζ inputs and the cluster data). Lemma 1.1's computations (cO's rung 1a) not re-run.
+- Heuristic laws (T3's Bessel law, T5's (log X)^{−3.66} law, the O(x^{0.03}) remainder of the sq explicit formula) were not
+  re-derived beyond checking their Selberg–Delange / Perron shape; the explicit-formula agreement itself was reproduced.

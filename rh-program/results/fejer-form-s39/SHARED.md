@@ -101,3 +101,12 @@ counterexample to the unqualified wording: 4g + N_1 - 6 >= 0 over F_5 (all genui
 < 0 at 0) — class (B); and "the optimum is Oesterle's program" mis-describes Oesterle's upper-bound LP, which cannot see V.
 Minor so far: AHL Lemma 3.4's hypothesis g >= 2 not stated; C2 "Untried line 168" is line 176 at the recorded hash 04496dce…; Z3
 values are grid minima (continuous: -872.7931, -682.3798); "on Z" in K's last sentence overreaches (three forms tested).
+
+## Block O-4 — 11:38 IST 2026-10-01 — prior art at the page; §3 and §4 (F1, F2) written; class-(B) separator verified (o5)
+Pages checked: Howe–Lauter p. 2; HPM pp. 1–4 (Weil–Serre bound p. 2: "(q + 1) − g⌊2√q⌋ ≤ ♯X(Fq)"; Gram (3) p. 3 = verify-O's integer
+H_M; "closely related to the dual … as shown in [HP19]" p. 4, SDP includes (4) t_k <= t_1 + q^k - q); HP 1409.2357 pp. 3, 6, 7 (v1 only;
+p. 3 calls the Oesterlé coincidence an unexplained "experimental observation"); HP19 abstract fetched (Crossref DOI 10.1090/tran/7813,
+Firecrawl; verify-O/sources/hp19-abstract.md): "inverse functions in some sense"; AHL p. 1, p. 8 (Cor. 2.10), p. 13, p. 14 (Lemma 3.4
+"assume g >= 2"); Bombieri p. 236 (5) as image. o5_classB.log: I = 17g/4 + N_1 - 6 over F_5 is > 0 on every genuine curve of genus
+>= 1 (min 1/4, 5/2), I(V) = -3/4, f(0) = -0.222: a non-Weil (class B) separator meeting the contract clause; boundary = Weil–Serre.
+F1 (6 pairs) and F2 (5 pairs) written in read-O §4. The close K stands (class B = Weil + integrality = printed Weil–Serre).

@@ -15,18 +15,20 @@ print("(1) a_n mismatches s7gen vs s7dp over 1..%d: %d%s; N(X) gen=%d dp=%d; max
       % (X, len(mism), (" first at n=%d" % (mism[0] + 1)) if len(mism) else "", ag[1:].sum(), ad[1:].sum(), ad.max()))
 rng = np.random.default_rng(seed); bad = 0; done = 0; tries = 0
 while done < npairs:
-    m = rng.integers(2, X // 2, size=4 * npairs); n = rng.integers(2, X // 2, size=4 * npairs)
-    ok = (m * n <= X); m, n = m[ok], n[ok]
+    m = np.exp(rng.uniform(np.log(2), np.log(X / 2), size=2 * npairs)).astype(np.int64)
+    n = (2 + rng.random(2 * npairs) * (X // m - 1)).astype(np.int64)
+    ok = (m >= 2) & (n >= 2) & (m * n <= X); m, n = m[ok], n[ok]
     cop = np.gcd(m, n) == 1; m, n = m[cop], n[cop]
     k = min(len(m), npairs - done); m, n = m[:k], n[:k]
     bad += int(np.sum(ad[m * n] != ad[m] * ad[n])); done += k; tries += 1
-print("(2) multiplicativity on %d random coprime pairs (m, n >= 2, mn <= %d; log-uniform not used, uniform m, n): %d failures" % (done, X, bad))
+print("(2) multiplicativity on %d random coprime pairs (m >= 2 log-uniform in [2, X/2], n >= 2 uniform in [2, X/m]): %d failures" % (done, bad))
 Y = min(X, 10**5); conv = np.zeros(Y + 1, dtype=np.int64)
 for d in range(1, Y + 1):
     if g[d]: conv[d::d] += g[d]
 print("(3) sum_{d|n} g(d) == a_n for n <= %d: %d mismatches" % (Y, int(np.sum(conv[1:] != ag[1:Y + 1]))))
 dv = np.zeros(X + 1, dtype=np.int32)
-for d in range(1, X + 1): dv[d::d] += 1
+for d in range(1, int(X**0.5) + 1):
+    dv[d*d::d] += 2; dv[d*d] -= 1   # pairs (d, n/d) with d < n/d, plus the square root
 r = ad[1:] / dv[1:]; i = int(np.argmax(r)) + 1; j = int(np.argmax(ad[1:])) + 1
 print("(4) max a_n = %d at n = %d (d(n) = %d); max a_n/d(n) = %.3f at n = %d (a = %d, d = %d); #(a_n > d(n)) = %d"
       % (ad[j], j, dv[j], r[i - 1], i, ad[i], dv[i], int(np.sum(ad[1:] > dv[1:]))))

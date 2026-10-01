@@ -62,7 +62,7 @@ static mcur *M; static int64_t capM;
 static int64_t *park; static int64_t capPark;
 /* heaps */
 typedef struct { dd key; int64_t id; } hent;          /* id >= 0: small prime; id < 0: multiplier cursor ~id */
-static hent *H; static int64_t capH;
+static int64_t capH;
 typedef struct { dd pw; int64_t i; double lq; } pent;
 static pent *PH; static int64_t capPH;
 /* E histogram (difference arrays, cumulative from x = 1), moments, ring buffer, sieve bits */
@@ -74,31 +74,44 @@ static void *xrealloc(void *p, size_t n) { void *q = realloc(p, n); if (!q) { fp
 #define GROW(arr, cap, need, type) do { if ((need) > (cap)) { int64_t nc = (cap) ? (cap) : 1024; while (nc < (need)) nc *= 2; \
     arr = (type *)xrealloc(arr, (size_t)nc * sizeof(type)); cap = nc; } } while (0)
 
-static inline int hless(const hent *a, const hent *b) {
-    if (a->key.hi != b->key.hi) return a->key.hi < b->key.hi;
-    if (a->key.lo != b->key.lo) return a->key.lo < b->key.lo;
-    return a->id < b->id;
+/* 4-ary min-heap, structure of arrays (Hhi, Hlo, Hid), fixed capacity, children groups 32-byte aligned.
+   Order: (hi, lo) lexicographic, i.e. the exact dd order; equal dd keys (possible only for rational rho) in any order. */
+static double *Hhi, *Hlo; static int64_t *Hid;
+static void heap_alloc(int64_t cap) {
+    void *a, *b, *c;
+    if (posix_memalign(&a, 64, (cap + 8) * 8) || posix_memalign(&b, 64, (cap + 8) * 8) || posix_memalign(&c, 64, (cap + 8) * 8)) { fprintf(stderr, "heap alloc\n"); exit(2); }
+    Hhi = (double *)a + 3; Hlo = (double *)b + 3; Hid = (int64_t *)c + 3; capH = cap;
 }
-/* 4-ary min-heap */
+static inline int kless(double ah, double al, double bh, double bl) { return (ah < bh) | ((ah == bh) & (al < bl)); }
 static void hsift_down(int64_t k, hent e) {
-    int64_t n = G.hn;
+    int64_t n = G.hn; double eh = e.key.hi, el = e.key.lo;
     for (;;) {
-        int64_t c = 4 * k + 1; if (c >= n) break;
-        int64_t m = c, e4 = c + 4 < n ? c + 4 : n;
-        for (int64_t j = c + 1; j < e4; j++) if (hless(&H[j], &H[m])) m = j;
-        if (!hless(&H[m], &e)) break;
-        H[k] = H[m]; k = m;
+        int64_t c = 4 * k + 1;
+        if (c + 3 < n) {
+            int64_t m = c; double mh = Hhi[c], ml = Hlo[c];
+            for (int j = 1; j < 4; j++) { double h = Hhi[c + j], l = Hlo[c + j]; int lt = kless(h, l, mh, ml);
+                m = lt ? c + j : m; mh = lt ? h : mh; ml = lt ? l : ml; }
+            if (!kless(mh, ml, eh, el)) break;
+            Hhi[k] = mh; Hlo[k] = ml; Hid[k] = Hid[m]; k = m;
+        } else {
+            if (c >= n) break;
+            int64_t m = c;
+            for (int64_t j = c + 1; j < n; j++) if (kless(Hhi[j], Hlo[j], Hhi[m], Hlo[m])) m = j;
+            if (!kless(Hhi[m], Hlo[m], eh, el)) break;
+            Hhi[k] = Hhi[m]; Hlo[k] = Hlo[m]; Hid[k] = Hid[m]; k = m;
+        }
     }
-    H[k] = e;
+    Hhi[k] = eh; Hlo[k] = el; Hid[k] = e.id;
 }
 static void hpush(hent e) {
-    GROW(H, capH, G.hn + 1, hent);
+    if (G.hn + 1 > capH) { fprintf(stderr, "heap capacity %lld exceeded\n", (long long)capH); exit(2); }
     int64_t k = G.hn++;
-    while (k > 0) { int64_t p = (k - 1) / 4; if (!hless(&e, &H[p])) break; H[k] = H[p]; k = p; }
-    H[k] = e;
+    while (k > 0) { int64_t p = (k - 1) / 4; if (!kless(e.key.hi, e.key.lo, Hhi[p], Hlo[p])) break;
+        Hhi[k] = Hhi[p]; Hlo[k] = Hlo[p]; Hid[k] = Hid[p]; k = p; }
+    Hhi[k] = e.key.hi; Hlo[k] = e.key.lo; Hid[k] = e.id;
 }
 static void hreplace_top(hent e) { hsift_down(0, e); }
-static void hpop_top(void) { G.hn--; if (G.hn > 0) hsift_down(0, H[G.hn]); }
+static void hpop_top(void) { G.hn--; if (G.hn > 0) { hent e = { { Hhi[G.hn], Hlo[G.hn] }, Hid[G.hn] }; hsift_down(0, e); } }
 static inline int pless(const pent *a, const pent *b) { return ddlt(a->pw, b->pw) || (a->pw.hi == b->pw.hi && a->pw.lo == b->pw.lo && a->i < b->i); }
 static void ppush(pent e) {
     GROW(PH, capPH, G.pn + 1, pent);
@@ -284,7 +297,7 @@ static void ckpt_save(void) {
     WR(Sv, G.nS, sizeof(dd)); WR(Sl, G.nS, 4); WR(Sp, G.nS, 4);
     WR(Pv, G.nP, sizeof(dd)); WR(Pk, G.nP, 8); WR(Pc, G.nP, 8);
     WR(LD, G.nLD, 1); WR(M, G.nM, sizeof(mcur)); WR(park, G.npark, 8);
-    WR(H, G.hn, sizeof(hent)); WR(PH, G.pn, sizeof(pent));
+    WR(Hhi, G.hn, 8); WR(Hlo, G.hn, 8); WR(Hid, G.hn, 8); WR(PH, G.pn, sizeof(pent));
     WR(HC, HCELLS, 8); WR(HS, HCELLS, 8); WR(MOM, G.nb * NMOM, 8); WR(ring, RING, 8);
     fclose(f); rename(tmp, fn); G.cpu_used = used;
     fprintf(stderr, "checkpoint written at N = %lld, x = %.6e\n", (long long)G.N, XLAST.hi);
@@ -300,7 +313,7 @@ static void ckpt_load(void) {
     capLD = G.nLD + 4096; LD = xrealloc(0, capLD); RD(LD, G.nLD, 1);
     capM = G.nM + 16; M = xrealloc(0, capM * sizeof(mcur)); RD(M, G.nM, sizeof(mcur));
     capPark = G.npark + 16; park = xrealloc(0, capPark * 8); RD(park, G.npark, 8);
-    capH = G.hn + 16; H = xrealloc(0, capH * sizeof(hent)); RD(H, G.hn, sizeof(hent));
+    heap_alloc((int64_t)(4.0 * sqrt(G.X)) + 65536); RD(Hhi, G.hn, 8); RD(Hlo, G.hn, 8); RD(Hid, G.hn, 8);
     capPH = G.pn + 16; PH = xrealloc(0, capPH * sizeof(pent)); RD(PH, G.pn, sizeof(pent));
     RD(HC, HCELLS, 8); RD(HS, HCELLS, 8);
     capMOM = G.nb * NMOM + (1 << 16); MOM = xrealloc(0, capMOM * 8); memset(MOM, 0, capMOM * 8); RD(MOM, G.nb * NMOM, 8);
@@ -364,6 +377,7 @@ int main(int argc, char **argv) {
     PREFIX = argv[8];
     int resume = argc > 9 && !strcmp(argv[9], "resume");
     HC = calloc(HCELLS, sizeof(double)); HS = calloc(HCELLS, sizeof(double));
+    if (!resume) heap_alloc((int64_t)(4.0 * sqrt(strtod(argv[2], 0))) + 65536);
     double X = strtod(argv[2], 0);
     if (resume) ckpt_load();
     else {
@@ -395,7 +409,7 @@ int main(int argc, char **argv) {
     dd one = { 1.0, 0.0 }; (void)one;
     for (;;) {
         int haveC = G.hn > 0;
-        dd xc = haveC ? H[0].key : (dd){ INFINITY, 0.0 };
+        dd xc = haveC ? (dd){ Hhi[0], Hlo[0] } : (dd){ INFINITY, 0.0 };
         int64_t kp; dd xp;
         if (!G.sieve) { kp = G.N; xp = prime_value(kp); }
         else { kp = sieve_next(G.sieveNext, (int64_t)X); if (kp < 0) { xp.hi = INFINITY; xp.lo = 0; } else { xp.hi = (double)kp; xp.lo = 0; } }
@@ -412,7 +426,7 @@ int main(int argc, char **argv) {
         while (G.iSnap < G.nsnap && G.snapX[G.iSnap] < x.hi) emit_snap(G.snapX[G.iSnap++]);
         G.N++;
         if (comp) {
-            hent top = H[0]; G.C++;
+            hent top = { { Hhi[0], Hlo[0] }, Hid[0] }; G.C++;
             if (top.id >= 0) {
                 int64_t i = top.id;
                 if (!ddlt(G.Xdd, ddmul(x, Pv[i]))) S_append(x, (int32_t)i, (int32_t)Pc[i]);

@@ -119,7 +119,7 @@ Dated blocks, appended after each batch. Newest at the bottom.
   m3 §0's "E[R²|G]^{1/2} ≪ κ/log x" is not what Lemma 2.3 proves; m4 W(σ) defined for all σ at once (one clause).
 - Next: own re-run in verify-O/ (exact grid variance; simulation at 10⁷), prior art.
 
-## 11:28 IST 2026-10-01 — read-O (Opus reader), batch 2: independent re-run done (verify-O/)
+## 11:26 IST 2026-10-01 — read-O (Opus reader), batch 2: independent re-run done (verify-O/)
 
 - Grid variance (closed-form cell integrals, no quadrature): 54/54 grid sums = NOTE to 10 digits; N₀ = 0 continuum 27/27 to
   10 digits; N₀ = 1 continuum off by 10⁻⁶–10⁻⁵ in the NOTE (fixed-grid rule across the jump at v = 2x/3) → the NOTE's smallest
@@ -129,3 +129,20 @@ Dated blocks, appended after each batch. Newest at the bottom.
   Controls: rational primes exact at 47 600 edges; residue identity to 16 digits; zero envelope violations.
 - One scale on own realized systems: identity residual 0 (16/16); Var(E′)/σ²_cont 0.915–1.046 (all < 2 sd from 1); KS p ≥ 0.34.
 - Observation: E < 0 on ≥ 89 % of the top two octaves in 9/10 runs (branch-point sign, random amplitude). Next: prior art.
+
+## 11:39 IST 2026-10-01 — read-O (Opus reader), batch 3: CLOSE of the read — AGREES-WITH-CORRECTIONS
+
+- read-O.md complete (§0 verdict … §8). Verdict: AGREES-WITH-CORRECTIONS; Theorem 1, Prop. 2.4, Lemma 2.5, Cor. 2.6, Cor. 2 all ✓.
+- FIX-FIRST (2, record-level): F1 the N₀ = 1 continuum values / "7.6·10⁻⁷" gap / "10–20 %" do not reproduce (quadrature across
+  the jump at v = 2x/3; true gap −1.53·10⁻⁶; offsets 4–26 %); F2 §17.10's normalization may add an INFINITE {w_n} (book
+  l. 13499–13505), not covered by Lemma 2.5 — claim survives (deterministic w_n inside G). Minor (7): m1 §0 L² claim; m2 v_* = e⁴
+  for f_C; m3 W for all σ at once; m4 "Landau step" is the Mellin bound; m5 DZ book p. 196 already poses the question
+  ("optimality is not known for θ ≤ 1/2"; θ = ½ open); m6 "Zhang's system" = book's P_R, and [½, ½] is in print (BDR Cor. 3.3);
+  m7 U-2 answered. LABEL NOTE: batch 1 above used provisional labels (m1 → F2, m3 → m1, m4 → m3); book lines there "13506–13513"
+  should read 13499–13505.
+- Prior art: no paper after BDR settles fn. 4 (arXiv ×5 queries, S2 and OpenAlex citers); Berry–Esseen verified at Tyurin
+  arXiv 0912.0726 p. 1 (1), Thm 7 (C ≤ 0.5606).
+- ADDITION A1 (single-check, proof in read-O §7): a.s. lim sup |N − ρx|/(x/log x)^{1/2} = +∞ for P_B and P_R (prime-square
+  branch point × Prop. 2.4's lim sup W = ∞ × Mellin bound); A1′ with Landau's theorem: lim inf (N − ρx)/(x/log x)^{1/2} = −∞ —
+  matches the negative sign seen in 9/10 simulated runs. Open: is N − ρx = O(x^{1/2})?
+- Re-run: verify-O/ (≈ 3 min to regenerate; prime lists in /private/tmp/rh-s40-dz-half-s39/). NOTE.md not edited.

@@ -327,7 +327,7 @@ replacing the NOTE's 3.8·10⁻⁶ step-limited agreement.
 - Zhang 2007 (Math. Ann. 337) is not on disk and was not fetched: whether the book's P_R is literally Zhang's original
   construction (grid, template) is unverified — hence m6's wording. DMV's dΠ_C against (H1) (NOTE §1.5, U-5): not checked.
 - The book PDF page image for (17.13): the text extraction drops the ℓ glyph; I relied on the surviving "1 ≤" and on
-  Remark 17.6's closure (Γ needs ℓ = 0). Nothing in Theorem 1 depends on the reading; §3's 1.5 and the simulation do.
+  Remark 17.6's closure (Γ needs ℓ = 0). Nothing in Theorem 1 depends on the reading; the NOTE’s §3 (the point 1.5) and both simulations do.
 - Scale: I re-ran the construction at X = 10⁷ (the brief's target), not the NOTE's 10⁸; the frontier controls T_0.90,
   T_0.95 and T₁ were not re-run (they calibrate the pipeline, not the close).
 - Landau's theorem in A1′ is [recalled, unverified] (Widder Ch. II); A1 does not use it.

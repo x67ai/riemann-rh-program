@@ -1,0 +1,15 @@
+== rho 4_5
+(1) a_n mismatches s7gen vs s7dp over 1..10000000: 0; N(X) gen=7999997 dp=7999997; max a_n=72 (uint16 saturation would show as 65535)
+(2) multiplicativity on 1000000 random coprime pairs (m >= 2 log-uniform in [2, X/2], n >= 2 uniform in [2, X/m]): 0 failures
+(3) sum_{d|n} g(d) == a_n for n <= 100000: 0 mismatches
+(4) max a_n = 72 at n = 5825921 (d(n) = 4); max a_n/d(n) = 23.500 at n = 9353411 (a = 47, d = 2); #(a_n > d(n)) = 287082
+== rho 3_2
+(1) a_n mismatches s7gen vs s7dp over 1..10000000: 0; N(X) gen=15107607 dp=15107607; max a_n=1260 (uint16 saturation would show as 65535)
+(2) multiplicativity on 1000000 random coprime pairs (m >= 2 log-uniform in [2, X/2], n >= 2 uniform in [2, X/m]): 0 failures
+(3) sum_{d|n} g(d) == a_n for n <= 100000: 0 mismatches
+(4) max a_n = 1260 at n = 8026898 (d(n) = 24); max a_n/d(n) = 144.000 at n = 6778337 (a = 576, d = 4); #(a_n > d(n)) = 279546
+== rho 1_1
+(1) a_n mismatches s7gen vs s7dp over 1..10000000: 0; N(X) gen=10000000 dp=10000000; max a_n=1 (uint16 saturation would show as 65535)
+(2) multiplicativity on 1000000 random coprime pairs (m >= 2 log-uniform in [2, X/2], n >= 2 uniform in [2, X/m]): 0 failures
+(3) sum_{d|n} g(d) == a_n for n <= 100000: 0 mismatches
+(4) max a_n = 1 at n = 1 (d(n) = 1); max a_n/d(n) = 1.000 at n = 1 (a = 1, d = 1); #(a_n > d(n)) = 0
