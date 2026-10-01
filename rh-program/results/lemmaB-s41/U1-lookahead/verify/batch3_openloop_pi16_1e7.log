@@ -1,0 +1,72 @@
+== beatty 1.0 1
+x=10 supE=1.2723 supE/log2=0.23997
+x=100 supE=6.2150 supE/log2=0.29305
+x=1e+03 supE=38.9451 supE/log2=0.81617
+x=1e+04 supE=350.0246 supE/log2=4.12617
+x=1e+05 supE=3453.3852 supE/log2=26.05395
+x=1e+06 supE=34468.6059 supE/log2=180.58840
+x=1e+07 supE=344546.0923 supE/log2=1326.23313
+EXC supTop=344546.0923 at x=9.99996e+06 rise_from_last_prime=1.89 (0.007 log^2X) gap=16.83 (0.065 log^2X)
+LEMMA_M L=4187.4 (1.00 log^3 X) windows=3264 min_pi(W)log/L=0.9438 mean=0.9535
+RESULT rule=beatty tau=0.5 W=0 K=1 J=0 N=2308041 pi=629098 comp=1678942 supE=344546.0923 supE/log2X=1326.23313 infE(x-)=-0.139037 maxgap=16.83
+  secs=2
+== beatty 0.97 1
+x=10 supE=1.2505 supE/log2=0.23586
+x=100 supE=5.6049 supE/log2=0.26429
+x=1e+03 supE=28.0304 supE/log2=0.58743
+x=1e+04 supE=246.8300 supE/log2=2.90969
+x=1e+05 supE=2315.7201 supE/log2=17.47088
+x=1e+06 supE=22258.9976 supE/log2=116.61965
+x=1e+07 supE=215342.5664 supE/log2=828.90055
+EXC supTop=215342.5664 at x=9.99992e+06 rise_from_last_prime=1.39 (0.005 log^2X) gap=17.35 (0.067 log^2X)
+LEMMA_M L=4187.4 (1.00 log^3 X) windows=3264 min_pi(W)log/L=0.9154 mean=0.9249
+RESULT rule=beatty tau=0.5 W=0 K=1 J=0 N=2178833 pi=610225 comp=1568607 supE=215342.5664 supE/log2X=828.90055 infE(x-)=-0.204961 maxgap=17.35
+  secs=1
+== beatty 0.9 1
+x=10 supE=1.1940 supE/log2=0.22521
+x=100 supE=3.4083 supE/log2=0.16071
+x=1e+03 supE=9.9217 supE/log2=0.20793
+x=1e+04 supE=15.6594 supE/log2=0.18460
+x=1e+05 supE=18.8144 supE/log2=0.14194
+x=1e+06 supE=31.1370 supE/log2=0.16313
+x=1e+07 supE=50.8711 supE/log2=0.19581
+EXC supTop=50.8711 at x=3.26002e+06 rise_from_last_prime=6.72 (0.026 log^2X) gap=17.59 (0.068 log^2X)
+LEMMA_M L=4187.4 (1.00 log^3 X) windows=3264 min_pi(W)log/L=0.8504 mean=0.9131
+RESULT rule=beatty tau=0.5 W=0 K=1 J=0 N=1963502 pi=600348 comp=1363153 supE=50.8711 supE/log2X=0.19581 infE(x-)=-0.500000 maxgap=18.70
+  secs=1
+== poisson 1.0 1
+x=10 supE=1.3830 supE/log2=0.26084
+x=100 supE=4.1201 supE/log2=0.19427
+x=1e+03 supE=12.3671 supE/log2=0.25918
+x=1e+04 supE=93.9418 supE/log2=1.10741
+x=1e+05 supE=1068.2851 supE/log2=8.05964
+x=1e+06 supE=11005.9031 supE/log2=57.66228
+x=1e+07 supE=109346.3274 supE/log2=420.89789
+EXC supTop=109346.3274 at x=9.99999e+06 rise_from_last_prime=0.80 (0.003 log^2X) gap=8.64 (0.033 log^2X)
+LEMMA_M L=4187.4 (1.00 log^3 X) windows=3264 min_pi(W)log/L=0.7369 mean=0.9538
+RESULT rule=poisson tau=0.5 W=0 K=1 J=0 N=2072842 pi=629350 comp=1443491 supE=109346.3274 supE/log2X=420.89789 infE(x-)=-0.500000 maxgap=231.16
+  secs=1
+== poisson 0.9 1
+x=10 supE=0.9705 supE/log2=0.18305
+x=100 supE=2.4380 supE/log2=0.11496
+x=1e+03 supE=10.8125 supE/log2=0.22660
+x=1e+04 supE=30.2427 supE/log2=0.35651
+x=1e+05 supE=68.2246 supE/log2=0.51472
+x=1e+06 supE=83.3928 supE/log2=0.43691
+x=1e+07 supE=115.0091 supE/log2=0.44270
+EXC supTop=115.0091 at x=4.68135e+06 rise_from_last_prime=5.99 (0.023 log^2X) gap=81.98 (0.316 log^2X)
+LEMMA_M L=4187.4 (1.00 log^3 X) windows=3264 min_pi(W)log/L=0.6864 mean=0.9296
+RESULT rule=poisson tau=0.5 W=0 K=1 J=0 N=1963510 pi=611919 comp=1351590 supE=115.0091 supE/log2X=0.44270 infE(x-)=-0.500000 maxgap=219.27
+  secs=1
+== poisson 0.9 2
+x=10 supE=0.9705 supE/log2=0.18305
+x=100 supE=8.7783 supE/log2=0.41392
+x=1e+03 supE=27.2693 supE/log2=0.57148
+x=1e+04 supE=128.8166 supE/log2=1.51852
+x=1e+05 supE=1117.3353 supE/log2=8.42970
+x=1e+06 supE=10769.9795 supE/log2=56.42623
+x=1e+07 supE=86600.1436 supE/log2=333.34286
+EXC supTop=86600.1436 at x=9.99997e+06 rise_from_last_prime=17.44 (0.067 log^2X) gap=35.32 (0.136 log^2X)
+LEMMA_M L=4187.4 (1.00 log^3 X) windows=3264 min_pi(W)log/L=0.6637 mean=0.8606
+RESULT rule=poisson tau=0.5 W=0 K=2 J=0 N=2050095 pi=567225 comp=1482869 supE=86600.1436 supE/log2X=333.34286 infE(x-)=-0.052662 maxgap=290.74
+  secs=2

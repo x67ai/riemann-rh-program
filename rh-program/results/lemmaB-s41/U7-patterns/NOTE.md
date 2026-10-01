@@ -201,7 +201,7 @@ F_A(16) and by κ/κ_P. Use: a proof of
 negative at short lags (−0.029 at ℓ = 1, 2); the window-variance reduction of 3.2 is the sum of many small negative correlations
 (Σ_ℓ r_c(ℓ) ≈ (0.34/0.97 − 1)/2 ≈ −0.32 for π/16). The p₁-part c^{(1)} has Bragg-type long-range order: for π/32 (p₁ = 6.0930 cells)
 r_{c1} = −0.077 at lags 1–5 and +0.165, +0.134, +0.156, +0.149, +0.130, +0.161, +0.153, +0.139 at lags 6, 12, 128, 256, 512, 16384,
-32768, 65536 — exactly the lags within 0.1 of a multiple of p₁ (65536/p₁ = 10756.0) [proved mechanism: the n-th g-integer is
+32768, 65536 — the lags within 0.2 cell of a multiple of p₁ (e.g. 16384 = 2689·p₁ − 0.04; at lag 1024, 0.38 off, r = 0.09) [mechanism, proved: the n-th g-integer is
 ν_n = 1 + (n − 1 − E(ν_n))t, a lattice with bounded displacement −tE, and the p₁-arrivals are its dilation]. The g-prime indicator is
 positively correlated at short range (r = 0.253, 0.141, 0.103 at lags 1–3, < 0.01 beyond 12; π/16): g-primes come in runs, the idle
 stretches of the queue.
@@ -210,3 +210,55 @@ stretches of the queue.
 2·10⁷ cells at 3.16·10⁹ — the queue state at x is NOT a function of the states at x/q. Per excursion, corr(height, ΔE(W/p₁)) = 0.49
 (π/16) and 0.27 (π/32) at 10¹⁰, rising slowly with x (0.41 → 0.49 over 10⁷–10¹⁰ for π/16): the cross-scale link is in the increments
 over the burst window (4.1 (I1)), not in the levels.
+
+## §5. Monotone and conserved quantities (task 3)
+
+**Theorem 5.1 (inheritance inequality)** [proved here]. Let S be S8 with threshold τ, possibly with early placement (so E(u) ≥ −τ for
+all u ≥ 1, the one-sided bound of Lemma 1.1). Let d be a g-integer, c_i^{(d)} the number of composites in cell i divisible by d, and
+r_k^{(d)} := max(r_{k−1}^{(d)} + c_k − c_k^{(d)} − (1 − 1/d), 0), r_0 = 0, the queue of the arrivals NOT divisible by d served at rate
+1 − 1/d per cell. Then for every k with x_k ≥ d:  **e_k ≤ E(x_k/d) + τ + r_k^{(d)}.**
+*Proof.* Lindley: e_k = max_{0≤j≤k} Σ_{i=j+1}^{k}(c_i − 1). Write c_i − 1 = (c_i^{(d)} − 1/d) + (c_i − c_i^{(d)} − (1 − 1/d)). If x_j ≥ d,
+(I1) gives Σ_{i=j+1}^{k}(c_i^{(d)} − 1/d) = E(x_k/d) − E(x_j/d) ≤ E(x_k/d) + τ. If x_j < d (this includes j = 0, x_0 := 1 + (τ − 1)t),
+no composite ≤ x_j is a multiple of d, so the sum is N(x_k/d) − 1 − (k − j)/d = E(x_k/d) − ρ(1 − x_j/d) ≤ E(x_k/d). The second sums
+are ≤ r_k^{(d)} by Lindley's formula for r^{(d)}. Take the maximum over j. ∎
+**Theorem 5.2 (union form)** [proved here]. For g-primes q₁, …, q_m with Σ 1/q_i < 1 and r^{Q} the queue of the arrivals divisible by
+none of them, served at 1 − Σ 1/q_i: e_k ≤ Σ_i (E(x_k/q_i) + τ) + r_k^{Q}. (Each composite divisible by some q_i is counted at least once
+in Σ_i c^{(q_i)}; apply the proof of 5.1 to each q_i.) ∎
+**5.3 Sharpness on data** [computed: `verify/lyap.py` on 2·10⁷ cells at 3.16·10⁹, log `verify/logs/lyap.log`; `verify/inherit.c` on all
+cells to 10¹⁰, CHECK lines of `verify/logs/b*_1e10.inh` and the ten variants]. Theorem 5.1 with d = p₁ holds on every cell checked
+(max(e − bound) = −2.7·10⁻⁶ on the slice; over all 1.96·10⁹ cells +1.2·10⁻⁸, the double rounding of E(x/p₁) near 10¹⁰; ≤ 0 in all ten
+variants). The weight 1 on E(x/p₁) is optimal: max(e − aE(x/p₁) − τ − r) = 12.37, 5.75, 0, 0.25, 0.50 for a = 0, ½, 1, 3/2, 2 (π/16;
+6.19, 3.02, 0, 0.25, 0.50 for π/32). The bound is within 1 of e on 48 % (π/16) and 69 % (π/32) of busy cells, mean slack 1.45 and 0.89.
+**But the extremes are carried by r^{(1)}:** on the slice max e = 19, max r^{(1)} = 18.97 (π/16); 12 and 11.81 (π/32); over the last
+half-decade to 10¹⁰ max r^{(1)}/max e = 22.7/25 and 12.8/14. The union form with p₁, …, p₄ is loose (mean slack 6.6, max bound 40.8
+against max e = 19). So: the inherited term is controlled for free by induction on scale; what is left is a queue r^{(1)} of the same
+kind (arrivals coprime to p₁, load 1 − π′/(1 − 1/p₁) → 1), whose maximum is 0.9–1.0 times that of e.
+**Corollary 5.4 (Lemma B reduces to the coprime-to-p₁ queue)** [proved here, from 5.1]. Put M(y) := sup_{u≤y} E(u) and
+R(x) := sup_{x_k ≤ x}(r_k^{(1)} + c_{k+1}). Since E(u) ≤ e_k + 1 − τ + c_{k+1} (+1 with early placement) for u ∈ [x_k, x_{k+1}),
+5.1 gives M(x) ≤ M(x/p₁) + 2 + R(x), and along the chain x, x/p₁, x/p₁², …: M(x) ≤ Σ_{j ≥ 0}(2 + R(x/p₁^j)) + O(1). Hence
+R(x) = O(log^a x) ⟹ E = O(log^{a+1} x), and R(x) = O(x^θ) ⟹ E = O(x^θ + log x) (geometric sum): **Lemma B_ρ follows from the same
+bound for the queue r^{(1)} of the arrivals coprime to p₁** (the c_{k+1} in R is harmless: no cell holds more than 10 composites to 10¹⁰ for π/16, 9 for π/32). The data put
+a ≈ 2 (max r^{(1)} ≈ 0.9–1.0·max e), so the recursion loses one log against the observed log² — immaterial for B_ρ.
+**Theorem 5.5 (an exact conservation law across scales)** [proved here]. For any discrete Beurling system that is a free monoid, with
+E(u) := N(u) − ρ(u − 1) − 1 and Λ(p^j) := log p, for x ≥ 1:
+  Σ_{d≤x} Λ(d)·E(x/d) = E(x) log x − ∫₁^x E(u) du/u + ρx·(log x − 1 − Σ_{d≤x} Λ(d)/d) + ρ − (1 − ρ)·ψ(x).
+*Proof.* log n = Σ_{d|n} Λ(d) in a free monoid, so Σ_{n≤x} log n = Σ_{d≤x} Λ(d)N(x/d). The right side is ρxΣΛ(d)/d + (1 − ρ)ψ(x) +
+ΣΛ(d)E(x/d). The left side is ∫_{1⁻}^x log u dN(u) = N(x) log x − ∫₁^x N(u)du/u = (ρ(x − 1) + 1 + E(x)) log x − ρ(x − 1) − (1 − ρ) log x −
+∫₁^x E du/u. Equate. ∎ [computed: `verify/chebyshev.py`, log `verify/logs/chebyshev.log`: both sides agree to ≤ 2·10⁻⁸ at x = 10³ … 3·10⁶,
+both densities.] *One-sided consequence* (E ≥ −τ, r₀ := 1 − ρ − τ): Σ_{d≤x} Λ(d)/d ≤ log x − 1 − (r₀/ρ)·ψ(x)/x + [E(x) log x −
+∫₁^x E du/u + ρ]/(ρx) — a Mertens-type upper bound forced by (A) alone; data: Σ_{d≤x} Λ(d)/d − log x = −4.55 (π/16) and −7.50 (π/32) at
+3·10⁶, against the bound −2.46 and −4.14. *A side observation that the zero search can use* [computed, same log]: ψ(x)/x = 0.92622, 0.94088
+(π/16 at 10⁶, 3·10⁶) and 0.73776, 0.76640 (π/32) against 1 − x^{σ*−1}/σ* = 0.92615, 0.94103 and 0.73783, 0.76640 with the real zeros
+σ* = 0.794755, 0.895077 of the s40 NOTE: the real zero is the main term of ψ_P − x to 10⁻⁴ relative.
+**5.6 Candidates tested and rejected** [computed]. (i) Linear potentials L = Σ_q a_q E(x/p_q) (q ≤ 4) + const: R² ≤ 0.062 against e,
+and no choice of a_q gives L ≥ e: on the slice, the 353 cells with e ≥ 15 (π/16) have E(x/p₁) anywhere in [−0.42, 12.0], mean 4.8
+(π/32, the 186 cells with e ≥ 9: [−0.47, 5.7]; `verify/e1range.py`, appended to `verify/logs/lyap.log`). (ii) L = aE(x/p₁) + τ + r^{(1)}: dominates e
+iff a = 1 (5.3). (iii) The union potential of 5.2: dominates, slack 6.6 on average. (iv) The block maxima B_j := max{E(x_k) : x_k ∈
+[p₁^j, p₁^{j+1})} are non-decreasing in j on all 18 (π/16) and 12 (π/32) blocks to 10¹⁰ (π/16: 0.5, 0.5, 0.5, 2.5, 2.5, 2.5, 3.5, 5.5,
+6.5, 9.5, 10.5, 12.5, 14.5, 16.5, 17.5, 21.5, 25.5, 25.5), increments 0–4 — but this is what an extreme value over p₁ times more cells
+with a slowly falling tail rate does; it is not a structural monotonicity and is not proposed as one. (v) The Λ-weighted mean of E over
+the scales x/d (Theorem 5.5) is a conserved-type quantity but is pinned near −0.064 (π/16) / −0.070 (π/32) by the trivial range
+x/d < p₁ (where E(y) = −ρ(y − 1)), so it carries no information on the excursions.
+**Verdict for task 3.** No monotone or bounded-drift L dominating e was found beyond Theorem 5.1, and 5.1 is sharp in its weight.
+The one structural recursion the data support is Corollary 5.4: E at x is the E at x/p₁ plus a queue r^{(1)} fed only by arrivals
+coprime to p₁ — so the proof problem of Lemma B_ρ is the same problem for r^{(1)}, with the most rigid class removed.

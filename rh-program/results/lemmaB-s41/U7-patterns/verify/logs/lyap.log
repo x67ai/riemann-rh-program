@@ -20,3 +20,6 @@ a=1.0: max(e - a*E1 - tau - r1) = -0.000
 a=1.5: max(e - a*E1 - tau - r1) = 0.250
 a=2.0: max(e - a*E1 - tau - r1) = 0.500
 python3 "$V/lyap.py" b32_1e10 32 0.5 0 3.16227766e9 20000000  6.59s user 0.43s system 88% cpu 7.946 total
+# 17:37 IST 2026-10-01
+b16_1e10: cells with e >= 15: 353; E(x/p1) on them: min -0.419 max 12.004 mean 4.769
+b32_1e10: cells with e >= 9: 186; E(x/p1) on them: min -0.474 max 5.747 mean 2.044

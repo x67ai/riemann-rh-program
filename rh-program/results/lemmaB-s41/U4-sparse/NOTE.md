@@ -50,11 +50,102 @@ independent of ρ. *Proof.* Multiply the density by t and write u^{−ρ} = e^{�
 
 ## §2. Domination by the feedback-free lattice queue, and the explicit bound
 
-(pending)
+Let G^lat be the monoid of all finite multisets of lattice points (the system whose g-primes are ALL lattice points), c_k^lat the
+number of its composites (multisets of ≥ 2 lattice points) with product in (x_{k−1}, x_k], and e_k^lat := max(e_{k−1}^lat + c_k^lat − 1, 0),
+e₀^lat := 0. This queue is feedback-free: a fixed function of t alone, involving no greedy decision.
+
+**Theorem 2.1 (pathwise domination)** [proved here]. For every k: c_k ≤ c_k^lat and e_k ≤ e_k^lat. Hence
+sup_{1≤x<x_{K+1}} E(x) ≤ max_{k≤K+1} e_k^lat + 3/2.
+*Proof.* The g-primes are lattice points. A composite of S8 is a multiset of ≥ 2 g-primes; read as a multiset of lattice points it is
+a composite of G^lat with the same product, and distinct multisets stay distinct. So C(I) ≤ C^lat(I) for every interval I, in
+particular c_k ≤ c_k^lat (same step convention (x_{k−1}, x_k] on both sides). Lindley's map (e, c) ↦ max(e + c − 1, 0) is
+nondecreasing in both arguments; induction from e₀ = e₀^lat = 0. The last sentence is Lemma 1.2. ∎
+[computed: `verify/s8sp.c` modes 1 and 0 run in lockstep through an e-dump, `verify/run_main.sh`, logs `logs/r*_m0_1e9.tsv` columns
+viol/cmpd] zero violations of e_k ≤ e_k^lat in 24,543,693 (π/128), 49,087,385 (π/64) and 5,603,833 (π/32, until e^lat exceeds
+65,535) consecutive steps to 10⁹. **Consequence: on any range where e^lat is small, upper bounds for S8 are a pure lattice-point
+problem; the greedy feedback is not needed.**
+
+**Lemma 2.2 (component count)** [proved here]. For z ≥ 1 put S(z) := Σ 1/m′ and Q(z) := #{M′}, both over nonempty multisets M′ of
+lattice points with m′·P⁺(M′) ≤ z (m′ = product of M′, P⁺(M′) = its largest element). For every window W = (x_j, x_k] of m = k − j
+steps: C^lat(W) ≤ m·S(x_k) + Q(x_k).
+*Proof.* A lattice composite M with product in W has a largest element P; M ↦ (M′ := M minus one copy of P, P) is injective, M′ ≠ ∅
+and P⁺(M′) ≤ P. For fixed M′ the admissible P are lattice points in (x_j/m′, x_k/m′], an interval of length mt/m′, so there are at
+most m/m′ + 1 of them (spacing t), and none unless m′P⁺(M′) ≤ m′P ≤ x_k. Sum over M′. ∎
+Each M′ is a "component": its multiples m′·P (P ≥ P⁺(M′)) form an arithmetic progression of step exactly m′ lattice steps, with
+long-run rate 1/m′ per step; S is the total rate, Q the number of components. The "+1" is the only loss.
+
+**Theorem 2.3 (explicit bound on the sparse range)** [proved here]. If S(x_{K+1}) ≤ 1, then
+  sup_{1≤x<x_{K+1}} E(x) ≤ 3/2 + Q(x_{K+1}).
+*Proof.* By Lemma 1.2(iii) for the lattice queue, e_k^lat = max_{j≤k}(C^lat(x_j, x_k] − (k − j)) ≤ max_{j≤k}(k − j)(S(x_k) − 1) + Q(x_k)
+≤ Q(x_k), because S and Q are nondecreasing and S(x_k) ≤ 1. Then Theorem 2.1. ∎
+*Elementary size of Q* [proved here]. Every M′ counted in Q(z) has m′ ≤ z/P⁺(M′) ≤ z/p₁, and also m′ ≤ z^{j/(j+1)} if |M′| = j
+(as P⁺(M′) ≥ m′^{1/j}). Counting multisets of j lattice points with product ≤ Y by their largest element gives the recursion
+N_j(Y) ≤ ρY·H_{j−1}(Y) + N_{j−1}(Y/p₁), H_n(Y) := Σ_{|M|=n, m≤Y} 1/m ≤ h_n(w) (complete homogeneous symmetric function of
+w_a = 1/x_a, x_a ≤ Y), N₀ = 1. Since Σ_n h_n(w) = Π_a(1 − w_a)^{−1} ≤ exp(σ_Y/(1 − 1/p₁)), σ_Y := Σ_{x_a≤Y} 1/x_a, this unrolls to
+  N^lat(Y) := Σ_j N_j(Y) ≤ 2ρY·e^{2σ_Y} + log Y/log p₁,  hence  Q(z) ≤ N^lat(z/p₁) ≤ 4ρ²z·e^{2σ_z} + log z/log p₁,
+using p₁ ≥ 1/(2ρ). And σ_z = ρ(ψ(A + ½ + ρ) − ψ(½ + ρ)), A = #{a : x_a ≤ z}, so σ_z = τ_z + ρ(log ρ − ψ(½ + ρ)) + O(ρ/A), with
+−ψ(½) = 1.9635 [ψ = digamma]. **So on the sparse range E(x) ≤ 2 + 4ρ²x·e^{2τ+4ρ} + τ/(ρ log p₁): the integer error is at most
+O(ρ) times the number of steps, explicitly.** The exact Q is far smaller (table below): its j-element part is ≈ c_j ρ^j z^{j/(j+1)}
+(Q₁(z) = #{a : x_a² ≤ z} ≤ ρ√z + 1), so for small τ the bound is ≈ ρ√x.
+
+*Theorem 2.3 in numbers* [computed: `verify/qs.c` (exact enumeration of S, Q), logs `logs/qs_*.log`, `logs/tauc.log`; measured
+sup E from `logs/r*_m0_*.tsv`; the S8 runs re-decide every composite within 10⁻⁵ steps of a lattice point in double-double: 2,706–7,354
+re-decisions per run, 8–38 flips of the double-precision step, 0 unresolved]:
+
+| ρ | S ≤ 1 holds for x ≤ | Q(10⁸) | Q(10⁹) | Q(10¹⁰) | sup_{x≤10⁸} E | sup_{x≤10⁹} E | sup_{x≤10¹⁰} E |
+|---|---|---|---|---|---|---|---|
+| π/32 | 3.16·10⁷ (τ = 1.695) | (S > 1) | — | — | 9.86 | 13.22 | — |
+| π/64 | > 10¹² (S(10¹²) = 0.747) | 1,447 | 6,385 | 29,631 | 6.19 | 8.00 | 10.48 |
+| π/128 | > 10¹² (S(10¹²) = 0.320) | 446 | 1,778 | 7,381 | 4.71 | 5.55 | 7.09 |
+| π/256 | > 10¹² (S(10¹²) = 0.144) | 170 | 612 | 2,318 | 3.27 | 4.22 | 5.18 |
+
+(π/32: Q(10⁷) = 1,279 against sup_{x≤10⁷} E = 8.93.) The theorem is correct and explicit, and it is loose by a factor 10²–10³:
+all of the loss is the "+1 per component" of Lemma 2.2, i.e. the trivial bound for the number of components (cofactors M′) whose
+progression has a point in a given short window. That is the step to improve inside the sparse range (§3.2).
 
 ## §3. What fails beyond the sparse range
 
-(pending)
+**Proposition 3.1 (the lattice monoid's load in the scaling limit)** [proved here]. Uniformly for τ in compact subsets of [0, ∞),
+S_ρ(e^{τ/ρ}) → Λ(τ) := Σ_{j≥1} τ^j/(j!(j+1)!) = I₁(2√τ)/√τ − 1 as ρ → 0; Λ is increasing and Λ(τ_c) = 1 at
+**τ_c = 1.54609037074481** [computed: `verify/tauc.py`, mpmath, `logs/tauc.log`]. Λ(τ) = τ/2 + τ²/12 + τ³/144 + …: the j-th term is the
+rate of products of j + 1 lattice points.
+*Proof.* Let λ_ρ := Σ_a x_a^{−1}δ_{ρ log x_a} (the lattice in the variable s = ρ log u, weight 1/x_a). For 0 ≤ v₁ < v₂ ≤ V,
+λ_ρ((v₁, v₂]) = ρΣ_{A₁<a≤A₂} 1/(a + δ) with A_i = ρe^{v_i/ρ} + O(1), which is v₂ − v₁ + O(ρ log(1/ρ)) uniformly (digamma, as in §2); so
+λ_ρ → Lebesgue measure vaguely on [0, ∞), with λ_ρ([0, v]) ≤ v + 2ρ. In S_ρ, the j-element cofactors M′ are the points
+u ∈ [0, ∞)^j (u_i = ρ log of the elements) of R_j(τ) := {Σu_i + max u_i ≤ τ}, weighted by e^{−Σu_i/ρ} = 1/m′. Ordered j-tuples with
+distinct entries count each multiset j! times; multisets with a repeated element carry total weight ≤ (Σ_a x_a^{−2})·(τ + 2ρ)^{j−2} =
+O(ρ²)·(τ + 1)^{j−2} (Σ_a x_a^{−2} = ρ²ψ′(½ + ρ) ≤ 5ρ²). So S_j = (1/j!)λ_ρ^{⊗j}(R_j(τ)) + O(ρ²(τ+1)^j). R_j(τ) is compact with Lebesgue-null
+boundary, so λ_ρ^{⊗j}(R_j(τ)) → vol R_j(τ). Volume: the simplex {v ∈ [0,∞)^{j+1} : Σv = τ}, projected to its first j coordinates, is
+{u : Σu ≤ τ}, of volume τ^j/j!; the part where v_{j+1} is the largest coordinate projects onto R_j(τ) and carries 1/(j+1) of it (the
+simplex is symmetric in its j + 1 coordinates; ties are null). So vol R_j(τ) = τ^j/(j+1)!, and S_j → τ^j/(j!(j+1)!). Dominated
+convergence in j: S_j ≤ (τ + 2ρ)^j·5/j! (the factor 5 covers the repeated-element terms). Uniformity: S_ρ is nondecreasing in z and
+Λ is continuous (Pólya's argument). The Bessel form is the series of I₁. ∎
+*Finite ρ* [computed, `logs/tauc.log`]: S_ρ = 1 at τ = 1.637 (π/16), 1.681 (π/24), 1.695 (π/32); the offset from τ_c comes from
+Σ_{a≤A} 1/(a+δ) = log A − ψ(½ + ρ) + o(1) and is O(ρ log(1/ρ)), so the approach to τ_c is slow and not monotone in ρ.
+
+**3.2 The exact failing steps.**
+(F1) *Beyond τ_c(ρ): the domination of Theorem 2.1 is the step that fails.* There the comparison queue has arrival rate Λ(τ) > 1 per
+step and grows linearly [computed, `logs/r32_m1_1e9.tsv`]: max e^lat = 26 to 10⁷ (τ = 1.58, rate 0.892), 368,982 to 10⁸ (τ = 1.81, rate
+1.072), 20,032,408 to 10⁹ (rate 1.264), while S8's own queue stays ≤ 13 there. The information Theorem 2.1 throws away is exactly the
+set of BUSY lattice points (lattice points that are not g-primes, a fraction λ₀(τ′) ≈ τ′/2 of the steps at scale τ′): the lattice monoid
+overcounts S8's arrival rate by Λ(τ) − λ₀(τ) = τ²/4 − 5τ³/144 + O(τ⁴), the rate of lattice products with at least one busy factor.
+No argument that forgets which lattice points are busy can pass τ_c(ρ). To pass it one needs a LOWER bound for the busy set at scales
+≤ x/p₁, i.e. a lower bound for composites there, i.e. an upper bound for primes further down: the alternating scheme of §4.3, of
+which Theorem 2.1 is the zeroth term.
+(F2) *Inside the range, the step that makes the bound weak is the "+1 per component" of Lemma 2.2.* Precisely: the bound needs
+K(X, m) := max over windows W of m steps with right end ≤ X of #{M′ : the progression m′·P, P ≥ P⁺(M′), has a point in W}, and the
+only available bound is K ≤ Q(X). For one-element cofactors this is the count #{(a ≤ b) : (a + δ)(b + δ) ∈ [Y, Y + mρ]}, Y = ρ²y: lattice
+points of the shifted lattice (ℤ + δ)² in a hyperbolic shell of width mρ → 0 — the shifted divisor problem in very short intervals.
+Integer-points-near-a-curve methods (second divided differences) give O(Y^{1/3+ε}) for it [recalled, unverified; not used]; the truth
+is far smaller: the whole feedback-free queue has max e^lat = 7 to 10¹⁰ for π/128 (Q = 7,381) and 13 to 10¹⁰ for π/64 (Q = 29,631)
+[computed, `logs/r128_m1_1e10.tsv`, `logs/r64_m1_1e10.tsv`].
+**Proposition 3.2 (what a cluster bound would give)** [proved here]. If C^lat(W) ≤ m·S(x_k) + K for every window W = (x_j, x_k] with
+x_k ≤ X and S(X) ≤ 1, then sup_{x<X} E(x) ≤ K + 3/2. (Same proof as Theorem 2.3.) So on τ < τ_c every Lemma B-type bound for S8 is
+implied by a cluster bound for the feedback-free lattice monoid; a polylogarithmic K would give polylogarithmic E there.
+(F3) *"Two- or three-fold" is true only at the very bottom.* All composites are two-fold only on [p₁², p₁³) (Lemma 1.1), i.e.
+τ < 3ρ log p₁ → 0. At τ = c the cofactor table has non-empty classes up to |M′| = 8 already at 10⁹ for π/32 [`logs/qs_32.log`]: products
+of up to ≈ c/(ρ log(1/2ρ)) lattice points occur. Their share of the load is small for small τ (Λ(τ) − τ/2 = τ²/12 + …) but not zero, and
+in Lemma 2.2 every one of them costs its own "+1".
 
 ## §4. The scaling limit τ = ρ log x: macroscopic law
 

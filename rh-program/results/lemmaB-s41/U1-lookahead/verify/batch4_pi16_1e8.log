@@ -1,0 +1,75 @@
+== greedy 0.5 0
+x=1e+05 supE=6.8801 supE/log2=0.05191
+x=1e+06 supE=9.6362 supE/log2=0.05049
+x=1e+07 supE=12.8385 supE/log2=0.04942
+x=1e+08 supE=16.3639 supE/log2=0.04823
+EXC supTop=16.3639 at x=8.41071e+07 rise_from_last_prime=209.50 (0.617 log^2X) gap=514.39 (1.516 log^2X)
+LEMMA_M L=84.83 (0.25 log^2 X) windows=1612092 min_pi(W)log/L=0.0000 mean=0.9747
+LEMMA_M L=339.32 (1.00 log^2 X) windows=403022 min_pi(W)log/L=0.0000 mean=0.9747
+LEMMA_M L=1562.6 (0.25 log^3 X) windows=87514 min_pi(W)log/L=0.4685 mean=0.9747
+LEMMA_M L=6250.5 (1.00 log^3 X) windows=21877 min_pi(W)log/L=0.7681 mean=0.9747
+LEMMA_M L=28785 (0.25 log^4 X) windows=4749 min_pi(W)log/L=0.8976 mean=0.9747
+LEMMA_M L=1.1514e+05 (1.00 log^4 X) windows=1186 min_pi(W)log/L=0.9455 mean=0.9747
+RESULT rule=greedy tau=0.5 W=0 K=1 J=0 N=19634955 pi=5593120 comp=14041834 supE=16.3639 supE/log2X=0.04823 infE(x-)=-0.500000 maxgap=539.85
+           961380352  maximum resident set size
+  secs=2
+== greedy 0.02 0
+x=1e+05 supE=6.8092 supE/log2=0.05137
+x=1e+06 supE=8.3415 supE/log2=0.04370
+x=1e+07 supE=9.5591 supE/log2=0.03680
+x=1e+08 supE=11.7480 supE/log2=0.03462
+EXC supTop=11.7480 at x=8.1414e+07 rise_from_last_prime=118.32 (0.349 log^2X) gap=269.93 (0.795 log^2X)
+LEMMA_M L=84.83 (0.25 log^2 X) windows=1612092 min_pi(W)log/L=0.0000 mean=0.4937
+LEMMA_M L=339.32 (1.00 log^2 X) windows=403022 min_pi(W)log/L=0.0000 mean=0.4937
+LEMMA_M L=1562.6 (0.25 log^3 X) windows=87514 min_pi(W)log/L=0.2771 mean=0.4937
+LEMMA_M L=6250.5 (1.00 log^3 X) windows=21877 min_pi(W)log/L=0.4090 mean=0.4937
+LEMMA_M L=28785 (0.25 log^4 X) windows=4749 min_pi(W)log/L=0.4583 mean=0.4937
+LEMMA_M L=1.1514e+05 (1.00 log^4 X) windows=1186 min_pi(W)log/L=0.4707 mean=0.4937
+RESULT rule=greedy tau=0.02 W=0 K=1 J=0 N=19634956 pi=2775259 comp=16859696 supE=11.7480 supE/log2X=0.03462 infE(x-)=-0.020000 maxgap=544.95
+          1708228608  maximum resident set size
+  secs=4
+== beatty 0.5 0.9
+x=1e+05 supE=18.8144 supE/log2=0.14194
+x=1e+06 supE=31.1370 supE/log2=0.16313
+x=1e+07 supE=50.8711 supE/log2=0.19581
+x=1e+08 supE=70.7173 supE/log2=0.20841
+EXC supTop=70.7173 at x=9.97086e+07 rise_from_last_prime=10.99 (0.032 log^2X) gap=21.03 (0.062 log^2X)
+LEMMA_M L=84.83 (0.25 log^2 X) windows=1612092 min_pi(W)log/L=0.8143 mean=0.9394
+LEMMA_M L=339.32 (1.00 log^2 X) windows=403022 min_pi(W)log/L=0.8193 mean=0.9394
+LEMMA_M L=1562.6 (0.25 log^3 X) windows=87514 min_pi(W)log/L=0.8597 mean=0.9394
+LEMMA_M L=6250.5 (1.00 log^3 X) windows=21877 min_pi(W)log/L=0.8676 mean=0.9394
+LEMMA_M L=28785 (0.25 log^4 X) windows=4749 min_pi(W)log/L=0.8773 mean=0.9394
+LEMMA_M L=1.1514e+05 (1.00 log^4 X) windows=1186 min_pi(W)log/L=0.9194 mean=0.9394
+RESULT rule=beatty tau=0.5 W=0 K=1 J=0 N=19634970 pi=5372964 comp=14262005 supE=70.7173 supE/log2X=0.20841 infE(x-)=-0.500000 maxgap=21.03
+           968998912  maximum resident set size
+  secs=11
+== beatty 0.5 0.8
+x=1e+05 supE=12.2372 supE/log2=0.09232
+x=1e+06 supE=20.0892 supE/log2=0.10525
+x=1e+07 supE=32.6201 supE/log2=0.12556
+x=1e+08 supE=40.4060 supE/log2=0.11908
+EXC supTop=40.4060 at x=9.71704e+07 rise_from_last_prime=3.52 (0.010 log^2X) gap=23.63 (0.070 log^2X)
+LEMMA_M L=84.83 (0.25 log^2 X) windows=1612092 min_pi(W)log/L=0.6107 mean=0.9569
+LEMMA_M L=339.32 (1.00 log^2 X) windows=403022 min_pi(W)log/L=0.7228 mean=0.9569
+LEMMA_M L=1562.6 (0.25 log^3 X) windows=87514 min_pi(W)log/L=0.7632 mean=0.9569
+LEMMA_M L=6250.5 (1.00 log^3 X) windows=21877 min_pi(W)log/L=0.7819 mean=0.9569
+LEMMA_M L=28785 (0.25 log^4 X) windows=4749 min_pi(W)log/L=0.8938 mean=0.9569
+LEMMA_M L=1.1514e+05 (1.00 log^4 X) windows=1186 min_pi(W)log/L=0.9326 mean=0.9569
+RESULT rule=beatty tau=0.5 W=0 K=1 J=0 N=19634959 pi=5481441 comp=14153517 supE=40.4060 supE/log2X=0.11908 infE(x-)=-0.500000 maxgap=23.66
+           968933376  maximum resident set size
+  secs=10
+== beatty 0.5 0.95
+x=1e+05 supE=1576.0446 supE/log2=11.89042
+x=1e+06 supE=14376.2587 supE/log2=75.32029
+x=1e+07 supE=131989.1844 supE/log2=508.05518
+x=1e+08 supE=1213220.0685 supE/log2=3575.42962
+EXC supTop=1213220.0685 at x=9.99997e+07 rise_from_last_prime=4.62 (0.014 log^2X) gap=19.93 (0.059 log^2X)
+LEMMA_M L=84.83 (0.25 log^2 X) windows=1612092 min_pi(W)log/L=0.8143 mean=0.9219
+LEMMA_M L=339.32 (1.00 log^2 X) windows=403022 min_pi(W)log/L=0.8673 mean=0.9219
+LEMMA_M L=1562.6 (0.25 log^3 X) windows=87514 min_pi(W)log/L=0.9071 mean=0.9219
+LEMMA_M L=6250.5 (1.00 log^3 X) windows=21877 min_pi(W)log/L=0.9155 mean=0.9219
+LEMMA_M L=28785 (0.25 log^4 X) windows=4749 min_pi(W)log/L=0.9174 mean=0.9219
+LEMMA_M L=1.1514e+05 (1.00 log^4 X) windows=1186 min_pi(W)log/L=0.9179 mean=0.9219
+RESULT rule=beatty tau=0.5 W=0 K=1 J=0 N=20848174 pi=5287529 comp=15560644 supE=1213220.0685 supE/log2X=3575.42962 infE(x-)=-0.251254 maxgap=19.93
+          1009713152  maximum resident set size
+  secs=11

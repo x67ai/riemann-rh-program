@@ -216,7 +216,13 @@ WHAT IT USES AND WHY IT WORKS. Only positivity of Π on the finitely generated m
 invisible: ζ contributes only its local factors at p ∈ S, singular on Re s = 0; so Landau's abscissa for h is ≤ 0, while the FE puts
 zeros of any non-constant D on or around Re s = ½. COVERAGE: ζ(s)(1 + q^{½−s}) for every q, F_{5,5}, every member of 𝒦_r whose
 measure m has finitely many atoms, all radical-frequency multipliers such as ζ(s)(1 + a·2^{−s/2} + √2·2^{−s}). It strengthens BFE
-§11(i) (finite Euler factors) to all finite Dirichlet-polynomial multipliers. `[novelty: single-check]`
+THEOREM D. A discrete Beurling system (multiset P of reals > 1, integer multiplicities) whose Λ_F
+satisfies (A) at some conductor q > 0 is the rational primes, and q = 1.
+ Proof. (1) E3: unit masses off 0; support locally finite (§1.4 Cor. 2); μ_q translation bounded (TB). Put μ′ := μ_q − (ρ_q − 1)λ
+ (λ = Lebesgue): μ′ is TB and 𝔉μ′ = Σ_{λ∈Λ}δ_λ, Λ = {0} ∪ ±𝒩/√q. Meyer 1970, LNM 117, §4.2 p. 25 (read at the page, read-O §2) gives
+ Λ = ∪_{j≤k}(α_jZ + β_j) up to a finite set; inclusion–exclusion writes μ_q = Σ_iε_iδ_{A_i} + E with progressions A_i, ε_i ∈ Z and E
+ finite atomic; Ê is absolutely continuous while μ̂_q = μ_q and the transform of the comb part are pure point, so E = 0 and μ_q =
+ Σ_iε_iδ_{A_i} exactly (a generalized Dirac comb with constant weights; Lemma Q is then not needed). (2) §2.6(b): the classes [x] (x ∈ 𝒩) form a finite group
 
 ### 2.4 THEOREM U_q — the uniformly discrete class is rigid at every conductor (P, using Q1 and Saias–Weingartner)
 THEOREM U_q. Let dN = exp*(dΠ), dΠ ≥ 0, be a Beurling system of polynomial growth whose Λ_F(s) = (q/π)^{s/2}Γ(s/2)F(s)
@@ -243,6 +249,13 @@ COROLLARY U1 (discrete systems with a small origin mass). A discrete Beurling sy
 any conductor and ρ_q < (1 + √3)/2 is ζ. (§2.2 Cor. E3: unit masses; §1.4 Cor. 3: the support is a lattice, hence u.d.; U_q.)
 COROLLARY U2 (the "q-part" dichotomy). A solution of Q_cond, if one exists, has non-uniformly-discrete generalized integers:
 pairs of generalized integers arbitrarily close together.
+THEOREM D. A discrete Beurling system (multiset P of reals > 1, integer multiplicities) whose Λ_F
+satisfies (A) at some conductor q > 0 is the rational primes, and q = 1.
+ Proof. (1) E3: unit masses off 0; support locally finite (§1.4 Cor. 2); μ_q translation bounded (TB). Put μ′ := μ_q − (ρ_q − 1)λ
+ (λ = Lebesgue): μ′ is TB and 𝔉μ′ = Σ_{λ∈Λ}δ_λ, Λ = {0} ∪ ±𝒩/√q. Meyer 1970, LNM 117, §4.2 p. 25 (read at the page, read-O §2) gives
+ Λ = ∪_{j≤k}(α_jZ + β_j) up to a finite set; inclusion–exclusion writes μ_q = Σ_iε_iδ_{A_i} + E with progressions A_i, ε_i ∈ Z and E
+ finite atomic; Ê is absolutely continuous while μ̂_q = μ_q and the transform of the comb part are pure point, so E = 0 and μ_q =
+ Σ_iε_iδ_{A_i} exactly (a generalized Dirac comb with constant weights; Lemma Q is then not needed). (2) §2.6(b): the classes [x] (x ∈ 𝒩) form a finite group
 
 ### 2.5 The finite feasibility problem, decided (C: `verify/v2_euler_identity_and_ud_family.{py,log}`)
 WHY NOT THE BRIEF'S LP AS WRITTEN. The Euler-side constraints of §2.1 are linear in dN only once the primes are fixed, and the
@@ -335,6 +348,13 @@ satisfies (A) at some conductor q > 0 is the rational primes, and q = 1.
  F(s) = Σ_γ β_γ^{−s}G_γ(s) with β_γ in class γ (β_γ^{|Γ|} ∈ Q) and G_γ ∈ H_{M′} (periodic coefficients). (4) S–W Thm 1 on each G_γ:
  F = Σ_ψ P̃_ψL_ψ, P̃_ψ = Σ_γβ_γ^{−s}P_{γ,ψ} (radical weights). (5) F ≠ 0 on Re s > 1 (§2.4 Step 4), so by S–W′ only one ψ has
  P̃_ψ ≢ 0; the pole at s = 1 makes it trivial: F = ζ·P̃. (6) Theorem L′: q = 1, P̃ ≡ 1; BFE Theorem T: the rational primes. ∎
+THEOREM D. A discrete Beurling system (multiset P of reals > 1, integer multiplicities) whose Λ_F
+satisfies (A) at some conductor q > 0 is the rational primes, and q = 1.
+ Proof. (1) E3: unit masses off 0; support locally finite (§1.4 Cor. 2); μ_q translation bounded (TB). Put μ′ := μ_q − (ρ_q − 1)λ
+ (λ = Lebesgue): μ′ is TB and 𝔉μ′ = Σ_{λ∈Λ}δ_λ, Λ = {0} ∪ ±𝒩/√q. Meyer 1970, LNM 117, §4.2 p. 25 (read at the page, read-O §2) gives
+ Λ = ∪_{j≤k}(α_jZ + β_j) up to a finite set; inclusion–exclusion writes μ_q = Σ_iε_iδ_{A_i} + E with progressions A_i, ε_i ∈ Z and E
+ finite atomic; Ê is absolutely continuous while μ̂_q = μ_q and the transform of the comb part are pure point, so E = 0 and μ_q =
+ Σ_iε_iδ_{A_i} exactly (a generalized Dirac comb with constant weights; Lemma Q is then not needed). (2) §2.6(b): the classes [x] (x ∈ 𝒩) form a finite group
 
 ## 3. Task 3 — rung 1 first: the exact dictionary with genus 1 over F₅ (C: `verify/v3_rung1_dictionary.{py,log}`)
 
@@ -416,7 +436,7 @@ READING (the calibration the brief asked for).
 
 ## 5. CLOSE — T (for a stated class, at every conductor) + G (the named residue)
 
-T (unconditional, proved here; novelty as split by read-O:23–24 and §4(h) — U_q: new reduction on a printed core (Hilberdink 2012 §4); L′: new in its real-frequency statement, method printed for integer divisor-supported multipliers; E2: not found in print, `[novelty: dual-checked]`):
+T (unconditional, proved here; `[novelty: single-check]`):
  • THEOREM U_q (§2.4). A Beurling system (dN = exp*(dΠ), dΠ ≥ 0, weights allowed) whose generalized integers are uniformly discrete
    and whose Λ_F(s) = (q/π)^{s/2}Γ(s/2)F(s) satisfies Riemann's exact FE (poles only at 0, 1, simple; (G′)) has q = 1 and is ζ.
  • THEOREM L′ (§2.3). No Beurling system of the form ζ·D, D a non-constant finite generalized Dirichlet polynomial (any real
@@ -428,6 +448,13 @@ T (unconditional, proved here; novelty as split by read-O:23–24 and §4(h) —
    instead, in the u.d. class, Lev–Olevskii + the monoid pigeonhole + Saias–Weingartner reduce F to ζ·D, and the LANDAU OBSTRUCTION
    kills D: positivity of Π on the finitely generated monoid of D's frequencies, where the pole of ζ is invisible, forces D to be
    zero-free on Re s > 0, and the FE reflects that to all of C.
+THEOREM D. A discrete Beurling system (multiset P of reals > 1, integer multiplicities) whose Λ_F
+satisfies (A) at some conductor q > 0 is the rational primes, and q = 1.
+ Proof. (1) E3: unit masses off 0; support locally finite (§1.4 Cor. 2); μ_q translation bounded (TB). Put μ′ := μ_q − (ρ_q − 1)λ
+ (λ = Lebesgue): μ′ is TB and 𝔉μ′ = Σ_{λ∈Λ}δ_λ, Λ = {0} ∪ ±𝒩/√q. Meyer 1970, LNM 117, §4.2 p. 25 (read at the page, read-O §2) gives
+ Λ = ∪_{j≤k}(α_jZ + β_j) up to a finite set; inclusion–exclusion writes μ_q = Σ_iε_iδ_{A_i} + E with progressions A_i, ε_i ∈ Z and E
+ finite atomic; Ê is absolutely continuous while μ̂_q = μ_q and the transform of the comb part are pure point, so E = 0 and μ_q =
+ Σ_iε_iδ_{A_i} exactly (a generalized Dirac comb with constant weights; Lemma Q is then not needed). (2) §2.6(b): the classes [x] (x ∈ 𝒩) form a finite group
 G (named residue — Q_cond is OPEN exactly here): Beurling systems with clustering (non-u.d.) generalized integers whose atom masses take
 infinitely many values (weighted primes, or mixed systems with a thin continuous part). No construction was found; no new Group-I control is claimed.
 STOP LINE (brief). Not "a printed theorem settles Q_cond" (none found); not "a verified system" (none); the certificate clause is met in

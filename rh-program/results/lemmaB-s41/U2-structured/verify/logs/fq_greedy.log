@@ -1,0 +1,105 @@
+# (a) template family T_n = m q^(n-1): b_n == M(q,n) - M(q-m,n), positivity, exactness, s* = log(q-m)/log q
+q= 2 m= 1 rho=m/q=0.5000  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=-inf
+q= 3 m= 1 rho=m/q=0.3333  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.630930
+q= 3 m= 2 rho=m/q=0.6667  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=-inf
+q= 4 m= 1 rho=m/q=0.2500  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.792481
+q= 4 m= 2 rho=m/q=0.5000  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.500000
+q= 4 m= 3 rho=m/q=0.7500  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=-inf
+q= 5 m= 1 rho=m/q=0.2000  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.861353
+q= 5 m= 2 rho=m/q=0.4000  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.682606
+q= 5 m= 3 rho=m/q=0.6000  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.430677
+q= 5 m= 4 rho=m/q=0.8000  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=-inf
+q= 7 m= 1 rho=m/q=0.1429  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.920782
+q= 7 m= 2 rho=m/q=0.2857  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.827087
+q= 7 m= 3 rho=m/q=0.4286  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.712414
+q= 7 m= 4 rho=m/q=0.5714  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.564575
+q= 7 m= 5 rho=m/q=0.7143  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.356207
+q= 7 m= 6 rho=m/q=0.8571  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=-inf
+q=16 m= 1 rho=m/q=0.0625  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.976723
+q=16 m= 2 rho=m/q=0.1250  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.951839
+q=16 m= 3 rho=m/q=0.1875  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.925110
+q=16 m= 4 rho=m/q=0.2500  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.896241
+q=16 m= 5 rho=m/q=0.3125  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.864858
+q=16 m= 6 rho=m/q=0.3750  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.830482
+q=16 m= 7 rho=m/q=0.4375  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.792481
+q=16 m= 8 rho=m/q=0.5000  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.750000
+q=16 m= 9 rho=m/q=0.5625  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.701839
+q=16 m=10 rho=m/q=0.6250  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.646241
+q=16 m=11 rho=m/q=0.6875  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.580482
+q=16 m=12 rho=m/q=0.7500  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.500000
+q=16 m=13 rho=m/q=0.8125  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.396241
+q=16 m=14 rho=m/q=0.8750  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=0.250000
+q=16 m=15 rho=m/q=0.9375  necklace_identity=True all_b>=0=True A_n==T_n=True  s*=-inf
+
+# (b) one-sided family T_n = m q^(n-1) + c: first negative raw b_n (none = exact to n=40), closed form check, zero
+q=  5 m=  1 c=1  rho=0.2000 r0=0.8000  negatives=[]  closed_form_ok=True  w1=4.2361 w2=-0.2361  s*=0.896981
+q=  5 m=  1 c=2  rho=0.2000 r0=0.8000  negatives=[]  closed_form_ok=True  w1=4.3723 w2=-1.3723  s*=0.916646
+q=  5 m=  1 c=1  rho=0.2000 r0=0.8000  negatives=[]  closed_form_ok=True  w1=4.2361 w2=-0.2361  s*=0.896981
+q=  5 m=  1 c=3  rho=0.2000 r0=0.8000  negatives=[2]  closed_form_ok=False  w1=4.4641 w2=-2.4641  s*=0.929559
+q=  5 m=  1 c=1  rho=0.2000 r0=0.8000  negatives=[]  closed_form_ok=True  w1=4.2361 w2=-0.2361  s*=0.896981
+q=  5 m=  1 c=5  rho=0.2000 r0=0.8000  negatives=[2, 3]  closed_form_ok=False  w1=4.5826 w2=-4.5826  s*=0.945834
+q=  7 m=  1 c=1  rho=0.1429 r0=0.8571  negatives=[]  closed_form_ok=True  w1=6.1623 w2=-0.1623  s*=0.934497
+q=  7 m=  1 c=2  rho=0.1429 r0=0.8571  negatives=[]  closed_form_ok=True  w1=6.2749 w2=-1.2749  s*=0.943805
+q=  7 m=  1 c=1  rho=0.1429 r0=0.8571  negatives=[]  closed_form_ok=True  w1=6.1623 w2=-0.1623  s*=0.934497
+q=  7 m=  1 c=3  rho=0.1429 r0=0.8571  negatives=[]  closed_form_ok=True  w1=6.3589 w2=-2.3589  s*=0.950638
+q=  7 m=  1 c=1  rho=0.1429 r0=0.8571  negatives=[]  closed_form_ok=True  w1=6.1623 w2=-0.1623  s*=0.934497
+q=  7 m=  1 c=5  rho=0.1429 r0=0.8571  negatives=[2, 3]  closed_form_ok=False  w1=6.4772 w2=-4.4772  s*=0.960112
+q= 11 m=  1 c=1  rho=0.0909 r0=0.9091  negatives=[]  closed_form_ok=True  w1=10.0990 w2=-0.0990  s*=0.964362
+q= 11 m=  1 c=2  rho=0.0909 r0=0.9091  negatives=[]  closed_form_ok=True  w1=10.1789 w2=-1.1789  s*=0.967648
+q= 11 m=  1 c=1  rho=0.0909 r0=0.9091  negatives=[]  closed_form_ok=True  w1=10.0990 w2=-0.0990  s*=0.964362
+q= 11 m=  1 c=3  rho=0.0909 r0=0.9091  negatives=[]  closed_form_ok=True  w1=10.2450 w2=-2.2450  s*=0.970347
+q= 11 m=  2 c=1  rho=0.1818 r0=0.8182  negatives=[]  closed_form_ok=True  w1=9.2170 w2=-0.2170  s*=0.926249
+q= 11 m=  2 c=5  rho=0.1818 r0=0.8182  negatives=[2]  closed_form_ok=False  w1=9.7284 w2=-4.7284  s*=0.948770
+q= 16 m=  1 c=1  rho=0.0625 r0=0.9375  negatives=[]  closed_form_ok=True  w1=15.0664 w2=-0.0664  s*=0.978315
+q= 16 m=  1 c=2  rho=0.0625 r0=0.9375  negatives=[]  closed_form_ok=True  w1=15.1240 w2=-1.1240  s*=0.979693
+q= 16 m=  2 c=1  rho=0.1250 r0=0.8750  negatives=[]  closed_form_ok=True  w1=14.1414 w2=-0.1414  s*=0.955464
+q= 16 m=  2 c=3  rho=0.1250 r0=0.8750  negatives=[]  closed_form_ok=True  w1=14.3666 w2=-2.3666  s*=0.961162
+q= 16 m=  4 c=1  rho=0.2500 r0=0.7500  negatives=[]  closed_form_ok=True  w1=12.3246 w2=-0.3246  s*=0.905866
+q= 16 m=  4 c=5  rho=0.2500 r0=0.7500  negatives=[]  closed_form_ok=True  w1=13.1652 w2=-5.1652  s*=0.929663
+q= 32 m=  1 c=1  rho=0.0312 r0=0.9688  negatives=[]  closed_form_ok=True  w1=31.0322 w2=-0.0322  s*=0.991139
+q= 32 m=  1 c=2  rho=0.0312 r0=0.9688  negatives=[]  closed_form_ok=True  w1=31.0624 w2=-1.0624  s*=0.991419
+q= 32 m=  4 c=1  rho=0.1250 r0=0.8750  negatives=[]  closed_form_ok=True  w1=28.1421 w2=-0.1421  s*=0.962932
+q= 32 m=  4 c=3  rho=0.1250 r0=0.8750  negatives=[]  closed_form_ok=True  w1=28.3948 w2=-2.3948  s*=0.965511
+q= 32 m=  8 c=1  rho=0.2500 r0=0.7500  negatives=[]  closed_form_ok=True  w1=24.3288 w2=-0.3288  s*=0.920919
+q= 32 m=  8 c=5  rho=0.2500 r0=0.7500  negatives=[]  closed_form_ok=True  w1=25.3623 w2=-5.3623  s*=0.932923
+q= 64 m=  1 c=1  rho=0.0156 r0=0.9844  negatives=[]  closed_form_ok=True  w1=63.0159 w2=-0.0159  s*=0.996274
+q= 64 m=  1 c=2  rho=0.0156 r0=0.9844  negatives=[]  closed_form_ok=True  w1=63.0312 w2=-1.0312  s*=0.996333
+q= 64 m=  8 c=1  rho=0.1250 r0=0.8750  negatives=[]  closed_form_ok=True  w1=56.1425 w2=-0.1425  s*=0.968504
+q= 64 m=  8 c=3  rho=0.1250 r0=0.8750  negatives=[]  closed_form_ok=True  w1=56.4109 w2=-2.4109  s*=0.969650
+q= 64 m= 16 c=1  rho=0.2500 r0=0.7500  negatives=[]  closed_form_ok=True  w1=48.3311 w2=-0.3311  s*=0.932480
+q= 64 m= 16 c=5  rho=0.2500 r0=0.7500  negatives=[]  closed_form_ok=True  w1=49.4955 w2=-5.4955  s*=0.938204
+q=101 m=  1 c=1  rho=0.0099 r0=0.9901  negatives=[]  closed_form_ok=True  w1=100.0100 w2=-0.0100  s*=0.997866
+q=101 m=  1 c=2  rho=0.0099 r0=0.9901  negatives=[]  closed_form_ok=True  w1=100.0198 w2=-1.0198  s*=0.997887
+q=101 m= 12 c=1  rho=0.1188 r0=0.8812  negatives=[]  closed_form_ok=True  w1=89.1346 w2=-0.1346  s*=0.972921
+q=101 m= 12 c=3  rho=0.1188 r0=0.8812  negatives=[]  closed_form_ok=True  w1=89.3939 w2=-2.3939  s*=0.973550
+q=101 m= 25 c=1  rho=0.2475 r0=0.7525  negatives=[]  closed_form_ok=True  w1=76.3275 w2=-0.3275  s*=0.939311
+q=101 m= 25 c=5  rho=0.2475 r0=0.7525  negatives=[]  closed_form_ok=True  w1=77.5331 w2=-5.5331  s*=0.942707
+
+# (c) rounded family T_n = ceil(rho q^n) + c, rho = 1/pi, 1/e, sqrt(2)-1
+q=  5 rho=0.318310 c=0  negatives(n<=30)=[]
+q=  5 rho=0.318310 c=1  negatives(n<=30)=[]
+q=  5 rho=0.318310 c=2  negatives(n<=30)=[]
+q=  5 rho=0.367879 c=0  negatives(n<=30)=[]
+q=  5 rho=0.367879 c=1  negatives(n<=30)=[]
+q=  5 rho=0.367879 c=2  negatives(n<=30)=[]
+q=  5 rho=0.414214 c=0  negatives(n<=30)=[]
+q=  5 rho=0.414214 c=1  negatives(n<=30)=[]
+q=  5 rho=0.414214 c=2  negatives(n<=30)=[2]
+q= 16 rho=0.318310 c=0  negatives(n<=30)=[]
+q= 16 rho=0.318310 c=1  negatives(n<=30)=[]
+q= 16 rho=0.318310 c=2  negatives(n<=30)=[]
+q= 16 rho=0.367879 c=0  negatives(n<=30)=[]
+q= 16 rho=0.367879 c=1  negatives(n<=30)=[]
+q= 16 rho=0.367879 c=2  negatives(n<=30)=[]
+q= 16 rho=0.414214 c=0  negatives(n<=30)=[]
+q= 16 rho=0.414214 c=1  negatives(n<=30)=[]
+q= 16 rho=0.414214 c=2  negatives(n<=30)=[]
+q= 64 rho=0.318310 c=0  negatives(n<=30)=[]
+q= 64 rho=0.318310 c=1  negatives(n<=30)=[]
+q= 64 rho=0.318310 c=2  negatives(n<=30)=[]
+q= 64 rho=0.367879 c=0  negatives(n<=30)=[]
+q= 64 rho=0.367879 c=1  negatives(n<=30)=[]
+q= 64 rho=0.367879 c=2  negatives(n<=30)=[]
+q= 64 rho=0.414214 c=0  negatives(n<=30)=[]
+q= 64 rho=0.414214 c=1  negatives(n<=30)=[]
+q= 64 rho=0.414214 c=2  negatives(n<=30)=[]
