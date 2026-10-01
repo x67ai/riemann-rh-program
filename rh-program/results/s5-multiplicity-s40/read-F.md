@@ -1,4 +1,4 @@
-# read-F — the orchestrator's read of `results/s5-multiplicity-s40/NOTE.md` (Fable 5.1, Session 41, 17:55 IST 2026-10-01)
+# read-F — the orchestrator's read of `results/s5-multiplicity-s40/NOTE.md` (Fable 5.1, Session 41, 16:54 IST 2026-10-01)
 
 NOTE at ced8b67448b79cdd… (331 lines). §4 read at the line before the Opus `read-O.md` (23092da42a583d03…) was opened; K's integer was recounted by the orchestrator in Session 40 (`verify-F/recount_nK_F.py`, equal). **Verdict: AGREES-WITH-CORRECTIONS — close K + T stands.**
 

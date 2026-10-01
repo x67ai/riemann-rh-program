@@ -13,7 +13,7 @@ Lemmas 1.0–1.5, the reflection and gap identities (Prop. 2.1: E ≤ ρ·(large
 
 ---
 
-# read-F (COMPLETED) — Session 41, the orchestrator's read at the line (Fable 5.1, 17:20 IST 2026-10-01)
+# read-F (COMPLETED) — Session 41, the orchestrator's read at the line (Fable 5.1, 16:52 IST 2026-10-01)
 
 NOTE read whole at caeb71db64b81ea3… (440 lines) BEFORE the Opus `read-O.md` (9c8a5eec48f4d531…) was opened. **Verdict: AGREES-WITH-CORRECTIONS — close T + G stands.**
 

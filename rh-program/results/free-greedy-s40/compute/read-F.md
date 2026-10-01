@@ -1,4 +1,4 @@
-# read-F — the orchestrator's read of `results/free-greedy-s40/compute/NOTE.md` (Fable 5.1, Session 41, 17:40 IST 2026-10-01)
+# read-F — the orchestrator's read of `results/free-greedy-s40/compute/NOTE.md` (Fable 5.1, Session 41, 16:53 IST 2026-10-01)
 
 NOTE at b7d6c8d0c3f9293d… (124 lines); §0 read at the line before the Opus `read-O.md` (f723ac3ff5ba22fc…) was opened. **Verdict: AGREES-WITH-CORRECTIONS.** The unit is a computation; nothing in it is a theorem, and its close says so.
 

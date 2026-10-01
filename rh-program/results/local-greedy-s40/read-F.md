@@ -1,4 +1,4 @@
-# read-F — the orchestrator's read of `results/local-greedy-s40/NOTE.md` (Fable 5.1, Session 41, 18:05 IST 2026-10-01)
+# read-F — the orchestrator's read of `results/local-greedy-s40/NOTE.md` (Fable 5.1, Session 41, 16:55 IST 2026-10-01)
 
 NOTE at bc5a4b6c7b87ec8a… (352 lines). §1 (definition, Lemmas 1.1–1.2) and §4 (K₇, Lemma 4.1, K₇^{≤2}) read at the line before the Opus `read-O.md` (459c85e26deec0c2…) was opened. **Verdict: AGREES-WITH-CORRECTIONS — close "K-candidate + two conditional theorems + G" stands.**
 
