@@ -16,7 +16,7 @@
 Entered 02:42 IST 2026-10-03. Nothing in the program waits for any of these (standing order 10(c)); each goes out under the sponsor's name, so each is his to decide.
 
 1. **OPEN since 2026-09-18 — the answer to J. A. Álvarez López.** He replied to the courtesy note on [ÁLKL23] (`LOG.md`, entry of 2026-09-18). An answer was drafted the same day (`results/c3-r/s14/correspondence/`, local-only); the record does not show it as sent. If it went, say so and this item closes; if not, the draft is ready.
-2. **OPEN since 2026-10-01 — a courtesy note to the author of the conjecture that the third paper refutes** (the Haglund counterexample, Zenodo concept DOI 10.5281/zenodo.23071930). Not drafted; the program drafts it on request. The one letter the program has sent to authors was answered in eleven days.
+2. **OPEN since 2026-10-01 — a courtesy note to the author of the conjecture that the third paper refutes** (the Haglund counterexample, Zenodo concept DOI 10.5281/zenodo.23071930). DRAFTED 02:50 IST 2026-10-03 at the sponsor's request: `results/arxiv/haglund-counterexample/correspondence/2026-10-03-haglund-courtesy-note-DRAFT.md` (local-only until sent). Still OPEN: it is sent, or not, by the sponsor. The one letter the program has sent to authors was answered in eleven days.
 3. **OPEN since 2026-08-27 — an arXiv endorsement** (`results/arxiv/README.md`: "Still outstanding, and only the sponsor can do it"). None of the three public papers is on arXiv.
 4. **OPTIONAL — a request to GitHub Support** to drop cached copies of commits removed by the history rewrites of 2026-10-01 and 2026-10-03; the program drafts it on request.
 
