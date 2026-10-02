@@ -172,3 +172,13 @@ D: private-reply quotes replaced by paraphrase (01:49)
 - Evidence B2, C, D pass my samples (B2 Table 2 rows 3, 5, 6, 7, 12, Table 5 rows 36, 41; C 2d by own grep, Table 3 rows 1, 3, 9; D Table 1 rows 3, 8, 9, Table 2 row 4, Table 3 Haglund referee). No evidence file fails.
 - Study-side defects found: stamp slips are on record in at least 14 sessions (16, 20, 36 missing; remedy first written Session 16, LOG l. 1392), and P4 says "seven later — eleven in all"; "advance estimates wrong by one to two orders" holds for 4 of 10 advance pairs only (5 within ×1.5); P1 "refereed and published" (an Opus referee; a Zenodo deposit); P12 "three hours" (ledger opened 00:29, study ~02:00); P8 "not what the record shows" vs STATUS l. 44.
 - Next: Step 4 verdicts P1–P12, then findings with OLD/NEW pairs, then rules.
+
+## read-O (second read) — 02:29 IST 2026-10-03, block 6
+- Findings written: 17 (FIX-FIRST 7: F1 "one sentence" vs page.txt l. 8; F3 stamp slips ≥ 14 sessions, remedy first in S16; F4 advance-estimate overreach in P4/(w); F6 "eleven separate" S8 programs; F7 "refereed and published"; F12 P8 vs STATUS l. 44 and (z)'s published-object clause; F15 (z)'s outside-user cell vs §C.4). Minor 10. Each with OLD/NEW pairs, OLDs unique.
+- Next: Step 4 table (P1–P12), Step 5 rule verdicts, Step 6, could-not-check, verdict line.
+
+## read-O (second read) — 02:31 IST 2026-10-03, block 7
+- Rule verdicts: (u) AMEND (sponsor items into standing order 9's list per item 7; pre-split commit named for old line citations); (v) AMEND into two W2 lines, no new letter; (w) AMEND (check two-sided via a stamp log, run before any squash; 10(l) sentence narrowed to formula-priced compute legs); (x) AMEND into W3 + the NOTE §0 close block, no new letter; (y) AMEND evidence line only; (z) AMEND (drop the published-object clause and the outside-user prediction; check-brief.py tests the bearing line's form). Drop first: (x), then (v), as letters. "18 of 29 follow-ups" is 10(d) obeyed, not momentum.
+
+## read-O (second read) — 02:33 IST 2026-10-03, block 8
+- Step 6 written. Main omission: the private-e-mail kind has fired in two units (Session 41's purge of the tracked reply, LOG l. 2262; tonight's evidence D, LOG l. 2321) — at the 10(p) threshold for a BRIEF-WARNINGS line; a WRITER/READER pair is proposed in read-O.md §8. Pairs now 39, all apply in sequence.
