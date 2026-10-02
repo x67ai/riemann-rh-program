@@ -29,10 +29,10 @@ circulation and two deliberately are not** — the reasoning is in
 
 | Paper | PDF | Pages | Status |
 |---|---|---|---|
-| The two-moment certificate is robust under Rudnick–Sarnak-range cubic augmentation with capacity control | [x67.ai](https://x67.ai/cubic-augmentation-no-go.pdf) · [doi:10.5281/zenodo.22171688](https://doi.org/10.5281/zenodo.22171688) (source: `rh-program/results/arxiv/a4-no-go/`) | 41 | **recommended for posting** |
-| Products of the per-prime Tate curves of absolute geometry carry no correspondence calculus for the Weil explicit formula | [x67.ai](https://x67.ai/tate-products-no-go.pdf) · [doi:10.5281/zenodo.22171136](https://doi.org/10.5281/zenodo.22171136) (source: `rh-program/results/arxiv/seed-no-go/`) | 21 | **recommended for posting** |
-| The polarized-Frobenius axiom class | not posted; built from the TeX in `rh-program/results/arxiv/m0-axiom/` | 14 | internal record — not recommended for posting |
-| Castelnuovo–Severi/Hodge index from Riemann–Roch and ampleness | not posted; built from the TeX in `rh-program/results/arxiv/m1-noncirc/` | 13 | internal record — claims zero novelty in its own abstract |
+| The two-moment certificate is robust under Rudnick–Sarnak-range cubic augmentation with capacity control | [`results/arxiv/a4-no-go/main.pdf`](rh-program/results/arxiv/a4-no-go/main.pdf) | 41 | **recommended for posting** |
+| Products of the per-prime Tate curves of absolute geometry carry no correspondence calculus for the Weil explicit formula | [`results/arxiv/seed-no-go/main.pdf`](rh-program/results/arxiv/seed-no-go/main.pdf) | 21 | **recommended for posting** |
+| The polarized-Frobenius axiom class | [`results/arxiv/m0-axiom/main.pdf`](rh-program/results/arxiv/m0-axiom/main.pdf) | 14 | internal record — not recommended for posting |
+| Castelnuovo–Severi/Hodge index from Riemann–Roch and ampleness | [`results/arxiv/m1-noncirc/main.pdf`](rh-program/results/arxiv/m1-noncirc/main.pdf) | 13 | internal record — claims zero novelty in its own abstract |
 
 **All four are negative results.** None claims to prove anything about the Riemann hypothesis.
 Each shows that a specific proposed route does not work, and says exactly how far the failure

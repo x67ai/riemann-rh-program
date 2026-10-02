@@ -41,9 +41,9 @@ openai-ns/
 # saved by agents beside their notes (publisher and arXiv PDFs, their text extractions and page
 # images) is copyrighted material under the same policy as fetched/ — kept locally, never pushed.
 # The files untracked at this commit remain in the repository's HISTORY until the sponsor decides
-# on a purge (LOG.md, Session 38). [2026-10-03, sponsor: NO PDF ON GITHUB — the program's own
-# builds (results/arxiv/*/main.pdf) are no longer tracked either; STATUS standing order 15.]
+# on a purge (LOG.md, Session 38). Program-authored PDFs (results/arxiv/*/main.pdf) stay tracked.
 rh-program/results/**/*.pdf
+!rh-program/results/arxiv/*/main.pdf
 rh-program/results/novel-wave-s36/staircase/lit/*.txt
 rh-program/results/novel-wave-s36/staircase/lit/*-fulltext.md
 rh-program/results/novel-wave-s36/staircase/lit/img/
@@ -65,12 +65,12 @@ rh-program/results/haglund-cert-s37/novelty-F/ahn-thesis-penn.*
 /rh-program/sources-extracted/
 /rh-program/fetched*/
 
-# A2. PDFs anywhere. Sponsor, 2026-10-03: "no pdf should go on github" (STATUS standing order 15).
-# ONE exception is left, pending his decision: the three papers under public/ are what x67.ai
-# serves, and Cloudflare builds the site from this repository on every push to main — removing
-# them here takes the papers off the site unless the landing page links to the Zenodo copies first.
+# A2. PDFs anywhere. The program's own builds stay trackable.
 *.pdf
 !/public/*.pdf
+!/rh-program/results/arxiv/*/main.pdf
+!/rh-program/results/c3-r/s14/alkl23-note.pdf
+!/rh-program/results/c3-r/s14/alkl23-derivations.pdf
 
 # A3. Page images. Every PNG ever committed under results/ was a scan, render or crop of a
 # published page. A figure the program makes itself needs its own "!" line (or git add -f).
