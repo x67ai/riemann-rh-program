@@ -2305,3 +2305,5 @@ The file is Álvarez López–Kordyukov–Leichtnam, *Analysis on Riemannian fol
 **What this side-session established (plain):** the paper has no mathematics that touches the program's objects; its method is, for the most part, what the program already does under other names; five habits were worth taking, each tied to a failure or a missing check on the program's own record, and they are now in the operating manual where every session reads them.
 **Open at close:** nothing in flight. **Sponsor:** nothing required.
 **Next session should:** follow the SESSION 42 QUEUE (items 0–4 as written; item 5 lists what the new rules ask of Session 42).
+
+**00:29 IST 2026-10-03 — (after the closing entry) HASHES AT COMMIT 63c22928 (10(i)):** `BRIEF-WARNINGS.md` 18c4ea27a13d8f48…; `THEOREM-LEDGER.md` 6afefe00e7828eb4…; `results/external/cogentic-2026/process-lessons.md` 6074da05b293be91… (v2); `results/external/cogentic-2026/read-O.md` d1a524049a92955a…; the pre-reader copy af9f27d0cf9040e5…; the paper (local-only PDF) f19883ba88420612…. Pushed; working tree clean; both watchdogs of this side-session stopped after the push (the next session starts its own).
