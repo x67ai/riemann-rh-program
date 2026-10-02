@@ -157,3 +157,18 @@ D: private-reply quotes replaced by paraphrase (01:49)
 ## read-O (second read) — 02:09 IST 2026-10-03, block 2
 - Read process-lessons.md whole (165 lines; identical to process-lessons.pre-reader.md by cmp). Starting Step 2 (post quotations, with section tags) and Step 3 (record citations).
 - Early flags to test, not yet findings: P4 "seven later sessions — eleven in all" vs its own list (nine sessions after 24); P6 "ten conditional results" broken down as 1+1+1+6 = 9; P2 "37 per cent of all code files" vs 371/1,081; P8 "not what the record shows" vs the sponsor's own trigger of standing order 12 (STATUS l. 44); P9 heading quote "correct, and a shrug" is not in the post; rule (u)'s "With the sponsor" list vs KICKSTART item 7 ("NOWHERE else") and standing order 9.
+
+## read-O (second read) — 02:14 IST 2026-10-03, block 3
+- Step 2 done: every passage tagged [I]/[W]/[K]/[T]/[O] is verbatim in page.txt and in the tagged section; problems are of framing only (§0/P12 "one sentence" on problems of this kind vs page.txt l. 8; P9 heading in quotation marks not from the post).
+- Step 3(a) done: 60 direct citations hold at the line. Scripts tested: `stamp.py --check c6fd319a` prints 36 same-day stamps, 5 AHEAD (the five N7 names), exit 1; it is one-sided by construction (only stamps later than their commit). `status-split.py` dry run: 578,239 → 57,737 bytes kept, 522,312 bytes in 11 blocks, CHECK PASS, nothing written (no STATUS-ARCHIVE.md created).
+- Next: Step 3(b), the five evidence files, three rows each re-derived from the record.
+
+## read-O (second read) — 02:19 IST 2026-10-03, block 4
+- Evidence A passes my sample (Table 1 rows 1–4, 11, 12; Table 2 c1, c10; catcher of rows 7, 17). The study drops A's "fate not traced: 1 (c9)" (nine conditionals listed as ten) and A's 3 orchestrator self-catches.
+- Evidence B1 passes as a census (S8 files exist; imports 17 vs 21 in the same five units; 19 zoo-insert scripts over 18 sessions; Table 3 15 rows). Defects inherited by P2: "37%" is 34.3% (371/1081); the "eleven" S8 programs include one tool's deliberate evolution (proto → line-by-line port → s8gen → s8win) and one reuse (theory/verify/s8_check.py runs the prototype), which P3 praises.
+- Private e-mail: no sentence of the third party's message is in any current study file, LOG or STATUS (7-gram comparison; only the program's own lines and a public title overlap). The sponsor ran the history rewrite at 02:14 (LOG l. 2329): §E.3(a) is stale. After the squash, `stamp.py --check c6fd319a` reports 4 AHEAD, not 5 — the N3 slip is no longer visible to it.
+
+## read-O (second read) — 02:23 IST 2026-10-03, block 5
+- Evidence B2, C, D pass my samples (B2 Table 2 rows 3, 5, 6, 7, 12, Table 5 rows 36, 41; C 2d by own grep, Table 3 rows 1, 3, 9; D Table 1 rows 3, 8, 9, Table 2 row 4, Table 3 Haglund referee). No evidence file fails.
+- Study-side defects found: stamp slips are on record in at least 14 sessions (16, 20, 36 missing; remedy first written Session 16, LOG l. 1392), and P4 says "seven later — eleven in all"; "advance estimates wrong by one to two orders" holds for 4 of 10 advance pairs only (5 within ×1.5); P1 "refereed and published" (an Opus referee; a Zenodo deposit); P12 "three hours" (ledger opened 00:29, study ~02:00); P8 "not what the record shows" vs STATUS l. 44.
+- Next: Step 4 verdicts P1–P12, then findings with OLD/NEW pairs, then rules.
