@@ -53,3 +53,43 @@ Program directory: `rh-program/` under it. Study folder: `rh-program/results/ext
 - Table 3: recorded tool bugs.
 - "Index or manual": what exists.
 - "Counts": code files by role; function classes with three or more WRITER implementations; cross-unit imports found.
+
+## B2 — Time, grind, estimates
+
+**Question.** What does the record show about (a) long computations, and whether a better tool or algorithm replaced grinding; (b) estimates made in advance against the actuals; (c) work the record itself calls wasted; (d) deaths at usage or output limits?
+
+**Scope.** `rh-program/LOG.md`, all sessions, grep-driven; `rh-program/STATUS.md` "Live/completed background tasks" (from l. 401); `rh-program/directions/*.md` (Instruments tables, work logs); `rh-program/results/d1-m2a/`, `results/d1-m3/`, `results/c2-m2/campaign/`, `results/free-greedy-s40/compute/`, `results/lemmaB-s41/U7-patterns/`; Colab / GPU notes (grep `Colab|T4|GPU`). Patterns: `h wall|hours| min[ ,;)]|tokens|priced|slots|overstated|understated|estimate|feasib|rate|speed-?up|faster|rewrote|vectoriz|ported to C|Spent for nothing|usage|128k|ceiling|died|relaunch`.
+
+**Deliverable** `evidence/B2-time-grind-estimates.md`:
+- Table 1 "Long compute legs" (30 minutes of wall time or more, or called heavy): leg | session | what was computed | wall time (verbatim) | algorithm or tool change before or during the leg (verbatim; the speed-up if stated) | was a smaller dress rehearsal run first (KICKSTART 10(l))? | the later use of the result.
+- Table 2 "Estimate against actual": every place the record prices or estimates in advance (time, slots, tokens, data cost, feasibility) and later records the actual: the estimate (verbatim) | the actual (verbatim) | direction and ratio.
+- Table 3 "Waste lines": every "Spent for nothing" line of LOG.md (trimmed to 60 words), its session, its cause label.
+- Table 4 "Deaths and walls": usage-limit deaths, output-ceiling deaths, sleep deaths: date and session | what died | what was lost | the rule that followed.
+- Table 5 "Sessions 19–41": session | wall time | context % at close | agents launched | tokens where recorded (from the session headings and closing entries).
+- "Counts and medians": run minutes and tokens by kind of agent (writer unit / reader / digest / zoo / Lean), from the entries that record them.
+
+## C — The units of Sessions 36–41: source, link, shape, close
+
+**Question.** For every research unit launched in Sessions 36–41, where did the idea come from, what did its brief say about how the unit bears on the program's main target, what shape was its deliverable, and how did it close after the reads?
+
+**Scope.** `rh-program/results/novel-wave-s36/` (WAVE-CHARTER.md, units N1–N4, insights-digest.md); wave 2 `results/novel-wave-s37/` (M1a, M1b, M2); wave 3 `results/novel-wave-s39/` and the units `u-offsurgery-s39`, `lemmaG-s39`, `dz-half-s39`, `qtwin-s39`, `fejer-form-s39`; Session 38 `qcond-s38`, `conj-O-s38`; Session 40 `free-greedy-s40/theory`, `free-greedy-s40/compute`, `s5-multiplicity-s40`, `local-greedy-s40`; Session 41 `results/lemmaB-s41/` (CHARTER.md, U1–U7, ORCH-NOTES.md); `haglund-cert-s37`, `d4-infty-s36`, `theoremR-lean-s36`, `beta-shapes-s35`; the SESSION 37–42 QUEUE texts in STATUS.md (grep `SESSION (3[6-9]|4[0-2]) QUEUE`); LOG.md l. 2061–2288. Folder names may differ slightly: `ls rh-program/results | grep -E "s3[5-9]|s4[01]"` first.
+
+**Deliverable** `evidence/C-units-s36-s41.md`:
+- Table 1, one row per unit: unit | session | idea source, verbatim from the charter, brief or queue (the orchestrator's construction / a digest's ranking, with its § / a published conjecture or paper / the sponsor) | the brief's statement of how the unit bears on the program's contract theorem or target (verbatim, or "none found in <file>") — KICKSTART 10(g) requires every brief to name the contract clause it discharges: does this one? (yes, with the quote / no) | origin of the target: a PUBLISHED object (cite) or the PROGRAM'S OWN object (for example Conjecture U, Conjecture O, S5, S8) | deliverable shape, one of: certificate or exact computation checkable by a rerun; Lean-checked; proof in prose; construction; numerical exploration or pattern search; literature pricing or partition | close label as the record uses it (T / K / G / N; verbatim) | novelty label after the reads (verbatim) | the stop condition as written in the brief (verbatim) | the success criterion as written in the brief, if any (verbatim, or "none found").
+- Table 2, tallies: deliverable shape × close label; target origin × close label; idea source × close label; the count of briefs that name a contract clause; the count that state a success criterion in advance.
+- Table 3 "Follow-ups": for each unit that closed with a positive result, what the next queue funded after it (verbatim): the same result strengthened, generalized to a next class, a different question, or nothing.
+- Table 4 "Narrowing found by a read": cases where a read or a digest says the unit proved or computed less than its brief asked, or a special case of it (grep the read-O files and digests for `restricted|only for|special case|narrow|weaker than|not the brief`), with quotes.
+
+## D — Outside readers and significance
+
+**Question.** What has the program sent outside, which humans other than the sponsor have read any of it, and how does the record judge whether a result MATTERS — as distinct from whether it is correct or new?
+
+**Scope.** `rh-program/CIRCULATION-PREP.md`; `rh-program/results/arxiv/` (README.md, POSTING.md, DE-INTERNALIZATION.md, referee reports); `public/`, `README.md`, `CITATION.cff` at the repository root; `rh-program/results/x67-landing-s41/`; `rh-program/results/external/prove2me/NOTE.md`; LOG.md and STATUS.md by grep: `circulat|arXiv|endors|Zenodo|DOI|x67|e-?mail|wrote to|repl(y|ied)|referee|expert|mathematician|courtesy note|alkl23|Lamzouri|sponsor's decision|prove2me`. For ranking: the digests `rh-program/results/*/insights-digest.md` and the queue texts — sections named "survivor filter", "merit", "ranking", "funding". For results that were correct but already known: `pre-empted|printed core|in print since|folklore|well known|standard|trivial|of no interest`.
+
+**Deliverable** `evidence/D-outside-readers-significance.md`:
+- Table 1 "What went out": item | date and session | where (a Zenodo DOI, the x67.ai page, GitHub, arXiv, e-mail) | who decided (the sponsor / the program) | citation.
+- Table 2 "Human readers": every instance of a human other than the sponsor reading, answering, or being sent program output — or "not found", with the scope searched. Include courtesy notes that were prepared, and say for each whether the record shows it SENT or not sent, with the line.
+- Table 3 "Agent referees": which outgoing texts had a blind referee agent, and the verdicts.
+- Table 4 "Ranking criteria as written": digest or queue | the criteria, verbatim.
+- Table 5 "Correct but known": unit | what was found in print | who found it (the writer / read-F / read-O / a digest) | how the label changed.
+- One paragraph: does any step on the record ask "would a specialist in this object care about this result, and what would they ask instead?" Quote it if it exists; otherwise "not found", with the patterns searched.
