@@ -182,3 +182,8 @@ D: private-reply quotes replaced by paraphrase (01:49)
 
 ## read-O (second read) — 02:33 IST 2026-10-03, block 8
 - Step 6 written. Main omission: the private-e-mail kind has fired in two units (Session 41's purge of the tracked reply, LOG l. 2262; tonight's evidence D, LOG l. 2321) — at the 10(p) threshold for a BRIEF-WARNINGS line; a WRITER/READER pair is proposed in read-O.md §8. Pairs now 39, all apply in sequence.
+
+## read-O (second read) — 02:34 IST 2026-10-03, block 9 (final)
+- read-O.md COMPLETE. VERDICT: AGREES-WITH-CORRECTIONS. 18 findings: FIX-FIRST 7 (F1, F3, F4, F6, F7, F12, F15), minor 11; 40 OLD/NEW pairs, every OLD unique in process-lessons.md, all 40 apply in sequence on a scratch copy.
+- Rules: all six AMEND; (u), (w), (y), (z) as amended letters; (v) into W2 and (x) into W3 + the NOTE §0 close block (no new letters). Drop first: (x), then (v). Amended texts in read-O.md §7.
+- Own slip, recorded: one heading in read-O.md was first typed "02:3x"; replaced by the `date` output before this block.

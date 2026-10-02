@@ -2,7 +2,7 @@
 
 **Reader: one Opus agent (Opus 5.5), default effort. Started 02:02 IST 2026-10-03; finished 02:33 IST 2026-10-03 (clock).**
 
-**VERDICT: AGREES-WITH-CORRECTIONS.** The method holds: every quotation of the post is verbatim and correctly tagged; all 60 direct citations of the record hold at the line; all five evidence files pass a sample of rows I re-derived from the record; both scripts do what the study says (split dry run PASS; stamp check exit 1 on five slips). 17 findings — **7 FIX-FIRST** (F1 the post's one sentence on mathematics left out, "one sentence" is two; F3 stamp slips in at least fourteen sessions, remedy first written in Session 16; F4 "advance estimates wrong by one to two orders" holds for four of ten; F6 "eleven separate" S8 programs include one tool's deliberate line; F7 "refereed and published" for an agent referee and a deposit; F12 P8's "not what the record shows" against standing order 12's own trigger, and "momentum" that is 10(d) obeyed; F15 rule (z) asks an agent the question §C.4 refuses to ask one) and **10 minor**; 39 OLD/NEW pairs, all applying in sequence. **Rules: none adopted as written; all six AMEND** — (u), (w), (y), (z) as amended letters; (v) and (x) as lines of W2 and W3 and one sentence of 10(q), no new letter. Drop first: (x), then (v). Text in section 7.
+**VERDICT: AGREES-WITH-CORRECTIONS.** The method holds: every quotation of the post is verbatim and correctly tagged; all 60 direct citations of the record hold at the line; all five evidence files pass a sample of rows I re-derived from the record; both scripts do what the study says (split dry run PASS; stamp check exit 1 on five slips). 18 findings — **7 FIX-FIRST** (F1 the post's one sentence on mathematics left out, "one sentence" is two; F3 stamp slips in at least fourteen sessions, remedy first written in Session 16; F4 "advance estimates wrong by one to two orders" holds for four of ten; F6 "eleven separate" S8 programs include one tool's deliberate line; F7 "refereed and published" for an agent referee and a deposit; F12 P8's "not what the record shows" against standing order 12's own trigger, and "momentum" that is 10(d) obeyed; F15 rule (z) asks an agent the question §C.4 refuses to ask one) and **11 minor**; 40 OLD/NEW pairs, all applying in sequence. **Rules: none adopted as written; all six AMEND** — (u), (w), (y), (z) as amended letters; (v) and (x) as lines of W2 and W3 and one sentence of 10(q), no new letter. Drop first: (x), then (v). Text in section 7.
 
 ## Plan (written before anything else; at most 20 lines)
 
@@ -125,7 +125,7 @@ NEW: the Opus read found 32 first and the orchestrator 5 (its read-F 2, its own 
 OLD: eleven separate writer programs generate the system S8 across the two streams that worked on it (`free-greedy-s40`; `lemmaB-s41` U1, U4, U5, U6, U7), sharing at most a quarter of their lines, beside ten more written by readers;
 NEW: eleven writer programs generate the system S8 in the two streams that worked on it — in `free-greedy-s40` one tool's deliberate line (the prototype, its "line-by-line C port" as a 10(l) rehearsal, the production generator and its "WINDOWED version", `compute/verify/s8_port.c` l. 1, `s8win.c` l. 1; the theory unit's `s8_check.py` carries over the prototype's core, `theory/verify/s8_check.py` l. 2) and the theory unit's own drift-free variants; in `lemmaB-s41` five units (U1, U4, U5, U6, U7) each wrote its own while validated generators existed, no two units sharing more than a quarter of their lines — beside ten more written by readers;
 OLD: and 37 per cent of all code files are readers' own, by design
-NEW: and 34 per cent of all code files (371 of 1,081) are readers' own, by design
+NEW: and 34 percent of all code files (371 of 1,081) are readers' own, by design
 OLD: eighteen zoo-insertion scripts, one per session (ev. B1, Counts).
 NEW: eighteen zoo-insertion scripts, one per session, though each carries its own inserted text, which B1 says "overstates rewriting" (ev. B1, Counts; Table 1, REC row).
 OLD: Fifteen tool bugs are recorded (ev. B1 Table 3);
@@ -141,7 +141,7 @@ NEW: certified by two independent producers, read by the program's blind referee
 
 **F8 — minor. §D states a boot cost nobody measured and reads policy handovers as its effect.** ev. B2 Table 5: every close of Sessions 36–41 at 62–70 % is "a RULE ZERO handover" (the handover policy fires from 70 %); and no file of the record measures what a session reads at boot (this read's own brief forbids reading `STATUS.md` whole, rule 4). "145k tokens" is what a literal top-to-bottom read would cost — an upper bound, and a reason for (u) in its own right — not a measured spend.
 OLD: a session that boots from a 578 kB status file spends on the order of 145k tokens before it starts, while Sessions 36–41 each closed at 62–70 per cent of the context window, five of the six with agents still in flight (ev. B2 Table 5). Rule (u) gives that back.
-NEW: a session that read the 578 kB status file top to bottom, as KICKSTART item 2 says, would spend on the order of 145k tokens before it starts; what sessions actually read at boot is not measured anywhere, and the 62–70 per cent at which Sessions 36–41 closed is the RULE ZERO handover threshold, not a cost of the file (ev. B2 Table 5). Rule (u) bounds the worst case.
+NEW: a session that read the 578 kB status file top to bottom, as KICKSTART item 2 says, would spend on the order of 145k tokens before it starts; what sessions actually read at boot is not measured anywhere, and the 62–70 percent at which Sessions 36–41 closed is the RULE ZERO handover threshold, not a cost of the file (ev. B2 Table 5). Rule (u) bounds the worst case.
 
 **F9 — minor. P9 puts a phrase that is not the post's inside quotation marks, and turns "almost all" into "every time".** The heading's "correct, and a shrug" occurs nowhere in `page.txt` (the post: "Though he was impressed by the technical feat, he said the results would likely 'be met with a shrug by many ecologists'", l. 36). The study's own contract (l. 3) is "Quotations are short and exact". And the post says "in almost all cases" (l. 34), and of the second expert that he "works in the field, though not on this exact problem" (l. 40).
 OLD: ### P9. The expert who says "correct, and a shrug" — and then reframes the question.
@@ -193,7 +193,7 @@ NEW: and it opened with no rows at 00:29 IST the same night (commit 63c22928), b
 OLD: That is the post's method and it is not available: the target is the sponsor's (standing orders 10, 12).
 NEW: That is the post's method; for the target it is not available — the target is the sponsor's (standing orders 10, 12) — but the program "chooses its routes on merit and on its own evidence" (standing order 4 as amended, `STATUS.md` l. 35), and among routes fit to the worker is a legitimate criterion (12(b)).
 
-**Count: 17 findings — FIX-FIRST 7 (F1, F3, F4, F6, F7, F12, F15), minor 10 (F2, F5, F8, F9, F10, F11, F13, F14, F16, F17); 39 OLD/NEW pairs, every OLD unique in `process-lessons.md`, and all 39 apply cleanly in sequence (tested on a scratch copy: 69,622 → 74,080 bytes).**
+**Count: 18 findings — FIX-FIRST 7 (F1, F3, F4, F6, F7, F12, F15), minor 11 (F2, F5, F8, F9, F10, F11, F13, F14, F16, F17, F18 — F18 is the addendum after section 9); 40 OLD/NEW pairs, every OLD unique in `process-lessons.md`, and all 40 apply cleanly in sequence (tested on a scratch copy).**
 
 ## 6. Step 4 — each "Already adopted here?" verdict
 
@@ -263,3 +263,7 @@ The three verdicts the brief flagged: **P3** — too strong ("the opposite"), no
 - **The header-line sizes of P5** ("32.0 kB at 11:09 and 6.5 kB at 14:03 IST on 29 Sept"): I re-measured the files, not the line.
 - **The orchestrator's newer scripts** `scripts/plot_claim.py` and `scripts/check-brief.py` (`ORCH-NOTES.md` N8, N9; written 02:03–02:05, after the study) were not run: my brief allows only the two scripts tested in section 7.
 - **The opening stamp "opened 01:15 IST"** (study l. 3; `LOG.md` l. 2311) cannot be tested against a commit: the first commit of the side-session is an auto-commit at 01:33.
+
+**Addendum to section 5 (written 02:34 IST 2026-10-03 by `date`) — F18 — minor. U.S. English.** The study writes "per cent" three times (l. 34, 48, 155); the program's language rule is U.S. English ("percent"). Two occurrences are inside F6's and F8's pairs (their NEW texts now say "percent"); the third:
+OLD: the planner's Lane A projection within about ten per cent
+NEW: the planner's Lane A projection within about ten percent
