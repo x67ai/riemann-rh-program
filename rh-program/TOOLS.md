@@ -1,6 +1,6 @@
 # Tools register — the programs later work may start from
 
-**DRAFT, staged in the study folder; it becomes `rh-program/TOOLS.md` only if rule 10(y) stands after the read.**
+**Opened 02:42 IST 2026-10-03 (side-session; source: `results/external/claude-shaped-science-2026/process-lessons.md` P2, dual-read). No rows yet: the first are entered when a charter of Session 42 first needs them.**
 
 **What this file is.** The register required by KICKSTART Part 2 item 10(y). `THEOREM-LEDGER.md` records statements; the Instruments tables of the direction files record quantities; this file records PROGRAMS: what each computes, how far it has been checked, and who has used it. A charter's "Read first" names the rows a writer unit should start from.
 

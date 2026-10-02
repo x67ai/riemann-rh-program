@@ -75,6 +75,8 @@ rh-program/results/haglund-cert-s37/novelty-F/ahn-thesis-penn.*
 # A3. Page images. Every PNG ever committed under results/ was a scan, render or crop of a
 # published page. A figure the program makes itself needs its own "!" line (or git add -f).
 /rh-program/results/**/*.png
+# 2026-10-03 (KICKSTART 10(v) -> BRIEF-WARNINGS W2): pictures the program draws of its own data are tracked.
+!/rh-program/results/**/figures/*.png
 /rh-program/results/**/*.jpg
 /rh-program/results/**/*.jpeg
 
@@ -159,3 +161,6 @@ rh-program/results/haglund-cert-s37/novelty-F/ahn-thesis-penn.*
 
 # Session 41: a third party's private email quoted verbatim is not the program's to publish (kept locally).
 /rh-program/results/**/correspondence/*-reply.md
+
+# 2026-10-03 (KICKSTART 10(w)): the local log of time stamps handed out by scripts/stamp.py.
+/rh-program/.stamps.log
