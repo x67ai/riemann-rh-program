@@ -279,6 +279,11 @@ more conventional look is wanted. **Sponsor's call, not the program's.**
    returns a number you can justify line by line.
 2. Read the first two pages aloud. Nothing in them refers to a document the reader cannot open.
 3. `bash results/arxiv/check-submittable.sh` still prints ALL CHECKS PASSED.
+4. **(added 2026-10-03, KICKSTART Part 2 item 10(t))** After the LAST edit of the paper: one agent diffs every statement, hypothesis,
+   constant, number and math span of the final text against the verified source it was built from (the NOTE or the
+   certificate) and against the refereed version where one exists; it reports divergences only; the report is filed
+   beside the paper as `INTEGRITY-DIFF.md`; nothing is posted with an unresolved divergence. Model: the integrity
+   lens of the "Verification" paragraph above (the A4 pass of 2026-08-27).
 
 ## Rule added 2026-10-01 (Session 39, sponsor) — two further classes are always cut
 
