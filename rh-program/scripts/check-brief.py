@@ -47,10 +47,19 @@ def main():
     add("warnings", ("charter", "unit", "reader"), "BRIEF-WARNINGS.md" in s, "10(p)")
     add("sources", ("charter",), os.path.exists(os.path.join(os.path.dirname(path) or ".", "SOURCES.md")), "10(s)")
     add("stop", ("charter", "unit"), "Stop and report when" in s, "10(m)")
-    bearing = [l for l in s.split("\n") if re.match(r"\s*(\*\*|#+\s*)?Bearing", l)]
-    marked = any(re.search(r"clause|proved|conjectured|heuristic", l, re.I) for l in bearing)
-    add("bearing", ("charter", "unit"), bool(bearing) and marked, "10(g), 10(z)",
-        "" if bearing else "no line starting 'Bearing'")
+    L = s.split("\n")
+    b = [i for i, l in enumerate(L) if re.match(r"\s*(\*\*|#+\s*)?Bearing", l)]
+    block = ""
+    if b:                                        # the bearing line and what follows it, to the next blank line or heading
+        j = b[0] + 1
+        while j < len(L) and L[j].strip() and not L[j].startswith("#"):
+            j += 1
+        block = "\n".join(L[b[0]:j])
+    clause = re.search(r"(directions/|\b[A-D]\d\b).{0,200}clause\s*\(?[A-Za-z]?\d", block, re.S | re.I)
+    steps = re.findall(r"(?:\(\d+\)|\b\d+\.)[^\n()]*?\b(proved|conjectured|heuristic)\b", block, re.I)
+    form = bool(clause) or len(steps) >= 2
+    add("bearing", ("charter", "unit"), form, "10(g), 10(z)",
+        "" if form else ("no line starting 'Bearing'" if not b else "a Bearing line without the form: a direction and clause number, or numbered steps each marked proved/conjectured/heuristic"))
     add("output", ("unit", "reader"), "HARD OUTPUT RULE" in s, "item 16")   # a charter's units get the clause in their prompts
     add("stamp", ("charter", "unit", "reader"), "@@NOW@@" not in s, "10(w)")
     m = EFFORT.search(s)

@@ -17,7 +17,7 @@ Cut points are found by anchor, never by line number:
   whole    sections that are history move with a one-line pointer
 Without --apply it prints what it would do and writes nothing.
 """
-import collections, datetime, hashlib, io, re, sys
+import collections, datetime, hashlib, io, re, subprocess, sys
 
 HISTORY_SECTIONS = ("## Program plan (phases)", "## Verified numerics", "## Designer briefs",
                     "## SESSION 19 ", "## SESSION 18 ", "## SESSION 7 CLOSED", "## Findings log")
@@ -112,7 +112,8 @@ def main():
             kept.append(l)
             i += 1
 
-    arch_head = ["", "## Moved from STATUS.md on %s (verbatim; KICKSTART 10(u))" % stamp, ""]
+    pre = subprocess.run(["git", "log", "-1", "--format=%h", "--", status_path], capture_output=True, text=True).stdout.strip() or "unknown"
+    arch_head = ["", "## Moved from STATUS.md on %s (verbatim; KICKSTART 10(u)). The last commit of the file before this split is %s: every earlier citation \"STATUS.md l. N\" is read against that commit (`git show %s:rh-program/STATUS.md`)." % (stamp, pre, pre), ""]
     arch = list(arch_head)
     for label, lines in moved:
         arch.append("### %s" % label)
