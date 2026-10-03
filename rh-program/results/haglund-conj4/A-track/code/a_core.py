@@ -95,13 +95,14 @@ def Sc(k, z, route="T", bits=40):
     return C(S(k, az(z), route, bits))
 
 def SdS(k, z, route="T", h=1e-9, bits=90):
-    """(S_k(z), S_k'(z)) as python complex; S' by a central difference computed in Arb at relative radius 2^-bits."""
-    Z = az(z)
-    s0 = S(k, Z, route, bits)
-    sp = S(k, Z + h, route, bits)
-    sm = S(k, Z - h, route, bits)
+    """(S_k(z), S_k'(z)) as python complex; S' by a central difference computed in Arb at relative radius 2^-bits.
+    The shifted points z +- h are python floats (exact binary points); the divisor is their exact difference."""
+    zp, zm = complex(z.real + h, z.imag), complex(z.real - h, z.imag)
+    s0 = S(k, az(z), route, bits)
+    sp = S(k, az(zp), route, bits)
+    sm = S(k, az(zm), route, bits)
     prec0 = ctx.prec
-    ctx.prec = 200
-    d = (sp - sm) / (2 * arb(h))
+    ctx.prec = 256
+    d = (sp - sm) / (arb(zp.real) - arb(zm.real))
     ctx.prec = prec0
     return C(s0), C(d)

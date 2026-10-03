@@ -15,10 +15,14 @@ def Sx(k, x, route="T", bits=40):
     return float(m), v
 
 def dSx(k, x, route="T", h=1e-9):
-    """S_k'(x) (real axis) by a central difference in Arb at relative radius 2^-90."""
-    a = S(k, acb(arb(x) + arb(h), arb(0)), route, 90)
-    b = S(k, acb(arb(x) - arb(h), arb(0)), route, 90)
-    d = (a - b).real / (2 * arb(h))
+    """S_k'(x) (real axis) by a central difference in Arb at relative radius 2^-90; x +- h are exact floats."""
+    xp, xm = x + h, x - h
+    a = S(k, acb(arb(xp), arb(0)), route, 90)
+    b = S(k, acb(arb(xm), arb(0)), route, 90)
+    prec0 = ctx.prec
+    ctx.prec = 256
+    d = (a - b).real / (arb(xp) - arb(xm))
+    ctx.prec = prec0
     m = d.mid()
     if abs(m) > arb("1e300"):
         return BIG if m > 0 else -BIG

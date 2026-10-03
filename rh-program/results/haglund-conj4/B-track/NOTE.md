@@ -42,3 +42,12 @@ A `ps aux` listing I ran to find my own ladder process printed the full command 
 processes (A-track `axis.py`/`a_core` fragments and orch-probe `rcrit.py`). I did not open their folders; my
 evaluator (`hb.py`) and real-axis scanner (`realaxis.py`) were written before the listing and were not changed
 because of it; nothing from those lines is used. From here on I query only my own processes by script name.
+- L3 Xi_27 at 3144.8946 and 3144.8947 by route T at dps 30 and dps 60: -1.76019463128e-1070 and +1.06871649226e-1070
+  (sign change, both precisions); the LITERAL sum (13) at dps 1100 gives the same two values to 12 digits
+  (-1.76019463127752e-1070, +1.06871649226171e-1070; 97 s and 102 s). Real zeros 3144.8946622186467569 and
+  3145.5998495764871408 (dps 30 = dps 60). PASS (main.tex Thm main (a)).
+- L4 Newton on Xi_27 (route T) from 3143.2206824215 + 0.3152587994i: dps 30 -> distance 8.0e-29 from the paper's z*,
+  dps 60 -> 3.9e-37. PASS (Thm main (b)).
+- Argument principle (code/argp.py, adaptive arg sampling, pi/6 per sample, max spacing 0.25): Xi_1 on
+  (0, 86.55) x (-45, 45) counts 31.0 = 1 real + 2 x 15; recursive bisection + Newton finds exactly Haglund's 15
+  non-real zeros with Re <= 86.55. Ladder complete (16:27 IST 2026-10-03).
