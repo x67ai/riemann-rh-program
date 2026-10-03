@@ -223,3 +223,8 @@ provenance; no gap met). Unit NOTEs re-read just before the last build (A-track 
 P3 k = 1..50; B-track 17:24: Q1 k = 1, 2, 3; NOTE.md 18:04). Rows added to A-track after 18:03 are not in the paper: the table is
 regenerated mechanically from A-track/NOTE.md §0 (the scratch extraction keeps the row format), then the abstract's "k <= 9" and the
 readings sentence (1122 + column B) need the same update; a new P1 row may push the paper to 10 pp.
+
+### REFEREE (second model, haglund-conj4-note) — 18:21 IST 2026-10-03 — batch 1: §2 re-derived
+REFEREE-REPORT.md started (plan; outside read of main.pdf). Lemmas 2.1–2.3, Theorem 2.4 (corrected form: non-degenerate maxima,
+values in (0,1]) and Proposition 2.5 re-derived step by step: no step lost, no hypothesis dropped. Recomputed Ξ(0) = 0.49712,
+Q_1(0) = 1.71740e-4 ≤ c_1 = 1.71806e-4 (mpmath). One cosmetic point so far (Lemma 2.1, "x ≠ 0 ... first positive"). Next: §3, §4, Lemma 6.1.
