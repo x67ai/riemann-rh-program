@@ -66,8 +66,8 @@ substance. In floating point, not interval arithmetic, and with two independent
 programs for $k \le 3$, the imaginary part decreased at every step of every
 branch followed, in complete windows for $k \le 8$ and around the landings for
 $k = 15, 20, 26, 27, 35, 50$; the real-axis criterion holds on
-$[0, 4(k+2)^2 + 40]$ for $k \le 50$. A heuristic in three regimes explains why
-the true, slowly varying level leaves the frozen picture intact.
+$[0, 4(k+2)^2 + 40]$ for $k \le 50$. A heuristic treats the true, slowly
+varying level.
 \end{abstract}
 
 %% SECTION 1
@@ -91,10 +91,8 @@ strictly convex on $[0,\infty)$ \cite[proof of Theorem~3.3]{Tya}; for $n = 1$
 it is positive but not monotone at $0$. Put
 $Q_N := \sum_{n > N}\Phi_n = \Xi - \Xi_N$, an entire function (the series
 converges locally uniformly \cite[(12)]{Hag}). For $k \ge 1$ the pencil is
-\[
-F_t := \Xi_k + t\,\Phi_{k+1}, \qquad 0 \le t \le 1, \qquad u := 1 - t ,
-\]
-so that $F_0 = \Xi_k$ and $F_1 = \Xi_{k+1}$. Haglund writes \cite[p.~11]{Hag}:
+$F_t := \Xi_k + t\,\Phi_{k+1}$, $0 \le t \le 1$, with $u := 1 - t$, so that
+$F_0 = \Xi_k$ and $F_1 = \Xi_{k+1}$. Haglund writes \cite[p.~11]{Hag}:
 ``Another interesting phenomena occurs when we consider the zeros of
 $\Xi_k(z) + t\Phi_{k+1}(z)$. As we let $t$ vary continuously from $0$ to $1$,
 computations indicate that the imaginary parts of the non-real zeros decrease
@@ -167,13 +165,9 @@ positive. At $x = 0$ the integral is that of a positive function.
 \end{proof}
 
 \begin{lemma}[the pencil is $\Xi$ minus a positive level]\label{lem:level}
-For $k \ge 1$ and all $z$,
-\[
-F_t(z) = \Xi(z) - L_t(z), \qquad
-L_t := u\Phi_{k+1} + Q_{k+1} = 2\int_0^\infty \kappa_t(v)\cos(zv)\,dv, \qquad
-\kappa_t := u\tphi_{k+1} + \sum_{n > k+1}\tphi_n .
-\]
-For $0 \le u \le 1$ the kernel $\kappa_t$ is positive, strictly decreasing and
+For $k \ge 1$ and all $z$, $F_t(z) = \Xi(z) - L_t(z)$ with
+$L_t := u\Phi_{k+1} + Q_{k+1} = 2\int_0^\infty \kappa_t(v)\cos(zv)\,dv$ and
+$\kappa_t := u\tphi_{k+1} + \sum_{n > k+1}\tphi_n$. For $0 \le u \le 1$ the kernel $\kappa_t$ is positive, strictly decreasing and
 strictly convex, so $L_t(x) > 0$ for real $x$; and
 $\partial F_t/\partial t = \Phi_{k+1}$, which is positive on the real axis.
 \end{lemma}
@@ -218,9 +212,7 @@ the number of zeros of $F_t$ in $(0,\infty)$ is finite and odd.
 $P_s \subset P_t$ for $s < t$, and every boundary point of $P_s$ lies in the
 interior of $P_t$.
 \item[(d)] Let $x_0$ be a real zero of $F_{t_0}$ of multiplicity $m$, with
-$F_{t_0}(x) = c(x - x_0)^m(1 + o(1))$. If $m$ is odd, $F_t$ has an odd number
-of real zeros near $x_0$ for $t$ near $t_0$, counted with multiplicity; for
-$t \ne t_0$ the $m$ zeros near $x_0$ are
+$F_{t_0}(x) = c(x - x_0)^m(1 + o(1))$. If $m$ is odd, then for $t \ne t_0$ near $t_0$ the $m$ zeros near $x_0$ are
 $x_0 + \bigl(-(t - t_0)\Phi_{k+1}(x_0)/c\bigr)^{1/m}(1 + o(1))$ (the $m$
 values of the root), exactly one of them real and $m - 1$ non-real, so for odd
 $m \ge 3$ a conjugate pair lands at $t_0$ and leaves the axis at once. The same
@@ -306,12 +298,11 @@ Section~\ref{sec:census}.
 \section{The frozen level}\label{sec:frozen}
 
 By Lemma~\ref{lem:level} the zeros of $F_t$ are the solutions of
-$\Xi(z) = L_t(z)$. If the level were a constant $c > 0$ that decreases with
-$t$, (D) and (R) would be statements about the solutions of $\Xi = c$. When the
-zeros of $\Xi$ are real these are known in substance, from the formula for
-$\im f'/f$ in Titchmarsh \cite[\S8.52, p.~266]{Tit} and from the level-curve
-statements of Csordas and Smith \cite[(2.5), p.~604; (3.3)--(3.4), p.~609]{CS};
-we state them in the form needed here, with a short proof.
+$\Xi(z) = L_t(z)$. For a constant level $c > 0$, and zeros of $\Xi$ that are
+real, the facts below are known in substance, from the formula for $\im f'/f$
+in Titchmarsh \cite[\S8.52, p.~266]{Tit} and the level-curve statements of
+Csordas and Smith \cite[(2.5), p.~604; (3.3)--(3.4), p.~609]{CS}; we state
+them in the form needed here, with a short proof.
 
 \begin{lemma}[Titchmarsh {\cite[\S8.52, p.~266]{Tit}}]\label{lem:tit}
 Let $f$ be a real entire function of the form
@@ -329,6 +320,12 @@ $m/z$, $-2az$, $1/(z - a_j)$ has non-positive imaginary part for $\im z > 0$,
 with strict inequality for at least one. Then $dz/dc = 1/f'(z) = (1/c)(f/f')(z)$
 because $f(z) = c$, and $\im(f/f') = -\im(f'/f)/|f'/f|^2 > 0$.
 \end{proof}
+
+Titchmarsh states the formula for real entire functions with real zeros of
+order less than $2$, or of order $2$ and genus $1$. The class $S_\infty(A)$ of
+Csordas and Smith \cite[Definition~1.2, p.~602]{CS} contains $\Xi$ with
+$A = \frac12$, so $\im\Xi'/\Xi < 0$ for $\im z > \frac12$ with no
+hypothesis \cite[(2.5), p.~604]{CS}.
 
 \begin{proposition}[the solutions of $\Xi = c$ when the zeros of $\Xi$ are real; in substance {\cite{CS}}]\label{prop:frozen}
 Assume every zero of $\Xi$ is real and simple, and let $M_m$ be the maximum of
@@ -390,10 +387,9 @@ decreases with $t$, (D) and (R) would be exactly
 Proposition~\ref{prop:frozen}(iii): every non-real zero descends, each lands at
 the top of its own lobe when the level passes that top, and landed zeros stay
 real. The order in which the lobes are reached is the order of their heights
-$M_m$, not of their positions. This is how Haglund's Conjecture~1 (for every
-$N$, the zeros of $\Xi_N$ in the closed first quadrant, listed by increasing
-real part, have nondecreasing imaginary parts \cite[p.~3]{Hag}) fails at
-$N = 27$ \cite{Tya}: a low lobe to the left of a higher one. It is compatible
+$M_m$, not of their positions. This is how Haglund's Conjecture~1
+\cite[p.~3]{Hag} (monotonic zeros of $\Xi_N$ in the closed first quadrant)
+fails at $N = 27$ \cite{Tya}: a low lobe to the left of a higher one. It is compatible
 with (D): the zero over the low lobe is still descending when
 the zeros of the higher lobe to its right have landed. The true level $L_t(z)$
 is not constant: on the real axis it varies on the scale $2\pi(k+1)^2$, and off
@@ -410,10 +406,8 @@ model $\rho > 0$ and $\Lambda = \Xi'/\Xi$.
 \section{A zero of \texorpdfstring{$\Xi$}{Xi} off the real axis}\label{sec:offaxis}
 
 \begin{lemma}[$\Phi_n$ is nearly constant on a fixed disc]\label{lem:disc}
-Let $R > 0$ and $n \ge 2$ with $\pi n^2 \ge R + \frac12$. Then for $|z| \le R$,
-\[
-\left|\frac{\Phi_n(z)}{\Phi_n(0)} - 1\right| \le \frac{3.1\,R^2}{\pi^2 n^4}.
-\]
+Let $R > 0$ and $n \ge 2$ with $\pi n^2 \ge R + \frac12$. Then
+$|\Phi_n(z)/\Phi_n(0) - 1| \le 3.1R^2/(\pi^2 n^4)$ for $|z| \le R$.
 \end{lemma}
 
 \begin{proof}
@@ -476,34 +470,31 @@ of $\im\Xi'(\beta)$.
 (1) The mirror pencil $\Xi + L_t$ (the weights $1, \ldots, 1, 2 - t, 2, 2,
 \ldots$ on $\Phi_1, \Phi_2, \ldots$, still a series of Haglund's form
 \cite[(53)]{Hag} with non-negative coefficients) has
-$dz/dt = +\Phi_{k+1}/(\Xi' + L_t')$, so the sign is reversed: a simple off-axis
-zero with $\im\Xi'(\beta) \ne 0$ produces an ascending branch, for all large
-$k$, in exactly one of the two pencils.
-(2) Not covered: $\im\Xi'(\beta) = 0$, and multiple zeros off the axis. For a
-zero of multiplicity $m \ge 2$ the $m$ nearby zeros of $F_t$ sit at $\beta$
-plus the $m$-th roots of $L_t(\beta)/c$, $c = \Xi^{(m)}(\beta)/m!$, and approach
-$\beta$ radially as $t$ increases ($|L_t(\beta)|$ decreases with $u$) and as
-$k$ grows; at least one approaches from below, and so ascends in $t$, when
-$m \ge 3$, and when $m = 2$ unless $c$ is a positive real number. This is a
-sketch, not a proof.
+$dz/dt = +\Phi_{k+1}/(\Xi' + L_t')$: a simple off-axis zero with
+$\im\Xi'(\beta) \ne 0$ produces an ascending branch, for all large $k$, in
+exactly one of the two pencils.
+(2) Not covered: $\im\Xi'(\beta) = 0$, and multiple zeros off the axis. A
+sketch, not a proof: for a zero of multiplicity $m \ge 2$ the $m$ nearby zeros
+of $F_t$ sit at $\beta$ plus the $m$-th roots of $L_t(\beta)/c$,
+$c = \Xi^{(m)}(\beta)/m!$, and approach $\beta$ radially as $t$ increases
+($|L_t(\beta)|$ decreases with $u$) and as $k$ grows; at least one approaches
+from below, and so ascends in $t$, when $m \ge 3$, and when $m = 2$ unless $c$
+is a positive real number.
 (3) Proposition~\ref{prop:offaxis} concerns large $k$ only; it says nothing
-about a fixed $k$.
-(4) By the reflection $\Xi(-\bar z) = \overline{\Xi(z)}$, the zero $-\bar\beta$
-has $\Xi'(-\bar\beta) = -\overline{\Xi'(\beta)}$, with the same sign of the
-imaginary part; the two mirror zeros behave alike.
+about a fixed $k$. Read in the other direction, (D) for all large $k$ excludes
+the simple zeros of $\Xi$ off the real axis with $\im\Xi'(\beta) > 0$, but
+not those with $\im\Xi'(\beta) < 0$, which descend in this pencil.
+(4) By the reflection $\Xi(-\bar z) = \overline{\Xi(z)}$, the zero
+$-\bar\beta$ has $\Xi'(-\bar\beta) = -\overline{\Xi'(\beta)}$, with the
+same sign of the imaginary part; the two mirror zeros behave alike.
 \end{remark}
-
-Read in the other direction, Proposition~\ref{prop:offaxis} says that (D) for
-all large $k$ excludes the simple zeros of $\Xi$ off the real axis with
-$\im\Xi'(\beta) > 0$; simple ones with $\im\Xi'(\beta) < 0$ descend in this
-pencil and are not excluded, and multiple ones are not treated.
 
 %% SECTION 5
 \section{The census}\label{sec:census}
 
 Everything in this section is numerical: floating point, not interval
 arithmetic. Two programs were written independently. \emph{Program~A} evaluates
-$\Phi_n$ and $S_k$ in Arb ball arithmetic \cite{Arb, FLINT}, using a value
+$\Phi_n$ and $S_k$ in Arb ball arithmetic \cite{Arb}, using a value
 only when its relative radius is below $2^{-40}$; it follows each branch as the
 level curve $\im S_k = 0$ (Lemma~\ref{lem:quot}) from a zero of $\Xi_k$ to a
 landing or to a zero of $\Xi_{k+1}$, and counts zeros by the argument
@@ -555,9 +546,8 @@ arithmetic.}
 Table~\ref{tab:census} the imaginary part decreased at every step of every
 branch and the margin stays above $0.7$; the landings are half the difference
 of the real counts; and every non-real zero of $\Xi_{k+1}$ in the window ends a
-followed branch (for $k = 6$ one branch reaches $t = 1$ at the zero
-$432.1548 + 63.0618i$ of $\Xi_7$, just outside the window, and is counted as an
-exit). For $k = 1, 2, 3$ the two programs (B with window heights $45, 45, 60$)
+followed branch (for $k = 6$ one branch ends at the zero $432.1548 + 63.0618i$
+of $\Xi_7$, just outside the window: an exit). For $k = 1, 2, 3$ the two programs (B with window heights $45, 45, 60$)
 agree on every count, and on all $15$ landings to the digits B printed:
 $|\Delta x^*| \le 3.9\cdot10^{-7}$, $|\Delta\tau^*| \le 4.8\cdot10^{-6}$;
 B finds $\im(dz/dt) < 0$ at all $3{,}605$, $6{,}886$ and $11{,}974$ grid values
@@ -622,9 +612,9 @@ predicts to three digits.
 \section{The true level: heuristics}\label{sec:heur}
 
 This section is heuristic, except Lemma~\ref{lem:ct}. Write
-$A(s) := \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)$ and $a := \pi(k+1)^2$, the second
-argument of the incomplete gamma functions in $\Phi_{k+1}$. There are three
-regimes for a zero $z = x + iy$ of $F_t$ in the first quadrant.
+$A(s) := \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)$ and $a := \pi(k+1)^2$ (the
+second argument of the incomplete gamma functions in $\Phi_{k+1}$); a zero
+$z = x + iy$ of $F_t$ in the first quadrant is in one of three regimes.
 
 \emph{(I) The frontier:} $x$ from about $4(k+1)^2$ to $4(k+2)^2$, $y$ from $0$
 to a few units. Here $\Xi$ and $L_t$ have comparable size
@@ -679,59 +669,39 @@ decreases and $\alpha_{k+1} > 0$.
 
 Heuristically, a far zero then moves by $\delta z \approx (\delta c/c)/(T'/T)$,
 $T$ the dominant gamma term, and $\im(1/(T'/T)) > 0$ there, so a decrease of
-$|c|$ moves it down. The arXiv and journal versions of Haglund's paper state
-that the coefficient of $1/x^2$ in $\Xi_N(x)$ ``is positive for $k \ge 3$ and
-negative for $1 \le k < 3$'' \cite[p.~10]{Hag}; with that sign the far zeros
-would have to move up as $t$ increases. The author's later copy states instead
-that the coefficient ``approaches zero from below as $N \to \infty$''
-\cite[p.~10]{HagW}, and it is negative for every $N$
-\cite[Proposition~3.4]{Tya}: that is the sign consistent with
+$|c|$ moves it down. With the sign printed in the arXiv and journal versions,
+where the coefficient of $1/x^2$ in $\Xi_N(x)$ ``is positive for $k \ge 3$ and
+negative for $1 \le k < 3$'' \cite[p.~10]{Hag}, the far zeros would have to
+move up as $t$ increases; the author's later copy says that it ``approaches zero
+from below as $N \to \infty$'' \cite[p.~10]{HagW}, and it is negative for every
+$N$ \cite[Proposition~3.4]{Tya}: the sign consistent with
 Conjecture~\ref{conj:4}. The far-field check of Section~\ref{sec:census} tests
 the formula for $\delta z$ at $k = 2$.
 
-Turning (I)--(III) into proofs would need, among other things, uniform
-estimates of $\Phi_n(z)$ near $x \approx 2\pi n^2$, where the incomplete gamma
-function changes regime.
 
 %% SECTION 7
 \section{Prior work}\label{sec:prior}
 
-\emph{Haglund's paper} exists in three versions \cite{Hag, HagJ, HagW}; the
-author's copy of February 9, 2011 \cite{HagW} has the entry $31$ at $N = 4$ and
-the corrected sentence on the sign of the $1/x^2$ coefficient
-(Sections~\ref{sec:census} and~\ref{sec:heur}).
-
 \emph{Conjecture~\ref{conj:4} for $k = 1$.} Baccaro's preprint \cite{Bac}
-states Conjecture~\ref{conj:4} for $k = 1$ as its Theorem~2.1 \cite[p.~2]{Bac}
-and proves it with an interval-arithmetic certificate on a bounded region
-together with an analytic estimate for the zeros with $|z| \ge 256$
-\cite[(11), p.~3]{Bac}; its abstract says: ``These results prove Haglund's
-Conjecture 4 for $k = 1$. The cases $k \ge 2$ remain open.'' It uses
-$\Phi_2 > 0$ on the real axis, with the convex-kernel reason
-\cite[(12), p.~3]{Bac} (Lemma~\ref{lem:phipos} for $n = 2$), and its criterion
-for descent is that of Lemma~\ref{lem:quot} for $k = 1$ in the normalization
-$g = -\Phi_1/\Phi_2 = 1 - S_1$ \cite[(7)--(10), p.~2]{Bac}. The positivity of
-$\Phi_n$ on the real axis for every $n \ge 2$ is also recorded in the repository
-that accompanies \cite{Bac}. Ahn's thesis \cite{Ahn} computes the zeros of the
-fixed members $\Phi_1 + t\Phi_2$, $t = 0.1, 0.5, 0.9, 0.95$, among fourteen
-combinations, in the rectangle $0.01 \le x \le 250$, $0 \le y \le 50$, and
-tests the ordering of Conjecture~1 for each; it does not follow zeros in $t$.
+states Conjecture~\ref{conj:4} for $k = 1$ as its Theorem~2.1 \cite[p.~2]{Bac},
+with a proof by an interval-arithmetic certificate on a bounded region and an
+analytic estimate for the zeros with $|z| \ge 256$ \cite[(11), p.~3]{Bac}; its
+abstract says: ``These results prove Haglund's Conjecture 4 for $k = 1$. The
+cases $k \ge 2$ remain open.'' It uses $\Phi_2 > 0$ on the real axis, with the
+convex-kernel reason \cite[(12), p.~3]{Bac}, and its descent criterion is that
+of Lemma~\ref{lem:quot} for $k = 1$, with $g = -\Phi_1/\Phi_2 = 1 - S_1$
+\cite[(7)--(10), p.~2]{Bac}; the positivity of $\Phi_n$ on the real axis for
+every $n \ge 2$ is also recorded in the repository that accompanies
+\cite{Bac}. Ahn's thesis \cite{Ahn} computes the zeros of $\Phi_1 + t\Phi_2$
+for $t = 0.1, 0.5, 0.9, 0.95$ (among fourteen combinations) in
+$0.01 \le x \le 250$, $0 \le y \le 50$, and tests the ordering of
+Conjecture~1 for each; it does not follow zeros in $t$.
 
 \emph{Searches.} Among the works citing \cite{Hag} or \cite{HagJ} that we
-found (through Semantic Scholar, OpenAlex, Google Scholar and zbMATH Open, and
-searches of Zenodo, MathOverflow and the web), and in a second, independent web
-search, only \cite{Bac} states, computes or proves anything about the zeros of
+found (Semantic Scholar, OpenAlex, Google Scholar, zbMATH Open; Zenodo,
+MathOverflow and web searches), and in a second, independent web search, only
+\cite{Bac} states, computes or proves anything about the zeros of
 $\Xi_k + t\Phi_{k+1}$ as $t$ varies; we found nothing for any $k \ge 2$.
-
-\emph{Section~\ref{sec:frozen}.} Titchmarsh's formula for $\im f'/f$ and
-the inequality $d(f'/f)/dz < 0$ on the real axis \cite[\S8.52, p.~266]{Tit}
-are stated for real entire functions with real zeros of order less than $2$, or
-of order $2$ and genus $1$. Csordas and Smith prove $\im f'/f < 0$ above the
-strip $|\im z| \le A$ containing the zeros, for their class $S_\infty(A)$
-\cite[Definition~1.2, p.~602; (2.5), p.~604]{CS}; $\Xi$ belongs to it with
-$A = \frac12$, so $\im\Xi'/\Xi < 0$ for $\im z > \frac12$ with no
-hypothesis, and there the level curves have no horizontal tangent
-\cite[(3.3)--(3.4), p.~609]{CS}.
 
 \paragraph{Code availability.}
 \url{https://github.com/x67ai/riemann-rh-program}.
@@ -752,23 +722,16 @@ August 22, 2026, DOI 10.5281/zenodo.22059236.
 distribution of zeros of entire functions}, Michigan Math. J. \textbf{47}
 (2000), 601--612.
 
-\bibitem[FLINT]{FLINT} The FLINT team, \emph{FLINT: Fast Library for Number
-Theory}, version 3.0.1, \url{https://flintlib.org}; used through python-flint
-0.6.0, \url{https://github.com/flintlib/python-flint}.
-
 \bibitem[Hag09]{Hag} J. Haglund, \emph{Some conjectures on the zeros of
 approximates to the Riemann $\Xi$-function and incomplete gamma functions},
 arXiv:0910.5228v1, 27 October 2009. Page and equation numbers in this paper
 refer to this version.
 
-\bibitem[Hag11]{HagJ} J. Haglund, \emph{Some conjectures on the zeros of
-approximates to the Riemann $\Xi$-function and incomplete gamma functions},
-Cent. Eur. J. Math. \textbf{9} (2011), no.~2, 302--318,
+\bibitem[Hag11]{HagJ} J. Haglund, the same title, Cent. Eur. J. Math. \textbf{9} (2011), no.~2, 302--318,
 DOI 10.2478/s11533-010-0095-3.
 
-\bibitem[Hag11w]{HagW} J. Haglund, \emph{Some conjectures on the zeros of
-approximates to the Riemann $\Xi$-function and incomplete gamma functions},
-author's copy dated February 9, 2011,
+\bibitem[Hag11w]{HagW} J. Haglund, the same title, author's copy dated
+February 9, 2011,
 \url{https://www2.math.upenn.edu/~jhaglund/preprints/rh8.pdf} (read October 3,
 2026).
 
