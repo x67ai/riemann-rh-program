@@ -50,9 +50,12 @@ def find_zeros(f, x0, x1, y0, y1, A=None, newton=None, minsize=0.5, out=None):
     if n == 0:
         return out
     if n == 1 and max(x1 - x0, y1 - y0) <= minsize*4:
-        z, st, it, d = newton(f, mp.mpc((x0 + x1)/2, (y0 + y1)/2))
-        if x0 <= mp.re(z) <= x1 and y0 <= mp.im(z) <= y1:
-            out.append(z); return out
+        try:
+            z, st, it, d = newton(f, mp.mpc((x0 + x1)/2, (y0 + y1)/2))
+            if x0 <= mp.re(z) <= x1 and y0 <= mp.im(z) <= y1:
+                out.append(z); return out
+        except (RuntimeError, ZeroDivisionError):
+            pass
     if max(x1 - x0, y1 - y0) < 1e-6:
         raise RuntimeError('box too small with %d zeros at %s' % (n, (x0, x1, y0, y1)))
     if x1 - x0 >= y1 - y0:

@@ -31,11 +31,11 @@ def bis_dS(k, a, b, Sa, Sb):
     m = (a + b)/2
     return m, SdS(k, m)
 
-def run(k, x_end, dx0=0.05, dx1=0.01, lo=-0.5, hi=1.5):
+def run(k, x_end, dx0=0.05, dx1=0.01, lo=-0.5, hi=1.5, x_start=0):
     t0 = time.time()
     xs = []; vals = {}
-    n0 = int(mp.ceil(x_end/dx0))
-    grid = [mp.mpf(j)*dx0 for j in range(n0 + 1)]
+    n0 = int(mp.ceil((x_end - x_start)/dx0))
+    grid = [mp.mpf(x_start) + mp.mpf(j)*dx0 for j in range(n0 + 1)]
     for x in grid:
         vals[float(x)] = SdS(k, x)
     # refine cells where S at an end lies in (lo, hi)
@@ -64,7 +64,7 @@ def run(k, x_end, dx0=0.05, dx1=0.01, lo=-0.5, hi=1.5):
         return [(a, b) for a, b in zip(pts[:-1], pts[1:]) if (vals[a][0] - c)*(vals[b][0] - c) < 0]
     z0 = changes(1); z1 = changes(0)
     Bpos = all(vals[p][3] > 0 for p in pts)
-    res = dict(k=k, x_end=x_end, dx0=dx0, dx1=dx1, refine_band=[lo, hi], dps=mp.mp.dps,
+    res = dict(k=k, x_start=x_start, x_end=x_end, dx0=dx0, dx1=dx1, refine_band=[lo, hi], dps=mp.mp.dps,
                n_points=len(pts), B_positive=Bpos,
                real_zeros_t0=len(z0), real_zeros_t1=len(z1),
                largest_t0=(z0[-1] if z0 else None), largest_t1=(z1[-1] if z1 else None),
