@@ -17,6 +17,11 @@ Xi_{k+1} in W_k is a branch end, C2 = L = (R_{k+1} - R_k)/2, C3 = landings = loc
 D = no local minimum of S_k in (0,1) on [0, X_k] and every (0,1)-interval consistent, H = hygiene (half-step re-trace
 of one branch in ten agrees, routes L/T agree at 5 points per branch for k <= 6, every S value has Arb relative radius
 <= 2^-40).
+How Y_k is known: Y_k = ceil(largest imaginary part among the located zeros of Xi_k and Xi_{k+1} with real part <= X_k)
++ 5. That no zero of Xi_k or Xi_{k+1} with real part <= X_k lies above Y_k is checked up to 4 Y_k: the floating-point
+argument-principle count on [0, X_k] x [-Y, Y] is the same for Y = Y_k and Y = 4 Y_k, for both functions (A4). Above
+4 Y_k it is not checked; the reason to expect nothing there (not made quantitative): Xi_N = Xi - Q_N, Xi has no zero with
+|Im z| > 1/2, |Q_N(x + iy)| <= Q_N(iy) (the kernels are positive), and at fixed x the ratio |Xi(x + iy)| / Q_N(iy) grows roughly like (N+1)^y (heuristic).
 
 | k | X_k | Y_k | R_k / R_{k+1} [Haglund] | NR k / k+1 | B | L | E | X | dy+ | m | checks passed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -130,7 +135,11 @@ frontier rescan finds the same zeros and extrema; u_min = smallest landing value
 - C5 (real axis). Phi_{k+1} > 0 on R (main.tex sandwich, termwise, n >= 2), so S_k is real-analytic on R; real zeros of the
   pencil at u are S_k(x) = u; a local max of S_k with value u* in (0,1) is a landing at u*, a local min a departure. The
   real count changes only there (S_k(0) > 1 and S_k < 0 near X_k are checked in every scan), so
-  #landings - #departures = (R_{k+1} - R_k)/2. Confirmed.
+  #landings - #departures = (R_{k+1} - R_k)/2. Confirmed. Amended after read-O (SHARED 17:01): a critical point of S_k
+  with S_k'' = 0 and value in (0,1] (a real zero of multiplicity >= 3) also sends a pair off the axis without being a
+  local minimum; the exact criterion for (R) is that every critical point with value in (0,1] is a non-degenerate
+  maximum. Here: every maximum found has S_k'' < 0 (P3, nu >= 3.09, code/nondeg.py); critical points that are not
+  extrema (S' = S'' = 0, codimension 2) are not searched for separately.
 
 ## §2 Tool notes and attempts (as made)
 - T1. Arb degeneracy on the imaginary axis: for x = 0 exactly, b +- i z/2 = b - y/2 is real, and python-flint's
@@ -144,8 +153,14 @@ frontier rescan finds the same zeros and extrema; u_min = smallest landing value
   with these enclosures; every count in this NOTE is the floating-point argument principle, labeled as such.
 - T3. Floating-point argument principle (zeros.argpath): arg of the exact midpoint of the Arb value (24 bits relative),
   adaptive bisection until every increment is below pi/4 (minimum segment 1e-9; a segment that cannot reach it is
-  counted as a flag; flags = 0 in every count reported); total rounded, deviation from an integer reported (< 1e-12
-  in every P1 count so far).
+  counted as a flag; flags = 0 in every window count reported); total rounded, deviation from an integer reported
+  (<= 1.2e-12 in every window count of P1 and P2).
+- T6. Evaluator change at 17:00 IST (before P3 k >= 4, P1 k >= 7, P2 k = 15, 20, 35, 50): route T starts from
+  M = max(N + 2, ceil(sqrt(x/4 + 15))) instead of max(N + 4, sqrt(x)/2 + 6) (the proved tail ball is still checked
+  against 2^-(bits+8)|value| and M raised until it passes), and on the real axis Phi_n uses G = 2 Re(first term)
+  (Phi_fast; balls overlap hag_core.Phi at 25 test points, relative difference <= 1e-143 at 600 bits). Cross-check:
+  the P1 axis scans of k = 4..6 (old evaluator) and the P3 scans of k = 4..6 (new) give the same real counts and the
+  same local maxima, identical to the last bit; likewise for k = 1..3 and 7..9.
 
 - T4. Margin bookkeeping fix (17:10 IST): the first runs (P1 k = 1..6, P2 k = 26, 27) recorded -Im S'/|S'| at the
   accepted interior nodes only. code/endmargins.py added the margin at every start (zero of Xi_k) and every u = 0 end

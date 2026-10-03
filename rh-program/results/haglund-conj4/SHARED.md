@@ -206,3 +206,20 @@ P2 k = 50, window [10364, 10856] x [0, 99]: real Xi_50 / Xi_51 = 58 / 546; non-r
 901 branches, 754 landings, no step with Im z increasing, smallest margin 0.851 (k = 27).
 Site cross-check: S by route T and by the literal sum (up to 6592 bits) agree to <= 1.7e-14 (balls overlapping) at 15
 points of the three site branches (A-track/data/site_routes_LT.json). NUMERICAL.
+
+### WRITER — 18:10 IST 2026-10-03 — note at 9 pp. after compression; proofreading next
+Cuts made to reach 9 pp. (no statement, proof step or number of the NOTE dropped from §2-§4): displays inlined, Remark 2.2 folded
+into §5's real-axis paragraph, the NOTE's closing "Conjecture 1 ... unrelated" sentence and "What is NOT in this note" line dropped
+(§1.2 states once that neither (D) nor (R) is proved for any k), FLINT bib entry dropped (Arb cited), enumitem compact lists.
+
+### WRITER — 18:13 IST 2026-10-03 — checker ALL CHECKS PASSED (9 pp.); census table re-read
+NOTE.md re-read at its 18:04 state (1122 branches; 5558 non-degenerate maxima for k <= 50). A-track/NOTE.md re-read 18:03: P1 now
+k = 1..9 (k = 9 final), P2 k = 15, 20, 26, 27, 35, 50; all in the paper's table (programs: A; A and B for k = 1, 2, 3). B-track/NOTE.md
+unchanged since 17:24 (§0 table still empty; Q1 k = 1, 2, 3 final). abstract.txt written. Final re-read of both unit NOTEs before the last build.
+
+### WRITER — 18:15 IST 2026-10-03 — note delivered (9 pp.; checker: ALL CHECKS PASSED)
+results/arxiv/haglund-conj4-note/: main.tex, main.pdf (9 pp.), abstract.txt, WRITER-NOTES.md (W1-W21: wording choices and number
+provenance; no gap met). Unit NOTEs re-read just before the last build (A-track 18:03: P1 k = 1..9, P2 k = 15, 20, 26, 27, 35, 50,
+P3 k = 1..50; B-track 17:24: Q1 k = 1, 2, 3; NOTE.md 18:04). Rows added to A-track after 18:03 are not in the paper: the table is
+regenerated mechanically from A-track/NOTE.md §0 (the scratch extraction keeps the row format), then the abstract's "k <= 9" and the
+readings sentence (1122 + column B) need the same update; a new P1 row may push the paper to 10 pp.

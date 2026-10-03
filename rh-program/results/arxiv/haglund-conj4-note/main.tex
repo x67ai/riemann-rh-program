@@ -64,8 +64,8 @@ of $\Xi$ are real and simple and the level is frozen at a constant, every
 non-real zero descends and lands at the top of its own lobe; this is known in
 substance. In floating point, not interval arithmetic, and with two independent
 programs for $k \le 3$, the imaginary part decreased at every step of every
-branch followed, in complete windows for $k \le 8$ and around the landings for
-$k = 15, 20, 26, 27, 35, 50$; the real-axis criterion holds on
+branch followed, in complete windows for $k \le 9$ and around the landings for
+$k = 15, 20, 26, 27, 35, 50$; the real-axis criterion holds on a grid of
 $[0, 4(k+2)^2 + 40]$ for $k \le 50$. The true, slowly varying level is
 treated heuristically.
 \end{abstract}
@@ -78,8 +78,7 @@ Write $s = \tfrac12 + iz$ and let
 $\Xi(z) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, which is even, entire
 and real on the real axis. Riemann's series $\Xi = \sum_{n\ge1}\Phi_n$ and
 Haglund's approximants $\Xi_N := \sum_{n \le N}\Phi_n$ are defined in
-\cite[(1)--(14), pp.~1--3]{Hag} (page and equation numbers refer to the arXiv
-version); see also \cite[(3)]{Tya}. From Haglund's definition (his (6) with
+\cite[(1)--(14), pp.~1--3]{Hag}; see also \cite[(3)]{Tya}. From Haglund's definition (his (6) with
 $z \in \Cx$, and his (14)), and on the real axis also from
 \cite[Theorem~3.3 and its proof]{Tya},
 \begin{equation}\label{eq:kernel}
@@ -116,13 +115,12 @@ its lead-in unchanged. We use two statements about the pencil for a given $k$:
 $\im z$ does not increase with $t$;
 \item[(R)] a real zero of $F_t$ stays real as $t$ increases.
 \end{itemize}
-Statement (D) is the conjecture; (R) is the last clause of the lead-in. A
-conjugate pair that leaves the real axis at some $t_0$ violates (R), and also
-(D) just after $t_0$, since the imaginary part of its upper member rises from
-$0$.
+Statement (D) is the conjecture and (R) the last clause of its lead-in; a
+conjugate pair that leaves the real axis at some $t_0$ violates (R), and (D)
+just after $t_0$, since the imaginary part of its upper member rises from $0$.
 
 \subsection{What is shown here}\label{sec:shown}
-Each item is labeled by its kind. \emph{Proved:} the pencil is $\Xi$ minus a
+\emph{Proved:} the pencil is $\Xi$ minus a
 level, $F_t = \Xi - L_t$ with $L_t = u\Phi_{k+1} + Q_{k+1} > 0$ on the real
 axis and $\partial_t F_t = \Phi_{k+1} > 0$ there (Lemma~\ref{lem:level}); its
 real zeros lie in the positive lobes of $\Xi$, an even number in each and an
@@ -357,9 +355,10 @@ $\partial_x\arg\Xi(x + iy) = \im\Xi'/\Xi \le -\sum_\gamma y/((x - \gamma)^2 + y^
 whose integral over $x$ diverges because there are infinitely many $\gamma$;
 $\Xi(iy) = 2\int_0^\infty\sum_n\tphi_n(v)\cosh(yv)\,dv > 0$; the implicit
 function theorem gives the graphs.
-(ii) By Lemma~\ref{lem:tit}, $\Xi' \ne 0$ off the real axis and $\Xi$, real
-on $C_m$, increases with $y$ along it (that such level curves have no
-horizontal tangent is \cite[(3.3)--(3.4)]{CS}). Near a real point that is
+(ii) By Lemma~\ref{lem:tit}, $\Xi' \ne 0$ off the real axis, so $\Xi$, real
+on $C_m$, is strictly monotone along it, and by Lemma~\ref{lem:tit} applied to
+the branch through any point of $C_m$ it increases with $y$ (that such level
+curves have no horizontal tangent is \cite[(3.3)--(3.4)]{CS}). Near a real point that is
 neither a critical point nor a zero of $\Xi$, and near a simple zero, $\Xi$ is
 injective and maps the real axis onto real values; so $C_m$ can approach the
 real axis only at a critical point where $\Xi > 0$. As $y \to 0$ the argument
@@ -499,15 +498,15 @@ only when its relative radius is below $2^{-40}$; it follows each branch as the
 level curve $\im S_k = 0$ (Lemma~\ref{lem:quot}) from a zero of $\Xi_k$ to a
 landing or to a zero of $\Xi_{k+1}$, and counts zeros by the argument
 principle. \emph{Program~B}, written in mpmath \cite{mpmath} from Haglund's
-definitions without sight of program~A, follows each branch by Newton
+definitions, follows each branch by Newton
 continuation on a grid in $\tau = -\log(1 - t)$; it reproduces Haglund's $19$
 printed zeros of $\Xi_1$ to $7\cdot10^{-22}$, the largest real zeros of
 $\Xi_1, \ldots, \Xi_4$ in his table, and the certified zeros of $\Xi_{27}$ of
 \cite{Tya}.
 
 \begin{table}[ht]
-\centering\small
-\setlength{\tabcolsep}{3.6pt}
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
 \begin{tabular}{rllrrrrrrrrl}
 \toprule
 $k$ & $\re z$ & $\im z$ & real & non-real & B & L & E & X & $\Delta^+$ & $m$ & prog.\\
@@ -520,6 +519,7 @@ $k$ & $\re z$ & $\im z$ & real & non-real & B & L & E & X & $\Delta^+$ & $m$ & p
 6 & $[0, 432.12]$ & $[0, 90]$ & 79/113 & 82/62 & 82 & 17 & 62 & 3 & $-3.0\cdot10^{-7}$ & 0.832 & A \\
 7 & $[0, 538.94]$ & $[0, 102]$ & 113/155 & 103/80 & 103 & 21 & 80 & 2 & $-3.1\cdot10^{-7}$ & 0.842 & A \\
 8 & $[0, 658.32]$ & $[0, 115]$ & 155/207 & 127/98 & 127 & 26 & 98 & 3 & $-3.0\cdot10^{-7}$ & 0.850 & A \\
+9 & $[0, 790.27]$ & $[0, 130]$ & 207/263 & 153/122 & 153 & 28 & 122 & 3 & $-3.0\cdot10^{-7}$ & 0.861 & A \\
 \midrule
 15 & $[984, 1196]$ & $[0, 55]$ & 37/145$^*$ & 74/16 & 74 & 54 & 16 & 4 & $-3.0\cdot10^{-7}$ & 0.880 & A \\
 20 & $[1724, 1976]$ & $[0, 61]$ & 40/196$^*$ & 101/17 & 101 & 78 & 17 & 6 & $-3.0\cdot10^{-7}$ & 0.876 & A \\
@@ -543,8 +543,9 @@ arithmetic.}
 \end{table}
 
 \emph{Readings} (each a statement about its window). In every row of
-Table~\ref{tab:census} the imaginary part decreased at every step of every
-branch and the margin stays above $0.7$; the landings are half the difference
+Table~\ref{tab:census} ($1122$ branches in the rows other than $k = 9$ and
+$k = 50$, and the numbers in column B for those two) the imaginary part decreased at every step of every branch,
+and the margin stays above $0.7$; the landings are half the difference
 of the real counts; and every non-real zero of $\Xi_{k+1}$ in the window ends a
 followed branch (for $k = 6$ one branch ends at the zero $432.1548 + 63.0618i$
 of $\Xi_7$, just outside the window: an exit). For $k = 1, 2, 3$ the two programs (B with window heights $45, 45, 60$)
@@ -560,18 +561,15 @@ finds that $S_k$ has no local minimum with value in $(0,1)$ and that its local
 maxima with value in $(0,1)$ are $(R_{k+1} - R_k)/2$ in number, where $R_N$ is
 the number of real zeros of $\Xi_N$ found on that interval (grid of $1/20$ of
 the mean zero spacing $2\pi/\log(x/2\pi)$, the part beyond $4(k+1)^2 - 40$
-scanned again at $1/40$). Each $R_N$ with $2 \le N \le 50$ is found twice, on
-the intervals of the pencils $k = N - 1$ and $k = N$, with the same value. For
-$N = 1, \ldots, 51$:
+scanned again at $1/40$). For $N = 1, \ldots, 51$ the counts $R_N$ are
 1, 7, 15, 31, 53, 79, 113, 155, 207, 263, 327, 401, 483, 575, 673, 781, 899,
 1027, 1163, 1307, 1463, 1631, 1807, 1991, 2189, 2393, 2611, 2839, 3075, 3323,
 3581, 3851, 4133, 4423, 4727, 5037, 5363, 5699, 6045, 6405, 6771, 7157, 7549,
 7951, 8369, 8797, 9237, 9689, 10155, 10629, 11117 --- all odd, as
 \cite[Corollary~3.5]{Tya} requires. Program~B finds the same for $k = 1, 2, 3$
-on $[0, 98.55]$, $[0, 142.5]$, $[0, 199.1]$. A scan for minima checks the
-criterion of Theorem~\ref{thm:real}(e) up to degenerate critical points
-($S_k' = S_k'' = 0$ at one $x$, a non-generic event at which (R) and (D) fail,
-by Theorem~\ref{thm:real}(d); none was met). The inequality in the first step of the proof of
+on $[0, 98.55]$, $[0, 142.5]$, $[0, 199.1]$. Each of the $5558$ local maxima
+with value in $(0,1)$ found for $k \le 50$ is non-degenerate ($S_k'' < 0$):
+this is the criterion of Theorem~\ref{thm:real}(e), on the grid. The inequality in the first step of the proof of
 Proposition~\ref{prop:liftoff}, which uses no hypothesis (a lift-off at $x_0$
 forces $(\log\Xi)''(x_0) \ge (\log L_t)''(x_0)$), was tabulated on the part of
 $[0, 4(k+2)^2 + 40]$ where $\Xi > 0$ (step $0.02$, $u \in \{0, \frac14,
@@ -682,17 +680,18 @@ the formula for $\delta z$ at $k = 2$.
 %% SECTION 7
 \section{Prior work}\label{sec:prior}
 
+Haglund's paper exists in three versions \cite{Hag, HagJ, HagW}
+(Sections~\ref{sec:pencil}, \ref{sec:census}, \ref{sec:heur}).
 \emph{Conjecture~\ref{conj:4} for $k = 1$.} Baccaro's preprint \cite{Bac}
 states Conjecture~\ref{conj:4} for $k = 1$ as its Theorem~2.1 \cite[p.~2]{Bac},
 with a proof by an interval-arithmetic certificate on a bounded region and an
 analytic estimate for the zeros with $|z| \ge 256$ \cite[(11), p.~3]{Bac}; its
 abstract says: ``These results prove Haglund's Conjecture 4 for $k = 1$. The
 cases $k \ge 2$ remain open.'' It uses $\Phi_2 > 0$ on the real axis, with the
-convex-kernel reason \cite[(12), p.~3]{Bac}, and its descent criterion is that
-of Lemma~\ref{lem:quot} for $k = 1$, with $g = -\Phi_1/\Phi_2 = 1 - S_1$
-\cite[(7)--(10), p.~2]{Bac}; the positivity of $\Phi_n$ on the real axis for
-every $n \ge 2$ is also recorded in the repository that accompanies
-\cite{Bac}. Ahn's thesis \cite{Ahn} computes the zeros of $\Phi_1 + t\Phi_2$
+convex-kernel reason \cite[(12), p.~3]{Bac} (and, in its accompanying
+repository, $\Phi_n > 0$ there for every $n \ge 2$), and its descent criterion is that of
+Lemma~\ref{lem:quot} for $k = 1$, with $g = -\Phi_1/\Phi_2 = 1 - S_1$
+\cite[(7)--(10), p.~2]{Bac}. Ahn's thesis \cite{Ahn} computes the zeros of $\Phi_1 + t\Phi_2$
 for $t = 0.1, 0.5, 0.9, 0.95$ (among fourteen combinations) in
 $0.01 \le x \le 250$, $0 \le y \le 50$, and tests the ordering of
 Conjecture~1 for each; it does not follow zeros in $t$.
@@ -702,16 +701,14 @@ found (Semantic Scholar, OpenAlex, Google Scholar, zbMATH Open; Zenodo,
 MathOverflow and web searches), and in a second, independent web search, only
 \cite{Bac} states, computes or proves anything about the zeros of
 $\Xi_k + t\Phi_{k+1}$ as $t$ varies; we found nothing for any $k \ge 2$.
-
 \emph{Code availability:} \url{https://github.com/x67ai/riemann-rh-program}.
 
 {\small
 \begin{thebibliography}{99}
-\setlength{\itemsep}{1pt}
+\setlength{\itemsep}{0pt}
 
-\bibitem[Ahn12]{Ahn} S.-H. (Shirley) Ahn, \emph{On the zeros of component
-functions of the Riemann Xi approximates}, M.A. thesis, University of
-Pennsylvania, 2012.
+\bibitem[Ahn12]{Ahn} S.-H. Ahn, \emph{On the zeros of component functions of
+the Riemann Xi approximates}, M.A. thesis, Univ. of Pennsylvania, 2012.
 
 \bibitem[Bac26]{Bac} M.~L. Baccaro, \emph{Haglund's Zero-Trajectory Conjecture
 for the First Riemann Xi Approximant}, preprint, version v1.0.0, Zenodo,
