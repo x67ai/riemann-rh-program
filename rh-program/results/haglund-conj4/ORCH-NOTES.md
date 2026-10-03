@@ -55,3 +55,7 @@ Object: f = Ξ + λ, λ > 0 (even, real, entire; it has zeros off the real axis 
 - λ = 1e−4: no extremum with value in (0, 1) on the range (the quotient is outside (0, 1) at its extrema there).
 Sizes on the first negative lobe, for orientation: Ξ(16) = −7.69e−4, Q_1(16) = 1.21e−4, Q_2(16) = 5.5e−11.
 So the test "no local minimum of the real-axis quotient with value in (0, 1)" is not vacuous: it fires on a function that has zeros off the axis and is silent on Ξ at k = 1.
+
+## N5. The sign of Proposition 4.2, tested on the control (16:29 IST 2026-10-03; `orch-probe/signcheck.py`, `signcheck2.py`)
+
+f = Ξ + λ, λ = 5e−5, has a zero off the axis at β = 28.6324463545 + 8.5242688193i (|f(β)| = 6e−20), with f′(β) = 2.9285e−5 + 3.9773e−5 i, so Im f′(β) > 0. Proposition 4.2 (applied to f in place of Ξ) predicts that the zero of (Ξ_k + λ) + tΦ_{k+1} near β moves UP as t increases. Computed, k = 2: Im z = 8.524267981346, 8.524268400330, 8.524268819313 at t = 0, ½, 1 — increasing, linearly in t, total +8.38e−7 (the size of Φ_3(β)/|f′(β)|); for k = 3, 4 the motion is below the 12 printed digits, as the factor Φ_{k+1}(0) predicts. The sign convention of the proposition is confirmed on this example. (A second zero of f off the axis was met on the way, at 61.548 + 26.785i.)
