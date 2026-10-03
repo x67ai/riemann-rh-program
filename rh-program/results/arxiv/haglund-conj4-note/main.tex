@@ -191,12 +191,8 @@ real axis, where $\Phi_{k+1} > 0$. Then $F_t(z) = 0$ if and only if
 $S_k(z) = u$, at every $z$ with $\Phi_{k+1}(z) \ne 0$; at a common zero of
 $\Xi_{k+1}$ and $\Phi_{k+1}$ the pencil vanishes for every $t$. Along a branch
 of simple zeros $z(t)$ with $\Phi_{k+1}(z) \ne 0$,
-\[
-\frac{dz}{dt} = -\frac{\Phi_{k+1}(z)}{\partial_z F_t(z)} = -\frac{1}{S_k'(z)},
-\qquad\text{so}\qquad
-\frac{d(\im z)}{dt} = \frac{\im S_k'(z)}{|S_k'(z)|^2}.
-\]
-Hence (D) for $k$ is the statement that $\im S_k'(z) \le 0$ at every $z$ with
+$dz/dt = -\Phi_{k+1}(z)/\partial_z F_t(z) = -1/S_k'(z)$, so
+$d(\im z)/dt = \im S_k'(z)/|S_k'(z)|^2$. Hence (D) for $k$ is the statement that $\im S_k'(z) \le 0$ at every $z$ with
 $\im z > 0$ and $S_k(z) \in (0,1)$, together with the behavior of the branches
 at multiple zeros.
 \end{lemma}
@@ -275,23 +271,12 @@ or in conjugate pairs.
 axis.
 \end{proof}
 
-\begin{remark}\label{rem:real}
-Zeros of multiplicity at least $3$ are covered by the same expansion, and at
-every such zero (R) and (D) fail, by (d); none occurs in any computation of
-Section~\ref{sec:census}, and a degenerate critical point of $S_k$
-($S_k' = S_k'' = 0$ at one $x$) is non-generic. A scan that finds no local
-minimum of $S_k$ with value in $(0,1]$ checks the criterion of (e) up to
-degenerate critical points, which it should flag ($|S_k''|$ small at an
-extremum).
-\end{remark}
 
 \begin{proposition}[conditional on the zeros of $\Xi$ being real]\label{prop:liftoff}
 Assume every zero of $\Xi$ is real. If $F_{t_0}$ has a lift-off at $x_0$
 (Theorem~\ref{thm:real}(d)), then
-\[
--(\log L_{t_0})''(x_0) \ \ge\ \sum_{\gamma > 0}
-\Bigl[(x_0 - \gamma)^{-2} + (x_0 + \gamma)^{-2}\Bigr].
-\]
+$-(\log L_{t_0})''(x_0) \ge \sum_{\gamma > 0}
+[(x_0 - \gamma)^{-2} + (x_0 + \gamma)^{-2}]$.
 \end{proposition}
 
 \begin{proof}
@@ -369,37 +354,34 @@ real axis exactly when $c = M_m$, at the critical point of the lobe.
 \end{proposition}
 
 \begin{proof}
-(i) Under the hypothesis $\Xi(z) = \Xi(0)\prod(1 - z^2/\gamma^2)$, and
-$\partial_x\arg\Xi(x + iy) = \im\Xi'/\Xi \le -\sum_\gamma y/((x - \gamma)^2 + y^2)$
-by Lemma~\ref{lem:tit}; the integral over $x$ diverges because there are
-infinitely many $\gamma$. Also
-$\Xi(iy) = 2\int_0^\infty\sum_n\tphi_n(v)\cosh(yv)\,dv > 0$. The implicit
+(i) Under the hypothesis $\Xi(z) = \Xi(0)\prod(1 - z^2/\gamma^2)$, and by
+Lemma~\ref{lem:tit}
+$\partial_x\arg\Xi(x + iy) = \im\Xi'/\Xi \le -\sum_\gamma y/((x - \gamma)^2 + y^2)$,
+whose integral over $x$ diverges because there are infinitely many $\gamma$;
+$\Xi(iy) = 2\int_0^\infty\sum_n\tphi_n(v)\cosh(yv)\,dv > 0$; the implicit
 function theorem gives the graphs.
-(ii) $\Xi' \ne 0$ off the real axis (Lemma~\ref{lem:tit}), so $\Xi$, real on
-$C_m$, is strictly monotone along it, and by Lemma~\ref{lem:tit} it increases
-with $y$ (that such level curves have no horizontal tangent is
-\cite[(3.3)--(3.4)]{CS}; the direction is Lemma~\ref{lem:tit}).
-Near a real point that is neither a critical point nor a zero of $\Xi$, and
-near a simple zero, $\Xi$ is injective and maps the real axis onto real values;
-so $C_m$ can approach the real axis only at a critical point where $\Xi > 0$.
-As $y \to 0$ the argument tends, locally uniformly away from the zeros, to its
-boundary values ($-\pi$ per simple zero passed: $-2\pi m$ on the $m$-th positive
-lobe, $-2\pi m \pm \pi$ on the adjacent negative lobes), so every limit point of
-$C_m$ is a critical point of $\Xi$ in the closed lobe, not an endpoint. Under
-the hypothesis
-$(\Xi'/\Xi)'(x) = -\sum_\gamma[(x - \gamma)^{-2} + (x + \gamma)^{-2}] < 0$ on
-each lobe, so $\Xi'/\Xi$ falls strictly from $+\infty$ to $-\infty$ there: each
-lobe contains exactly one critical point, where $\Xi'' = \Xi\cdot(\Xi'/\Xi)' < 0$
-(a non-degenerate maximum, value $M_m$). Hence $C_m$ tends to it.
-(iii) For $y \ge 2\pi e^2$ and $\sigma := \frac12 + y$ one has
-$\Xi(x + iy) = \overline{\xi(\sigma + ix)}$ and, for $x \ge 0$,
-$\arg\xi(\sigma + ix) \ge (x/2)\log(\sigma/(2\pi e)) - \pi/2$, from
-$\arg\Gamma(s/2) = \frac12\int_0^x \re\psi((\sigma + i\tau)/2)\,d\tau$ with
-$\re\psi(a + ib) \ge \psi(a) \ge \log a - 1/a$, $\arg s(s-1) \in [0,\pi)$, and
-$|\arg\zeta(s)| < \pi/2$ for $\sigma \ge 2$. So $x_m(y) \le 4\pi m + \pi$, and
-$|\xi(\sigma + ix)| \to \infty$ uniformly for $0 \le x \le 4\pi m + \pi$ as
-$\sigma \to \infty$. Thus $\Xi$ maps $C_m$ increasingly onto $(M_m, \infty)$,
-which gives one zero on each such $C_m$; the two real zeros in a lobe with
+(ii) By Lemma~\ref{lem:tit}, $\Xi' \ne 0$ off the real axis and $\Xi$, real
+on $C_m$, increases with $y$ along it (that such level curves have no
+horizontal tangent is \cite[(3.3)--(3.4)]{CS}). Near a real point that is
+neither a critical point nor a zero of $\Xi$, and near a simple zero, $\Xi$ is
+injective and maps the real axis onto real values; so $C_m$ can approach the
+real axis only at a critical point where $\Xi > 0$. As $y \to 0$ the argument
+tends, locally uniformly away from the zeros, to its boundary values ($-\pi$ per
+simple zero passed: $-2\pi m$ on the $m$-th positive lobe, $-2\pi m \pm \pi$
+on the adjacent negative lobes), so every limit point of $C_m$ is a critical
+point of $\Xi$ in the closed lobe, not an endpoint. Under the hypothesis
+$(\Xi'/\Xi)'(x) = -\sum_\gamma[(x - \gamma)^{-2} + (x + \gamma)^{-2}] < 0$,
+so $\Xi'/\Xi$ falls strictly from $+\infty$ to $-\infty$ on each lobe: there
+is exactly one critical point, where $\Xi'' = \Xi\cdot(\Xi'/\Xi)' < 0$.
+(iii) For $y \ge 2\pi e^2$, $\sigma := \frac12 + y$ and $x \ge 0$,
+$\Xi(x + iy) = \overline{\xi(\sigma + ix)}$ and
+$\arg\xi(\sigma + ix) \ge (x/2)\log(\sigma/(2\pi e)) - \pi/2$ (from
+$\arg\Gamma(s/2) = \frac12\int_0^x \re\psi((\sigma + i\tau)/2)\,d\tau$,
+$\re\psi(a + ib) \ge \psi(a) \ge \log a - 1/a$, $\arg s(s-1) \in [0,\pi)$
+and $|\arg\zeta(s)| < \pi/2$ for $\sigma \ge 2$); so
+$x_m(y) \le 4\pi m + \pi$, and $|\xi(\sigma + ix)| \to \infty$ uniformly
+for $0 \le x \le 4\pi m + \pi$ as $\sigma \to \infty$. Thus $\Xi$ maps
+$C_m$ increasingly onto $(M_m, \infty)$; the two real zeros in a lobe with
 $M_m > c$ come from its single critical point.
 \end{proof}
 
@@ -443,12 +425,9 @@ $\int_0^\infty\tphi_n\,dv \ge \int_X^\infty(2y - 3)e^{-y}\,dy = (2X - 1)e^{-X}$.
 With $w = y - X$: $\log(y/X) \le w/X$ and
 $(y/X)^{1/4 + R/2} \le e^{(1/4 + R/2)w/X} \le e^{w/2}$ because
 $X \ge \frac12 + R$; so
-\[
-\int_0^\infty\tphi_n(v)\cdot\tfrac12R^2v^2e^{Rv}\,dv
-\le \frac{R^2}{8X^2}\,e^{-X}\int_0^\infty(2X + 2w)\,w^2e^{-w/2}\,dw
-= \frac{R^2}{8X^2}(32X + 192)\,e^{-X}.
-\]
-The quotient is at most
+$\int_0^\infty\tphi_n(v)\cdot\frac12R^2v^2e^{Rv}\,dv
+\le (R^2/8X^2)\,e^{-X}\int_0^\infty(2X + 2w)\,w^2e^{-w/2}\,dw
+= (R^2/8X^2)(32X + 192)\,e^{-X}$. The quotient is at most
 $(R^2/8X^2)(32X + 192)/(2X - 1) \le 3.1R^2/X^2$ for $X \ge 4\pi$.
 \end{proof}
 
@@ -601,7 +580,8 @@ $N = 1, \ldots, 51$:
 \cite[Corollary~3.5]{Tya} requires. Program~B finds the same for $k = 1, 2, 3$
 on $[0, 98.55]$, $[0, 142.5]$, $[0, 199.1]$. A scan for minima checks the
 criterion of Theorem~\ref{thm:real}(e) up to degenerate critical points
-(Remark~\ref{rem:real}). The inequality in the first step of the proof of
+($S_k' = S_k'' = 0$ at one $x$, a non-generic event at which (R) and (D) fail,
+by Theorem~\ref{thm:real}(d); none was met). The inequality in the first step of the proof of
 Proposition~\ref{prop:liftoff}, which uses no hypothesis (a lift-off at $x_0$
 forces $(\log\Xi)''(x_0) \ge (\log L_t)''(x_0)$), was tabulated on the part of
 $[0, 4(k+2)^2 + 40]$ where $\Xi > 0$ (step $0.02$, $u \in \{0, \frac14,
