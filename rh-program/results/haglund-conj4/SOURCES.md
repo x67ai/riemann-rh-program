@@ -1,0 +1,16 @@
+# SOURCES — stream `haglund-conj4` (KICKSTART 10(s); the orchestrator's own corpus pass, narrow target, 16:07 IST 2026-10-03)
+
+Target objects: Haglund's approximants Ξ_N, the summands Φ_n, the pencil Ξ_k + tΦ_{k+1}, his Conjecture 4. All paths are relative to `rh-program/`.
+
+| # | source | where on disk | what it gives (page / line) |
+|---|---|---|---|
+| S1 | J. Haglund, arXiv:0910.5228v1 | `results/novel-wave-s36/staircase/lit/haglund-0910.5228.txt` (and `.pdf`; local-only) | definitions (1)–(14), pp. 1–3 (l. 30–135); Conjecture 1, Prop. 1, Remark 1 and the table, pp. 3–4 (l. 136–210); the 1/x² coefficients (50)–(52), p. 10 (l. 524–545); the lead-in and Conjecture 4, p. 11 (l. 580–592); how he computed (continuation in t; "about t = .99" for k = 2), §6.1 p. 12 (l. 625–640); zeros of Ξ_1 to 25 digits, p. 16 (l. 730–750) |
+| S2 | the same, journal version, Cent. Eur. J. Math. 9 (2011) 302–318 | `results/novel-wave-s36/staircase/lit/haglund-CEJM-2011-degruyter-fulltext.md` (local-only) | conjectures numbered by section (his Conjecture 1 is 2.1); table entry 32 at N = 4 unchanged |
+| S3 | the program's paper on Conjecture 1 | `results/arxiv/haglund-counterexample/main.tex` | Lemma relation (l. 309–332): Φ_n = ½s(s−1)g_n + (4πn²−1)e^{−πn²}; Theorem positivity (l. 347–379); Theorem sandwich (l. 403–430): Ξ_N = Ξ − Q_N, Q_N > 0, proof TERMWISE for n ≥ 2 (φ̃_n positive, decreasing, convex); Prop. tail (l. 437–474): x²Ξ_N(x) → negative limit, coefficients of Φ_n; Cor. odd (l. 476–494); §5 departure height 4(N+1)² |
+| S4 | the certificate archive (registered evaluator) | `results/arxiv/haglund-counterexample/certificate/` — `README.md`, `producer-A/hag_core.py` (Arb: `Phi`, `Xi`, `XiN_L`, `XiN_T`, `tail_bound`, `winding`), `producer-A/CERT.md` (Lemma T, the tail bound), `producer-B/` (mpmath intervals: `specfun.py`, `xin.py`) | both evaluation routes, validated on a ladder and against each other |
+| S5 | M. L. Baccaro, "Haglund's Zero-Trajectory Conjecture for the First Riemann Xi Approximant", Zenodo 10.5281/zenodo.22059236 (22 Aug 2026) | record page: `results/arxiv/haglund-counterexample/lit/zenodo-22059236.md`; index page `…/lit/vibemathed-haglund.html` (local-only). THE PDF IS NOT ON DISK | claims Conjecture 4 for k = 1 (interval arithmetic + Lean); "Higher cases remain open" |
+| S6 | S.-H. Ahn, M.A. thesis, Univ. of Pennsylvania 2012 (supervised by Haglund) | `results/haglund-cert-s37/novelty-F/ahn-thesis-penn.txt` (local-only) | zeros of component functions; restates the N ≤ 10 check; whether it computes any pencil is NOT yet checked |
+| S7 | the staircase unit that found the N = 27 violation | `results/novel-wave-s36/staircase/NOTE.md`, `lit/PRIOR-ART.md` (l. 52–53 quote Conjecture 4), `verify/` | lobe scan, census tools, the literature list around Haglund's paper |
+| S8 | the orchestrator's notes and probe for this stream | `results/haglund-conj4/ORCH-NOTES.md`, `orch-probe/c4probe.py`, `orch-probe/trace.py` | S_k = Ξ_{k+1}/Φ_{k+1}; the level-curve tracer; k = 1 ladder (seven branches) |
+
+Not on disk and wanted (the `L-lit` unit fetches them): the PDF of S5; the corrected copy of S1 on the author's web page; a printed source for the classical fact used in ORCH-NOTES N3 (for a real entire function with only real zeros, Im f′/f < 0 in the upper half-plane, and what it says about the solutions of f = c).
