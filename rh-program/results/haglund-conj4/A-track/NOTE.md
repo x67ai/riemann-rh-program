@@ -77,6 +77,12 @@ frontier rescan finds the same zeros and extrema; u_min = smallest landing value
 | 27 | 3404 | 2611 / 2839 | 114 | 0 | yes | yes | yes | 3.5e-79 | 3372.6770 | PASS |
 | 28 | 3640 | 2839 / 3075 | 118 | 0 | yes | yes | yes | 5.8e-81 | 3607.4633 | PASS |
 | 29 | 3884 | 3075 / 3323 | 124 | 0 | yes | yes | yes | 6.5e-85 | 3851.1213 | PASS |
+| 30 | 4136 | 3323 / 3581 | 129 | 0 | yes | yes | yes | 3.1e-87 | 4102.5890 | PASS |
+| 31 | 4396 | 3581 / 3851 | 135 | 0 | yes | yes | yes | 1.4e-91 | 4363.2478 | PASS |
+| 32 | 4664 | 3851 / 4133 | 141 | 0 | yes | yes | yes | 5.1e-92 | 4633.1927 | PASS |
+| 33 | 4940 | 4133 / 4423 | 145 | 0 | yes | yes | yes | 2.4e-94 | 4908.0226 | PASS |
+| 34 | 5224 | 4423 / 4727 | 152 | 0 | yes | yes | yes | 6.3e-99 | 5193.1187 | PASS |
+| 35 | 5516 | 4727 / 5037 | 155 | 0 | yes | yes | yes | 1.5e-99 | 5481.9359 | PASS |
 <!-- P3 rows -->
 
 <!-- close block -->
@@ -151,6 +157,19 @@ frontier rescan finds the same zeros and extrema; u_min = smallest landing value
   of Xi_28 at u = 0.
 - The next branches land at 3147.7040 (u* = 0.0302) and 3149.3067 (u* = 0.00527): in pencil 27 the landings near
   3143-3150 happen at u of order 1e-1..1e-3, against 1e-69..1e-76 in pencil 26 at the same heights.
+
+## §5 Observations (as made; statements about the stated ranges only)
+- O1 (where the landings are). From the P3 files: for k = 1, 5, 10, 20, 27, 49, 50 every local maximum of S_k with value
+  in (0,1) on [0, 4(k+2)^2 + 40] lies in [4(k+1)^2, 4(k+2)^2 + 9] (k = 1: [22.1, 38.5]; k = 27: [3143.2, 3372.5];
+  k = 50: [10413.7, 10824.7]), and the landing value u* runs from 0.04-0.79 at the left end down to the order of
+  e^{-pi(2k+3)} at the right end (k = 27: 0.41 ... 3.5e-79 against e^{-57 pi} = 1.7e-78; k = 50: 0.79 ... 2.6e-141 against
+  e^{-103 pi} = 2.9e-141). So the pencil moves zeros onto the axis only in the band between the departure heights of
+  Xi_k and Xi_{k+1}, and most of that band is reached only for t within e^{-pi(2k+3)} of 1 (cf. ORCH-NOTES N2, k = 1).
+- O2 (the first landing of pencil 27 is the Conjecture-1 site). The leftmost landing of pencil 27 is the one from the
+  non-real zero 3143.2207 + 0.3153i of Xi_27 (x* = 3143.2466, u* = 0.41): the zero that violates Conjecture 1 for Xi_27
+  is the first to land when t increases in the next pencil.
+- O3 (descent angle). Along all branches followed so far the margin -Im S'/|S'| stays >= 0.70 (P1 k <= 6) and >= 0.85
+  (P2 k = 26, 27): the branches go down at more than 45 degrees everywhere, and straight down (margin -> 1) at landings.
 
 ## §4 Plan (as written at the start; history)
 
