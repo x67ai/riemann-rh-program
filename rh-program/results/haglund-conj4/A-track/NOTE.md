@@ -129,3 +129,8 @@ frontier rescan finds the same zeros and extrema; u_min = smallest landing value
   of Xi_28 at u = 0.
 - The next branches land at 3147.7040 (u* = 0.0302) and 3149.3067 (u* = 0.00527): in pencil 27 the landings near
   3143-3150 happen at u of order 1e-1..1e-3, against 1e-69..1e-76 in pencil 26 at the same heights.
+| 6 | 296 | 79 / 113 | 17 | 0 | yes | yes | yes | 1.6e-19 | 258.5305 | PASS |
+| 7 | 364 | 113 / 155 | 21 | 0 | yes | yes | yes | 4.7e-22 | 327.3795 | PASS |
+| 8 | 440 | 155 / 207 | 26 | 0 | yes | yes | yes | 1.3e-26 | 406.8174 | PASS |
+| 9 | 524 | 207 / 263 | 28 | 0 | yes | yes | yes | 3.6e-29 | 489.3901 | PASS |
+| 10 | 616 | 263 / 327 | 32 | 0 | yes | yes | yes | 2.5e-31 | 580.0556 | PASS |
