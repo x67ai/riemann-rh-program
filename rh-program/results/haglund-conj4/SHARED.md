@@ -126,3 +126,10 @@ of Xi_{k+1} reproduce Haglund's table for N = 2..10 to the printed 10 digits. Re
 - Positive controls (pencil on Xi + 5e-5): the A-track axis scan finds the local minimum at 24.34012104 with value
   0.6119951561613 (read-O: 0.611995156161), and the A-track tracer gives margin -0.87 / -0.83 / -0.81 / -0.81 at the zero
   near beta = 28.6324 + 8.5243i for k = 2 / 3 / 5 / 8 (step increase +8.4e-7 at k = 2). Both detectors fire. §2 T5.
+
+## B-track — Q1 k = 3, main run (17:24 IST 2026-10-03; re-runs queued)
+W_3 = [0, 187.080] x [0, 60]. Xi_3: 15 real + 35 non-real (AP 85); Xi_4: 31 real (not 32) + 25 non-real (AP 81).
+S_3 on [0, 199.1]: 8 local maxima in (0,1), no local minimum in (0,1). 35 branches: 8 land at x* = 67.930995 (tau*
+0.22526), 73.067283 (3.31630), 78.002167 (7.89953), 83.534272 (12.12625), 87.983898 (15.96853), 93.140202 (19.20114),
+96.958744 (21.52466), 102.069222 (25.82349); 25 end at the 25 non-real zeros of Xi_4 in W_3; 2 exit through Re = X_3.
+Im z decreased at every grid step (largest increase -1.07e-7); Im(dz/dt) < 0 at all 11,974 grid values. NUMERICAL.
