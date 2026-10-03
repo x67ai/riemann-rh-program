@@ -33,16 +33,9 @@ Sources are under `rh-program/results/arxiv/` (`haglund-counterexample/`, `a4-no
   `rh-program/results/arxiv/haglund-counterexample/certificate/`; its hash is printed in the
   paper.
 * **Lean.** Twelve theorems of the cubic-augmentation paper are machine-checked in Lean 4
-  against a pinned Mathlib (`rh-program/lean/`; see its `README.md` for the build). `#print
-  axioms` on all twelve returns `[propext, Classical.choice, Quot.sound]`.
-
-## Not in the repository
-
-* Third-party literature. Every external claim in the papers is cited to its published source.
-* The **Zeta23** Lean formalization (Apache-2.0, Copyright 2026 Anthropic, PBC), whose home is
-  <https://github.com/anthropics/zeta-23-lean>, and Alpoge and Furman's *More than two thirds
-  of the zeros of the Riemann zeta function lie on the critical line* (arXiv:2608.13637). The
-  Lean files in `rh-program/lean/` are additions to that library.
+  against a pinned Mathlib (`rh-program/lean/`; see its `README.md` for the build, which uses
+  the Zeta23 library, <https://github.com/anthropics/zeta-23-lean>). `#print axioms` on all
+  twelve returns `[propext, Classical.choice, Quot.sound]`.
 
 ## License
 
