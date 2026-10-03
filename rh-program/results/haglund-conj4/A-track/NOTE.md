@@ -83,6 +83,21 @@ frontier rescan finds the same zeros and extrema; u_min = smallest landing value
 | 33 | 4940 | 4133 / 4423 | 145 | 0 | yes | yes | yes | 2.4e-94 | 4908.0226 | PASS |
 | 34 | 5224 | 4423 / 4727 | 152 | 0 | yes | yes | yes | 6.3e-99 | 5193.1187 | PASS |
 | 35 | 5516 | 4727 / 5037 | 155 | 0 | yes | yes | yes | 1.5e-99 | 5481.9359 | PASS |
+| 36 | 5816 | 5037 / 5363 | 163 | 0 | yes | yes | yes | 5.4e-102 | 5783.8585 | PASS |
+| 37 | 6124 | 5363 / 5699 | 168 | 0 | yes | yes | yes | 2.5e-105 | 6091.6095 | PASS |
+| 38 | 6440 | 5699 / 6045 | 173 | 0 | yes | yes | yes | 2.2e-107 | 6406.6912 | PASS |
+| 39 | 6764 | 6045 / 6405 | 180 | 0 | yes | yes | yes | 1.2e-111 | 6731.7889 | PASS |
+| 40 | 7096 | 6405 / 6771 | 183 | 0 | yes | yes | yes | 2.3e-112 | 7062.3733 | PASS |
+| 41 | 7436 | 6771 / 7157 | 193 | 0 | yes | yes | NO | 7.7e-117 | 7406.0681 | CHECK |
+| 42 | 7784 | 7157 / 7549 | 196 | 0 | yes | yes | yes | 2.0e-120 | 7753.1182 | PASS |
+| 43 | 8140 | 7549 / 7951 | 201 | 0 | yes | yes | yes | 7.8e-121 | 8105.9378 | PASS |
+| 44 | 8504 | 7951 / 8369 | 209 | 0 | yes | yes | yes | 7.8e-125 | 8470.7532 | PASS |
+| 45 | 8876 | 8369 / 8797 | 214 | 0 | yes | yes | yes | 5.1e-127 | 8842.9995 | PASS |
+| 46 | 9256 | 8797 / 9237 | 220 | 0 | yes | yes | yes | 2.5e-130 | 9223.0570 | PASS |
+| 47 | 9644 | 9237 / 9689 | 226 | 0 | yes | yes | yes | 6.3e-133 | 9611.5165 | PASS |
+| 48 | 10040 | 9689 / 10155 | 233 | 0 | yes | yes | yes | 2.5e-136 | 10009.7811 | PASS |
+| 49 | 10444 | 10155 / 10629 | 237 | 0 | yes | yes | yes | 1.8e-139 | 10412.1613 | PASS |
+| 50 | 10856 | 10629 / 11117 | 244 | 0 | yes | yes | yes | 2.6e-141 | 10825.0767 | PASS |
 <!-- P3 rows -->
 
 <!-- close block -->
@@ -170,6 +185,16 @@ frontier rescan finds the same zeros and extrema; u_min = smallest landing value
   is the first to land when t increases in the next pencil.
 - O3 (descent angle). Along all branches followed so far the margin -Im S'/|S'| stays >= 0.70 (P1 k <= 6) and >= 0.85
   (P2 k = 26, 27): the branches go down at more than 45 degrees everywhere, and straight down (margin -> 1) at landings.
+
+## §6 Pictures (P4; code/p4.py, code/p4site.py; matplotlib PNG, light surface)
+- figures/branches_k2.png — pencil 2, every branch from the 23 non-real zeros of Xi_2 in W_2 = [0, 130.53] x [0, 50]:
+  4 land (blue, triangles at the landing points), 18 end at zeros of Xi_3 (orange, squares), 1 leaves through Re z = X_2
+  (green, cross); open circles = starts (zeros of Xi_2); ticks = real zeros of Xi_3.
+- figures/branches_k5.png — the same for pencil 5 on W_5 = [0, 337.88] x [0, 79] (63 branches: 13 / 47 / 3).
+- figures/site_k26_k27.png — (a) pencil 26, branches from the zeros of Xi_26 with real part 3112-3160; the branch from
+  3130.2619 + 52.4297i (bold orange) ends at the Xi_27 zero 3143.2207 + 0.3153i between the landings at 3141.3371 and
+  3145.2290 (bold blue); (b) the same near the axis; (c) pencil 27 near the axis: the zero 3143.2207 + 0.3153i lands at
+  3143.2466 (u* = 0.41); thick ticks = real zeros of Xi_27 (u = 1), thin ticks = real zeros of Xi_28 (u = 0).
 
 ## §4 Plan (as written at the start; history)
 

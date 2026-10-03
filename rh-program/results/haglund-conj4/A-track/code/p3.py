@@ -15,7 +15,8 @@ def one(k, route="T"):
     r2 = scan(k, xf, X, route, frac=40.0)
     lo = lambda L: [z for z in L if z > xf + 1e-9]
     same = (len(lo(r["zeros_Xik"])) == r2["R_k"] and len(lo(r["zeros_Xik1"])) == r2["R_k1"] and
-            sorted(round(e["x"], 6) for e in r["extrema01"] if e["x"] > xf) == sorted(round(e["x"], 6) for e in r2["extrema01"]))
+            len([e for e in r["extrema01"] if e["x"] > xf]) == len(r2["extrema01"]) and
+            all(any(abs(e["x"] - f["x"]) < 1e-6 for f in r2["extrema01"]) for e in r["extrema01"] if e["x"] > xf))
     sa, sb = Sx(k, 0.0, route)[0], Sx(k, X, route)[0]
     out = {"k": k, "X": X, "R_k": r["R_k"], "R_k1": r["R_k1"], "n_max": r["n_max"], "n_min": r["n_min"],
            "n_unresolved": r["n_unresolved"], "all_consistent": r["all_consistent"], "frontier_rescan_agrees": same,

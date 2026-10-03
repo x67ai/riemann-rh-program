@@ -6,6 +6,38 @@ Objects (Haglund, arXiv:0910.5228v1, (1)–(14)): Ξ(z) = ξ(½ + iz); Φ_n; Ξ_
 
 The two parts of the target (ORCH-NOTES N0): (D) along a branch of zeros in the open upper half-plane, Im z does not increase with t; (R) a real zero stays real as t increases.
 
+## 0. Summary and close (written 17:33 IST 2026-10-03; the census rows of §6 are extended when the two producers close)
+
+**What is established, by kind.**
+- PROVED, no hypothesis, dual-read: the pencil is Ξ minus a level L_t that is positive on the real axis and decreases with t (Lemma 1.2); on the real axis the pencil increases with t, its real zeros lie in the positive lobes of Ξ — an even number in each, an odd number in the central one — and (R) holds exactly when every critical point of S_k = Ξ_{k+1}/Φ_{k+1} on the axis with value in (0, 1] is a non-degenerate maximum (Theorem 2.1); a simple zero β of Ξ above the real axis with Im Ξ′(β) > 0 would give, for every k ≥ k_0(β), a zero of the pencil whose imaginary part strictly increases on [0, 1] (Proposition 4.2); along the pencil the 1/x² coefficient is negative and decreases in size (§5 (III), first sentence).
+- PROVED under the hypothesis that the zeros of Ξ are real: a lift-off forces −(log L_t)″ ≥ Σ_γ[(x − γ)^{−2} + (x + γ)^{−2}] (Proposition 2.3); with the zeros also simple and the level FROZEN at a constant, every non-real zero descends along its own curve and lands at the top of its own lobe (Proposition 3.2; in print in substance, Csordas–Smith 2000).
+- NUMERICAL (§6): (D) on 535 followed branches — complete windows for k = 1, …, 6, frontier windows for k = 26, 27 — and (R) on the real axis for k = 1, …, 20; two producers on k = 1, 2, 3; controls that fire.
+- HEURISTIC (§5): why the true, slowly varying level does not change the frozen picture, in three regimes; the far-field law checked at one k.
+- NOT established: (D) or (R) for the true level by proof, for any k ≥ 2 (k = 1 is claimed in Baccaro 2026); anything about off-axis zeros with Im Ξ′(β) ≤ 0, or about a fixed k, from Proposition 4.2.
+
+**LEDGER ROWS** (kind · statement · checks · source)
+- HC4-1 · PROVED · For n ≥ 2, Φ_n > 0 on ℝ; for k ≥ 1, 0 ≤ t ≤ 1: Ξ_k + tΦ_{k+1} = Ξ − L_t with L_t > 0 on ℝ and ∂_t = Φ_{k+1} > 0 there · writer F; read-O ✓ (§1.1–1.2) · NOTE §1; printed core: the paper's Theorem sandwich (termwise), Baccaro 2026 p. 3 for k = 1.
+- HC4-2 · PROVED · Theorem 2.1 as corrected by F1: real zeros in positive lobes with the parity stated; P_t increasing; (R) ⟺ every real critical point of S_k with value in (0, 1] is a non-degenerate maximum · writer F; read-O ✓ after F1 · NOTE §2 · new as a statement on a printed core.
+- HC4-3 · CONDITIONAL on "all zeros of Ξ real" · Proposition 2.3 · writer F; read-O ✓ · NOTE §2.
+- HC4-4 · CONDITIONAL on "all zeros of Ξ real and simple"; in print in substance · Proposition 3.2 (frozen level) · writer F; read-O ✓ after F2 (two gaps filled; F2b's bound re-derived by F) · NOTE §3; Csordas–Smith 2000 (2.5), (3.3)–(3.4).
+- HC4-5 · PROVED · Lemma 4.1: |Φ_n(z)/Φ_n(0) − 1| ≤ 3.1R²/(π²n⁴) for |z| ≤ R, πn² ≥ R + ½, n ≥ 2 · writer F; read-O ✓ (constants recomputed; 25 numerical tests) · NOTE §4.
+- HC4-6 · PROVED · Proposition 4.2 (the off-axis zero) · writer F; read-O ✓ (no gap); sign confirmed on a control by three codes · NOTE §4 · [novelty: dual-model check, 2026-10-03] new in the sources reached.
+- HC4-7 · NUMERICAL (Instruments: this NOTE §6) · (D) on 535 branches in the windows of §6; (R) for k ≤ 20 on [0, 4(k+2)² + 40] · A-track; B-track on k = 1, 2, 3; the orchestrator's comparison · §6.
+- HC4-8 · EXCLUDED (witness: the control) · "the real-axis test and the descent test cannot fail": for f = Ξ + 5e−5 both fail at k = 1, 2 · ORCH-NOTES N4, N5; read-O §2.6–2.7; A-track T5.
+
+**TOOL ROWS**
+
+    ### K-new — S_k = Ξ_{k+1}/Φ_{k+1} by two routes, and a level-curve tracer for the pencil Ξ_k + tΦ_{k+1}
+    - File. `rh-program/results/haglund-conj4/orch-probe/c4probe.py`, `trace.py` (Python, python-flint 0.6.0; import `hag_core.py` of the certificate archive)
+    - Does. Route T (Ξ from Arb's zeta minus the tail terms, tail as an error ball) and route L (literal sum), precision raised until the relative Arb radius of S is below 2^−40; follows Im S_k = 0 from a zero of Ξ_k to a landing or to a zero of Ξ_{k+1}. About 1 ms per value near the axis; a branch in seconds.
+    - Validated against. Haglund's printed zero of Ξ_1 (S_1 = 1 to 1e−22); routes L and T against each other; the landings of k = 1 against a real-axis scan, against A-track and B-track (15 landings, 4e−7) and against the reader's own code.
+    - Limits and bugs. The start-point solver `newton_zero` is plain Newton and runs away far from the axis, where S grows like an exponential (use Newton on log S, `far2.py`); `rcrit.py` first read Arb midpoints without their radii and formed the tail by subtraction — two wrong rows, both fixed (ORCH-NOTES N8). Not interval-rigorous.
+    - Role. writer's program (the orchestrator's probe).
+    - Used by. the orchestrator; A-track started from it.
+    - Entered. 17:33 IST 2026-10-03, side-session of 2026-10-03.
+
+**ASKED / DELIVERED.** Asked (the author's question, relayed by the sponsor): has the program computed anything on Conjecture 4. Delivered: a first census with two producers, the level form with a real-axis theorem, a conditional frozen-level picture, an unconditional statement on off-axis zeros, a labeled heuristic for the rest. Restrictions this note put on the problem that the question did not: windows (complete only for k ≤ 6; frontier windows for k = 26, 27); numerics that are not interval-rigorous; Proposition 4.2 concerns large k and one class of off-axis zeros; no proof of (D) or (R) for the true level.
+
 ## 1. The kernel form and the level (proved)
 
 From Haglund's definition ((6) with z ∈ ℂ, and (14)), and on the real line also from the paper (Theorem sandwich and its proof): Φ_n(z) = 2∫_0^∞ φ̃_n(v) cos(zv) dv for every complex z, where φ̃_n(v) = 2y(2y − 3)e^{v/2 − y}, y = πn²e^{2v}; and for n ≥ 2 the function φ̃_n is positive, strictly decreasing and strictly convex on [0, ∞). (For n = 1 it is positive but not monotone at 0.)
