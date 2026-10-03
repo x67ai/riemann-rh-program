@@ -2401,3 +2401,6 @@ The file is Álvarez López–Kordyukov–Leichtnam, *Analysis on Riemannian fol
 
 **Next:** the sponsor sends the answer and publishes version 2 (`FETCH-LIST-ROUND9.md` items 5, 6); when he resumes the program, the queue in `STATUS.md`, with the harvest of whatever of this stream is still unharvested first.
 
+
+**18:09 IST 2026-10-03 — AFTER THE CLOSE: THE SPONSOR COULD NOT FIND THE k = 1 PREPRINT CITED IN THE ANSWER; THE REFERENCE WAS RE-CHECKED AND STANDS.** The record is live — read just now through the fetch tool: zenodo.org/records/22059236, "Haglund's Zero-Trajectory Conjecture for the First Riemann Xi Approximant", Mayk Loide Baccaro, August 22, 2026, v1.0.0, DOI 10.5281/zenodo.22059236 (concept DOI …22059235), one PDF of 349.4 kB — and doi.org redirects the DOI to it. From this Mac, Zenodo answers 403 to scripted requests today (it did so to the literature unit as well), which may also show a block page in the sponsor's browser on the same address. The answer's sentence now gives the author's full name, the title and the full doi.org link instead of the bare DOI.
+
