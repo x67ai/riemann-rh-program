@@ -89,7 +89,7 @@ frontier rescan finds the same zeros and extrema; u_min = smallest landing value
 | 38 | 6440 | 5699 / 6045 | 173 | 0 | yes | yes | yes | 2.2e-107 | 6406.6912 | PASS |
 | 39 | 6764 | 6045 / 6405 | 180 | 0 | yes | yes | yes | 1.2e-111 | 6731.7889 | PASS |
 | 40 | 7096 | 6405 / 6771 | 183 | 0 | yes | yes | yes | 2.3e-112 | 7062.3733 | PASS |
-| 41 | 7436 | 6771 / 7157 | 193 | 0 | yes | yes | NO | 7.7e-117 | 7406.0681 | CHECK |
+| 41 | 7436 | 6771 / 7157 | 193 | 0 | yes | yes | yes | 7.7e-117 | 7406.0681 | PASS |
 | 42 | 7784 | 7157 / 7549 | 196 | 0 | yes | yes | yes | 2.0e-120 | 7753.1182 | PASS |
 | 43 | 8140 | 7549 / 7951 | 201 | 0 | yes | yes | yes | 7.8e-121 | 8105.9378 | PASS |
 | 44 | 8504 | 7951 / 8369 | 209 | 0 | yes | yes | yes | 7.8e-125 | 8470.7532 | PASS |
@@ -99,6 +99,10 @@ frontier rescan finds the same zeros and extrema; u_min = smallest landing value
 | 48 | 10040 | 9689 / 10155 | 233 | 0 | yes | yes | yes | 2.5e-136 | 10009.7811 | PASS |
 | 49 | 10444 | 10155 / 10629 | 237 | 0 | yes | yes | yes | 1.8e-139 | 10412.1613 | PASS |
 | 50 | 10856 | 10629 / 11117 | 244 | 0 | yes | yes | yes | 2.6e-141 | 10825.0767 | PASS |
+  (k = 41, 44: the first comparison of the rescan rounded extrema to 6 decimals and flagged one extremum each
+  (7135.0309725 and 8425.4684295, the two scans differing in the 10th decimal); logs/diag_rescan_k41.log and
+  logs/diag_rescan_k44.log re-ran both scans: identical zero counts and extrema within 1e-6; the comparison now uses
+  that tolerance.)
 <!-- P3 rows -->
 
 <!-- close block -->

@@ -133,3 +133,14 @@ S_3 on [0, 199.1]: 8 local maxima in (0,1), no local minimum in (0,1). 35 branch
 0.22526), 73.067283 (3.31630), 78.002167 (7.89953), 83.534272 (12.12625), 87.983898 (15.96853), 93.140202 (19.20114),
 96.958744 (21.52466), 102.069222 (25.82349); 25 end at the 25 non-real zeros of Xi_4 in W_3; 2 exit through Re = X_3.
 Im z decreased at every grid step (largest increase -1.07e-7); Im(dz/dt) < 0 at all 11,974 grid values. NUMERICAL.
+
+### A-track — 17:37 IST 2026-10-03 — P3 complete (k = 1..50) and P2 k = 15
+P3: for every k = 1..50, on [0, 4(k+2)^2 + 40], S_k has no local minimum with value in (0,1); its 5558 local maxima with
+value in (0,1) (in total) are all non-degenerate (S_k'' < 0; nu = -S''(x*) spacing^2/u* >= 3.09); #max = (R_{k+1}-R_k)/2
+for every k; every maximal (0,1)-interval is consistent; S_k(0) > 1 and S_k(end) < 0; the frontier rescan at double
+resolution agrees for every k (k = 41, 44 after a rounding fix in the comparison, logs/diag_rescan_k41/44.log). Real
+counts R_N (N = 1..51) are odd and agree between consecutive scans: 1, 7, 15, 31, 53, 79, 113, 155, 207, 263, 327, 401,
+..., 10155, 10629, 11117. Landings of pencil k lie in [4(k+1)^2, 4(k+2)^2 + 9] for k = 1, 5, 10, 20, 27, 49, 50.
+P2 k = 15, window [984, 1196] x [0, 55]: real 37 / 145; non-real 74 / 16; 74 branches: 54 land, 16 end, 4 exit; Im z
+decreased at every step (-3.0e-7), smallest margin 0.880; all checks passed. NUMERICAL. Files: A-track/data/p3_k*.json,
+nondeg_k*.json, frontier_k15.json.
