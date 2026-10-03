@@ -1,0 +1,634 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{array}
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\emergencystretch}{3em}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}{Conjecture}
+\renewcommand{\theconjecture}{\arabic{conjecture}}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\Cx}{\mathbf{C}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\tphi}{\widetilde{\varphi}}
+
+\title{On Haglund's Conjecture~4 for the Riemann $\Xi$ approximants}
+\author{Kunal Tyagi\thanks{%
+\texttt{hello.jay.tyagi@gmail.com}. \emph{Use of AI.} The mathematics in this
+paper --- the derivations, the computations, the verification suite, and the
+text --- was produced by Claude (Anthropic) working under the author's
+direction; the author set the objectives, made the technical and editorial
+decisions, and is responsible for the content. Claude is a tool and is not an
+author. The complete working record is public:
+\url{https://github.com/x67ai/riemann-rh-program}.}}
+\date{October 3, 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Let $\Xi_k$ be the $k$-th partial sum of Riemann's expansion
+$\Xi = \sum_{n \ge 1}\Phi_n$ of the $\Xi$-function in incomplete gamma
+functions. Haglund conjectured (his Conjecture~4) that for every $k \ge 1$ the
+imaginary part of each non-real zero of $\Xi_k + t\Phi_{k+1}$ decreases as $t$
+goes from $0$ to $1$. We record what can be said about this pencil, each item
+with its kind. Proved: the pencil is $\Xi - L_t$ with a level $L_t$ that is
+positive on the real axis and decreases with $t$; its real zeros lie in the
+positive lobes of $\Xi$, and real zeros stay real as $t$ increases if and only
+if every critical point of $\Xi_{k+1}/\Phi_{k+1}$ on the real axis with value
+in $(0,1]$ is a non-degenerate maximum; a simple zero $\beta$ of $\Xi$ in the
+upper half-plane with $\im \Xi'(\beta) > 0$ would give, for every large $k$, a
+zero of the pencil whose imaginary part strictly increases on $[0,1]$. Known in
+substance (Csordas--Smith): if the zeros of $\Xi$ are real and simple and the
+level is frozen at a constant, every non-real zero descends along its own curve
+and lands at the top of its own lobe. Numerical, in floating point and not in
+interval arithmetic, with two independent programs on $k = 1, 2, 3$: along every
+branch followed in complete windows for $k \le 7$ and in windows around the
+landing region for $k = 15, 20, 26, 27$, the imaginary part decreased at every
+step, and the real-axis criterion holds for $k \le 50$ on $[0, 4(k+2)^2 + 40]$.
+Heuristic: why the true, slowly varying level leaves the frozen picture intact.
+\end{abstract}
+
+%% SECTION 1
+\section{The conjecture and what is shown here}\label{sec:intro}
+
+\subsection{The pencil}\label{sec:pencil}
+Write $s = \tfrac12 + iz$ and let
+$\Xi(z) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, which is even, entire
+and real on the real axis. Riemann's series $\Xi = \sum_{n\ge1}\Phi_n$ and
+Haglund's approximants $\Xi_N := \sum_{n \le N}\Phi_n$ are defined in
+\cite[(1)--(14), pp.~1--3]{Hag} (page and equation numbers refer to the arXiv
+version); see also \cite[(3)]{Tya}. From Haglund's definition (his (6) with
+$z \in \Cx$, and his (14)), and on the real axis also from
+\cite[Theorem~3.3 and its proof]{Tya},
+\begin{equation}\label{eq:kernel}
+\Phi_n(z) = 2\int_0^\infty \tphi_n(v)\cos(zv)\,dv \quad (z \in \Cx), \qquad
+\tphi_n(v) = 2y(2y-3)\,e^{v/2 - y}, \quad y = \pi n^2 e^{2v},
+\end{equation}
+and for $n \ge 2$ the kernel $\tphi_n$ is positive, strictly decreasing and
+strictly convex on $[0,\infty)$ \cite[proof of Theorem~3.3]{Tya}; for $n = 1$
+it is positive but not monotone at $0$. Put
+$Q_N := \sum_{n > N}\Phi_n = \Xi - \Xi_N$, an entire function (the series
+converges locally uniformly \cite[(12)]{Hag}). For $k \ge 1$ the pencil is
+\[
+F_t := \Xi_k + t\,\Phi_{k+1}, \qquad 0 \le t \le 1, \qquad u := 1 - t ,
+\]
+so that $F_0 = \Xi_k$ and $F_1 = \Xi_{k+1}$. Haglund writes \cite[p.~11]{Hag}:
+``Another interesting phenomena occurs when we consider the zeros of
+$\Xi_k(z) + t\Phi_{k+1}(z)$. As we let $t$ vary continuously from $0$ to $1$,
+computations indicate that the imaginary parts of the non-real zeros decrease
+monotonically (i.e.\ continuously), in a very regular manner, until, for high
+enough $k$, they collide with the corresponding zero (from Schwartz reflection)
+in the fourth quadrant, and arrive on the real line, where they remain.'' He then
+states:
+
+\setcounter{conjecture}{3}
+\begin{conjecture}[Haglund {\cite[p.~11]{Hag}}]\label{conj:4}
+``For $k \ge 1$, the imaginary part of each non-real zero of
+$\Xi_k(z) + t\Phi_{k+1}(z)$ decreases monotonically (i.e.\ continuously) as $t$
+goes from $0$ to $1$.''
+\end{conjecture}
+
+The journal version \cite[p.~310]{HagJ} states it as Conjecture~5.1 in the same
+words, and the author's later copy \cite[p.~11]{HagW} leaves the conjecture and
+its lead-in unchanged. We use two statements about the pencil for a given $k$:
+\begin{itemize}
+\item[(D)] along every branch of zeros of $F_t$ in the open upper half-plane,
+$\im z$ does not increase with $t$;
+\item[(R)] a real zero of $F_t$ stays real as $t$ increases.
+\end{itemize}
+Statement (D) is the conjecture; (R) is the last clause of the lead-in. A
+conjugate pair that leaves the real axis at some $t_0$ violates (R), and also
+(D) just after $t_0$, since the imaginary part of its upper member rises from
+$0$.
+
+\subsection{What is shown here}\label{sec:shown}
+Each item is labeled by its kind.
+\begin{itemize}
+\item \emph{Proved.} The pencil is $\Xi$ minus a level: $F_t = \Xi - L_t$ with
+$L_t = u\Phi_{k+1} + Q_{k+1}$ positive on the real axis and
+$\partial_t F_t = \Phi_{k+1} > 0$ there (Lemma~\ref{lem:level}). On the real
+axis $F_t$ increases with $t$; its real zeros lie in the positive lobes of
+$\Xi$, an even number in each and an odd number in the central one; and (R)
+holds for $k$ if and only if every critical point of
+$S_k := \Xi_{k+1}/\Phi_{k+1}$ on the real axis with value in $(0,1]$ is a
+non-degenerate maximum (Theorem~\ref{thm:real}).
+\item \emph{Proved under the hypothesis that every zero of $\Xi$ is real.} A
+conjugate pair can leave the real axis only where the level satisfies an
+explicit inequality (Proposition~\ref{prop:liftoff}). If the zeros of $\Xi$ are
+also simple and the level is frozen at a constant that decreases, every
+non-real zero descends along its own curve and lands at the top of its own lobe
+(Proposition~\ref{prop:frozen}); this is known in substance \cite{CS}.
+\item \emph{Proved.} If $\Xi$ had a simple zero $\beta$ with $\im\beta > 0$ and
+$\im\Xi'(\beta) > 0$, then for every large $k$ the pencil would have a non-real
+zero whose imaginary part strictly increases on the whole interval
+$0 \le t \le 1$ (Proposition~\ref{prop:offaxis}).
+\item \emph{Proved.} Along the pencil the coefficient of $1/x^2$ on the real
+axis is negative and decreases in size (Lemma~\ref{lem:ct}).
+\item \emph{Numerical, floating point, not interval arithmetic.} A census of the
+branches of zeros of the pencil by two independent programs, and a test of the
+real-axis criterion (Section~\ref{sec:census}).
+\item \emph{Heuristic.} Why the true, slowly varying level does not change the
+frozen picture, in three regimes (Section~\ref{sec:heur}).
+\end{itemize}
+Neither (D) nor (R) is proved here for any $k$; Baccaro's preprint
+\cite{Bac} treats $k = 1$ (Section~\ref{sec:prior}).
+
+%% SECTION 2
+\section{The level form and the real axis}\label{sec:real}
+
+\begin{lemma}\label{lem:phipos}
+For $n \ge 2$ and real $x$, $\Phi_n(x) > 0$.
+\end{lemma}
+
+\begin{proof}
+This is the P\'olya argument of \cite[Theorem~3.1]{Tya} applied to the single
+kernel $\tphi_n$. For $x \ne 0$,
+$\int_0^\infty \tphi_n(v)\cos(xv)\,dv
+= x^{-1}\int_0^\infty(-\tphi_n'(v))\sin(xv)\,dv$ with $-\tphi_n'$ positive and
+strictly decreasing, so the pieces of the sine integral over consecutive
+half-periods alternate in sign with strictly decreasing sizes, the first
+positive. At $x = 0$ the integral is that of a positive function.
+\end{proof}
+
+\begin{lemma}[the pencil is $\Xi$ minus a positive level]\label{lem:level}
+For $k \ge 1$ and all $z$,
+\[
+F_t(z) = \Xi(z) - L_t(z), \qquad
+L_t := u\Phi_{k+1} + Q_{k+1} = 2\int_0^\infty \kappa_t(v)\cos(zv)\,dv, \qquad
+\kappa_t := u\tphi_{k+1} + \sum_{n > k+1}\tphi_n .
+\]
+For $0 \le u \le 1$ the kernel $\kappa_t$ is positive, strictly decreasing and
+strictly convex, so $L_t(x) > 0$ for real $x$; and
+$\partial F_t/\partial t = \Phi_{k+1}$, which is positive on the real axis.
+\end{lemma}
+
+\begin{proof}
+$\Xi_k = \Xi - Q_k$ and $Q_k = \Phi_{k+1} + Q_{k+1}$. The kernel properties hold
+termwise, since all indices are at least $2$; then the argument of
+Lemma~\ref{lem:phipos} applies to $\kappa_t$, and Lemma~\ref{lem:phipos} itself
+gives $\Phi_{k+1} > 0$.
+\end{proof}
+
+\begin{lemma}[the quotient form]\label{lem:quot}
+Let $S_k := \Xi_{k+1}/\Phi_{k+1}$, a meromorphic function that is real on the
+real axis, where $\Phi_{k+1} > 0$. Then $F_t(z) = 0$ if and only if
+$S_k(z) = u$, at every $z$ with $\Phi_{k+1}(z) \ne 0$; at a common zero of
+$\Xi_{k+1}$ and $\Phi_{k+1}$ the pencil vanishes for every $t$. Along a branch
+of simple zeros $z(t)$ with $\Phi_{k+1}(z) \ne 0$,
+\[
+\frac{dz}{dt} = -\frac{\Phi_{k+1}(z)}{\partial_z F_t(z)} = -\frac{1}{S_k'(z)},
+\qquad\text{so}\qquad
+\frac{d(\im z)}{dt} = \frac{\im S_k'(z)}{|S_k'(z)|^2}.
+\]
+Hence (D) for $k$ is the statement that $\im S_k'(z) \le 0$ at every $z$ with
+$\im z > 0$ and $S_k(z) \in (0,1)$, together with the behavior of the branches
+at multiple zeros.
+\end{lemma}
+
+\begin{proof}
+$F_t = \Xi_{k+1} - u\Phi_{k+1}$; differentiate $S_k(z(t)) = 1 - t$.
+\end{proof}
+
+Let $0 < \gamma_1 < \gamma_2 < \cdots$ be the positive real zeros of $\Xi$; a
+\emph{positive lobe} is an interval $(\gamma_j, \gamma_{j+1})$ on which
+$\Xi > 0$, and the \emph{central lobe} is $(0, \gamma_1)$.
+
+\begin{theorem}\label{thm:real}
+Let $k \ge 1$ and $0 \le t \le 1$.
+\begin{itemize}
+\item[(a)] For real $x$, $F_t(x) = \Xi(x) - L_t(x)$ with $L_t(x) > 0$, and
+$t \mapsto F_t(x)$ is strictly increasing.
+\item[(b)] Every real zero of $F_t$ lies in an open interval on which $\Xi > 0$.
+Counted with multiplicity, each positive lobe $(\gamma_j, \gamma_{j+1})$
+contains an even number of zeros of $F_t$ and the central lobe an odd number;
+the number of zeros of $F_t$ in $(0,\infty)$ is finite and odd.
+\item[(c)] The sets $P_t := \{x \in \R : F_t(x) > 0\}$ increase with $t$:
+$P_s \subset P_t$ for $s < t$, and every boundary point of $P_s$ lies in the
+interior of $P_t$.
+\item[(d)] Let $x_0$ be a real zero of $F_{t_0}$ of multiplicity $m$, with
+$F_{t_0}(x) = c(x - x_0)^m(1 + o(1))$. If $m$ is odd, $F_t$ has an odd number
+of real zeros near $x_0$ for $t$ near $t_0$, counted with multiplicity; for
+$t \ne t_0$ the $m$ zeros near $x_0$ are
+$x_0 + \bigl(-(t - t_0)\Phi_{k+1}(x_0)/c\bigr)^{1/m}(1 + o(1))$ (the $m$
+values of the root), exactly one of them real and $m - 1$ non-real, so for odd
+$m \ge 3$ a conjugate pair lands at $t_0$ and leaves the axis at once. The same
+expansion gives, for even $m \ge 4$, two real and $m - 2$ non-real zeros on the
+side of $t_0$ where $F_t(x_0)$ has the sign opposite to $c$, and $m$ non-real
+zeros on the other side. If $m = 2$ and $F_{t_0} \le 0$ near $x_0$ (a local
+maximum with value $0$), then for $t$ slightly above $t_0$ there are two simple
+real zeros near $x_0$ and for $t$ slightly below there are none: a conjugate
+pair arrives, a \emph{landing}. If $m = 2$ and $F_{t_0} \ge 0$ near $x_0$ (a
+local minimum with value $0$), then for $t$ slightly below $t_0$ there are two
+real zeros near $x_0$ and for $t$ slightly above there are none: a conjugate
+pair leaves the axis, a \emph{lift-off}.
+\item[(e)] Hence (R) holds for $k$ if and only if, for every $0 \le t < 1$,
+every multiple real zero of $F_t$ is a double zero at which $F_t$ is locally
+$\le 0$; equivalently, every critical point of $x \mapsto S_k(x)$ with value in
+$(0,1]$ is a non-degenerate local maximum ($S_k'' < 0$). The weaker conditions
+``no $F_t$, $0 \le t < 1$, has a real zero of even multiplicity at which it is
+locally non-negative'', ``no two components of $P_t$ merge as $t$ increases''
+and ``$S_k$ has no local minimum with value in $(0,1]$'' are equivalent to one
+another and necessary for (R); they are sufficient when no $F_t$,
+$0 \le t < 1$, has a real zero of multiplicity at least $3$ (no critical point
+of $S_k$ with $S_k'' = 0$ and value in $(0,1]$), since at such a zero at least
+one conjugate pair leaves the axis just after $t_0$, by (d).
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+(a) Lemma~\ref{lem:level}.
+(b) Where $\Xi \le 0$, $F_t = \Xi - L_t < 0$; in particular $F_t(\gamma_j) < 0$
+for every $j$. At the origin $F_t(0) \ge \Xi_1(0) > 0$, because
+$F_t - \Xi_1 = \sum_{2 \le n \le k}\Phi_n + t\Phi_{k+1} \ge 0$ at real points
+(Lemma~\ref{lem:phipos}) and $\Xi_1(0) = \Xi(0) - Q_1(0) \ge 0.4971 - c_1 > 0$,
+where $c_1 = \sum_{n \ge 2}(4\pi n^2 - 1)e^{-\pi n^2} \ge Q_1(0)$
+\cite[proof of Corollary~3.5]{Tya}. For large $x$, $x^2F_t(x)$ tends to a
+negative limit: $\Xi(x)$ decays exponentially, and two integrations by parts,
+as in the proof of \cite[Proposition~3.4]{Tya} applied to the kernel
+$\kappa_t$, give $\lim_{x\to\infty} x^2L_t(x) = -2\kappa_t'(0) > 0$. So the
+zeros of $F_t$ in $[0,\infty)$ lie in a bounded set and are finite in number.
+The parity statements follow from the signs at the ends of each lobe.
+(c) $F_s(x) > 0$ implies $F_t(x) > F_s(x) > 0$; a boundary point of $P_s$ has
+$F_s = 0$ there, so $F_t > 0$ there.
+(d) $F_t(x) = F_{t_0}(x) + (t - t_0)\Phi_{k+1}(x)$ with $\Phi_{k+1}(x_0) > 0$;
+near $x_0$ this is
+$c(x - x_0)^m(1 + o(1)) + (t - t_0)\Phi_{k+1}(x_0)(1 + o(1))$, and the cases
+are read off; Weierstrass preparation gives exactly $m$ zeros near $x_0$, real
+or in conjugate pairs.
+(e) From (d), since $F_t(x) = \Phi_{k+1}(x)\bigl(S_k(x) - u\bigr)$ on the real
+axis.
+\end{proof}
+
+\begin{remark}\label{rem:real}
+Zeros of multiplicity at least $3$ are covered by the same expansion, and at
+every such zero (R) and (D) fail, by (d); none occurs in any computation of
+Section~\ref{sec:census}, and a degenerate critical point of $S_k$
+($S_k' = S_k'' = 0$ at one $x$) is non-generic. Theorem~\ref{thm:real} does not
+decide (R): it reduces it to ``every critical point of $S_k$ with value in
+$(0,1]$ is a non-degenerate maximum''. A scan that finds no local minimum with
+value in $(0,1]$ checks this up to degenerate critical points, which it should
+flag ($|S_k''|$ small at an extremum).
+\end{remark}
+
+\begin{proposition}[conditional on the zeros of $\Xi$ being real]\label{prop:liftoff}
+Assume every zero of $\Xi$ is real. If $F_{t_0}$ has a lift-off at $x_0$
+(Theorem~\ref{thm:real}(d)), then
+\[
+-(\log L_{t_0})''(x_0) \ \ge\ \sum_{\gamma > 0}
+\Bigl[(x_0 - \gamma)^{-2} + (x_0 + \gamma)^{-2}\Bigr].
+\]
+\end{proposition}
+
+\begin{proof}
+At a lift-off $\Xi = L$, $\Xi' = L'$ and $\Xi'' \ge L''$ at $x_0$, with
+$L = L_{t_0} > 0$; so
+$(\log\Xi)''(x_0) = \Xi''/\Xi - (\Xi'/\Xi)^2 \ge L''/L - (L'/L)^2
+= (\log L)''(x_0)$. With only real zeros,
+$\Xi(z) = \Xi(0)\prod_{\gamma > 0}(1 - z^2/\gamma^2)$ ($\Xi$ is even, of
+order $1$, and $\sum\gamma^{-2}$ converges), so
+$(\log\Xi)''(x) = -\sum_{\gamma>0}\bigl[(x - \gamma)^{-2} + (x + \gamma)^{-2}\bigr]$.
+\end{proof}
+
+So, under that hypothesis, (R) follows from the inequality
+$-(\log L_t)''(x) < \sum_{\gamma > 0}[(x - \gamma)^{-2} + (x + \gamma)^{-2}]$
+at the real points where $\Xi = L_t$. The right side is at least
+$2\sum\gamma^{-2} = 0.0462\ldots$ in the central lobe and at least
+$8(\gamma_{j+1} - \gamma_j)^{-2}$ in the lobe $(\gamma_j, \gamma_{j+1})$ (the
+two endpoint terms, smallest at the midpoint). The left side is,
+heuristically, of the order of the squared width of the kernel $\kappa_t$,
+about $1/(2\pi^2(k+1)^4)$. A proved bound for $-(\log L_t)''$ is not given
+here; with the hypothesis of Proposition~\ref{prop:liftoff} it would give (R)
+for a range of $k$. Whether a hypothesis on the zeros of $\Xi$ up to a finite
+height suffices is not shown here: the product formula would need a remainder
+for the zeros above that height. The inequality behind
+Proposition~\ref{prop:liftoff} is tabulated numerically in
+Section~\ref{sec:census}.
+
+%% SECTION 3
+\section{The frozen level}\label{sec:frozen}
+
+By Lemma~\ref{lem:level} the zeros of $F_t$ are the solutions of
+$\Xi(z) = L_t(z)$. If the level were a constant $c > 0$ that decreases with
+$t$, (D) and (R) would be statements about the solutions of $\Xi = c$. When the
+zeros of $\Xi$ are real these are known in substance, from the formula for
+$\im f'/f$ in Titchmarsh \cite[\S8.52, p.~266]{Tit} and from the level-curve
+statements of Csordas and Smith \cite[(2.5), p.~604; (3.3)--(3.4), p.~609]{CS};
+we state them in the form needed here, with a short proof.
+
+\begin{lemma}[Titchmarsh {\cite[\S8.52, p.~266]{Tit}}]\label{lem:tit}
+Let $f$ be a real entire function of the form
+$f(z) = Cz^m e^{-az^2 + bz}\prod_j(1 - z/a_j)e^{z/a_j}$ with $a \ge 0$, $b$ and
+the $a_j$ real, $\sum_j a_j^{-2} < \infty$, and at least one zero or $a > 0$.
+Then $\im f'(z)/f(z) < 0$ for $\im z > 0$. If $c \ne 0$ is real and $z(c)$ is
+a branch of simple solutions of $f(z) = c$ in the open upper half-plane, then
+$d(\im z)/d|c| > 0$: as $|c|$ decreases, the solution moves toward the real
+axis.
+\end{lemma}
+
+\begin{proof}
+$f'/f = m/z - 2az + b + \sum_j[1/(z - a_j) + 1/a_j]$, and each of the terms
+$m/z$, $-2az$, $1/(z - a_j)$ has non-positive imaginary part for $\im z > 0$,
+with strict inequality for at least one. Then $dz/dc = 1/f'(z) = (1/c)(f/f')(z)$
+because $f(z) = c$, and $\im(f/f') = -\im(f'/f)/|f'/f|^2 > 0$.
+\end{proof}
+
+\begin{proposition}[the solutions of $\Xi = c$ when the zeros of $\Xi$ are real; in substance {\cite{CS}}]\label{prop:frozen}
+Assume every zero of $\Xi$ is real and simple, and let $M_m$ be the maximum of
+$\Xi$ over the $m$-th positive lobe $(\gamma_{2m}, \gamma_{2m+1})$, $m \ge 1$.
+\begin{itemize}
+\item[(i)] For every $y > 0$ the continuous argument of $\Xi$ along the
+horizontal line through $iy$, normalized by $\arg\Xi(iy) = 0$, is strictly
+decreasing in $x$ and tends to $-\infty$; so for each $m \ge 1$ there is exactly
+one point $x_m(y) + iy$ with $x_m(y) > 0$ and $\arg\Xi = -2\pi m$. The curves
+$C_m := \{x_m(y) + iy : y > 0\}$ are disjoint real-analytic graphs over the
+$y$-axis, and
+$\{z : \re z > 0,\ \im z > 0,\ \Xi(z) > 0\} = \bigcup_{m \ge 1} C_m$.
+\item[(ii)] Along $C_m$ the positive number $\Xi$ is strictly increasing in
+$y$; as $y \to 0$ the curve tends to the critical point of $\Xi$ in the $m$-th
+positive lobe, and $\Xi \to M_m$.
+\item[(iii)] Hence, for a constant $c > 0$, the zeros of $\Xi - c$ in the open
+first quadrant are in bijection with the positive lobes with $M_m < c$: one
+zero on each such $C_m$, none on the others, which carry two real zeros of
+$\Xi - c$ in the lobe when $M_m > c$. As $c$ decreases each such zero moves
+down its own curve $C_m$, strictly monotonically in $\im z$, and reaches the
+real axis exactly when $c = M_m$, at the critical point of the lobe.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+(i) Under the hypothesis $\Xi(z) = \Xi(0)\prod(1 - z^2/\gamma^2)$, and
+$\partial_x\arg\Xi(x + iy) = \im\Xi'/\Xi \le -\sum_\gamma y/((x - \gamma)^2 + y^2)$
+by Lemma~\ref{lem:tit}; the integral over $x$ diverges because there are
+infinitely many $\gamma$. Also
+$\Xi(iy) = 2\int_0^\infty\sum_n\tphi_n(v)\cosh(yv)\,dv > 0$. The implicit
+function theorem gives the graphs.
+(ii) $\Xi' \ne 0$ off the real axis (Lemma~\ref{lem:tit}), so $\Xi$, real on
+$C_m$, is strictly monotone along it, and by Lemma~\ref{lem:tit} it increases
+with $y$ (that such level curves have no horizontal tangent is
+\cite[(3.3)--(3.4)]{CS}; the direction is Lemma~\ref{lem:tit}).
+Near a real point that is neither a critical point nor a zero of $\Xi$, and
+near a simple zero, $\Xi$ is injective and maps the real axis onto real values;
+so $C_m$ can approach the real axis only at a critical point where $\Xi > 0$.
+As $y \to 0$ the argument tends, locally uniformly away from the zeros, to its
+boundary values ($-\pi$ per simple zero passed: $-2\pi m$ on the $m$-th positive
+lobe, $-2\pi m \pm \pi$ on the adjacent negative lobes), so every limit point of
+$C_m$ is a critical point of $\Xi$ in the closed lobe, not an endpoint. Under
+the hypothesis
+$(\Xi'/\Xi)'(x) = -\sum_\gamma[(x - \gamma)^{-2} + (x + \gamma)^{-2}] < 0$ on
+each lobe, so $\Xi'/\Xi$ falls strictly from $+\infty$ to $-\infty$ there: each
+lobe contains exactly one critical point, where $\Xi'' = \Xi\cdot(\Xi'/\Xi)' < 0$
+(a non-degenerate maximum, value $M_m$). Hence $C_m$ tends to it.
+(iii) For $y \ge 2\pi e^2$ and $\sigma := \frac12 + y$ one has
+$\Xi(x + iy) = \overline{\xi(\sigma + ix)}$ and, for $x \ge 0$,
+$\arg\xi(\sigma + ix) \ge (x/2)\log(\sigma/(2\pi e)) - \pi/2$, from
+$\arg\Gamma(s/2) = \frac12\int_0^x \re\psi((\sigma + i\tau)/2)\,d\tau$ with
+$\re\psi(a + ib) \ge \psi(a) \ge \log a - 1/a$, $\arg s(s-1) \in [0,\pi)$, and
+$|\arg\zeta(s)| < \pi/2$ for $\sigma \ge 2$. So $x_m(y) \le 4\pi m + \pi$, and
+$|\xi(\sigma + ix)| \to \infty$ uniformly for $0 \le x \le 4\pi m + \pi$ as
+$\sigma \to \infty$. Thus $\Xi$ maps $C_m$ increasingly onto $(M_m, \infty)$,
+which gives one zero on each such $C_m$; the two real zeros in a lobe with
+$M_m > c$ come from its single critical point.
+\end{proof}
+
+\emph{What this says about the pencil.} If $L_t$ were a constant that
+decreases with $t$, (D) and (R) would be exactly
+Proposition~\ref{prop:frozen}(iii): every non-real zero descends, each lands at
+the top of its own lobe when the level passes that top, and landed zeros stay
+real. The order in which the lobes are reached is the order of their heights
+$M_m$, not of their positions. This is how Haglund's Conjecture~1 (for every
+$N$, the zeros of $\Xi_N$ in the closed first quadrant, listed by increasing
+real part, have nondecreasing imaginary parts \cite[p.~3]{Hag}) fails at
+$N = 27$ \cite{Tya}: a low lobe to the left of a higher one. It is compatible
+with (D): the zero over the low lobe is still descending when
+the zeros of the higher lobe to its right have landed. The true level $L_t(z)$
+is not constant: on the real axis it varies on the scale $2\pi(k+1)^2$, and off
+the axis it has a small phase (Section~\ref{sec:heur}).
+
+\emph{The exact criterion, with no hypothesis.} At a simple zero $z$ of $F_t$
+with $\im z > 0$ that is not a common zero of $\Xi$ and $L_t$,
+$\Xi(z) = L_t(z) \ne 0$ and
+\[
+\frac{dz}{dt} = -\frac{\rho(z)}{\Lambda(z)}, \qquad
+\rho := \frac{\Phi_{k+1}}{L_t}, \qquad
+\Lambda := \frac{\Xi'}{\Xi} - \frac{L_t'}{L_t},
+\]
+so the zero descends if and only if $\im(\rho/\Lambda) > 0$. In the frozen
+model $\rho > 0$ and $\Lambda = \Xi'/\Xi$.
+
+%% SECTION 4
+\section{A zero of \texorpdfstring{$\Xi$}{Xi} off the real axis}\label{sec:offaxis}
+
+\begin{lemma}[$\Phi_n$ is nearly constant on a fixed disc]\label{lem:disc}
+Let $R > 0$ and $n \ge 2$ with $\pi n^2 \ge R + \frac12$. Then for $|z| \le R$,
+\[
+\left|\frac{\Phi_n(z)}{\Phi_n(0)} - 1\right| \le \frac{3.1\,R^2}{\pi^2 n^4}.
+\]
+\end{lemma}
+
+\begin{proof}
+Put $X = \pi n^2$. For $v \ge 0$,
+$|\cos(zv) - 1| \le \cosh(Rv) - 1 \le \frac12 R^2v^2e^{Rv}$. With
+$y = Xe^{2v}$ (so $v = \frac12\log(y/X)$, $dv = dy/2y$) one has
+$\tphi_n(v)\,dv = (2y - 3)(y/X)^{1/4}e^{-y}\,dy$. Hence
+$\int_0^\infty\tphi_n\,dv \ge \int_X^\infty(2y - 3)e^{-y}\,dy = (2X - 1)e^{-X}$.
+With $w = y - X$: $\log(y/X) \le w/X$ and
+$(y/X)^{1/4 + R/2} \le e^{(1/4 + R/2)w/X} \le e^{w/2}$ because
+$X \ge \frac12 + R$; so
+\[
+\int_0^\infty\tphi_n(v)\cdot\tfrac12R^2v^2e^{Rv}\,dv
+\le \frac{R^2}{8X^2}\,e^{-X}\int_0^\infty(2X + 2w)\,w^2e^{-w/2}\,dw
+= \frac{R^2}{8X^2}(32X + 192)\,e^{-X}.
+\]
+The quotient is at most
+$(R^2/8X^2)(32X + 192)/(2X - 1) \le 3.1R^2/X^2$ for $X \ge 4\pi$.
+\end{proof}
+
+\emph{Consequences.} For a fixed disc $|z| \le R$ and $k \to \infty$, uniformly
+in $0 \le t \le 1$: $\Phi_{k+1}(z)/\Phi_{k+1}(0) \to 1$;
+$\sup|L_t| \le \sum_{n > k}\sup|\Phi_n| \le \Phi_{k+1}(0)(1 + o(1)) \to 0$,
+because the ratios $\Phi_{n+1}(0)/\Phi_n(0)$ tend to $0$, since
+$(2X - 1)e^{-X} \le \frac12\Phi_n(0) \le (2X + 3)e^{-X}$ for
+$X = \pi n^2 \ge 4\pi$ (the upper bound from $2y - 3 \le 2y$ and
+$(y/X)^{1/4} \le e^{w/4X}$, which give
+$e^{-X}[2X/(1 - \varepsilon) + 2/(1 - \varepsilon)^2]$ with
+$\varepsilon = 1/4X \le 0.02$); and $L_t' \to 0$ on any smaller disc, by
+Cauchy's estimate.
+
+\begin{proposition}\label{prop:offaxis}
+Let $\beta$ be a simple zero of $\Xi$ with $\im\beta > 0$ and
+$\im\Xi'(\beta) \ne 0$. Then there are a disc $D$ about $\beta$ and $k_0$ such
+that for every $k \ge k_0$ and every $t \in [0,1]$ the function
+$F_t = \Xi_k + t\Phi_{k+1}$ has exactly one zero $z_k(t)$ in $D$, it is
+simple, $t \mapsto z_k(t)$ is continuously differentiable, and
+\[
+\operatorname{sign}\frac{d(\im z_k(t))}{dt} = \operatorname{sign}\im\Xi'(\beta)
+\qquad\text{for all } t \in [0,1].
+\]
+In particular, if $\Xi$ had a simple zero $\beta$ in the open upper half-plane
+with $\im\Xi'(\beta) > 0$, then for every $k \ge k_0$ the pencil would have a
+non-real zero whose imaginary part strictly increases on the whole interval
+$0 \le t \le 1$, and (D) would fail for all large $k$.
+\end{proposition}
+
+\begin{proof}
+Choose $D$ with closure in the open upper half-plane, containing no other zero
+of $\Xi$ and no zero of $\Xi'$, and let $\delta = \min_{\partial D}|\Xi| > 0$.
+By the consequences of Lemma~\ref{lem:disc}, $\sup_{\overline D}|L_t| < \delta$
+for $k \ge k_1$ and all $t$, so by Rouch\'e's theorem $F_t = \Xi - L_t$ has
+exactly one zero $z_k(t)$ in $D$, and it is simple; it depends continuously
+differentiably on $t$ by the implicit function theorem, with
+$dz_k/dt = -\Phi_{k+1}(z_k)/(\Xi'(z_k) - L_t'(z_k))$. As $k \to \infty$,
+uniformly in $t$: $z_k(t) \to \beta$ (the zero of $\Xi - L_t$ in $D$ tends to
+the zero of $\Xi$ as $\sup|L_t| \to 0$),
+$\Xi'(z_k) - L_t'(z_k) \to \Xi'(\beta) \ne 0$ and
+$\Phi_{k+1}(z_k)/\Phi_{k+1}(0) \to 1$. Therefore
+\[
+\frac{1}{\Phi_{k+1}(0)}\,\frac{dz_k}{dt} \to -\frac{1}{\Xi'(\beta)}
+\qquad\text{uniformly on } [0,1],
+\]
+and $\im(-1/\Xi'(\beta)) = \im\Xi'(\beta)/|\Xi'(\beta)|^2 \ne 0$ has the sign
+of $\im\Xi'(\beta)$.
+\end{proof}
+
+\begin{remark}\label{rem:offaxis}
+(1) The mirror pencil $\Xi + L_t$ (the weights $1, \ldots, 1, 2 - t, 2, 2,
+\ldots$ on $\Phi_1, \Phi_2, \ldots$, still a series of Haglund's form
+\cite[(53)]{Hag} with non-negative coefficients) has
+$dz/dt = +\Phi_{k+1}/(\Xi' + L_t')$, so the sign is reversed: a simple off-axis
+zero with $\im\Xi'(\beta) \ne 0$ produces an ascending branch, for all large
+$k$, in exactly one of the two pencils.
+(2) Not covered: $\im\Xi'(\beta) = 0$, and multiple zeros off the axis. For a
+zero of multiplicity $m \ge 2$ the $m$ nearby zeros of $F_t$ sit at $\beta$
+plus the $m$-th roots of $L_t(\beta)/c$, $c = \Xi^{(m)}(\beta)/m!$, and approach
+$\beta$ radially as $t$ increases ($|L_t(\beta)|$ decreases with $u$) and as
+$k$ grows; at least one approaches from below, and so ascends in $t$, when
+$m \ge 3$, and when $m = 2$ unless $c$ is a positive real number. This is a
+sketch, not a proof.
+(3) Proposition~\ref{prop:offaxis} concerns large $k$ only; it says nothing
+about a fixed $k$.
+(4) By the reflection $\Xi(-\bar z) = \overline{\Xi(z)}$, the zero $-\bar\beta$
+has $\Xi'(-\bar\beta) = -\overline{\Xi'(\beta)}$, with the same sign of the
+imaginary part; the two mirror zeros behave alike.
+\end{remark}
+
+Read in the other direction, Proposition~\ref{prop:offaxis} says that (D) for
+all large $k$ excludes one class of zeros of $\Xi$ off the real axis: the
+simple ones with $\im\Xi'(\beta) > 0$. Simple off-axis zeros with
+$\im\Xi'(\beta) < 0$ descend in this pencil and are not excluded, and multiple
+ones are not treated. In the model where the level is a constant, real and
+simple zeros of $\Xi$ give (D) and (R) (Proposition~\ref{prop:frozen}); that is
+a model, not a statement about the pencil (Section~\ref{sec:heur}).
+
+%% SECTION 5
+\section{The census}\label{sec:census}
+
+Everything in this section is numerical: floating point, not interval
+arithmetic. Two programs were written independently.
+\emph{Program~A} evaluates $\Phi_n$ and $S_k$ in Arb ball arithmetic
+\cite{Arb, FLINT}, using every value only when its relative radius is below
+$2^{-40}$; it follows each branch as the level curve $\im S_k = 0$
+(Lemma~\ref{lem:quot}) from a zero of $\Xi_k$ to a landing or to a zero of
+$\Xi_{k+1}$, and counts zeros by the argument principle in floating point.
+\emph{Program~B} uses mpmath \cite{mpmath} only, written from Haglund's
+definitions without sight of program~A; it follows each branch by Newton
+continuation on a grid in $\tau = -\log(1 - t)$, and reproduces Haglund's
+$19$ printed zeros of $\Xi_1$ to $7\cdot10^{-22}$, the largest real zeros of
+$\Xi_1, \ldots, \Xi_4$ in his table, and the certified zeros of $\Xi_{27}$ of
+\cite{Tya}.
+
+\begin{table}[ht]
+\centering\small
+\setlength{\tabcolsep}{3.6pt}
+\begin{tabular}{rllrrrrrrrrl}
+\toprule
+$k$ & $\re z$ & $\im z$ & real & non-real & B & L & E & X & $\Delta^+$ & $m$ & prog.\\
+\midrule
+1 & $[0, 86.55]$ & $[0, 41]$ & 1/7 & 15/11 & 15 & 3 & 11 & 1 & $-3.7\cdot10^{-7}$ & 0.708 & A, B \\
+2 & $[0, 130.53]$ & $[0, 50]$ & 7/15 & 23/18 & 23 & 4 & 18 & 1 & $-3.1\cdot10^{-7}$ & 0.806 & A, B \\
+3 & $[0, 187.08]$ & $[0, 59]$ & 15/31 & 35/25 & 35 & 8 & 25 & 2 & $-3.3\cdot10^{-7}$ & 0.812 & A, B \\
+4 & $[0, 256.19]$ & $[0, 68]$ & 31/53 & 47/34 & 47 & 11 & 34 & 2 & $-3.2\cdot10^{-7}$ & 0.797 & A \\
+5 & $[0, 337.88]$ & $[0, 79]$ & 53/79 & 63/47 & 63 & 13 & 47 & 3 & $-3.0\cdot10^{-7}$ & 0.828 & A \\
+6 & $[0, 432.12]$ & $[0, 90]$ & 79/113 & 82/62 & 82 & 17 & 62 & 3 & $-3.0\cdot10^{-7}$ & 0.832 & A \\
+7 & $[0, 538.94]$ & $[0, 102]$ & 113/155 & 103/80 & 103 & 21 & 80 & 2 & $-3.1\cdot10^{-7}$ & 0.842 & A \\
+8 & $[0, 658.32]$ & $[0, 115]$ & 155/207 & 127/98 & 127 & 26 & 98 & 3 & $-3.0\cdot10^{-7}$ & 0.850 & A \\
+\midrule
+15 & $[984, 1196]$ & $[0, 55]$ & 37/145$^*$ & 74/16 & 74 & 54 & 16 & 4 & $-3.0\cdot10^{-7}$ & 0.880 & A \\
+20 & $[1724, 1976]$ & $[0, 61]$ & 40/196$^*$ & 101/17 & 101 & 78 & 17 & 6 & $-3.0\cdot10^{-7}$ & 0.876 & A \\
+26 & $[2876, 3176]$ & $[0, 69]$ & 45/263$^*$ & 133/17 & 133 & 109 & 17 & 7 & $-3.0\cdot10^{-7}$ & 0.868 & A \\
+27 & $[3096, 3404]$ & $[0, 70]$ & 48/276$^*$ & 137/16 & 137 & 114 & 16 & 7 & $-3.0\cdot10^{-7}$ & 0.851 & A \\
+35 & $[5144, 5516]$ & $[0, 80]$ & 53/363$^*$ & 182/19 & 182 & 155 & 19 & 8 & $-3.0\cdot10^{-7}$ & 0.876 & A \\
+50 & $[10364, 10856]$ & $[0, 99]$ & 58/546$^*$ & 274/19 & 274 & 244 & 19 & 11 & $-3.0\cdot10^{-7}$ & 0.857 & A \\
+\bottomrule
+\end{tabular}
+\caption{Branches of zeros of $F_t = \Xi_k + t\Phi_{k+1}$, $0 \le t \le 1$, in
+the window $W$ given by the ranges of $\re z$ and $\im z$. Upper block: complete
+windows, $\re z \le 2\pi(k+2)^2 + 30$. Lower block: windows
+$[4(k+1)^2 - 40,\ 4(k+2)^2 + 40]$ around the landings, branches that start in
+them. Real and non-real: numbers of zeros of $\Xi_k$ / $\Xi_{k+1}$ in $W$
+(${}^*$: real zeros in the window). B: branches followed (the non-real zeros of
+$\Xi_k$ in $W$); L: landings; E: ends at a non-real zero of $\Xi_{k+1}$;
+X: exits through the side of $W$. $\Delta^+$: the largest change of $\im z$
+over one step, over all steps of all branches (negative: $\im z$ decreased at
+every step). $m$: the smallest margin $-\im S_k'/|S_k'|$, the sine of the angle
+of descent, above height $10^{-6}$. Floating point, not interval arithmetic.}
+\label{tab:census}
+\end{table}
+
+\emph{Readings} (each a statement about its window). In every row of
+Table~\ref{tab:census} the imaginary part decreased at every step of every
+branch, and the margin stays above $0.7$; the number of landings equals half the
+difference of the real counts; and every non-real zero of $\Xi_{k+1}$ in the
+window is the end of a followed branch (program~A's completeness checks; for
+$k = 6$ one branch reaches $t = 1$ at the zero $432.1548 + 63.0618i$ of $\Xi_7$,
+just beyond the window, and is counted as an exit). Where both programs ran
+($k = 1, 2, 3$, program~B with window heights $45$, $45$, $60$) they agree on
+every count, and on all $15$ landings to the digits program~B printed:
+$|\Delta x^*| \le 3.9\cdot10^{-7}$, $|\Delta\tau^*| \le 4.8\cdot10^{-6}$.
+Program~B also finds $\im(dz/dt) < 0$ at all $3{,}605$, $6{,}886$ and
+$11{,}974$ grid values of its branches for $k = 1, 2, 3$. The real counts in
+the upper block are those of Haglund's table \cite[p.~4]{HagW}, which has $31$
+at $N = 4$; the arXiv and journal versions print $32$ there
+\cite[p.~4]{Hag}.
+
+\emph{The real axis.} For $k = 1, \ldots, 50$, on $[0, 4(k+2)^2 + 40]$, program~A
+finds that $S_k$ has no local minimum with value in $(0,1)$ and that its local
+maxima with value in $(0,1)$ are $(R_{k+1} - R_k)/2$ in number, where $R_N$ is
+the number of real zeros of $\Xi_N$ found on that interval (grid of $1/20$ of
+the mean zero spacing $2\pi/\log(x/2\pi)$, the part beyond $4(k+1)^2 - 40$
+scanned again at $1/40$). Each $R_N$ is found twice, on the intervals of the
+pencils $k = N - 1$ and $k = N$, with the same value; for $N = 1, \ldots, 51$:
+1, 7, 15, 31, 53, 79, 113, 155, 207, 263, 327, 401, 483, 575, 673, 781, 899,
+1027, 1163, 1307, 1463, 1631, 1807, 1991, 2189, 2393, 2611, 2839, 3075, 3323,
+3581, 3851, 4133, 4423, 4727, 5037, 5363, 5699, 6045, 6405, 6771, 7157, 7549,
+7951, 8369, 8797, 9237, 9689, 10155, 10629, 11117 --- all odd, as
+\cite[Corollary~3.5]{Tya} requires. Program~B finds the same for $k = 1, 2, 3$
+on $[0, 98.55]$, $[0, 142.5]$, $[0, 199.1]$. A scan for minima checks the
+criterion of Theorem~\ref{thm:real}(e) up to degenerate critical points
+(Remark~\ref{rem:real}). The inequality in the first step of the proof of
+Proposition~\ref{prop:liftoff}, which uses no hypothesis (a lift-off at $x_0$
+forces $(\log\Xi)''(x_0) \ge (\log L_t)''(x_0)$), was tabulated on the part of
+$[0, 4(k+2)^2 + 40]$ where $\Xi > 0$ (step $0.02$, $u \in \{0, \frac14,
+\frac12, \frac34, 1\}$): there $-(\log L_u)''$ is at most $0.066$ times
+$-(\log\Xi)''$ at $k = 1$ and at most $5.6\cdot10^{-6}$ times at $k = 20$.

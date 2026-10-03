@@ -40,6 +40,7 @@ of one branch in ten agrees, routes L/T agree at 5 points per branch for k <= 6,
 | 26 | [2876, 3176] | 69 | 45 / 263 | 133 / 17 | 133 | 109 | 17 | 7 | -3.0e-07 | 0.868 | A, A4, C1, C2, C3, D, H; re-trace 14/14 (ends to 3.6e-10); Arb rel radius <= 9.0e-13 |
 | 27 | [3096, 3404] | 70 | 48 / 276 | 137 / 16 | 137 | 114 | 16 | 7 | -3.0e-07 | 0.851 | A, A4, C1, C2, C3, D, H; re-trace 14/14 (ends to 4.3e-10); Arb rel radius <= 9.1e-13 |
 | 35 | [5144, 5516] | 80 | 53 / 363 | 182 / 19 | 182 | 155 | 19 | 8 | -3.0e-07 | 0.876 | A, A4, C1, C2, C3, D, H; re-trace 19/19 (ends to 1.3e-09); Arb rel radius <= 9.1e-13 |
+| 50 | [10364, 10856] | 99 | 58 / 546 | 274 / 19 | 274 | 244 | 19 | 11 | -3.0e-07 | 0.857 | A, A4, C1, C2, C3, D, H; re-trace 28/28 (ends to 2.4e-09); Arb rel radius <= 9.1e-13 |
 <!-- P2 rows -->
 
 ### §0-P3 The real-axis test (d) alone, k = 1..50, on [0, 4(k+2)^2 + 40]
@@ -181,6 +182,12 @@ frontier rescan finds the same zeros and extrema; u_min = smallest landing value
   of Xi_28 at u = 0.
 - The next branches land at 3147.7040 (u* = 0.0302) and 3149.3067 (u* = 0.00527): in pencil 27 the landings near
   3143-3150 happen at u of order 1e-1..1e-3, against 1e-69..1e-76 in pencil 26 at the same heights.
+
+### Routes L and T at the site (code/site_lt.py, data/site_routes_LT.json, logs/site_lt.log)
+- 15 points (5 on each of the three site branches: pencil 26 from 3130.2619 + 52.4297i and from 3132.1660 + 52.9056i,
+  pencil 27 from 3143.2207 + 0.3153i): S by route T and by the literal sum (route L, precision raised to 6592 bits) agree,
+  relative difference <= 1.7e-14 and Arb balls overlapping at every point; values from 1 (starts) down to 1.4e-88 (the
+  u = 0 end) and 3.3e-76 (the landing).
 
 ## §5 Observations (as made; statements about the stated ranges only)
 - O1 (where the landings are). From the P3 files: for k = 1, 5, 10, 20, 27, 49, 50 every local maximum of S_k with value

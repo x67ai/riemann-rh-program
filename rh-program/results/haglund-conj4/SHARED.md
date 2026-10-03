@@ -156,3 +156,30 @@ P1 k = 8 on [0, 658.32] x [0, 115]: real Xi_8 / Xi_9 = 155 / 207 (Haglund 155 / 
 26 land, 98 end, 3 exit; Im z decreased at every step (-3.0e-7); smallest margin 0.850; all checks passed.
 P2 k = 35, window [5144, 5516] x [0, 80]: real 53 / 363; non-real 182 / 19; 182 branches: 155 land, 19 end, 8 exit;
 -3.0e-7; 0.876; all checks passed. NUMERICAL. Files: A-track/data/census_k8.json, frontier_k35.json.
+
+### v2-check (second model) — 17:50 IST 2026-10-03 — integrity diff and the new sentences at the page
+Own diff of v2/main.tex against ../main.tex: 14 hunks, 32 old / 49 new lines, byte-identical to the diff in
+v2/CHANGES.md (which says "82 changed lines"; it is 81). Every hunk is in a listed span; no theorem, proof,
+constant or formula touched. Every new sentence about W / V / J checked at the page: table, quotation, page
+numbers, date, read date, URL TRUE. Open point found: J (the journal) was published online 2011-02-18, nine days
+after W's date, so "the later copy" (v2 l.472) is not right against J. Details: arxiv/haglund-counterexample/
+v2/INTEGRITY-DIFF.md (A.1, A.2).
+
+### WRITER (note "On Haglund's Conjecture 4 ...") — 17:50 IST 2026-10-03 — started
+Read: WRITER-BRIEF, BRIEF-WARNINGS, arxiv/README, KICKSTART item 17, NOTE.md (all), A-track/NOTE.md §0 (P1 k=1..7, P2 k=15,20,26,27, P3 k=1..50),
+B-track/NOTE.md (§0 table still has NO rows; Q1 k=1,2,3 "main run finished" — used as B's final values), L-lit/PRIOR-ART.md §1-§4,
+the v2 template, ORCH-NOTES N4-N6 (only for the wording of the far-field check that NOTE §6 cites). Writing main.tex section by section in
+results/arxiv/haglund-conj4-note/. Gaps and wording choices go to WRITER-NOTES.md there.
+
+### v2-check (second model) — 17:54 IST 2026-10-03 — Part A verdict
+CLEAN-WITH-CORRECTIONS. F1: v2 l.472 "the later copy" -> "the author's web copy" (journal online 2011-02-18,
+after W's 2011-02-09). F2: [Hag09] "Page and equation numbers in this paper refer to this version" now has
+[HagW] exceptions. F3 (recommended): l.475-477 "ten-digit values ... cannot resolve" reads as a diagnosis of an
+error W already removed; W's 13 digits do not resolve the N = 3 sum either (-2.2e-15 vs -7.0e-17). F6: PDF
+outline has "Proof of Theorem ??" (v1 too; needs one more pdflatex pass or \texorpdfstring). F7: CHANGES.md
+says §1.3/§1.5 for what the PDF numbers §1.4/§1.7. Now on Part B (the letter, ten statements).
+
+### WRITER — 17:54 IST 2026-10-03 — §1 and §2 of the note drafted
+main.tex: front matter (template footnote verbatim), abstract (draft), §1 (Haglund's p. 11 lead-in and Conjecture 4 quoted from
+arXiv v1; (D), (R)), §1.2 (items by kind), §2 (NOTE Lemmas 1.1-1.3, Theorem 2.1 as corrected, Remark 2.2, Proposition 2.3 and the
+paragraph after it, re-typed). No gap met so far. Next: §3 (frozen level, short proof), §4, §5 census, §6 heuristics, §7 prior work.
