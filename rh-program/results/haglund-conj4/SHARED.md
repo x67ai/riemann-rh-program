@@ -144,3 +144,9 @@ counts R_N (N = 1..51) are odd and agree between consecutive scans: 1, 7, 15, 31
 P2 k = 15, window [984, 1196] x [0, 55]: real 37 / 145; non-real 74 / 16; 74 branches: 54 land, 16 end, 4 exit; Im z
 decreased at every step (-3.0e-7), smallest margin 0.880; all checks passed. NUMERICAL. Files: A-track/data/p3_k*.json,
 nondeg_k*.json, frontier_k15.json.
+
+### A-track — 17:39 IST 2026-10-03 — P1 k = 7 and P2 k = 20 final
+P1 k = 7 on [0, 538.94] x [0, 102]: real Xi_7 / Xi_8 = 113 / 155 (Haglund 113 / 155); non-real 103 / 80; 103 branches:
+21 land, 80 end at the non-real zeros of Xi_8 in W_7, 2 exit; Im z decreased at every step (-3.1e-7); smallest margin
+0.842; all checks passed. P2 k = 20, window [1724, 1976] x [0, 61]: real 40 / 196; non-real 101 / 17; 101 branches: 78
+land, 17 end, 6 exit; -3.0e-7; 0.876; all checks passed. NUMERICAL. Files: A-track/data/census_k7.json, frontier_k20.json.
