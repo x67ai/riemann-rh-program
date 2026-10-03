@@ -36,3 +36,9 @@
 - Phi by (14) vs Phi by the relation form, n in {1,2,5,6,7,13,27,28}, |z| up to 3143+60i, dps 30 vs dps 60:
   agree to <= 6e-28 relative wherever the pencil uses them (n >= k+1 in its window); Phi_1 at x = 3143 loses
   digits in the relation form (5e-18) but route T never uses Phi_1 there.
+
+### Independence incident (16:24 IST 2026-10-03)
+A `ps aux` listing I ran to find my own ladder process printed the full command lines of other units' running
+processes (A-track `axis.py`/`a_core` fragments and orch-probe `rcrit.py`). I did not open their folders; my
+evaluator (`hb.py`) and real-axis scanner (`realaxis.py`) were written before the listing and were not changed
+because of it; nothing from those lines is used. From here on I query only my own processes by script name.

@@ -73,3 +73,77 @@ def crit(k, a, b, route="T", tol=1e-12):
         else:
             a, da = m, dm
     return 0.5 * (a + b)
+
+def _sgn(v, c):
+    return 1 if v > c else (-1 if v < c else 0)
+
+def scan(k, x0, x1, route="T", frac=20.0, out=None):
+    """scan S_k on [x0, x1]. Returns dict: zeros of Xi_k (S=1), zeros of Xi_{k+1} (S=0), extrema with value in (0,1),
+    the (0,1)-intervals with their endpoint types, and the consistency check of every interval."""
+    t0 = time.time()
+    xs = grid(x0, x1, frac)
+    vals = [Sx(k, x, route)[0] for x in xs]
+    z1, z0 = [], []
+    for i in range(len(xs) - 1):
+        for c, lst in ((1.0, z1), (0.0, z0)):
+            if _sgn(vals[i], c) * _sgn(vals[i + 1], c) < 0:
+                lst.append(root(k, xs[i], xs[i + 1], vals[i], vals[i + 1], c, route))
+            elif _sgn(vals[i], c) == 0:
+                lst.append(xs[i])
+    ext = []
+    nref = 0
+    for i in range(1, len(xs) - 1):
+        a, b, c = vals[i - 1], vals[i], vals[i + 1]
+        if (b - a) * (c - b) >= 0:
+            continue
+        if min(abs(a), abs(b), abs(c)) > 1e12:
+            continue
+        den = a - 2 * b + c
+        v = b - (c - a) ** 2 / (8 * den) if den != 0 else b
+        if not (-10 < v < 11 or min(abs(a), abs(b), abs(c)) < 10):
+            continue
+        nref += 1
+        xs_ = crit(k, xs[i - 1], xs[i + 1], route)
+        if xs_ is None:
+            # no sign change of S' between the outer points: try the two halves
+            for (p, q) in ((xs[i - 1], xs[i]), (xs[i], xs[i + 1])):
+                xs_ = crit(k, p, q, route)
+                if xs_ is not None:
+                    break
+        if xs_ is None:
+            ext.append({"x": xs[i], "u": b, "type": "unresolved"})
+            continue
+        u = Sx(k, xs_, route)[0]
+        typ = "max" if b > a else "min"
+        if 0 < u < 1:
+            ext.append({"x": xs_, "u": u, "type": typ})
+    # zeros of Xi_{k+1} bracketing a max in (0,1) that the grid did not separate
+    extra0 = []
+    for e in ext:
+        if e["type"] == "max":
+            left = [z for z in z0 if z < e["x"]]
+            right = [z for z in z0 if z > e["x"]]
+            ok = left and right and not any(z1v for z1v in z1 if left[-1] < z1v < right[0])
+            if not (left and right and e["x"] - left[-1] < 3 * spacing(e["x"]) and right[0] - e["x"] < 3 * spacing(e["x"])):
+                e["note"] = "bracketing zeros of Xi_{k+1} not both in the grid list"
+    # (0,1)-intervals and their consistency
+    pts = sorted([(z, 1) for z in z1] + [(z, 0) for z in z0])
+    ints = []
+    for j in range(len(pts) - 1):
+        (pa, ta), (pb, tb) = pts[j], pts[j + 1]
+        mid = 0.5 * (pa + pb)
+        sm = Sx(k, mid, route)[0]
+        if 0 < sm < 1:
+            inside = [e for e in ext if pa < e["x"] < pb]
+            nmax = sum(1 for e in inside if e["type"] == "max")
+            nmin = sum(1 for e in inside if e["type"] == "min")
+            want = {(0, 0): 1, (1, 1): -1}.get((ta, tb), 0)
+            ints.append({"a": pa, "b": pb, "ends": "%d%d" % (ta, tb), "nmax": nmax, "nmin": nmin,
+                         "consistent": nmax - nmin == want})
+    res = {"k": k, "x0": x0, "x1": x1, "frac": frac, "route": route, "ngrid": len(xs), "nrefined": nref,
+           "zeros_Xik": z1, "zeros_Xik1": z0, "R_k": len(z1), "R_k1": len(z0),
+           "extrema01": ext, "intervals01": ints,
+           "n_max": sum(1 for e in ext if e["type"] == "max"), "n_min": sum(1 for e in ext if e["type"] == "min"),
+           "n_unresolved": sum(1 for e in ext if e["type"] == "unresolved"),
+           "all_consistent": all(I["consistent"] for I in ints), "secs": time.time() - t0}
+    return res
