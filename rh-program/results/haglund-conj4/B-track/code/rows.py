@@ -1,8 +1,8 @@
 """per-branch markdown rows for pencil k: python3 rows.py track.json X > rows.md"""
 import sys, json
 T = json.load(open(sys.argv[1])); X = float(sys.argv[2])
-print('| # | start z (t=0) | end | x* | tau* | worst dIm | #grid Im(dz/dt)>0 | grid pts |')
-print('|---|---|---|---|---|---|---|---|')
+print('| # | start z (t=0) | end | x* | tau* | worst dIm | max Im(dz/dt) | #grid Im(dz/dt)>0 | grid pts |')
+print('|---|---|---|---|---|---|---|---|---|')
 for i, b in enumerate(T['branches']):
     s = '%.6f + %.6fi' % (float(b['start'][0]), float(b['start'][1]))
     out = '' if float(b['start'][0]) <= X else ' (start outside W)'
@@ -16,5 +16,6 @@ for i, b in enumerate(T['branches']):
     else:
         e = b['status'] + ' at tau=%s' % b['last']['tau']
     w = b['worst_increase_Im']
-    print('| %d | %s%s | %s | %s | %s | %s | %d | %d |' % (i, s, out, e, xs, ts, ('%.3e' % w) if w is not None else '-',
-          len(b['grid_pos_imdzdt']), b['n_grid']))
+    mx = max(r['imdzdt'] for r in b['records'])
+    print('| %d | %s%s | %s | %s | %s | %s | %.3e | %d | %d |' % (i, s, out, e, xs, ts, ('%.3e' % w) if w is not None else '-',
+          mx, len(b['grid_pos_imdzdt']), b['n_grid']))

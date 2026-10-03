@@ -25,7 +25,7 @@ Each section is appended as finished; a dated block goes to SHARED.md after each
 **LEDGER ROWS**
 - L-lit-1 · PROVED (symbolic) · the z⁻⁴ coefficient of Haglund's (47) is 2((b − a)³ + 3a² − 3ab − a)/e^a (web copy), not V's · check: `L-lit/check_task3.py` (sympy series), log `check_task3.log`.
 - L-lit-2 · NUMERICAL (mpmath, 120 digits) · (51) gives −0.019749382633875, 0.0197493413074771, 4.13263978190504×10⁻⁸ for n = 1, 2, 3 (web copy's digits); Σ_{n≤N} < 0 for N = 1…7 · check: same script and log.
-- L-lit-3 · NUMERICAL (Arb, 200 bits, midpoint, not an enclosure) · |Φ2| ≈ 5.5×10⁻¹⁹ and 3.5×10⁻¹⁹ at Baccaro's two listed Φ2-zero centres in S1 (8.4×10⁻⁶ at 23 + 32i) · check: `hag_core.Phi` of S4, inline run recorded in §2.
+- L-lit-3 · NUMERICAL (Arb, 200 bits, midpoint, not an enclosure) · |Φ2| ≈ 5.5×10⁻¹⁹ and 3.5×10⁻¹⁹ at Baccaro's two listed Φ2-zero centers in S1 (8.4×10⁻⁶ at 23 + 32i) · check: `hag_core.Phi` of S4, inline run recorded in §2.
 - L-lit-4 · PROVED (printed theorem, hypotheses checked here) · Im Ξ′/Ξ(z) < 0 for Im z > ½, unconditionally · check: Csordas–Smith 2000 (2.5) p. 604 + Definition 1.2 p. 602 against Ξ (§4(a)).
 - L-lit-5 · PROVED (elementary, this unit) · if Im f′/f < 0 at a non-real solution of f(z) = c (c real, f′ ≠ 0), Im z increases strictly with |c| along its branch · check: §4(b), from z′ = 1/(c·f′/f).
 - L-lit-6 · EXCLUDED, in the sources reached only · any printed statement, computation or counterexample on Conjecture 4 for k ≥ 2 · check: the search list of §1 (null search, not proof of absence).

@@ -67,12 +67,10 @@ $N = 24$ for the companion approximants $\xi_N = \Xi_N + c_N$. The failure has a
 mechanism: on the critical line $\Xi_N < \Xi < \xi_N$, so the real zeros of
 $\Xi_N$ lie in positive lobes of $\Xi$ that rise above a positive level, and a
 low lobe followed by a higher one near the height $4(N+1)^2$, where the
-approximant departs from $\Xi$, can leave a non-real zero below real zeros. Two
-statements of the arXiv and journal versions of Haglund's paper, both corrected
-in the author's own later copy, are proved in their corrected form: the number
-of positive real zeros of $\Xi_N$, counted with multiplicity, is odd (the table
-entry at $N = 4$ is $31$, not $32$), and the $1/x^2$ coefficient of $\Xi_N$ on
-the real axis is negative for every $N$.
+approximant departs from $\Xi$, can leave a non-real zero below real zeros. The same
+structure shows that the number of positive real zeros of $\Xi_N$, counted with
+multiplicity, is odd, and that $x^2\Xi_N(x)$ tends to a negative limit on the
+real axis for every $N$.
 \end{abstract}
 
 %% SECTION 1
@@ -173,7 +171,7 @@ that located the violation at $N = 27$ (Section~\ref{sec:departure}) is
 numerical, covers a window near one height for each $N$, and is not a proof that
 any other $N$ satisfies the conjecture.
 
-\subsection{The mechanism, and two statements of Haglund's paper}\label{sec:mech}
+\subsection{The mechanism}\label{sec:mech}
 
 The failure is not an accident of $N = 27$. On the critical line the approximants
 sit below $\Xi$ by a positive amount: for every $N \ge 1$ and real $t$,
@@ -196,26 +194,23 @@ reaches $1.325$ of it: the pair $z_0, \bar z_0$ sits over the first, and the rea
 zeros $x_1, x_2$ lie in the second (Section~\ref{sec:departure}; these lobe
 figures are floating-point computations, not part of the proof).
 
-The same sandwich settles two statements on which the versions of Haglund's
-paper differ. The arXiv version \cite{Hag} and the journal version \cite{HagJ}
-print the statements quoted in (i) and (ii) below. The copy of the paper on the
-author's web page \cite{HagW}, dated February 9, 2011, corrects both: its table
-has $31$ at $N = 4$, and its paragraph on the coefficient of $1/x^2$ ends ``Thus
-the coefficient of $1/x^2$ in $\Xi_N(x)$ approaches zero from below as
-$N \to \infty$'' \cite[p.~10]{HagW}. Corollary~\ref{cor:odd} and
-Proposition~\ref{prop:tail} prove the corrected statements, for every $N$.
+The same sandwich gives two facts about the real zeros and the real-axis tail
+of $\Xi_N$.
 \begin{enumerate}
 \item[(i)] The number of real zeros of $\Xi_N$ on $(0,\infty)$, counted with
-multiplicity, is odd for every $N$ (Corollary~\ref{cor:odd}). Haglund's table
-\cite[p.~4]{Hag} lists $1$, $7$, $15$, $32$, $53$, $79$, $113$, $155$, $207$, $263$ real zeros for
-$N = 1, \ldots, 10$; the even entry $32$ at $N = 4$ is inconsistent with this,
-and a numerical census of $\Xi_4$ finds $31$, the largest being
-$103.3679880094135$, in agreement with Haglund's printed $103.3679880094$.
+multiplicity, is odd for every $N$ (Corollary~\ref{cor:odd}).
 \item[(ii)] On the real axis $x^2\Xi_N(x)$ tends to a negative limit for every
-$N \ge 1$ (Proposition~\ref{prop:tail}), whereas \cite[p.~10]{Hag} states
-``Thus the coefficient of $1/x^2$ in $\Xi_N(x)$ is positive for $k \ge 3$ and
-negative for $1 \le k < 3$'' (his $k$ is $N$).
+$N \ge 1$ (Proposition~\ref{prop:tail}).
 \end{enumerate}
+Both agree with the copy of Haglund's paper on the author's web page
+\cite{HagW}, dated February 9, 2011: its table lists $1$, $7$, $15$, $31$,
+$53$, $79$, $113$, $155$, $207$, $263$ real zeros for $N = 1, \ldots, 10$
+\cite[p.~4]{HagW}, and it states that the coefficient of $1/x^2$ in $\Xi_N(x)$
+``approaches zero from below as $N \to \infty$'' \cite[p.~10]{HagW}. The arXiv
+version \cite{Hag} and the journal version \cite{HagJ} have $32$ at $N = 4$
+and, for the coefficient, ``positive for $k \ge 3$ and negative for
+$1 \le k < 3$'' \cite[p.~10]{Hag} (his $k$ is $N$); \cite{HagW} corrects
+both.
 
 \subsection{The companion approximants, and why an ordering property}
 
@@ -278,7 +273,7 @@ for the approximants of this paper.
 
 Section~\ref{sec:riemann} recalls Riemann's identity and relates the two
 families. Section~\ref{sec:positivity} proves the positivity and sandwich
-theorems and the two statements of Section~\ref{sec:mech}. Section~\ref{sec:structure} gives the
+theorems and their consequences for the real zeros and the tail. Section~\ref{sec:structure} gives the
 structural theorems. Section~\ref{sec:departure} describes the departure height
 and the lobe scan. Section~\ref{sec:cert} is the certificate for
 Theorem~\ref{thm:main}, and Section~\ref{sec:xi24} the companion violation at
@@ -469,21 +464,19 @@ $-1.65306\cdot10^{-7}$, $-2.78345\cdot10^{-16}$, $-5.73947\cdot10^{-28}$ and
 $-1.70746\cdot10^{-42}$ for $N = 1, \ldots, 5$ (at $t = 8000$, $t^2\Xi_N(t)$ agrees with
 them to a relative $10^{-3}$). Haglund lists the coefficients of
 $1/x^2$ in $\Phi_1$ and $\Phi_2$ as $-.01974938206$ and $.01974934121$
-\cite[(52), p.~10]{Hag}; his values are one quarter of ours (at $N = 1$,
-$-.01974938206$ against $-0.078997$), because his (51) applies his (50) at $x$ although
-\eqref{eq:XiN} evaluates $G$ at $x/2$; the factor does not affect signs. He concludes that
-the coefficient of $1/x^2$ in $\Xi_N(x)$ ``is
-positive for $k \ge 3$ and negative for $1 \le k < 3$'' \cite[p.~10]{Hag}.
-Proposition~\ref{prop:tail} shows that it is negative for every $N$: the
-coefficients of $\Phi_1$, $\Phi_2$ and $\Phi_3$ nearly cancel, and ten-digit
-values of them cannot resolve their sum, which is of order $10^{-16}$, at
-$N = 3$. Haglund's use of these coefficients to exhibit non-monotone zeros of
-the pencil $t\Phi_1 + \Phi_2$ is unaffected: it needs only that the coefficient
-of $\Phi_2$ is positive and that of $\Xi_2$ negative, and both are. The later
-copy \cite{HagW} gives the three coefficients to more digits and states the
-corrected conclusion quoted in Section~\ref{sec:mech}, for the reason used
-here: the coefficients of $\Phi_k$ are positive for $k > 3$, and $\Xi$ decays
-exponentially on the real axis \cite[p.~10]{HagW}.
+\cite[(52), p.~10]{Hag}, and to more digits in \cite[(52)]{HagW}; his values
+are one quarter of ours (at $N = 1$, $-.01974938206$ against $-0.078997$),
+because his (51) applies his (50) at $x$ although \eqref{eq:XiN} evaluates $G$
+at $x/2$; the factor does not affect signs. The arXiv and journal versions
+conclude that the coefficient of $1/x^2$ in $\Xi_N(x)$ ``is positive for
+$k \ge 3$ and negative for $1 \le k < 3$'' \cite[p.~10]{Hag}; the later copy
+states instead that it ``approaches zero from below as $N \to \infty$''
+\cite[p.~10]{HagW}, which is what Proposition~\ref{prop:tail} shows for every
+$N$. The coefficients of $\Phi_1$, $\Phi_2$ and $\Phi_3$ nearly cancel, and
+ten-digit values of them cannot resolve their sum, which is of order $10^{-16}$,
+at $N = 3$. Haglund's use of these coefficients to exhibit non-monotone zeros of
+the pencil $t\Phi_1 + \Phi_2$ needs only that the coefficient of $\Phi_2$ is
+positive and that of $\Xi_2$ negative, and both are.
 
 \begin{corollary}[real zeros of $\Xi_N$]\label{cor:odd}
 Let $N \ge 1$ and let $0 < \gamma_1 < \gamma_2 < \cdots$ be the positive real zeros of
@@ -504,12 +497,12 @@ only finitely many lobes carry zeros, and the zeros of the entire function
 $\Xi_N$ in $[0, T_0]$ are finite in number.
 \end{proof}
 
-In Haglund's table \cite[p.~4]{Hag} (Section~\ref{sec:mech}) the entry $32$ at $N = 4$ is
-even, so by Corollary~\ref{cor:odd} it cannot count $32$ simple real zeros; a
+The ten entries of Haglund's table in \cite[p.~4]{HagW}
+(Section~\ref{sec:mech}) are odd, in agreement with Corollary~\ref{cor:odd}. A
 numerical census of $\Xi_4$ (real zeros by sign changes, the total by the
-argument principle, not interval-rigorous) finds $31$, the largest being
-$103.3679880094135$. The other nine entries are odd. The table in \cite{HagW}
-has $31$.
+argument principle, not interval-rigorous) finds $31$ real zeros, the entry of
+\cite{HagW}, the largest being $103.3679880094135$; the arXiv and journal
+versions print $32$ there.
 
 \section{Structure: no member is real-rooted}
 \label{sec:structure}

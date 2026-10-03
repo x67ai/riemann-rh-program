@@ -1,77 +1,119 @@
 # Version 2 (PREPARED, NOT PUBLISHED) — what changed against the published version 1, and why
 
-Prepared 16:25 IST 2026-10-03. Version 1 is the published paper (Zenodo version DOI 10.5281/zenodo.23071931; `../main.tex`, `../main.pdf`, untouched). Publishing version 2 is the sponsor's decision: a new version on the same Zenodo record and a new copy on x67.ai (`FETCH-LIST-ROUND9.md`, open items).
+Second form, 16:59 IST 2026-10-03, after the sponsor's instruction in chat the same hour: where the author had already corrected a point in his own copy, the paper is updated to say so, and a claim that adds nothing to his copy is removed. (The first form of this folder, of 16:2x IST, only re-attributed the two "corrections"; it is superseded.) Version 1 is the published paper (Zenodo version DOI 10.5281/zenodo.23071931; `../main.tex`, `../main.pdf`, untouched). Publishing version 2 is the sponsor's step: a new version on the same Zenodo record and a new copy on x67.ai (`FETCH-LIST-ROUND9.md`, open items).
 
-**Why.** The author's own copy of the paper on his web page (dated February 9, 2011; server date the same; SHA-256 a8daaab8a5b68920aeb68c038acb8d8d35e79e6ba2143494aab074fc2f3988df) already has the table entry 31 at N = 4 and already states that the coefficient of 1/x² in Ξ_N "approaches zero from below". Version 1 presents both points as corrections of "Haglund's paper" without saying that the author had made them himself; that is accurate for arXiv v1 and for the journal version only. Read at the page by the orchestrator (`LOG.md`, 16:23 IST 2026-10-03; `results/haglund-conj4/L-lit/PRIOR-ART.md` §3).
+**Why.** The author's own copy of the paper on his web page (title-page date February 9, 2011; server date the same; SHA-256 a8daaab8a5b68920aeb68c038acb8d8d35e79e6ba2143494aab074fc2f3988df) already has the table entry 31 at N = 4 and already states that the coefficient of 1/x² in Ξ_N "approaches zero from below as N → ∞". Read at the page by the orchestrator (`LOG.md`, 16:23 IST 2026-10-03; `results/haglund-conj4/L-lit/PRIOR-ART.md` §3). Version 1 announces both points, in the abstract and in a section heading, as corrections of "Haglund's paper"; on the two corrections themselves it has nothing that his copy does not have.
 
-**What changed (nine spans; no theorem, proof, constant or number of version 1 is altered).**
-1. Abstract (and `abstract.txt`): the last sentence now says the two statements belong to the arXiv and journal versions, are corrected in the author's later copy, and are proved here in corrected form.
-2. §1.3 heading: "two corrections to Haglund's paper" → "two statements of Haglund's paper".
-3. §1.3, the sentence before items (i), (ii): replaced by four sentences naming the three versions and quoting the corrected sentence of the web copy (p. 10).
-4. §1.5 (Organization): "the two corrections" → "the two statements of Section 1.3".
-5. After Proposition tail: two sentences added — the later copy gives the coefficients to more digits and the corrected conclusion, for the same reason.
-6. After Corollary odd: one sentence added — the table in the later copy has 31.
-7. Bibliography: new entry [Hag11w], the author's copy with its URL and read date.
-8. Date line: "October 1, 2026; revised October 3, 2026".
-9. A one-sentence Acknowledgment (for the sponsor to keep or delete: it thanks the author for pointing to his corrected copy).
+**What is removed.** The claim of correcting his paper: the abstract's sentence "Two statements in Haglund's paper are corrected …", the words "and two corrections to Haglund's paper" in the heading of §1.3, "the two corrections" in §1.5, and the sentences that call his table entry "inconsistent" and set his printed conclusion against ours.
 
-**Checks.** `check-submittable.sh` on this folder: ALL CHECKS PASSED (compiles clean, 16 pp.; no RH-verdict sentence; no internal reference). Integrity diff (KICKSTART 10(t)), mechanical: the complete line diff of `../main.tex` against `main.tex` follows; every changed line is one of the nine spans above.
+**What stays, because it is the paper's own and the argument uses it.** Corollary odd (the number of positive real zeros of Ξ_N, with multiplicity, is odd; an even number in every positive lobe) and Proposition tail (x²Ξ_N(x) tends to an explicit negative limit for every N) — stated as results, with their proofs unchanged. The abstract now states them as results.
+
+**What is added.** The credit: §1.3 says that both facts agree with the author's web copy, quotes its table and its sentence, and says that the arXiv and journal versions differ and that his copy corrects both; the paragraph after Proposition tail and the paragraph after Corollary odd say the same at the place of use; a reference [Hag11w] with the URL and read date; the date line; one sentence of thanks (the sponsor keeps or deletes it).
+
+**No theorem, proof, constant or number of version 1 is altered.**
+
+**Checks.** `check-submittable.sh` on this folder: ALL CHECKS PASSED (compiles clean, 15 pp.; no RH-verdict sentence; no internal reference). Integrity diff (KICKSTART 10(t)), mechanical: the complete line diff of `../main.tex` against `main.tex` follows (82 changed lines); every changed line belongs to one of the spans above.
 
 ```diff
 47c47
 < \date{October 1, 2026}
 ---
 > \date{October 1, 2026; revised October 3, 2026}
-71,74c71,75
+70,74c70,73
+< approximant departs from $\Xi$, can leave a non-real zero below real zeros. Two
 < statements in Haglund's paper are corrected: the number of positive real zeros of
 < $\Xi_N$, counted with multiplicity, is odd, so his table entry $32$ at $N = 4$ is inconsistent (a numerical
 < census finds $31$), and the $1/x^2$ coefficient of $\Xi_N$ on the real axis is
 < negative for every $N$.
 ---
-> statements of the arXiv and journal versions of Haglund's paper, both corrected
-> in the author's own later copy, are proved in their corrected form: the number
-> of positive real zeros of $\Xi_N$, counted with multiplicity, is odd (the table
-> entry at $N = 4$ is $31$, not $32$), and the $1/x^2$ coefficient of $\Xi_N$ on
-> the real axis is negative for every $N$.
-175c176
+> approximant departs from $\Xi$, can leave a non-real zero below real zeros. The same
+> structure shows that the number of positive real zeros of $\Xi_N$, counted with
+> multiplicity, is odd, and that $x^2\Xi_N(x)$ tends to a negative limit on the
+> real axis for every $N$.
+175c174
 < \subsection{The mechanism, and two corrections to Haglund's paper}\label{sec:mech}
 ---
-> \subsection{The mechanism, and two statements of Haglund's paper}\label{sec:mech}
-198c199,206
+> \subsection{The mechanism}\label{sec:mech}
+198c197,198
 < The same sandwich corrects two statements in \cite{Hag}.
 ---
-> The same sandwich settles two statements on which the versions of Haglund's
-> paper differ. The arXiv version \cite{Hag} and the journal version \cite{HagJ}
-> print the statements quoted in (i) and (ii) below. The copy of the paper on the
-> author's web page \cite{HagW}, dated February 9, 2011, corrects both: its table
-> has $31$ at $N = 4$, and its paragraph on the coefficient of $1/x^2$ ends ``Thus
-> the coefficient of $1/x^2$ in $\Xi_N(x)$ approaches zero from below as
-> $N \to \infty$'' \cite[p.~10]{HagW}. Corollary~\ref{cor:odd} and
-> Proposition~\ref{prop:tail} prove the corrected statements, for every $N$.
-273c281
+> The same sandwich gives two facts about the real zeros and the real-axis tail
+> of $\Xi_N$.
+201,205c201
+< multiplicity, is odd for every $N$ (Corollary~\ref{cor:odd}). Haglund's table
+< \cite[p.~4]{Hag} lists $1$, $7$, $15$, $32$, $53$, $79$, $113$, $155$, $207$, $263$ real zeros for
+< $N = 1, \ldots, 10$; the even entry $32$ at $N = 4$ is inconsistent with this,
+< and a numerical census of $\Xi_4$ finds $31$, the largest being
+< $103.3679880094135$, in agreement with Haglund's printed $103.3679880094$.
+---
+> multiplicity, is odd for every $N$ (Corollary~\ref{cor:odd}).
+207,209c203
+< $N \ge 1$ (Proposition~\ref{prop:tail}), whereas \cite[p.~10]{Hag} states
+< ``Thus the coefficient of $1/x^2$ in $\Xi_N(x)$ is positive for $k \ge 3$ and
+< negative for $1 \le k < 3$'' (his $k$ is $N$).
+---
+> $N \ge 1$ (Proposition~\ref{prop:tail}).
+210a205,213
+> Both agree with the copy of Haglund's paper on the author's web page
+> \cite{HagW}, dated February 9, 2011: its table lists $1$, $7$, $15$, $31$,
+> $53$, $79$, $113$, $155$, $207$, $263$ real zeros for $N = 1, \ldots, 10$
+> \cite[p.~4]{HagW}, and it states that the coefficient of $1/x^2$ in $\Xi_N(x)$
+> ``approaches zero from below as $N \to \infty$'' \cite[p.~10]{HagW}. The arXiv
+> version \cite{Hag} and the journal version \cite{HagJ} have $32$ at $N = 4$
+> and, for the coefficient, ``positive for $k \ge 3$ and negative for
+> $1 \le k < 3$'' \cite[p.~10]{Hag} (his $k$ is $N$); \cite{HagW} corrects
+> both.
+273c276
 < theorems and the two corrections. Section~\ref{sec:structure} gives the
 ---
-> theorems and the two statements of Section~\ref{sec:mech}. Section~\ref{sec:structure} gives the
-474c482,486
+> theorems and their consequences for the real zeros and the tail. Section~\ref{sec:structure} gives the
+464,474c467,479
+< \cite[(52), p.~10]{Hag}; his values are one quarter of ours (at $N = 1$,
+< $-.01974938206$ against $-0.078997$), because his (51) applies his (50) at $x$ although
+< \eqref{eq:XiN} evaluates $G$ at $x/2$; the factor does not affect signs. He concludes that
+< the coefficient of $1/x^2$ in $\Xi_N(x)$ ``is
+< positive for $k \ge 3$ and negative for $1 \le k < 3$'' \cite[p.~10]{Hag}.
+< Proposition~\ref{prop:tail} shows that it is negative for every $N$: the
+< coefficients of $\Phi_1$, $\Phi_2$ and $\Phi_3$ nearly cancel, and ten-digit
+< values of them cannot resolve their sum, which is of order $10^{-16}$, at
+< $N = 3$. Haglund's use of these coefficients to exhibit non-monotone zeros of
+< the pencil $t\Phi_1 + \Phi_2$ is unaffected: it needs only that the coefficient
 < of $\Phi_2$ is positive and that of $\Xi_2$ negative, and both are.
 ---
-> of $\Phi_2$ is positive and that of $\Xi_2$ negative, and both are. The later
-> copy \cite{HagW} gives the three coefficients to more digits and states the
-> corrected conclusion quoted in Section~\ref{sec:mech}, for the reason used
-> here: the coefficients of $\Phi_k$ are positive for $k > 3$, and $\Xi$ decays
-> exponentially on the real axis \cite[p.~10]{HagW}.
-499c511,512
+> \cite[(52), p.~10]{Hag}, and to more digits in \cite[(52)]{HagW}; his values
+> are one quarter of ours (at $N = 1$, $-.01974938206$ against $-0.078997$),
+> because his (51) applies his (50) at $x$ although \eqref{eq:XiN} evaluates $G$
+> at $x/2$; the factor does not affect signs. The arXiv and journal versions
+> conclude that the coefficient of $1/x^2$ in $\Xi_N(x)$ ``is positive for
+> $k \ge 3$ and negative for $1 \le k < 3$'' \cite[p.~10]{Hag}; the later copy
+> states instead that it ``approaches zero from below as $N \to \infty$''
+> \cite[p.~10]{HagW}, which is what Proposition~\ref{prop:tail} shows for every
+> $N$. The coefficients of $\Phi_1$, $\Phi_2$ and $\Phi_3$ nearly cancel, and
+> ten-digit values of them cannot resolve their sum, which is of order $10^{-16}$,
+> at $N = 3$. Haglund's use of these coefficients to exhibit non-monotone zeros of
+> the pencil $t\Phi_1 + \Phi_2$ needs only that the coefficient of $\Phi_2$ is
+> positive and that of $\Xi_2$ negative, and both are.
+495,496c500,501
+< In Haglund's table \cite[p.~4]{Hag} (Section~\ref{sec:mech}) the entry $32$ at $N = 4$ is
+< even, so by Corollary~\ref{cor:odd} it cannot count $32$ simple real zeros; a
+---
+> The ten entries of Haglund's table in \cite[p.~4]{HagW}
+> (Section~\ref{sec:mech}) are odd, in agreement with Corollary~\ref{cor:odd}. A
+498,499c503,505
+< argument principle, not interval-rigorous) finds $31$, the largest being
 < $103.3679880094135$. The other nine entries are odd.
 ---
-> $103.3679880094135$. The other nine entries are odd. The table in \cite{HagW}
-> has $31$.
-1037a1051,1055
+> argument principle, not interval-rigorous) finds $31$ real zeros, the entry of
+> \cite{HagW}, the largest being $103.3679880094135$; the arXiv and journal
+> versions print $32$ there.
+1036a1043,1045
+> 
 > \section*{Acknowledgment}
 > \addcontentsline{toc}{section}{Acknowledgment}
-> 
+1037a1047,1048
 > I thank J. Haglund for pointing out the corrected copy \cite{HagW} of his paper.
 > 
-1089a1108,1113
+1089a1101,1106
 > \bibitem[Hag11w]{HagW} J. Haglund, \emph{Some conjectures on the zeros of
 > approximates to the Riemann $\Xi$-function and incomplete gamma functions},
 > author's copy dated February 9, 2011,
