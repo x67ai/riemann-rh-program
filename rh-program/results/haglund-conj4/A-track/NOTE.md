@@ -33,6 +33,7 @@ of one branch in ten agrees, routes L/T agree at 5 points per branch for k <= 6,
 ### §0-P2 Frontier windows (window [4(k+1)^2 - 40, 4(k+2)^2 + 40] x [0, Y]; branches that start in it; same columns)
 | k | window | Y | R_k / R_{k+1} | NR k / k+1 | B | L | E | X | dy+ | m | checks passed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
+| 15 | [984, 1196] | 55 | 37 / 145 | 74 / 16 | 74 | 54 | 16 | 4 | -3.0e-07 | 0.880 | A, A4, C1, C2, C3, D, H; re-trace 8/8 (ends to 1.5e-10); Arb rel radius <= 9.0e-13 |
 | 26 | [2876, 3176] | 69 | 45 / 263 | 133 / 17 | 133 | 109 | 17 | 7 | -3.0e-07 | 0.868 | A, A4, C1, C2, C3, D, H; re-trace 14/14 (ends to 3.6e-10); Arb rel radius <= 9.0e-13 |
 | 27 | [3096, 3404] | 70 | 48 / 276 | 137 / 16 | 137 | 114 | 16 | 7 | -3.0e-07 | 0.851 | A, A4, C1, C2, C3, D, H; re-trace 14/14 (ends to 4.3e-10); Arb rel radius <= 9.1e-13 |
 <!-- P2 rows -->
