@@ -42,3 +42,16 @@ Equivalent form used for computing: with u = 1 − t, zeros of the pencil are th
 | 51.2446+21.1475i | zero of Ξ_2 at 56.1120+11.4796i | 0 | no |
 
 The three landings fall in the three positive lobes of Ξ below 41 — (21.02, 25.01), (30.42, 32.94), (37.59, 40.92) — which is the count 1 + 2·3 = 7 of Haglund's table at N = 2. The landings happen at u = 0.08, 1e−4, 7e−7: the deformation is singular in t (most of the motion of the frontier happens for t within e^{−π(2k+3)} of 1), which is the natural reason Newton continuation in t stalls near t = 1 (Haglund p. 12, "about t = .99").
+
+## N3. Theory — moved to `NOTE.md` §§1–5 (written 16:2x–16:4x IST; claimed, not yet read)
+
+The level form (Lemmas 1.1–1.3), the real-axis theorem 2.1 and the conditional criterion 2.3 for (R), the frozen-level model (Lemma 3.1, Proposition 3.2), the off-axis-zero statement (Lemma 4.1, Proposition 4.2), and the three regimes (§5). Nothing there is a result before `read-O.md`.
+
+## N4. A control on an object WITH off-axis zeros (16:17 IST 2026-10-03; `orch-probe/control.py`)
+
+Object: f = Ξ + λ, λ > 0 (even, real, entire; it has zeros off the real axis above every negative lobe of Ξ whose minimum is > −λ). Its pencil is (Ξ_k + λ) + tΦ_{k+1} = f − L_t, and the real-axis quotient is (Ξ_{k+1} + λ)/Φ_{k+1}. Prediction of NOTE Theorem 2.1(d),(e) and Proposition 4.2: (R) and (D) must FAIL for this object. Run for k = 1 on [0.5, 45], step 0.005:
+- λ = 0 (Haglund's own pencil): the extrema of the quotient with value in (0, 1) are three local maxima, at x = 22.140, 31.255, 38.515 with values 0.0837081, 1.32607e−4, 7.02799e−7 — the three landings of N2, found there by following branches (22.1424, 31.2550, 38.5169 at u = 0.0837083, 1.32607e−4, 7.02803e−7): two methods, same numbers. No local minimum.
+- λ = 5e−5: a local maximum at x = 22.540 (value 0.628) and a LOCAL MINIMUM at x = 24.340 with value 0.612 ∈ (0, 1): as u = 1 − t decreases through 0.612, two real zeros meet at 24.34 and leave the real axis. The control violates (R), as predicted.
+- λ = 1e−4: no extremum with value in (0, 1) on the range (the quotient is outside (0, 1) at its extrema there).
+Sizes on the first negative lobe, for orientation: Ξ(16) = −7.69e−4, Q_1(16) = 1.21e−4, Q_2(16) = 5.5e−11.
+So the test "no local minimum of the real-axis quotient with value in (0, 1)" is not vacuous: it fires on a function that has zeros off the axis and is silent on Ξ at k = 1.
