@@ -1,110 +1,51 @@
-# A structured research program on the Riemann hypothesis
+# Papers, certificates and code — analytic number theory
 
-This repository is the complete, unedited record of a research program on the Riemann
-hypothesis: every proposal, every computation, every adversarial review, every mistake, and
-every correction, in the order they happened.
-
-It is public because two of the papers below cite it as their data-and-code source, and a
-citation you cannot follow is not a citation.
+This repository holds three papers in analytic number theory, the computer-checked
+certificates and Lean files that support them, and the code needed to reproduce the
+computations.
 
 **Author:** Kunal Tyagi &lt;hello.jay.tyagi@gmail.com&gt;
 
-**Use of AI, stated plainly.** The mathematics in this repository — the derivations, the
-computations, the verification suites, the Lean formalization, and the text of the papers — was
-produced by **Claude (Anthropic)** working under the author's direction inside this program. The
-author set the objectives, made the technical and editorial decisions, and is responsible for
-the content. Claude
-is a tool and is not an author. The same statement appears in a footnote on page 1 of every
-paper. Because the whole program record is here, that disclosure is checkable rather than
-merely asserted: `rh-program/LOG.md` is the session-by-session history.
+**Use of AI.** The mathematics in this repository — the derivations, the computations, the
+verification suites, the Lean formalization, and the text of the papers — was produced by
+**Claude (Anthropic)** working under the author's direction. The author set the objectives, made
+the technical and editorial decisions, and is responsible for the content. Claude is a tool and
+is not an author. The same statement appears in a footnote on page 1 of every paper.
 
 ---
 
 ## The papers
 
-All four are built and pass an automated submission check
-(`rh-program/results/arxiv/check-submittable.sh`). **Two are recommended for
-circulation and two deliberately are not** — the reasoning is in
-`rh-program/results/arxiv/README.md`.
+| Paper | PDF | DOI |
+|---|---|---|
+| A counterexample to Haglund's monotonic-zeros conjecture for the Riemann Ξ approximants | [x67.ai/haglund-counterexample.pdf](https://x67.ai/haglund-counterexample.pdf) | [10.5281/zenodo.23071930](https://doi.org/10.5281/zenodo.23071930) |
+| The two-moment certificate is robust under Rudnick–Sarnak-range cubic augmentation with capacity control | [x67.ai/cubic-augmentation-no-go.pdf](https://x67.ai/cubic-augmentation-no-go.pdf) | [10.5281/zenodo.22171688](https://doi.org/10.5281/zenodo.22171688) |
+| Products of the per-prime Tate curves of absolute geometry carry no correspondence calculus for the Weil explicit formula | [x67.ai/tate-products-no-go.pdf](https://x67.ai/tate-products-no-go.pdf) | [10.5281/zenodo.22171136](https://doi.org/10.5281/zenodo.22171136) |
 
-| Paper | PDF | Pages | Status |
-|---|---|---|---|
-| The two-moment certificate is robust under Rudnick–Sarnak-range cubic augmentation with capacity control | [`results/arxiv/a4-no-go/main.pdf`](rh-program/results/arxiv/a4-no-go/main.pdf) | 41 | **recommended for posting** |
-| Products of the per-prime Tate curves of absolute geometry carry no correspondence calculus for the Weil explicit formula | [`results/arxiv/seed-no-go/main.pdf`](rh-program/results/arxiv/seed-no-go/main.pdf) | 21 | **recommended for posting** |
-| The polarized-Frobenius axiom class | [`results/arxiv/m0-axiom/main.pdf`](rh-program/results/arxiv/m0-axiom/main.pdf) | 14 | internal record — not recommended for posting |
-| Castelnuovo–Severi/Hodge index from Riemann–Roch and ampleness | [`results/arxiv/m1-noncirc/main.pdf`](rh-program/results/arxiv/m1-noncirc/main.pdf) | 13 | internal record — claims zero novelty in its own abstract |
+Sources are under `rh-program/results/arxiv/` (`haglund-counterexample/`, `a4-no-go/`,
+`seed-no-go/`).
 
-**All four are negative results.** None claims to prove anything about the Riemann hypothesis.
-Each shows that a specific proposed route does not work, and says exactly how far the failure
-extends. The sorting criterion for the table above is not novelty but *would anyone otherwise have
-tried this* — a negative result earns publication when it stops someone wasting time.
+## Checking the work
 
-## What a skeptical reader should check first
+* **Interval-arithmetic certificates.** The counterexample paper rests on two independently
+  written certificates (Arb ball arithmetic; outward-rounded intervals with proved truncation
+  bounds). The archive, with the exact commands and expected outputs, is
+  `rh-program/results/arxiv/haglund-counterexample/certificate/`; its hash is printed in the
+  paper.
+* **Lean.** Twelve theorems of the cubic-augmentation paper are machine-checked in Lean 4
+  against a pinned Mathlib (`rh-program/lean/`; see its `README.md` for the build). `#print
+  axioms` on all twelve returns `[propext, Classical.choice, Quot.sound]`.
 
-The strongest evidence here does not require trusting anyone.
+## Not in the repository
 
-* **`rh-program/lean/` (Lean).** Twelve theorems of the A4 paper are
-  machine-checked in Lean 4 against a pinned Mathlib. `#print axioms` on all twelve returns
-  `[propext, Classical.choice, Quot.sound]` — no `sorryAx`, no `Lean.ofReduceBool`. A whole-tree
-  scan finds zero real `sorry` or `admit` across the development. These files are *additions to*
-  the Zeta23 library accompanying Alpoge and Furman's paper, which is not redistributed here — see
-  `rh-program/lean/README.md` for the build. Build it yourself and the claim stands or falls
-  without reference to any prose.
-* **`rh-program/results/arxiv/citation-verification/`.** Every citation in the four
-  papers was checked against a primary source before it was allowed into a file. Twenty-one
-  proposed citations did **not** survive that check and were rejected; each rejection is recorded,
-  dated, inside the paper it would have touched. `ADJUDICATION.md` settles the cases where two
-  independent checks disagreed.
-* **`rh-program/results/c3-r/prior-art-r7a.md`.** Carries two dated **withdrawals** of
-  its own earlier conclusions. The seed-no-go paper's first three theorems turned out to be
-  Winkelmann's, from 2002; the paper now says so in its abstract.
-
-## Layout
-
-```
-rh-program/
-  lean/                this program's own Lean 4 files (additions to the Zeta23 library)
-  STATUS.md            the always-current dashboard: where the program is, what is next
-  LOG.md               append-only session history — what was tried, and what was wrong
-  BARRIER-ZOO.md       the taxonomy of obstructions the program has hit and banked
-  CIRCULATION-PREP.md  the record of preparing the four papers for circulation
-  directions/          the research directions, with their proposals retained verbatim
-  results/             all output: papers, gate records, referee reports, raw data, Lean
-  results/arxiv/       the four submission packages, and the guide to them
-  scripts/             the multi-agent workflow scripts used to run reviews and checks
-```
-
-**Not in the repository, deliberately.** Two things, both published at their own canonical homes
-rather than redistributed here:
-
-* The program's PDF library of fetched literature (`fetched/`, `fetched-r2/`, `fetched-r3/`) —
-  third-party copyrighted material. **Nothing in any paper depends on it**; every external claim is
-  cited to its published source.
-* **Anthropic's own material**, which the program read and built on but does not republish: the
-  **Zeta23** Lean formalization (Apache-2.0, Copyright 2026 Anthropic, PBC), whose home is
-  <https://github.com/anthropics/zeta-23-lean>, and Alpoge and Furman's *More than two thirds of the
-  zeros of the Riemann zeta function lie on the critical line* (arXiv:2608.13637). The eight Lean
-  files in `rh-program/lean/` are this program's own additions to that library and are the only
-  Lean files here.
-
-## Honest limitations
-
-* Two of the four papers are internal documents, listed above as such. One of them says in its
-  own abstract that it claims zero novelty. That is not modesty; it is accurate.
-* Several notes elsewhere in `results/` carry unpaid referee debts and are marked
-  not-circulation-ready in `CIRCULATION-PREP.md`. They are here for completeness, not as claims.
-* The program record includes its own errors. That is the point of publishing it.
+* Third-party literature. Every external claim in the papers is cited to its published source.
+* The **Zeta23** Lean formalization (Apache-2.0, Copyright 2026 Anthropic, PBC), whose home is
+  <https://github.com/anthropics/zeta-23-lean>, and Alpoge and Furman's *More than two thirds
+  of the zeros of the Riemann zeta function lie on the critical line* (arXiv:2608.13637). The
+  Lean files in `rh-program/lean/` are additions to that library.
 
 ## License
 
 **Apache License 2.0** for everything in this repository (see [`LICENSE`](LICENSE) and
-[`NOTICE`](NOTICE)), Copyright 2026 Kunal Tyagi.
-
-The prose — the papers, notes, logs and program record — is additionally offered under
-**CC BY 4.0**, so it can be quoted and reused as text with attribution. Where the two overlap,
-take whichever you prefer.
-
-Apache-2.0 was chosen rather than something more restrictive for two reasons: it is what the Lean
-and mathlib ecosystem uses, so the Lean files compose with it without a compatibility question;
-and a repository whose entire purpose is to let people check the work should not put obstacles in
-front of them.
+[`NOTICE`](NOTICE)), Copyright 2026 Kunal Tyagi. The prose — the papers and notes — is
+additionally offered under **CC BY 4.0**.
