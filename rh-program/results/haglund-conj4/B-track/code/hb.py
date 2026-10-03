@@ -125,3 +125,97 @@ def XiN_T(N, z):
     t, n = tail(N, z, scale=sc)
     if abs(t) > sc: sc = abs(t)
     return x - t
+
+# ---- second formula for Phi_n (main.tex, Lemma relation; checked against (14) in the ladder) ----
+# Phi_n(z) = (1/2) s(s-1) g_n(s) + (4 pi n^2 - 1) e^{-pi n^2},  s = 1/2 + i z,
+# g_n(s) = Gamma(s/2, X) X^{-s/2} + Gamma((1-s)/2, X) X^{-(1-s)/2},  X = pi n^2.
+def Phi_rel(n, z):
+    z = mp.mpmathify(z)
+    X = mp.pi*n*n
+    s = mpf(1)/2 + 1j*z
+    lX = mp.log(X)
+    g = gup(s/2, X)*mp.exp(-s/2*lX) + gup((1 - s)/2, X)*mp.exp(-(1 - s)/2*lX)
+    return s*(s - 1)/2*g + (4*X - 1)*mp.exp(-X)
+
+PHI = Phi_rel   # engine used by the pencil code; Phi (eq. 14) is the check
+
+def tailP(N, z, scale, extra=12):
+    """sum_{n>N} PHI(n, z) until a term is below 2^-(prec+extra) * running scale."""
+    s = mpc(0)
+    n = N + 1
+    while True:
+        p = PHI(n, z)
+        s += p
+        ap = abs(p)
+        if ap > scale: scale = ap
+        if ap < scale*mpf(2)**(-mp.mp.prec - extra):
+            return s, n
+        n += 1
+        if n > N + 80:
+            raise RuntimeError('tailP: slow convergence at z=%s' % z)
+
+def AB(k, z):
+    """Pencil pieces at z: A = Xi_{k+1}(z) (route T), B = Phi_{k+1}(z).
+    F_k(z,t) = Xi_k + t Phi_{k+1} = A - u B with u = 1 - t."""
+    z = mp.mpmathify(z)
+    x = Xi(z)
+    B = PHI(k + 1, z)
+    sc = max(abs(x), abs(B))
+    t, n = tailP(k + 1, z, sc)
+    A = x - t
+    if mp.im(z) == 0:
+        A = mp.re(A); B = mp.re(B)
+    return A, B
+
+def XiN(N, z):
+    """Xi_N by route T with the PHI engine."""
+    z = mp.mpmathify(z)
+    x = Xi(z)
+    t, n = tailP(N, z, abs(x))
+    v = x - t
+    return mp.re(v) if mp.im(z) == 0 else v
+
+def dfd(f, z, fz=None, h=None):
+    """forward-difference derivative of an analytic f (h ~ 2^(-prec/2) * max(1,|z|))."""
+    if h is None:
+        h = mpf(2)**(-mp.mp.prec//2)*max(1, abs(z))
+    if fz is None:
+        fz = f(z)
+    return (f(z + h) - fz)/h
+
+def newton(f, z0, tol=None, maxit=40):
+    """Newton with forward-difference derivative. Returns (z, last step size, iterations, f'(z))."""
+    if tol is None:
+        tol = mpf(2)**(-mp.mp.prec + 12)*max(1, abs(z0))
+    z = mp.mpmathify(z0)
+    for it in range(1, maxit + 1):
+        fz = f(z)
+        d = dfd(f, z, fz)
+        step = fz/d
+        z = z - step
+        if abs(step) < tol:
+            return z, abs(step), it, d
+    raise RuntimeError('newton: no convergence from %s (last step %s)' % (z0, step))
+
+def bisect_real(f, a, b, tol=None):
+    """Real zero of a real function with f(a) f(b) < 0: bisection to 8 bits, then secant-safeguarded."""
+    a = mpf(a); b = mpf(b)
+    fa = f(a); fb = f(b)
+    assert fa*fb < 0
+    if tol is None:
+        tol = mpf(2)**(-mp.mp.prec + 10)*max(1, abs(b))
+    while b - a > tol:
+        m = (a + b)/2
+        # secant guess, kept only if inside the inner half
+        if fb != fa:
+            c = b - fb*(b - a)/(fb - fa)
+            if a + (b - a)/4 < c < b - (b - a)/4:
+                m = c
+        fm = f(m)
+        if fm == 0:
+            return m
+        if fa*fm < 0:
+            b, fb = m, fm
+        else:
+            a, fa = m, fm
+    return (a + b)/2
