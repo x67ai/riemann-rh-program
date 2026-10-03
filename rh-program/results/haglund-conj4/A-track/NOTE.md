@@ -78,3 +78,54 @@ of one branch in ten agrees, routes L/T agree at 5 points per branch for k <= 6,
   adaptive bisection until every increment is below pi/4 (minimum segment 1e-9; a segment that cannot reach it is
   counted as a flag; flags = 0 in every count reported); total rounded, deviation from an integer reported (< 1e-12
   in every P1 count so far).
+| 5 | 337.88 | 79 | 53 / 79 [53 / 79] | 63 / 47 | 63 | 13 | 47 | 3 | -3.0e-07 | 0.828 | A, A4, C1, C2, C3, D, H; re-trace 7/7 (ends to 3.1e-11); L/T 315 pts max rel 2.2e-13; Arb rel radius <= 9.1e-13 |
+
+## §0-P2 Frontier windows (window [4(k+1)^2 - 40, 4(k+2)^2 + 40] x [0, Y]; branches that start in it; same columns)
+| k | window | Y | R_k / R_{k+1} | NR k / k+1 | B | L | E | X | dy+ | m | checks passed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 26 | [2876, 3176] | 69 | 45 / 263 | 133 / 17 | 133 | 109 | 17 | 7 | -3.0e-07 | 0.868 | A, A4, C1, C2, C3, D, H; re-trace 14/14 (ends to 3.6e-10); Arb rel radius <= 9.0e-13 |
+
+### P2 site, k = 26 (the Conjecture-1 violation of Xi_27)
+- The branch from the zero 3130.2619 + 52.4297i of Xi_26 ends at u = 0 at 3143.2206824215 + 0.3152587994i (Newton on
+  Xi_27 from the brief's value converges to 3143.2206824215364 + 0.3152587993782i; S_26 there 1e-88, S_27 = 1 to 1e-13).
+  Im z decreased at every step (largest step change -6.3e-2; 216 steps), smallest margin 0.970.
+- Its right neighbor, from 3132.1660 + 52.9056i, lands at x* = 3145.2290390026 at u* = 3.32e-76 (a local maximum of S_26);
+  as u -> 0 the pair separates into the two real zeros of Xi_27 at 3144.8946622175 and 3145.5998495774 (in the brief's
+  intervals). Its left neighbor, from 3128.3576 + 51.9536i, lands at 3141.3370957 at u* = 1.44e-75 (real zeros 3141.0818,
+  3141.6310 of Xi_27). The branch between them is the one that does not land: S_26 has no local maximum in (0,1) on
+  (3141.6310, 3144.8947) (the axis scan's extrema list on [3140, 3150] is exactly the two maxima above).
+- Landings in the window happen at u between ~1e-69 and ~1e-76 near the site: t within 1e-69 of 1.
+| 6 | 432.12 | 90 | 79 / 113 [79 / 113] | 82 / 62 | 82 | 17 | 62 | 3 | -3.0e-07 | 0.832 | A, A4, C1, C2, C3, D, H; re-trace 9/9 (ends to 1.1e-11); L/T 410 pts max rel 2.6e-13; Arb rel radius <= 9.0e-13 |
+  (k = 6: one branch, from 425.6801 + 82.8913i, reaches u = 0 at the zero 432.1548 + 63.0618i of Xi_7, just beyond X_6 = 432.1239; counted as an exit.)
+
+## §0-P3 The real-axis test (d) alone, k = 1..50, on [0, 4(k+2)^2 + 40]
+Grid of spacing/20 (spacing = 2 pi / log(x / 2 pi)) on the whole interval; every discrete extremum whose parabola value
+is in (-10, 11) refined to a zero of S_k' (Arb central difference); the frontier part [4(k+1)^2 - 40, end] scanned again
+at spacing/40 and compared. Columns: R_k / R_{k+1} real zeros of Xi_k / Xi_{k+1}; max / min = local maxima / minima of
+S_k with value in (0,1); "half" = (#max - #min) = (R_{k+1} - R_k)/2; "int" = every maximal interval where 0 < S_k < 1 has
+the extrema its end types require ([0,0]: one more max than min; [1,1]: one more min; mixed: equal); "re" = the finer
+frontier rescan finds the same zeros and extrema; u_min = smallest landing value; last = largest real zero of Xi_{k+1}
+(Haglund's table, N = k+1 <= 10: 39.5324810798, 65.0320737720, 103.3679880094, 149.0026994921, 197.9575955732,
+258.5304836632, 327.3794646017, 406.8174206801, 489.3900649445). PASS = no minimum, all of half/int/re, S_k(0) > 1, S_k(end) < 0.
+| k | end | R_k / R_{k+1} | max | min | half | int | re | u_min | last | verdict |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | 76 | 1 / 7 | 3 | 0 | yes | yes | yes | 7.0e-07 | 39.5325 | PASS |
+| 2 | 104 | 7 / 15 | 4 | 0 | yes | yes | yes | 1.1e-07 | 65.0321 | PASS |
+| 3 | 140 | 15 / 31 | 8 | 0 | yes | yes | yes | 6.1e-12 | 103.3680 | PASS |
+| 4 | 184 | 31 / 53 | 11 | 0 | yes | yes | yes | 1.4e-15 | 149.0027 | PASS |
+| 5 | 236 | 53 / 79 | 13 | 0 | yes | yes | yes | 1.9e-17 | 197.9576 | PASS |
+
+### §0-P2 (continued)
+| 27 | [3096, 3404] | 70 | 48 / 276 | 137 / 16 | 137 | 114 | 16 | 7 | -3.0e-07 | 0.851 | A, A4, C1, C2, C3, D, H; re-trace 14/14 (ends to 4.3e-10); Arb rel radius <= 9.1e-13 |
+
+### P2 site, k = 27 (the continuation)
+- The zero 3143.2206824215 + 0.3152587994i of Xi_27, followed in the pencil k = 27, lands at x* = 3143.2466268840 at
+  u* = 0.41051 (t = 0.58949): Im z decreased at every step (36 steps), smallest margin 0.993. The pair it becomes
+  separates, as u -> 0, into the real zeros 3142.979457 and 3143.567499 of Xi_28 (the positive lobe (3142.98, 3143.57)
+  of Xi named in main.tex §5).
+- The two real zeros of Xi_27 at 3144.8946622 and 3145.5998496 (S_27 = 1) stay real for 0 <= t <= 1: S_27 has no local
+  extremum with value in (0,1) on [3144.49, 3146.29] (axis scan: the only extrema in (0,1) on [3138, 3150] are the
+  maxima at 3143.2466, 3147.7040, 3149.3067), and they move monotonically to the real zeros 3144.490488 and 3146.283528
+  of Xi_28 at u = 0.
+- The next branches land at 3147.7040 (u* = 0.0302) and 3149.3067 (u* = 0.00527): in pencil 27 the landings near
+  3143-3150 happen at u of order 1e-1..1e-3, against 1e-69..1e-76 in pencil 26 at the same heights.

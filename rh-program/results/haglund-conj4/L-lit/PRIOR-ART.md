@@ -15,6 +15,34 @@ Created: 16:10 IST 2026-10-03
 6. NOT REACHED: every source that would not fetch, with the attempts.
 Each section is appended as finished; a dated block goes to SHARED.md after each.
 
+## §0 — summary and close (written 16:58 IST 2026-10-03; sections below in the order done: §3, §2, §1, §4)
+
+- **§3** The author's web copy (Penn, `preprints/rh8.pdf`, dated 9 Feb 2011) corrects V and the journal: N = 4 entry **31** (not 32); the 1/x² paragraph now says the coefficient of 1/x² in Ξ_N "approaches zero from below as N → ∞"; (47)'s z⁻⁴ term and (52)'s constants corrected (both re-derived here). **Conjecture 4 and its lead-in are word for word unchanged.**
+- **§2** Baccaro proves Conjecture 4 for **k = 1 only** (Theorem 2.1, p. 2). Of ORCH-NOTES N1: Φ_{k+1} > 0 on ℝ is in his PDF for k = 1 and in his repository for every k; "Ξ minus a positive level" is not found in his work; the quotient criterion is there for k = 1 (g = −Φ1/Φ2 = 1 − S_1).
+- **§1** Among 16 works found citing Haglund, only Baccaro touches Conjecture 4. Ahn 2012 computes four fixed members of the k = 1 pencil but follows no zero in t. **Nothing on k ≥ 2.**
+- **§4** Im f′/f < 0 is in print: Titchmarsh 1939 p. 266, and Csordas–Smith 2000 p. 604 for zeros in a strip. The latter makes it unconditional for Ξ above height ½. The f = c level-curve monotonicity is in print as Csordas–Smith 2000 p. 609, (3.3)–(3.4), above height A. The direction of motion and "real solutions stay real" are one-line consequences, derived here.
+
+**LEDGER ROWS**
+- L-lit-1 · PROVED (symbolic) · the z⁻⁴ coefficient of Haglund's (47) is 2((b − a)³ + 3a² − 3ab − a)/e^a (web copy), not V's · check: `L-lit/check_task3.py` (sympy series), log `check_task3.log`.
+- L-lit-2 · NUMERICAL (mpmath, 120 digits) · (51) gives −0.019749382633875, 0.0197493413074771, 4.13263978190504×10⁻⁸ for n = 1, 2, 3 (web copy's digits); Σ_{n≤N} < 0 for N = 1…7 · check: same script and log.
+- L-lit-3 · NUMERICAL (Arb, 200 bits, midpoint, not an enclosure) · |Φ2| ≈ 5.5×10⁻¹⁹ and 3.5×10⁻¹⁹ at Baccaro's two listed Φ2-zero centres in S1 (8.4×10⁻⁶ at 23 + 32i) · check: `hag_core.Phi` of S4, inline run recorded in §2.
+- L-lit-4 · PROVED (printed theorem, hypotheses checked here) · Im Ξ′/Ξ(z) < 0 for Im z > ½, unconditionally · check: Csordas–Smith 2000 (2.5) p. 604 + Definition 1.2 p. 602 against Ξ (§4(a)).
+- L-lit-5 · PROVED (elementary, this unit) · if Im f′/f < 0 at a non-real solution of f(z) = c (c real, f′ ≠ 0), Im z increases strictly with |c| along its branch · check: §4(b), from z′ = 1/(c·f′/f).
+- L-lit-6 · EXCLUDED, in the sources reached only · any printed statement, computation or counterexample on Conjecture 4 for k ≥ 2 · check: the search list of §1 (null search, not proof of absence).
+
+**TOOL ROWS**
+
+    ### K-new — symbolic check of Haglund (47) and evaluation of the 1/x² coefficients of Φ_n (51)
+    - File. `rh-program/results/haglund-conj4/L-lit/check_task3.py` (Python, sympy + mpmath; SHA-256 7f5b39e4949c40d5 at entry)
+    - Does. Series of −e^{−a}[T(b+iz) + T(b−iz)] to O(z⁻⁶); coefficients (51) for n = 1…7 at 120 digits with partial sums. Under 5 s.
+    - Validated against. The two printed versions of (47)/(52) (it decides between them); the 1/x² limits of S3's Prop. tail, which are 4× Haglund's convention. Not validated otherwise.
+    - Limits and bugs. Truncation K = 8 is exact through z⁻⁹; none recorded.
+    - Role. writer's program.
+    - Used by. L-lit.
+    - Entered. 16:58 IST 2026-10-03, side-session of 2026-10-03.
+
+**ASKED / DELIVERED.** Asked: tasks 1–4. Delivered: all four. Restrictions this unit added: (i) "every citing work" means the union of Semantic Scholar, OpenAlex, Google Scholar, zbMATH Open, plus the Zenodo, MathOverflow and web keyword searches; (ii) Baccaro's repository was read in part: the READMEs, the Lean files named in §2, the two all-k records, the outer-module record and the Φ2 pole record — not all 100 scratch folders — and his replay was not run; (iii) Baccaro's PDF came from GitHub, md5-identical to the Zenodo file.
+
 ## §3 (task 3) — the author's web-page copy against arXiv v1 (written 16:17 IST 2026-10-03)
 
 **Sources fetched this session** (files under `results/haglund-conj4/lit/`, git-ignored):
@@ -122,3 +150,34 @@ Each section is appended as finished; a dated block goes to SHARED.md after each
 **Verdict (task 1).** In the sources reached (the union of Semantic Scholar 12, OpenAlex 8, Google Scholar 8, zbMATH 2 citing records, plus Zenodo, MathOverflow and web searches — 16 works in all, each opened at the citation), the only work that states, computes or proves anything about the zero trajectories of Ξ_k + tΦ_{k+1} is **Baccaro 2026 (k = 1, proved)**. Ahn 2012 computes the zeros of four fixed members of the k = 1 pencil (t = 0.1, 0.5, 0.9, 0.95) in a bounded rectangle without following them in t. **Nothing found for any k ≥ 2: no statement, no computation, no counterexample.** A citation index misses works that do not cite Haglund; a null search is not proof of absence.
 
 **§2 addendum — an outside replay of Baccaro's certificate.** The VibeMathed index page (`lit/cites/vibemathed-haglund-20261003.html`, byte-identical to the copy of 1 Oct on disk) reports that its maintainers ran `reproduce.py` in full on 26 Aug 2026 (python-flint 0.9.0, 4 min 17 s) and got STATUS=PASS with the S2/S3 counts of the paper, after converting 12 manifest entries that match only with Windows line endings; it notes the replay shows the computation is internally consistent, not that the interval implications prove the theorem, and lists the entry as "Candidate (review pending)". Not checked by this unit.
+
+## §4 (task 4) — Im f′/f < 0 above the axis for real entire f with only real zeros, and the equation f(z) = c (opened 16:51 IST 2026-10-03)
+
+**(a) The fact, in print — seen at the page.**
+- **E. C. Titchmarsh, *The Theory of Functions*, 2nd ed., Oxford 1939, §8.52 "Laguerre's theorem", p. 266** (archive.org item `in.ernet.dli.2015.2588`, scan `lit/task4/titchmarsh-1939-dli-2588.pdf`, SHA-256 `fecb20c0acaf184bd96d64989f6ecaf8af5c63ab21e81a5c864e8d4b82271898`, book p. 266 = PDF p. 271, read on the rendered page). For f an integral function, real for real z, of order less than 2, with real zeros, f(z) = cz^k e^{az} Π(1 − z/z_n)e^{z/z_n}, he writes, with z = x + iy, the imaginary part of f′/f as −y{k/(x² + y²) + Σ 1/((x − z_n)² + y²)} (printed as "I{f′(z)/f(z)} = −iy{…}"), "which is zero if y = 0 only"; then d/dz(f′/f) = −k/z² − Σ 1/(z − z_n)², "real and negative if z is real". On p. 266–267: "The proof also applies to a function f(z) of order 2, but of genus 1." So Im f′/f < 0 for y > 0 whenever f has at least one zero (for f = ce^{az} it vanishes identically). Ξ has order 1, so this covers Ξ under RH.
+- **For ξ itself, in the s-variable** (s = ½ + iz, so Im Ξ′/Ξ(z) = Re ξ′/ξ(s) and Im z > 0 ⟺ Re s < ½): Yu. Matiyasevich, F. Saidak, P. Zvengrowski, arXiv:1205.2773 (Acta Arith. 166 (2014)), p. 4, proof of Theorem 1.1 (Sondow–Dumitrescu): from ξ′/ξ(s) = Σ_ρ 1/(s − ρ), Re 1/(s − ρ) = (σ − α)/((σ − α)² + (t − β)²) > 0 when σ exceeds every Re ρ; p. 5: the statement that RH is equivalent to Re ξ′/ξ > 0 for σ > ½ "also appears in the 1999 paper of Lagarias [9] and the 1997 paper of Hinkkanen [7]", and the left-half-plane monotonicity is "implicit" in Pólya 1927 (Jensen's Nachlass, condition I′ on p. 18, convexity in y of |ξ(½ + y + ix)|²); they also note it appears as a "known result" at the start of §6 of Haglund's paper (= V p. 11: RH ⟺ |Ξ(x + iy)| increasing in y ≥ 0). (Lagarias 1999, Hinkkanen 1997, Pólya 1927: cited by M–S–Z; NOT opened by this unit.)
+- **For the class S(A) (zeros in the strip |Im z| ≤ A), above the strip:** G. Csordas, W. Smith, "Level sets and the distribution of zeros of entire functions", Michigan Math. J. 47 (2000) 601–612 (Project Euclid PDF, `lit/task4/csordas-smith-mmj-2000.pdf`, SHA-256 `e970de9c00a592484943ea29e066147497eb402e1cf8019522bf12ab20237754`), p. 604, (2.5): for f ∈ S∞(A), "Im(f′/f)(z) < 0, Im z > A", with the logarithmic-derivative formula in the proof, p. 604–605. S∞(A) (Definition 1.2, p. 602) = even real entire f of the form ce^{−az²+bz}z^m Π(1 − z/z_k)e^{z/z_k}, a ≥ 0, zeros in |Im z| ≤ A, not of exponential type. **Ξ is in S∞(½) unconditionally** (even, real, order 1 of maximal type, zeros in |Im z| < ½) — hypotheses checked here from the definition (W4): so **Im Ξ′/Ξ < 0 for Im z > ½ without RH**; for 0 < Im z ≤ ½ the statement is RH (A = 0, Titchmarsh's form).
+
+**(b) The consequence for f(z) = c, c real — in print in one form.**
+- **Csordas–Smith 2000, p. 608–609, (3.3)–(3.4):** a level curve of {Re(e^{iθ}f) = 0} is parametrized by e^{iθ}f(z(s)) = is, s ∈ ℝ; differentiating, z′(s)·(f′/f)(z(s)) = 1/s (3.3), and with (2.5), "Arg z′(s) = −Arg (f′/f)(z(s)) > 0, Im z(s) > A" (3.4), "and so all level curves in V_t(A) are monotone in the sense that their tangents are never horizontal." With θ = π/2 the parametrization is f(z(s)) = s: these level curves carry exactly the solutions of f(z) = c, c = s real. So the statement "the non-real solutions lie on curves that cross each horizontal line once" is in print for f ∈ S∞(A), above height A (their V_t(A) is a vertical half-strip 0 ≤ x ≤ t, y ≥ A; (3.3)–(3.4) are pointwise and hold wherever Im z > A).
+- **Direction (descent as |c| decreases): this unit's one-line reading of their (3.3), not a sentence of theirs.** z′(s) = 1/(s·(f′/f)(z(s))); with Im f′/f < 0, Im z′(s) has the sign of s, so Im z(s) increases with |s| on both sides: as |c| decreases the non-real solutions descend. (Their "Arg z′(s) = −Arg(f′/f)" drops the factor 1/s, i.e. is written for s > 0.)
+- **Real solutions do not leave the axis — not found as a statement.** It follows (this unit) from the Laguerre inequality in print: Titchmarsh p. 266, d/dz(f′/f) = −k/z² − Σ 1/(z − z_n)² < 0 on ℝ, i.e. (f′)² − ff″ > 0 (also Csordas–Escassut, Ann. Math. Blaise Pascal 12 (2005) 331–345, p. 333, (2.2)–(2.3), `lit/task4/numdam-AMBP_2005__12_2_331_0.pdf`, SHA-256 `2e363ef2…c4a5`): at a real critical point x0 of f ∈ LP with f(x0) ≠ 0, f(x0)f″(x0) < 0, so f(z) − c has two real roots near x0 for |c| < |f(x0)| and a conjugate pair for |c| > |f(x0)|; simple real roots stay real by the implicit function theorem. Hence decreasing |c| never moves a real solution off the axis.
+- **Classical polynomial form found on the way (related, not the same):** Pólya–Szegő, *Aufgaben und Lehrsätze aus der Analysis* II (1925), Fünfter Abschnitt (Part V), Problem 112, p. 58, with solution pp. 243–244 (credited to Laguerre): f has only real zeros iff Im ζ and Im z have opposite signs, ζ = z − n f(z)/f′(z) the "centroid of f with respect to z" (archive.org `aufgabenundlehrs0000gpol`, OCR text read; not checked on the page image).
+
+**Verdict (task 4).** (a) In print, seen: Titchmarsh 1939 §8.52 p. 266 (real entire, order < 2 or genus 1, only real zeros: Im f′/f = −y{k/(x² + y²) + Σ 1/((x − z_n)² + y²)}); Csordas–Smith 2000 p. 604 (2.5) (above the strip, class S∞(A); covers Ξ above height ½ unconditionally); for ξ in the s-variable, Matiyasevich–Saidak–Zvengrowski p. 4–5 (citing Lagarias 1999, Hinkkanen 1997, Pólya 1927). (b) The level-curve consequence is in print in Csordas–Smith 2000 p. 609 (3.3)–(3.4) as "tangents never horizontal" above height A; the descent direction and "real solutions stay real" are not stated there — each is a one-line consequence (above), with the Laguerre inequality in print. Nothing found on the zeros of Ξ(z) − c or ξ(s) − c themselves (searches above).
+
+## NOT REACHED, and reached only by a detour (written 16:59 IST 2026-10-03)
+
+**Not reached.**
+- B. Ya. Levin, *Distribution of Zeros of Entire Functions* (1964; 1980 revised edition): the archive.org items `distributionofze0005levi` and `distributionofze0005levi_c0c0` are lending-only; the search-inside endpoint answered "Item not available" for every query.
+- G. Csordas, W. Smith, R. S. Varga, "Level sets of real entire functions and the Laguerre inequalities", Analysis 12 (1992) 377–402, doi 10.1524/anly.1992.12.34.377. curl returned 202 with an empty body; Firecrawl on degruyter.com failed with 500; on degruyterbrill.com it returned the paywalled landing page (€30). Only the abstract and the first lines of §1 were read. It is the likeliest earlier printed source for §4(b), since Csordas–Smith 2000 cite it for the properties of level curves.
+- Not opened, cited only at second hand: Lagarias, Acta Arith. 89 (1999); Hinkkanen 1997; Pólya 1927 (through M–S–Z, p. 5).
+- Named in the brief and not opened: Pólya–Schur 1914, de Bruijn 1950, Csordas–Varga 1990, Hellerstein–Williamson 1977. §4 was answered from Titchmarsh 1939 and Csordas–Smith 2000.
+
+**Reached only by a detour.**
+- Baccaro's PDF: Zenodo answered 403 four times. The PDF came from his GitHub repository, md5-identical to the Zenodo record.
+- Korevaar 2013: Elsevier refused curl; read through Firecrawl.
+- Iurato 2014: PhilSci-Archive serves a bot wall; read through Firecrawl.
+- Polson 2026: SSRN says the paper is "under review or has been removed"; read through Google Scholar's HTML cache, via Firecrawl.
+- Google Scholar was read through Firecrawl. Zenodo search went through Firecrawl, because this machine is refused directly.
+- arXiv export API: two timeouts, then answered.

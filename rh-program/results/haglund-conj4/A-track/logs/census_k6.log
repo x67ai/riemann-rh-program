@@ -1,0 +1,11 @@
+[16:49:25] k=6 P1 window [0.000, 432.124]
+[16:49:46]   axis: R_k=79 R_k+1=113 max=17 min=0 unresolved=0 consistent=True (21s)
+[16:49:48]   located 82 non-real zeros of Xi_6
+[16:52:56]   traced 82 branches (211s)
+    march N=7: 10 added, last 458.6808+71.8005i
+    march N=7: 20 added, last 484.9466+80.2804i
+    march N=7: 30 added, last 510.9690+88.5303i
+    march N=7: 40 added, last 536.7632+96.5740i
+[16:54:40] SUMMARY k=6 P1: {"R_k": 79, "R_k1": 113, "nonreal_k": 82, "nonreal_k1": 62, "branches": 82, "landings": 17, "nonreal_ends": 63, "exits": 2, "worst_dy": -3.036463876626867e-07, "min_margin": 0.8315772871647061, "checks": {"count_k": true, "count_k1": true, "Y_stable_k": true, "Y_stable_k1": true, "landings_eq_half_real_diff": true, "landings_match_maxima": true, "all_Xik1_nonreal_are_ends": true, "axis_no_min": true, "axis_intervals_consistent": true, "axis_ends_outside_01": true}, "Y": 90.0, "arb_maxrel": 9.024157366148345e-13, "arb_maxprec": 742, "secs": 277.2}
+[16:54:40] hygiene: {"retrace": [{"i": 0, "end": "landed", "end2": "landed", "dx_land": 1.0629719326971099e-11, "du_land_rel": 0.0}, {"i": 10, "end": "landed", "end2": "landed", "dx_land": 7.44648787076585e-12, "du_land_rel": 0.0}, {"i": 20, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 30, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 40, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 50, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 60, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 70, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 80, "end": "exit-right", "end2": "exit-right", "dz_end": null}], "LT": {"points": 410, "max_rel_diff": 2.625424431791656e-13}}
+[16:54:40] wrote /Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/haglund-conj4/A-track/code/../data/census_k6.json (481 kB)

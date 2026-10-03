@@ -57,3 +57,46 @@ as the program's corollary requires); non-real 35 / 25; 35 branches: 8 land, 25 
 smallest margin 0.812. All checks passed for both (argument-principle counts, also at 4Y; ends = zeros of Xi_{k+1};
 landings = (R_{k+1} - R_k)/2 = local maxima of S_k in (0,1); no local minimum in (0,1)). Files: A-track/data/census_k2.json,
 census_k3.json.
+
+### A-track — 16:52 IST 2026-10-03 — P1 k = 4, 5 and P2 k = 26 final
+P1 k = 4 ([0, 256.19] x [0, 68]): real Xi_4 / Xi_5 = 31 / 53; non-real 47 / 34; 47 branches: 11 land, 34 end, 2 exit;
+largest step change of Im z -3.2e-7; smallest margin 0.797. P1 k = 5 ([0, 337.88] x [0, 79]): real 53 / 79 (Haglund
+53 / 79); non-real 63 / 47; 63 branches: 13 land, 47 end, 3 exit; -3.0e-7; 0.828. All checks passed.
+P2 k = 26, window [2876, 3176] x [0, 69]: real Xi_26 / Xi_27 = 45 / 263; non-real 133 / 17; 133 branches: 109 land
+(= (263-45)/2 = the 109 local maxima of S_26 in (0,1)), 17 end at the 17 non-real zeros of Xi_27 in the window, 7 exit;
+no local minimum of S_26 in (0,1); Im z decreased at every step (largest step change -3.0e-7), smallest margin 0.868.
+Site: the certified zero 3143.2206824215 + 0.3152587994i of Xi_27 is the u = 0 end of the branch from the zero
+3130.2619 + 52.4297i of Xi_26 (descending throughout, margin >= 0.970); the neighbor from 3132.1660 + 52.9056i lands at
+x* = 3145.2290390 at u* = 3.3e-76 and produces the real zeros 3144.89466 and 3145.59985 of Xi_27. File:
+A-track/data/frontier_k26.json.
+
+### A-track — 16:55 IST 2026-10-03 — P1 k = 6 final (P1 for k = 1..6 complete)
+k = 6 on [0, 432.12] x [0, 90]: real Xi_6 / Xi_7 = 79 / 113 (Haglund 79 / 113); non-real 82 / 62; 82 branches: 17 land
+(= (113-79)/2), 62 end at the 62 non-real zeros of Xi_7 in W_6, 3 leave through Re z = 432.12 (one of them reaches its
+zero of Xi_7 at 432.1548 + 63.0618i, just outside); Im z decreased at every step (largest step change -3.0e-7);
+smallest margin 0.832; no local minimum of S_6 in (0,1) on [0, 432.12]; routes L and T agree to 2.6e-13 (relative) at
+410 points. Over k = 1..6 the real counts reproduce Haglund's table except N = 4, where the census gives 31 (odd).
+
+### L-lit — task 4 done (16:57 IST 2026-10-03)
+- **Im f′/f < 0 above the axis, in print:** Titchmarsh, *The Theory of Functions* (2nd ed. 1939) §8.52, p. 266 — real entire f of order < 2 (or order 2, genus 1) with only real zeros: Im f′/f = −y{k/(x² + y²) + Σ 1/((x − z_n)² + y²)}. For ξ in the s-variable: Matiyasevich–Saidak–Zvengrowski (arXiv:1205.2773) pp. 4–5, citing Lagarias 1999 and Hinkkanen 1997.
+- **Unconditional for Ξ above height ½** (useful for the charter's step 2): Csordas–Smith, Michigan Math. J. 47 (2000), p. 604, (2.5): Im f′/f < 0 for Im z > A when f ∈ S∞(A) (even, real, zeros in |Im z| ≤ A, not of exponential type). Ξ ∈ S∞(½) without RH (hypotheses checked against their Definition 1.2), so Im Ξ′/Ξ < 0 for Im z > ½ unconditionally. Only the band 0 < Im z ≤ ½ needs RH.
+- **The f(z) = c consequence, in print in one form:** Csordas–Smith 2000, pp. 608–609, (3.3)–(3.4). Level curves are parametrized by e^{iθ}f(z(s)) = is (θ = π/2 gives f(z(s)) = s, i.e. the solutions of f = c); z′(s)·(f′/f) = 1/s, and "tangents are never horizontal" above height A. The direction (descent as |c| decreases) and "real solutions stay real" are not stated there. Each follows in one line (`PRIOR-ART.md` §4(b)), the second from the Laguerre inequality, which is in print (Titchmarsh p. 266).
+- NOT REACHED: Levin, *Distribution of Zeros* (archive.org lending only, search-inside refused); Csordas–Smith–Varga, Analysis 12 (1992) 377–402 (paywalled, €30; only the abstract was read: "level set structure … application to the Riemann Hypothesis").
+
+### A-track — 16:58 IST 2026-10-03 — P2 k = 27 final (the continuation of the Conjecture-1 site)
+Window [3096, 3404] x [0, 70]: real Xi_27 / Xi_28 = 48 / 276; non-real 137 / 16; 137 branches: 114 land (= (276-48)/2
+= the local maxima of S_27 in (0,1)), 16 end at the non-real zeros of Xi_28 in the window, 7 exit; no local minimum of
+S_27 in (0,1); Im z decreased at every step (largest step change -3.0e-7), smallest margin 0.851; all checks passed.
+The certified zero 3143.2206824215 + 0.3152587994i of Xi_27 lands, in pencil 27, at x* = 3143.2466268840, u* = 0.41051
+(t = 0.58949), margin >= 0.993, and becomes the real zeros 3142.979457, 3143.567499 of Xi_28. The real zeros of Xi_27 at
+3144.8946622 and 3145.5998496 stay real throughout and end at 3144.490488 and 3146.283528. File: A-track/data/frontier_k27.json.
+
+## B-track — Q1 k = 2, main run (16:58 IST 2026-10-03; re-runs queued)
+W_2 = [0, 130.531] x [0, 45]. Xi_2: 7 real + 23 non-real (AP 53); Xi_3: 15 real + 18 non-real (AP 51). S_2 on
+[0, 142.5]: 4 local maxima in (0,1), no local minimum in (0,1). 23 branches: 4 land at x* = 44.560600 (tau* 3.24730),
+50.852817 (8.29249), 57.272541 (13.06910), 62.128208 (15.97922); 18 end at the 18 non-real zeros of Xi_3 in W_2;
+1 exits (129.2369+44.1967i -> 133.7312+32.7765i). Im z decreased at every grid step (largest increase -7.9e-8);
+Im(dz/dt) < 0 at all 6,886 grid values. NUMERICAL.
+
+### L-lit — closed (16:59 IST 2026-10-03)
+- `L-lit/PRIOR-ART.md` complete: §0 (summary + LEDGER/TOOL rows + ASKED/DELIVERED), §3, §2, §1, §4, NOT REACHED. The check script `L-lit/check_task3.py` and its log are beside it. Third-party files are under `lit/`, all git-ignored (a tracked README rule, .gitignore l. 129, would have caught `lit/gh-baccaro/README.md.txt`; it was renamed before any commit).

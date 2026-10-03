@@ -23,14 +23,32 @@ def _rel(v):
     rr = (arb(v.real.rad()) + arb(v.imag.rad())) / m
     return float(rr.mid()) if rr.is_finite() else float("inf")
 
+def Phi_fast(n, z):
+    """Phi_n(z); for z exactly real (imaginary part the exact zero) the two terms of G are complex conjugates and
+    G = 2 Re(first term) (half the incomplete-gamma calls); otherwise hag_core.Phi. Checked against hag_core.Phi."""
+    if z.imag == 0 and z.imag.rad() == 0:
+        pi = arb.pi()
+        a = pi * n * n
+        A = acb(a)
+        la = acb(a.log())
+        w = z / 2
+        def g(b):
+            s1 = acb(b) + acb(0, 1) * w
+            return 2 * (A.gamma_upper(s1) * (-s1 * la).exp()).real
+        v = 2 * pi * pi * n ** 4 * g(arb(9) / 4) - 3 * pi * n * n * g(arb(5) / 4)
+        return acb(v, 0)
+    return Phi(n, z)
+
 def XiN_T_ad(N, z, bits):
-    """Xi_N(z) by route T with adaptive M (returns acb)."""
+    """Xi_N(z) by route T with adaptive M (returns acb). Initial M = max(N + 2, ceil(sqrt(x/4 + 15))): the tail after M
+    is about exp(-pi (M+1)^2), against |Xi_N| >~ exp(-pi x/4) below the frontier and ~ exp(-pi (N+1)^2) beyond it; M is
+    raised by 4 until the proved tail ball is below 2^-(bits+8) |value|."""
     x = abs(float(z.real.mid()))
-    M = max(N + 4, int(math.sqrt(x) / 2) + 6)
+    M = max(N + 2, int(math.ceil(math.sqrt(x / 4.0 + 15.0))))
     while True:
         v = Xi(z)
         for n in range(N + 1, M + 1):
-            v -= Phi(n, z)
+            v -= Phi_fast(n, z)
         E = tail_bound(z, M)
         w = v + acb(arb(0, E), arb(0, E))
         av = abs(acb(v.real.mid(), v.imag.mid()))
@@ -73,7 +91,7 @@ def S(k, z, route="T", bits=40):
         while True:
             ctx.prec = p
             num = XiN_T_ad(k + 1, z, bits) if route == "T" else XiN_L(k + 1, z)
-            s = num / Phi(k + 1, z)
+            s = num / Phi_fast(k + 1, z)
             rel = _rel(s)
             if rel <= 2.0 ** (-bits):
                 _PREC[key] = max(64, int(p * 0.8))

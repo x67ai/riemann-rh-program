@@ -1,0 +1,22 @@
+[16:53:29]   seed scan N=27 on [3096.0, 3161.0] x (0,12]: 9 zeros
+    march N=27: 10 added, last 3179.4843+9.2422i
+    march N=27: 20 added, last 3198.4582+14.0109i
+    march N=27: 30 added, last 3217.4180+18.7671i
+    march N=27: 40 added, last 3236.3640+23.5110i
+    march N=27: 50 added, last 3255.2963+28.2427i
+    march N=27: 60 added, last 3274.2151+32.9624i
+    march N=27: 70 added, last 3293.1203+37.6702i
+    march N=27: 80 added, last 3312.0121+42.3663i
+    march N=27: 90 added, last 3330.8906+47.0507i
+    march N=27: 100 added, last 3349.7558+51.7236i
+    march N=27: 110 added, last 3368.6078+56.3852i
+    march N=27: 120 added, last 3387.4467+61.0355i
+    march N=27: 130 added, last 3406.2725+65.6747i
+[16:53:31]   141 seeds for Xi_27 (57s)
+[16:53:31] k=27 P2 window [3096.000, 3404.000]
+[16:53:54]   axis: R_k=48 R_k+1=276 max=114 min=0 unresolved=0 consistent=True (23s)
+[16:53:54]   located 137 non-real zeros of Xi_27
+[16:57:04]   traced 137 branches (213s)
+[16:57:59] SUMMARY k=27 P2: {"R_k": 48, "R_k1": 276, "nonreal_k": 137, "nonreal_k1": 16, "branches": 137, "landings": 114, "nonreal_ends": 16, "exits": 7, "worst_dy": -3.00085264356846e-07, "min_margin": 0.8514490441127045, "checks": {"count_k": true, "count_k1": true, "Y_stable_k": true, "Y_stable_k1": true, "landings_eq_half_real_diff": true, "landings_match_maxima": true, "all_Xik1_nonreal_are_ends": true, "axis_no_min": true, "axis_intervals_consistent": true, "axis_ends_outside_01": true}, "Y": 70.0, "arb_maxrel": 9.078242355877915e-13, "arb_maxprec": 300, "secs": 233.5}
+[16:57:59] hygiene: {"retrace": [{"i": 0, "end": "landed", "end2": "landed", "dx_land": 0.0, "du_land_rel": 0.0}, {"i": 10, "end": "landed", "end2": "landed", "dx_land": 3.446984919719398e-10, "du_land_rel": 0.0}, {"i": 20, "end": "landed", "end2": "landed", "dx_land": 4.347384674474597e-10, "du_land_rel": 0.0}, {"i": 30, "end": "landed", "end2": "landed", "dx_land": 0.0, "du_land_rel": 0.0}, {"i": 40, "end": "landed", "end2": "landed", "dx_land": 6.184563972055912e-11, "du_land_rel": 0.0}, {"i": 50, "end": "landed", "end2": "landed", "dx_land": 0.0, "du_land_rel": 0.0}, {"i": 60, "end": "landed", "end2": "landed", "dx_land": 2.3283064365386963e-10, "du_land_rel": 1.4432433607415887e-16}, {"i": 70, "end": "landed", "end2": "landed", "dx_land": 1.5415935195051134e-10, "du_land_rel": 0.0}, {"i": 80, "end": "landed", "end2": "landed", "dx_land": 0.0, "du_land_rel": 0.0}, {"i": 90, "end": "landed", "end2": "landed", "dx_land": 1.9826984498649836e-10, "du_land_rel": 0.0}, {"i": 100, "end": "landed", "end2": "landed", "dx_land": 1.2005330063402653e-10, "du_land_rel": 0.0}, {"i": 110, "end": "landed", "end2": "landed", "dx_land": 1.9099388737231493e-11, "du_land_rel": 0.0}, {"i": 120, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 130, "end": "exit-right", "end2": "exit-right", "dz_end": null}], "LT": null}
+[16:57:59] wrote /Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/haglund-conj4/A-track/code/../data/frontier_k27.json (976 kB)

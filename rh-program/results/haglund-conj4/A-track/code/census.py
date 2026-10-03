@@ -228,17 +228,19 @@ def hygiene(R, route="T", every=10, lt=True):
 
 def summarize(R):
     br = R["branches"]
+    xb = R["window"][1]
     land = [r for r in br if r["end"] == "landed"]
-    u0 = [r for r in br if r["end"] == "u0"]
-    ex = [r for r in br if r["end"] == "exit-right"]
+    # a branch that reaches u = 0 at a zero of Xi_{k+1} beyond Re z = xb crossed the right edge first: an exit
+    u0 = [r for r in br if r["end"] == "u0" and r["z_end"][0] <= xb]
+    ex = [r for r in br if r["end"] == "exit-right" or (r["end"] == "u0" and r["z_end"][0] > xb)]
     other = [r for r in br if r["end"] not in ("landed", "u0", "exit-right")]
     wdy = max([r["worst_dy"] for r in br] + [-float("inf")])
     mm = min([r["min_margin"] for r in br] + [float("inf")])
     S_ = {"R_k": R["axis"]["R_k"], "R_k1": R["axis"]["R_k1"], "nonreal_k": len(R["zeros_Xik_nonreal"]),
           "nonreal_k1": len(R["zeros_Xik1_nonreal"]), "branches": len(br), "landings": len(land), "nonreal_ends": len(u0),
           "exits": len(ex), "other_ends": [(r["start"], r["end"]) for r in other], "worst_dy": wdy, "min_margin": mm,
-          "checks": R["checks"], "Y": R["Y"], "arb_maxrel": STATS["maxrel"], "arb_maxprec": STATS["maxprec"],
-          "secs": R["secs"]}
+          "checks": R["checks"], "Y": R["Y"], "arb_maxrel": max(STATS["maxrel"], R.get("summary", {}).get("arb_maxrel", 0)),
+          "arb_maxprec": max(STATS["maxprec"], R.get("summary", {}).get("arb_maxprec", 0)), "secs": R["secs"]}
     R["summary"] = S_
     return S_
 
