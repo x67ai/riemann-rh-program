@@ -142,3 +142,92 @@ tends to $0$.
 spans, no mathematics or v1 number altered). Every new statement about W, V and J is true at the page.
 Before publishing: F1 ("the later copy": the journal appeared online nine days after W's date) and
 F2 (the [Hag09] note on page numbers); F3 recommended; F6 at the next build; F4, F5 optional.
+
+## Letter (Part B: the ten statements, by number only; the letter's text is not copied here) (17:59 IST 2026-10-03)
+Abbreviations: W = haglund-conj4/lit/haglund-rh8-penn.txt; V = haglund-conj4/lit/haglund-0910.5228v1.txt;
+NOTE = haglund-conj4/NOTE.md; A = haglund-conj4/A-track/NOTE.md; B = haglund-conj4/B-track/NOTE.md.
+
+**1 — TRUE AS WRITTEN.** W l.8 (title-page date February 9, 2011; server Last-Modified 09 Feb 2011),
+W l.302-303 (N = 4: 31; V l.290-291 has 32), W l.963 (p.10: the quoted three words are verbatim).
+That these were the two smaller points of the first note: the note is under correspondence/ (not
+opened, by rule); LOG.md l.2358 (paraphrase of his reply: the table, and the sign of the 1/x^2
+coefficient) and v1 ../main.tex l.70-74 (the two "corrections"). Note: W states the limit from below
+as N -> infinity; "negative for every N" follows with W's own remark that the Phi_k coefficients are
+positive for k > 3 (W p.10). Fair in substance.
+
+**2 — TRUE AS WRITTEN.** v1 ../main.tex l.1080-1089 cites only arXiv v1 [Hag09] and the journal [Hag11];
+haglund-cert-s37/NOVELTY-F.md l.7 (Session 37 read his publication list, not the linked PDF);
+LOG.md l.2364 (16:23: the program had worked from arXiv v1 and the journal text and had not opened his
+copy); no copy of rh8.pdf anywhere in rh-program before haglund-conj4/lit/ (fetched 2026-10-03 10:41 GMT;
+find over the tree, correspondence/ excluded).
+
+**3 — TRUE AS WRITTEN.** v2/CHANGES.md l.3-13 (removed: the claim of correcting; added: the credit and
+[Hag11w]); v2/main.tex l.205-213, 467-474, 500-505, 1101-1105; A.1 above. v2 is prepared, not published
+(FETCH-LIST-ROUND9.md item 6), so the present progressive fits. If F3 of Part A is applied, no trace of
+the correction framing is left.
+
+**4 — TRUE AS WRITTEN.** LOG.md l.2361 (16:09: the record had no computation on it). Every file dated
+before 2026-10-03 that names Conjecture 4 only quotes it or points to Baccaro: novel-wave-s36/staircase/lit/
+PRIOR-ART.md l.52, haglund-cert-s37/NOVELTY-F.md l.16, haglund-cert-s37/NOTE.md l.35,
+arxiv/haglund-counterexample/SHARED.md l.65, WRITER-BRIEF.md l.29, v1 §1.6. The first computation is the
+orchestrator's probe of 16:09, after his reply (LOG.md l.2358-2361).
+
+**5 — NEEDS A WORD.** Arithmetic TRUE: 15+23+35+47+63+82+133+137 = 535 (NOTE l.127-134; A l.23-28, 40-41);
+each row balances (land + end + exit = branches) and landings = half the difference of the real counts.
+Windows: k = 1..6, the rectangles [0, X_k] x [0, Y_k], X_k = 2 pi (k+2)^2 + 30 (86.55 ... 432.12), Y_k = 41 ... 90,
+complete for the rectangle (A's checks A, A4, C1); k = 26, 27, the frontier windows [2876, 3176] x [0, 69]
+and [3096, 3404] x [0, 70], which contain 4(k+1)^2 = 2916, 3136. So the zeros are those of eight windows,
+one per k (the statement's singular reads as one window). The time range: 279 branches land on the real
+axis before t = 1, 230 end at non-real zeros of Xi_{k+1} at t = 1, and 26 leave their window
+(1, 1, 2, 2, 3, 3, 7, 7). A stops a branch at the window's edge (A-track/code/tracer.py l.108-109); B followed
+its 4 exits for k = 1, 2, 3 to t = 1, descending (B l.98, 134, 176); the other 22 (k = 4, 5, 6, 26, 27) were
+not followed past the edge. Words to add: each branch was followed from t = 0 until it reached the real
+axis, reached t = 1, or left the window (26 of the 535); and make "window" plural, one for each k.
+(Information: since 17:32 A has finished k = 7, 8 and frontier k = 15, 20, 35, 50, all descending, A l.29-30,
+38-39, 42-43; 535 remains correct for the k named.)
+
+**6 — TRUE AS WRITTEN, as the result of the computation of 5 (numerical; grid steps, not interval-rigorous).**
+Both producers: A, every row dy+ < 0 (largest step change -3.7e-7 ... -3.0e-7) and margin >= 0.708 (A l.23-28,
+40-41); B, k = 1, 2, 3, Im z decreased at every grid step of every branch, Im dz/dt < 0 at every grid value
+(B l.101, 136, 178). Real-axis test: A's P3, k = 1..50 on [0, 4(k+2)^2 + 40], no local minimum of S_k with
+value in (0, 1), PASS in every row (A l.46-109), which covers all k named in 5; B the same for k = 1, 2, 3
+(B l.94, 131, 172). By NOTE Theorem 2.1(e) as corrected (read-O F1) a scan for minima detects every lift-off
+except at degenerate critical points. Two limits to keep in mind: "throughout" holds for the 26 exits only up
+to the window's edge (as in 5); and the record of status (NOTE §6 l.138, ledger L-007) still says the real-axis
+test covers k <= 20, so for k = 26, 27 the support is A's P3 table alone (one producer; record lag, W5).
+If the letter does not already mark the census as numerical, add "numerically" (or "in this computation").
+
+**7 — TRUE AS WRITTEN.** NOTE §1 Lemma 1.2 (l.48-51): the pencil is Xi minus the level L_t, which is (1 - t) times
+Phi_(k+1) plus the tail Q_(k+1);
+L_t(x) > 0 for real x, dF_t/dt = Phi_{k+1} > 0 on the real axis, i.e. L_t strictly decreases in t there;
+for k >= 1, 0 <= t <= 1 (it breaks only for t > 1). read-O §1.2 (l.41-42) re-derived it; ledger L-001
+PROVED (writer; read-O). The identity itself holds for every complex z; "decreases" is meant on the real
+axis, as the statement's order of words already gives.
+
+**8 — TRUE AS WRITTEN (classical).** NOTE §3 Lemma 3.1 (l.77-78) with Xi(z) = Xi(0) prod(1 - z^2/gamma^2) under
+real zeros: for real c != 0 the non-real solutions of Xi = c move toward the axis as |c| decreases; off the
+axis these solutions are automatically simple (read-O §1.6, l.59-60). Proposition 3.2(iii) (l.80-84; needs
+simple zeros too) adds where they land. Ledger L-004: CONDITIONAL, in print in substance (Titchmarsh, The
+Theory of Functions §8.52 p.266; Csordas-Smith, Michigan Math. J. 47 (2000) (2.5) p.604). If the letter
+presents it as a finding of the program, add "classical" or the two names (W1).
+
+**9 — TRUE AS WRITTEN.** NOTE §4 Proposition 4.2 (l.102-107): hypotheses exactly a simple zero beta of Xi,
+Im beta > 0, Im Xi'(beta) != 0; conclusion for every k >= k_0(beta) and all t in [0, 1]: one zero in a disc D
+with closure in the upper half-plane (so non-real), simple, C^1 in t, sign d Im z_k/dt = sign Im Xi'(beta);
+with Im Xi'(beta) > 0 the imaginary part strictly increases on all of [0, 1] -> Conjecture 4 fails for every
+k >= k_0. The statement's three hypotheses match; "all large k" = k >= k_0. Remark (4) (l.109): the mirror
+-conj(beta) has the same sign, so a first-quadrant reading of the conjecture fails as well. read-O §1.10
+(l.73-76): no gap; ledger L-006 PROVED (writer; read-O). Wording: "Provable" is accurate (one reader has
+checked the proof); "We can prove" reads more naturally. (Record-only: ledger L-006's one-line title omits
+"simple"; its statement has it.)
+
+**10 — TRUE AS WRITTEN.** arxiv/haglund-counterexample/lit/zenodo-22059236.md l.3 (Published August 22,
+2026), l.14 (Mayk Loide Baccaro); zenodo-22059236-raw.json citation_doi 10.5281/zenodo.22059236 (version DOI;
+concept DOI 22059235); haglund-conj4/lit/baccaro-hc4-k1-20260822.txt l.1-17 (title; abstract: Conjecture 4
+for k = 1, k >= 2 open); L-lit/PRIOR-ART.md §2 l.84 ff. "treats" is neutral and right.
+
+### Letter: summary
+TRUE AS WRITTEN: 1, 2, 3, 4, 6 (numerical, see note), 7, 8 (classical), 9, 10. NEEDS A WORD: 5 (the time
+range for the 26 branches that left their window; "window" plural, one per k). FALSE: none.
+
+Closed 18:01 IST 2026-10-03 (second model). check-private.py on this file: default and --broad, 0 hits.

@@ -28,6 +28,7 @@ of one branch in ten agrees, routes L/T agree at 5 points per branch for k <= 6,
 | 6 | 432.12 | 90 | 79 / 113 [79 / 113] | 82 / 62 | 82 | 17 | 62 | 3 | -3.0e-07 | 0.832 | A, A4, C1, C2, C3, D, H; re-trace 9/9 (ends to 1.1e-11); L/T 410 pts max rel 2.6e-13; Arb rel radius <= 9.0e-13 |
 | 7 | 538.94 | 102 | 113 / 155 [113 / 155] | 103 / 80 | 103 | 21 | 80 | 2 | -3.1e-07 | 0.842 | A, A4, C1, C2, C3, D, H; re-trace 11/11 (ends to 9.4e-11); Arb rel radius <= 9.1e-13 |
 | 8 | 658.32 | 115 | 155 / 207 [155 / 207] | 127 / 98 | 127 | 26 | 98 | 3 | -3.0e-07 | 0.850 | A, A4, C1, C2, C3, D, H; re-trace 13/13 (ends to 2.4e-11); Arb rel radius <= 8.9e-13 |
+| 9 | 790.27 | 130 | 207 / 263 [207 / 263] | 153 / 122 | 153 | 28 | 122 | 3 | -3.0e-07 | 0.861 | A, A4, C1, C2, C3, D, H; re-trace 16/16 (ends to 3.3e-11); Arb rel radius <= 9.0e-13 |
   (k = 6: one branch, from 425.6801 + 82.8913i, reaches u = 0 at the zero 432.1548 + 63.0618i of Xi_7, just beyond X_6 = 432.1239; counted as an exit.)
   (Haglund column: arXiv v1 / journal table; the author's 2011 web copy prints 31 at N = 4 (L-lit, SHARED 16:18), as found here.)
 <!-- P1 rows -->

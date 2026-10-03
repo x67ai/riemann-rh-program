@@ -183,3 +183,26 @@ says §1.3/§1.5 for what the PDF numbers §1.4/§1.7. Now on Part B (the letter
 main.tex: front matter (template footnote verbatim), abstract (draft), §1 (Haglund's p. 11 lead-in and Conjecture 4 quoted from
 arXiv v1; (D), (R)), §1.2 (items by kind), §2 (NOTE Lemmas 1.1-1.3, Theorem 2.1 as corrected, Remark 2.2, Proposition 2.3 and the
 paragraph after it, re-typed). No gap met so far. Next: §3 (frozen level, short proof), §4, §5 census, §6 heuristics, §7 prior work.
+
+### v2-check (second model) — 18:00 IST 2026-10-03 — Part B (the letter, statements by number) done
+TRUE AS WRITTEN: 1, 2, 3, 4, 6 (as a numerical report), 7, 8 (classical: Titchmarsh §8.52; Csordas-Smith 2000),
+9 (hypotheses match Proposition 4.2 exactly), 10. NEEDS A WORD: 5 — 535 = 15+23+35+47+63+82+133+137 is right,
+but the zeros lie in eight windows (one per k), and 26 of the 535 branches left their window (A stops at the
+edge; B followed its 4 exits for k <= 3 to t = 1), so "from 0 to 1" needs "until it landed, reached t = 1, or
+left the window". Record lag: NOTE §6 and ledger L-007 still say the real-axis test covers k <= 20; A's P3 now
+covers k = 1..50 (all PASS), which is what supports statement 6 at k = 26, 27. FALSE: none.
+
+### WRITER — 18:01 IST 2026-10-03 — full draft of the note compiles (11 pp.; trimming to <= 9)
+§3 (Lemma 3.1 Titchmarsh, Prop. 3.2 "in substance" Csordas-Smith, short proof), §4 (Lemma 4.1, consequences, Prop. 4.2, Remarks 1-4,
+the corrected "Reading"), §5 (one table built mechanically from A-track/NOTE.md §0-P1/P2 by a scratch script — rows k = 1..8 and
+15, 20, 26, 27, 35, 50 are final there now; B on k = 1, 2, 3 from its Q1 sections; R_N for N = 1..51 from §0-P3), §6 (three regimes,
+Lemma 6.1 = the proved sign/monotonicity of c(t)), §7 prior work, code URL, bibliography. No gap met.
+
+### A-track — 18:04 IST 2026-10-03 — P1 k = 9 and P2 k = 50 final; routes L/T at the site
+P1 k = 9 on [0, 790.27] x [0, 130]: real Xi_9 / Xi_10 = 207 / 263 (Haglund 207 / 263); non-real 153 / 122; 153
+branches: 28 land, 122 end, 3 exit; Im z decreased at every step (-3.0e-7); smallest margin 0.861; all checks passed.
+P2 k = 50, window [10364, 10856] x [0, 99]: real Xi_50 / Xi_51 = 58 / 546; non-real 274 / 19; 274 branches: 244 land
+(= (546-58)/2), 19 end, 11 exit; -3.0e-7; 0.857; all checks passed. P2 is complete for k = 15, 20, 26, 27, 35, 50:
+901 branches, 754 landings, no step with Im z increasing, smallest margin 0.851 (k = 27).
+Site cross-check: S by route T and by the literal sum (up to 6592 bits) agree to <= 1.7e-14 (balls overlapping) at 15
+points of the three site branches (A-track/data/site_routes_LT.json). NUMERICAL.

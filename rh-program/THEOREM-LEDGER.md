@@ -23,7 +23,7 @@
 | L-003 | a lift-off forces −(log L_t)″ ≥ Σ_γ[…] | CONDITIONAL (zeros of Ξ real) | writer; read-O ✓ | `results/haglund-conj4/NOTE.md` §2 |
 | L-004 | frozen level: zeros of Ξ − c descend and land at the top of their lobe | CONDITIONAL (zeros of Ξ real and simple); in print in substance | writer; read-O ✓ after F2 | `results/haglund-conj4/NOTE.md` §3 |
 | L-005 | Φ_n is nearly constant on a fixed disc | PROVED | writer; read-O ✓ | `results/haglund-conj4/NOTE.md` §4 |
-| L-006 | an off-axis zero of Ξ with Im Ξ′ > 0 forces an ascending zero of the pencil for all large k | PROVED | writer; read-O ✓ | `results/haglund-conj4/NOTE.md` §4 |
+| L-006 | a simple off-axis zero of Ξ with Im Ξ′ > 0 forces an ascending zero of the pencil for all large k | PROVED | writer; read-O ✓ | `results/haglund-conj4/NOTE.md` §4 |
 | L-007 | census of Haglund's Conjecture 4: 535 branches, k ≤ 6 and k = 26, 27; real axis k ≤ 20 | NUMERICAL | A-track; B-track (k ≤ 3); orchestrator's comparison | `results/haglund-conj4/NOTE.md` §6 |
 
 ## Definitions
@@ -100,6 +100,7 @@ Row block (copy this shape):
     - Source. `results/haglund-conj4/NOTE.md` §6, SHA-256 f308961ab85988c7 at entry; Instruments: the table of that section.
     - Depends on. —
     - Entered. 17:34 IST 2026-10-03, side-session of 2026-10-03 (the second).
+    - L-007/c1 (18:04 IST 2026-10-03). The census has grown since entry: rows for k = 7, 8, 15, 20, 35 (1122 branches in all, every one descending at every step), and the real-axis test for k = 1, …, 50 with all 5558 local maxima of S_k with value in (0, 1) non-degenerate (A-track; NOTE §6, the paragraph added at this time). The statement above stands as the part two producers and the independent check of the answer have covered.
 
 ## Targets
 

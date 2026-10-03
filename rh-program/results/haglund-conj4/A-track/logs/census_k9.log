@@ -1,3 +1,13 @@
 [17:48:08] k=9 P1 window [0.000, 790.265]
 [17:48:40]   axis: R_k=207 R_k+1=263 max=28 min=0 unresolved=0 consistent=True (31s)
 [17:48:43]   located 153 non-real zeros of Xi_9
+[18:00:33]   traced 153 branches (745s)
+    march N=10: 10 added, last 813.5464+104.1996i
+    march N=10: 20 added, last 837.2213+111.1479i
+    march N=10: 30 added, last 860.7902+118.0040i
+    march N=10: 40 added, last 884.2569+124.7729i
+    march N=10: 50 added, last 907.6245+131.4593i
+    march N=10: 60 added, last 930.8963+138.0675i
+[18:03:13] SUMMARY k=9 P1: {"R_k": 207, "R_k1": 263, "nonreal_k": 153, "nonreal_k1": 122, "branches": 153, "landings": 28, "nonreal_ends": 122, "exits": 3, "worst_dy": -3.0057732086539273e-07, "min_margin": 0.861491683269846, "checks": {"count_k": true, "count_k1": true, "Y_stable_k": true, "Y_stable_k1": true, "landings_eq_half_real_diff": true, "landings_match_maxima": true, "all_Xik1_nonreal_are_ends": true, "axis_no_min": true, "axis_intervals_consistent": true, "axis_ends_outside_01": true}, "Y": 130.0, "arb_maxrel": 9.032113029167254e-13, "arb_maxprec": 1304, "secs": 772.2}
+[18:03:13] hygiene: {"retrace": [{"i": 0, "end": "landed", "end2": "landed", "dx_land": 5.684341886080802e-14, "du_land_rel": 0.0}, {"i": 10, "end": "landed", "end2": "landed", "dx_land": 3.26281224261038e-11, "du_land_rel": 0.0}, {"i": 20, "end": "landed", "end2": "landed", "dx_land": 2.6489033189136535e-11, "du_land_rel": 0.0}, {"i": 30, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 40, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 50, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 60, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 70, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 80, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 90, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 100, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 110, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 120, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 130, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 140, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 150, "end": "exit-right", "end2": "exit-right", "dz_end": null}], "LT": null}
+[18:03:13] wrote /Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/haglund-conj4/A-track/code/../data/census_k9.json (1049 kB)

@@ -130,10 +130,17 @@ Producers. `A-track` (Arb through the registered evaluator; a branch is followed
 | 4 | [0, 256.19]; [0, 68] | 31 / 53 | 47 / 34 | 47 | 11 | 34 | 2 | −3.2e−7 | 0.797 | A |
 | 5 | [0, 337.88]; [0, 79] | 53 / 79 | 63 / 47 | 63 | 13 | 47 | 3 | −3.0e−7 | 0.828 | A |
 | 6 | [0, 432.12]; [0, 90] | 79 / 113 | 82 / 62 | 82 | 17 | 62 | 3 | −3.0e−7 | 0.832 | A |
+| 7 | [0, 538.94]; [0, 102] | 113 / 155 | 103 / 80 | 103 | 21 | 80 | 2 | −3.1e−7 | 0.842 | A |
+| 8 | [0, 658.32]; [0, 115] | 155 / 207 | 127 / 98 | 127 | 26 | 98 | 3 | −3.0e−7 | 0.850 | A |
+| 15 | [984, 1196]; [0, 55] | 37 / 145 (in the window) | 74 / 16 | 74 | 54 | 16 | 4 | −3.0e−7 | 0.880 | A |
+| 20 | [1724, 1976]; [0, 61] | 40 / 196 (in the window) | 101 / 17 | 101 | 78 | 17 | 6 | −3.0e−7 | 0.876 | A |
 | 26 | [2876, 3176]; [0, 69] | 45 / 263 (in the window) | 133 / 17 | 133 | 109 | 17 | 7 | −3.0e−7 | 0.868 | A |
 | 27 | [3096, 3404]; [0, 70] | 48 / 276 (in the window) | 137 / 16 | 137 | 114 | 16 | 7 | −3.0e−7 | 0.851 | A |
+| 35 | [5144, 5516]; [0, 80] | 53 / 363 (in the window) | 182 / 19 | 182 | 155 | 19 | 8 | −3.0e−7 | 0.876 | A |
 
 Readings (each a statement about its window; W2). In all eight rows — 535 branches — the imaginary part decreased at every step of every branch (the step change is negative throughout; the margin, the sine of the angle of descent, stays above 0.7); the number of landings equals half the difference of the real counts; every non-real zero of Ξ_{k+1} in the window is the end of a followed branch (A's completeness checks, in its NOTE). Where both producers have run (k = 1, 2, 3) they agree on every count, and on all 15 landings to the digits B printed: |Δx*| ≤ 3.9e−7, |Δτ*| ≤ 4.8e−6 (`orch-probe/compare_AB.py`, the orchestrator's comparison). The real counts are those of Haglund's table with 31 at N = 4.
+
+Added 18:04 IST 2026-10-03 (A-track's blocks of 17:37–17:48; rows 7, 8, 15, 20, 35 above): with these the table holds 1122 branches, the 535 of the first eight rows among them, and every one descends at every step. The real-axis test is now complete for k = 1, …, 50 on [0, 4(k+2)² + 40]: no local minimum of S_k with value in (0, 1), and each of the 5558 local maxima with value in (0, 1) is non-degenerate (S_k″ < 0) — which is the criterion of Theorem 2.1(e) in its corrected form, on the grid; the real counts R_N are odd for N = 1, …, 51. Of the 535 branches of the first eight rows, 279 land, 230 end at t = 1 at a non-real zero and 26 leave their window (A stops a branch at the window's edge; B followed its four exits for k ≤ 3 to t = 1) — the count of the independent check of the answer, `results/arxiv/haglund-counterexample/v2/INTEGRITY-DIFF.md`.
 
 The real axis (the test of (R)): for k = 1, …, 20, on [0, 4(k+2)² + 40], S_k has no local minimum with value in (0, 1), and its local maxima with value in (0, 1) are as many as (R_{k+1} − R_k)/2 (A; grid of 1/20 of the mean zero spacing, the frontier re-scanned at 1/40). R_N for N = 1, …, 18: 1, 7, 15, 31, 53, 79, 113, 155, 207, 263, 327, 401, 483, 575, 673, 781, 899, 1027 — all odd, as the paper's corollary requires. B: the same for k = 1, 2, 3 on its windows. (The reader's caveat F1: a scan for minima checks the criterion of Theorem 2.1(e) up to degenerate critical points.) The unconditional inequality behind Proposition 2.3 was also tabulated: on the grids of ORCH-NOTES N8, −(log L_u)″ is at most 0.066 times −(log Ξ)″ at k = 1 and at most 5.6e−6 times at k = 20.
 
