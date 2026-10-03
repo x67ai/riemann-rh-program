@@ -150,3 +150,9 @@ P1 k = 7 on [0, 538.94] x [0, 102]: real Xi_7 / Xi_8 = 113 / 155 (Haglund 113 / 
 21 land, 80 end at the non-real zeros of Xi_8 in W_7, 2 exit; Im z decreased at every step (-3.1e-7); smallest margin
 0.842; all checks passed. P2 k = 20, window [1724, 1976] x [0, 61]: real 40 / 196; non-real 101 / 17; 101 branches: 78
 land, 17 end, 6 exit; -3.0e-7; 0.876; all checks passed. NUMERICAL. Files: A-track/data/census_k7.json, frontier_k20.json.
+
+### A-track — 17:48 IST 2026-10-03 — P1 k = 8 and P2 k = 35 final
+P1 k = 8 on [0, 658.32] x [0, 115]: real Xi_8 / Xi_9 = 155 / 207 (Haglund 155 / 207); non-real 127 / 98; 127 branches:
+26 land, 98 end, 3 exit; Im z decreased at every step (-3.0e-7); smallest margin 0.850; all checks passed.
+P2 k = 35, window [5144, 5516] x [0, 80]: real 53 / 363; non-real 182 / 19; 182 branches: 155 land, 19 end, 8 exit;
+-3.0e-7; 0.876; all checks passed. NUMERICAL. Files: A-track/data/census_k8.json, frontier_k35.json.

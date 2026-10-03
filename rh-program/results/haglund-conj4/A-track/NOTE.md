@@ -27,6 +27,7 @@ of one branch in ten agrees, routes L/T agree at 5 points per branch for k <= 6,
 | 5 | 337.88 | 79 | 53 / 79 [53 / 79] | 63 / 47 | 63 | 13 | 47 | 3 | -3.0e-07 | 0.828 | A, A4, C1, C2, C3, D, H; re-trace 7/7 (ends to 3.1e-11); L/T 315 pts max rel 2.2e-13; Arb rel radius <= 9.1e-13 |
 | 6 | 432.12 | 90 | 79 / 113 [79 / 113] | 82 / 62 | 82 | 17 | 62 | 3 | -3.0e-07 | 0.832 | A, A4, C1, C2, C3, D, H; re-trace 9/9 (ends to 1.1e-11); L/T 410 pts max rel 2.6e-13; Arb rel radius <= 9.0e-13 |
 | 7 | 538.94 | 102 | 113 / 155 [113 / 155] | 103 / 80 | 103 | 21 | 80 | 2 | -3.1e-07 | 0.842 | A, A4, C1, C2, C3, D, H; re-trace 11/11 (ends to 9.4e-11); Arb rel radius <= 9.1e-13 |
+| 8 | 658.32 | 115 | 155 / 207 [155 / 207] | 127 / 98 | 127 | 26 | 98 | 3 | -3.0e-07 | 0.850 | A, A4, C1, C2, C3, D, H; re-trace 13/13 (ends to 2.4e-11); Arb rel radius <= 8.9e-13 |
   (k = 6: one branch, from 425.6801 + 82.8913i, reaches u = 0 at the zero 432.1548 + 63.0618i of Xi_7, just beyond X_6 = 432.1239; counted as an exit.)
   (Haglund column: arXiv v1 / journal table; the author's 2011 web copy prints 31 at N = 4 (L-lit, SHARED 16:18), as found here.)
 <!-- P1 rows -->
@@ -38,6 +39,7 @@ of one branch in ten agrees, routes L/T agree at 5 points per branch for k <= 6,
 | 20 | [1724, 1976] | 61 | 40 / 196 | 101 / 17 | 101 | 78 | 17 | 6 | -3.0e-07 | 0.876 | A, A4, C1, C2, C3, D, H; re-trace 11/11 (ends to 2.3e-10); Arb rel radius <= 9.0e-13 |
 | 26 | [2876, 3176] | 69 | 45 / 263 | 133 / 17 | 133 | 109 | 17 | 7 | -3.0e-07 | 0.868 | A, A4, C1, C2, C3, D, H; re-trace 14/14 (ends to 3.6e-10); Arb rel radius <= 9.0e-13 |
 | 27 | [3096, 3404] | 70 | 48 / 276 | 137 / 16 | 137 | 114 | 16 | 7 | -3.0e-07 | 0.851 | A, A4, C1, C2, C3, D, H; re-trace 14/14 (ends to 4.3e-10); Arb rel radius <= 9.1e-13 |
+| 35 | [5144, 5516] | 80 | 53 / 363 | 182 / 19 | 182 | 155 | 19 | 8 | -3.0e-07 | 0.876 | A, A4, C1, C2, C3, D, H; re-trace 19/19 (ends to 1.3e-09); Arb rel radius <= 9.1e-13 |
 <!-- P2 rows -->
 
 ### §0-P3 The real-axis test (d) alone, k = 1..50, on [0, 4(k+2)^2 + 40]
