@@ -1,6 +1,6 @@
 # read-O — Opus reader, theory note of stream `haglund-conj4`
 
-Status: IN PROGRESS (built incrementally; plan first, attempts appended as made).
+Status: COMPLETE (built incrementally; the plan below was written first).
 
 ## Plan (at most 20 lines)
 
@@ -27,7 +27,7 @@ Status: IN PROGRESS (built incrementally; plan first, attempts appended as made)
 
 ## VERDICT LINE
 
-(written at the end; see the bottom of the file until then)
+**AGREES-WITH-CORRECTIONS.** Re-derived at the line: §1 (Lemmas 1.1–1.3; the kernel identity holds for every complex z, from Haglund's own (6), (14)), Theorem 2.1(a)–(d), Proposition 2.3 (assumes only that the zeros of Ξ are real), Lemma 3.1, Lemma 4.1 (every constant; 25 numerical tests, actual/bound ≤ 0.105), Proposition 4.2 (Rouché, IFT, uniformity in t, sign — no gap; its mechanism is visible on the control Ξ + 5e−5 for k = 2…8) and the two PROVED items of §5 — all ✓. Three FIX-FIRST: **F1** Theorem 2.1(e) is false as an "if and only if" — a real zero of multiplicity ≥ 3 (a critical point of S_k with S_k″ = 0) and a lift-off at t = 0 also break (R) and (D); the correct criterion is "every critical point of S_k with value in (0, 1] is a non-degenerate maximum" (non-generic cases, so no computed number changes); **F2** Proposition 3.2's proof uses, without proving, that each lobe has one critical point and that Ξ → ∞ along C_m (both true; proofs supplied); **F3** the "Reading" (l. 79) says more than Proposition 4.2 and a frozen-level model give. Twelve minor pairs (18 pairs in all). The re-run with my own mpmath code reproduces the N2/N4 landings (three maxima of Ξ_2/Φ_2, e.g. 22.14237766 with value 0.0837083117225), the λ = 5e−5 lift-off (minimum at 24.34012104, value 0.611995156161), the paper's five 1/x² limits and Ξ(0) − Φ_1(0) ≤ c_1, digit for digit. Novelty: Theorem 2.1 is new as a statement on a printed core (the paper's sandwich/tail/odd results; Baccaro 2026 for k = 1 and, per L-lit, his all-k record); Proposition 4.2 is new in the sources reached.
 
 ## §1 Re-derivations at the line
 
@@ -44,7 +44,7 @@ Integration by parts ∫φ̃cos(xv) = x^{−1}∫(−φ̃′)sin(xv) (boundary t
 ### 1.3 Lemma 1.3 — ✓ (with the NOTE's own caveat)
 F_t = Ξ_k + tΦ_{k+1} = Ξ_{k+1} − uΦ_{k+1} ✓; F_t = 0 ⟺ S_k = u where Φ_{k+1} ≠ 0; at a common zero of Ξ_{k+1}, Φ_{k+1} the pencil vanishes for all t (a stationary zero; it cannot violate (D)) ✓; where Φ_{k+1} = 0 ≠ Ξ_{k+1} there is no zero ✓. Implicit differentiation: z′ = −∂_tF/∂_zF = −Φ_{k+1}/∂_zF; and at a zero, S_k′ = (Ξ_{k+1}′ − uΦ_{k+1}′)/Φ_{k+1} = ∂_zF/Φ_{k+1}, so z′ = −1/S_k′ ✓; Im(−1/w) = Im w/|w|² ✓. The equivalence with (D): necessity (Im S′ > 0 at one point ⇒ that branch rises near t = 1 − u) ✓; sufficiency along simple branches ✓, and through a multiple zero the imaginary part is continuous, so non-increase on each side gives non-increase across — the bracket is harmless. Note: the set should be S_k(z) ∈ [0, 1] for the closed t-interval; with (0, 1) the endpoints t = 0, 1 are one-sided and do not matter for monotonicity ✓.
 
-### 1.4 Theorem 2.1 — (a) ✓ (b) ✓ (c) ✓ (d) ✓ as stated but incomplete (m1-level) (e) FALSE as an "if and only if" (F1)
+### 1.4 Theorem 2.1 — (a) ✓ (b) ✓ (c) ✓ (d) ✓ as stated (counted with multiplicity) but silent on the departure at m ≥ 3 (F1a) (e) FALSE as an "if and only if" (F1b, F1c)
 (a) Lemma 1.2 ✓.
 (b) F_t = Ξ − L_t < Ξ on ℝ, so a real zero has Ξ = L_t > 0 ✓. Ends: F_t(γ_j) = −L_t(γ_j) < 0 ✓. Sign at 0: F_t − Ξ_1 = Σ_{2≤n≤k}Φ_n + tΦ_{k+1} ≥ 0 on ℝ (empty sum at k = 1: tΦ_2 ≥ 0) ✓; Ξ_1(0) = Ξ(0) − Q_1(0) ≥ 0.4971 − c_1 (Q_1 = c_1 − P_1 ≤ c_1, the paper l. 409–411, Cor. odd l. 485–486) ✓; my re-run: Ξ(0) = 0.497120778…, Q_1(0) = 1.718e−4 (verify-O §2.2). Limit: two integrations by parts, ∫κcos(xv) = −κ′(0)/x² − x^{−2}∫κ″cos(xv), last integral → 0 (Riemann–Lebesgue, κ″ ∈ L¹) ⇒ x²L_t(x) → −2κ_t′(0) > 0 ✓; x²Ξ(x) → 0 ✓ ⇒ x²F_t(x) → 2κ_t′(0) < 0 ✓. Finiteness and parity ✓. Tried to break at k = 1, t = 0, t = 1: at t = 0 and t = 1 the statement is the paper's Cor. odd for N = k and N = k + 1; at k = 1 every index in κ_t is ≥ 2 — no break.
 (c) F_t − F_s = (t − s)Φ_{k+1} > 0 on ℝ; a boundary point of the open set P_s has F_s = 0, hence F_t > 0 there ✓.
@@ -59,7 +59,7 @@ Line 41, "So (R) follows … from the strict inequality": TRUE, and in fact it s
 ### 1.6 Lemma 3.1 — ✓ (classical; Laguerre–Pólya)
 f′/f = m/z − 2az + b + Σ[1/(z − a_j) + 1/a_j] (locally uniform convergence from Σa_j^{−2} < ∞) ✓; Im(m/z) = −m·Im z/|z|², Im(−2az) = −2a·Im z, Im 1/(z − a_j) = −Im z/|z − a_j|², the rest real ⇒ Im f′/f < 0 for Im z > 0 when there is a zero or a > 0 ✓ (C must be real for "real entire" — implicit) ✓. At a simple solution of f = c ≠ 0: dz/dc = 1/f′ = (1/c)(f/f′), Im(f/f′) = −Im(f′/f)/|f′/f|² > 0, so Im(dz/dc) has the sign of c and d(Im z)/d|c| = Im(f/f′)/|c| > 0 ✓. (Also: f′ ≠ 0 at every point of the upper half-plane where f ≠ 0, so "simple" is automatic there.)
 
-### 1.7 Proposition 3.2 (hypothesis: every zero of Ξ real and simple) — (i) ✓ (ii) GAP-minor (one critical point per lobe used, not proved; localization compressed) (iii) GAP (Ξ → ∞ along C_m not shown) → F2
+### 1.7 Proposition 3.2 (hypothesis: every zero of Ξ real and simple) — (i) ✓ (ii) GAP (one critical point per lobe used, not proved; localization compressed) → F2a (iii) GAP (Ξ → ∞ along C_m not shown) → F2b
 (i) Upper half-plane simply connected, Ξ ≠ 0 there (hypothesis), so A(x, y) := Im log Ξ(x + iy) is harmonic, with A(0, y) = 0 because Ξ(iy) = 2∫Σφ̃_n cosh(yv)dv > 0 (every φ̃_n > 0 since y_n ≥ π > 3/2) ✓. ∂_xA = Im Ξ′/Ξ < 0 (Lemma 3.1) ✓; −∂_xA ≥ Σ_{γ>0} y/((x − γ)² + y²), each term has ∫_0^∞ ≥ π/2, infinitely many γ (Hardy), monotone convergence ⇒ A → −∞ ✓. One crossing of −2πm per line ✓; IFT (∂_xA ≠ 0) ⇒ real-analytic graphs ✓; Ξ(z) > 0 ⟺ A ∈ 2πℤ, and A < 0 for x > 0 ⇒ m ≥ 1 ✓.
 (ii) Ξ′ ≠ 0 off ℝ ✓; r(y) = Ξ(x_m(y) + iy) real, r′ = Ξ′·(x_m′ + i) ≠ 0 ⇒ strictly monotone ✓; direction: the solution branch of Ξ = c through a point of C_m stays on C_m and Lemma 3.1 gives d(Im z)/dc > 0 for c > 0 ⇒ r increasing ✓. Limit y → 0: what is needed and not written — (1) LOCALIZATION: A(·, y) → −2πm + π on the preceding negative lobe and → −2πm − π on the following one, locally uniformly as y → 0 (boundary values of the argument: −π per simple zero passed above), so for small y, x_m(y) ∈ (γ_{2m} − ε, γ_{2m+1} + ε); hence every limit point x* lies in [γ_{2m}, γ_{2m+1}] and Ξ(x*) = lim r(y) ≥ 0; the NOTE's local-injectivity argument then excludes the zeros and the non-critical points ✓; (2) UNIQUENESS: "the critical point of the lobe" presumes exactly one critical point per lobe. It holds under the hypothesis — (Ξ′/Ξ)′ = −Σ_{±γ}(x ∓ γ)^{−2} < 0 on each lobe, so Ξ′/Ξ falls strictly from +∞ to −∞ there and vanishes exactly once, and Ξ″ = Ξ·(Ξ′/Ξ)′ < 0 at that point (a non-degenerate maximum, value M_m) — but the NOTE neither states nor proves it. Simplicity of the zeros IS used (lobe indexing (γ_{2m}, γ_{2m+1}); local injectivity at a zero — at a double zero x* with Ξ ≈ c(z − x*)², c < 0, the vertical through x* carries Ξ > 0 and a curve C_m could end at a zero) and is assumed ✓.
 (iii) "Bijection with the positive lobes with M_m < c (one zero on each such C_m)": needs sup_{C_m}Ξ = +∞, i.e. Ξ(x_m(y) + iy) → ∞ as y → ∞. Not in the proof ("(iii) from (i), (ii)"). It is true, and my fix (single-check): for y ≥ 2πe², with σ = ½ + y, Ξ(x + iy) = conj ξ(σ + ix) and arg ξ(σ + ix) ≥ (x/2)log(σ/(2πe)) − π/2 (from arg Γ((σ + ix)/2) = ½∫_0^x Re ψ((σ + iτ)/2)dτ, Re ψ(w) ≥ log|w| − 1/Re w, |arg ζ| < π/2 and arg s(s − 1) ∈ [0, π) for σ ≥ 2) ⇒ x_m(y) ≤ 4πm + 3π; and |ξ(σ + ix)| → ∞ uniformly for 0 ≤ x ≤ 4πm + 3π as σ → ∞ (|ζ| ≥ 2 − ζ(σ) > 0.35, |Γ((σ + ix)/2)| ≥ Γ(σ/2)·(1 + x²/σ²)^{−σ/4}·… → ∞). With this, Ξ maps C_m increasingly onto (M_m, ∞) ✓ and (iii) follows ✓. "None on the others" ✓ (Ξ > M_m on C_m); "two real zeros of Ξ − c in the lobe when M_m > c" uses the one-critical-point fact of (ii)(2) ✓ once added. Monotone descent along C_m as c decreases ✓, landing at c = M_m at the critical point ✓. Numerics: verify-O §2.4 checks (i)–(iii) at the first positive lobe (no hypothesis is checked there, only the picture).
@@ -74,7 +74,18 @@ dz/dt = −Φ_{k+1}/(Ξ′ − L′) and, where Ξ = L ≠ 0, Ξ′ − L′ = L
 D̄ ⊂ {Im z > 0}, no other zero of Ξ, no zero of Ξ′ ✓; δ = min_{∂D}|Ξ| > 0 ✓; sup_{D̄}|L_t| → 0 uniformly in t ∈ [0, 1] (above) ⇒ Rouché: one zero, simple, for k ≥ k_1, all t ✓; IFT in t (F analytic in z, affine in t) ⇒ C¹ ✓; Rouché on shrinking discs ⇒ z_k(t) → β uniformly in t ✓; Ξ′(z_k) − L_t′(z_k) → Ξ′(β) uniformly (Cauchy on a smaller disc) ✓; Φ_{k+1}(z_k)/Φ_{k+1}(0) → 1 uniformly (Lemma 4.1 with R = sup_{D̄}|z|; k + 1 large enough that π(k+1)² ≥ R + ½) ✓; Φ_{k+1}(0) > 0 ✓; Im(−1/w) = Im w/|w|² ✓. Uniformity in t: every bound used is uniform in u ∈ [0, 1] ✓. Sign ✓. The proof is a standard Rouché–Hurwitz perturbation; I found no gap.
 Remarks: (1) Ξ + L_t = Σ_{n≤k}Φ_n + (2 − t)Φ_{k+1} + 2Σ_{n>k+1}Φ_n ✓, non-negative coefficients ✓ (Haglund (53), p. 10, l. 557: F = Σc_kΦ_k, c_k ≥ 0 ✓); dz/dt = +Φ_{k+1}/(Ξ′ + L_t′) ⇒ limit +1/Ξ′(β), sign reversed ✓; "exactly one of the two pencils" ✓. (2) labeled "a sketch, not a proof" ✓; the content checks: roots of c(z − β)^m = L_t(β), L_t(β) ≈ Φ_{k+1}(0)(u + o(1)) nearly positive, directions θ_j = (−arg c + 2πj)/m, |z − β| ↓ as t ↑; m ≥ 3: spacing 2π/m < π puts one direction strictly below ✓; m = 2: both horizontal iff c > 0 ✓ — the label is honest; note that the radial motion is "as t increases" (and as k grows) — m. (3) ✓. (4) Ξ(−z̄) = conj Ξ(z) ⇒ Ξ′(−β̄) = −conj Ξ′(β), Im equal ✓.
 
-## §2 Independent re-run (`verify-O/`; own mpmath code, dps 30; no code of A, B or the probe)
+### 1.11 "Reading" (l. 79) — stronger than shown (W3) → F3
+First clause ✓ (it is Proposition 4.2 restated, with its class: simple, Im Ξ′(β) > 0, all large k). Second clause ✓ as worded ("with the level frozen"). The conclusion "So Conjecture 4 is tied to the same property of Ξ that the Riemann hypothesis asserts, from both sides" says more than the two checks behind it: (1) the proved side excludes, for all LARGE k only, one class of off-line zeros (simple, Im Ξ′(β) > 0); a simple off-line zero with Im Ξ′(β) < 0 descends in Haglund's pencil (Remark (1)) and is not excluded by (D) at all, nor are multiple ones (Remark (2) is a sketch); (2) the other side is a model in which the level is a constant — Proposition 3.2 is not a statement about the pencil, and §5 says a proof of (D) for the true level is not in the note (l. 87). The CHARTER itself labels this chain step CONJECTURED (Bearing 4). → F3.
+
+### 1.12 §5 (target (g))
+- PROVED (III): c(t) = 2κ_t′(0) = −2[uα_{k+1} + Σ_{n>k+1}α_n] < 0, |c| strictly decreasing ✓ (re-derived; numbers 2.2).
+- PROVED (I): 4(k+2)² < 2π(k+1)² ⟺ k > 2.947 ✓ (2.2). The sentence it sits in says the frontier is "far below" x ≈ 2a; at k = 3 the margin is 0.5% → m.
+- HEURISTIC (I): the size statements are labeled; "L_t ≈ uΦ_{k+1}(0)" ignores the decay of L_t on the scale 2a (on [4(k+1)², 4(k+2)²] it is a factor ≈ 0.6–0.7 at k = 1: Q_1(16)/Q_1(0) = 1.21e−4/1.72e−4) — order-of-magnitude, honest under the label ✓.
+- HEURISTIC (II): the slope of the curve |Ξ| = |L_t|: from Λ ≈ −π/4 − (i/2)log(x/2π) (the NOTE's own formula, same paragraph) one gets ∂_y log|Ξ| = −Im Λ = ½log(x/2π) and ∂_x log|Ξ| ≈ −π/4, so y ≈ (π/2)(x − x_f)/log(x/2π), not "/log(x/2)" (checked numerically in 2.7) → m. "Above height ½ … ζ close to 1": at height ½ the argument of ζ has real part 1 and ζ(1 + ix) is not close to 1; it is within (ζ(σ) − 1) of 1 for σ = ½ + y, e.g. 34% at y = 2, 20% at y = 2.5 → m (wording). The threshold arctan(2log(x/2π)/π): re-derived ✓ (arg Λ = −π + arctan(2ℓ/π), Im(ρ/Λ) > 0 ⟺ arg ρ < arctan(2ℓ/π) for small arg ρ); "≈ 1.2" holds for x ≈ 300–1000 and is 0.87 at x = 40 (k = 1, 2 frontier) — the label covers it.
+- HEURISTIC (III): δz ≈ (δc/c)/(T′/T); |c| ↓ ⇒ δc/c < 0; Im(1/Λ) = (ℓ/2)/|Λ|² > 0 ⇒ DOWN ✓; with Haglund's printed signs (c > 0 for N ≥ 3, coefficient of Φ_{k+1} positive) |c| would increase ⇒ UP ✓. The label is honest. Note for the record (L-lit task 3, SHARED.md 16:18): the author's 2011 web copy already corrects the p. 10 sign ("approaches zero from below"); the parenthesis "the signs printed in the conjecture's source" is true of v1 and the journal only → m.
+- l. 87 "What is NOT in this note: … any statement for infinitely many k": contradicted by Theorem 2.1 (every k ≥ 1) and Proposition 4.2 (every k ≥ k_0) → m (W3 absolute). "(§6)": the NOTE has no §6 at this hash → m. Also §0 (l. 3, "written last") is absent at this hash; not a defect of the mathematics.
+
+## §2 Independent re-run (`verify-O/`; own mpmath code, dps 15–30 as stated in each script; no code of A, B or the probe)
 
 Code: `verify-O/core.py` — Ξ from mpmath's ζ and Γ (Haglund (1)); Φ_n by route G (Haglund (10), (14), `mp.gammainc`) and by route K (the kernel integral of NOTE l. 11 by `mp.quad`, in the variable y = Xe^{2v}).
 
@@ -89,19 +100,16 @@ Routes G and K agree for n = 1, 2, 3 at z ∈ {0, 7, 20.6253 + 2.6971i, 3 − 4i
 - Two-sided bound (l. 68) for n = 2 … 7: (2X − 1)e^{−X} ≤ ½Φ_n(0) ≤ (2X + 3)e^{−X} holds; lower/actual = 0.980 (n = 2) → 0.998 (n = 7), upper/actual = 1.143 → 1.011 ✓.
 - 4(k+2)² < 2π(k+1)²: false at k = 1, 2 (36 > 25.13, 64 > 56.55), true for k ≥ 3 (k = 3: 100 < 100.53; threshold k > (2√2 − √π)/(√π − √2) = 2.947) ✓ PROVED item. But the margin at k = 3 is 0.5% and at k = 4 is 8% (144 vs 157), so "far below" in (I) (l. 84) is not what the inequality gives for small k → m-pair.
 
+### 2.3 The constant 2Σγ^{−2} of l. 41 — `t23_gamma2.py`, log `t23_gamma2.log`
+Route: the unconditional identity Σ_ρ 1/(ρ(1 − ρ)) = 2 + γ_E − log 4π gives Σ_{γ>0} 1/(¼ + γ²) = 0.023095708966121 for zeros on the line; the correction Σ(γ^{−2} − (¼ + γ²)^{−1}) over the first 300 zeros (mpmath `zetazero`) is 9.28375e−6, tail ≈ 4e−10. Σ_{γ>0}γ^{−2} = 0.0231049931183, 2Σ = 0.0462099862366 — the NOTE's "0.0462…" ✓.
+
+### 2.4 The picture of Proposition 3.2 (target (d)) — `t24_prop32.py`, log `t24_prop32.log` (dps 15; a picture, not a check of the hypothesis)
+- One critical point per lobe: Ξ′ has exactly one sign change on a 120-point grid in each of the 30 lobes between γ_1 and γ_31 = 103.726 (no exceptions) — consistent with F2a's (Ξ′/Ξ)′ < 0.
+- First positive lobe (γ_2, γ_3) = (21.02203964, 25.01085758): critical point x* = 22.0979772804, M_1 = 7.75761257628e−6. The curve C_1 (Im Ξ = 0, Re Ξ > 0), followed by continuation in y (factor 1.15 per step, 0.001 ≤ y ≤ 32): x_1(y) = 22.0979770 (y = 0.001) → 22.0763980 (0.3) → 21.858 (1) → 18.969 (4) → 10.535 (16) → 7.206 (32); Ξ along it 7.7576e−6 → 8.13e−6 → 1.27e−5 → 6.5e−4 → 22.9 → 7.75e6, increasing at every printed step; the continuous argument from iy equals −2π (arg/2π = −1.0000000) at y = 0.3, 1, 2, 4, 8, 16, 32. So: the curve ends at the critical point of its own lobe with Ξ → M_1 (ii) ✓, Ξ grows without bound along it (F2b's missing fact, illustrated) ✓, and x_1(y) drifts back toward 0 as y grows, inside F2b's bound x ≤ 4π + π.
+- A first run of this script (findroot on Ξ′ from the lobe's midpoint, no bracket) converged to a critical point in another lobe (x = 41.74, Ξ < 0) and the curve follower jumped between level curves; fixed by a bracketing solver and small steps. Reported because it is the kind of slip a census tracer can make.
+
 ### 2.5 Lemma 4.1 tested (target (e)) — `t25_lemma41.py`, log `t25_lemma41.log`
 For n = 2, …, 6 and R = 0.1, 0.25, 0.5, 0.75, 1 × (πn² − ½) (the largest R the hypothesis allows), the sup of |Φ_n(z)/Φ_n(0) − 1| over |z| = R (1° steps on the quarter circle; the maximum principle puts the disc's sup on the circle) is ≤ 3.1R²/(π²n⁴) in all 25 cases; actual/bound = 0.078 … 0.105 (largest at the largest R). The sup sits at arg z = 90° in every case — as it must: |cos(zv) − 1| ≤ cosh(Rv) − 1 with equality at z = iR, so sup_{|z|=R}|Φ_n(z) − Φ_n(0)| = Φ_n(iR) − Φ_n(0) exactly. The ratio ≈ 0.08 for small R is 1/(4·3.1): the true size is ≈ (R²/2)·(second moment of φ̃_n) ≈ R²/(4X²). So the constant 3.1 is correct and about 12× generous; nothing in Proposition 4.2 needs it sharper ✓.
-
-### 1.11 "Reading" (l. 79) — stronger than shown (W3) → F3
-First clause ✓ (it is Proposition 4.2 restated, with its class: simple, Im Ξ′(β) > 0, all large k). Second clause ✓ as worded ("with the level frozen"). The conclusion "So Conjecture 4 is tied to the same property of Ξ that the Riemann hypothesis asserts, from both sides" says more than the two checks behind it: (1) the proved side excludes, for all LARGE k only, one class of off-line zeros (simple, Im Ξ′(β) > 0); a simple off-line zero with Im Ξ′(β) < 0 descends in Haglund's pencil (Remark (1)) and is not excluded by (D) at all, nor are multiple ones (Remark (2) is a sketch); (2) the other side is a model in which the level is a constant — Proposition 3.2 is not a statement about the pencil, and §5 says a proof of (D) for the true level is not in the note (l. 87). The CHARTER itself labels this chain step CONJECTURED (Bearing 4). → F3.
-
-### 1.12 §5 (target (g))
-- PROVED (III): c(t) = 2κ_t′(0) = −2[uα_{k+1} + Σ_{n>k+1}α_n] < 0, |c| strictly decreasing ✓ (re-derived; numbers 2.2).
-- PROVED (I): 4(k+2)² < 2π(k+1)² ⟺ k > 2.947 ✓ (2.2). The sentence it sits in says the frontier is "far below" x ≈ 2a; at k = 3 the margin is 0.5% → m.
-- HEURISTIC (I): the size statements are labeled; "L_t ≈ uΦ_{k+1}(0)" ignores the decay of L_t on the scale 2a (on [4(k+1)², 4(k+2)²] it is a factor ≈ 0.6–0.7 at k = 1: Q_1(16)/Q_1(0) = 1.21e−4/1.72e−4) — order-of-magnitude, honest under the label ✓.
-- HEURISTIC (II): the slope of the curve |Ξ| = |L_t|: from Λ ≈ −π/4 − (i/2)log(x/2π) (the NOTE's own formula, same paragraph) one gets ∂_y log|Ξ| = −Im Λ = ½log(x/2π) and ∂_x log|Ξ| ≈ −π/4, so y ≈ (π/2)(x − x_f)/log(x/2π), not "/log(x/2)" (checked numerically in 2.7) → m. "Above height ½ … ζ close to 1": at height ½ the argument of ζ has real part 1 and ζ(1 + ix) is not close to 1; it is within (ζ(σ) − 1) of 1 for σ = ½ + y, e.g. 34% at y = 2, 20% at y = 2.5 → m (wording). The threshold arctan(2log(x/2π)/π): re-derived ✓ (arg Λ = −π + arctan(2ℓ/π), Im(ρ/Λ) > 0 ⟺ arg ρ < arctan(2ℓ/π) for small arg ρ); "≈ 1.2" holds for x ≈ 300–1000 and is 0.87 at x = 40 (k = 1, 2 frontier) — the label covers it.
-- HEURISTIC (III): δz ≈ (δc/c)/(T′/T); |c| ↓ ⇒ δc/c < 0; Im(1/Λ) = (ℓ/2)/|Λ|² > 0 ⇒ DOWN ✓; with Haglund's printed signs (c > 0 for N ≥ 3, coefficient of Φ_{k+1} positive) |c| would increase ⇒ UP ✓. The label is honest. Note for the record (L-lit task 3, SHARED.md 16:18): the author's 2011 web copy already corrects the p. 10 sign ("approaches zero from below"); the parenthesis "the signs printed in the conjecture's source" is true of v1 and the journal only → m.
-- l. 87 "What is NOT in this note: … any statement for infinitely many k": contradicted by Theorem 2.1 (every k ≥ 1) and Proposition 4.2 (every k ≥ k_0) → m (W3 absolute). "(§6)": the NOTE has no §6 at this hash → m. Also §0 (l. 3, "written last") is absent at this hash; not a defect of the mathematics.
 
 ### 2.6 The control of ORCH-NOTES N4 (target (h)) — `t26_control.py`, log `t26_control.log`, grid `t26_grid.txt`
 k = 1, S_λ(x) = (Ξ_2(x) + λ)/Φ_2(x) on [0.5, 45], grid step 0.005, every discrete extremum with value in (0, 1) refined by findroot on S′; values by route L (Φ_1 + Φ_2) and route T (Ξ − Φ_3 − Φ_4 − Φ_5), which agree to relative 4e−18 … 8e−24.
@@ -109,9 +117,6 @@ k = 1, S_λ(x) = (Ξ_2(x) + λ)/Φ_2(x) on [0.5, 45], grid step 0.005, every dis
 - λ = 5e−5: a maximum at x = 22.54201999 (S = 0.628189979762) and a MINIMUM at x = 24.34012104 (S = 0.611995156161, S″ = +0.0196) — the test fires, as N4 says (24.340, 0.612) ✓.
 - λ = 1e−4: no extremum with value in (0, 1) ✓.
 Reproduced. (A degenerate critical point, F1's missing case, would show on such a scan as a max–min pair merging; none is near-degenerate here: the smallest |S″|/S at the extrema found is 0.03.)
-
-### 2.3 The constant 2Σγ^{−2} of l. 41 — `t23_gamma2.py`, log `t23_gamma2.log`
-Route: the unconditional identity Σ_ρ 1/(ρ(1 − ρ)) = 2 + γ_E − log 4π gives Σ_{γ>0} 1/(¼ + γ²) = 0.023095708966121 for zeros on the line; the correction Σ(γ^{−2} − (¼ + γ²)^{−1}) over the first 300 zeros (mpmath `zetazero`) is 9.28375e−6, tail ≈ 4e−10. Σ_{γ>0}γ^{−2} = 0.0231049931183, 2Σ = 0.0462099862366 — the NOTE's "0.0462…" ✓.
 
 ### 2.7 Numbers inside §5 (II) and a check of Proposition 4.2 on the control — `t28_regimes.log`, `t27_prop42_control.log`
 - ∂_y log|Ξ(x + iy)| at (x, y) = (60, 3), (100, 5), (300, 10), (600, 20): 1.2029, 1.3725, 1.9330, 2.2799, against ½log(x/2π) = 1.1282, 1.3836, 1.9330, 2.2795 and ½log(x/2) = 1.7006, 1.9560, 2.5053, 2.8519. So the rise of the curve |Ξ| = |L_t| goes with log(x/2π), as the NOTE's own Λ says, not with log(x/2) (l. 85) → m. Re Ξ′/Ξ = −0.699, −0.746, −0.763, −0.766 against the model −π/4 = −0.785 ✓ (at (40, 1), height near ½, −1.06: outside the model, as expected).
@@ -151,3 +156,67 @@ Check: re-derivation 1.7; picture at the first positive lobe in 2.4.
 OLD: So Conjecture 4 is tied to the same property of Ξ that the Riemann hypothesis asserts, from both sides — in contrast with Conjecture 1, which is a sufficient condition that fails for a reason unrelated to the zeros of Ξ (fluctuating lobe heights).
 NEW: So (D) for all large k excludes one class of zeros of Ξ off the real axis — the simple ones with Im Ξ′(β) > 0 (Proposition 4.2; simple off-axis zeros with Im Ξ′(β) < 0 descend in this pencil and are not excluded, and multiple ones are not treated); and in the model where the level is a constant, real and simple zeros of Ξ give (D) and (R) (Proposition 3.2) — a model, not a statement about the pencil (§5). Conjecture 1, by contrast, fails for a reason unrelated to the zeros of Ξ (fluctuating lobe heights).
 Check: re-derivation 1.10–1.11; CHARTER "Bearing" step 4 is labeled CONJECTURED.
+
+## §5 Minor pairs
+
+m1, l. 11 (attribution; the paper has the identity on the real line only):
+OLD: From the paper (Theorem sandwich and its proof): Φ_n(z) = 2∫_0^∞ φ̃_n(v) cos(zv) dv for every complex z
+NEW: From Haglund's definition ((6) with z ∈ ℂ, and (14)), and on the real line also from the paper (Theorem sandwich and its proof): Φ_n(z) = 2∫_0^∞ φ̃_n(v) cos(zv) dv for every complex z
+m2, l. 41 (true but weak by a factor 8):
+OLD: and at least (γ_{j+1} − γ_j)^{−2} in the lobe (γ_j, γ_{j+1})
+NEW: and at least 8(γ_{j+1} − γ_j)^{−2} in the lobe (γ_j, γ_{j+1}) (the two endpoint terms, smallest at the midpoint)
+m3, l. 41 (W3 "the one"; an unproved sufficiency claim):
+OLD: it is the one estimate a proof of (R) for a range of k would need, and a hypothesis on the zeros of Ξ up to a finite height would do, the zeros above contributing a small error)
+NEW: with the hypothesis of Proposition 2.3 it would suffice for (R) for a range of k; whether a hypothesis on the zeros of Ξ up to a finite height suffices is not shown here — the product formula would need a remainder for the zeros above that height)
+m4, l. 56 (the caveat names the wrong function):
+OLD: (if Φ_{k+1}(z) ≠ 0 … see Lemma 1.3)
+NEW: (provided z is not a common zero of Ξ and L_t; cf. the common zeros of Ξ_{k+1} and Φ_{k+1} in Lemma 1.3)
+m5, l. 43 (heading omits half of Proposition 3.2's hypothesis):
+OLD: ## 3. Off the axis: the frozen-level model (proved under the hypothesis that the zeros of Ξ are real)
+NEW: ## 3. Off the axis: the frozen-level model (proved under the hypothesis that the zeros of Ξ are real; Proposition 3.2 also assumes them simple)
+m6, l. 84 (the inequality does not give "far below" for small k):
+OLD: L_t is far below the height x ≈ 2a where Φ_{k+1} changes regime (for k ≥ 3: 4(k+2)² < 2π(k+1)²; for k = 1, 2 the regimes overlap).
+NEW: the frontier lies below the height x ≈ 2a where Φ_{k+1} changes regime for k ≥ 3 (4(k+2)² < 2π(k+1)²: by 0.5% at k = 3, 8% at k = 4, the ratio tending to 2/π), and the regimes overlap for k = 1, 2.
+m7, l. 85 (wrong constant in a HEURISTIC item; the NOTE's own Λ gives log(x/2π); 2.7):
+OLD: (it rises like (π/2)(x − x_frontier)/log(x/2))
+NEW: (it rises like (π/2)(x − x_frontier)/log(x/2π), since ∂_y log|Ξ| = ½log(x/2π) and ∂_x log|Ξ| ≈ −π/4 there)
+m8, l. 85 (ζ is not close to 1 at height ½):
+OLD: Above height ½, Ξ(z) = A(½ − iz)ζ(½ − iz) with ζ close to 1
+NEW: Above height ½, Ξ(z) = A(½ − iz)ζ(½ − iz), with ζ(½ − iz) within ζ(½ + y) − 1 of 1 (34% at y = 2, 20% at y = 2.5)
+m9, l. 86 (the author's 2011 web copy already corrects the sign; L-lit task 3):
+OLD: (With the signs printed in the conjecture's source — coefficient of 1/x² positive for N ≥ 3 —
+NEW: (With the signs printed in v1 and in the journal version — coefficient of 1/x² positive for N ≥ 3, corrected to "approaches zero from below" in the author's 2011 web copy —
+m10, l. 87 (an absolute contradicted by Theorem 2.1 and Proposition 4.2, W3):
+OLD: any statement for infinitely many k
+NEW: a proof or a refutation of (D) or (R) for infinitely many k
+m11, l. 87 (dangling reference; the NOTE has no §6 at this hash):
+OLD: in stated windows (§6)
+NEW: in stated windows (their NOTEs; a §6 here is not yet written)
+m12, l. 77, Remark (2) (the motion that decides "ascends in t" is the motion in t):
+OLD: and approach β radially as k grows
+NEW: and approach β radially as t increases (|L_t(β)| decreases with u), and as k grows
+
+Total count of pairs: 18 — FIX-FIRST F1 (3 pairs), F2 (2 pairs), F3 (1 pair); minor m1–m12 (12 pairs).
+
+## §6 Novelty per result (the NOTE itself labels nothing "new"; the brief asks for Theorem 2.1 and Proposition 4.2; search named in §3)
+
+- **Theorem 2.1** — new as a statement on a printed core. Core: the program's paper, `main.tex` Theorem sandwich, Prop. tail, Cor. odd (l. 403–494; deposited as Zenodo 10.5281/zenodo.23071931 per L-lit §1 item 16): (a) and (b) are those statements moved from Ξ_N to the pencil through Lemma 1.2. Baccaro 2026 has, in the PDF, Φ_2 > 0 on ℝ and ∂_tF > 0 for k = 1 (p. 3, (12)) and the full-multiplicity collision lemma under (D) for k = 1 (Lemma 4.3, p. 4); per L-lit §2 (repository record, not opened by me) also Φ_n > 0 for every n ≥ 2, ∂_tF_k > 0, F_k(0, t) > 0 and the double-zero rule "real after ⟺ F_zz < 0" for every k — this covers (a), the sign at 0 in (b) and the m = 2 cases of (d). (c) and the corrected (e) (F1) are not found as statements.
+- **Proposition 4.2** — new, in the sources reached: SOURCES S1, S3, S5 at the page; on-disk grep; three arXiv queries; L-lit §1's census of 16 citing works (theirs). Baccaro's PDF puts the zeros of Ξ outside its scope (p. 1). The method (Rouché–Hurwitz perturbation with a uniformly small level) is classical.
+- Lemma 1.1, Lemma 1.2: in print termwise (the paper, Theorem sandwich proof; the decomposition F_t = Ξ − L_t is a rewriting, "not in Baccaro" per L-lit). Lemma 1.3: in Baccaro for k = 1 in the normalization g = −Φ_1/Φ_2 = 1 − S_1 (p. 2, (9)–(10)); new as a statement for general k on that core. Lemma 3.1: classical (Laguerre–Pólya class) — no printed source opened by me (asked of L-lit). Proposition 2.3, Proposition 3.2, Lemma 4.1: not searched beyond the stream's sources; no label proposed.
+
+## §7 Additions (single-check)
+
+A1. The corrected criterion for (R) (F1b NEW), with proof in 1.4: (R) ⟺ every critical point of S_k on ℝ with value in (0, 1] is a non-degenerate maximum.
+A2. Lemma 4.1 sharpened: sup_{|z|≤R}|Φ_n(z) − Φ_n(0)| = Φ_n(iR) − Φ_n(0) exactly (|cos(zv) − 1| ≤ cosh(Rv) − 1, equality at z = iR, and the maximum principle); the observed ratio to 3.1R²/X² is 0.078–0.105 (2.5), i.e. the true size is ≈ R²/(4X²) for small R.
+A3. Which off-axis zeros Proposition 4.2 sees. For f = Ξ + λ (λ > 0, the control), every zero β with Im β > 0 has Im f′(β) = −λ·Im(Ξ′/Ξ)(β) > 0 when the zeros of Ξ are real (Lemma 3.1), so all of them ascend for large k; for f = Ξ − λ all have Im f′(β) < 0 and descend. Heuristically, an off-line pair of Ξ born from a positive local minimum on the real axis (Ξ ≈ A[(z − x_0)² + η²], A > 0) has Im Ξ′(β) = 2Aη > 0 (ascends), one born from a negative local maximum (A < 0) descends. Checked numerically for the control (2.7).
+A4. (D) in its strict form implies (R) for every k: if every non-real zero of F_t, 0 < t < 1, is simple with Im z′(t) < 0, a branch leaving the axis to the right of a real multiple zero would enter the upper half-plane with Im z′ > 0 (Puiseux), a contradiction — Baccaro's Lemma 4.3 argument (p. 4), which uses k = 1 only through his Proposition 3.1. So a census of strict descent in a window also gives (R) for the real zeros whose departures would lie in that window.
+
+## §8 What I could not check, and why
+
+- Baccaro's repository records that L-lit cites (the all-k positivity record, the outer-module record): not opened by me; the novelty lines that rest on them say "per L-lit". His certificate is not replayed (python-flint is not used in this read, by the brief).
+- A printed source for Lemma 3.1 (asked of L-lit): not opened; the lemma is re-derived in 1.6, so nothing rests on the source.
+- ORCH-NOTES N2's branch table (seven branches followed in t): only its three landings are re-derived, as the maxima of S_1 on the real axis (2.6); following branches off the axis was not re-run.
+- The HEURISTIC sizes of §5 beyond the points in 2.7 (the curve |Ξ| = |L_t| itself; the claim that the criterion Im(ρ/Λ) > 0 holds "with a wide margin" in regime (I)).
+- Citation indexes (Semantic Scholar, OpenAlex, zbMATH, Google Scholar): not re-run by me; L-lit §1 ran them. My own search is the three arXiv queries and the on-disk grep of §3.
+- §0 of the NOTE (close block, ledger and tool rows) does not exist at this hash (l. 3, "§0 is written last"), so it is not read.
+- Not opened, by the brief: `orch-probe/`, `A-track/code/`, `B-track/code/`, any `correspondence/` folder.

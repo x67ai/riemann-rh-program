@@ -153,10 +153,16 @@ def run(k, xa, xb, tag, Y=None, route="T", next_xb=None, h0=0.25, turnmax=0.12, 
     ymax = max([z.imag for z in zk + zk1] + [1.0])
     Y = Y or float(math.ceil(ymax + 5))
     R["Y"] = Y
-    zk, repk = fill(k, xa, xb, Y, zk, ax["zeros_Xik"], route, logf=log)
-    zk1, repk1 = fill(k + 1, xa, xb, Y, zk1, ax["zeros_Xik1"], route, logf=log)
-    R["strips_k"], R["strips_k1"] = repk, repk1
+    # window counts first; the strip-by-strip completion (fill) runs only for a function whose count does not match
     ck = count_win(k, xa, xb, Y, route=route); ck1 = count_win(k + 1, xa, xb, Y, route=route)
+    repk = repk1 = []
+    if ck["count"] != ax["R_k"] + 2 * len([z for z in zk if z.imag <= Y]):
+        log("  count mismatch for Xi_%d: %d vs %d + 2*%d -> strips" % (k, ck["count"], ax["R_k"], len(zk)))
+        zk, repk = fill(k, xa, xb, Y, zk, ax["zeros_Xik"], route, logf=log)
+    if ck1["count"] != ax["R_k1"] + 2 * len([z for z in zk1 if z.imag <= Y]):
+        log("  count mismatch for Xi_%d: %d vs %d + 2*%d -> strips" % (k + 1, ck1["count"], ax["R_k1"], len(zk1)))
+        zk1, repk1 = fill(k + 1, xa, xb, Y, zk1, ax["zeros_Xik1"], route, logf=log)
+    R["strips_k"], R["strips_k1"] = repk, repk1
     ck4 = count_win(k, xa, xb, 4 * Y, route=route); ck14 = count_win(k + 1, xa, xb, 4 * Y, route=route)
     R["counts"] = {"Xi_k@Y": ck, "Xi_k1@Y": ck1, "Xi_k@4Y": ck4, "Xi_k1@4Y": ck14}
     nk = [z for z in zk if z.imag <= Y]; nk1 = [z for z in zk1 if z.imag <= Y]

@@ -30,6 +30,8 @@ def trace(k, z0, direction=-1, h0=0.25, turnmax=0.12, route="T", ymin=1e-6, xedg
     min_margin_at = None
     max_turn = 0.0
     path = [(s.real, z.real, z.imag)]
+    if z.imag > ymin:                                   # the start node counts for the margin (fix 17:10 IST)
+        min_margin, min_margin_at = -d.imag / abs(d), (z.real, z.imag, s.real)
     h = h0
     steps = 0
     nrej = 0
@@ -76,6 +78,10 @@ def trace(k, z0, direction=-1, h0=0.25, turnmax=0.12, route="T", ymin=1e-6, xedg
             worst_dy = max(worst_dy, dy)
             z, s, d = zt, st, dt
             path.append((s.real, z.real, z.imag))
+            if z.imag > ymin:                           # the end node counts for the margin (fix 17:10 IST)
+                m = -d.imag / abs(d)
+                if m < min_margin:
+                    min_margin, min_margin_at = m, (z.real, z.imag, s.real)
             end = "u0" if direction < 0 else "u1"
             if not ok:
                 end += "-newton-unconverged"

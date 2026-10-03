@@ -57,6 +57,16 @@ frontier rescan finds the same zeros and extrema; u_min = smallest landing value
 | 8 | 440 | 155 / 207 | 26 | 0 | yes | yes | yes | 1.3e-26 | 406.8174 | PASS |
 | 9 | 524 | 207 / 263 | 28 | 0 | yes | yes | yes | 3.6e-29 | 489.3901 | PASS |
 | 10 | 616 | 263 / 327 | 32 | 0 | yes | yes | yes | 2.5e-31 | 580.0556 | PASS |
+| 11 | 716 | 327 / 401 | 37 | 0 | yes | yes | yes | 5.3e-34 | 681.6374 | PASS |
+| 12 | 824 | 401 / 483 | 41 | 0 | yes | yes | yes | 1.1e-36 | 789.8537 | PASS |
+| 13 | 940 | 483 / 575 | 46 | 0 | yes | yes | yes | 3.6e-40 | 907.0997 | PASS |
+| 14 | 1064 | 575 / 673 | 49 | 0 | yes | yes | yes | 1.0e-42 | 1029.0743 | PASS |
+| 15 | 1196 | 673 / 781 | 54 | 0 | yes | yes | yes | 8.1e-45 | 1161.3203 | PASS |
+| 16 | 1336 | 781 / 899 | 59 | 0 | yes | yes | yes | 2.1e-48 | 1301.2536 | PASS |
+| 17 | 1484 | 899 / 1027 | 64 | 0 | yes | yes | yes | 7.8e-51 | 1450.5619 | PASS |
+| 18 | 1640 | 1027 / 1163 | 68 | 0 | yes | yes | yes | 4.1e-54 | 1606.0765 | PASS |
+| 19 | 1804 | 1163 / 1307 | 72 | 0 | yes | yes | yes | 6.8e-55 | 1768.2781 | PASS |
+| 20 | 1976 | 1307 / 1463 | 78 | 0 | yes | yes | yes | 1.4e-57 | 1940.9312 | PASS |
 <!-- P3 rows -->
 
 <!-- close block -->

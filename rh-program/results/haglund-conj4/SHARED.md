@@ -100,3 +100,21 @@ Im(dz/dt) < 0 at all 6,886 grid values. NUMERICAL.
 
 ### L-lit — closed (16:59 IST 2026-10-03)
 - `L-lit/PRIOR-ART.md` complete: §0 (summary + LEDGER/TOOL rows + ASKED/DELIVERED), §3, §2, §1, §4, NOT REACHED. The check script `L-lit/check_task3.py` and its log are beside it. Third-party files are under `lit/`, all git-ignored (a tracked README rule, .gitignore l. 129, would have caught `lit/gh-baccaro/README.md.txt`; it was renamed before any commit).
+
+### read-O — batch 2 (17:01 IST 2026-10-03)
+- Pairs written in read-O.md §4–§5: FIX-FIRST F1 (Theorem 2.1(d)/(e), Remark 2.2: multiplicity ≥ 3 breaks (R) and (D); range 0 ≤ t < 1, values (0, 1]), F2 (Proposition 3.2: the single critical point per lobe and Ξ → ∞ along C_m are used but not proved; both supplied), F3 (the "Reading", l. 79: "tied … from both sides" is stronger than Proposition 4.2 + a frozen-level model); 12 minor. 18 pairs in all.
+- §5(II) of the NOTE: the rise of |Ξ| = |L_t| goes with log(x/2π) (∂_y log|Ξ| = 1.9330 at (300, 10) against ½log(x/2π) = 1.9330 and ½log(x/2) = 2.5053), not log(x/2) (minor m7).
+- Proposition 4.2's mechanism checked on the control f = Ξ + 5e−5: zero β = 28.6324463545442 + 8.52426881931311i, Im f′(β) > 0, and for k = 2…8 the pencil zero within 1e−6 of β has d(Im z)/dt > 0 at t = 0, ½, 1 (verify-O/t27_prop42_control.log). The rise is e^{−π(k+1)²}-small; its sign is what a census reads.
+
+### A-track — 17:03 IST 2026-10-03 — P3 (real-axis test) k = 1..20 final
+For every k = 1..20, on [0, 4(k+2)^2 + 40]: S_k has no local minimum with value in (0,1) (grid spacing/20, frontier part
+rescanned at spacing/40 with identical results; every (0,1)-interval has the extrema its end types require); the number
+of local maxima in (0,1) equals (R_{k+1} - R_k)/2 in every case; S_k(0) > 1 and S_k(end) < 0. The largest real zeros
+of Xi_{k+1} reproduce Haglund's table for N = 2..10 to the printed 10 digits. Real counts R_N, N = 1..21: 1, 7, 15, 31, 53,
+79, 113, 155, 207, 263, 327, 401, 483, 575, 673, 781, 899, 1027, ..., (files A-track/data/p3_k<k>.json). NUMERICAL.
+
+### read-O — CLOSED (17:05 IST 2026-10-03)
+- VERDICT: AGREES-WITH-CORRECTIONS on NOTE.md (hash 57ea9099…913d). 18 pairs: FIX-FIRST F1 (Theorem 2.1(d)/(e), Remark 2.2), F2 (Proposition 3.2 proof, two steps), F3 (the "Reading", l. 79); minor m1–m12. Every OLD quote checked as an exact substring of its NOTE line by script.
+- ✓ at the line: Lemmas 1.1–1.3, Theorem 2.1(a)–(d), Proposition 2.3, Lemma 3.1, Lemma 4.1, Proposition 4.2, the PROVED items of §5. Prop. 3.2 (i) ✓, (ii)/(iii) GAP with fixes. Theorem 2.1(e) FALSE as an iff.
+- Novelty: Theorem 2.1 new as a statement on a printed core (the paper's sandwich/tail/odd; Baccaro 2026 PDF pp. 3–4 for k = 1, and per L-lit his all-k record); Proposition 4.2 new in the sources reached (S1, S3, S5 at the page, on-disk grep, three arXiv queries, L-lit's census).
+- For A/B: the real-axis test of (R) should also flag extrema of S_k with value in (0, 1] at which |S_k″| is small (F1's degenerate case); and strict descent everywhere in a window gives (R) there too (Baccaro's Lemma 4.3 argument, any k; read-O §7 A4).
