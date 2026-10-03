@@ -33,7 +33,7 @@ def branches_plot(fn, out, title, xlim=None, ylim=None, show_real=True):
         P = r["path"]
         xs = [p[1] for p in P]; ys = [p[2] for p in P]
         e = r["end"] if r["end"] in COL else "u0"
-        lab = LAB[e] if e not in seen else None
+        lab = LAB[e].replace("{k+1}", str(k + 1)).replace("X_k", "X_%d" % k) if e not in seen else None
         seen.add(e)
         ax.plot(xs, ys, color=COL[e], linewidth=1.3, label=lab, zorder=2)
         ax.plot([xs[0]], [ys[0]], "o", ms=4.5, mfc="white", mec=INK, mew=0.9, zorder=3)
@@ -43,12 +43,12 @@ def branches_plot(fn, out, title, xlim=None, ylim=None, show_real=True):
             ax.plot([xs[-1]], [ys[-1]], "s", ms=4.5, color=COL["u0"], mec=INK, mew=0.5, zorder=4)
         else:
             ax.plot([xs[-1]], [ys[-1]], "x", ms=6, color=INK, mew=1.2, zorder=4)
-    ax.plot([], [], "o", ms=4.5, mfc="white", mec=INK, mew=0.9, linestyle="none", label="start: zero of Xi_k (u = 1)")
-    ax.plot([], [], "s", ms=4.5, color=COL["u0"], mec=INK, mew=0.5, linestyle="none", label="end: zero of Xi_{k+1} (u = 0)")
-    ax.plot([], [], "v", ms=6, color=COL["landed"], mec=INK, mew=0.5, linestyle="none", label="landing point (local max of S_k)")
+    ax.plot([], [], "o", ms=4.5, mfc="white", mec=INK, mew=0.9, linestyle="none", label="start: zero of Xi_%d (u = 1)" % k)
+    ax.plot([], [], "s", ms=4.5, color=COL["u0"], mec=INK, mew=0.5, linestyle="none", label="end: zero of Xi_%d (u = 0)" % (k + 1))
+    ax.plot([], [], "v", ms=6, color=COL["landed"], mec=INK, mew=0.5, linestyle="none", label="landing point (local max of S_%d)" % k)
     if show_real:
         rz = R["axis"]["zeros_Xik1"]
-        ax.plot(rz, [0] * len(rz), "|", ms=7, color=INK2, label="real zeros of Xi_{k+1}", zorder=1)
+        ax.plot(rz, [0] * len(rz), "|", ms=7, color=INK2, label="real zeros of Xi_%d" % (k + 1), zorder=1)
     if R["tag"] == "P1":
         ax.axvline(R["window"][1], color=INK2, linewidth=0.8, linestyle="--", zorder=1)
     ax.set_xlabel("Re z", color=INK, fontsize=10); ax.set_ylabel("Im z", color=INK, fontsize=10)

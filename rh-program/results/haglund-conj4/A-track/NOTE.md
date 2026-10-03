@@ -20,13 +20,14 @@ of one branch in ten agrees, routes L/T agree at 5 points per branch for k <= 6,
 
 | k | X_k | Y_k | R_k / R_{k+1} [Haglund] | NR k / k+1 | B | L | E | X | dy+ | m | checks passed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | 86.55 | 41 | 1 / 7 [1 / 7] | 15 / 11 | 15 | 3 | 11 | 1 | -3.7e-7 | 0.719 | A, A4, C1, C2, C3, D, H (re-trace 2/2: landing x to 1.0e-12, end z to 0; L/T 75 pts, max rel diff 3.0e-13; max Arb rel radius 9.0e-13) |
+| 1 | 86.55 | 41 | 1 / 7 [1 / 7] | 15 / 11 | 15 | 3 | 11 | 1 | -3.7e-07 | 0.708 | A, A4, C1, C2, C3, D, H; re-trace 2/2 (ends to 1.0e-12); L/T 75 pts max rel 3.0e-13; Arb rel radius <= 9.0e-13 |
 | 2 | 130.53 | 50 | 7 / 15 [7 / 15] | 23 / 18 | 23 | 4 | 18 | 1 | -3.1e-07 | 0.806 | A, A4, C1, C2, C3, D, H; re-trace 3/3 (ends to 7.6e-12); L/T 115 pts max rel 1.3e-13; Arb rel radius <= 9.0e-13 |
 | 3 | 187.08 | 59 | 15 / 31 [15 / 32] | 35 / 25 | 35 | 8 | 25 | 2 | -3.3e-07 | 0.812 | A, A4, C1, C2, C3, D, H; re-trace 4/4 (ends to 1.2e-12); L/T 172 pts max rel 1.8e-13; Arb rel radius <= 8.3e-13 |
 | 4 | 256.19 | 68 | 31 / 53 [32 / 53] | 47 / 34 | 47 | 11 | 34 | 2 | -3.2e-07 | 0.797 | A, A4, C1, C2, C3, D, H; re-trace 5/5 (ends to 5.1e-12); L/T 235 pts max rel 3.0e-13; Arb rel radius <= 8.7e-13 |
 | 5 | 337.88 | 79 | 53 / 79 [53 / 79] | 63 / 47 | 63 | 13 | 47 | 3 | -3.0e-07 | 0.828 | A, A4, C1, C2, C3, D, H; re-trace 7/7 (ends to 3.1e-11); L/T 315 pts max rel 2.2e-13; Arb rel radius <= 9.1e-13 |
 | 6 | 432.12 | 90 | 79 / 113 [79 / 113] | 82 / 62 | 82 | 17 | 62 | 3 | -3.0e-07 | 0.832 | A, A4, C1, C2, C3, D, H; re-trace 9/9 (ends to 1.1e-11); L/T 410 pts max rel 2.6e-13; Arb rel radius <= 9.0e-13 |
   (k = 6: one branch, from 425.6801 + 82.8913i, reaches u = 0 at the zero 432.1548 + 63.0618i of Xi_7, just beyond X_6 = 432.1239; counted as an exit.)
+  (Haglund column: arXiv v1 / journal table; the author's 2011 web copy prints 31 at N = 4 (L-lit, SHARED 16:18), as found here.)
 <!-- P1 rows -->
 
 ### §0-P2 Frontier windows (window [4(k+1)^2 - 40, 4(k+2)^2 + 40] x [0, Y]; branches that start in it; same columns)
@@ -104,6 +105,18 @@ frontier rescan finds the same zeros and extrema; u_min = smallest landing value
   adaptive bisection until every increment is below pi/4 (minimum segment 1e-9; a segment that cannot reach it is
   counted as a flag; flags = 0 in every count reported); total rounded, deviation from an integer reported (< 1e-12
   in every P1 count so far).
+
+- T4. Margin bookkeeping fix (17:10 IST): the first runs (P1 k = 1..6, P2 k = 26, 27) recorded -Im S'/|S'| at the
+  accepted interior nodes only. code/endmargins.py added the margin at every start (zero of Xi_k) and every u = 0 end
+  (zero of Xi_{k+1}) and re-summarized; the tracer now includes both. Only k = 1 changed in the table (0.719 -> 0.708,
+  at the start 20.6253 + 2.6972i); the largest change of a branch minimum was 0.039 (k = 6).
+- T5. Positive controls (code/controls.py, data/controls_lam5e-05.json): the pencil built on Xi + lam, lam = 5e-5
+  (S^lam_k = (Xi_{k+1} + lam)/Phi_{k+1}, route L). (i) The axis scan finds, for k = 1 on [0, 76], a local maximum at
+  22.54201999 (value 0.62819) and a local MINIMUM at 24.34012104 with value 0.6119951561613 — the reader read-O's
+  independent value is 0.611995156161 (SHARED 16:46). (ii) At the zero near beta = 28.6324463545 + 8.5242688193i the
+  margin is negative: -0.874 (k = 2), -0.831 (k = 3), -0.811 (k = 5), -0.806 (k = 8); for k = 2 the trace records a
+  step increase of Im z of +8.4e-7; for k >= 3 the whole branch is shorter than double precision (the pencil zero moves
+  by ~ Phi_{k+1}/|Xi_k'|), so the margin, not the step increase, is the detector there. Both detectors fire.
 
 ## §3 P2 sites (k = 26, 27)
 

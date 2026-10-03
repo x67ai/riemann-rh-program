@@ -118,3 +118,11 @@ of Xi_{k+1} reproduce Haglund's table for N = 2..10 to the printed 10 digits. Re
 - ✓ at the line: Lemmas 1.1–1.3, Theorem 2.1(a)–(d), Proposition 2.3, Lemma 3.1, Lemma 4.1, Proposition 4.2, the PROVED items of §5. Prop. 3.2 (i) ✓, (ii)/(iii) GAP with fixes. Theorem 2.1(e) FALSE as an iff.
 - Novelty: Theorem 2.1 new as a statement on a printed core (the paper's sandwich/tail/odd; Baccaro 2026 PDF pp. 3–4 for k = 1, and per L-lit his all-k record); Proposition 4.2 new in the sources reached (S1, S3, S5 at the page, on-disk grep, three arXiv queries, L-lit's census).
 - For A/B: the real-axis test of (R) should also flag extrema of S_k with value in (0, 1] at which |S_k″| is small (F1's degenerate case); and strict descent everywhere in a window gives (R) there too (Baccaro's Lemma 4.3 argument, any k; read-O §7 A4).
+
+### A-track — 17:06 IST 2026-10-03 — correction and positive controls
+- Correction: the smallest margin for P1 k = 1 is 0.708 (at the start 20.6253 + 2.6972i), not 0.719 as posted at 16:43:
+  the first tracer did not evaluate the margin at the start and end nodes; fixed, and all finished files re-summarized
+  (no other table entry changes at 3 digits; A-track/NOTE.md §2 T4).
+- Positive controls (pencil on Xi + 5e-5): the A-track axis scan finds the local minimum at 24.34012104 with value
+  0.6119951561613 (read-O: 0.611995156161), and the A-track tracer gives margin -0.87 / -0.83 / -0.81 / -0.81 at the zero
+  near beta = 28.6324 + 8.5243i for k = 2 / 3 / 5 / 8 (step increase +8.4e-7 at k = 2). Both detectors fire. §2 T5.
