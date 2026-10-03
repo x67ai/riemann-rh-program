@@ -71,3 +71,18 @@ With q := Q_{k+1}/Φ_{k+1} and f := Ξ/Φ_{k+1} one has S_k = f − q; at a zero
 If the zeros of Ξ are real, Im Ξ′/Ξ = −y·S_2(z), S_2 := Σ_γ[|z − γ|^{−2} + |z + γ|^{−2}]. The other terms are small multiples of y: Im(Φ_{k+1}′/Φ_{k+1}) ≈ y(log Φ_{k+1})″(x), Im w = Im q ≈ y q′(x), Im q′ ≈ y q″(x) (each function is real on the axis), of relative sizes 1/a², x/a² and 1/a² with a = π(k+1)². Dividing by y·Re w, a sufficient condition is
   S_2(z) > C_1/a² + (C_2 x/a²)·|Re Ψ(z)|,
 and |Re Ξ′/Ξ| ≤ (S_2·N)^{1/2} + O(log x) with N the number of zeros of Ξ within distance 1 of x. So the proof needs (i) explicit bounds for (log Φ_{k+1})″, q′/q and q″/q in a strip 0 < y ≤ Y over 0 ≤ x ≤ 4(k+2)² + X_0 (kernel estimates; the kernels are explicit); (ii) a lower bound S_2(z) ≥ c_0 in the same strip, i.e. a bound for the gaps between consecutive zeros of Ξ there (numerically known where RH is verified; under RH a theorem for large height). As y → 0 the condition becomes the real-axis criterion of NOTE Proposition 2.3, as it must. The middle and far regimes need uniform asymptotics of the incomplete gamma function instead (N6 shows the far-field law numerically).
+
+## N8. The real-axis criterion in numbers (16:35 IST 2026-10-03; `orch-probe/rcrit.py`, logs `rcrit-run1.log`, `rcrit-run2.log`; grid values, not a certificate)
+
+The criterion of NOTE Proposition 2.3 needs no hypothesis in the form: a lift-off at x_0 forces (log Ξ)″(x_0) ≥ (log L_t)″(x_0) (the hypothesis on the zeros was used only to evaluate the left side as −Σ). Tabulated on the part of [0, 4(k+2)² + 40] where Ξ > 0 (step 0.02; second differences of Arb values at 400 bits; u ∈ {0, ¼, ½, ¾, 1}):
+
+| k | points | max over the grid of [−(log L_u)″]/[−(log Ξ)″] | where | min of −(log Ξ)″ | max of −(log L_u)″ | 1/(2π²(k+1)⁴) |
+|---|---|---|---|---|---|---|
+| 1 | 2258 | 6.62e−2 | x ≈ 0 | 0.0462 | 3.060e−3 | 3.166e−3 |
+| 2 | 2904 | 1.33e−2 | x ≈ 0 | 0.0462 | 6.152e−4 | 6.254e−4 |
+| 3 | 3728 | 4.24e−3 | x ≈ 0 | 0.0462 | 1.960e−4 | 1.979e−4 |
+| 4 | 5003 | 1.74e−3 | x ≈ 0 | 0.0462 | 8.056e−5 | 8.106e−5 |
+| 5 | 6309 | 8.42e−4 | x ≈ 0 | 0.0462 | 3.892e−5 | 3.909e−5 |
+| 6 | 7844 | 4.55e−4 | x ≈ 0 | 0.0462 | 2.103e−5 | 2.110e−5 |
+
+So on these grids the inequality a lift-off would need fails by a factor of at least 15 (k = 1) to 2000 (k = 6); the smallest value of −(log Ξ)″ on the positive lobes is at x = 0, where it equals 2Σγ^{−2} = 0.0462; and −(log L_u)″ has the size 1/(2π²(k+1)⁴) guessed in the NOTE to within 3 %. RECORD OF A DEFECT: the first run's rows for k = 8 and k = 10 were nonsense (ratios 1e15, 1e10) — Q_{k+1} had been formed as the difference Ξ − Ξ_{k+1}, which cancels below 2^−400 once e^{−π(k+2)²} < 1e−120; the script now sums the tail directly (the k = 6 row reproduces to all printed digits), and the rows for k = 8, 10, 15, 20 come from the second run (appended below when it ends). For all u at once: log L_u = log Φ_{k+1} + log(u + q), so −(log L_u)″ ≤ −(log Φ_{k+1})″ + |q″|/q + (q′/q)², a bound free of u — the form a certificate would use.

@@ -117,4 +117,6 @@ def march(N, known, X, route="T", maxnew=5000):
         zs.append(got)
         zs.sort(key=lambda w: w.real)
         added += 1
+        if added % 10 == 0:
+            print("    march N=%d: %d added, last %.4f%+.4fi" % (N, added, got.real, got.imag), flush=True)
     return zs

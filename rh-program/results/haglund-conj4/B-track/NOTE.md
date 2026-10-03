@@ -62,3 +62,23 @@ Im(dz/dt) > 0.
 
 | k | X_k | Y_k | real Xi_k / Xi_k+1 | non-real Xi_k / Xi_k+1 | landings | non-real ends | exits / entries | worst dIm | Im dz/dt > 0 |
 |---|---|---|---|---|---|---|---|---|---|
+
+### Method statements used by the census (each with its proof)
+**M1 (velocity).** Along a branch z(t) of zeros of F_k(z,t) = Xi_k(z) + t Phi_{k+1}(z) with F_z := dF/dz != 0,
+dz/dt = -Phi_{k+1}(z)/F_z(z,t), and with u = 1 - t = e^{-tau}, dz/dtau = u dz/dt = -u B/(A' - uB').
+Proof: differentiate F(z(t),t) = 0 (implicit function theorem; F is entire in z, affine in t). []
+
+**M2 (landings and lift-offs are the critical points of S_k on the line).** Put A = Xi_{k+1}, B = Phi_{k+1}, so
+F = A - uB, and S = A/B on the real axis, where B > 0 (N1: Phi_n > 0 on R for n >= 2, termwise kernel argument
+of main.tex Thm sandwich). The real zeros at parameter u are the solutions of S(x) = u. A non-real conjugate pair
+can meet the axis at (x*, u*) only at a real double zero: F(x*) = F'(x*) = 0, i.e. S(x*) = u*, S'(x*) = 0.
+If S''(x*) < 0 (local max) then for u slightly above u* the zeros near x* are x* +- i sqrt(2(u - u*)/|S''(x*)|)
+(1 + o(1)) and for u slightly below u* two real ones: as t increases (u decreases) the pair LANDS at x*, at
+tau* = -ln u*. If S''(x*) > 0 (local min) the same expansion with the sign reversed: two real zeros merge at x*
+and LEAVE the axis as t increases (a witness against (R), and against (D) just after).
+Proof: S(z) - u = (S''(x*)/2)(z - x*)^2 (1 + O(z - x*)) - (u - u*) near x*; take square roots (Rouche /
+implicit function theorem in w = z - x*). Since B > 0 and real on R, F(x) = B(x)(S(x) - u) has the same real
+zeros with the same multiplicities as S - u. []
+Consequence used in Q1/Q3: every landing in (0, X) occurs at a local maximum of S_k on (0, X) with value in (0,1),
+every lift-off at a local minimum with value in (0,1); a real zero can leave the axis only through such a minimum
+(a simple real zero of a real function stays real under a real perturbation).

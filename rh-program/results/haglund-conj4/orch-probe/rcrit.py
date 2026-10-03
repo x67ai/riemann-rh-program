@@ -8,13 +8,15 @@ ctx.prec = 400
 def vals(k, x):
     z = acb(x)
     xi = Xi(z).real
-    a, b = pair_T(k, z)                 # a = Xi_{k+1}(x), b = Phi_{k+1}(x)
-    q = xi - a.real                     # Q_{k+1}(x)
+    b = Phi(k + 1, z)                   # Phi_{k+1}(x)
+    q = arb(0)                          # Q_{k+1}(x) summed directly (the difference Xi - Xi_{k+1} cancels below 2^-prec:
+    for n in range(k + 2, k + 8):       #  that was the cause of the nonsense rows k = 8, 10 of the first run)
+        q += Phi(n, z).real             # terms beyond n = k+7 are below e^{-pi(10k+60)} of the first one
     return xi, b.real, q
 def d2log(f0, fp, fm, h):
     d1 = (fp - fm) / (2 * h); d2 = (fp - 2 * f0 + fm) / (h * h)
     return d2 / f0 - (d1 / f0) ** 2
-def run(k, X, step=0.02):
+def run(k, X, step=0.05):
     h = arb("1e-12")
     worst = (0.0, None); n = 0
     minsig = 1e300; maxm = 0.0
