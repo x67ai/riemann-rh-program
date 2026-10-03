@@ -24,20 +24,27 @@ def _rel(v):
     return float(rr.mid()) if rr.is_finite() else float("inf")
 
 def Phi_fast(n, z):
-    """Phi_n(z); for z exactly real (imaginary part the exact zero) the two terms of G are complex conjugates and
-    G = 2 Re(first term) (half the incomplete-gamma calls); otherwise hag_core.Phi. Checked against hag_core.Phi."""
+    """Phi_n(z) by the program paper's Lemma relation (main.tex l. 309-332): Phi_n = s(s-1)/2 (h(s/2) + h((1-s)/2))
+    + (4 pi n^2 - 1) e^{-pi n^2}, s = 1/2 + iz, h(w) = X^{-w} Gamma(w, X), X = pi n^2: two incomplete gammas instead of
+    hag_core's four; on the real axis h((1-s)/2) = conj h(s/2), one call. Checked against hag_core.Phi (overlapping balls
+    at 25 points; relative difference <= 2e-222 at 1600 bits). Changed 18:30 IST; before, Phi_fast was hag_core's
+    formula with the real-axis halving only."""
+    pi = arb.pi()
+    X = pi * n * n
+    AX = acb(X)
+    lX = acb(X.log())
+    s = acb(arb(1) / 2) + acb(0, 1) * z
+    w1 = s / 2
+    h1 = AX.gamma_upper(w1) * (-w1 * lX).exp()
     if z.imag == 0 and z.imag.rad() == 0:
-        pi = arb.pi()
-        a = pi * n * n
-        A = acb(a)
-        la = acb(a.log())
-        w = z / 2
-        def g(b):
-            s1 = acb(b) + acb(0, 1) * w
-            return 2 * (A.gamma_upper(s1) * (-s1 * la).exp()).real
-        v = 2 * pi * pi * n ** 4 * g(arb(9) / 4) - 3 * pi * n * n * g(arb(5) / 4)
-        return acb(v, 0)
-    return Phi(n, z)
+        g = acb(2 * h1.real, 0)
+    else:
+        w2 = (1 - s) / 2
+        g = h1 + AX.gamma_upper(w2) * (-w2 * lX).exp()
+    v = s * (s - 1) / 2 * g + (4 * pi * n * n - 1) * (-X).exp()
+    if z.imag == 0 and z.imag.rad() == 0:
+        return acb(v.real, 0)
+    return v
 
 def XiN_T_ad(N, z, bits):
     """Xi_N(z) by route T with adaptive M (returns acb). Initial M = max(N + 2, ceil(sqrt(x/4 + 15))): the tail after M
@@ -70,7 +77,7 @@ def XiN(N, z, route="T", bits=40):
             ctx.prec = p
             v = XiN_T_ad(N, z, bits) if route == "T" else XiN_L(N, z)
             if _rel(v) <= 2.0 ** (-bits):
-                _PREC[key] = max(64, int(p * 0.8))
+                _PREC[key] = max(64, int(p * 0.9))
                 STATS["maxprec"] = max(STATS["maxprec"], p)
                 if time.time() - _t0 > 2.0:
                     print("    SLOW XiN N=%d z=%s prec=%d %.1fs" % (N, z.str(12), p, time.time() - _t0), flush=True)
@@ -94,7 +101,7 @@ def S(k, z, route="T", bits=40):
             s = num / Phi_fast(k + 1, z)
             rel = _rel(s)
             if rel <= 2.0 ** (-bits):
-                _PREC[key] = max(64, int(p * 0.8))
+                _PREC[key] = max(64, int(p * 0.9))
                 STATS["maxprec"] = max(STATS["maxprec"], p)
                 STATS["maxrel"] = max(STATS["maxrel"], rel)
                 STATS["nevals"] += 1

@@ -34,6 +34,7 @@ argument-principle count on [0, X_k] x [-Y, Y] is the same for Y = Y_k and Y = 4
 | 7 | 538.94 | 102 | 113 / 155 [113 / 155] | 103 / 80 | 103 | 21 | 80 | 2 | -3.1e-07 | 0.842 | A, A4, C1, C2, C3, D, H; re-trace 11/11 (ends to 9.4e-11); Arb rel radius <= 9.1e-13 |
 | 8 | 658.32 | 115 | 155 / 207 [155 / 207] | 127 / 98 | 127 | 26 | 98 | 3 | -3.0e-07 | 0.850 | A, A4, C1, C2, C3, D, H; re-trace 13/13 (ends to 2.4e-11); Arb rel radius <= 8.9e-13 |
 | 9 | 790.27 | 130 | 207 / 263 [207 / 263] | 153 / 122 | 153 | 28 | 122 | 3 | -3.0e-07 | 0.861 | A, A4, C1, C2, C3, D, H; re-trace 16/16 (ends to 3.3e-11); Arb rel radius <= 9.0e-13 |
+| 10 | 934.78 | 144 | 263 / 327 [263 / -] | 183 / 148 | 183 | 32 | 148 | 3 | -3.0e-07 | 0.891 | A, A4, C1, C2, C3, D, H; re-trace 19/19 (ends to 1.5e-10); Arb rel radius <= 9.0e-13 |
   (k = 6: one branch, from 425.6801 + 82.8913i, reaches u = 0 at the zero 432.1548 + 63.0618i of Xi_7, just beyond X_6 = 432.1239; counted as an exit.)
   (Haglund column: arXiv v1 / journal table; the author's 2011 web copy prints 31 at N = 4 (L-lit, SHARED 16:18), as found here.)
 <!-- P1 rows -->
@@ -173,6 +174,12 @@ frontier rescan finds the same zeros and extrema; u_min = smallest landing value
   margin is negative: -0.874 (k = 2), -0.831 (k = 3), -0.811 (k = 5), -0.806 (k = 8); for k = 2 the trace records a
   step increase of Im z of +8.4e-7; for k >= 3 the whole branch is shorter than double precision (the pencil zero moves
   by ~ Phi_{k+1}/|Xi_k'|), so the margin, not the step increase, is the detector there. Both detectors fire.
+
+- T7. Evaluator change at 18:30 IST (used by P1 k = 12 only): Phi_fast now uses the program paper's Lemma relation
+  Phi_n = s(s-1)/2 (h(s/2) + h((1-s)/2)) + (4 pi n^2 - 1) e^{-pi n^2} (two incomplete gammas instead of four; one on the
+  real axis). Balls overlap hag_core.Phi at 25 points (n = 1, 2, 11, 13, 28; z up to 1200 + 150i and 3143.2 + 0.3i),
+  relative difference <= 2e-222 at 1600 bits. Reason: off the axis at heights 60-150 Arb's gamma_upper needs 768-1024
+  bits (below that its error plateaus near 4e-2 relative), and P1 k = 10, 11 took ~7 s per branch.
 
 ## §3 P2 sites (k = 26, 27)
 

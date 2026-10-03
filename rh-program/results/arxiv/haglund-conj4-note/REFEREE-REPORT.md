@@ -103,3 +103,14 @@ ATTEMPT 11 — Remark 4.3 (l. 468–489; NOTE Remarks (1)–(4)).
 - (2) labeled "a sketch, not a proof": m-th roots of L_t(β)/c; for m ≥ 3 equally spaced directions, at most floor(m/2) + 1 < m lie in a closed half-plane, so one points downward; m = 2 with L > 0: both directions real iff c > 0. Consistent.
 - (3) "Read in the other direction, (D) for all large k excludes the simple zeros of Ξ off the real axis with Im Ξ'(β) > 0": literally wrong for a zero in the LOWER half-plane — its conjugate β in the upper half-plane has Im Ξ'(β) of the opposite sign (Ξ'(β̄) = conj Ξ'(β)), so a lower zero with Im Ξ' > 0 belongs to an upper zero with Im Ξ' < 0, which is not excluded. The NOTE's Reading says "above the real axis". Minor m3 (pair below).
 - (4) Ξ(w) = conj Ξ(-w̄) gives Ξ'(-β̄) = -conj Ξ'(β), same sign of Im. Checked.
+
+ATTEMPT 12 — Lemma 6.1 (l. 653–666; NOTE §5 (III), the sentence marked PROVED). Promoting it to a lemma is backed by the NOTE (its §0 lists it under PROVED).
+- c(t) = lim x^2F_t = 0 - (-2kappa_t'(0)) = 2kappa_t'(0) (Theorem 2.4(b) step 4). Checked.
+- kappa_t'(0) = u·phi'_{k+1}(0) + Σ_{n>k+1}phi_n'(0). Recomputed phi_n'(v) = (-8y^3 + 30y^2 - 15y)e^{v/2 - y} (y' = 2y), so phi_n'(0) = -(8X^3 - 30X^2 + 15X)e^{-X}; positive alpha_n for X > 3.16, so for every n ≥ 2. Checked.
+- |c(t)| = 2[u alpha_{k+1} + Σ alpha_n], strictly decreasing in t since alpha_{k+1} > 0. Checked.
+- Verdict: complete.
+
+ATTEMPT 13 — the labeled heuristics of §6 (l. 612–677): spot checks only (they are not claimed as proved).
+- (I) 4(k+2)^2/(2π(k+1)^2) = 0.9947 at k = 3 ("0.5%"), 0.9167 at k = 4 ("8%"), limit 2/π: checked. |Ξ(x)| ~ x^{7/4}e^{-πx/4} (Stirling), Phi_{k+1}(0) ≈ 4a e^{-a}: consistent.
+- (II) Ξ(z) = ξ(1/2 - iz) = A(1/2 - iz)ζ(1/2 - iz); ζ(2.5) - 1 = 0.3415, ζ(3) - 1 = 0.2021 ("34%", "20%"): checked. Λ ≈ -π/4 - (i/2)log(x/2π) from (1/2)ψ(s/2) - (1/2)log π at s ≈ -ix; descent iff tan(phase ρ) < 2log(x/2π)/π: checked; arctan(...) = 1.05 at x = 100, 1.18 at x = 300, 1.27 at x = 1000, so "≈ 1.2" is a mid-range value (acceptable in a heuristic).
+- (III) δz ≈ (δc/c)(T/T'): |c| decreasing gives δc/c < 0, so Im δz < 0 when Im(T/T') > 0: sign checked.

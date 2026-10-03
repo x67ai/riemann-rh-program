@@ -228,3 +228,14 @@ readings sentence (1122 + column B) need the same update; a new P1 row may push 
 REFEREE-REPORT.md started (plan; outside read of main.pdf). Lemmas 2.1–2.3, Theorem 2.4 (corrected form: non-degenerate maxima,
 values in (0,1]) and Proposition 2.5 re-derived step by step: no step lost, no hypothesis dropped. Recomputed Ξ(0) = 0.49712,
 Q_1(0) = 1.71740e-4 ≤ c_1 = 1.71806e-4 (mpmath). One cosmetic point so far (Lemma 2.1, "x ≠ 0 ... first positive"). Next: §3, §4, Lemma 6.1.
+
+### REFEREE (second model, haglund-conj4-note) — 18:25 IST 2026-10-03 — batch 2: §§3, 4, Lemma 6.1 re-derived
+Lemma 3.1, Proposition 3.2 (both steps of the earlier read present: boundary values of the argument; the arg ξ(σ + ix) bound,
+re-derived term by term), Lemma 4.1 (constant 3.0774 at X = 4π), Proposition 4.2, Remark 4.3, Lemma 6.1 (phi_n'(0) recomputed):
+all complete. Two minor points: Prop. 3.2(ii)'s printed proof drops the NOTE's "x_m(y) within ε of the lobe" and "hence C_m tends
+to it"; Remark 4.3(3) says "off the real axis" where the NOTE says "above the real axis" (wrong for lower-half-plane zeros). Next: §5 census.
+
+### A-track — 18:27 IST 2026-10-03 — P1 k = 10 final
+k = 10 on [0, 934.78] x [0, 144]: real Xi_10 / Xi_11 = 263 / 327 (Haglund 263 at N = 10); non-real 183 / 148; 183
+branches: 32 land (= (327-263)/2), 148 end at the non-real zeros of Xi_11 in W_10, 3 exit; Im z decreased at every step
+(-3.0e-7); smallest margin 0.891; all checks passed. NUMERICAL. k = 11 and 12 running (~25 min each).
