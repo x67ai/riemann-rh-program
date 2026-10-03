@@ -44,3 +44,37 @@ Each k's row goes here and a dated block to SHARED.md as soon as it is final.
   pencil at u are S_k(x) = u; a local max of S_k with value u* in (0,1) is a landing at u*, a local min a departure. The
   real count changes only there (S_k(0) > 1 and S_k < 0 near X_k are checked in every scan), so
   #landings - #departures = (R_{k+1} - R_k)/2. Confirmed.
+
+## §0 Census table (P1: W_k = [0, X_k] x [0, Y_k], X_k = 2 pi (k+2)^2 + 30) — rows added as each k is final
+Columns: R_k / R_{k+1} = real zeros of Xi_k / Xi_{k+1} in (0, X_k] (sign changes of S_k - 1 and S_k on a grid of
+spacing/20, roots refined; Haglund p. 4 in brackets); NR = non-real zeros of Xi_k / Xi_{k+1} in W_k; B = branches
+followed (= NR of Xi_k); L = landings; E = ends at a non-real zero of Xi_{k+1}; X = exits through Re z = X_k;
+dy+ = largest step increase of Im z over all branches (negative = Im z decreased at every step); m = smallest margin
+-Im S'/|S'| above height 1e-6; checks: A = argument-principle count of Xi_k and Xi_{k+1} on [0,X_k] x [-Y_k,Y_k] equals
+R + 2 NR (floating point; "A4" = same count at 4 Y_k; "W" = rigorous hag_core winding), C1 = every non-real zero of
+Xi_{k+1} in W_k is a branch end, C2 = L = (R_{k+1} - R_k)/2, C3 = landings = local maxima of S_k in (0,1) one to one,
+D = no local minimum of S_k in (0,1) on [0, X_k] and every (0,1)-interval consistent, H = hygiene (half-step re-trace
+of one branch in ten agrees, routes L/T agree at 5 points per branch for k <= 6, every S value has Arb relative radius
+<= 2^-40).
+
+| k | X_k | Y_k | R_k / R_{k+1} [Haglund] | NR k / k+1 | B | L | E | X | dy+ | m | checks passed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | 86.55 | 41 | 1 / 7 [1 / 7] | 15 / 11 | 15 | 3 | 11 | 1 | -3.7e-7 | 0.719 | A, A4, C1, C2, C3, D, H (re-trace 2/2: landing x to 1.0e-12, end z to 0; L/T 75 pts, max rel diff 3.0e-13; max Arb rel radius 9.0e-13) |
+| 2 | 130.53 | 50 | 7 / 15 [7 / 15] | 23 / 18 | 23 | 4 | 18 | 1 | -3.1e-07 | 0.806 | A, A4, C1, C2, C3, D, H; re-trace 3/3 (ends to 7.6e-12); L/T 115 pts max rel 1.3e-13; Arb rel radius <= 9.0e-13 |
+| 3 | 187.08 | 59 | 15 / 31 [15 / 32] | 35 / 25 | 35 | 8 | 25 | 2 | -3.3e-07 | 0.812 | A, A4, C1, C2, C3, D, H; re-trace 4/4 (ends to 1.2e-12); L/T 172 pts max rel 1.8e-13; Arb rel radius <= 8.3e-13 |
+| 4 | 256.19 | 68 | 31 / 53 [32 / 53] | 47 / 34 | 47 | 11 | 34 | 2 | -3.2e-07 | 0.797 | A, A4, C1, C2, C3, D, H; re-trace 5/5 (ends to 5.1e-12); L/T 235 pts max rel 3.0e-13; Arb rel radius <= 8.7e-13 |
+
+## §2 Tool notes and attempts (as made)
+- T1. Arb degeneracy on the imaginary axis: for x = 0 exactly, b +- i z/2 = b - y/2 is real, and python-flint's
+  gamma_upper at the points b - y/2 = 0, -1, -2, ... (y = 4.5 + 2n for b = 9/4) drove the adaptive precision loop
+  into a runaway (observed: a strip count with left edge on x = 0 hung > 2 min in acb_hypgeom / acb_calc_integrate).
+  Fix: the left edge x = 0 is not sampled (its arg change is 0 by C3); seeds start at x >= 0.01; precision cap 20000 bits.
+- T2. ATTEMPT 1 — rigorous count by hag_core.winding (route L on boxes) on [-X_1, X_1] x [-41, 41] (Xi_N even, so the
+  count there is twice the count on [0, X_1] x [-41, 41]) — breaks at: the box enclosures. A box 86.5 + [10, 10.2]i
+  gives Xi_1 in a ball of radius 0.02 around values of size 1e-5 (route T boxes give nan at y = 41), so pieces need
+  bisection far below depth 14; stopped after 3.5 min CPU for N = 1 at the first side. Not affordable at the size of W_k
+  with these enclosures; every count in this NOTE is the floating-point argument principle, labeled as such.
+- T3. Floating-point argument principle (zeros.argpath): arg of the exact midpoint of the Arb value (24 bits relative),
+  adaptive bisection until every increment is below pi/4 (minimum segment 1e-9; a segment that cannot reach it is
+  counted as a flag; flags = 0 in every count reported); total rounded, deviation from an integer reported (< 1e-12
+  in every P1 count so far).

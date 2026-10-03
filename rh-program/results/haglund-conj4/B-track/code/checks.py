@@ -3,8 +3,20 @@ and compare with the main run at the common grid values.  usage: python3 checks.
 import sys, json, time
 sys.path.insert(0, '.')
 import mpmath as mp, track
-k = int(sys.argv[1]); idx = [int(a) for a in sys.argv[2].split(',')]
+k = int(sys.argv[1])
 main = json.load(open(sys.argv[3] if len(sys.argv) > 3 else '../data/k%d-track.json' % k))
+if sys.argv[2] == 'auto':
+    # first and last landing branch, a middle branch ending at t = 1, the last branch starting in W
+    import math
+    X = 2*math.pi*(k + 2)**2 + 30
+    B = main['branches']
+    land = [i for i, b in enumerate(B) if b['status'] == 'axis-approach']
+    ends = [i for i, b in enumerate(B) if b['status'] == 'end-t1' and float(b['start'][0]) <= X]
+    inW = [i for i, b in enumerate(B) if float(b['start'][0]) <= X]
+    idx = sorted(set(([land[0], land[-1]] if land else []) + ([ends[len(ends)//2]] if ends else []) + ([inW[-1]] if inW else [])))
+else:
+    idx = [int(a) for a in sys.argv[2].split(',')]
+print('sample', idx); sys.stdout.flush()
 dtau = main['dtau']; tau_max = main['tau_max']
 out = dict(k=k, checks=[])
 t0 = time.time()

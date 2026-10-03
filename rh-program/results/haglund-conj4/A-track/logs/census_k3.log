@@ -1,0 +1,9 @@
+[16:43:58] k=3 P1 window [0.000, 187.080]
+[16:44:02]   axis: R_k=15 R_k+1=31 max=8 min=0 unresolved=0 consistent=True (4s)
+[16:44:03]   located 35 non-real zeros of Xi_3
+[16:44:30]   traced 35 branches (32s)
+    march N=4: 10 added, last 217.2747+49.0933i
+    march N=4: 20 added, last 247.8065+60.1088i
+[16:44:49] SUMMARY k=3 P1: {"R_k": 15, "R_k1": 31, "nonreal_k": 35, "nonreal_k1": 25, "branches": 35, "landings": 8, "nonreal_ends": 25, "exits": 2, "worst_dy": -3.270609976177712e-07, "min_margin": 0.8117992016497811, "checks": {"count_k": true, "count_k1": true, "Y_stable_k": true, "Y_stable_k1": true, "landings_eq_half_real_diff": true, "landings_match_maxima": true, "all_Xik1_nonreal_are_ends": true, "axis_no_min": true, "axis_intervals_consistent": true, "axis_ends_outside_01": true}, "Y": 59.0, "arb_maxrel": 8.307355319005825e-13, "arb_maxprec": 444, "secs": 45.2}
+[16:44:49] hygiene: {"retrace": [{"i": 0, "end": "landed", "end2": "landed", "dx_land": 1.1652900866465643e-12, "du_land_rel": 0.0}, {"i": 10, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 20, "end": "u0", "end2": "u0", "dz_end": 0.0}, {"i": 30, "end": "u0", "end2": "u0", "dz_end": 0.0}], "LT": {"points": 172, "max_rel_diff": 1.8082282391626299e-13}}
+[16:44:49] wrote /Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/haglund-conj4/A-track/code/../data/census_k3.json (160 kB)

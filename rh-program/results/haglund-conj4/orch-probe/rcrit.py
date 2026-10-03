@@ -4,7 +4,7 @@
 # by central differences on Arb midpoints.  ratio < 1 everywhere on the range  =>  no lift-off on the range (numerical, not a certificate).
 import sys, math
 from c4probe import *
-ctx.prec = 400
+ctx.prec = int(__import__('os').environ.get('RCRIT_PREC', '1600'))
 def vals(k, x):
     z = acb(x)
     xi = Xi(z).real
@@ -12,6 +12,9 @@ def vals(k, x):
     q = arb(0)                          # Q_{k+1}(x) summed directly (the difference Xi - Xi_{k+1} cancels below 2^-prec:
     for n in range(k + 2, k + 8):       #  that was the cause of the nonsense rows k = 8, 10 of the first run)
         q += Phi(n, z).real             # terms beyond n = k+7 are below e^{-pi(10k+60)} of the first one
+    for v in (xi, b.real, q):           # second run's k = 8 row was nonsense: Arb's Phi_9 has relative radius 1e-9 at 400 bits
+        m = abs(float(v.mid()))         # for small x (110 digits cancel inside gamma_upper); midpoints were used unchecked.
+        assert m == 0 or float(v.rad()) <= 1e-60 * m, "radius too large at x=%s: raise ctx.prec" % x
     return xi, b.real, q
 def d2log(f0, fp, fm, h):
     d1 = (fp - fm) / (2 * h); d2 = (fp - 2 * f0 + fm) / (h * h)

@@ -66,8 +66,12 @@ def count_win(N, xa, xb, Y, ds=0.25, route="T"):
     from zeros import argpath
     t0 = time.time()
     tot, ns, nf = 0.0, 0, 0
-    for (fn, a, b) in ((lambda s: complex(xb, s), 0.0, Y), (lambda s: complex(xb - s, Y), 0.0, xb - xa),
-                       (lambda s: complex(xa, Y - s), 0.0, Y)):
+    # with xa = 0 the left edge is the imaginary axis, where Xi_N > 0 (NOTE C3): its arg change is 0 and it is not
+    # sampled (Arb's gamma_upper also degenerates there at the real points b - y/2 = 0, -1, ...).
+    edges = [(lambda s: complex(xb, s), 0.0, Y), (lambda s: complex(xb - s, Y), 0.0, xb - xa)]
+    if xa > 0:
+        edges.append((lambda s: complex(xa, Y - s), 0.0, Y))
+    for (fn, a, b) in edges:
         t, n, f = argpath(N, fn, a, b, ds, route)
         tot += t; ns += n; nf += f
     val = tot / math.pi
@@ -77,7 +81,7 @@ def count_win(N, xa, xb, Y, ds=0.25, route="T"):
 def seed_scan(N, xa, xb, ytop, route="T", dx=None, dy=0.8):
     """Newton from a grid of seeds in [xa,xb] x (0, ytop]; returns the distinct non-real zeros found in the strip."""
     out = []
-    x = xa
+    x = xa + 0.01
     while x <= xb:
         sp = 2 * math.pi / math.log(max(x, 40.0) / (2 * math.pi))
         y = 0.15
@@ -117,7 +121,7 @@ def fill(N, xa, xb, Y, zs, Rreal, route="T", width=12.0, logf=print):
         a = b
     return dedup(zs), report
 
-def run(k, xa, xb, tag, Y=None, route="T", next_xb=None, h0=0.25, turnmax=0.12):
+def run(k, xa, xb, tag, Y=None, route="T", next_xb=None, h0=0.25, turnmax=0.12, seeds_k=None):
     T0 = time.time()
     R = {"k": k, "tag": tag, "window": [xa, xb], "route": route}
     log("k=%d %s window [%.3f, %.3f]" % (k, tag, xa, xb))
@@ -126,10 +130,13 @@ def run(k, xa, xb, tag, Y=None, route="T", next_xb=None, h0=0.25, turnmax=0.12):
     R["axis"] = {kk: ax[kk] for kk in ("R_k", "R_k1", "n_max", "n_min", "n_unresolved", "all_consistent", "ngrid",
                                         "nrefined", "zeros_Xik", "zeros_Xik1", "extrema01", "secs")}
     R["axis"]["bad_intervals"] = [I for I in ax["intervals01"] if not I["consistent"]]
+    sa, sb = Sx(k, xa, route)[0], Sx(k, xb, route)[0]
+    R["axis"]["S_at_ends"] = [sa, sb]
+    R["axis"]["ends_outside_01"] = not (0 <= sa <= 1) and not (0 <= sb <= 1)
     log("  axis: R_k=%d R_k+1=%d max=%d min=%d unresolved=%d consistent=%s (%.0fs)" % (ax["R_k"], ax["R_k1"], ax["n_max"],
         ax["n_min"], ax["n_unresolved"], ax["all_consistent"], ax["secs"]))
     # (a) non-real zeros of Xi_k in the window
-    zk = [z for z in locate(k, xa, xb, route) if xa < z.real < xb]
+    zk = [z for z in (seeds_k if seeds_k is not None else locate(k, xa, xb, route)) if xa < z.real < xb]
     log("  located %d non-real zeros of Xi_%d" % (len(zk), k))
     # (b) branches
     br = []
@@ -182,6 +189,7 @@ def run(k, xa, xb, tag, Y=None, route="T", next_xb=None, h0=0.25, turnmax=0.12):
     chk["all_Xik1_nonreal_are_ends"] = len(unmatched) == 0
     chk["axis_no_min"] = ax["n_min"] == 0 and ax["n_unresolved"] == 0
     chk["axis_intervals_consistent"] = ax["all_consistent"]
+    chk["axis_ends_outside_01"] = R["axis"]["ends_outside_01"]
     R["checks"] = chk
     R["zk1_all_for_next"] = jl(zk1_all)
     R["secs"] = round(time.time() - T0, 1)

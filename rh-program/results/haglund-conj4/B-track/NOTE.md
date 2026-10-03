@@ -82,3 +82,43 @@ zeros with the same multiplicities as S - u. []
 Consequence used in Q1/Q3: every landing in (0, X) occurs at a local maximum of S_k on (0, X) with value in (0,1),
 every lift-off at a local minimum with value in (0,1); a real zero can leave the axis only through such a minimum
 (a simple real zero of a real function stays real under a real perturbation).
+
+### Q1, k = 1 (main run finished 16:44 IST 2026-10-03; data `data/k1-*.json`, logs `data/k1-*.log`)
+W_1 = [0, 86.549] x [0, 45]; the argument-principle count is the same with the top edge at 60.
+- Xi_1: 31 zeros in (0, 86.549) x (-45, 45) = 1 real + 2 x 15 (AP); real-axis scan on [0, 98.55]: 1 real zero
+  (14.0454), so 14.0454395788 is the largest real zero up to 98.55. Non-real zeros found by bisection + Newton:
+  exactly 15 in W_1 (Haglund's appendix list) and 3 more up to Re 98.55 (followed as well).
+- Xi_2: 29 zeros = 7 real + 2 x 11 (AP); scan: 7 real zeros, largest 39.5325 (so the largest up to 98.55).
+- S_1 on [0, 98.55] (8292 points, step 0.05, refined to 0.01 where S is in (-0.5, 1.5)): 9 local extrema,
+  3 with value in (0,1), all local MAXIMA: x* = 22.142378 (u* = 0.0837083, tau* = 2.48042), 31.254957
+  (u* = 1.32607e-4, tau* = 8.92812), 38.516854 (u* = 7.02803e-7, tau* = 14.16819). No local minimum in (0,1).
+- Branches (tau-grid 0.1 to 27.8, then t = 1): the 3 lowest land, each at one of the 3 maxima above; the last
+  computed point of each lies on the M2 model (Im z_c = 0.0089427 / 0.0069870 / 0.0046975 against the model
+  0.0089427 / 0.0069871 / 0.0046975). 11 end at non-real zeros of Xi_2 in W_1, matching the 11 found
+  independently to 5.7e-16. 1 exit: 85.2022 + 35.8750i ends at 88.6268 + 27.5501i (Re > X_1). No entry:
+  the 3 branches started at Re 89.15, 93.05, 96.91 end at Re 92.48, 96.30, 100.09.
+  Balance: 15 = 3 + 11 + 1; real: 1 + 2 x 3 = 7.
+- Im z decreased between every pair of consecutive grid values on every branch (largest increase -3.3e-8, i.e.
+  the smallest decrease, at the end of the tau-range where the motion has converged); Im(dz/dt) < 0 at every
+  one of the 3,605 recorded grid values of the 15 branches in W_1 (largest value -0.632); at the last step (tau = 27.8 -> t = 1) Im z
+  also decreased on every branch.
+| # | start z (t=0) | end | x* | tau* | worst dIm | #grid Im(dz/dt)>0 | grid pts |
+|---|---|---|---|---|---|---|---|
+| 0 | 20.625346 + 2.697152i | landed | 22.142378 | 2.48042 | -7.610e-02 | 0 | 25 |
+| 1 | 26.056167 + 7.125360i | landed | 31.254957 | 8.92812 | -6.293e-02 | 0 | 90 |
+| 2 | 31.501431 + 10.729150i | landed | 38.516854 | 14.16819 | -5.876e-02 | 0 | 142 |
+| 3 | 36.727023 + 13.759614i | Xi_k+1 zero 43.138908 + 3.280971i |  |  | -6.586e-08 | 0 | 279 |
+| 4 | 41.737035 + 16.440127i | Xi_k+1 zero 47.522756 + 6.252509i |  |  | -5.846e-08 | 0 | 279 |
+| 5 | 46.566229 + 18.881870i | Xi_k+1 zero 51.828315 + 8.958574i |  |  | -5.422e-08 | 0 | 279 |
+| 6 | 51.244566 + 21.147504i | Xi_k+1 zero 56.112003 + 11.479609i |  |  | -5.000e-08 | 0 | 279 |
+| 7 | 55.795254 + 23.276257i | Xi_k+1 zero 60.350292 + 13.841617i |  |  | -4.642e-08 | 0 | 279 |
+| 8 | 60.236214 + 25.294585i | Xi_k+1 zero 64.539068 + 16.070563i |  |  | -4.341e-08 | 0 | 279 |
+| 9 | 64.581505 + 27.221336i | Xi_k+1 zero 68.676113 + 18.186820i |  |  | -4.090e-08 | 0 | 279 |
+| 10 | 68.842357 + 29.070496i | Xi_k+1 zero 72.761784 + 20.206670i |  |  | -3.880e-08 | 0 | 279 |
+| 11 | 73.027899 + 30.852792i | Xi_k+1 zero 76.797531 + 22.143225i |  |  | -3.704e-08 | 0 | 279 |
+| 12 | 77.145673 + 32.576663i | Xi_k+1 zero 80.785405 + 24.007108i |  |  | -3.554e-08 | 0 | 279 |
+| 13 | 81.201991 + 34.248893i | Xi_k+1 zero 84.727702 + 25.807016i |  |  | -3.426e-08 | 0 | 279 |
+| 14 | 85.202203 + 35.875031i | Xi_k+1 zero 88.626777 + 27.550132i (outside W) |  |  | -3.315e-08 | 0 | 279 |
+| 15 | 89.150893 + 37.459690i (start outside W) | Xi_k+1 zero 92.484940 + 29.242452i (outside W) |  |  | -3.218e-08 | 0 | 279 |
+| 16 | 93.052023 + 39.006751i (start outside W) | Xi_k+1 zero 96.304398 + 30.889023i (outside W) |  |  | -3.133e-08 | 0 | 279 |
+| 17 | 96.909049 + 40.519517i (start outside W) | Xi_k+1 zero 100.087229 + 32.494132i (outside W) |  |  | -3.058e-08 | 0 | 279 |

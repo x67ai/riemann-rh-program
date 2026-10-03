@@ -4,7 +4,7 @@
 # Objects: S_k = Xi_{k+1}/Phi_{k+1}; zeros of the pencil Xi_k + t Phi_{k+1} at u = 1 - t are the solutions of S_k = u.
 # Route T: Xi_{k+1} = Xi - sum_{n=k+2}^{M} Phi_n - tail (tail as a proved error ball, Lemma T); M raised until the
 #          tail ball is below 2^-(bits+8) |value|.   Route L: the literal sum (13).
-import sys, os, math
+import sys, os, math, time
 HERE = os.path.dirname(os.path.abspath(__file__))
 RES = os.path.abspath(os.path.join(HERE, "..", "..", ".."))          # rh-program/results
 sys.path.insert(0, os.path.join(RES, "arxiv", "haglund-counterexample", "certificate", "producer-A"))
@@ -46,6 +46,7 @@ def XiN(N, z, route="T", bits=40):
     key = ("X", N, route)
     prec0 = ctx.prec
     p = _PREC.get(key, 96)
+    _t0 = time.time()
     try:
         while True:
             ctx.prec = p
@@ -53,8 +54,10 @@ def XiN(N, z, route="T", bits=40):
             if _rel(v) <= 2.0 ** (-bits):
                 _PREC[key] = max(64, int(p * 0.8))
                 STATS["maxprec"] = max(STATS["maxprec"], p)
+                if time.time() - _t0 > 2.0:
+                    print("    SLOW XiN N=%d z=%s prec=%d %.1fs" % (N, z.str(12), p, time.time() - _t0), flush=True)
                 return v
-            if p > 60000:
+            if p > 20000:
                 raise RuntimeError("precision runaway XiN N=%d z=%s" % (N, z.str(10)))
             p *= 2
     finally:
@@ -65,6 +68,7 @@ def S(k, z, route="T", bits=40):
     key = ("S", k, route)
     prec0 = ctx.prec
     p = _PREC.get(key, 96)
+    _t0 = time.time()
     try:
         while True:
             ctx.prec = p
@@ -76,8 +80,10 @@ def S(k, z, route="T", bits=40):
                 STATS["maxprec"] = max(STATS["maxprec"], p)
                 STATS["maxrel"] = max(STATS["maxrel"], rel)
                 STATS["nevals"] += 1
+                if time.time() - _t0 > 2.0:
+                    print("    SLOW S k=%d z=%s prec=%d %.1fs" % (k, z.str(12), p, time.time() - _t0), flush=True)
                 return s
-            if p > 60000:
+            if p > 20000:
                 raise RuntimeError("precision runaway S k=%d z=%s" % (k, z.str(10)))
             p *= 2
     finally:
