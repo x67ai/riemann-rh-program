@@ -51,3 +51,14 @@ because of it; nothing from those lines is used. From here on I query only my ow
 - Argument principle (code/argp.py, adaptive arg sampling, pi/6 per sample, max spacing 0.25): Xi_1 on
   (0, 86.55) x (-45, 45) counts 31.0 = 1 real + 2 x 15; recursive bisection + Newton finds exactly Haglund's 15
   non-real zeros with Re <= 86.55. Ladder complete (16:27 IST 2026-10-03).
+
+## §0 Census table (one row per pencil k; filled as each k becomes final)
+Window W_k = [0, X_k] x [0, Y_k], X_k = 2 pi (k+2)^2 + 30. tau = -ln(1 - t), grid tau_j = 0.1 j up to
+pi(2k+3) + 12, then t = 1. Counts are NUMERICAL (mpmath, dps 30; argument principle by adaptive sampling,
+not interval-rigorous). Columns: real zeros of Xi_k / Xi_{k+1} in (0, X_k) [argument principle | real-axis scan];
+non-real zeros of Xi_k / Xi_{k+1} in W_k; landings (x*, tau*); non-real ends in W_k; exits / entries;
+worst increase of Im z between consecutive grid values (negative = every step descended); grid values with
+Im(dz/dt) > 0.
+
+| k | X_k | Y_k | real Xi_k / Xi_k+1 | non-real Xi_k / Xi_k+1 | landings | non-real ends | exits / entries | worst dIm | Im dz/dt > 0 |
+|---|---|---|---|---|---|---|---|---|---|
