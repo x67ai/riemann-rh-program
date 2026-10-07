@@ -1,0 +1,31 @@
+  route T prec   256: Xi_27(3144.8946) in [-1.76019463127752e-1070 +/- 4.10e-1085]  (rad 4.96e-1138; Im part [6.43e-1140 +/- 5.05e-1138]) (0.01s)
+  route T prec   256: Xi_27(3144.8947) in [1.06871649226171e-1070 +/- 3.27e-1085]  (rad 4.96e-1138; Im part [6.79e-1140 +/- 5.05e-1138]) (0.00s)
+H1 route T prec 256: certified sign change on [3144.8946, 3144.8947]: True
+  route T prec  1024: Xi_27(3144.8946) in [-1.76019463127752e-1070 +/- 4.10e-1085]  (rad 2.11e-1288; Im part [+/- 2.12e-1288]) (0.04s)
+  route T prec  1024: Xi_27(3144.8947) in [1.06871649226171e-1070 +/- 3.27e-1085]  (rad 2.12e-1288; Im part [+/- 2.12e-1288]) (0.03s)
+H1 route T prec 1024: certified sign change on [3144.8946, 3144.8947]: True
+  route L prec  4800: Xi_27(3144.8946) in [-1.76019463127752e-1070 +/- 4.10e-1085]  (rad 3.24e-1435; Im part [+/- 3.24e-1435]) (0.66s)
+  route L prec  4800: Xi_27(3144.8947) in [1.06871649226171e-1070 +/- 3.27e-1085]  (rad 3.24e-1435; Im part [+/- 3.25e-1435]) (0.66s)
+H1 route L prec 4800: certified sign change on [3144.8946, 3144.8947]: True
+  route L prec  6400: Xi_27(3144.8946) in [-1.76019463127752e-1070 +/- 4.10e-1085]  (rad 5.99e-1915; Im part [+/- 5.99e-1915]) (1.16s)
+  route L prec  6400: Xi_27(3144.8947) in [1.06871649226171e-1070 +/- 3.27e-1085]  (rad 5.99e-1915; Im part [+/- 5.99e-1915]) (1.08s)
+H1 route L prec 6400: certified sign change on [3144.8946, 3144.8947]: True
+  route T prec   256: Xi_27(3145.5998) in [1.12975694291664e-1070 +/- 1.91e-1085]  (rad 3.14e-1138; Im part [5.63e-1140 +/- 3.36e-1138]) (0.00s)
+  route T prec   256: Xi_27(3145.5999) in [-1.14913915362778e-1070 +/- 2.87e-1085]  (rad 3.14e-1138; Im part [5.58e-1140 +/- 3.36e-1138]) (0.00s)
+H4 route T prec 256: certified sign change on [3145.5998, 3145.5999]: True
+  route T prec  1024: Xi_27(3145.5998) in [1.12975694291664e-1070 +/- 1.91e-1085]  (rad 2.00e-1288; Im part [+/- 2.00e-1288]) (0.03s)
+  route T prec  1024: Xi_27(3145.5999) in [-1.14913915362778e-1070 +/- 2.87e-1085]  (rad 2.00e-1288; Im part [+/- 2.00e-1288]) (0.03s)
+H4 route T prec 1024: certified sign change on [3145.5998, 3145.5999]: True
+  route L prec  4800: Xi_27(3145.5998) in [1.12975694291664e-1070 +/- 1.91e-1085]  (rad 4.12e-1435; Im part [+/- 4.13e-1435]) (0.67s)
+  route L prec  4800: Xi_27(3145.5999) in [-1.14913915362778e-1070 +/- 2.87e-1085]  (rad 4.11e-1435; Im part [+/- 4.11e-1435]) (0.68s)
+H4 route L prec 4800: certified sign change on [3145.5998, 3145.5999]: True
+  route L prec  6400: Xi_27(3145.5998) in [1.12975694291664e-1070 +/- 1.91e-1085]  (rad 7.50e-1915; Im part [+/- 7.50e-1915]) (1.09s)
+  route L prec  6400: Xi_27(3145.5999) in [-1.14913915362778e-1070 +/- 2.87e-1085]  (rad 7.50e-1915; Im part [+/- 7.51e-1915]) (1.07s)
+H4 route L prec 6400: certified sign change on [3145.5998, 3145.5999]: True
+L/T overlap at the H1/H4 endpoints:
+  t=3144.8946  L [-1.76019463128e-1070 +/- 2.49e-1082] | T [-1.76019463128e-1070 +/- 2.49e-1082] | overlap True | |L-T| <= 5.10e-1138
+  t=3144.8947  L [1.06871649226e-1070 +/- 1.71e-1082] | T [1.06871649226e-1070 +/- 1.71e-1082] | overlap True | |L-T| <= 5.06e-1138
+  t=3145.5998  L [1.12975694292e-1070 +/- 3.36e-1082] | T [1.12975694292e-1070 +/- 3.36e-1082] | overlap True | |L-T| <= 3.18e-1138
+  t=3145.5999  L [-1.14913915363e-1070 +/- 2.22e-1082] | T [-1.14913915363e-1070 +/- 2.22e-1082] | overlap True | |L-T| <= 3.15e-1138
+H1 VERDICT: True ; H4 VERDICT: True ; total 9.8s
+python3 h1.py  9.80s user 0.05s system 99% cpu 9.891 total
