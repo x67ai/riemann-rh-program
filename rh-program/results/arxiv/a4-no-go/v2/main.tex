@@ -1,0 +1,499 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{3em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbf R}\newcommand{\C}{\mathbf C}
+\newcommand{\Z}{\mathbf Z}\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\Nd}{N_{\mathrm d}}\newcommand{\one}{\mathbf 1}
+\title{Cubic augmentation of a two-moment model:\\
+an exact finite absorption theorem and its limits}
+\author{Kunal Tyagi\thanks{\texttt{hello.jay.tyagi@gmail.com}.
+\emph{Use of AI.} The original work used Claude (Anthropic). This revision,
+proof review, and companion certificates used OpenAI Codex. The author directed
+the work and is responsible for the content. Code and publication artifacts:
+\url{https://github.com/x67ai/riemann-rh-program}.}}
+\date{August 26, 2026; revised October 18, 2026 (version 2)}
+\hypersetup{pdftitle={Cubic augmentation of a two-moment model: an exact finite absorption theorem and its limits},pdfauthor={Kunal Tyagi}}
+\begin{document}\maketitle
+\begin{abstract}
+We study adjoining a half-bandwidth signed cubic trace and a spectral count
+ladder to a bandwidth-one trace/Frobenius model motivated by zeta-zero
+certificates. In a finite circle model with mass $N=64$, flat windows, and
+explicit budget centers, we prove exact absorption over the full atom-only
+class: the augmented and baseline optima agree for both the distinct-count
+and simple-fraction objectives. Three explicitly specified integer-marked
+grid columns attain the lower bounds. Their mixing weights are defined
+algebraically, and an Arb certificate proves all strict feasibility and
+inertia inequalities. The witness satisfies the ladder at every positive
+threshold, not just on a finite threshold grid. We also give the exact
+conjugate-pair spectrum, the isolated-block cubic identity, grid Parseval,
+and the sharp conditional spectral-capacity constant $2\sqrt2$.
+The result is a finite model theorem, not an unconditional statement about
+zeta zeros. Version 2 corrects an infeasible witness, a cubic-tolerance
+mismatch, and an incorrect rationality claim in version 1. Global absorption
+in the pair-containing or pinned classes remains unproved; equality on a
+searched column dictionary and heuristic pricing do not establish it.
+\end{abstract}
+
+\section{Problem, contribution and revision}
+The two-moment certificate in the work of Alp\"oge and Furman \cite{AF26}
+motivates adding a signed cubic trace at a second bandwidth. Classical
+higher-level correlations \cite{RS96} suggest suitable model budgets, but
+passing from those correlation statements to every row of a particular
+finite model is an additional task. We make the model and its proved scope
+explicit.
+
+The main result is Theorem~\ref{thm:main}: one precisely specified $N=64$
+flat-window atom-only model has an exactly base-optimal law satisfying its
+half-bandwidth Frobenius row, cubic row and all-threshold count ladder.
+The proof combines an analytic atom-only lower bound with a finite
+algebraic construction and certified interval inequalities. It does not
+require optimizing over a numerically generated dictionary.
+
+\paragraph{Correction of version 1.}
+Version 1, titled \emph{The two-moment certificate is robust under
+Rudnick--Sarnak-range cubic augmentation with capacity control}, stated
+broader exact absorption claims than its proofs and computations supported.
+Those full-class conclusions are withdrawn. Its printed clean-grid witness
+missed the implemented cubic band, its displayed cubic tolerance differed
+from the code's, and selected row values are irrational algebraic numbers,
+not rational numbers. This revision replaces the witness and states its
+budgets exactly. Section~\ref{sec:limits} separates the theorem proved here,
+the earlier numerical observations, and the open analytic bridges.
+
+\section{The finite model}\label{sec:model}
+Fix a circle of circumference $N$ and a finite symmetric integer band $B$,
+with uniform harmonic weights $1/M$, $M=|B|$. A configuration consists of
+real positions $\theta_a$ with positive integer marks $m_a$, and optionally
+conjugate pairs $\theta_p\pm id_p$ of common positive integer mark $m_p$.
+Positions are taken modulo $N$. Its total mass is
+$\sum_a m_a+2\sum_p m_p=N$.
+Put
+\[
+ c_s=\sum_a m_a e^{-2\pi i s\theta_a/N}
+       +2\sum_p m_p\cosh(2\pi s d_p/N)e^{-2\pi i s\theta_p/N},
+ \qquad H_B[j,k]=\frac{c_{j-k}}{M}\quad(j,k\in B).
+\]
+The identity $c_{-s}=\overline{c_s}$ makes $H_B$ Hermitian and
+$\tr H_B=N$. At the two bands used here,
+\[
+ B_1=\{-32,\ldots,32\},\quad M_1=65,
+ \qquad B'=\{-16,\ldots,16\},\quad M'=33,
+\]
+write $F_1=\tr H_{B_1}^2$, $F'=\tr H_{B'}^2$, $C'=\tr H_{B'}^3$, and
+$n(V)=\#\{\lambda\in\operatorname{Spec}(H_{B'}):|\lambda|\ge V\}$.
+An \emph{atom-only} configuration has no conjugate pairs; its matrices are
+positive semidefinite. Marks at coincident real positions are combined.
+Its objectives are $\Nd=\#\{a\}$ and $p_1=\#\{a:m_a=1\}/N$.
+A law is a probability distribution on configurations, with finite expected
+$F_1$; each constraint below is an expectation constraint.
+
+\subsection{Exact budgets and the meaning of the cubic slack}
+All decimal constants in the following display mean exact rational numbers:
+\begin{align*}
+ N&=64,&\varepsilon&=0.05=1/20,&C_{\mathrm{led}}&=10,\\
+ B_1^{\mathrm{cen}}&=84.71214548308222,
+ &B_2^{\mathrm{cen}}&=135.09544203420174,
+ &B_3^{\mathrm{cen}}&=304.5549106659001.
+\end{align*}
+The superscript distinguishes a budget center from a harmonic band. Below,
+write $b_j=B_j^{\mathrm{cen}}$ and $U=b_1(1+\varepsilon)$.
+These are fixed model parameters inherited from the primary finite cell of
+version 1. No equality to a zeta statistic, or to an unrounded random-matrix
+expectation, is assumed.
+
+The baseline atom problem imposes mass $64$ and
+\begin{equation}\label{eq:base}
+ b_1(1-\varepsilon)\le E[F_1]\le b_1(1+\varepsilon).
+\end{equation}
+The augmented problem adds
+\begin{align}
+ b_2(1-\varepsilon)&\le E[F']\le b_2(1+\varepsilon),\label{eq:fp}\\
+ |E[C']-b_3|&\le\varepsilon N,\label{eq:cp}\\
+ E[n(V)]&\le C_{\mathrm{led}}N V^{-4}\quad\hbox{for every }V>0.\label{eq:ladder}
+\end{align}
+Thus the cubic half-width is the \emph{absolute} amount $\varepsilon N=3.2$.
+Version 1's code used the different relative amount $\varepsilon b_3$.
+The witness below has $E[C']=b_3$ exactly and satisfies both conventions.
+No auxiliary garnish variable is needed for this theorem.
+
+\section{Exact atom-only absorption}\label{sec:main}
+\subsection{The analytic lower bound}
+For any atom-only configuration and a symmetric band, the position kernel
+$D_B(x)=M^{-1}\sum_{j\in B}e^{-2\pi ijx/N}$ is real. Therefore
+\[
+ \tr H_B^2=\sum_{a,a'}m_am_{a'}D_B(\theta_a-\theta_{a'})^2
+       \ge\sum_a m_a^2.
+\]
+The terms with distinct positions are nonnegative; equality requires their
+kernels to vanish when both marks are positive. For integer $m\ge1$,
+\[
+ 1\ge(3m-m^2)/2,\qquad \one_{m=1}\ge2m-m^2,
+\]
+with equality in both precisely for $m\in\{1,2\}$. Summing gives
+\begin{equation}\label{eq:corners}
+ E[\Nd]/N\ge\frac{3N-U}{2N},\qquad
+ E[p_1]\ge2-\frac{U}{N}
+\end{equation}
+under the upper baseline constraint. This reasoning covers arbitrary real
+positions and unbounded integer mark alphabets, not merely a grid dictionary.
+The integrality device is classical; see \cite{CGG98}.
+
+\begin{lemma}[grid Parseval]\label{lem:grid}
+Let $B$ consist of $M$ consecutive integers and put $\theta_k=kN/M$,
+$0\le k<M$. For any nonnegative marks on these grid sites,
+$\tr H_B^2=\sum_k m_k^2$.
+\end{lemma}
+\begin{proof}
+Let $A[j,k]=M^{-1/2}e^{-2\pi ijk/M}$, $j\in B$, $0\le k<M$.
+Orthogonality of the $M$ characters makes $A$ unitary. The frequency
+matrix is $A\operatorname{diag}(m_k)A^*$, so its eigenvalues are exactly
+the marks, including zero marks at unused sites. Taking the squared trace
+proves the statement. This proof also covers a translated consecutive band.
+\end{proof}
+
+\subsection{Three exact columns}
+For $N=64$, use the $65$ grid sites $\theta_k=64k/65$.
+Table~\ref{tab:marks} specifies each column completely: each digit is the
+mark at one site, and zero denotes an unused site. The two strings in a row
+are concatenated in the displayed order, beginning at $k=0$.
+\begin{table}[ht]\centering\small
+\begin{tabular}{ccl}
+\toprule
+column & sites & marks in increasing site order\\\midrule
+$A_0$ & $0\ldots32$ & \texttt{111111111111111111111111111110111}\\
+      & $33\ldots64$ & \texttt{11111111111111111111111111111111}\\
+$A_1$ & $0\ldots32$ & \texttt{210012110211210102101210121012101}\\
+      & $33\ldots64$ & \texttt{20112101210120112101201121012101}\\
+$A_2$ & $0\ldots32$ & \texttt{200202020202020202020202020202020}\\
+      & $33\ldots64$ & \texttt{20202020020202020202020202020202}\\\bottomrule
+\end{tabular}
+\caption{Exact integer data. Each column has mass $64$.}\label{tab:marks}
+\end{table}
+Their $(\Nd,\#\{m=1\},F_1)$ values are respectively
+$(64,64,64)$, $(48,32,96)$ and $(32,0,128)$.
+Let $f_i=F'(A_i)$ and $q_i=C'(A_i)$, defined by the exact matrices of
+Section~\ref{sec:model}; they are real algebraic numbers in the real
+subfield of the $65$th cyclotomic field. In particular they are not defined
+by rounding their displayed decimal approximations.
+
+Put
+\begin{equation}\label{eq:weights}
+ r=\frac{U-64}{32},\qquad
+ w_2=\frac{b_3-q_0(1-r)-q_1r}{q_0-2q_1+q_2},\qquad
+ w_1=r-2w_2,\qquad w_0=1-r+w_2.
+\end{equation}
+These equations impose
+\begin{equation}\label{eq:equalities}
+ \sum_i w_i=1,\qquad\sum_i w_iF_1(A_i)=U,
+ \qquad\sum_i w_iq_i=b_3
+\end{equation}
+identically, provided the denominator is nonzero.
+
+\begin{theorem}[finite atom-only absorption]\label{thm:main}
+For the exact model parameters in Section~\ref{sec:model}, the law on
+$A_0,A_1,A_2$ with weights \eqref{eq:weights} is feasible for
+\eqref{eq:base}--\eqref{eq:ladder}. For both objectives, the baseline and
+augmented infima over \emph{all atom-only configurations at arbitrary
+positions} are equal, with values
+\begin{align*}
+ \inf E[\Nd]/N&=\frac{3N-U}{2N}
+ =\frac{103052247242763669}{128000000000000000},\\
+ \inf E[p_1]&=2-U/N
+ =\frac{39052247242763669}{64000000000000000}.
+\end{align*}
+The same law works for every $C_{\mathrm{led}}\ge10$ and for the broader
+relative cubic band $|E[C']-b_3|\le\varepsilon b_3$.
+\end{theorem}
+
+\begin{proof}
+The following finite inequalities are certified by the companion Arb
+computation, at $256$ bits. The displayed decimal intervals are deliberately
+wider than its output enclosures:
+\begin{align*}
+ q_0&\in(245.45087235,245.45087237),\\
+ q_1&\in(411.08651303,411.08651305),\\
+ q_2&\in(301.35412844,301.35412847),\\
+ w_0&\in(0.47469100426,0.47469100428),\\
+ w_1&\in(0.27100071778,0.27100071782),\\
+ w_2&\in(0.25430827791,0.25430827796),\\
+ \sum_iw_if_i&\in(135.43015807,135.43015809).
+\end{align*}
+The denominator in \eqref{eq:weights} is strictly negative. In particular
+all weights are positive. The last interval lies strictly inside
+$[b_2(1-\varepsilon),b_2(1+\varepsilon)]$.
+The exact identities \eqref{eq:equalities} prove the baseline and cubic
+constraints without a numerical feasibility tolerance.
+
+For each of the three $33\times33$ half-band matrices, certified Hermitian
+$LDL^*$ pivots for $vI-H$, $v=2,3,4$, exclude zero. Their signs give the
+counts above these thresholds:
+\[
+\begin{array}{c|ccc}
+ &2&3&4\\\hline
+ A_0&0&0&0\\ A_1&16&2&0\\ A_2&3&2&0
+\end{array}
+\]
+No eigenvalue equals a tested threshold, and all three matrices are positive
+semidefinite. Write $\bar n_v=\sum_iw_i n_{A_i}(v)$.
+For $0<V\le2$, $E[n(V)]\le33<640/16$.
+For $2<V\le3$, $E[n(V)]\le\bar n_2<640/81$, the strict margin exceeding
+$2.8022$. For $3<V<4$, $E[n(V)]\le\bar n_3<640/256$, the margin exceeding
+$1.4493$. At $V\ge4$ every count is zero. Monotonicity therefore proves
+\eqref{eq:ladder} at every threshold.
+
+Each column has only marks $1,2$, and Lemma~\ref{lem:grid} gives equality
+in the analytic lower-bound chain. Hence its mixture attains both bounds
+\eqref{eq:corners}. The augmented infimum cannot be below the baseline
+infimum; the same law attains both, proving the theorem. Increasing the
+ladder constant or widening the cubic band preserves feasibility.
+\end{proof}
+
+\paragraph{Certificate and trust base.}
+The companion \texttt{certificate.py} takes the integer mark vectors in
+\texttt{witness-data.json}, forms the Fourier matrices directly with Arb
+balls, computes their traces, solves the algebraic weight formulas, and
+checks every strict margin. It never rationalizes a floating-point row or
+adds feasibility grace. A Hermitian $LDL^*$ decomposition without pivoting
+is accepted only when every real pivot excludes zero; congruence then
+certifies the inertia. The exact equalities are algebraic consequences of
+\eqref{eq:weights}, rather than interval equality tests. The trust base is
+Python's integer/rational arithmetic, the displayed finite algorithms, and
+Arb's inclusion contract through python-flint 0.6.0 \cite{Arb}.
+This is a computer-assisted finite proof, not a new Lean formalization.
+
+\section{Structural explanation}\label{sec:structure}
+\subsection{The true conjugate-pair spectrum}
+For a pair of depth $d$ and mark $m$, set
+\[
+p_j=M^{-1/2}e^{-2\pi ij\theta/N}e^{2\pi jd/N},\qquad
+q_j=M^{-1/2}e^{-2\pi ij\theta/N}e^{-2\pi jd/N}.
+\]
+Its contribution is $m(pq^*+qp^*)$. Symmetry of the band gives
+$\langle p,q\rangle=1$ and $\|p\|^2=\|q\|^2=A$, where
+\[
+ A=M^{-1}\sum_{j\in B}\cosh(4\pi jd/N)\ge1.
+\]
+The vectors $p+q$ and $p-q$ are orthogonal and give eigenvalues
+$m(1+A)$ and $m(1-A)$. At $d=0$ the latter vanishes. Thus the normalized
+pair charges are
+\[
+ (\mathrm{mass},F,C)=
+ (2m,\ 2m^2(1+A^2),\ 2m^3(1+3A^2)).
+\]
+In the shallow limit they become $(2m,4m^2,8m^3)$, with spectrum $(2m,0)$,
+not a symmetric pair $(+2m,-2m)$. For a flat continuum band,
+$A=\sinh(2\pi\lambda d)/(2\pi\lambda d)$.
+
+\begin{proposition}[isolated-block cubic identity]\label{prop:cubic}
+For a direct sum of isolated atom and pair blocks with total mass $L$, squared
+trace $F$ and signed cubic trace $C$,
+\[
+ C-3F+2L=\sum_{\mathrm{zeros}}m(m-1)(m-2)
+        +6\sum_{\mathrm{pairs}}m_p^2(m_p-1)A_p^2.
+\]
+The first sum counts each atom once and each pair twice, using the mark on
+each zero. In particular it vanishes on mark-$\{1,2\}$ atoms and
+multiplicity-one pairs, where $C=3F-2L$.
+\end{proposition}
+\begin{proof}
+An atom contributes $m^3-3m^2+2m=m(m-1)(m-2)$. A pair contributes
+$2m^3(1+3A^2)-6m^2(1+A^2)+4m
+=2m(m-1)(m-2)+6m^2(m-1)A^2$. Sum the identities.
+\end{proof}
+The cubic row is redundant with mass and Frobenius \emph{on this isolated
+block class}. A deep pair's raw cubic value is larger than a double's;
+there is no assertion that the two raw values agree at all depths.
+Interactions between different blocks are outside the identity.
+
+\subsection{Why a second bandwidth can read arrangement}
+At the $65$-site grid let $c_s=\sum_km_k e^{-2\pi isk/65}$. The half-band row is
+\[
+ F'=\frac1{33^2}\sum_{s=-32}^{32}(33-|s|)|c_s|^2.
+\]
+Unlike the full-band matrix, it is not a complete unitary conjugation of the
+mark diagonal. Its rows can therefore change with relative positions.
+For example two simple atoms at separations $64/65$ and $128/65$ have
+$F'=2+2D'(64/65)^2$ and $2+2D'(128/65)^2$, respectively. Here
+\[
+ D'(64/65)=\frac{\sin(33\pi/65)}{33\sin(\pi/65)},\qquad
+ |D'(128/65)|=\frac1{66\cos(\pi/65)},
+\]
+and the first magnitude exceeds $0.6$ while the second is below $0.02$.
+Both full-band Frobenius values are $2$.
+
+A common translation, however, changes neither trace. In particular the
+vacancy column $A_0$ has $F'=4128/33$ for \emph{every} vacancy location:
+$c_0=64$ and $|c_s|=1$ for $s\not\equiv0\pmod{65}$. Version 1's contrary
+sentence about detecting the vacancy location was incorrect.
+
+\subsection{Sine-process budgets and their limited role}
+For the intensity-one determinantal sine process and a flat continuum
+window $\psi_\lambda(x)=\sin(\pi\lambda x)/(\pi\lambda x)$, direct integration
+of the two- and three-point correlation determinants gives
+\[
+ m_2(\lambda)=\lambda^{-1}+\lambda/3,\qquad
+ m_3(\lambda)=1+\lambda^{-2}\quad(0<\lambda\le1).
+\]
+For clarity, put $u=\lambda^{-1}\one_{[-\lambda/2,\lambda/2]}$,
+$b=\one_{[-1/2,1/2]}$ and $t(\alpha)=(1-|\alpha|)_+$. Expanding the
+determinants and applying Plancherel yields
+\begin{align*}
+ m_2&=1+\int u^2-\int t(u*u),\\
+ m_3&=1+3\left(\int u^2-\int t(u*u)\right)
+       +\int u^3-3\int(t*u)u^2+2\int(b*u)^3.
+\end{align*}
+For this flat $u$, the five integrals are, in order,
+$\lambda^{-1}$, $1-\lambda/3$, $\lambda^{-2}$,
+$\lambda^{-1}-1/3$ and $1-\lambda/2$. Substitution proves the formulas.
+In particular the centers $4/3,13/6,5$ arise naturally as continuum model
+values. These formulas do not identify a finite model's cubic row with a
+zeta statistic. Theorem~\ref{thm:main} uses its displayed exact parameters
+and does not depend on such an identification.
+
+\section{Two spectral-capacity facts}\label{sec:capacity}
+\subsection{Sharp capacity conditional on a genuine ladder}
+Let $\mu$ be a positive measure on $[1,\infty)$ representing absolute
+escaped eigenvalue heights per unit mass. Suppose
+\[
+ \int h^2d\mu\le\eta,\qquad
+ \mu([h,\infty))\le C h^{-4}\quad(h\ge1).
+\]
+\begin{theorem}[sharp continuum capacity]\label{thm:capacity}
+For $C>0$ and $0<\eta\le2C$,
+\[
+ \sup_\mu\int h^3d\mu=2\sqrt{2C\eta}.
+\]
+Equality is attained by density $4Ch^{-5}$ on $(a,\infty)$ and no mass
+below $a$, where $a=\sqrt{2C/\eta}$.
+\end{theorem}
+\begin{proof}
+For $a\ge1$, $h^3\le ah^2+(h^3-ah^2)_+$. Tonelli and the tail bound give
+\[
+ \int h^3d\mu\le a\eta+
+ C\int_a^\infty(3h^2-2ah)h^{-4}dh
+ =a\eta+2C/a.
+\]
+The minimizing $a=\sqrt{2C/\eta}$ is at least $1$ and gives the asserted
+bound. The displayed density has second moment $2C/a^2=\eta$, third moment
+$4C/a=2\sqrt{2C\eta}$, and tail
+$C\min(a^{-4},h^{-4})$, proving attainment.
+\end{proof}
+At fixed $C$ the allowed cubic shift is $o(N)$ if $\eta=o(1)$. The theorem
+assumes a bound at every threshold; seven threshold inequalities alone
+do not imply its tail estimate. Theorem~\ref{thm:main} verifies its own
+finite witness ladder directly, not a ladder for actual zeta matrices.
+
+\subsection{A divergent-cutoff observation in the isolated-spectrum model}
+Suppose $N\to\infty$, $V_0\to\infty$, and an isolated-spectrum family has
+mass $N$, $F=\kappa N+o(N)$, bounded cubic deficit $\Delta_NN$ with
+$0\le\Delta_N\le D$, and a fixed positive fraction of simple positive
+atoms. Choose
+\[
+ h=\min(\lfloor V_0/2\rfloor,\lfloor N^{1/4}\rfloor),
+ \qquad k=\lceil\Delta_NN/h^3\rceil.
+\]
+Add $k$ isolated positive atoms of integer mark $h$ and delete $kh$ simple
+atoms. There are enough simples for large $N$, since $kh=o(N)$.
+The mass is unchanged, the Frobenius change is $o(N)$, and the cubic
+change is $\Delta_NN+o(N)$. Each added eigenvalue is below $V_0$, so rows
+seeing only $|\lambda|\ge V_0$ do not see the additions. The distinct and
+simple objectives do not increase.
+
+This elementary construction explains why a single divergent-cutoff cubic
+tail constraint can be ineffective in that isolated-spectrum setting. It is
+not a realization theorem for arbitrary interacting configurations on a
+fixed circle; the direct-sum and deficit assumptions are part of the claim.
+
+\section{Pair-containing classes and unresolved scope}\label{sec:limits}
+The analytic lower bound in Section~\ref{sec:main} uses atom-only positivity.
+For pairs the mixed position couplings can be negative, so that proof cannot
+be applied unchanged. A weaker, uniform spectral bound remains available.
+For a configuration containing atoms and pairs define
+$\Nd=\#\mathrm{atoms}+2\#\mathrm{pairs}$.
+Each atom block has positive inertia at most one, and each pair block
+$m(pq^*+qp^*)$ also has positive inertia at most one.
+Subadditivity gives $n_+(H)\le\#\mathrm{atoms}+\#\mathrm{pairs}\le\Nd$.
+Since $3x-x^2\le(9/4)\one_{x>0}$ for real $x$,
+\[
+ \Nd\ge\frac49(3N-F_1).
+\]
+At the ideal center $F_1\le(4/3)N$ this gives $\Nd/N\ge20/27$,
+which is weaker than the atom-only corner $5/6$. It does not establish
+full pair-class absorption.
+
+\paragraph{What numerical dictionary equality means.}
+Version 1 reported $940$ small marginal differences on accumulated column
+dictionaries under its implemented relative cubic slack, together with
+multistart pricing and finite pair-interference tests. Those are numerical
+observations about the searched dictionaries. Adding a new column can lower
+the base optimum without lowering the augmented optimum: the new column
+may violate an added row. An already feasible atom witness does not exclude
+this possibility when the true baseline optimum over a larger class is
+unknown. Likewise, a finite collection of near-CUE witnesses and heuristic
+pricing does not prove global optimality in a pinned class. Neither
+full-class nor pinned-class exact absorption is asserted in this revision.
+
+\paragraph{Analytic licensing.}
+The signed cubic budget's identification with a sine-process value and the
+upgrade from one spectral cutoff to an all-threshold ladder were left open
+in version 1. They remain open here. The classical Rudnick--Sarnak support
+range does not on its own identify every finite row or justify the required
+uniformity. The unconditional pair-correlation theorem of
+Baluyot--Goldston--Suriajaya--Turnage-Butterbaugh \cite{BGSTB24} is a
+second-order result and supplies no third-order identification. These are
+separate from the exact finite atom-only theorem proved above.
+
+\paragraph{Formalization.}
+The earlier Lean files at repository tag \texttt{paper-2026-08-28} certify
+selected grid Parseval and integer-corner statements. They do not certify
+the full LP, the revised algebraic witness, or any unresolved analytic
+bridge. The new witness is certified by the accompanying Arb computation;
+no fresh Lean build or additional kernel-checked theorem is claimed.
+
+\paragraph{Algebraic versus rational rows.}
+The vacancy row $F'=4128/33$ is rational, but the selected columns $A_1,A_2$
+have irrational half-band Frobenius values. The companion exact polynomial
+check reduces their Fourier numerators modulo $\Phi_{65}$ and obtains
+nonconstant remainders. Thus rounding rows to decimal rationals and checking
+Fraction arithmetic is not an exact check of the corresponding geometric
+configurations. Version 1's checker also allowed positive feasibility grace;
+neither device is used for Theorem~\ref{thm:main}.
+
+\section*{Data, code and revision record}
+The accompanying \texttt{cubic-augmentation-v2-}\allowbreak\texttt{source-and-checks.zip} contains
+this source, exact input data, the portable Arb certificate and output,
+an exact cyclotomic row check, requirements, build instructions and a change
+record. Run \texttt{python3 certificate.py} in the archive's \texttt{anc/} folder.
+The input vectors in Table~\ref{tab:marks} match that file exactly. Historical
+version-1 numerical data remain available at the original publication record
+and the public repository tag \texttt{paper-2026-08-28}. Those historical
+computations are not invoked as exact proof certificates in this revision.
+The concept DOI is
+\href{https://doi.org/10.5281/zenodo.22171688}{10.5281/zenodo.22171688}.
+
+\begin{thebibliography}{99}
+\bibitem{AF26} L. Alp\"oge and R. Furman, \emph{More than two thirds of the
+zeta zeros are simple and on the critical line}, arXiv:2608.13637, 2026.
+\bibitem{RS96} Z. Rudnick and P. Sarnak, \emph{Zeros of principal
+$L$-functions and random matrix theory}, Duke Math. J. \textbf{81} (1996),
+269--322; \href{https://doi.org/10.1215/S0012-7094-96-08115-6}{doi:10.1215/S0012-7094-96-08115-6}.
+\bibitem{CGG98} J. B. Conrey, A. Ghosh and S. M. Gonek, \emph{Simple zeros
+of the Riemann zeta-function}, Proc. London Math. Soc. (3) \textbf{76}
+(1998), 497--522; \href{https://doi.org/10.1112/S0024611598000306}{doi:10.1112/S0024611598000306}.
+\bibitem{BGSTB24} S. A. C. Baluyot, D. A. Goldston, A. I. Suriajaya and
+C. L. Turnage-Butterbaugh, \emph{An unconditional Montgomery theorem for
+pair correlation of zeros of the Riemann zeta function}, Acta Arith.
+\textbf{214} (2024), 357--376; arXiv:2306.04799.
+\bibitem{Arb} F. Johansson, \emph{Arb: efficient arbitrary-precision
+midpoint-radius interval arithmetic}, IEEE Trans. Comput. \textbf{66}
+(2017), 1281--1292; \href{https://doi.org/10.1109/TC.2017.2690633}{doi:10.1109/TC.2017.2690633}.
+\end{thebibliography}
+\end{document}

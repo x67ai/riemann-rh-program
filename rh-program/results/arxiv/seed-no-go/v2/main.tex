@@ -1,0 +1,649 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{3em}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{proposition}{Proposition}
+\newtheorem{propositionnum}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem*{remarkunnum}{Remark}
+
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\Q}{\mathbf{Q}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\Fun}{\mathbf{F}_1}
+\newcommand{\NS}{\mathrm{NS}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\End}{\mathrm{End}}
+\newcommand{\Corr}{\mathrm{Corr}}
+\newcommand{\Pic}{\mathrm{Pic}}
+\newcommand{\pr}{\mathrm{pr}}
+\newcommand{\covol}{\mathrm{covol}}
+\newcommand{\trdeg}{\mathrm{trdeg}}
+\newcommand{\SpecZ}{\operatorname{Spec}\Z}
+
+\title{Classical correspondences between per-prime Tate curves:\\
+a matching obstruction}
+\author{Kunal Tyagi\thanks{\texttt{hello.jay.tyagi@gmail.com}.
+\emph{Use of AI.} The original work used Claude (Anthropic). This revision,
+proof review, and companion checks used OpenAI Codex. The author directed the
+work and is responsible for the content. Code and publication artifacts:
+\url{https://github.com/x67ai/riemann-rh-program}.}}
+\date{August 26, 2026; revised October 18, 2026 (version 2)}
+\hypersetup{pdftitle={Classical correspondences between per-prime Tate curves: a matching obstruction},pdfauthor={Kunal Tyagi}}
+\begin{document}
+\maketitle
+\begin{abstract}
+For the complex Tate curves $E_p=\C^\times/p^\Z$ attached to primes, we compute
+the classical divisorial correspondence groups. For distinct primes,
+$\Hom(E_p,E_q)\ne0$ exactly when
+$\log p\log q\in4\pi^2\Q$. If $\log p\log q/(4\pi^2)=u/v$ in lowest positive
+terms, this group has rank one and its generator has isogeny degree $uv$.
+The isogeny relation between distinct primes is a partial matching:
+unconditionally, each prime has at most one partner. These rigidity statements
+specialize results of Winkelmann; the explicit Hom generator and degree are
+included here. Outside the matching, the N\'eron--Severi group of $E_p\times E_q$
+consists of the two fiber classes, which act trivially on $H^1$.
+On every diagonal surface $\End(E_p)=\Z$, by Gelfond--Schneider, and the
+intersection profile of multiplication graphs is independent of $p$.
+Consequently no connected classical correspondence system can involve three
+distinct prime fibers. This is a restriction on cross-fiber assembly, not a
+universal prohibition of prime-indexed endomorphism monoids or of
+explicit-formula realizations with additional coefficient data. Version 2
+withdraws that broader no-go assertion of version 1 and states the exact
+support restriction required by the obstruction.
+\end{abstract}
+
+\section{Introduction and scope of the revision}\label{sec:summary}
+Connes and Consani's construction supplies the complex elliptic curves
+$E_p=\C^\times/p^\Z$ \cite{CC26}. Their ordinary products have classical
+intersection theory. A natural question is how much of a correspondence
+calculus can be assembled from these products. Here a correspondence from
+$E$ to $E'$ means a divisor class on $E\times E'$, modulo the two fiber
+classes. This specific classical category is the subject of the paper.
+
+Theorems~\ref{thm:isogeny}--\ref{thm:diagonal} compute its morphisms and
+intersection data. The rational-product criterion and matching argument
+specialize Winkelmann's rigidity \cite{Wi04}, rather than constituting new
+transcendence theorems. The off-diagonal rational-product question remains
+open; the matching bound and diagonal non-CM result are unconditional.
+Theorem~\ref{thm:nogo} gives the resulting connected-component obstruction.
+
+\paragraph{Correction of version 1.}
+Version 1, titled \emph{Products of the per-prime Tate curves of absolute
+geometry carry no correspondence calculus for the Weil explicit formula},
+claimed that its three proposed requirements excluded every assignment of
+correspondence data. That claim is withdrawn. A multiplicative prime-indexed
+monoid need not use maps between different fibers, and constancy of an
+unmarked intersection lattice does not prohibit varying test coefficients.
+The corrected theorem requires an explicitly connected cross-fiber system.
+The consequences for more general explicit-formula proposals are discussed
+in Section~\ref{sec:scope}; no universal impossibility result is asserted.
+
+\section{Lattices and classical correspondences}\label{sec:background}
+\subsection{The lattice presentation}
+\label{sec:notation}
+
+Throughout, $p, q, \dots$ denote primes; set
+\[
+y_p := \frac{\log p}{2\pi} > 0 , \qquad
+\tau_p := i\, y_p , \qquad
+\Lambda_p := \Z \oplus \Z\cdot\tau_p , \qquad
+E_p := \C/\Lambda_p .
+\]
+
+\begin{lemma}[lattice presentation; {\cite[\S4.1.2]{CC26}}]
+\label{lem:lattice}
+$\exp_2\colon \C \to \C^\times$, $w \mapsto e^{2\pi i w}$, is a surjective
+homomorphism with kernel $\Z$, and
+\[
+\exp_2(w + \tau_p) = e^{2\pi i w}\cdot e^{2\pi i \cdot (i y_p)}
+ = e^{2\pi i w}\cdot e^{-\log p} = p^{-1}\cdot \exp_2(w) .
+\]
+Since $p^\Z = (p^{-1})^\Z$ as subgroups of $\C^\times$, $\exp_2$ induces an
+isomorphism $\C/\Lambda_p \cong \C^\times/p^\Z$. \qed
+\end{lemma}
+
+The presentation was confirmed numerically to 55 digits (check~A of the
+numerical suite; see \emph{Provenance}). The sign of $\tau_p$ is
+immaterial: $\Z \oplus \Z(-\tau_p) = \Lambda_p$.
+
+Standard facts used without further comment: every homomorphism of complex
+tori $\C/\Lambda \to \C/\Lambda'$ is induced by a unique $\lambda \in \C$
+with $\lambda\Lambda \subseteq \Lambda'$ (lift to the universal cover); every
+holomorphic map between complex tori is a homomorphism followed by a
+translation (rigidity); $\Hom(E, E')$ denotes the group of holomorphic
+homomorphisms.
+
+\section{The isogeny criterion}
+\label{sec:isogeny}
+
+Theorems~\ref{thm:isogeny}--\ref{thm:coherence} specialize to primes a
+rigidity of Winkelmann~\cite[Lemma~7 and the proof of Thm.~2, p.~16]{Wi04},
+who studies the curves $\C^\times/\lambda^{\Z}$ attached to eigenvalues
+$\lambda$ of elements of a discrete subgroup of $\mathrm{SL}_2(\C)$. He shows
+that isogeny of two members of that family forces
+$4\pi^2/(\log\lambda_i \log\lambda_j) \in \Q$, divides two such relations and
+appeals to multiplicative independence to conclude that each curve has at most
+one isogenous partner, and runs the argument on three curves; his Lemma~7 is
+stated as an equivalence, and the converse follows from it in one line, so
+both directions of the criterion below are his. Proofs are given in full here
+because the paper is self-contained and the prime-indexed forms differ in
+presentation from his. What is added is the identification of the group
+$\Hom(E_p, E_q)$, its rank, and the degree $uv$ of the minimal isogeny.
+
+\begin{theorem}
+\label{thm:isogeny}
+Let $p \neq q$ be distinct primes. Then
+\[
+\Hom(E_p, E_q) \neq 0
+\iff y_p\, y_q \in \Q
+\iff \log p \cdot \log q \in 4\pi^2\Q .
+\]
+Moreover, when the condition holds and $y_p y_q = u/v$ in lowest terms
+($u, v \in \Z_{>0}$), the full homomorphism group is
+\[
+\Hom(E_p, E_q) = \Z\cdot\lambda_0 , \qquad \lambda_0 = i\, v\, y_q ,
+\]
+of rank $1$, and the isogeny induced by $\lambda_0$ has degree $uv$.
+\end{theorem}
+
+\begin{proof}
+A nonzero homomorphism is multiplication by some $\lambda \in \C^\times$ with
+$\lambda\Lambda_p \subseteq \Lambda_q$. Two containment conditions:
+
+\begin{enumerate}
+\item $\lambda\cdot 1 \in \Lambda_q$: so
+$\lambda = a + b\cdot\tau_q = a + i\, b\, y_q$ for some $a, b \in \Z$.
+\item $\lambda\cdot\tau_p \in \Lambda_q$: compute
+$\lambda\cdot\tau_p = (a + i b y_q)\cdot(i y_p) = -b\, y_p y_q + i\, a\, y_p$.
+Writing this as $c + i\, d\, y_q$ with $c, d \in \Z$:
+\begin{itemize}
+\item real part: $-b\, y_p y_q = c \in \Z$;
+\item imaginary part: $a\, y_p = d\, y_q$.
+\end{itemize}
+\end{enumerate}
+
+\emph{Case $a \neq 0$.} Then $d \neq 0$ (as $y_p, y_q > 0$) and
+$y_p/y_q = d/a$, i.e.\ $\log p/\log q \in \Q$, i.e.\
+$a\cdot\log p = d\cdot\log q$ with $a, d$ nonzero integers, i.e.\
+$p^a = q^d$ (after clearing signs) --- impossible for distinct primes by
+unique factorization. So $a = 0$, hence $d = 0$.
+
+\emph{Case $a = 0$.} Then $\lambda = i\, b\, y_q$ with $b \neq 0$ (else
+$\lambda = 0$), and the surviving condition is $b\, y_p y_q \in \Z$, which
+forces $y_p y_q \in \Q$. This proves the forward direction, and identifies
+$\Hom = \{\, i\, b\, y_q : b \in \Z,\ b\, y_p y_q \in \Z \,\}$. With
+$y_p y_q = u/v$ in lowest terms, $b\, u/v \in \Z \iff v \mid b$, so
+$\Hom = \Z\cdot(i\, v\, y_q)$.
+
+\emph{Converse.} If $y_p y_q = u/v$, then $\lambda_0 = i\, v\, y_q$ satisfies
+$\lambda_0\cdot 1 = v\cdot\tau_q \in \Lambda_q$ and
+$\lambda_0\cdot\tau_p = (i v y_q)(i y_p) = -v\, y_p y_q = -u \in \Z \subseteq
+\Lambda_q$, so $\lambda_0\Lambda_p \subseteq \Lambda_q$ and
+$\lambda_0 \neq 0$ --- a genuine isogeny. (Numerically confirmed on a
+synthetic pair with $y\, y' = 3/7$ exactly --- check~B.)
+
+\emph{Degree.} $\covol(\Lambda_p) = y_p$ and
+$\covol(\lambda_0\Lambda_p) = |\lambda_0|^2\cdot y_p = v^2 y_q^2\cdot y_p$,
+so $\deg = [\Lambda_q : \lambda_0\Lambda_p] = v^2 y_q^2 y_p / y_q
+= v^2\cdot(y_p y_q) = v^2\cdot(u/v) = uv$.
+
+Finally $y_p y_q \in \Q \iff \log p \log q = 4\pi^2\cdot y_p y_q \in 4\pi^2\Q$.
+\end{proof}
+
+\begin{remark}[bookkeeping reconciliation]
+\label{rem:bookkeeping}
+The criterion may be stated as $\log p\cdot\log q \in 4\pi^2\Q$ or derived in
+the form $b\cdot\log p\cdot\log q = -4\pi^2 c$ and phrased as
+$\log p\cdot\log q \in \pi^2\Q$. These are the \emph{same condition}:
+$4\pi^2\Q = \pi^2\Q$ as subsets of $\R$, because $4 \in \Q^\times$ --- a
+rational multiple of $\pi^2$ is a rational multiple of $4\pi^2$ and
+conversely. The normalization-free statement is $y_p\cdot y_q \in \Q$; we
+display the constant as $4\pi^2$ because
+$y_p y_q = \log p\cdot\log q/(4\pi^2)$ makes it the natural one.
+\end{remark}
+
+\begin{remark}[symmetry]
+\label{rem:symmetry}
+The criterion is symmetric in $p$ and $q$; hence
+$\Hom(E_p, E_q) \neq 0 \iff \Hom(E_q, E_p) \neq 0$ (as the general theory
+also guarantees via the dual isogeny). ``Exceptional partner'' is therefore
+a symmetric relation.
+\end{remark}
+
+\section{Two-partner rigidity and the three-prime consequence}
+\label{sec:familykill}
+
+\begin{theorem}[two-partner rigidity]
+\label{thm:twopartner}
+For every prime $p$ there is at most one prime $q \neq p$ with
+$\Hom(E_p, E_q) \neq 0$. Consequently the set of ``exceptional pairs''
+$\{p, q\}$ (pairs with nonzero $\Hom$), if nonempty, forms a \emph{partial
+matching} on the primes: no prime appears in two of them.
+\end{theorem}
+
+\begin{proof}
+Suppose $q \neq q'$ are two such primes. By Theorem~\ref{thm:isogeny},
+$y_p y_q \in \Q^\times$ and $y_p y_{q'} \in \Q^\times$. Dividing:
+$y_q / y_{q'} = (y_p y_q)/(y_p y_{q'}) \in \Q$, i.e.\
+$\log q / \log q' \in \Q$, i.e.\ $q^m = q'^n$ for some positive integers
+$m, n$ --- impossible for distinct primes by unique factorization.
+\end{proof}
+
+The proof is unique factorization plus linear algebra over $\Q$ applied to
+the products $y_p y_q$, and it is agnostic about whether any exceptional
+pair exists.
+
+\begin{theorem}[the three-prime consequence]
+\label{thm:coherence}
+Among the three surfaces $E_2\times E_3$, $E_2\times E_5$, $E_3\times E_5$,
+at most one carries a nonzero correspondence group; in particular no two of
+them --- a fortiori not all three --- can simultaneously carry nonzero
+correspondence groups. (By Theorem~\ref{thm:NS} below,
+``correspondence group of $E_p\times E_q$'' $= \Hom(E_p, E_q)$.)
+\end{theorem}
+
+\begin{proof}
+Any two of the three pairs $\{2,3\}, \{2,5\}, \{3,5\}$ share a prime, so two
+simultaneously nonzero groups would give some prime two exceptional
+partners, contradicting Theorem~\ref{thm:twopartner}. Directly: if
+$y_2 y_3 = r_1 \in \Q^\times$ and $y_2 y_5 = r_2 \in \Q^\times$ then
+$y_3/y_5 = r_1/r_2 \in \Q$, i.e.\ $\log 3/\log 5 \in \Q$, i.e.\
+$3^m = 5^n$ --- impossible; the other two cases are identical.
+\end{proof}
+
+\section{N\'eron--Severi collapse off the matching}
+\label{sec:NS}
+
+We first fix the classical dictionary. For elliptic curves $E, E'$ over
+$\C$, the group of \emph{divisorial correspondences} from $E$ to $E'$ is
+$\NS(E \times E')$ modulo the subgroup generated by the two fiber classes
+$\xi_1 = [\{0\}\times E']$, $\xi_2 = [E\times\{0\}]$ (Weil's ``trivial
+correspondences''):
+\[
+\Corr(E, E') := \NS(E \times E') / \langle \xi_1, \xi_2 \rangle .
+\]
+
+\begin{theorem}
+\label{thm:NS}
+Let $E, E'$ be elliptic curves over $\C$. Then there is a canonical
+isomorphism
+\[
+\NS(E \times E') \cong \Z\cdot\xi_1 \oplus \Z\cdot\xi_2 \oplus \Hom(E, E') ,
+\]
+hence $\Corr(E, E') \cong \Hom(E, E')$ (\cite[Ch.~5]{BL}; self-contained
+proof below). Consequently, for distinct primes $p \neq q$ with
+$\Hom(E_p, E_q) = 0$ (i.e., every pair outside the --- conjecturally
+empty --- exceptional matching of
+Theorems~\ref{thm:isogeny}--\ref{thm:twopartner}):
+\begin{itemize}
+\item[\textup{(a)}] \textbf{Rank collapse.}
+$\NS(E_p \times E_q) = \Z\xi_1 \oplus \Z\xi_2$ has rank $2$, with
+intersection form $\xi_1^2 = \xi_2^2 = 0$, $\xi_1\cdot\xi_2 = 1$: every
+divisor class is numerically $a\xi_1 + b\xi_2$, and $\Corr(E_p, E_q) = 0$.
+\item[\textup{(b)}] \textbf{$H^1$-inertness.} Every divisor class on
+$E_p \times E_q$ acts as zero on $H^1$ (in both directions,
+$H^1(E_p) \to H^1(E_q)$ and the transpose). The correspondence calculus is
+not merely small; as a calculus of operators it is the zero calculus.
+\item[\textup{(c)}] \textbf{No graphs, no diagonal.} The only holomorphic
+maps $E_p \to E_q$ are constants, so the only graph classes are fiber
+classes. There is no diagonal: not as a curve (a ``diagonal'' in a product
+of nonisomorphic curves means the graph of an isomorphism, and none exists),
+and not even as a numerical class --- no $D \in \NS$ satisfies the
+diagonal's numerical triple $(D\cdot\xi_1, D\cdot\xi_2, D^2) = (1, 1, 0)$,
+since $D\cdot\xi_1 = D\cdot\xi_2 = 1$ forces $D = \xi_1 + \xi_2$ and then
+$D^2 = 2 \neq 0$.
+\item[\textup{(d)}] \textbf{Castelnuovo--Severi vacuous.} The
+Hodge-index/Castelnuovo--Severi inequality on a product of curves is the
+statement that the intersection form is negative semidefinite on the
+\emph{primitive} part $\langle \xi_1, \xi_2 \rangle^\perp \subset \NS$. Here
+that primitive part is $0$: if $D = a\xi_1 + b\xi_2$ satisfies
+$D\cdot\xi_1 = b = 0$ and $D\cdot\xi_2 = a = 0$ then $D = 0$. Equivalently:
+every class of bidegree $(d_1, d_2)$ satisfies $D^2 = 2 d_1 d_2$ ---
+Castelnuovo--Severi holds \emph{with equality everywhere}, carrying zero
+information. The positivity the proposal was to import fiber-by-fiber is free
+here because there is nothing left for it to constrain.
+\end{itemize}
+\end{theorem}
+
+\begin{proof}[Proof of the decomposition]
+All inputs are standard abelian-variety theory (\cite[Ch.~2]{BL} for the
+Poincar\'e bundle, seesaw, and rigidity; Ch.~5 for the endomorphism context;
+the statement itself is the classical correspondence dictionary). Write
+$\hat{E}' = \Pic^0(E')$ for the dual, $P$ for the Poincar\'e bundle on
+$\hat{E}' \times E'$, normalized so that
+\[
+P|_{\{\alpha\}\times E'} \cong \alpha\quad(\alpha \in \hat{E}'),
+\qquad P|_{\hat{E}'\times\{0\}}\cong\mathcal O.
+\]
+
+\emph{Step 1 (the homomorphism $\varphi_L$).} For $L \in \Pic(E\times E')$
+put $L_x := L|_{\{x\}\times E'}$; $\deg L_x$ is constant in $x$. Normalize:
+\[
+\widetilde{L} := L \otimes \pr_1^*\bigl(L|_{E\times\{0\}}\bigr)^{-1}
+ \otimes \pr_2^*(L_0)^{-1} ,
+\]
+so that $\widetilde{L}_x = L_x \otimes L_0^{-1} \in \Pic^0(E')$ for all $x$,
+$\widetilde{L}_0$ is trivial, and $\widetilde{L}|_{E\times\{0\}}$ is
+trivial. By the universal property of $(\hat{E}', P)$ there is a unique
+morphism $\varphi_L\colon E \to \hat{E}'$ with
+$(\varphi_L \times \mathrm{id}_{E'})^* P \cong \widetilde{L}$ (the a-priori
+ambiguity by $\pr_1$-pullbacks is killed by restricting to $E\times\{0\}$,
+where both sides are trivial). Since $\widetilde{L}_0$ is trivial,
+$\varphi_L(0) = 0$; a pointed morphism of abelian varieties is a
+homomorphism (rigidity). So $\varphi_L \in \Hom(E, \hat{E}')$.
+
+\emph{Step 2 (kernel; factorization through $\NS$).} $L \mapsto \varphi_L$
+is additive: normalization and restriction are additive in $L$, and
+uniqueness plus the biadditivity of the Poincar\'e bundle
+($((\mathrm{add})\times\mathrm{id})^* P \cong \pr_{13}^* P \otimes
+\pr_{23}^* P$ on $\hat{E}'\times\hat{E}'\times E'$, \cite[Ch.~2]{BL}) give
+$\varphi_{L\otimes L''} = \varphi_L + \varphi_{L''}$. If
+$L \in \Pic^0(E\times E')$ then, since the dual of a product is the product
+of the duals, $L = \pr_1^* M \otimes \pr_2^* M'$ with $M \in \Pic^0(E)$,
+$M' \in \Pic^0(E')$; the normalization annihilates it, so $\varphi_L = 0$
+and the map factors through $\NS(E\times E')$. Conversely if
+$\varphi_L = 0$ then $\widetilde{L}_x$ is trivial for every $x$ and
+$\widetilde{L}|_{E\times\{0\}}$ is trivial, so by the seesaw principle
+$\widetilde{L}$ is trivial; hence
+\[
+L \cong \pr_1^*\bigl(L|_{E\times\{0\}}\bigr) \otimes \pr_2^*(L_0) ,
+\]
+whose N\'eron--Severi class is
+$\deg\bigl(L|_{E\times\{0\}}\bigr)\cdot\xi_1 + \deg(L_0)\cdot\xi_2$ (the
+class of $\pr_1^*$ of a degree-$d$ bundle is
+$d\cdot[\{\mathrm{pt}\}\times E'] = d\cdot\xi_1$, and symmetrically). So the
+kernel of $\NS \to \Hom(E, \hat{E}')$ is exactly $\Z\xi_1 \oplus \Z\xi_2$ (a
+free rank-$2$ group: the intersection numbers against $\xi_2, \xi_1$ read
+off the coefficients).
+
+\emph{Step 3 (surjectivity and splitting).} For $\psi \in \Hom(E, \hat{E}')$
+set $L^\psi := (\psi \times \mathrm{id}_{E'})^* P$. Then
+$L^\psi_x = P|_{\{\psi(x)\}\times E'} = \psi(x) \in \Pic^0(E')$, $L^\psi_0$
+is trivial, and $L^\psi|_{E\times\{0\}} = \psi^*\bigl(P|_{\hat{E}'\times\{0\}}\bigr)$
+is trivial --- so $L^\psi$ is already normalized and
+$\varphi_{L^\psi} = \psi$ by uniqueness. Additivity of
+$\psi \mapsto [L^\psi]$ is the Poincar\'e biadditivity again. This splits
+the sequence:
+\[
+\NS(E\times E') \cong \Z\xi_1 \oplus \Z\xi_2 \oplus \Hom(E, \hat{E}') .
+\]
+
+\emph{Step 4 (eliminating the dual).} For an elliptic curve,
+$x \mapsto [\mathcal{O}_{E'}([x] - [0])]$ is a canonical isomorphism
+$E' \cong \hat{E}'$ (the Abel--Jacobi isomorphism),
+so $\Hom(E, \hat{E}') \cong \Hom(E, E')$.
+\end{proof}
+
+\begin{proof}[Proof of \textup{(a)}--\textup{(d)}]
+(a) is immediate from the decomposition with $\Hom = 0$, plus
+$\xi_1^2 = \xi_2^2 = 0$ (disjoint parallel fibers) and
+$\xi_1\cdot\xi_2 = 1$ (one transverse point).
+
+(b) The action of a correspondence on cohomology,
+$\alpha \mapsto \pr_{2*}([D] \cup \pr_1^*\alpha)$, depends only on the class
+$[D] \in H^2(E\times E', \Z)$. K\"unneth:
+$H^2 = (H^2\otimes H^0) \oplus (H^1\otimes H^1) \oplus (H^0\otimes H^2)$. A
+class $\pr_1^*\beta$ ($\beta \in H^2(E)$) acts on $\alpha \in H^1(E)$ by
+$\pr_{2*}(\pr_1^*(\beta \cup \alpha)) = 0$ since
+$\beta \cup \alpha \in H^3(E) = 0$; a class $\pr_2^*\beta$ acts by
+$\beta \cup \pr_{2*}(\pr_1^*\alpha) = 0$ since fiber integration drops the
+degree of $\pr_1^*\alpha \in H^1$ below zero. Now $\xi_1 = \pr_1^*[\mathrm{pt}]$
+and $\xi_2 = \pr_2^*[\mathrm{pt}]$, so with $\NS = \Z\xi_1 \oplus \Z\xi_2$
+every \emph{algebraic} class in $H^2$ has vanishing
+$H^1\otimes H^1$-component and acts as zero on $H^1$. The transpose
+direction is identical using $\Hom(E_q, E_p) = 0$
+(Remark~\ref{rem:symmetry}).
+
+(c) Rigidity: every holomorphic map $E_p \to E_q$ is a homomorphism followed
+by a translation; $\Hom = 0$ leaves the constants, whose graphs are
+horizontal fibers $E_p \times \{c\} \equiv \xi_2$. The numerical computation
+is displayed in the statement.
+
+(d) The calculation in the statement gives the orthogonal complement
+of the fiber classes directly. No use of a Riemann hypothesis is involved.
+The general Hodge index theorem is not needed to prove that this particular
+primitive subgroup is zero.
+\end{proof}
+
+\begin{remark}[what still exists on these surfaces]
+\label{rem:stillexists}
+Rank-$2$ $\NS$ does not mean the surfaces are curve-poor: $\xi_1 + \xi_2$ is
+ample (Nakai: positive square, positive on every effective class), and
+general members of $|3(\xi_1+\xi_2)|$ are irreducible curves dominating both
+factors. The point of (a)--(b) is that every such curve is \emph{numerically}
+a fiber combination and acts as zero on $H^1$: as a correspondence it is
+invisible. The collapse is a collapse of the correspondence calculus, not of
+the surface's geometry --- and it is the calculus that the proposal required.
+\end{remark}
+
+\section{The diagonal surfaces}
+\label{sec:diagonal}
+
+On the diagonal surfaces $E_p\times E_p$, the endomorphism ring can be computed unconditionally.
+
+\begin{theorem}[diagonal residue]
+\label{thm:diagonal}
+Fix a prime $p$.
+\begin{enumerate}
+\item $\End(E_p) = \Z$, unconditionally. (The lattice computation
+below shows the only alternative would be $(\log p)^2 \in 4\pi^2\Q$ ---
+which would make $\tau_p$ imaginary quadratic and $E_p$ a CM curve --- and
+that coincidence is impossible: Gelfond--Schneider,
+\S\ref{sec:transcendence}, Proposition. No $E_p$ has complex
+multiplication.)
+\item By (1), $\NS(E_p \times E_p) = \Z\xi_1 \oplus \Z\xi_2 \oplus \Z\cdot[\Delta]$
+has rank $3$ and $\Corr(E_p, E_p) \cong \End(E_p) = \Z$, generated by the
+diagonal. The available correspondences are (combinations of fiber classes
+and) the graphs $\Gamma_m$ of multiplication by $m \in \Z$, with
+$\Gamma_1 = \Delta$, and their complete intersection profile is:
+\[
+\Gamma_m\cdot\xi_1 = 1 , \quad
+\Gamma_m\cdot\xi_2 = m^2 , \quad
+(\Gamma_m\cdot\Gamma_n) = (m-n)^2 \ \ (m \neq n) , \quad
+(\Gamma_m\cdot\Delta) = (m-1)^2
+\]
+(the last for all $m$: at $m = 1$ this is $\Delta^2 = 0$, by adjunction with
+$K = 0$ and $e(E_p) = 0$).
+\item Every number in this profile is a universal integer,
+independent of $p$. More precisely: under the real-affine identification
+$E_p \cong \R^2/\Z^2$ sending $(1, \tau_p)$ to the standard basis, the
+subtori $\Gamma_m, \xi_1, \xi_2$ correspond to the \emph{same} subtori for
+every $p$, and intersection numbers of divisor classes are topological (cup
+products of integral classes). The map
+\[
+p \mapsto (\text{complete intersection profile of } E_p \times E_p)
+\]
+is constant. The prime enters the surface only through its complex structure
+$\tau_p$, and the complex structure enters the correspondence calculus only
+through $\Hom$/$\End$ --- which is the same ring $\Z$ for every $p$
+(part~1).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) $\lambda\Lambda_p \subseteq \Lambda_p$ with $\lambda = a + i b y_p$
+(from $\lambda\cdot 1 \in \Lambda_p$) requires
+$\lambda\cdot\tau_p = -b y_p^2 + i a y_p \in \Lambda_p$, i.e.\
+$-b y_p^2 \in \Z$ (and the $\tau_p$-coefficient $a \in \Z$, automatic). If
+$b \neq 0$ then $y_p^2 \in \Q$, i.e.\ $(\log p)^2 \in 4\pi^2\Q$ ---
+impossible by the \S\ref{sec:transcendence} Proposition
+(Gelfond--Schneider; a $b \neq 0$ endomorphism would make
+$\tau_p^2 = -y_p^2 \in \Q$, i.e.\ $\tau_p$ quadratic imaginary and $\End$ a
+CM order, and no $E_p$ admits this). So $b = 0$ and $\lambda = a \in \Z$:
+$\End(E_p) = \Z$ with no exceptional case.
+
+(2) Theorem~\ref{thm:NS} with $E = E' = E_p$ gives
+$\NS = \Z\xi_1 \oplus \Z\xi_2 \oplus \End(E_p)$, and the graph of
+$\mathrm{id}$ is $\Delta$. Intersection numbers: $\Gamma_m$ meets a vertical
+fiber $\{x\}\times E_p$ in the single transverse point $(x, mx)$, so
+$\Gamma_m\cdot\xi_1 = 1$. It meets a horizontal fiber $E_p\times\{c\}$ in
+the fiber $[m]^{-1}(c)$, which has $m^2$ points, all transverse ($[m]$ is
+unramified when $m\ne0$), so $\Gamma_m\cdot\xi_2 = m^2$ for $m\ne0$. For $m=0$, the graph is a horizontal fiber and its intersection with a distinct horizontal fiber is zero, giving the same formula. Here
+$\#\ker([k]) = \#\bigl((\tfrac{1}{k}\Lambda_p)/\Lambda_p\bigr) = k^2$
+(representatives $(i + j\cdot\tau_p)/k$, $0 \leq i, j < k$; check~D of the
+numerical suite tabulates them for $k \leq 7$). For $m \neq n$,
+$\Gamma_m \cap \Gamma_n = \{(x, mx) : (m-n)x = 0\} = \ker([m-n])$, with
+$(m-n)^2$ points, each transverse (tangent directions $(1, m)$ and $(1, n)$
+are independent), so $(\Gamma_m\cdot\Gamma_n) = (m-n)^2$; $n = 1$ gives
+$(\Gamma_m\cdot\Delta) = (m-1)^2$ --- which is also the Lefschetz number
+$1 - 2m + m^2$ of $[m]$ (trace on $H^0 - H^1 + H^2$), the integer Lefschetz
+data of the family.
+
+(3) The subtori $\Gamma_m$ are the images of $x \mapsto (x, mx)$, defined by
+the \emph{integral} linear data $m$ alone; under the identification by the
+basis $(1, \tau_p)$ they are the same integral subtori of $\R^4/\Z^4$ for
+every $p$. Cup products of integral classes on a fixed topological manifold
+are $p$-independent.
+\end{proof}
+
+
+\section{The precise connectedness obstruction}\label{sec:seed}
+\begin{definition}
+The cross-fiber graph has one vertex for each prime, and an undirected edge
+$pq$ for $p\ne q$ exactly when $\Corr(E_p,E_q)\ne0$.
+A connected classical cross-fiber system on a prime set $S$ means that this
+graph, restricted to $S$, is connected. In particular, a proposed assembly
+that requires a nonzero correspondence between every two distinct fibers
+is a connected system in this sense.
+\end{definition}
+
+\begin{theorem}[matching obstruction]\label{thm:nogo}
+Every connected component of the cross-fiber graph contains at most two
+vertices. Hence a connected classical cross-fiber system on three or more
+distinct prime fibers is impossible. In particular, an assignment requiring
+nonzero classical correspondences for every pair of distinct primes cannot
+exist.
+\end{theorem}
+\begin{proof}
+Theorem~\ref{thm:NS} identifies the nonzero edge relation with
+$\Hom(E_p,E_q)\ne0$. Theorem~\ref{thm:twopartner} says that each vertex has
+degree at most one. A graph of maximum degree one has only singleton and
+two-vertex connected components. This proves every assertion.
+\end{proof}
+
+\begin{remark}[what connectedness adds]
+The hypothesis is about actual cross-fiber support. It is not implied by
+merely asking for elements indexed by primes satisfying
+$\Psi_m\circ\Psi_n=\Psi_{mn}$. In any diagonal ring
+$\Corr(E_p,E_p)\cong\Z$, the classes of multiplication maps satisfy
+$[m]\circ[n]=[mn]$ for positive integers $m,n$. These monoids exist regardless
+of the vanishing of any cross-prime group. They do not by themselves realize
+the Weil explicit formula, but they show why a multiplicative indexing
+condition alone is insufficient for a connectedness obstruction.
+\end{remark}
+
+\section{Transcendence status}\label{sec:transcendence}
+The diagonal and off-diagonal questions have different answers.
+\begin{proposition}[no complex multiplication]
+For every prime $p$, $(\log p)^2\notin4\pi^2\Q$. In particular
+$\End(E_p)=\Z$ unconditionally.
+\end{proposition}
+\begin{proof}
+If $(\log p)^2=4\pi^2r$, then $r\in\Q_{>0}$ and
+$p=e^{2\pi\sqrt r}=(-1)^{-2i\sqrt r}$ using the branch $\log(-1)=i\pi$.
+The base $-1$ is algebraic and different from $0,1$, and
+$-2i\sqrt r$ is algebraic irrational. Gelfond--Schneider makes every value
+of this power transcendental, contradicting that $p$ is an integer.
+The lattice computation of Theorem~\ref{thm:diagonal} then gives the
+endomorphism statement.
+\end{proof}
+
+For distinct primes, whether $\log p\log q\in4\pi^2\Q$ is possible remains
+open. Its exclusion is the prime instance of the conjecture labeled
+(C4E faible), attributed to Bertrand and printed by Diaz \cite[p.~231]{Dia97}:
+for positive real algebraic $a,b\ne1$, $\pi^2$ and $\log a\log b$ are
+$\Q$-linearly independent. The factor $4$ does not change the rational span.
+
+For completeness the four-exponentials reduction is immediate. If
+$\log p\log q=4\pi^2u/v$, take $x_1=2\pi i$, $x_2=\log p$,
+$y_1=1$, $y_2=\log q/(2\pi i)$. Both pairs are linearly independent over
+$\Q$, while the four exponentials are $1,q,p,e^{-2\pi iu/v}$, all algebraic.
+This contradicts the four-exponentials conjecture \cite{FourExp}.
+No proven six-exponentials theorem supplies the missing two-by-two
+conclusion merely by renaming the input. None of the unconditional
+connectedness or diagonal results assumes this conjecture.
+
+\section{Consequences and limits for explicit-formula proposals}\label{sec:scope}
+If an assembly requires nonzero classical divisorial correspondences joining
+three distinct prime fibers, Theorem~\ref{thm:nogo} rules it out. On an
+individual off-matching product the primitive divisor subgroup is zero and
+no divisor acts nontrivially on $H^1$. These are exact restrictions on the
+specified classical category.
+
+On diagonal products, Theorem~\ref{thm:diagonal} gives a constant unmarked
+intersection profile. For a finite real-coefficient test class,
+\[
+ D_{p,f}=\sum_m c_m(p,f)\Gamma_m+a(p,f)\xi_1+b(p,f)\xi_2,
+ \qquad
+ (D_{p,f}\cdot\Delta)=\sum_m c_m(p,f)(m-1)^2+a(p,f)+b(p,f).
+\]
+This formula identifies the information provided by the intersection lattice.
+It does not prohibit dependence on $p$ or $f$ in the assignment. Indeed
+$(\Gamma_p\cdot\Delta)=(p-1)^2$ varies with $p$ inside the same universal
+profile. To exclude a test-family construction one must specify additional
+restrictions on its coefficients and naturality, then prove an obstruction
+under those restrictions.
+
+Similarly, a prime-independent phase factor is not by itself an obstruction
+to an archimedean contribution, which is a global term. The present results
+neither construct nor rule out pole or archimedean terms in a more general
+calculus. They concern classical divisor correspondences on the displayed
+complex curves. A changed category, an enriched host, a disconnected
+endomorphism construction, or additional analytic coefficient data requires
+its own analysis. The characteristic-one constructions of Connes and Consani
+and dynamical approaches are not excluded by this theorem.
+
+\section*{Data, code and revision record}
+The accompanying file \texttt{tate-products-v2-}\allowbreak\texttt{source-and-checks.zip}
+contains this source, a portable exact-arithmetic check of the synthetic
+isogeny index and graph intersection determinants, its output, build
+instructions and the version-1-to-version-2 change record. The main results
+are proved above; those finite checks are reproducibility diagnostics, not
+proofs of the open off-diagonal transcendence conjecture. This revision omits
+the optional decimal/PSLQ evidence because it is not needed by any theorem.
+Historical version-1 artifacts remain at the publication's original record
+and repository tag \texttt{paper-2026-08-28}. Cite the concept DOI
+\href{https://doi.org/10.5281/zenodo.22171136}{10.5281/zenodo.22171136};
+this revised manuscript is version 2.
+
+\begin{thebibliography}{99}
+\bibitem{CC26} A. Connes and C. Consani, \emph{On the Absolute Geometry
+of Spec $\Z$ and the Fargues--Fontaine curve}, arXiv:2606.06604, 2026.
+
+\bibitem{Wi04} J. Winkelmann, \emph{On elliptic curves in
+$\mathrm{SL}_2(\C)/\Gamma$, Schanuel's conjecture and geodesic lengths},
+Nagoya Math. J. \textbf{176} (2004), 159--180;
+\href{https://doi.org/10.1017/S0027763000009016}{doi:10.1017/S0027763000009016};
+arXiv:math/0204195v3. We use Lemma 7 and the proof of Theorem 2.
+
+\bibitem{BL} C. Birkenhake and H. Lange, \emph{Complex Abelian Varieties},
+2nd ed., Grundlehren 302, Springer, 2004, Chapters 2 and 5.
+
+\bibitem{RS14} J. Rosen and A. Shnidman, \emph{N\'eron--Severi groups of
+product abelian surfaces}, arXiv:1402.2233, 2014, Proposition 2.3.
+
+\bibitem{Dia97} G. Diaz, \emph{La conjecture des quatre exponentielles
+et les conjectures de D. Bertrand sur la fonction modulaire}, J. Th\'eor.
+Nombres Bordeaux \textbf{9} (1997), 229--245, especially p.~231.
+
+\bibitem{FourExp} S. Lang, \emph{Introduction to Transcendental Numbers},
+Addison-Wesley, 1966; M. Waldschmidt, \emph{Diophantine Approximation on
+Linear Algebraic Groups}, Grundlehren 326, Springer, 2000.
+\end{thebibliography}
+\end{document}
